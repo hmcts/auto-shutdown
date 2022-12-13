@@ -1,0 +1,80 @@
+name: AKS Auto-Shutdown - ${{ parameters.env }}.${{ parameters.cluster }}.${{ parameters.location }}
+
+trigger: none
+
+resources:
+  repositories:
+  - repository: cnp-azuredevops-libraries
+    type: github
+    ref: refs/heads/master
+    name: hmcts/cnp-azuredevops-libraries
+    endpoint: 'hmcts (1)'
+
+pool:
+  vmImage: "ubuntu-latest"
+
+parameters:
+  - name: action
+    displayName: Action
+    type: string
+    default: 'plan'
+    values:
+    - plan
+    - apply
+
+  - name: project
+    displayName: Project
+    type: string
+    default: "All"
+    values:
+      - "All"
+      - "cft"
+      - "ss"
+
+  - name: env
+    displayName: Environment
+    type: string
+    default: "sbox"
+    values:
+      - sbox
+
+  - name: cluster
+    displayName: Cluster
+    type: string
+    default: "All"
+    values:
+      - "All"
+      - "00"
+      - "01"
+
+  - name: location
+    displayName: Location
+    type: string
+    default: "UK South"
+    values:
+      - "UK South"
+      - "UK West"
+
+variables:
+  - name: timeoutInMinutes
+    value: 60
+  - name: agentPool
+    value: ubuntu-20.04 
+  - name: serviceConnection
+    value: OPS-APPROVAL-GATE-${{ parameters.env }}-ENVS
+  - name: product
+    value: 
+
+stages:
+  - stage: Precheck
+    jobs:
+      - job:
+        pool:
+          vmImage: ${{ variables.agentPool }}
+          timeoutInMinutes: ${{ variables.timeoutInMinutes }}
+        steps:
+          - template: steps/terraform-precheck.yaml@cnp-azuredevops-libraries
+            parameters:
+              keyvaultName: 'infra-vault-nonprod'
+              keyvaultSecret: 'azure-devops-token'
+              serviceConnection: 'DCD-CFT-Sandbox'
