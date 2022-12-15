@@ -1,15 +1,17 @@
 name: AKS Auto Start
-
 on:
   workflow_dispatch:
   schedule:
     # Run everyday
     # - cron: '30 7 * * *' # Everyday at 7:30am UTC (Will enable after tested)
+permissions:
+  id-token: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
