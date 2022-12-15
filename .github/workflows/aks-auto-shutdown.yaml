@@ -1,0 +1,14 @@
+name: AKS Auto Shutdown
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run everyday
+    - cron: '0 20 * * *' # Everyday at 8pm UTC
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: AKS Auto Shutdown
+        run: ./scripts/aks-auto-shutdown.sh
