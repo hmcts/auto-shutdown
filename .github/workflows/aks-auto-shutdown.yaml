@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     # Run everyday
-    - cron: '0 20 * * *' # Everyday at 8pm UTC
+    # - cron: '0 20 * * *' # Everyday at 8pm UTC (Will enable after tested)
 jobs:
   build:
     runs-on: ubuntu-latest
