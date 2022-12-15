@@ -1,10 +1,11 @@
 name: AKS Auto Shutdown
-
 on:
   workflow_dispatch:
   # schedule:
     # Run everyday
     # - cron: '0 20 * * *' # Everyday at 8pm UTC (Will enable after tested)
+permissions:
+  id-token: write
 jobs:
   build:
     runs-on: ubuntu-latest
