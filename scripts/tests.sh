@@ -1,5 +1,3 @@
-source './assert.sh/assert.sh'
-
 GLOBAL_DOMAIN="sandbox.platform.hmcts.net"   
     
 output=$(curl -s "https://plum.$GLOBAL_DOMAIN/health" | jq -r .status)
