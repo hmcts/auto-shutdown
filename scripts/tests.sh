@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source './../assert.sh'
 
 GLOBAL_DOMAIN="sandbox.platform.hmcts.net"   
