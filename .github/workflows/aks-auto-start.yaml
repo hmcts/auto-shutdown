@@ -23,6 +23,6 @@ jobs:
 #       - name: AKS Auto Start
 #         run: ./scripts/aks-auto-start.sh
       - name: Make Tests Executable
-        run: chmod u+x /scripts/tests.sh
+        run: chmod u+x scripts/tests.sh
       - name: Tests
         run: ./scripts/tests.sh
