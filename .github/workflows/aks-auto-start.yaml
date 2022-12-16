@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install assert.sh
-        uses: torokmark/assert.sh@master
+        uses: torokmark/assert.sh@main
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
