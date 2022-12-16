@@ -14,6 +14,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Install assert.sh
         run: git clone https://github.com/torokmark/assert.sh.git 
+      - name: Run assert.sh
+        run: source './assert.sh/assert.sh'     
 #     - name: 'Az CLI login'
 #       uses: azure/login@v1
 #       with:
