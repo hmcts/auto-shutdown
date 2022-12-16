@@ -1,4 +1,4 @@
-source './assert.sh'
+source './assert.sh/assert.sh'
 
 GLOBAL_DOMAIN="sandbox.platform.hmcts.net"   
     
