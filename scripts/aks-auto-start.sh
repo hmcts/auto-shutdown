@@ -1,5 +1,5 @@
-# #!/usr/bin/env bash
-# set -e
+#!/usr/bin/env bash
+set -e
 
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
@@ -16,5 +16,27 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     echo az aks start --resource-group $RESOURCE_GROUP --name $NAME || echo Ignoring any errors starting cluster
     az aks start --resource-group $RESOURCE_GROUP --name $NAME || echo Ignoring any errors starting cluster
     echo
+    
+    BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $cluster)
+    if [ "$BUSINESS_AREA" == "Cross-Cutting" ]; then
+    APP="toffee"
+    elif [ "$BUSINESS_AREA" == "CFT" ]; then
+    APP="plum"
+    fi
+
+    ENVIRONMENT=$(jq -r '.tags.environment' <<< $cluster)
+
+    echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
+    curl -v https://$APP.$ENVIRONMENT.platform.hmcts.net
+    if [ "$?" == 0 ]; then
+    echo
+    echo "$APP works in $ENVIRONMENT after $NAME start-up"
+    else
+    echo
+    echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
+    curl -X POST --data-urlencode "payload={\"channel\": \"#green-daily-checks\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
+    ${registrySlackWebhook}
+    fi
+
     done
 done
