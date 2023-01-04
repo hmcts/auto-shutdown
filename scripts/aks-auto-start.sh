@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+registrySlackWebhook=$1
 
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
@@ -10,33 +11,34 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     --query "[?tags.autoShutdown == 'true']" -o json)
 
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-    RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
-    NAME=$(jq -r '.name' <<< $cluster)
-    echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
-    echo az aks start --resource-group $RESOURCE_GROUP --name $NAME || echo Ignoring any errors starting cluster
-    az aks start --resource-group $RESOURCE_GROUP --name $NAME || echo Ignoring any errors starting cluster
-    echo
-    
-    BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $cluster)
-    if [ "$BUSINESS_AREA" == "Cross-Cutting" ]; then
-    APP="toffee"
-    elif [ "$BUSINESS_AREA" == "CFT" ]; then
-    APP="plum"
-    fi
+        RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
+        NAME=$(jq -r '.name' <<< $cluster)
 
-    ENVIRONMENT=$(jq -r '.tags.environment' <<< $cluster)
+        if [[ "$(az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)" == "Running" ]]; then
+            echo "Ignoring as cluster $NAME (rg:$RESOURCE_GROUP) is already in Running State"
+            continue
+        fi
+        echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
+        az aks start --resource-group $RESOURCE_GROUP --name $NAME || echo Ignoring any errors starting cluster $NAME 
+        BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $cluster)
+        if [[ "$BUSINESS_AREA" == "Cross-Cutting" ]]; then
+            APP="toffee"
+        elif [[ "$BUSINESS_AREA" == "CFT" ]]; then
+            APP="plum"
+        fi
 
-    echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
-    curl -v https://$APP.$ENVIRONMENT.platform.hmcts.net
-    if [ "$?" == 0 ]; then
-    echo
-    echo "$APP works in $ENVIRONMENT after $NAME start-up"
-    else
-    echo
-    echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
-    curl -X POST --data-urlencode "payload={\"channel\": \"#green-daily-checks\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
-    ${registrySlackWebhook}
-    fi
+        ENVIRONMENT=$(jq -r '.tags.environment' <<< $cluster)
+
+        echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
+        statuscode=$(curl -s -o /dev/null -w "%{http_code}"  https://$APP.$ENVIRONMENT.platform.hmcts.net)
+
+        if [[ $statuscode -eq 200 ]]; then
+            echo "$APP works in $ENVIRONMENT after $NAME start-up"
+        else
+            echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
+            curl -X POST --data-urlencode "payload={\"channel\": \"#green-daily-checks\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
+            ${registrySlackWebhook} 
+        fi
 
     done
 done
