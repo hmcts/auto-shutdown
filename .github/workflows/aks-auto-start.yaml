@@ -18,14 +18,5 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - uses: azure/CLI@v1
-        name: Fetch slack webhook secret
-        with:
-          inlineScript: |
-            az account set -s bf308a5c-0624-4334-8ff8-8dca9fd43783
-            echo "::set-output name=SLACK_WEBHOOK::$(
-                    az keyvault secret show   -n registry-slack-webhook --vault-name infra-vault-sandbox | jq -r .value
-                  )"
-        id: slack
       - name: AKS Auto Start
-        run: ./scripts/aks-auto-start.sh "${{ steps.slack.outputs.SLACK_WEBHOOK }}"
+        run: ./scripts/aks-auto-start.sh ${{ secrets.REGISTRYSLACKWEBHOOK }}
