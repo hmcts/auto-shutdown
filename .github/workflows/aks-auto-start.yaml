@@ -2,7 +2,7 @@ name: AKS Auto Start
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 7 * * *' # Everyday at 7:30am UTC (Will enable after tested)
+    - cron: '30 7 * * 1-5' # Every weekday at 7:30am UTC
 permissions:
   id-token: write
 jobs:
