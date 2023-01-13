@@ -1,8 +1,6 @@
 name: AKS Auto Start Dry Run
 on:
   workflow_dispatch:
-  # schedule:
-    # - cron: '30 7 * * 1-5' # Every weekday at 7:30am UTC
 permissions:
   id-token: write
 jobs:
