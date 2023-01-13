@@ -24,7 +24,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         ENVIRONMENT=$(jq -r '.tags.environment' <<< $cluster)
 
         echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
-        statuscode=$(curl --max-time 30 --retry 5 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APP.$ENVIRONMENT.platform.hmcts.net)
+        statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APP.$ENVIRONMENT.platform.hmcts.net)
 
         if [[ $statuscode -eq 200 ]]; then
             echo "$APP works in $ENVIRONMENT after $NAME start-up"
