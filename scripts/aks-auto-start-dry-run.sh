@@ -14,12 +14,6 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
         NAME=$(jq -r '.name' <<< $cluster)
 
-        # if [[ "$(az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)" == "Running" ]]; then
-        #     echo "Ignoring as cluster $NAME (rg:$RESOURCE_GROUP) is already in Running State"
-        #     continue
-        # fi
-        # echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
-        # az aks start --resource-group $RESOURCE_GROUP --name $NAME || echo Ignoring any errors starting cluster $NAME 
         BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $cluster)
         if [[ "$BUSINESS_AREA" == "Cross-Cutting" ]]; then
             APP="toffee"
