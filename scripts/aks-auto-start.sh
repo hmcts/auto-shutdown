@@ -33,11 +33,36 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         statuscode=$(curl -s -o /dev/null -w "%{http_code}"  https://$APP.$ENVIRONMENT.platform.hmcts.net)
 
         if [[ $statuscode -eq 200 ]]; then
-            echo "$APP works in $ENVIRONMENT after $NAME start-up"
+            if [[ "$ENVIRONMENT" == "Sandbox" ]]; then
+                echo "$APP works in $ENVIRONMENT after $NAME start-up"
+                curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-sbox\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP works in $ENVIRONMENT after $NAME start-up.\", \"icon_emoji\": \":tim-webster:\"}" \
+                ${registrySlackWebhook}
+            elif [[ "$ENVIRONMENT" == "testing" ]]; then
+                echo "$APP works in $ENVIRONMENT after $NAME start-up"
+                curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-perftest\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP works in $ENVIRONMENT after $NAME start-up.\", \"icon_emoji\": \":tim-webster:\"}" \
+                ${registrySlackWebhook}
+            elif [[ "$ENVIRONMENT" == "$ENVIRONMENT" ]]; then
+                echo "$APP works in $ENVIRONMENT after $NAME start-up"
+                curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-$ENVIRONMENT\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP works in $ENVIRONMENT after $NAME start-up.\", \"icon_emoji\": \":tim-webster:\"}" \
+                ${registrySlackWebhook}
+            fi
         else
             echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
             curl -X POST --data-urlencode "payload={\"channel\": \"#green-daily-checks\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
-            ${registrySlackWebhook} 
+            ${registrySlackWebhook}
+            if [[ "$ENVIRONMENT" == "Sandbox" ]]; then
+                echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
+                curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-sbox\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
+                ${registrySlackWebhook}
+            elif [[ "$ENVIRONMENT" == "testing" ]]; then
+                echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
+                curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-perftest\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
+                ${registrySlackWebhook}
+            elif [[ "$ENVIRONMENT" == "$ENVIRONMENT" ]]; then
+                echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
+                curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-$ENVIRONMENT\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
+                ${registrySlackWebhook}
+            fi
         fi
 
     done
