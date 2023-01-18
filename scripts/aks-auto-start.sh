@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 registrySlackWebhook=$1
 
 SUBSCRIPTIONS=$(az account list -o json)
