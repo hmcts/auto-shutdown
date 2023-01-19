@@ -15,7 +15,7 @@ function cluster () {
         NAME=$(jq -r '.name' <<< $cluster)
 }
 
-function ts_echo() {   
+function ts_echo() {
     date +"%H:%M:%S $(printf "%s "  "$@")"
 }
 
