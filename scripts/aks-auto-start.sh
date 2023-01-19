@@ -55,7 +55,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 subscription
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
         cluster
-        echo $NAME
-        az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code
+        ts_echo $NAME
+        RESULT=$(az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
+        ts_echo "${RESULT}"
     done
 done
