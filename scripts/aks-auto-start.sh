@@ -15,19 +15,29 @@ function cluster () {
         NAME=$(jq -r '.name' <<< $cluster)
 }
 
-function ts_echo() {   
+function ts_echo() {
     date +"%H:%M:%S $(printf "%s "  "$@")"
 }
 
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 subscription
+    jq -c '.[]' <<< $CLUSTERS | while read cluster; do
+        cluster
+        ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
+        az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME 
+    done
+done
 
+echo "Waiting 5 mins to give clusters time to start before testing pods"
+sleep 300
+
+# Tests
+jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+subscription
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
         cluster
 
-        ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
-        az aks start --resource-group $RESOURCE_GROUP --name $NAME || ts_echo Ignoring any errors starting cluster $NAME 
         BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $cluster)
         if [[ "$BUSINESS_AREA" == "Cross-Cutting" ]]; then
             APP="toffee"
@@ -47,10 +57,10 @@ subscription
             curl -X POST --data-urlencode "payload={\"channel\": \"#green-daily-checks\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
             ${registrySlackWebhook} 
         fi
-
     done
 done
 
+# Summary
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 subscription
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
