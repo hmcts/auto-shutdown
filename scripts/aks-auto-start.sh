@@ -1,21 +1,30 @@
 #!/usr/bin/env bash
 registrySlackWebhook=$1
 
+function subscription () {
+   
+        SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
+        az account set -s $SUBSCRIPTION_ID
+        CLUSTERS=$(az resource list \
+        --resource-type Microsoft.ContainerService/managedClusters \
+        --query "[?tags.autoShutdown == 'true']" -o json)
+}
+
+function cluster () {
+        RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
+        NAME=$(jq -r '.name' <<< $cluster)
+}
+
 function ts_echo() {   
     date +"%H:%M:%S $(printf "%s "  "$@")"
 }
 
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-    SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
-    az account set -s $SUBSCRIPTION_ID
-    CLUSTERS=$(az resource list \
-    --resource-type Microsoft.ContainerService/managedClusters \
-    --query "[?tags.autoShutdown == 'true']" -o json)
+subscription
 
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-        RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
-        NAME=$(jq -r '.name' <<< $cluster)
+        cluster
 
         ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
         az aks start --resource-group $RESOURCE_GROUP --name $NAME || ts_echo Ignoring any errors starting cluster $NAME 
@@ -39,5 +48,14 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
             ${registrySlackWebhook} 
         fi
 
+    done
+done
+
+jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+subscription
+    jq -c '.[]' <<< $CLUSTERS | while read cluster; do
+        cluster
+        echo $NAME
+        az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code
     done
 done
