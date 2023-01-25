@@ -30,7 +30,7 @@ subscription
 done
 
 echo "Waiting 5 mins to give clusters time to start before testing pods"
-sleep 300
+sleep 330
 
 # Tests
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
@@ -48,7 +48,14 @@ subscription
         ENVIRONMENT=$(jq -r '.tags.environment' <<< $cluster)
 
         ts_echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
-        statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APP.$ENVIRONMENT.platform.hmcts.net)
+        if [[ "$ENVIRONMENT" == "testing" && "$APP" == "toffee" ]]; then
+            APPLICATION="$APP.test"
+        elif [[ "$ENVIRONMENT" == "testing" && "$APP" == "plum" ]]; then
+            APPLICATION="$APP.perftest"
+        else 
+            APPLICATION="$APP.$ENVIRONMENT"
+        fi
+        statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APPLICATION.platform.hmcts.net)
 
         if [[ $statuscode -eq 200 ]]; then
             ts_echo "$APP works in $ENVIRONMENT after $NAME start-up"
