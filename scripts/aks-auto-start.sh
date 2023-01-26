@@ -29,8 +29,8 @@ subscription
     done
 done
 
-echo "Waiting 5 mins to give clusters time to start before testing pods"
-sleep 330
+echo "Waiting 10 mins to give clusters time to start before testing pods"
+sleep 600
 
 # Tests
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
