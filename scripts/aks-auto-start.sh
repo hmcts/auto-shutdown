@@ -19,6 +19,12 @@ function ts_echo() {
     date +"%H:%M:%S $(printf "%s "  "$@")"
 }
 
+function notification() {
+            ts_echo "$APP works in $ENVIRONMENT after $NAME start-up"
+            curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-$ENV\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP works in $ENVIRONMENT after $NAME start-up.\", \"icon_emoji\": \":tim-webster:\"}" \
+            ${registrySlackWebhook}
+}
+
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 subscription
@@ -47,6 +53,14 @@ subscription
 
         ENVIRONMENT=$(jq -r '.tags.environment' <<< $cluster)
 
+        if [[ "$ENVIRONMENT" == "sandbox" || "$ENVIRONMENT" == "Sandbox" ]]; then
+            ENV="sbox"
+        elif [[ "$ENVIRONMENT" == "testing" ]]; then
+            ENV="perftest"
+        else
+            ENV="$ENVIRONMENT"
+        fi
+
         ts_echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
         if [[ "$ENVIRONMENT" == "testing" && "$APP" == "toffee" ]]; then
             APPLICATION="$APP.test"
@@ -55,19 +69,24 @@ subscription
         else 
             APPLICATION="$APP.$ENVIRONMENT"
         fi
-        statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APPLICATION.platform.hmcts.net)
 
-        if [[ $statuscode -eq 200 ]]; then
-            ts_echo "$APP works in $ENVIRONMENT after $NAME start-up"
+            statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APPLICATION.platform.hmcts.net)
+
+        if [[ "$ENVIRONMENT" == "demo" && $statuscode -eq 302 ]]; then
+            notification
+        elif [[ $statuscode -eq 200 ]]; then
+            notification
         else
             ts_echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
             curl -X POST --data-urlencode "payload={\"channel\": \"#green-daily-checks\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
             ${registrySlackWebhook} 
+            curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-$ENV\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
+            ${registrySlackWebhook}
         fi
     done
 done
 
-# Summary
+#Summary
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 subscription
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
