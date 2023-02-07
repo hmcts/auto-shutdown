@@ -1,8 +1,13 @@
 name: AKS Auto Start
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment"
+        default: ""
+        type: "String"
   schedule:
-    - cron: '30 6 * * 1-5' # Every weekday at 6:30am UTC
+    - cron: '30 6 * * 1-5' # Every weekday at 6:30am UTC  
 permissions:
   id-token: write
 jobs:
