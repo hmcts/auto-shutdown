@@ -1,6 +1,11 @@
 name: AKS Auto Shutdown
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        description: "Environment"
+        default: ""
+        type: "String"
   schedule:
     - cron: '0 20 * * 1-5' # Every weekday at 8pm UTC
 permissions:
