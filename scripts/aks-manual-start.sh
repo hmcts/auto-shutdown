@@ -6,6 +6,8 @@ INSTANCES=(00 01)
 function subscription () {
     if [[ $PROJECT == "SDS" ]]; then
         SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
+    elif [[ $PROJECT == "CFT" ]]; then
+        SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
     fi
 
     az account set -n $SUBSCRIPTION
