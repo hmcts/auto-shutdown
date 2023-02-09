@@ -42,7 +42,7 @@ subscription
         # az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME 
         
         echo "Waiting 2 mins to give clusters time to start before testing pods"
-        sleep 600
+        sleep 120
 
         RESULT=$(az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
         ts_echo "${RESULT}"
