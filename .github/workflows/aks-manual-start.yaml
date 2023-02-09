@@ -3,12 +3,22 @@ name: AKS Manual Start
 on:
   workflow_dispatch:
       inputs:
-      env:
-        description: "Environment"
-        default: ""
-        type: "String"
-  schedule:
-    - cron: '30 6 * * 1-5' # Every weekday at 6:30am UTC  
+        PROJECT:
+          type: choice
+          description: "Project"
+          options:
+          - SDS
+          - CFT
+        SELECTED_ENV:
+          type: choice
+          description: "Environment"
+          options:
+          - sbox
+          - test
+          - perftest
+          - ithc
+          - demo
+          - ptlsbox
 permissions:
   id-token: write
 jobs:
