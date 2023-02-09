@@ -31,14 +31,10 @@ function notification() {
 
 subscription
     for INSTANCE in ${INSTANCES[@]}; do
-        echo $instance
         CLUSTERS=$(az resource list \
         --name $PROJECT-$SELECTED_ENV-$INSTANCE-aks \
         --query "[?tags.autoShutdown == 'true']" -o json)
-        echo $CLUSTERS
         cluster
-        echo $RESOURCE_GROUP
-        echo $NAME
 
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
         cluster
@@ -47,60 +43,11 @@ subscription
     done
 done
 
-echo "Waiting 10 mins to give clusters time to start before testing pods"
-sleep 600
-
-# Tests
-jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-subscription
-    jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-        cluster
-
-        BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $cluster)
-        if [[ "$BUSINESS_AREA" == "Cross-Cutting" ]]; then
-            APP="toffee"
-        elif [[ "$BUSINESS_AREA" == "CFT" ]]; then
-            APP="plum"
-        fi
-
-        ENVIRONMENT=$(jq -r '.tags.environment' <<< $cluster)
-
-        if [[ "$ENVIRONMENT" == "sandbox" || "$ENVIRONMENT" == "Sandbox" ]]; then
-            ENV="sbox"
-        elif [[ "$ENVIRONMENT" == "testing" ]]; then
-            ENV="perftest"
-        else
-            ENV="$ENVIRONMENT"
-        fi
-
-        ts_echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
-        if [[ "$ENVIRONMENT" == "testing" && "$APP" == "toffee" ]]; then
-            APPLICATION="$APP.test"
-        elif [[ "$ENVIRONMENT" == "testing" && "$APP" == "plum" ]]; then
-            APPLICATION="$APP.perftest"
-        else 
-            APPLICATION="$APP.$ENVIRONMENT"
-        fi
-
-            statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APPLICATION.platform.hmcts.net)
-
-        if [[ "$ENVIRONMENT" == "demo" && $statuscode -eq 302 ]]; then
-            notification
-        elif [[ $statuscode -eq 200 ]]; then
-            notification
-        else
-            ts_echo "$APP does not work in $ENVIRONMENT after $NAME start-up"
-            curl -X POST --data-urlencode "payload={\"channel\": \"#green-daily-checks\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
-            ${registrySlackWebhook} 
-            curl -X POST --data-urlencode "payload={\"channel\": \"#aks-monitor-$ENV\", \"username\": \"AKS Auto-Start\", \"text\": \"$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster.\", \"icon_emoji\": \":tim-webster:\"}" \
-            ${registrySlackWebhook}
-        fi
-    done
-done
-
 #Summary
-jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-subscription
+for INSTANCE in ${INSTANCES[@]}; do
+    CLUSTERS=$(az resource list \
+    --name $PROJECT-$SELECTED_ENV-$INSTANCE-aks \
+    --query "[?tags.autoShutdown == 'true']" -o json)
     jq -c '.[]' <<< $CLUSTERS | while read cluster; do
         cluster
         ts_echo $NAME
