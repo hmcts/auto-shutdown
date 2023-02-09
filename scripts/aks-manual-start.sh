@@ -5,7 +5,7 @@ INSTANCES=(00 01)
 
 function subscription () {
     if [[ $PROJECT == "SDS" ]]; then
-        SUBSCRIPTION='DTS-SHAREDSERVICES-'$ENV
+        SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
     fi
 
     az account set -n $SUBSCRIPTION
@@ -28,10 +28,10 @@ function notification() {
 }
 
 subscription
-    for instance in ${INSTANCES[@]}; do
+    for INSTANCE in ${INSTANCES[@]}; do
         echo $instance
         CLUSTERS=$(az resource list \
-        --name ss-$ENV-$instance-aks \
+        --name $PROJECT-$SELECTED_ENV-$INSTANCE-aks \
         --query "[?tags.autoShutdown == 'true']" -o json)
         echo $CLUSTERS
         cluster
