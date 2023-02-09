@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 registrySlackWebhook=$1
 
-
-PROJECT='SDS'
-ENV='SBOX'
 INSTANCES=(00 01)
 
 function subscription () {
