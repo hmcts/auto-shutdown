@@ -40,17 +40,10 @@ subscription
         cluster
         ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
         # az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME 
-    done
-done
+        
+        echo "Waiting 2 mins to give clusters time to start before testing pods"
+        sleep 600
 
-#Summary
-for INSTANCE in ${INSTANCES[@]}; do
-    CLUSTERS=$(az resource list \
-    --name $PROJECT-$SELECTED_ENV-$INSTANCE-aks \
-    --query "[?tags.autoShutdown == 'true']" -o json)
-    jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-        cluster
-        ts_echo $NAME
         RESULT=$(az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
         ts_echo "${RESULT}"
     done
