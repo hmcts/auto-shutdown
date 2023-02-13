@@ -21,9 +21,9 @@ on:
           type: choice
           description: "Cluster"
           options:
+          - All
           - 00
           - 01
-          - All
 permissions:
   id-token: write
 jobs:
