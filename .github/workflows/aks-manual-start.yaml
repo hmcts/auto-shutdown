@@ -1,0 +1,42 @@
+name: AKS Manual Start
+on:
+  workflow_dispatch:
+      inputs:
+        PROJECT:
+          type: choice
+          description: "Business area"
+          options:
+          - SDS
+          - CFT
+        SELECTED_ENV:
+          type: choice
+          description: "Environment"
+          options:
+          - sbox
+          - test/perftest
+          - ithc
+          - demo
+          - ptlsbox
+        INSTANCES:
+          type: choice
+          description: "Cluster"
+          options:
+          - 00
+          - 01
+          - All
+permissions:
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
+      - name: AKS Manual Start
+        run: ./scripts/aks-manual-start.sh ${{ secrets.REGISTRYSLACKWEBHOOK }}
