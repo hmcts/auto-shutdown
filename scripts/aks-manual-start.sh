@@ -46,7 +46,7 @@ for INSTANCE in ${INSTANCES[@]}; do
         cluster
         
         ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
-        # az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME 
+        az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME 
         
         ts_echo "Waiting 2 mins to give clusters time to start before testing pods"
         sleep 120
