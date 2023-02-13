@@ -13,11 +13,17 @@ on:
           description: "Environment"
           options:
           - sbox
-          - test
-          - perftest
+          - test/perftest
           - ithc
           - demo
           - ptlsbox
+        INSTANCES:
+          type: choice
+          description: "Cluster"
+          options:
+          - 00
+          - 01
+          - All
 permissions:
   id-token: write
 jobs:

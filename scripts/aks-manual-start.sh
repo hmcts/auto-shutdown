@@ -1,12 +1,27 @@
 #!/usr/bin/env bash
 
 function subscription () {
-    if [[ $PROJECT == "SDS" ]]; then
+    if [[ $SELECTED_ENV == "test/perftest" && $PROJECT == "SDS" ]]; then
+        PROJECT="ss"
+        SELECTED_ENV="test"
         SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
-        PROJECT="SS"
-    elif [[ $PROJECT == "CFT" ]]; then
+    elif [[ $SELECTED_ENV == "test/perftest" && $PROJECT == "CFT" ]]; then
+        SELECTED_ENV="perftest"
+        SUBSCRIPTION='DCD-CFTAPPS-TEST'
+    elif [[ $SELECTED_ENV == "ptlsbox" && $PROJECT == "SDS" ]]; then
+        PROJECT="ss"
+        SUBSCRIPTION='DTS-SHAREDSERVICESPTL-SBOX'
+    elif [[ $SELECTED_ENV == "ptlsbox" && $PROJECT == "CFT" ]]; then
+        SUBSCRIPTION='DTS-CFTSBOX-INTSVC'
+    elif [[ $SELECTED_ENV != "test/perftest" && $SELECTED_ENV != "ptlsbox" && $PROJECT == "SDS" ]]; then
+        PROJECT="ss"
+        SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
+    elif [[ $SELECTED_ENV != "test/perftest" && $SELECTED_ENV != "ptlsbox" && $PROJECT == "CFT" ]]; then
         SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
-        PROJECT="cft"
+    fi
+
+    if [[ $INSTANCES == 'All' ]]; then
+        INSTANCES=(00 01)
     fi
 
     az account set -n $SUBSCRIPTION
