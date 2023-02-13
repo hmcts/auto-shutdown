@@ -4,7 +4,7 @@ on:
       inputs:
         PROJECT:
           type: choice
-          description: "Project"
+          description: "Business area"
           options:
           - SDS
           - CFT
