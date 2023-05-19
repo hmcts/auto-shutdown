@@ -17,6 +17,8 @@ on:
           - ithc
           - demo
           - ptlsbox
+          - preview
+          - aat
         INSTANCES:
           type: choice
           description: "Cluster"
