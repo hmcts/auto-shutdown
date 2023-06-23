@@ -2,7 +2,7 @@ name: Skip auto shutdown request
 description: Request the days that you want an environment to stay up
 body:
 
-- type: textarea
+- type: input
   attributes:
     label: Short Description
     value: |
