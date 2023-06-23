@@ -4,6 +4,7 @@ body:
 
 - type: textarea
   attributes:
+    label: Short Description
     value: |
       Why do you need the auto shutdown skipped?
       
