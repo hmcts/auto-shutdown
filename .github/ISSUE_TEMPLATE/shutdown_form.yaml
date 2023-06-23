@@ -21,6 +21,7 @@ body:
   id: Enviornment
   attributes:
     label: Environment
+    multiple: true
     options:
       - Sandbox
       - aat/staging
