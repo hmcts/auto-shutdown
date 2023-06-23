@@ -1,0 +1,52 @@
+name: Release Form	
+description: Release Form	
+title: Change Ticket number
+
+body:
+
+- type: markdown
+  attributes:
+    value: |
+      Please provide change details
+      
+- type: dropdown
+  id: download
+  attributes:
+    label: Business_Unit
+    options:
+      - cft
+      - ss
+  validations:
+    required: true
+    
+- type: dropdown
+  id: Enviornment
+  attributes:
+    label: Enviornment
+    options:
+      - sbox
+      - aat/staging
+      - preview/dev
+      - test/perftest
+      - demo
+      - ithc
+  validations:
+    required: true
+      
+- type: input
+  id: Start_Date
+  attributes:
+    label: Change_Start_Date
+    description: "Change start date"
+    placeholder: "MM/DD/YYYY"
+  validations:
+    required: true
+    
+- type: input
+  id: End_Date
+  attributes:
+    label: Change_End_Date
+    description: "Change end date"
+    placeholder: "MM/DD/YYYY"
+  validations:
+    required: true
