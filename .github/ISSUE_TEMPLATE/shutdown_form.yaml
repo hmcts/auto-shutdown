@@ -24,7 +24,7 @@ body:
     multiple: true
     options:
       - Sandbox
-      - aat/staging
+      - AAT / Staging
       - preview/dev
       - test/perftest
       - demo
