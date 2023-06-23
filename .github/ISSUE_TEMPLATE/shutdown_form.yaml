@@ -22,7 +22,7 @@ body:
   attributes:
     label: Environment
     options:
-      - sbox
+      - Sandbox
       - aat/staging
       - preview/dev
       - test/perftest
