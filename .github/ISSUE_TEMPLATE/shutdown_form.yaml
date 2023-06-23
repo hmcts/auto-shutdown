@@ -47,4 +47,4 @@ body:
     description: "Change end date"
     placeholder: "MM/DD/YYYY"
   validations:
-    required: true
+    required: false
