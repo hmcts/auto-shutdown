@@ -2,7 +2,7 @@ name: Skip auto shutdown request
 description: Request the days that you want an environment to stay up
 body:
 
-- type: markdown
+- type: Textarea
   attributes:
     value: |
       Why do you need the auto shutdown skipped?
