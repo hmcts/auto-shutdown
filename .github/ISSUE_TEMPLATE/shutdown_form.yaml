@@ -26,7 +26,7 @@ body:
       - Sandbox
       - AAT / Staging
       - Preview / Dev
-      - test/perftest
+      - Test / Perftest
       - demo
       - ithc
   validations:
