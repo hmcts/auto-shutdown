@@ -28,7 +28,7 @@ body:
       - Preview / Dev
       - Test / Perftest
       - Demo
-      - ithc
+      - ITHC
   validations:
     required: true
       
