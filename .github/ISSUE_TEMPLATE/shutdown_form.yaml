@@ -13,7 +13,7 @@ body:
     label: Business area
     options:
       - cft
-      - ss
+      - cross-cutting
   validations:
     required: true
     
