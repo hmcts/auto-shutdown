@@ -27,7 +27,7 @@ body:
       - AAT / Staging
       - Preview / Dev
       - Test / Perftest
-      - demo
+      - Demo
       - ithc
   validations:
     required: true
