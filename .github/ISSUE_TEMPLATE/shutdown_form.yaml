@@ -44,7 +44,7 @@ body:
   id: End_Date
   attributes:
     label: Change_End_Date
-    description: "Change end date"
+    description: "Defaults to current day"
     placeholder: "MM/DD/YYYY"
   validations:
     required: false
