@@ -4,10 +4,8 @@ body:
 
 - type: input
   attributes:
-    label: Short Description
-    value: |
-      Why do you need the auto shutdown skipped?
-      
+    label: Why do you need the auto shutdown skipped?
+
 - type: dropdown
   id: download
   attributes:
@@ -19,7 +17,7 @@ body:
     required: true
     
 - type: dropdown
-  id: Enviornment
+  id: Environment
   attributes:
     label: Environment
     multiple: true
