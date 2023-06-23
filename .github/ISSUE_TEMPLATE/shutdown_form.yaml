@@ -36,7 +36,6 @@ body:
   id: Start_Date
   attributes:
     label: Change_Start_Date
-    description: "Change start date"
     placeholder: "MM/DD/YYYY"
   validations:
     required: true
