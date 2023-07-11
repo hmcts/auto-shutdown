@@ -12,7 +12,7 @@ In the near future, all environments excluding Production will be automatically 
 In the event that an environment or environments are needed outside of the default hours, you can raise an "issue" to automatically exclude it from the shutdown schedule.
 - [Complete this issue form](https://github.com/hmcts/aks-auto-shutdown/issues/new?assignees=&labels=&projects=&template=shutdown_form.yaml).
 - Multiple environments within the same "Business area" can be selected at the same time.
-- "Cross-cutting" = Shared Services
+- "Cross-Cutting" = Shared Services
 - Enter the "start date" for when automatic shutdown skips should begin.
 - If available, enter an end date for when your desired enviornment nolonger needs to be skipped from the automatic shutdown schedule.
 - If no end date is provided, it will defautl to the same day as the start date.
