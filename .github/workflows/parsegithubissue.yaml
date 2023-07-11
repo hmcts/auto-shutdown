@@ -1,18 +1,35 @@
-#name: Parse github form
+name: Auto Parse github form
 run-name: ${{ github.actor }} - issue:${{ github.event.issue.number }}
 on:
   issues:
     types:
       - opened
+      - edited
   workflow_dispatch:
+env:
+  GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
 jobs:
   parse:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
+      - name: Add eyes reaction
+        uses: aidan-mundy/react-to-issue@v1.1.1
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          reactions: eyes
+      
+      - name: add processing label
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "Processing"
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: '0'
+          token: ${{ env.GH_TOKEN }}
+
       - name: Parse issue
         id: parse_issue
         uses: onmax/issue-form-parser@v1.4
@@ -25,21 +42,67 @@ jobs:
           # them from being treated as special characters (e.g. $ or `)
           echo '${{ steps.parse_issue.outputs.payload }}'
           echo NEW_DATA='${{ steps.parse_issue.outputs.payload }}' >> $GITHUB_ENV
-          
-       
+          echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
+          echo ISSUE_NUMBER='${{ github.event.issue.number }}' >> $GITHUB_ENV
+
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11' 
-      - run: |
+
+      - name: Install python-dateutil
+        run: |
+          pip3 install python-dateutil
+
+      - name: Delete old entries
+        continue-on-error: true
+        run: |
+          python housekeeping.py
+          
+      - name: process form data
+        continue-on-error: true
+        run: |
           python file_handling.py
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+
+      - name: Create Issue Comment
+        if: env.PROCESS_SUCCESS != 'true'
+        uses: peter-evans/create-or-update-comment@v3.0.2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            ${{ env.ISSUE_COMMENT }}
+            Please edit this issue and select "Update comment" to resubmit.
+
+      - name: add error label
+        if: env.PROCESS_SUCCESS == 'false'
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "Error in form"
+          remove-labels: "Processing, Success"
+
+      - name: remove error/processing labels
+        if: env.PROCESS_SUCCESS == 'true'
+        uses: andymckay/labeler@master
+        with:
+          remove-labels: "Error in form, Processing"
+          add-labels: "Success"
+
+      - name: Commit to master
+        if: env.PROCESS_SUCCESS == 'true'
+        run: |
+          git config user.name hmcts-platform-operations
+          git config user.email github-platform-operations@hmcts.net
           git add .
-          git commit -m "parseissues"
+          git commit -m parseissue-${{ github.event.issue.number }}
           git push
-        
+          commit_tree_url=$(gh browse -c -n)
+          commit_url=${commit_tree_url/tree/commit}
+          echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
+    
       - name: Close Issue
+        if: env.PROCESS_SUCCESS == 'true'
         uses: peter-evans/close-issue@v3
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment: Auto-closing issue
+          comment: | 
+            Success! Your [commit](${{ env.COMMIT_URL }}) has been added to the json exclusions file.
+            Auto-closing issue.
