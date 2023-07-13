@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #set -x
 shopt -s nocasematch
-Rend_date='\033[0;31m'
+RED='\033[0;31m'
 YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 
