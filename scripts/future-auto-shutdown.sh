@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #set -x
 shopt -s nocasematch
-RED='\033[0;31m'
 YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 
