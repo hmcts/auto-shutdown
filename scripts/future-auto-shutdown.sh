@@ -56,7 +56,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         if [[ $SKIP == "false" ]]; then
             echo -e "${GREEN}About to shutdown cluster $cluster_name (rg:$RESOURCE_GROUP)"
         else
-            echo -e "${YELLOW}cluster $cluster_name (rg:$RESOURCE_GROUP) has been skippend_date from todays shutdown schend_dateule"
+            echo -e "${YELLOW}cluster $cluster_name (rg:$RESOURCE_GROUP) has been skipped from todays shutdown schedule"
         fi
 
 
