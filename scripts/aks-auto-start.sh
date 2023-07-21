@@ -57,6 +57,8 @@ subscription
             ENV="sbox"
         elif [[ "$ENVIRONMENT" == "testing" ]]; then
             ENV="perftest"
+        elif [[ "$ENVIRONMENT" == "staging" ]]; then
+            ENV="aat"
         else
             ENV="$ENVIRONMENT"
         fi
@@ -66,6 +68,10 @@ subscription
             APPLICATION="$APP.test"
         elif [[ "$ENVIRONMENT" == "testing" && "$APP" == "plum" ]]; then
             APPLICATION="$APP.perftest"
+        elif [[ "$ENVIRONMENT" == "staging" && "$APP" == "toffee" ]]; then
+            APPLICATION="$APP.staging"
+        elif [[ "$ENVIRONMENT" == "staging" && "$APP" == "plum" ]]; then
+            APPLICATION="$APP.aat"
         else 
             APPLICATION="$APP.$ENVIRONMENT"
         fi
