@@ -9,14 +9,6 @@
     },
     {
         "skip_start_date": "21-07-2023",
-        "skip_end_date": "21-07-2023",
-        "environment": "Sandbox",
-        "business_area": "cross-cutting",
-        "change_jira_id": "DTSPO-13971",
-        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/51"
-    },
-    {
-        "skip_start_date": "21-07-2023",
         "skip_end_date": "24-07-2023",
         "environment": "Demo",
         "business_area": "cft",
