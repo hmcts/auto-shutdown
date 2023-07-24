@@ -24,7 +24,7 @@ jq -c '.[]' <<< $CLUSTERS | while read cluster; do
         while read id
         do
             business_area_entry=$(jq -r '."business_area"' <<< $id)
-            env_entry=$(jq -r '."env_entry"' <<< $id)
+            env_entry=$(jq -r '."environment"' <<< $id)
             start_date=$(jq -r '."skip_start_date"' <<< $id)
             end_date=$(jq -r '."skip_end_date"' <<< $id)
             #start date formatting

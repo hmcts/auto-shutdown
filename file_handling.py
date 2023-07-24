@@ -106,8 +106,10 @@ try:
     with open(filepath, "r") as json_file:
         listObj = json.load(json_file)
         listObj.append(new_data)
+        json_file.close()
 except FileNotFoundError:
     with open(filepath, "w") as json_file:
+        print("Creating new issues_list.json file")
         listObj.append(new_data)
 finally:
     with open(filepath, 'w') as json_file:
