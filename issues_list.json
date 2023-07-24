@@ -14,5 +14,13 @@
         "business_area": "cft",
         "change_jira_id": "CHG5012591",
         "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/52"
+    },
+    {
+        "skip_start_date": "24-07-2023",
+        "skip_end_date": "24-07-2023",
+        "environment": "Demo",
+        "business_area": "cross-cutting",
+        "change_jira_id": "DTSPO-13971",
+        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/56"
     }
 ]
