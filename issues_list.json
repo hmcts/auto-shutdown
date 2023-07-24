@@ -16,11 +16,11 @@
         "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/52"
     },
     {
-        "skip_start_date": "21-07-2023",
-        "skip_end_date": "23-07-2023",
-        "environment": "Demo",
+        "skip_start_date": "24-07-2023",
+        "skip_end_date": "24-07-2023",
+        "environment": "Sandbox",
         "business_area": "cft",
-        "change_jira_id": "DTSPB-3640",
-        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/53"
+        "change_jira_id": "DTSPO-0000",
+        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/54"
     }
 ]
