@@ -53,7 +53,7 @@ if new_data:
             exit(0)
     #Environment validation
     try:
-        if new_data["environment"].lower() not in ("sandbox", "aat / staging", "preview / dev", "test / perftest", "demo", "ithc"):
+        if new_data["environment"].lower() not in ("sandbox", "aat / staging", "preview / dev", "test / perftest", "demo", "ithc", "ptl"):
             raise RuntimeError("Error: Environment does not exist")
     except RuntimeError:
             update_env_vars("ISSUE_COMMENT=Processing failed", "ISSUE_COMMENT=Error: Environment does not exist")
