@@ -21,6 +21,7 @@ body:
   id: Environment
   attributes:
     label: Environment
+    description: "If AAT / Staging is required, please also select PTL"
     multiple: true
     options:
       - Sandbox
@@ -29,6 +30,7 @@ body:
       - Test / Perftest
       - Demo
       - ITHC
+      - PTL
   validations:
     required: true
       
