@@ -6,5 +6,13 @@
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-TEST-1",
         "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/41"
+    },
+    {
+        "skip_start_date": "26-07-2023",
+        "skip_end_date": "28-07-2023",
+        "environment": "Preview / Dev",
+        "business_area": "cft",
+        "change_jira_id": "FPET-435",
+        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/58"
     }
 ]
