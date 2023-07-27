@@ -38,7 +38,7 @@ body:
   id: Start_Date
   attributes:
     label: Skip shutdown start date
-    description: "DD-MM-YYYY - date covers full day, 00:00 - 23:59"
+    description: "DD-MM-YYYY - date covers shutdown period, 20:00 to 20:00 the following day"
   validations:
     required: true
     
@@ -46,6 +46,6 @@ body:
   id: End_Date
   attributes:
     label: Skip shutdown end date
-    description: "Defaults to start date. DD-MM-YYYY - date covers full day."
+    description: "DD-MM-YYYY - Defaults to start date. 20:00 shutdown job will skip provided clusters on this date."
   validations:
     required: false
