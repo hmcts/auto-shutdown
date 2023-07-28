@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #set -x
 shopt -s nocasematch
-YELLOW='\033[1;33m'
+AMBER='\033[1;33m'
 GREEN='\033[0;32m'
 
 SUBSCRIPTIONS=$(az account list -o json)
@@ -55,7 +55,7 @@ jq -c '.[]' <<< $CLUSTERS | while read cluster; do
             echo az aks stop --resource-group $RESOURCE_GROUP --name $cluster_name --no-wait || echo Ignoring any errors stopping cluster
             az aks stop --resource-group $RESOURCE_GROUP --name $cluster_name --no-wait || echo Ignoring any errors stopping cluster
         else
-            echo -e "${YELLOW}cluster $cluster_name (rg:$RESOURCE_GROUP) has been skipped from todays shutdown schedule"
+            echo -e "${AMBER}cluster $cluster_name (rg:$RESOURCE_GROUP) has been skipped from todays shutdown schedule"
         fi
     done # end_of_cluster_loop
 done
