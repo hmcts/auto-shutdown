@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #set -x
 shopt -s nocasematch
-#waiting for clusters to shutdown.
-sleep 600
+AMBER='\033[1;33m'
+GREEN='\033[0;32m'
 
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
@@ -15,7 +15,11 @@ jq -c '.[]' <<< $CLUSTERS | while read cluster; do
         cluster_name=$(jq -r '.name' <<< $cluster)
         cluster_data=$(az aks show -n $cluster_name -g $RESOURCE_GROUP -o json)
         cluster_status=$(jq -r '.powerState.code' <<< "$cluster_data")
-        echo "$cluster_name is $cluster_status"
-        
+
+        if [[ $cluster_status == "Stopped" ]]; then
+            echo -e "${GREEN}$cluster_name is $cluster_status"
+        elif [[ $cluster_status == "Running" ]]; then
+            echo -e "${AMBER}$cluster_name is $cluster_status"
+        fi
     done # end_of_cluster_loop
 done
