@@ -12,6 +12,7 @@ jobs:
   parse:
     permissions: write-all
     runs-on: ubuntu-latest
+    if: ${{ github.actor != 'renovate[bot]' }}
     steps:
       - name: Add eyes reaction
         uses: aidan-mundy/react-to-issue@v1.1.1
