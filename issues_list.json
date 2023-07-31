@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "skip_start_date": "31-07-2023",
+        "skip_end_date": "31-07-2023",
+        "environment": "Sandbox",
+        "business_area": "cft",
+        "change_jira_id": "ignore",
+        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/71"
+    }
+]
