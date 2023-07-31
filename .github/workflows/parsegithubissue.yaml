@@ -12,7 +12,7 @@ jobs:
   parse:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'renovate[bot]' }}
+    if: ${{ github.event.issue.login != 'renovate[bot]' }}
     steps:
       - name: Add eyes reaction
         uses: aidan-mundy/react-to-issue@v1.1.1
@@ -24,10 +24,10 @@ jobs:
         uses: crazy-max/ghaction-dump-context@v2
       
       - name: add processing label
-        uses: andymckay/labeler@master
+        uses: actions-ecosystem/action-add-labels@v1
         with:
-          add-labels: "Processing"
-
+          labels: "Processing"
+      
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -76,19 +76,33 @@ jobs:
             ${{ env.ISSUE_COMMENT }}
             Please edit this issue and select "Update comment" to resubmit.
 
-      - name: add error label
+      - name: Remove labels
+        uses: actions-ecosystem/action-remove-labels@v1
         if: env.PROCESS_SUCCESS == 'false'
-        uses: andymckay/labeler@master
         with:
-          add-labels: "Error in form"
-          remove-labels: "Processing, Success"
-
-      - name: remove error/processing labels
+          labels: |
+            Processing
+            Success
+            
+      - name: Add error label
+        if: env.PROCESS_SUCCESS == 'false'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: "Error in form"
+          
+      - name: Remove error labels
+        uses: actions-ecosystem/action-remove-labels@v1
         if: env.PROCESS_SUCCESS == 'true'
-        uses: andymckay/labeler@master
         with:
-          remove-labels: "Error in form, Processing"
-          add-labels: "Success"
+          labels: |
+            Error in form
+            Processing
+            
+      - name: Add success label
+        if: env.PROCESS_SUCCESS == 'true'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: "Success"
 
       - name: Commit to master
         if: env.PROCESS_SUCCESS == 'true'
