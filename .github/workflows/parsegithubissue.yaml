@@ -19,6 +19,9 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           reactions: eyes
+          
+      - name: Dump context
+        uses: crazy-max/ghaction-dump-context@v2
       
       - name: add processing label
         uses: andymckay/labeler@master
