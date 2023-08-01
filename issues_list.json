@@ -1,1 +1,13 @@
-[]
+[
+    {
+        "skip_start_date": "01-08-2023",
+        "skip_end_date": "01-08-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "FPET-435",
+        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/73"
+    }
+]
