@@ -1,15 +1,1 @@
-[
-    {
-        "skip_start_date": "02-08-2023",
-        "skip_end_date": "03-08-2023",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CCD-4822",
-        "issue_link": "https://github.com/hmcts/aks-auto-shutdown/issues/75"
-    }
-]
+[]
