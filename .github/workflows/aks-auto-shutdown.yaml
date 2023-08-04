@@ -2,7 +2,7 @@ name: AKS Auto Shutdown
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 20 * * *' # Every day at 8pm UTC
+    - cron: '0 19 * * *' # Every day at 8pm BST
 permissions:
   id-token: write
 jobs:
