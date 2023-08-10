@@ -8,9 +8,9 @@ SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
     az account set -s $SUBSCRIPTION_ID
-    virtualMachinesS=$(az resource list --resource-type Microsoft.Compute/virtualMachines --query "[?tags.autoShutdown == 'true']" -o json)
+    virtualMachines=$(az resource list --resource-type Microsoft.Compute/virtualMachines --query "[?tags.autoShutdown == 'true']" -o json)
 
-jq -c '.[]' <<< $virtualMachinesS | while read virtualMachines; do
+jq -c '.[]' <<< $virtualMachines | while read virtualMachines; do
         RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $virtualMachines)
         SKIP="false"
         virtualMachines_name=$(jq -r '.name' <<< $virtualMachines)
