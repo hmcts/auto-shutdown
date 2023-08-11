@@ -1,8 +1,8 @@
-name: aks-auto-shutdown
+name: aks-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *' # Every day at 8pm BST
+    - cron: '30 5 * * 1-5' # Every weekday at 6:30am BST
 permissions:
   id-token: write
 jobs:
@@ -17,7 +17,5 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: AKS Auto Shutdown
-        run: ./scripts/aks-auto-shutdown.sh
-      - name: AKS Auto Shutdown status check
-        run: ./scripts/aks-auto-shutdown-status.sh
+      - name: AKS Auto Start
+        run: ../scripts/aks-auto-start.sh ${{ secrets.REGISTRYSLACKWEBHOOK }}

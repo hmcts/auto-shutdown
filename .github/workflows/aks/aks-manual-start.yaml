@@ -45,4 +45,4 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: AKS Manual Start
-        run: ./scripts/aks-manual-start.sh ${{ secrets.REGISTRYSLACKWEBHOOK }}
+        run: ../scripts/aks-manual-start.sh ${{ secrets.REGISTRYSLACKWEBHOOK }}
