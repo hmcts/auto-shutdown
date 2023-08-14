@@ -75,10 +75,11 @@ jobs:
       - name: Install requests
         run: |
           pip3 install requests
+
       - name: process form data
         continue-on-error: true
         run: |
-          python file_handling.py
+          python ./scripts/file_handling.py
 
       - name: Create Issue Comment
         if: env.PROCESS_SUCCESS != 'true'
