@@ -27,7 +27,7 @@ jobs:
       - name: Delete old entries
         continue-on-error: true
         run: |
-          python housekeeping.py
+          python ./scripts/aks/housekeeping.py
 
       - name: Commit to master
         continue-on-error: true

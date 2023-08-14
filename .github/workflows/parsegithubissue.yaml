@@ -60,12 +60,12 @@ jobs:
       - name: Delete old entries
         continue-on-error: true
         run: |
-          python housekeeping.py
+          python ./scripts/aks/housekeeping.py
           
       - name: process form data
         continue-on-error: true
         run: |
-          python file_handling.py
+          python ./scripts/aks/file_handling.py
 
       - name: Create Issue Comment
         if: env.PROCESS_SUCCESS != 'true'
