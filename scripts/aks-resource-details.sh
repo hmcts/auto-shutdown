@@ -21,6 +21,8 @@ function get_costs() {
 
         business_area_entry=$(jq -r '. | last | .business_area' issues_list.json)
         env_entry=$(jq -r '. | last | .environment' issues_list.json)
+        start_date=$(jq -r '. | last | .skip_start_date' issues_list.json)
+        end_date=$(jq -r '. | last | .skip_end_date' issues_list.json)
 
         if [[ ${env_entry} =~ ${cluster_env} ]] && [[ $cluster_business_area == $business_area_entry ]]; then
             nodepool_sku=$(az aks nodepool list --cluster-name $cluster_name --resource-group $RESOURCE_GROUP | jq '.[] | select(.name=="linux")' | jq '.vmSize')
@@ -83,3 +85,5 @@ echo "total nodes: $node_count with a size of $nodepool_sku"
 
 echo AKS_NODE_COUNT=$node_count >> $GITHUB_ENV
 echo AKS_NODE_SKU=$nodepool_sku >> $GITHUB_ENV
+echo START_DATE=$start_date >> $GITHUB_ENV
+echo END_DATE=$end_date >> $GITHUB_ENV
