@@ -20,4 +20,4 @@ jobs:
       - name: AKS Auto Shutdown
         run: ./scripts/aks/auto-shutdown.sh
       - name: AKS Auto Shutdown status check
-        run: ./scripts/aks/auto-shutdown-status.sh 
+        run: ./scripts/aks/auto-shutdown-status.sh
