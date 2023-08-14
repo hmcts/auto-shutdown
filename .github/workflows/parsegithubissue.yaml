@@ -105,7 +105,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
         run: |
-          python cost-calculator.py
+          python cost-calculator.py || echo "Calculating cost failed"
 
       - name: Add cost details as a comment
         if: env.PROCESS_SUCCESS == 'true'
