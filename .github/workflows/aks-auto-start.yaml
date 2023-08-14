@@ -1,4 +1,4 @@
-name: AKS Auto Start
+name: aks-auto-start
 on:
   workflow_dispatch:
   schedule:

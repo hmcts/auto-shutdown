@@ -1,4 +1,4 @@
-name: AKS Auto Shutdown
+name: aks-auto-shutdown
 on:
   workflow_dispatch:
   schedule:
