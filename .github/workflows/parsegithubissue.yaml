@@ -8,6 +8,8 @@ on:
   workflow_dispatch:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
+permissions:
+  id-token: write
 jobs:
   parse:
     permissions: write-all
@@ -19,15 +21,24 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           reactions: eyes
-          
-      - name: Dump context
-        uses: crazy-max/ghaction-dump-context@v2
+      #Uncomment for troubleshooting   
+      #- name: Dump context
+        #uses: crazy-max/ghaction-dump-context@v2
       
       - name: add processing label
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "Processing"
-      
+
+      - name: Remove labels
+        uses: actions-ecosystem/action-remove-labels@v1
+        if: env.PROCESS_SUCCESS == 'false'
+        with:
+          labels: |
+            Success
+            Error in form
+            High Cost
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -57,11 +68,14 @@ jobs:
         run: |
           pip3 install python-dateutil
 
-      - name: Delete old entries
-        continue-on-error: true
+      - name: Install numpy
         run: |
-          python ./scripts/housekeeping.py
-          
+          pip3 install numpy
+
+      - name: Install requests
+        run: |
+          pip3 install requests
+
       - name: process form data
         continue-on-error: true
         run: |
@@ -76,20 +90,37 @@ jobs:
             ${{ env.ISSUE_COMMENT }}
             Please edit this issue and select "Update comment" to resubmit.
 
-      - name: Remove labels
-        uses: actions-ecosystem/action-remove-labels@v1
-        if: env.PROCESS_SUCCESS == 'false'
+      - name: 'Az CLI login'
+        uses: azure/login@v1
         with:
-          labels: |
-            Processing
-            Success
-            
-      - name: Add error label
-        if: env.PROCESS_SUCCESS == 'false'
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
+      - name: get aks resource details
+        if: env.PROCESS_SUCCESS == 'true'
+        continue-on-error: true
+        run: ./scripts/aks-resource-details.sh
+
+      - name: process costs
+        if: env.PROCESS_SUCCESS == 'true'
+        continue-on-error: true
+        run: |
+          python cost-calculator.py || echo "Calculating cost failed"
+
+      - name: Add cost details as a comment
+        if: env.PROCESS_SUCCESS == 'true'
+        uses: peter-evans/create-or-update-comment@v3.0.2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Total estimated cost of skipping shutdown for the provided dates is £${{ env.COST_DETAILS_FORMATTED }}
+
+      - name: Add high cost label
+        if: env.COST_DETAILS > 5000
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: "Error in form"
-          
+          labels: "High Cost"
+
       - name: Remove error labels
         uses: actions-ecosystem/action-remove-labels@v1
         if: env.PROCESS_SUCCESS == 'true'
@@ -97,12 +128,26 @@ jobs:
           labels: |
             Error in form
             Processing
-            
+
+      - name: Remove labels
+        uses: actions-ecosystem/action-remove-labels@v1
+        if: env.PROCESS_SUCCESS == 'false'
+        with:
+          labels: |
+            Processing
+            Success
+
       - name: Add success label
         if: env.PROCESS_SUCCESS == 'true'
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "Success"
+
+      - name: Add error label
+        if: env.PROCESS_SUCCESS != 'true'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: "Error in form"
 
       - name: Commit to master
         if: env.PROCESS_SUCCESS == 'true'
