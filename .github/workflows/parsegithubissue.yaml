@@ -21,9 +21,9 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           reactions: eyes
-          
-      - name: Dump context
-        uses: crazy-max/ghaction-dump-context@v2
+      #Uncomment for troubleshooting   
+      #- name: Dump context
+        #uses: crazy-max/ghaction-dump-context@v2
       
       - name: add processing label
         uses: actions-ecosystem/action-add-labels@v1
@@ -80,28 +80,12 @@ jobs:
           body: |
             ${{ env.ISSUE_COMMENT }}
             Please edit this issue and select "Update comment" to resubmit.
-
-      - name: Remove labels
-        uses: actions-ecosystem/action-remove-labels@v1
-        if: env.PROCESS_SUCCESS == 'false'
-        with:
-          labels: |
-            Processing
-            Success
             
       - name: Add error label
-        if: env.PROCESS_SUCCESS == 'false'
+        if: env.PROCESS_SUCCESS != 'true'
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "Error in form"
-          
-      - name: Remove error labels
-        uses: actions-ecosystem/action-remove-labels@v1
-        if: env.PROCESS_SUCCESS == 'true'
-        with:
-          labels: |
-            Error in form
-            Processing
 
       - name: 'Az CLI login'
         uses: azure/login@v1
@@ -126,13 +110,29 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Total estimated cost of skipping shutdown for the provided dates is £${{ env.COST_DETAILS }}
+            Total estimated cost of skipping shutdown for the provided dates is £${{ env.COST_DETAILS_FORMATTED }}
 
       - name: Add high cost label
         if: env.COST_DETAILS > 5000
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "High Cost"
+
+      - name: Remove error labels
+        uses: actions-ecosystem/action-remove-labels@v1
+        if: env.PROCESS_SUCCESS == 'true'
+        with:
+          labels: |
+            Error in form
+            Processing
+
+      - name: Remove labels
+        uses: actions-ecosystem/action-remove-labels@v1
+        if: env.PROCESS_SUCCESS == 'false'
+        with:
+          labels: |
+            Processing
+            Success
 
       - name: Add success label
         if: env.PROCESS_SUCCESS == 'true'
