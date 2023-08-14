@@ -18,6 +18,6 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: AKS Auto Shutdown
-        run: ./scripts/aks/auto-shutdown.sh
+        run: ./scripts/aks/aks-auto-shutdown.sh
       - name: AKS Auto Shutdown status check
         run: ./scripts/aks/aks-auto-shutdown-status.sh 
