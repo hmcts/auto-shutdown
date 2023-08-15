@@ -88,7 +88,7 @@ done < <(jq -r 'last | .environment[]' issues_list.json || jq -r 'last | .enviro
 echo "==================="
 echo "total nodes: $node_count with a size of $nodepool_sku"
 
-echo AKS_NODE_COUNT=$node_count >>$GITHUB_ENV
-echo AKS_NODE_SKU=$nodepool_sku >>$GITHUB_ENV
-echo START_DATE=$start_date >>$GITHUB_ENV
-echo END_DATE=$end_date >>$GITHUB_ENV
+echo AKS_NODE_COUNT=$node_count >> $GITHUB_ENV
+echo AKS_NODE_SKU=$nodepool_sku >> $GITHUB_ENV
+echo START_DATE=$start_date >> $GITHUB_ENV
+echo END_DATE=$end_date >> $GITHUB_ENV
