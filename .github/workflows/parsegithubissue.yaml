@@ -99,7 +99,7 @@ jobs:
       - name: get aks resource details
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
-        run: ./scripts/aks/aks-resource-details.sh
+        run: ./scripts/aks/resource-details.sh
 
       - name: process costs
         if: env.PROCESS_SUCCESS == 'true'
