@@ -25,18 +25,23 @@ function get_costs() {
         end_date=$(jq -r '. | last | .skip_end_date' issues_list.json)
 
         if [[ ${env_entry} =~ ${cluster_env} ]] && [[ $cluster_business_area == $business_area_entry ]]; then
-            nodepool_sku=$(az aks nodepool list --cluster-name $cluster_name --resource-group $RESOURCE_GROUP | jq '.[] | select(.name=="linux")' | jq '.vmSize')
-            nodepool_count=$(az aks nodepool list --cluster-name $cluster_name --resource-group $RESOURCE_GROUP | jq '.[] | select(.name=="linux")' | jq '.count')
-            echo "Including $cluster_name in shutdown skip cost. It has $nodepool_count nodes with a size of $nodepool_sku"
-            node_count=$(($node_count + $nodepool_count))
-            continue
+            nodepool_details=$(az aks nodepool list --cluster-name $cluster_name --resource-group $RESOURCE_GROUP -o json)
+            nodepool_sku=$(echo $nodepool_details | jq '.[] | select(.name=="linux")' | jq '.vmSize')
+            while read nodepool; do
+                nodepool_count=$(jq -r '."count"' <<< $nodepool)
+                nodepool_name=$(jq -r '."name"' <<< $nodepool)
+                nodepool_size=$(jq -r '."vmSize"' <<< $nodepool)
+                echo "Including $cluster_name in shutdown skip cost. It has $nodepool_count nodes with a size of $nodepool_size in nodepool $nodepool_name"
+                node_count=$(($node_count + $nodepool_count))
+                continue
+            done < <(jq -c '.[]' <<<$nodepool_details) # end of 
         fi
     done < <(jq -c '.[]' <<<$CLUSTERS) # end_of_cluster_loop
 }
 
 while read i; do
     if [[ $business_area_entry =~ "Cross-Cutting" ]]; then
-        
+        echo "processing $i in $business_area_entry"
         if [[ $i =~ "Staging" ]]; then
             az account set --name DTS-SHAREDSERVICES-STG
             get_costs
@@ -83,7 +88,7 @@ done < <(jq -r 'last | .environment[]' issues_list.json || jq -r 'last | .enviro
 echo "==================="
 echo "total nodes: $node_count with a size of $nodepool_sku"
 
-echo AKS_NODE_COUNT=$node_count >> $GITHUB_ENV
-echo AKS_NODE_SKU=$nodepool_sku >> $GITHUB_ENV
-echo START_DATE=$start_date >> $GITHUB_ENV
-echo END_DATE=$end_date >> $GITHUB_ENV
+echo AKS_NODE_COUNT=$node_count >>$GITHUB_ENV
+echo AKS_NODE_SKU=$nodepool_sku >>$GITHUB_ENV
+echo START_DATE=$start_date >>$GITHUB_ENV
+echo END_DATE=$end_date >>$GITHUB_ENV
