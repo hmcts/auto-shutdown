@@ -34,7 +34,7 @@ function get_costs() {
                 echo "Including $cluster_name in shutdown skip cost. It has $nodepool_count nodes with a size of $nodepool_size in nodepool $nodepool_name"
                 node_count=$(($node_count + $nodepool_count))
                 continue
-            done < <(jq -c '.[]' <<<$nodepool_details) # end of 
+            done < <(jq -c '.[]' <<<$nodepool_details) # end of nodepool loop
         fi
     done < <(jq -c '.[]' <<<$CLUSTERS) # end_of_cluster_loop
 }
