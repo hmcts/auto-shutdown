@@ -78,7 +78,7 @@ while read i; do
             get_costs
         fi
     fi
-done < <(jq -r 'last | .environment[]' issues_list.json)
+done < <(jq -r 'last | .environment[]' issues_list.json || jq -r 'last | .environment' issues_list.json)
 
 echo "==================="
 echo "total nodes: $node_count with a size of $nodepool_sku"
