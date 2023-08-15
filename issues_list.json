@@ -15,11 +15,11 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/77"
     },
     {
-        "skip_start_date": "14-08-2023",
-        "skip_end_date": "14-08-2023",
+        "skip_start_date": "15-08-2023",
+        "skip_end_date": "15-08-2023",
         "environment": "Demo",
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-13971",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/84"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/88"
     }
 ]
