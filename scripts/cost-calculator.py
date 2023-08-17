@@ -25,10 +25,10 @@ diff = (end - start).days
 total_days = (diff +1)
 weekend_days = (total_days - business_days)
 
-def azPriceAPI(vm_sku):
+def azPriceAPI(vm_sku, productNameVar, osQuery):
     #Microsoft Retail Rates Prices API query and response. (https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
     api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP&api-version=2021-10-01-preview"
-    query = "armRegionName eq 'uksouth' and skuName eq '" + vm_sku + "' and priceType eq 'Consumption' and productName eq 'Virtual Machines Ddsv5 Series'"
+    query = "armRegionName eq 'uksouth' and skuName eq '" + vm_sku + "' and priceType eq 'Consumption' and productName eq " + osQuery
     response = requests.get(api_url, params={'$filter': query})
     json_data = json.loads(response.text)
 
@@ -58,8 +58,18 @@ with open("sku_details.txt", "r") as filestream:
     for line in filestream:
         currentLine = line.split(",")
         sku = str(currentLine[0])
-        node_count = int(currentLine[1])
-        sku_cost = azPriceAPI(sku)
+        osType = str(currentLine[1])
+        node_count = int(currentLine[2])
+        sku_split = sku.split('_')
+        sku_type = '' .join((z for z in sku_split[1] if not z.isdigit()))
+        productNameVar = sku_type + sku_split[2]
+        if osType == "Linux":
+            linuxQuery = "'Virtual Machines " + productNameVar +  " Series'"
+            sku_cost = azPriceAPI(sku, productNameVar, linuxQuery)
+        elif osType == "Windows":
+            windowsQuery = "'Virtual Machines " + productNameVar +  " Series Windows'"
+            sku_cost = azPriceAPI(sku, productNameVar, windowsQuery)
+
         combined_total=(combined_total + calculate_cost(sku_cost, node_count, business_days, weekend_days))
 #Round  to 2 decimal places to represent currency.
 #Format value with appropriate comma for human readable currency.
