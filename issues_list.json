@@ -1,17 +1,1 @@
-[
-    {
-        "skip_start_date": "16-08-2023",
-        "skip_end_date": "16-08-2023",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Test / Perftest",
-            "Demo",
-            "ITHC",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "RIA-6614 / RR-2959",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/77"
-    }
-]
+[]
