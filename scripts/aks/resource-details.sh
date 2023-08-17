@@ -12,14 +12,14 @@ declare -A sku_sizes
 #Function to add SKU and node count to array.
 #Create new entry if SKU does not already exist. Update entry if SKU already exists in array.
 function countSku() {
-    if [ -v sku_sizes[$1] ]; then
-        echo "adding $nodepool_count nodes to existing count for $1"
-        sku_count=$(echo "${sku_sizes[$1]}")
+    if [ -v sku_sizes[$1$3] ]; then
+        echo "adding $nodepool_count nodes to existing count for $1$3"
+        sku_count=$(echo "${sku_sizes[$1$3]}")
         node_sku_count=$(($sku_count + $nodepool_count))
-        sku_sizes[$1]=$node_sku_count
+        sku_sizes[$1$3]=$node_sku_count
     else
         echo "adding $1 to array with $2 nodes"
-        sku_sizes[$1]=$2
+        sku_sizes[$1$3]=$2
     fi
 }
 #Print array summary
@@ -52,8 +52,11 @@ function get_costs() {
                 nodepool_count=$(jq -r '."count"' <<< $nodepool)
                 nodepool_name=$(jq -r '."name"' <<< $nodepool)
                 nodepool_sku_output=$(jq -r '."vmSize"' <<< $nodepool)
-                echo "Including $cluster_name in shutdown skip cost. It has $nodepool_count nodes with a size of $nodepool_sku_output in nodepool $nodepool_name"
-                countSku $nodepool_sku_output $nodepool_count
+                nodepool_os=$(jq -r '."osType"' <<< $nodepool)
+                osType=",$nodepool_os"
+
+                echo "Including $cluster_name in shutdown skip cost. It has $nodepool_count nodes with a size of $nodepool_sku_output in nodepool $nodepool_name and OS of $nodepool_os"
+                countSku $nodepool_sku_output $nodepool_count $osType
                 continue
             done < <(jq -c '.[]' <<<$nodepool_details)
         fi
