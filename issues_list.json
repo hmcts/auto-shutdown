@@ -32,5 +32,13 @@
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-0000",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/97"
+    },
+    {
+        "skip_start_date": "17-08-2023",
+        "skip_end_date": "17-08-2023",
+        "environment": "Sandbox",
+        "business_area": "cross-cutting",
+        "change_jira_id": "DTSPO-0000",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/99"
     }
 ]

@@ -1,2 +1,0 @@
-Standard_D4pds_v5,7
-Standard_D4ds_v5,17
