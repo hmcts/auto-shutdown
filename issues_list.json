@@ -1,1 +1,17 @@
+[
+    {
+        "skip_start_date": "21-08-2023",
+        "skip_end_date": "23-08-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "change_jira_id": [
+            "CIV-10028",
+            "CIV-10038"
+        ],
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/104"
+    }
+]
 
