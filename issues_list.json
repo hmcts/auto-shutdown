@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "skip_start_date": "21-08-2023",
+        "skip_end_date": "21-08-2023",
+        "environment": "AAT / Staging",
+        "business_area": "cft",
+        "change_jira_id": "test",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/102"
+    }
+]
