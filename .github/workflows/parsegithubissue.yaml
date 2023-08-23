@@ -64,17 +64,9 @@ jobs:
         with:
           python-version: '3.11' 
 
-      - name: Install python-dateutil
+      - name: Install Python Requirements
         run: |
-          pip3 install python-dateutil
-
-      - name: Install numpy
-        run: |
-          pip3 install numpy
-
-      - name: Install requests
-        run: |
-          pip3 install requests
+          pip3 install -r requirements.txt
 
       - name: process form data
         continue-on-error: true
@@ -99,13 +91,13 @@ jobs:
       - name: get aks resource details
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
-        run: ./scripts/aks-resource-details.sh
+        run: ./scripts/aks/resource-details.sh
 
       - name: process costs
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
         run: |
-          python cost-calculator.py || echo "Calculating cost failed"
+          python ./scripts/cost-calculator.py || echo "Calculating cost failed"
 
       - name: Add cost details as a comment
         if: env.PROCESS_SUCCESS == 'true'
