@@ -12,5 +12,17 @@
             "CIV-10038"
         ],
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/104"
+    },
+    {
+        "skip_start_date": "23-08-2023",
+        "skip_end_date": "23-08-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "DTSPO-000",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/105"
     }
 ]
