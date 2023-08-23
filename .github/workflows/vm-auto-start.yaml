@@ -20,4 +20,4 @@ jobs:
       - name: VM Auto Start
         run: ./scripts/vm/auto-start.sh
       - name: VM Auto start status check
-        run: ./scripts/vm/auto-shutdown-status.sh
+        run: ./scripts/vm/vmstatus.sh
