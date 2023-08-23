@@ -9,8 +9,9 @@ do
     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subcription) 
     SUBSCRIPTION_NAME=$(jq -r '.name' <<< $subcription) 
     az account set -s $SUBSCRIPTION_ID
-    APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways --query "[?tags.autoShutdown == 'true']" -o json)
- 
+    #APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways --query "[?tags.autoShutdown == 'true']" -o json)
+    APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways  -o json)
+  
    
     jq -c '.[]'<<< $APPGS | while read app
     do
@@ -25,6 +26,8 @@ do
             business_area="CFT"
         elif [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES-" ]]; then
             business_area="Cross-Cutting" 
+        elif [[ $SUBSCRIPTION_NAME =~ "HMCTS-HUB-" ]]; then
+            business_area="CFT-Cross-Cutting"
         fi
 	echo "---------------------------------------------------"
         while read id
@@ -50,12 +53,13 @@ do
                 SKIP="true"
                 continue
             #if current date is less than skip end date: skip shutdown on that cluster
-            elif [[ ${env_entry} =~ ${app_env} ]] && [[ $rg =~ "network-rg" ]] && [[ $business_area_entry == $business_area ]] && [[ $current_date_seconds -ge $start_date_seconds ]] &&[[ $current_date_seconds -le $end_date_seconds ]]; then
+            elif [[ ${env_entry} =~ ${app_env} ]] && [[ $business_area =~ $business_area_entry ]] && [[ $current_date_seconds -ge $start_date_seconds ]] &&[[ $current_date_seconds -le $end_date_seconds ]]; then
                 echo "Match : $id"
                 SKIP="true"
                 continue
             fi
         done < <(jq -c '.[]' issues_list.json)
+        echo $name $SUBSCRIPTION_NAME $SKIP
         if [[ $SKIP == "false" ]]; then
             echo -e "${GREEN}About to shutdown App Gateway $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
             echo -e "${GREEN}az network application-gateway stop --ids ${app_id} --no-wait"
