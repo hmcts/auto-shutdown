@@ -29,6 +29,13 @@ do
         elif [[ $SUBSCRIPTION_NAME =~ "HMCTS-HUB-" ]]; then
             business_area="CFT-Cross-Cutting"
         fi
+        app_business_area=$(echo $name | awk -F "-" '{ print $1 }')
+        app_business_area="${app_business_area^^}"
+        if [[ $app_business_area  =~  "AKS" ]]; then
+           app_business_area="Cross-Cutting"
+        elif [[ $app_business_area  =~ "SDS"  ]]; then
+           app_business_area="Cross-Cutting"
+        fi
 	echo "---------------------------------------------------"
         while read id
         do
@@ -48,12 +55,12 @@ do
             current_date_seconds=$(date -d "$current_date_formatting 00:00:00" +%s)
             #Skip logic
             #if start date is equal to current date: skip shutdown on that cluster
-            if [[ ${env_entry} =~ ${app_env} ]] && [[ $rg =~  "network-rg" ]] && [[ $business_area_entry == $business_area ]] && [[ $start_date_seconds -eq $current_date_seconds ]] ; then
+            if [[ ${env_entry} =~ ${app_env} ]] && [[ $app_business_area == $business_area_entry ]] && [[ $business_area =~ $business_area_entry ]] && [[ $start_date_seconds -eq $current_date_seconds ]] ; then
                 echo "Match: $id"
                 SKIP="true"
                 continue
             #if current date is less than skip end date: skip shutdown on that cluster
-            elif [[ ${env_entry} =~ ${app_env} ]] && [[ $business_area =~ $business_area_entry ]] && [[ $current_date_seconds -ge $start_date_seconds ]] &&[[ $current_date_seconds -le $end_date_seconds ]]; then
+            elif [[ ${env_entry} =~ ${app_env} ]] && [[ $app_business_area == $business_area_entry ]] && [[ $business_area =~ $business_area_entry ]] && [[ $current_date_seconds -ge $start_date_seconds ]] &&[[ $current_date_seconds -le $end_date_seconds ]]; then
                 echo "Match : $id"
                 SKIP="true"
                 continue
