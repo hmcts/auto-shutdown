@@ -66,7 +66,6 @@ do
                 continue
             fi
         done < <(jq -c '.[]' issues_list.json)
-        echo $name $SUBSCRIPTION_NAME $SKIP
         if [[ $SKIP == "false" ]]; then
             echo -e "${GREEN}About to shutdown App Gateway $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
             echo -e "${GREEN}az network application-gateway stop --ids ${app_id} --no-wait"
