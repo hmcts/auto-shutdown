@@ -71,7 +71,7 @@ do
             echo -e "${GREEN}About to shutdown flexible server $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
             echo -e "${GREEN}az postgres flexible-server  stop --ids ${app_id} --no-wait"
             ##### enable it as part of rollout(sprint 72)
-            ##az postgres flexible-server  stop --ids ${app_id} --no-wait || echo Ignoring any errors stopping App Gateway
+            ##az postgres flexible-server  stop --ids ${app_id} --no-wait || echo Ignoring errors stopping $name
         else
             echo -e "${AMBER}postgres flexible-server $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
         fi
