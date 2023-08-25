@@ -1,0 +1,23 @@
+name: flexible-server-auto-shutdown
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 19 * * *' # Every day at 8pm BST
+permissions:
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: 'Az CLI login'
+        uses: azure/login@v1
+        with:
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
+      - name: Postgres Flexible server  Auto Shutdown
+        run: ./scripts/flexible-server/auto-shutdown.sh
+      - name: Postgres Flexible server status check
+        run: ./scripts/flexible-server/flexserverstatus.sh
