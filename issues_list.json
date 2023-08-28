@@ -1,13 +1,1 @@
-[
-    {
-        "skip_start_date": "26-08-2023",
-        "skip_end_date": "27-08-2023",
-        "environment": [
-            "AAT / Staging",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "ET - INC5539698",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/112"
-    }
-]
+[]
