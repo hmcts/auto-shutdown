@@ -1,2 +1,2 @@
-Standard_D4ds_v5,Linux,4
-Standard_D8ds_v5,Linux,37
+Standard_D4ds_v5,Linux,8
+Standard_D8ds_v5,Linux,108
