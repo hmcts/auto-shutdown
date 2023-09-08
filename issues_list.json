@@ -22,5 +22,13 @@
         "business_area": "cft",
         "change_jira_id": "As requested by Robin - until persistent storage is implemented https://tools.hmcts.net/jira/browse/DTSPO-14838",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/122"
+    },
+    {
+        "skip_start_date": "25-09-2023",
+        "skip_end_date": "29-09-2023",
+        "environment": "Preview / Dev",
+        "business_area": "cft",
+        "change_jira_id": "As requested by Robin - until persistent storage is implemented https://tools.hmcts.net/jira/browse/DTSPO-14838",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/124"
     }
 ]
