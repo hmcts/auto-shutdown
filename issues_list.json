@@ -9,14 +9,6 @@
     },
     {
         "skip_start_date": "08-09-2023",
-        "skip_end_date": "09-09-2023",
-        "environment": "ITHC",
-        "business_area": "cft",
-        "change_jira_id": "dtspo-0000",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/126"
-    },
-    {
-        "skip_start_date": "08-09-2023",
         "skip_end_date": "10-09-2023",
         "environment": [
             "AAT / Staging",
