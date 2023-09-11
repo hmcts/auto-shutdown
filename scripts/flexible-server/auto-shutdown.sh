@@ -30,7 +30,9 @@ do
           else
   		app_env=PTL		  
 	  fi
-
+	if [[ $app_env == "PTL" ]] || [[ $app_env == "PROD" ]] ; then
+          continue   # skip prod Envs
+        fi
 	fi
         if [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]]; then
             business_area="Cross-Cutting"
@@ -67,7 +69,7 @@ do
                 continue
             fi
         done < <(jq -c '.[]' issues_list.json)
-        if [[ $SKIP == "false" ]]; then
+        if [[ $SKIP == "false" ]] && [[ $app_env == "Sandbox"]]; then
             echo -e "${GREEN}About to shutdown flexible server $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
             echo -e "${GREEN}az postgres flexible-server  stop --ids ${app_id} --no-wait"
             ##### enable it as part of rollout(sprint 72)
