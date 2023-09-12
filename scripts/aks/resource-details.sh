@@ -120,3 +120,6 @@ rm sku_details.txt
 #Call node summary function and output to tempory text file.
 #Temp file used by "cost-calculator.py" script for cost calculations.
 nodeSummary >>sku_details.txt
+
+#adding test entry to cause cost failure scenario. Uncomment as needed.
+#echo "Standard_D4ds_v5test,Linux,1" >>sku_details.txt
