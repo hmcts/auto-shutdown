@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#set -x
+set -x
 AMBER='\033[1;33m'
 GREEN='\033[0;32m'
 RED='\033[0;31m'
