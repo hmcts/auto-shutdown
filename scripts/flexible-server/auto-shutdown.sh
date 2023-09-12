@@ -28,9 +28,6 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 			else
 				app_env=PTL
 			fi
-			if [[ $app_env == "PTL" ]] || [[ $app_env == "PROD" ]]; then
-				continue # skip prod Envs
-			fi
 		fi
 		if [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]]; then
 			business_area="Cross-Cutting"
@@ -69,8 +66,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 		if [[ $SKIP == "false" ]] && [[ $app_env == "Sandbox" ]]; then
 			echo -e "${GREEN}About to shutdown flexible server $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
 			echo -e "${GREEN}az postgres flexible-server  stop -g $rg -n $name --no-wait"
-			##### enable it as part of rollout(sprint 72)
-			##az postgres flexible-server  stop -g $rg -n $name --no-wait || echo Ignoring errors stopping $name
+			az postgres flexible-server  stop -g $rg -n $name --no-wait || echo Ignoring errors stopping $name
 		else
 			echo -e "${AMBER}postgres flexible-server $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
