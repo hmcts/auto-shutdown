@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#set -x
+set -x
 shopt -s nocasematch
 AMBER='\033[1;33m'
 GREEN='\033[0;32m'
@@ -9,10 +9,8 @@ do
     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subcription) 
     SUBSCRIPTION_NAME=$(jq -r '.name' <<< $subcription) 
     az account set -s $SUBSCRIPTION_ID
-    #APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways --query "[?tags.autoShutdown == 'true']" -o json)
-    APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways  -o json)
-  
-   
+    APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways --query "[?tags.autoShutdown == 'true']" -o json)
+    
     jq -c '.[]'<<< $APPGS | while read app
     do
         SKIP="false"
@@ -69,8 +67,7 @@ do
         if [[ $SKIP == "false" ]]; then
             echo -e "${GREEN}About to shutdown App Gateway $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
             echo -e "${GREEN}az network application-gateway stop --ids ${app_id} --no-wait"
-            ##### enable it as part of rollout(sprint 72)
-            ##az network application-gateway stop --ids ${app_id} --no-wait || echo Ignoring any errors stopping App Gateway
+            az network application-gateway stop --ids ${app_id} --no-wait || echo Ignoring any errors stopping App Gateway
         else
             echo -e "${AMBER}App Gateway $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
         fi
