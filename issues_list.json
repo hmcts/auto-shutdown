@@ -19,5 +19,13 @@
         "business_area": "cft",
         "change_jira_id": "INC5543161",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/131"
+    },
+    {
+        "skip_start_date": "13-09-2023",
+        "skip_end_date": "15-09-2023",
+        "environment": "Demo",
+        "business_area": "cft",
+        "change_jira_id": "skip the auto shutdown for UAT",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/137"
     }
 ]
