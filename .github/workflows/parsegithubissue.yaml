@@ -100,18 +100,32 @@ jobs:
           python ./scripts/cost-calculator.py || echo "Calculating cost failed"
 
       - name: Add cost details as a comment
-        if: env.PROCESS_SUCCESS == 'true'
+        if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true'
         uses: peter-evans/create-or-update-comment@v3.0.2
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Total estimated cost of skipping shutdown for the provided dates is **£${{ env.COST_DETAILS_FORMATTED }}**
 
+      - name: Add cost error details as a comment
+        if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS == 'true'
+        uses: peter-evans/create-or-update-comment@v3.0.2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            We have been unable to estimate the cost of this skip request.
+
       - name: Add high cost label
         if: env.COST_DETAILS > 1000
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "High Cost"
+
+      - name: Add costs error label
+        if: env.ERROR_IN_COSTS == 'true'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: "Cost Error"
 
       - name: Remove error labels
         uses: actions-ecosystem/action-remove-labels@v1
