@@ -45,9 +45,9 @@ def azPriceAPI(vm_sku, productNameVar, osQuery,retry=0):
         return vm_hour_rate
 
     #API occasionally fails to return a value which was causing issues in cost feedback to users. See DTSPO-15193
-    #Retry will attempt up to 50 retries. If it is still unable to return a value, the rate will be defaulted to 0.
+    #Retry will attempt up to 5 retries. If it is still unable to return a value, the rate will be defaulted to 0.
     except:
-        if retry < 50: #Edit retry limit here.
+        if retry < 5: #Edit retry limit here.
             return azPriceAPI(vm_sku, productNameVar, osQuery,retry+1)
         else:
             print("Unable to get costs, defaulting to £0.00")
