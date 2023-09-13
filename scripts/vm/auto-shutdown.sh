@@ -63,7 +63,7 @@ while read subcription; do
 		echo SKIP: $SKIP SKIP_HUB: $SKIP_HUB
 		if [[ $SKIP == "false" ]]; then
 			echo "Stopping VM in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $rg  Name: $name"
-			###az vm deallocate --ids $app_id --no-wait || echo Ignoring errors Stopping VM
+			az vm deallocate --ids $app_id --no-wait || echo Ignoring errors Stopping VM
 		else
 			echo -e "${AMBER}VM $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
@@ -82,7 +82,7 @@ if [[ $SKIP_HUB == "false" ]]; then
 		name=$(jq -r '.name' <<<$app)
 		rg=$(jq -r '.resourceGroup' <<<$app)
 		echo "Stopping VM in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $rg  Name: $name"
-		###az vm deallocate --ids $app_id --no-wait || echo Ignoring errors Stopping VM
+		az vm deallocate --ids $app_id --no-wait || echo Ignoring errors Stopping VM
 	done
 fi
 jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
@@ -95,6 +95,6 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 	jq -c '.[]' <<<$VMS | while read vm; do
 		ID=$(jq -r '.id' <<<$vm)
 		echo "Stopping VM in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<<$vm)  Name: $(jq -r '.name' <<<$vm)"
-		##az vm deallocate --ids $ID --no-wait || echo Ignoring errors Stopping VM
+		az vm deallocate --ids $ID --no-wait || echo Ignoring errors Stopping VM
 	done
 done
