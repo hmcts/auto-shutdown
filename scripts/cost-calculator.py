@@ -25,35 +25,18 @@ diff = (end - start).days
 total_days = (diff +1)
 weekend_days = (total_days - business_days)
 
-#FUnction to add entries to the GitHub env list.
-def writeVar(varName, varValue):
-    with open(env_file_path, 'a') as env_file:
-        env_file.write('\n' + varName + "=" + str(varValue) + '\n')
-        env_file.close()
+def azPriceAPI(vm_sku, productNameVar, osQuery):
+    #Microsoft Retail Rates Prices API query and response. (https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
+    api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP&api-version=2021-10-01-preview"
+    query = "armRegionName eq 'uksouth' and skuName eq '" + vm_sku + "' and priceType eq 'Consumption' and productName eq " + osQuery
+    response = requests.get(api_url, params={'$filter': query})
+    json_data = json.loads(response.text)
 
-def azPriceAPI(vm_sku, productNameVar, osQuery,retry=0):
-    try:
-        #Microsoft Retail Rates Prices API query and response. (https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
-        api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP&api-version=2021-10-01-preview"
-        query = "armRegionName eq 'uksouth' and skuName eq '" + vm_sku + "' and priceType eq 'Consumption' and productName eq " + osQuery
-        response = requests.get(api_url, params={'$filter': query})
-        json_data = json.loads(response.text)
-        #Get retail price from json API response
-        for item in json_data['Items']:
-            vm_hour_rate = item['retailPrice']
-        
-        return vm_hour_rate
-
-    #API occasionally fails to return a value which was causing issues in cost feedback to users. See DTSPO-15193
-    #Retry will attempt up to 50 retries. If it is still unable to return a value, the rate will be defaulted to 0.
-    except:
-        if retry < 50: #Edit retry limit here.
-            return azPriceAPI(vm_sku, productNameVar, osQuery,retry+1)
-        else:
-            print("Unable to get costs, defaulting to £0.00")
-            writeVar("ERROR_IN_COSTS", "true")
-            default_rate = 0
-            return default_rate
+    #Get retail price from json API response
+    for item in json_data['Items']:
+        vm_hour_rate = item['retailPrice']
+    
+    return vm_hour_rate
 
 #Cost calculation function.
 #Clusters are shutdown for ~11 hours on weekday nights and 24 hours on weekend days.
@@ -96,5 +79,8 @@ with open("sku_details.txt", "r") as filestream:
 #Delete temp text file.
 os.remove("sku_details.txt")
 
-writeVar("COST_DETAILS", cost_output)
-writeVar("COST_DETAILS_FORMATTED", cost_output_formatted)
+#Update GitHub env vars with values for issue comment and for pipeline logic.
+with open(env_file_path, 'a') as env_file:
+    env_file.write('\n' + "COST_DETAILS=" + str(cost_output) + '\n')
+    env_file.write("COST_DETAILS_FORMATTED=" + str(cost_output_formatted))
+    env_file.close()
