@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+#set -x
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subcription 
 do

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+#set -x
 shopt -s nocasematch
 AMBER='\033[1;33m'
 GREEN='\033[0;32m'
@@ -63,7 +63,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 				continue
 			fi
 		done < <(jq -c '.[]' issues_list.json)
-		if [[ $SKIP == "false" ]] && [[ $app_env == "Sandbox" ]]; then
+		if [[ $SKIP == "false" ]]; then
 			echo -e "${GREEN}About to shutdown flexible server $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
 			echo -e "${GREEN}az postgres flexible-server  stop -g $rg -n $name --no-wait"
 			az postgres flexible-server  stop -g $rg -n $name --no-wait || echo Ignoring errors stopping $name

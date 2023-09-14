@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -x
+#set -x
 shopt -s nocasematch
 AMBER='\033[1;33m'
 GREEN='\033[0;32m'
