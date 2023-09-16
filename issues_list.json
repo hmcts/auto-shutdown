@@ -1,21 +1,5 @@
 [
     {
-        "skip_start_date": "11-09-2023",
-        "skip_end_date": "15-09-2023",
-        "environment": "Preview / Dev",
-        "business_area": "cft",
-        "change_jira_id": "As requested by Robin - until persistent storage is implemented https://tools.hmcts.net/jira/browse/DTSPO-14838",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/122"
-    },
-    {
-        "skip_start_date": "13-09-2023",
-        "skip_end_date": "15-09-2023",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "skip the auto shutdown for UAT",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/137"
-    },
-    {
         "skip_start_date": "18-09-2023",
         "skip_end_date": "21-09-2023",
         "environment": "Demo",
