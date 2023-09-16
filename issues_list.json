@@ -22,5 +22,20 @@
         "business_area": "cft",
         "change_jira_id": "skipping demo shutdown for UAT",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/138"
+    },
+    {
+        "skip_start_date": "16-09-2023",
+        "skip_end_date": "18-09-2023",
+        "environment": [
+            "Sandbox",
+            "AAT / Staging",
+            "Preview / Dev",
+            "Demo",
+            "ITHC",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "Pet P1",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/143"
     }
 ]
