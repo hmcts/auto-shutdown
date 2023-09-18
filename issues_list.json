@@ -21,5 +21,13 @@
         "business_area": "cft",
         "change_jira_id": "Pet P1",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/143"
+    },
+    {
+        "skip_start_date": "18-09-2023",
+        "skip_end_date": "18-09-2023",
+        "environment": "AAT / Staging",
+        "business_area": "cft",
+        "change_jira_id": "CHG5013420",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/144"
     }
 ]
