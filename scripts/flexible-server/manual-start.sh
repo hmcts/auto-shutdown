@@ -15,9 +15,9 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 		continue
 	fi
 	az account set -s $SUBSCRIPTION_ID
-    if [[ $SELECTED_ENV == "sbox" ]]; then
-        SELECTED_ENV="box"
-    fi
+	if [[ $SELECTED_ENV == "sbox" ]]; then
+		SELECTED_ENV="box"
+	fi
 	SERVERS=$(az resource list --resource-type Microsoft.DBforPostgreSQL/flexibleServers --query "[?tags.autoShutdown == 'true']" -o json)
 	jq -c '.[]' <<<$SERVERS | while read server; do
 		ID=$(jq -r '.id' <<<$server)
