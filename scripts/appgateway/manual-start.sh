@@ -2,54 +2,38 @@
 
 function subscription() {
 	if [[ $SELECTED_ENV == "test/perftest" && $PROJECT == "SDS" ]]; then
-		PROJECT="ss"
 		SELECTED_ENV="test"
 		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
 	elif [[ $SELECTED_ENV == "test/perftest" && $PROJECT == "CFT" ]]; then
 		SELECTED_ENV="perftest"
 		SUBSCRIPTION='DCD-CFTAPPS-TEST'
 	elif [[ $SELECTED_ENV == "preview/dev" && $PROJECT == "SDS" ]]; then
-		PROJECT="ss"
 		SELECTED_ENV="DEV"
 		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
 	elif [[ $SELECTED_ENV == "preview/dev" && $PROJECT == "CFT" ]]; then
 		SELECTED_ENV="DEV"
 		SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
 	elif [[ $SELECTED_ENV == "aat/staging" && $PROJECT == "SDS" ]]; then
-		PROJECT="ss"
 		SELECTED_ENV="stg"
 		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
 	elif [[ $SELECTED_ENV == "aat/staging" && $PROJECT == "CFT" ]]; then
 		SELECTED_ENV="stg"
 		SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
 	elif [[ $SELECTED_ENV == "ptlsbox" && $PROJECT == "SDS" ]]; then
-		PROJECT="ss"
 		SUBSCRIPTION='DTS-SHAREDSERVICESPTL-SBOX'
 	elif [[ $SELECTED_ENV == "ptlsbox" && $PROJECT == "CFT" ]]; then
 		SUBSCRIPTION='DTS-CFTSBOX-INTSVC'
 	elif [[ $SELECTED_ENV == "ptl" && $PROJECT == "CFT" ]]; then
 		SUBSCRIPTION='DTS-CFTPTL-INTSVC'
 	elif [[ $SELECTED_ENV == "ptl" && $PROJECT == "SDS" ]]; then
-		PROJECT="ss"
 		SUBSCRIPTION='DTS-SHAREDSERVICESPTL'
 	elif [[ $SELECTED_ENV != "test/perftest" && $SELECTED_ENV != "preview/dev" && $SELECTED_ENV != "aat/staging" && $SELECTED_ENV != "ptl" && $SELECTED_ENV != "ptlsbox" && $PROJECT == "SDS" ]]; then
-		PROJECT="ss"
 		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
 	elif [[ $SELECTED_ENV != "test/perftest" && $SELECTED_ENV != "preview/dev" && $SELECTED_ENV != "aat/staging" && $SELECTED_ENV != "ptl" && $SELECTED_ENV != "ptlsbox" && $PROJECT == "CFT" ]]; then
 		SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
 	fi
-
-	if [[ $INSTANCES == 'All' ]]; then
-		INSTANCES=(00 01)
-	fi
-
 	az account set -n $SUBSCRIPTION
 	ts_echo $SUBSCRIPTION selected
-}
-
-function cluster() {
-	RESOURCE_GROUP=$(jq -r '.resourceGroup' <<<$cluster)
-	NAME=$(jq -r '.name' <<<$cluster)
 }
 
 function ts_echo() {
@@ -57,20 +41,12 @@ function ts_echo() {
 }
 
 subscription
-for INSTANCE in ${INSTANCES[@]}; do
-	CLUSTERS=$(az resource list \
-		--name $PROJECT"-"$SELECTED_ENV"-"$INSTANCE"-aks" \
-		--query "[?tags.autoShutdown == 'true']" -o json)
-	jq -c '.[]' <<<$CLUSTERS | while read cluster; do
-		cluster
-
-		ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
-		az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME
-
-		ts_echo "Waiting 2 mins to give clusters time to start before testing pods"
-		sleep 120
-		ts_echo $NAME
-		RESULT=$(az aks show --name $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
-		ts_echo "${RESULT}"
-	done
+APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways --query "[?tags.autoShutdown == 'true']" -o json)
+jq -c '.[]' <<<$APPGS | while read appg; do
+	ID=$(jq -r '.id' <<<$appg)
+	status=$(az network application-gateway show --ids $ID --query "operationalState")
+	if [[ "$status" != *"Running"* ]]; then
+		ts_echo "Starting APP Gateway in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<<$appg)  Name: $(jq -r '.name' <<<$appg)"
+		az network application-gateway start --ids $ID --no-wait || echo Ignoring errors Stopping appgateway
+	fi
 done
