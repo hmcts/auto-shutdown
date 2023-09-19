@@ -12,29 +12,19 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 	APPGS=$(az resource list --resource-type Microsoft.DBforPostgreSQL/flexibleServers --query "[?tags.autoShutdown == 'true']" -o json)
 
 	jq -c '.[]' <<<$APPGS | while read app; do
+
 		SKIP="false"
 		app_id=$(jq -r '.id' <<<$app)
 		name=$(jq -r '.name' <<<$app)
 		rg=$(jq -r '.resourceGroup' <<<$app)
-		app_env=$(echo $SUBSCRIPTION_NAME | awk -F "-" '{ print $(NF) }')
+		app_env=$(echo $name | awk -F "-" '{ print $(NF) }')
 		app_env=${app_env/stg/Staging}
 		app_env=${app_env/sbox/Sandbox}
-		app_env=${app_env/SHAREDSERVICESPTL/PTL}
-		if [[ $app_env =~ "INTSVC" ]]; then
-			temp_app_env=$(echo $SUBSCRIPTION_NAME | awk -F "-" '{ print $(NF-1) }')
-			echo -e "${RED}======== $temp_app_env"
-			if [[ $temp_app_env =~ "SBOX" ]]; then
-				app_env=Sandbox
-			else
-				app_env=PTL
-			fi
-		fi
 		if [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]]; then
 			business_area="Cross-Cutting"
 		else
 			business_area="CFT"
 		fi
-		echo -e "${RED}---------------------------------------------------"
 		while read id; do
 			business_area_entry=$(jq -r '."business_area"' <<<$id)
 			env_entry=$(jq -r '."environment"' <<<$id)
@@ -66,7 +56,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 		if [[ $SKIP == "false" ]]; then
 			echo -e "${GREEN}About to shutdown flexible server $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
 			echo -e "${GREEN}az postgres flexible-server  stop -g $rg -n $name --no-wait"
-			az postgres flexible-server  stop -g $rg -n $name --no-wait || echo Ignoring errors stopping $name
+			az postgres flexible-server stop -g $rg -n $name --no-wait || echo Ignoring errors stopping $name
 		else
 			echo -e "${AMBER}postgres flexible-server $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
