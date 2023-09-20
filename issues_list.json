@@ -8,14 +8,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/138"
     },
     {
-        "skip_start_date": "18-09-2023",
-        "skip_end_date": "19-09-2023",
-        "environment": "Preview / Dev",
-        "business_area": "cft",
-        "change_jira_id": "CIV-9603",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/146"
-    },
-    {
         "skip_start_date": "19-09-2023",
         "skip_end_date": "20-09-2023",
         "environment": [
