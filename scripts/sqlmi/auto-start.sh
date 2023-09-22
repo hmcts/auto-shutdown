@@ -9,10 +9,10 @@ do
     do
         ID=$(jq -r '.id' <<< $server)
         NAME=$(jq -r '.name' <<< $server)
-        status=$(az sql managed-instance show  --ids $ID --query "state")
+        status=$(az sql mi show  --ids $ID --query "state")
         if [[  "$status" != *"Ready"* ]]; then
             echo "Starting sql managed-instance show  in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server)  Name: $NAME"
-            az sql managed-instance start --ids $ID --no-wait || echo Ignoring error starting $NAME
+            az sql mi start --ids $ID --no-wait || echo Ignoring error starting $NAME
         fi
     done
 done 

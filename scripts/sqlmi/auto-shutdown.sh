@@ -20,6 +20,8 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 		app_env=$(echo $name | awk -F "-" '{ print $(NF) }')
 		app_env=${app_env/stg/Staging}
 		app_env=${app_env/sbox/Sandbox}
+        app_env=${app_env/dev/Development}
+
 		if [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]]; then
 			business_area="Cross-Cutting"
 		else
@@ -55,8 +57,8 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 		done < <(jq -c '.[]' issues_list.json)
 		if [[ $SKIP == "false" ]]; then
 			echo -e "${GREEN}About to shutdown sqlmi server $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
-			echo -e "${GREEN}az sql managed-instance stop -g $rg -n $name --no-wait"
-			az sql managed-instance stop -g $rg -n $name --no-wait || echo Ignoring errors stopping $name
+			echo -e "${GREEN}az sql mi stop --mi $name -g $rg --subscription $SUBSCRIPTION_NAME --no-wait"
+			az sql mi stop --mi $name -g $rg --subscription $SUBSCRIPTION_NAME --no-wait || echo Ignoring errors stopping $name
 		else
 			echo -e "${AMBER}sql managed-instance $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
