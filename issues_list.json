@@ -6,38 +6,5 @@
         "business_area": "cft",
         "change_jira_id": "skipping demo shutdown for UAT",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/138"
-    },
-    {
-        "skip_start_date": "18-09-2023",
-        "skip_end_date": "19-09-2023",
-        "environment": "Preview / Dev",
-        "business_area": "cft",
-        "change_jira_id": "CIV-9603",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/146"
-    },
-    {
-        "skip_start_date": "19-09-2023",
-        "skip_end_date": "20-09-2023",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5013376",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/147"
-    },
-    {
-        "skip_start_date": "20-09-2023",
-        "skip_end_date": "20-09-2023",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "DFPL-1561 / CHG5013429",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/149"
     }
 ]
