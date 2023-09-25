@@ -1,10 +1,26 @@
 [
     {
-        "skip_start_date": "18-09-2023",
-        "skip_end_date": "21-09-2023",
-        "environment": "Demo",
+        "skip_start_date": "25-09-2023",
+        "skip_end_date": "25-09-2023",
+        "environment": "Test / Perftest",
         "business_area": "cft",
-        "change_jira_id": "skipping demo shutdown for UAT",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/138"
+        "change_jira_id": "N/A",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/152"
+    },
+    {
+        "skip_start_date": "25-09-2023",
+        "skip_end_date": "29-09-2023",
+        "environment": "Preview / Dev",
+        "business_area": "cft",
+        "change_jira_id": "Requested by Robin to be kept on Monday-Friday until we have Preview postgresl change",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/153"
+    },
+    {
+        "skip_start_date": "02-10-2023",
+        "skip_end_date": "06-10-2023",
+        "environment": "Preview / Dev",
+        "business_area": "cft",
+        "change_jira_id": "Requested by Robin to be kept on Monday-Friday until we have Preview postgresl change",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/155"
     }
 ]
