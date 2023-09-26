@@ -60,7 +60,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 		if [[ $SKIP == "false" ]]; then
 			echo -e "${GREEN}About to shutdown flexible server $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
 			echo -e "${GREEN}az storage account update -n $name  -g $rg --no-wait"
-			az storage account update -n $name -g $rg --no-wait --sftp-status Disabled  || echo Ignoring errors stopping $name
+			az storage account update -g $rg -n $name --sftp-status Disabled  || echo Ignoring errors stopping $name
 		else
 			echo -e "${AMBER}storage account $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
