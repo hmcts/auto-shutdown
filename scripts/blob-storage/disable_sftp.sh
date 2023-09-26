@@ -4,7 +4,13 @@ shopt -s nocasematch
 AMBER='\033[1;33m'
 GREEN='\033[0;32m'
 RED='\033[0;31m'
-SUBSCRIPTIONS=$(az account set --subscription "DTS-MANAGEMENT-NONPROD-INTSVC")
+# SUBSCRIPTIONS=$(az account list -o json)
+SUBSCRIPTIONS='[
+  {
+    "id": "b44eb479-9ae2-42e7-9c63-f3c599719b6f",
+    "name": "DTS-MANAGEMENT-NONPROD-INTSVC"
+  }
+]'
 jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 	SUBSCRIPTION_ID=$(jq -r '.id' <<<$subscription)
 	SUBSCRIPTION_NAME=$(jq -r '.name' <<<$subscription)
@@ -20,7 +26,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 		app_env=$(echo $name | awk -F "-" '{ print $(NF) }')
 		app_env=${app_env/stg/Staging}
 		app_env=${app_env/sbox/Sandbox}
-		if [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]] || [[ $SUBSCRIPTION_NAME =~ "DTS-MANAGEMENT-NONPROD-INTSVC" ]]; then
+		if [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]]; then
 			business_area="Cross-Cutting"
 		else
 			business_area="core"
@@ -59,5 +65,4 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 			echo -e "${AMBER}storage account $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
 
-	done
 done
