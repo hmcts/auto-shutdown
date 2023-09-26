@@ -9,7 +9,6 @@ do
     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subcription)
 
     az account set -s $SUBSCRIPTION_ID\
-    # SERVERS=$(az storage account list --query "[?isSftpEnabled]")
 
     SERVERS=$(az storage account list --query "[?tags.autoShutdown == 'true' || isSftpEnabled]")
 
