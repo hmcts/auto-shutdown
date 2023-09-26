@@ -8,7 +8,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subcription
 do
     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subcription)
 
-    az account set -s $SUBSCRIPTION_ID\
+    az account set -s $SUBSCRIPTION_ID
     echo $SUBSCRIPTION_ID
 
     SERVERS=$(az storage account list --query "[?tags.autoShutdown == 'true' && !isSftpEnabled]" -o json)
