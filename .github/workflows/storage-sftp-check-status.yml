@@ -1,4 +1,5 @@
 name: sftp check status
+
 on:
   push:
     branches:
@@ -19,4 +20,4 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: sftp status check
-        run: ./scripts/vm/vmstatus.sh
+        run: ./scripts/blob-storage/sftp_status.sh
