@@ -11,10 +11,10 @@ do
     az account set -s $SUBSCRIPTION_ID
     echo $SUBSCRIPTION_ID
 
-    SERVERS=$(az storage account list --query "[?tags.autoShutdown == 'true' && isSftpEnabled]" -o json)
+    SERVERS=$(az storage account list --query "[?tags.autoShutdown ]" -o json)
 
     jq -c '.[]'<<< $SERVERS | while read server
     do
-            echo -e "${GREEN}status of storage account Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) "
+            echo -e "${GREEN}status of storage account Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) if sftp enabled: $(jq -r '.isSftpEnabled' <<< $server)"
      done
 done
