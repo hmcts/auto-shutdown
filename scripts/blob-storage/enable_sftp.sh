@@ -25,7 +25,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 
 		if [[ $SKIP == "false" ]]; then
 			echo -e "${GREEN}Disabling SFTP on $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
-			az storage account update -g $rg -n $name --enable-sftp=false || echo Ignoring errors Disabling $name
+			az storage account update -g $rg -n $name --enable-sftp=true || echo Ignoring errors Disabling $name
 		else
 			echo -e "${AMBER}storage account $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
