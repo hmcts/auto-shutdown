@@ -20,4 +20,4 @@ jobs:
       - name: disable sftp
         run: ./scripts/blob-storage/disable_sftp.sh
       - name: sftp status check
-        run: ./scripts/blob-storage/sftp_status.sh
+        run: ./scripts/blob-storage/sftp-check-status.sh

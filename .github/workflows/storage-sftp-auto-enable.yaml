@@ -20,4 +20,4 @@ jobs:
       - name: sftp enable
         run: ./scripts/blob-storage/enabled_sftp.sh
       - name: sftp status check
-        run: ./scripts/blob-storage/sftp_status.sh
+        run: ./scripts/blob-storage/sftp-check-status.sh
