@@ -1,10 +1,9 @@
 name: sftp check status
 
 on:
-  push:
-    branches:
-      - DTSPO-15001-Assess-options-for-SFTP-autoshutdown/JiT-provisioning
-
+  workflow_dispatch:
+  schedule:
+    - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
 permissions:
   id-token: write
 jobs:
