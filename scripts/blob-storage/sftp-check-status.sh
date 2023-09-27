@@ -10,7 +10,7 @@ do
 
     az account set -s $SUBSCRIPTION_ID
 
-    SERVERS=$(az storage account list --query "[isSftpEnabled]" -o json)
+    SERVERS=$(az storage account list --query "isSftpEnabled" -o json)
 
     jq -c '.[]'<<< $SERVERS | while read server
     do
