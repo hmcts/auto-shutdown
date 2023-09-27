@@ -16,7 +16,7 @@ jobs:
       - name: "Az CLI login"
         uses: azure/login@v1
         with:
-          client-id: 626041d7-1bf3-46ca-84b6-28b6b0c60efe # DTS AKS Auto-Shutdown
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: sftp status check
