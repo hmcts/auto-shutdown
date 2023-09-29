@@ -17,7 +17,7 @@ jobs:
     if: ${{ github.event.issue.user.login != 'renovate[bot]' }}
     steps:
       - name: Add eyes reaction
-        uses: aidan-mundy/react-to-issue@v1.1.1
+        uses: aidan-mundy/react-to-issue@v1.1.2
         with:
           issue-number: ${{ github.event.issue.number }}
           reactions: eyes
