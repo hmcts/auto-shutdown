@@ -16,14 +16,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/155"
     },
     {
-        "skip_start_date": "26-09-2023",
-        "skip_end_date": "27-09-2023",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/EM-5525",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/158"
-    },
-    {
         "skip_start_date": "11-10-2023",
         "skip_end_date": "11-10-2023",
         "environment": [
@@ -54,5 +46,16 @@
         "business_area": "cft",
         "change_jira_id": "CHG5013493",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/162"
+    },
+    {
+        "skip_start_date": "28-09-2023",
+        "skip_end_date": "28-09-2023",
+        "environment": [
+            "AAT / Staging",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "INC5550338",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/163"
     }
 ]
