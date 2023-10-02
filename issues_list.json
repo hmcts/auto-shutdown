@@ -43,5 +43,13 @@
         "business_area": "cft",
         "change_jira_id": "CHG5013493",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/165"
+    },
+    {
+        "skip_start_date": "02-10-2023",
+        "skip_end_date": "02-10-2023",
+        "environment": "Preview / Dev",
+        "business_area": "cross-cutting",
+        "change_jira_id": "-",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/167"
     }
 ]
