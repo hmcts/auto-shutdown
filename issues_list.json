@@ -19,19 +19,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/159"
     },
     {
-        "skip_start_date": "30-09-2023",
-        "skip_end_date": "02-10-2023",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5013493",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/162"
-    },
-    {
         "skip_start_date": "02-10-2023",
         "skip_end_date": "03-11-2023",
         "environment": "Test / Perftest",
