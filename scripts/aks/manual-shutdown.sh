@@ -36,7 +36,7 @@ function subscription() {
 		PROJECT="ss"
 		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
 	elif [[ $SELECTED_ENV != "Test / Perftest" && $SELECTED_ENV != "Preview / Dev" && $SELECTED_ENV != "AAT / Staging" && $SELECTED_ENV != "PTL" && $SELECTED_ENV != "PLTSBOX" && $PROJECT == "CFT" ]]; then
-		SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
+		SUBSCRIPTION="DCD-CFTAPPS-$SELECTED_ENV"
 	fi
 
     if [[ $INSTANCES == 'All' ]]; then
