@@ -12,13 +12,13 @@ on:
           type: choice
           description: "Environment"
           options:
-          - sbox
-          - test/perftest
-          - ithc
-          - demo
-          - ptlsbox
-          - preview
-          - aat
+         - Sandbox
+         - AAT / Staging
+         - Preview / Dev
+         - Test / Perftest
+         - Demo
+         - ITHC
+         - PTL
         INSTANCES:
           type: choice
           description: "Cluster"
