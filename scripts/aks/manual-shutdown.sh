@@ -1,24 +1,43 @@
 #!/usr/bin/env bash
 
-function subscription () {
-    if [[ $SELECTED_ENV == "test/perftest" && $PROJECT == "SDS" ]]; then
-        PROJECT="ss"
-        SELECTED_ENV="test"
-        SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
-    elif [[ $SELECTED_ENV == "test/perftest" && $PROJECT == "CFT" ]]; then
-        SELECTED_ENV="perftest"
-        SUBSCRIPTION='DCD-CFTAPPS-TEST'
-    elif [[ $SELECTED_ENV == "ptlsbox" && $PROJECT == "SDS" ]]; then
-        PROJECT="ss"
-        SUBSCRIPTION='DTS-SHAREDSERVICESPTL-SBOX'
-    elif [[ $SELECTED_ENV == "ptlsbox" && $PROJECT == "CFT" ]]; then
-        SUBSCRIPTION='DTS-CFTSBOX-INTSVC'
-    elif [[ $SELECTED_ENV != "test/perftest" && $SELECTED_ENV != "ptlsbox" && $PROJECT == "SDS" ]]; then
-        PROJECT="ss"
-        SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
-    elif [[ $SELECTED_ENV != "test/perftest" && $SELECTED_ENV != "ptlsbox" && $PROJECT == "CFT" ]]; then
-        SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
-    fi
+function subscription() {
+	if [[ $SELECTED_ENV =~ "Test / Perftest" && $PROJECT == "SDS" ]]; then
+		PROJECT="ss"
+		SELECTED_ENV="test"
+		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
+	elif [[ $SELECTED_ENV =~ "Test / Perftest" && $PROJECT == "CFT" ]]; then
+		SELECTED_ENV="perftest"
+		SUBSCRIPTION='DCD-CFTAPPS-TEST'
+	elif [[ $SELECTED_ENV =~ "Preview / Dev" && $PROJECT == "SDS" ]]; then
+		PROJECT="ss"
+		SELECTED_ENV="DEV"
+		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
+	elif [[ $SELECTED_ENV =~ "Preview / Dev" && $PROJECT == "CFT" ]]; then
+		SELECTED_ENV="DEV"
+		SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
+	elif [[ $SELECTED_ENV =~ "AAT / Staging" && $PROJECT == "SDS" ]]; then
+		PROJECT="ss"
+		SELECTED_ENV="stg"
+		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
+	elif [[ $SELECTED_ENV =~ "AAT / Staging" && $PROJECT == "CFT" ]]; then
+		SELECTED_ENV="stg"
+		SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
+	elif [[ $SELECTED_ENV =~ "PTLSBOX" && $PROJECT == "SDS" ]]; then
+		PROJECT="ss"
+		SUBSCRIPTION='DTS-SHAREDSERVICESPTL-SBOX'
+	elif [[ $SELECTED_ENV =~ "PLTSBOX" && $PROJECT == "CFT" ]]; then
+		SUBSCRIPTION='DTS-CFTSBOX-INTSVC' 
+	elif [[ $SELECTED_ENV =~ "PTL" && $PROJECT == "CFT" ]]; then
+		SUBSCRIPTION='DTS-CFTPTL-INTSVC'
+	elif [[ $SELECTED_ENV == "PTL" && $PROJECT == "SDS" ]]; then
+		PROJECT="ss"
+		SUBSCRIPTION='DTS-SHAREDSERVICESPTL'
+	elif [[ $SELECTED_ENV != "Test / Perftest" && $SELECTED_ENV != "Preview / Dev" && $SELECTED_ENV != "AAT / Staging" && $SELECTED_ENV != "PTL" && $SELECTED_ENV != "PLTSBOX" && $PROJECT == "SDS" ]]; then
+		PROJECT="ss"
+		SUBSCRIPTION='DTS-SHAREDSERVICES-'$SELECTED_ENV
+	elif [[ $SELECTED_ENV != "Test / Perftest" && $SELECTED_ENV != "Preview / Dev" && $SELECTED_ENV != "AAT / Staging" && $SELECTED_ENV != "PTL" && $SELECTED_ENV != "PLTSBOX" && $PROJECT == "CFT" ]]; then
+		SUBSCRIPTION='DCD-CFTAPPS-'$SELECTED_ENV
+	fi
 
     if [[ $INSTANCES == 'All' ]]; then
         INSTANCES=(00 01)
