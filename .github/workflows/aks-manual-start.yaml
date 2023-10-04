@@ -12,14 +12,14 @@ on:
           type: choice
           description: "Environment"
           options:
-         - Sandbox
-         - AAT / Staging
-         - Preview / Dev
-         - Test / Perftest
-         - Demo
-         - ITHC
-         - PTL
-         - PTLSBOX
+          - Sandbox
+          - AAT / Staging
+          - Preview / Dev
+          - Test / Perftest
+          - Demo
+          - ITHC
+          - PTL
+          - PTLSBOX
         INSTANCES:
           type: choice
           description: "Cluster"
