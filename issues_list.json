@@ -25,5 +25,13 @@
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
+    },
+    {
+        "skip_start_date": "05-10-2023",
+        "skip_end_date": "06-10-2023",
+        "environment": "AAT / Staging",
+        "business_area": "cft",
+        "change_jira_id": "PrL needs to be migrated to new codecept framework asap for which AAT is required to review the work",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/171"
     }
 ]
