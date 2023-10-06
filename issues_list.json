@@ -33,5 +33,16 @@
         "business_area": "cft",
         "change_jira_id": "PrL needs to be migrated to new codecept framework asap for which AAT is required to review the work",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/171"
+    },
+    {
+        "skip_start_date": "07-10-2023",
+        "skip_end_date": "08-10-2023",
+        "environment": [
+            "AAT / Staging",
+            "Demo"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-10947",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/172"
     }
 ]
