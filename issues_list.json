@@ -1,13 +1,5 @@
 [
     {
-        "skip_start_date": "02-10-2023",
-        "skip_end_date": "06-10-2023",
-        "environment": "Preview / Dev",
-        "business_area": "cft",
-        "change_jira_id": "Requested by Robin to be kept on Monday-Friday until we have Preview postgresl change",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/155"
-    },
-    {
         "skip_start_date": "11-10-2023",
         "skip_end_date": "11-10-2023",
         "environment": [
@@ -25,14 +17,6 @@
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
-    },
-    {
-        "skip_start_date": "05-10-2023",
-        "skip_end_date": "06-10-2023",
-        "environment": "AAT / Staging",
-        "business_area": "cft",
-        "change_jira_id": "PrL needs to be migrated to new codecept framework asap for which AAT is required to review the work",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/171"
     },
     {
         "skip_start_date": "07-10-2023",
