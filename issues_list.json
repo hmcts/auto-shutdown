@@ -28,5 +28,18 @@
         "business_area": "cft",
         "change_jira_id": "PrL Automation test coverage work needs to be done against AAT",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/173"
+    },
+    {
+        "skip_start_date": "12-10-2023",
+        "skip_end_date": "13-10-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "Demo",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://mojcppprod.service-now.com/nav_to.do?uri=%2Fchange_request.do%3Fsys_id%3De3b6c76b1b29b15c6226da88b04bcb27",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/174"
     }
 ]
