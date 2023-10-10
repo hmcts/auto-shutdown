@@ -17,5 +17,16 @@
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
+    },
+    {
+        "skip_start_date": "10-10-2023",
+        "skip_end_date": "11-10-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "PrL Automation test coverage work needs to be done against AAT",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/173"
     }
 ]
