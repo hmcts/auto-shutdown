@@ -54,5 +54,17 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-7581\n\n\nCHG5013591:\nhttps://mojcppprod.service-now.com/nav_to.do?uri=%2Fchange_request.do%3Fsys_id%3De3b6c76b1b29b15c6226da88b04bcb27",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/174"
+    },
+    {
+        "skip_start_date": "21-10-2023",
+        "skip_end_date": "22-10-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "Demo"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-10947",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/175"
     }
 ]
