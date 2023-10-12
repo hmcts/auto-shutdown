@@ -1,33 +1,11 @@
 [
     {
-        "skip_start_date": "11-10-2023",
-        "skip_end_date": "11-10-2023",
-        "environment": [
-            "AAT / Staging",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "RR-3278 - CCD 31.1.0 (Cache move to Caffeine) Release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/159"
-    },
-    {
         "skip_start_date": "02-10-2023",
         "skip_end_date": "03-11-2023",
         "environment": "Test / Perftest",
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
-    },
-    {
-        "skip_start_date": "10-10-2023",
-        "skip_end_date": "11-10-2023",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PrL Automation test coverage work needs to be done against AAT",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/173"
     },
     {
         "skip_start_date": "12-10-2023",
