@@ -43,6 +43,13 @@ function ts_echo() {
 	date +"%H:%M:%S $(printf "%s " "$@")"
 }
 
+MODE=${1:-start}
+
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+    echo "Invalid MODE. Please use 'start' or 'stop'."
+    exit 1
+fi
+
 subscription
 for INSTANCE in ${INSTANCES[@]}; do
 	CLUSTERS=$(az resource list \
@@ -51,10 +58,10 @@ for INSTANCE in ${INSTANCES[@]}; do
 	jq -c '.[]' <<<$CLUSTERS | while read cluster; do
 		cluster
 
-		ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
-		az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME
+		ts_echo "About to $MODE cluster $NAME (rg:$RESOURCE_GROUP)"
+		az aks $MODE --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors while doing $MODE operation on cluster $NAME
 
-		ts_echo "Waiting 2 mins to give clusters time to start before testing pods"
+		ts_echo "Waiting 2 mins to give clusters time to $MODE before testing pods"
 		sleep 120
 		ts_echo $NAME
 		RESULT=$(az aks show --name $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
