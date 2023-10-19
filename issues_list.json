@@ -18,5 +18,17 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-10947",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/175"
+    },
+    {
+        "skip_start_date": "19-10-2023",
+        "skip_end_date": "19-10-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "DFPL-1561",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/179"
     }
 ]
