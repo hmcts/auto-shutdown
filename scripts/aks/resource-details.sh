@@ -9,6 +9,7 @@ business_area_entry=$(jq -r '. | last | .business_area' issues_list.json)
 #declare associative array
 declare -A sku_sizes
 
+source scripts/aks/set-subscription.sh
 #Function to add SKU and node count to array.
 #Create new entry if SKU does not already exist. Update entry if SKU already exists in array.
 function countSku() {
@@ -66,49 +67,13 @@ function get_costs() {
 #Set subscription based on user entry.
 #If statements used to deal with subscription naming convention and enviornment dropdown values. Eg "AAT / Staging"
 while read i; do
+    PROJECT="CFT"
     if [[ $business_area_entry =~ "Cross-Cutting" ]]; then
-        echo "processing $i in $business_area_entry"
-        if [[ $i =~ "Staging" ]]; then
-            az account set --name DTS-SHAREDSERVICES-STG
-            get_costs
-        elif [[ $i =~ "dev" ]]; then
-            az account set --name DTS-SHAREDSERVICES-DEV
-            get_costs
-        elif [[ $i =~ "test" ]]; then
-            az account set --name DTS-SHAREDSERVICES-TEST
-            get_costs
-        elif [[ $i =~ "sandbox" ]]; then
-            az account set --name DTS-SHAREDSERVICES-SBOX
-            get_costs
-        elif [[ $i == "ptl" ]]; then
-            az account set --name DTS-SHAREDSERVICESPTL
-            get_costs
-        else
-            az account set --name DTS-SHAREDSERVICES-$i
-            get_costs
-        fi
-    elif [[ $business_area_entry =~ "CFT" ]]; then
-        echo "processing $i"
-        if [[ $i =~ "AAT" ]]; then
-            az account set --name DCD-CFTAPPS-STG
-            get_costs
-        elif [[ $i =~ "Preview" ]]; then
-            az account set --name DCD-CFTAPPS-DEV
-            get_costs
-        elif [[ $i =~ "Perftest" ]]; then
-            az account set --name DCD-CFTAPPS-TEST
-            get_costs
-        elif [[ $i =~ "Sandbox" ]]; then
-            az account set --name DCD-CFTAPPS-SBOX
-            get_costs
-        elif [[ $i == "ptl" ]]; then
-            az account set --name DTS-CFTPTL-INTSVC
-            get_costs
-        else
-            az account set --name DCD-CFTAPPS-$i
-            get_costs
-        fi
+        PROJECT="SDS"
     fi
+    SELECTED_ENV=$i
+    subscription
+    get_costs
 done < <(jq -r 'last | .environment[]' issues_list.json || jq -r 'last | .environment' issues_list.json)
 
 #Add GitHub env vars
