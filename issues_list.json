@@ -1,61 +1,22 @@
 [
     {
-        "skip_start_date": "25-09-2023",
-        "skip_end_date": "29-09-2023",
-        "environment": "Preview / Dev",
-        "business_area": "cft",
-        "change_jira_id": "Requested by Robin to be kept on Monday-Friday until we have Preview postgresl change",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/153"
-    },
-    {
         "skip_start_date": "02-10-2023",
-        "skip_end_date": "06-10-2023",
-        "environment": "Preview / Dev",
-        "business_area": "cft",
-        "change_jira_id": "Requested by Robin to be kept on Monday-Friday until we have Preview postgresl change",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/155"
+        "skip_end_date": "03-11-2023",
+        "environment": "Test / Perftest",
+        "business_area": "cross-cutting",
+        "change_jira_id": "DTSPO-15384",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
     },
     {
-        "skip_start_date": "11-10-2023",
-        "skip_end_date": "11-10-2023",
-        "environment": [
-            "AAT / Staging",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "RR-3278 - CCD 31.1.0 (Cache move to Caffeine) Release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/159"
-    },
-    {
-        "skip_start_date": "27-09-2023",
-        "skip_end_date": "28-09-2023",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/EM-5525",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/160"
-    },
-    {
-        "skip_start_date": "30-09-2023",
-        "skip_end_date": "02-10-2023",
+        "skip_start_date": "21-10-2023",
+        "skip_end_date": "22-10-2023",
         "environment": [
             "AAT / Staging",
             "Preview / Dev",
-            "Demo",
-            "PTL"
+            "Demo"
         ],
         "business_area": "cft",
-        "change_jira_id": "CHG5013493",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/162"
-    },
-    {
-        "skip_start_date": "28-09-2023",
-        "skip_end_date": "28-09-2023",
-        "environment": [
-            "AAT / Staging",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "INC5550338",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/163"
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-10947",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/175"
     }
 ]
