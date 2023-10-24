@@ -1,29 +1,23 @@
 [
     {
         "skip_start_date": "02-10-2023",
-        "skip_end_date": "06-10-2023",
-        "environment": "Preview / Dev",
-        "business_area": "cft",
-        "change_jira_id": "Requested by Robin to be kept on Monday-Friday until we have Preview postgresl change",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/155"
-    },
-    {
-        "skip_start_date": "11-10-2023",
-        "skip_end_date": "11-10-2023",
-        "environment": [
-            "AAT / Staging",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "RR-3278 - CCD 31.1.0 (Cache move to Caffeine) Release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/159"
-    },
-    {
-        "skip_start_date": "02-10-2023",
         "skip_end_date": "03-11-2023",
         "environment": "Test / Perftest",
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
+    },
+    {
+        "skip_start_date": "24-10-2023",
+        "skip_end_date": "25-10-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "Demo",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5013849",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/184"
     }
 ]

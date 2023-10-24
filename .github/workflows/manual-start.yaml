@@ -46,7 +46,7 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: AKS Manual Start in ${{ inputs.PROJECT }} ${{ inputs.SELECTED_ENV }} Environment 
-        run: ./scripts/aks/manual-start.sh 
+        run: ./scripts/aks/manual-start-stop.sh start
   appgateway:
     runs-on: ubuntu-latest
     steps:
