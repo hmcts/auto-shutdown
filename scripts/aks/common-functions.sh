@@ -8,7 +8,7 @@ function subscription() {
 
 function cluster() {
     RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
-    NAME=$(jq -r '.name' <<< $cluster)
+    CLUSTER_NAME=$(jq -r '.name' <<< $cluster)
 }
 
 function ts_echo() {
@@ -50,14 +50,14 @@ function check_cluster_status() {
         fi
     done
 
-    ts_echo "Test that $APP works in $ENVIRONMENT after $NAME start-up"
+    ts_echo "Test that $APP works in $ENVIRONMENT after $CLUSTER_NAME start-up"
 
     statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APPLICATION.platform.hmcts.net)
 
     if [[ ("$ENVIRONMENT" == "demo" || $statuscode -eq 200) ]]; then
-        notification "#aks-monitor-$ENV" "$APP works in $ENVIRONMENT after $NAME start-up"
+        notification "#aks-monitor-$ENV" "$APP works in $ENVIRONMENT after $CLUSTER_NAME start-up"
     else
-        message="$APP does not work in $ENVIRONMENT after $NAME start-up. Please check cluster."
+        message="$APP does not work in $ENVIRONMENT after $CLUSTER_NAME start-up. Please check cluster."
         ts_echo "$message"
         notification "#green-daily-checks" "$message"
         notification "#aks-monitor-$ENV" "$message"
