@@ -40,6 +40,18 @@ function check_cluster_status() {
         "staging/plum:plum.aat"
     )
 
+    local -A notify_channel_map=(
+      [sandbox]="sbox"
+      [testing]="perftest"
+      [staging]="aat"
+    )
+
+    if [ -n "${notify_channel_map[$ENVIRONMENT]}" ]; then
+      SLACK_CHANNEL_SUFFIX="${notify_channel_map[$ENVIRONMENT]}"
+    else
+      SLACK_CHANNEL_SUFFIX="$ENVIRONMENT"
+    fi
+
     for variant in "${env_variants[@]}"; do
         parts=(${variant//:/ })
         if [[ "$ENVIRONMENT/$APP" == "${parts[0]}" ]]; then
@@ -55,12 +67,12 @@ function check_cluster_status() {
     statuscode=$(curl --max-time 30 --retry 20 --retry-delay 15 -s -o /dev/null -w "%{http_code}"  https://$APPLICATION.platform.hmcts.net)
 
     if [[ ("$ENVIRONMENT" == "demo" || $statuscode -eq 200) ]]; then
-        notification "#aks-monitor-$ENV" "$APP works in $ENVIRONMENT after $CLUSTER_NAME start-up"
+        notification "#aks-monitor-$SLACK_CHANNEL_SUFFIX" "$APP works in $ENVIRONMENT after $CLUSTER_NAME start-up"
     else
         message="$APP does not work in $ENVIRONMENT after $CLUSTER_NAME start-up. Please check cluster."
         ts_echo "$message"
         notification "#green-daily-checks" "$message"
-        notification "#aks-monitor-$ENV" "$message"
+        notification "#aks-monitor-$SLACK_CHANNEL_SUFFIX" "$message"
     fi
 }
 
