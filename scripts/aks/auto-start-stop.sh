@@ -6,7 +6,6 @@ GREEN='\033[0;32m'
 source scripts/aks/common-functions.sh
 
 MODE=${1:-start}
-registrySlackWebhook=$2
 SKIP="false"
 
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
@@ -36,18 +35,3 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     fi
   done
 done
-
-if [[ $MODE == "start" ]]; then
-  echo "Waiting 10 mins to give clusters time to start before testing pods"
-  sleep 600
-
-  jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-      subscription
-      jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-          cluster
-          check_cluster_status
-          POWER_STATE=$(az aks show --name  $CLUSTER_NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
-          ts_echo "cluster: $CLUSTER_NAME, Power State : ${POWER_STATE}"
-      done
-  done
-fi
