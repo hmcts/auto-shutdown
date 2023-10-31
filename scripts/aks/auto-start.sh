@@ -9,8 +9,8 @@ function process_clusters() {
         subscription
         jq -c '.[]' <<< $CLUSTERS | while read cluster; do
             cluster
-            ts_echo "About to start cluster $NAME (rg:$RESOURCE_GROUP)"
-            az aks start --resource-group $RESOURCE_GROUP --name $NAME --no-wait || ts_echo Ignoring any errors starting cluster $NAME
+            ts_echo "About to start cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
+            az aks start --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || ts_echo Ignoring any errors starting cluster $CLUSTER_NAME
         done
     done
 
@@ -22,8 +22,8 @@ function process_clusters() {
         jq -c '.[]' <<< $CLUSTERS | while read cluster; do
             cluster
             check_cluster_status
-            POWER_STATE=$(az aks show --name  $NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
-            ts_echo "cluster: $NAME, Power State : ${RESULT}"
+            POWER_STATE=$(az aks show --name  $CLUSTER_NAME -g $RESOURCE_GROUP | jq -r .powerState.code)
+            ts_echo "cluster: $CLUSTER_NAME, Power State : ${RESULT}"
         done
       done
 }
