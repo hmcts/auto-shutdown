@@ -1,14 +1,15 @@
 #!/bin/bash
 
-function subscription() {
+function get_subscription_clusters() {
     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
     az account set -s $SUBSCRIPTION_ID
     CLUSTERS=$(az resource list --resource-type Microsoft.ContainerService/managedClusters --query "[?tags.autoShutdown == 'true']" -o json)
 }
 
-function cluster() {
+function get_cluster_details() {
     RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
     CLUSTER_NAME=$(jq -r '.name' <<< $cluster)
+    CLUSTER_STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $cluster)
 }
 
 function ts_echo() {
@@ -95,17 +96,25 @@ function is_in_date_range() {
   fi
 }
 
-function should_skip_shutdown() {
-  local cluster_env cluster_business_area id
+function should_skip_start_stop () {
+  local cluster_env cluster_business_area issue
   cluster_env=$1
   cluster_business_area=$2
-  while read id; do
+  mode=$3
+  while read issue; do
     local env_entry business_area_entry start_date end_date
-    env_entry=$(jq -r '."environment"' <<< $id)
-    business_area_entry=$(jq -r '."business_area"' <<< $id)
-    start_date=$(jq -r '."skip_start_date"' <<< $id)
-    end_date=$(jq -r '."skip_end_date"' <<< $id)
+    env_entry=$(jq -r '."environment"' <<< $issue)
+    business_area_entry=$(jq -r '."business_area"' <<< $issue)
+    start_date=$(jq -r '."skip_start_date"' <<< $issue)
+    end_date=$(jq -r '."skip_end_date"' <<< $issue)
+    get_request_type $issue
 
+    if [[ $request_type != $mode ]]; then
+      continue
+    fi
+    if [[ $CLUSTER_STARTUP_MODE != "onDemand" && $request_type == "start" ]]; then
+      continue
+    fi
     if [[ $env_entry =~ $cluster_env && $cluster_business_area == $business_area_entry ]]; then
       if [[ $start_date == $(date +'%d-%m-%Y') ]]; then
         continue
@@ -117,4 +126,14 @@ function should_skip_shutdown() {
   done < <(jq -c '.[]' issues_list.json)
 
   echo "false"
+}
+
+get_request_type() {
+  local issue=${1}
+  request_type=$(jq -r '."requesttype"' <<< $issue | tr '[:upper:]' '[:lower:]')
+  if [[ $request_type == *"start"* ]]; then
+    request_type="start"
+  else
+    request_type="stop"
+  fi
 }

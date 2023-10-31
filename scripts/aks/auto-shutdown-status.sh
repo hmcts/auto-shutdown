@@ -11,10 +11,10 @@ registrySlackWebhook=$2
 
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-    subscription
+    get_subscription_clusters
 
 jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-    cluster
+    get_cluster_details
     cluster_data=$(az aks show -n $CLUSTER_NAME -g $RESOURCE_GROUP -o json)
     cluster_status=$(jq -r '.powerState.code' <<< "$cluster_data")
 
