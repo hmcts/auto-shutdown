@@ -1,15 +1,15 @@
 [
     {
-        "skip_start_date": "2023-10-02",
-        "skip_end_date": "2023-11-03",
+        "skip_start_date": "02-10-2023",
+        "skip_end_date": "03-11-2023",
         "environment": "Test / Perftest",
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
     },
     {
-        "skip_start_date": "2023-10-26",
-        "skip_end_date": "2023-11-25",
+        "skip_start_date": "26-10-2023",
+        "skip_end_date": "25-11-2023",
         "environment": [
             "AAT / Staging",
             "Preview / Dev",
