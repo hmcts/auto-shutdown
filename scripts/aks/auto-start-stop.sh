@@ -6,7 +6,7 @@ GREEN='\033[0;32m'
 source scripts/aks/common-functions.sh
 
 MODE=${1:-start}
-registrySlackWebhook=$1
+registrySlackWebhook=$2
 SKIP="false"
 
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
