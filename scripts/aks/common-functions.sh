@@ -101,6 +101,11 @@ function should_skip_start_stop () {
   cluster_env=$1
   cluster_business_area=$2
   mode=$3
+  # If the cluster is not onDemand we don't need to check the file issues_list.json for startup
+  if [[ $CLUSTER_STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
+    echo "false"
+    return
+  fi
   while read issue; do
     local env_entry business_area_entry start_date end_date
     env_entry=$(jq -r '."environment"' <<< $issue)
@@ -108,22 +113,27 @@ function should_skip_start_stop () {
     start_date=$(jq -r '."skip_start_date"' <<< $issue)
     end_date=$(jq -r '."skip_end_date"' <<< $issue)
     get_request_type "$issue"
-    
+
     if [[ $request_type != $mode ]]; then
-      continue
-    fi
-    if [[ $CLUSTER_STARTUP_MODE != "onDemand" && $request_type == "start" ]]; then
       continue
     fi
     if [[ $env_entry =~ $cluster_env && $cluster_business_area == $business_area_entry ]]; then
       if [[ $(is_in_date_range $start_date $end_date) == "true" ]]; then
-        echo "true"
+        if [[ $mode == "stop" ]]; then
+          echo "true"
+        else
+          echo "false"
+        fi
         return
       fi
     fi
   done < <(jq -c '.[]' issues_list.json)
-
-  echo "false"
+# If its onDemand cluster and there are no issues matching above we should skip startup
+  if [[ $CLUSTER_STARTUP_MODE == "onDemand" && $mode == "start" ]]; then
+    echo "true"
+  else
+    echo "false"
+  fi
 }
 
 get_request_type() {
