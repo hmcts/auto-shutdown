@@ -80,13 +80,13 @@ function check_cluster_status() {
 function get_current_date_seconds() {
   local current_date_formatting
   current_date_formatting=$(date +'%Y-%m-%d')
-  date -d "$current_date_formatting 00:00:00" +%s
+  gdate -d "$current_date_formatting 00:00:00" +%s
 }
 
 function is_in_date_range() {
   local start_date_seconds end_date_seconds current_date_seconds
-  start_date_seconds=$(date -d "$1 00:00:00" +%s)
-  end_date_seconds=$(date -d "$2 00:00:00" +%s)
+  start_date_seconds=$(gdate -d "$1 00:00:00" +%s)
+  end_date_seconds=$(gdate -d "$2 00:00:00" +%s)
   current_date_seconds=$(get_current_date_seconds)
 
   if [[ $current_date_seconds -ge $start_date_seconds && $current_date_seconds -le $end_date_seconds ]]; then
@@ -108,7 +108,7 @@ function should_skip_start_stop () {
     start_date=$(jq -r '."skip_start_date"' <<< $issue)
     end_date=$(jq -r '."skip_end_date"' <<< $issue)
     get_request_type $issue
-
+    
     if [[ $request_type != $mode ]]; then
       continue
     fi
@@ -116,7 +116,7 @@ function should_skip_start_stop () {
       continue
     fi
     if [[ $env_entry =~ $cluster_env && $cluster_business_area == $business_area_entry ]]; then
-      if [[ $start_date == $(date +'%d-%m-%Y') ]]; then
+      if [[ $start_date == $(date +'%Y-%m-%d') ]]; then
         continue
       fi
       if [[ $(is_in_date_range $start_date $end_date) == "true" ]]; then
