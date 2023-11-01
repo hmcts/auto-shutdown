@@ -116,11 +116,9 @@ function should_skip_start_stop () {
       continue
     fi
     if [[ $env_entry =~ $cluster_env && $cluster_business_area == $business_area_entry ]]; then
-      if [[ $start_date == $(date +'%Y-%m-%d') ]]; then
-        continue
-      fi
       if [[ $(is_in_date_range $start_date $end_date) == "true" ]]; then
-        continue
+        echo "true"
+        return
       fi
     fi
   done < <(jq -c '.[]' issues_list.json)
