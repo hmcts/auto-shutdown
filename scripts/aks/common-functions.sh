@@ -107,7 +107,7 @@ function should_skip_start_stop () {
     business_area_entry=$(jq -r '."business_area"' <<< $issue)
     start_date=$(jq -r '."skip_start_date"' <<< $issue)
     end_date=$(jq -r '."skip_end_date"' <<< $issue)
-    get_request_type $issue
+    get_request_type "$issue"
     
     if [[ $request_type != $mode ]]; then
       continue
