@@ -27,3 +27,4 @@ jq -c '.[]' <<< $CLUSTERS | while read cluster; do
       check_cluster_status
     fi
 done
+done
