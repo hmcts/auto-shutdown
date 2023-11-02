@@ -15,17 +15,17 @@ fi
 
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-  subscription
+  get_subscription_clusters
   jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-    cluster
+    get_cluster_details
     cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
     cluster_env=${cluster_env/#sbox/Sandbox}
     cluster_env=${cluster_env/stg/Staging}
     cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
     cluster_business_area=${cluster_business_area/ss/cross-cutting}
-    if [[ $MODE == "stop" ]]; then
-      SKIP=$(should_skip_shutdown $cluster_env $cluster_business_area)
-    fi
+
+    SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
+
     if [[ $SKIP == "false" ]]; then
       echo -e "${GREEN}About to run $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
       echo az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster
