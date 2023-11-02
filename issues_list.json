@@ -8,14 +8,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
     },
     {
-        "skip_start_date": "01-11-2023",
-        "skip_end_date": "01-11-2023",
-        "environment": "Test / Perftest",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-6155",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/195"
-    },
-    {
         "skip_start_date": "02-11-2023",
         "skip_end_date": "03-11-2023",
         "environment": [
