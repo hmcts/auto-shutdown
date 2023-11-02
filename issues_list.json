@@ -32,7 +32,6 @@
         "environment": [
             "AAT / Staging",
             "Preview / Dev",
-            "Demo",
             "PTL"
         ],
         "business_area": "cft",
