@@ -28,7 +28,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
 
     if [[ $SKIP == "false" ]]; then
-      if [[ $DRYRUN == "false" ]]; then
+      if [[ $DRYRUN != "true" ]]; then
         echo -e "${GREEN}About to run $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
       fi
       echo -e "${GREEN}About to run $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
