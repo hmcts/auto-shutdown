@@ -7,7 +7,6 @@ source scripts/aks/common-functions.sh
 
 MODE=${1:-start}
 SKIP="false"
-DRYRUN="false"
 
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     echo "Invalid MODE. Please use 'start' or 'stop'."
