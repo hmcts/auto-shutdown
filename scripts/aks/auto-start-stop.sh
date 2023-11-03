@@ -28,7 +28,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
     if [[ $SKIP == "false" ]]; then
       if [[ $DRYRUN != "true" ]]; then
-        echo -e "${GREEN}About to run $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
+        az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster
       fi
       echo -e "${GREEN}About to run $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
       echo az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster
