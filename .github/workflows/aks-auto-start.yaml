@@ -1,6 +1,11 @@
 name: aks-auto-start
 on:
   workflow_dispatch:
+    inputs:
+      DRYRUN:
+        options:
+          - "false"
+          - "true"
   schedule:
     - cron: '30 6 * * 1-5' # Every weekday at 6:30am BST
 permissions:
