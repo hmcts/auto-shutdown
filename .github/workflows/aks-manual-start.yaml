@@ -27,6 +27,10 @@ on:
           - All
           - "00"
           - "01"
+      DRYRUN:
+        options:
+          - "false"
+          - "true"
 env:
   PROJECT: ${{ inputs.PROJECT }}
   SELECTED_ENV: ${{ inputs.SELECTED_ENV }}

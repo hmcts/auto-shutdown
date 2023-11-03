@@ -79,7 +79,7 @@ function check_cluster_status() {
 
 function get_current_date_seconds() {
   local current_date_formatting
-  current_date_formatting=$(date +'%Y-%m-%d')
+  current_date_formatting=$(date +'%d-%m-%Y')
   date -d "$current_date_formatting 00:00:00" +%s
 }
 
