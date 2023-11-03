@@ -27,7 +27,6 @@ on:
           - All
           - "00"
           - "01"
-
 env:
   PROJECT: ${{ inputs.PROJECT }}
   SELECTED_ENV: ${{ inputs.SELECTED_ENV }}
