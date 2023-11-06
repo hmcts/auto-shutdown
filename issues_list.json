@@ -1,15 +1,10 @@
 [
     {
-        "skip_start_date": "03-11-2023",
-        "skip_end_date": "05-11-2023",
-        "environment": [
-            "Sandbox",
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "INC5522905 - SNI-4171",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/200"
+        "skip_start_date": "02-10-2023",
+        "skip_end_date": "10-11-2023",
+        "environment": "Test / Perftest",
+        "business_area": "cross-cutting",
+        "change_jira_id": "DTSPO-15384",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
     }
 ]
