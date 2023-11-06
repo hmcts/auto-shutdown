@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Check platform
 platform=$(uname)
 
@@ -89,14 +88,21 @@ function check_cluster_status() {
 
 function get_current_date_seconds() {
   local current_date_formatting
-  current_date_formatting=$(date +'%d-%m-%Y')
+  current_date_formatting=$($date_command +'%Y-%m-%d')
   $date_command -d "$current_date_formatting 00:00:00" +%s
+}
+
+function convert_date_to_timestamp() {
+    IFS='-' read -r day month year <<< "$1"
+    local valid_date="$year-$month-$day"
+    local timestamp=$($date_command -d "$valid_date" +%s)
+    echo "$timestamp"
 }
 
 function is_in_date_range() {
   local start_date_seconds end_date_seconds current_date_seconds
-  start_date_seconds=$($date_command -d "$1 00:00:00" +%s)
-  end_date_seconds=$($date_command -d "$2 00:00:00" +%s)
+  start_date_seconds=$(convert_date_to_timestamp "$1")
+  end_date_seconds=$(convert_date_to_timestamp "$2")
   current_date_seconds=$(get_current_date_seconds)
 
   if [[ $current_date_seconds -ge $start_date_seconds && $current_date_seconds -le $end_date_seconds ]]; then
