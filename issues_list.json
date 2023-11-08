@@ -6,5 +6,20 @@
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
+    },
+    {
+        "skip_start_date": "13-11-2023",
+        "skip_end_date": "13-11-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "Test / Perftest",
+            "Demo",
+            "ITHC",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-1433",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/208"
     }
 ]
