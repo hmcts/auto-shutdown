@@ -32,5 +32,17 @@
         "business_area": "cft",
         "change_jira_id": "CHG5013995",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/209"
+    },
+    {
+        "skip_start_date": "10-11-2023",
+        "skip_end_date": "13-11-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "DTSPB-3819",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/210"
     }
 ]
