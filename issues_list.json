@@ -35,7 +35,7 @@
     },
     {
         "skip_start_date": "10-11-2023",
-        "skip_end_date": "13-11-2023",
+        "skip_end_date": "11-11-2023",
         "environment": [
             "AAT / Staging",
             "Preview / Dev",
