@@ -34,7 +34,7 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/209"
     },
     {
-        "skip_start_date": "10-11-2023",
+        "skip_start_date": "09-11-2023",
         "skip_end_date": "11-11-2023",
         "environment": [
             "AAT / Staging",
