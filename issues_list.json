@@ -21,5 +21,16 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-1433",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/208"
+    },
+    {
+        "skip_start_date": "09-11-2023",
+        "skip_end_date": "10-11-2023",
+        "environment": [
+            "AAT / Staging",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5013995",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/209"
     }
 ]
