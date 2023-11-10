@@ -64,5 +64,16 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-11487 https://tools.hmcts.net/jira/browse/CIV-11516 https://tools.hmcts.net/jira/browse/CIV-11513 https://tools.hmcts.net/jira/browse/CIV-11514 https://tools.hmcts.net/jira/browse/CIV-11517 https://tools.hmcts.net/jira/browse/CIV-10441",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/215"
+    },
+    {
+        "skip_start_date": "10-11-2023",
+        "skip_end_date": "13-11-2023",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-11487 https://tools.hmcts.net/jira/browse/CIV-11516 https://tools.hmcts.net/jira/browse/CIV-11513 https://tools.hmcts.net/jira/browse/CIV-11514 https://tools.hmcts.net/jira/browse/CIV-11517 https://tools.hmcts.net/jira/browse/CIV-10441",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/216"
     }
 ]
