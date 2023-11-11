@@ -1,13 +1,5 @@
 [
     {
-        "skip_start_date": "02-10-2023",
-        "skip_end_date": "10-11-2023",
-        "environment": "Test / Perftest",
-        "business_area": "cross-cutting",
-        "change_jira_id": "DTSPO-15384",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168"
-    },
-    {
         "skip_start_date": "13-11-2023",
         "skip_end_date": "13-11-2023",
         "environment": [
@@ -21,17 +13,6 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-1433",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/208"
-    },
-    {
-        "skip_start_date": "09-11-2023",
-        "skip_end_date": "10-11-2023",
-        "environment": [
-            "AAT / Staging",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5013995",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/209"
     },
     {
         "skip_start_date": "09-11-2023",
@@ -75,13 +56,5 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-11487 https://tools.hmcts.net/jira/browse/CIV-11516 https://tools.hmcts.net/jira/browse/CIV-11513 https://tools.hmcts.net/jira/browse/CIV-11514 https://tools.hmcts.net/jira/browse/CIV-11517 https://tools.hmcts.net/jira/browse/CIV-10441",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/216"
-    },
-    {
-        "skip_start_date": "10-11-2023",
-        "skip_end_date": "10-11-2023",
-        "environment": "Test / Perftest",
-        "business_area": "cft",
-        "change_jira_id": "N/A",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/217"
     }
 ]
