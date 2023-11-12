@@ -15,18 +15,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/208"
     },
     {
-        "skip_start_date": "09-11-2023",
-        "skip_end_date": "11-11-2023",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "DTSPB-3819",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/210"
-    },
-    {
         "skip_start_date": "10-11-2023",
         "skip_end_date": "12-11-2023",
         "environment": [
