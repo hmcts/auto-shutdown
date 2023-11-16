@@ -38,5 +38,13 @@
         "business_area": "cft",
         "change_jira_id": "CCD-4822",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/221"
+    },
+    {
+        "skip_start_date": "16-11-2023",
+        "skip_end_date": "16-11-2023",
+        "environment": "PTL",
+        "business_area": "cft",
+        "change_jira_id": "CCD-4822",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/222"
     }
 ]
