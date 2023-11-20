@@ -154,10 +154,9 @@ function should_skip_start_stop () {
 
 get_request_type() {
   local issue=${1}
-  request_type=$(jq -r '."requesttype"' <<< $issue | tr '[:upper:]' '[:lower:]')
-  if [[ $request_type == *"start"* ]]; then
-    request_type="start"
-  else
+  request_type=$(jq -r '."request_type"' <<< $issue | tr '[:upper:]' '[:lower:]')
+  # default to stop if not defined
+  if [[ -z $request_type || $request_type == "null" ]]; then
     request_type="stop"
   fi
 }
