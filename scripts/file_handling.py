@@ -8,8 +8,8 @@ listObj = []
 filepath = "issues_list.json"
 new_data = json.loads(os.environ.get("NEW_DATA", "{}"))
 # Check if "Skip shutdown start date" is None or empty
-skip_shutdown_start_date = new_data.pop("Skip shutdown start date")
-if skip_shutdown_start_date is None or skip_shutdown_start_date == "":
+skip_shutdown_start_date = new_data.get("Skip shutdown start date", None)
+if skip_shutdown_start_date is None:
     new_data["start_date"] = new_data.pop("On Demand start date")
     new_data["end_date"] = new_data.pop("On Demand end date")
     new_data["request_type"] = "start"
