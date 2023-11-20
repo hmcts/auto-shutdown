@@ -7,8 +7,16 @@ from dateutil.parser import parse
 listObj = []
 filepath = "issues_list.json"
 new_data = json.loads(os.environ.get("NEW_DATA", "{}"))
-new_data["start_date"] = new_data.pop("Skip shutdown start date")
-new_data["end_date"] = new_data.pop("Skip shutdown end date")
+# Check if "Skip shutdown start date" is None or empty
+skip_shutdown_start_date = new_data.pop("Skip shutdown start date")
+if skip_shutdown_start_date is None or skip_shutdown_start_date == "":
+    new_data["start_date"] = new_data.pop("On Demand start date")
+    new_data["end_date"] = new_data.pop("On Demand end date")
+    new_data["request_type"] = "start"
+else:
+    new_data["start_date"] = skip_shutdown_start_date
+    new_data["end_date"] = new_data.pop("Skip shutdown end date")
+    new_data["request_type"] = "stop"
 new_data["environment"] = new_data.pop("Environment")
 new_data["business_area"] = new_data.pop("Business area")
 new_data["change_jira_id"] = new_data.pop("Change or Jira reference")
