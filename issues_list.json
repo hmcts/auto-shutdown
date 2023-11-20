@@ -17,5 +17,17 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-5014 https://tools.hmcts.net/jira/browse/CCD-4990 https://tools.hmcts.net/jira/browse/CCD-4837",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/226"
+    },
+    {
+        "start_date": "22-11-2023",
+        "end_date": "23-11-2023",
+        "request_type": "start",
+        "environment": [
+            "Test / Perftest",
+            "Demo"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "Ignore-it",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/228"
     }
 ]
