@@ -126,8 +126,8 @@ function should_skip_start_stop () {
     local env_entry business_area_entry start_date end_date
     env_entry=$(jq -r '."environment"' <<< $issue)
     business_area_entry=$(jq -r '."business_area"' <<< $issue)
-    start_date=$(jq -r '."skip_start_date"' <<< $issue)
-    end_date=$(jq -r '."skip_end_date"' <<< $issue)
+    start_date=$(jq -r '."start_date"' <<< $issue)
+    end_date=$(jq -r '."end_date"' <<< $issue)
     get_request_type "$issue"
 
     if [[ $request_type != $mode ]]; then
