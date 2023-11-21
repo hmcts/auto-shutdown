@@ -52,5 +52,15 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/LAU-720",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/231"
+    },
+    {
+        "Skip shutdown start date": "21-11-2023",
+        "start_date": "21-11-2023",
+        "end_date": "22-11-2023",
+        "request_type": "stop",
+        "environment": "PTL",
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/LAU-720",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/232"
     }
 ]
