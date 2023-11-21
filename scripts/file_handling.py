@@ -14,7 +14,7 @@ if skip_shutdown_start_date is None:
     new_data["end_date"] = new_data.pop("On Demand end date")
     new_data["request_type"] = "start"
 else:
-    new_data["start_date"] = skip_shutdown_start_date
+    new_data["start_date"] = new_data.pop("Skip shutdown start date")
     new_data["end_date"] = new_data.pop("Skip shutdown end date")
     new_data["request_type"] = "stop"
 new_data["environment"] = new_data.pop("Environment")
