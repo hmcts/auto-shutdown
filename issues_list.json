@@ -31,15 +31,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/228"
     },
     {
-        "start_date": "20-11-2023",
-        "end_date": "20-11-2023",
-        "request_type": "stop",
-        "environment": "AAT / Staging",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4738",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/230"
-    },
-    {
         "start_date": "21-11-2023",
         "end_date": "22-11-2023",
         "request_type": "stop",
