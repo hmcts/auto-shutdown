@@ -50,5 +50,18 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/LAU-720",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/232"
+    },
+    {
+        "start_date": "22-11-2023",
+        "end_date": "23-11-2023",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5014154",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/234"
     }
 ]
