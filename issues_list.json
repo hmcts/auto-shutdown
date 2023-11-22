@@ -63,5 +63,14 @@
         "business_area": "cft",
         "change_jira_id": "CHG5014154",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/234"
+    },
+    {
+        "start_date": "22-11-2023",
+        "end_date": "22-11-2023",
+        "request_type": "stop",
+        "environment": "ITHC",
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4428",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/235"
     }
 ]
