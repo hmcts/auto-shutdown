@@ -9,17 +9,6 @@
     },
     {
         "start_date": "22-11-2023",
-        "end_date": "22-11-2023",
-        "environment": [
-            "AAT / Staging",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-5014 https://tools.hmcts.net/jira/browse/CCD-4990 https://tools.hmcts.net/jira/browse/CCD-4837",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/226"
-    },
-    {
-        "start_date": "22-11-2023",
         "end_date": "23-11-2023",
         "request_type": "start",
         "environment": [
@@ -29,27 +18,6 @@
         "business_area": "cross-cutting",
         "change_jira_id": "Ignore-it",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/228"
-    },
-    {
-        "start_date": "21-11-2023",
-        "end_date": "22-11-2023",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/LAU-720",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/231"
-    },
-    {
-        "start_date": "21-11-2023",
-        "end_date": "22-11-2023",
-        "request_type": "stop",
-        "environment": "PTL",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/LAU-720",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/232"
     },
     {
         "start_date": "22-11-2023",
@@ -63,14 +31,5 @@
         "business_area": "cft",
         "change_jira_id": "CHG5014154",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/234"
-    },
-    {
-        "start_date": "22-11-2023",
-        "end_date": "22-11-2023",
-        "request_type": "stop",
-        "environment": "ITHC",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4428",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/235"
     }
 ]
