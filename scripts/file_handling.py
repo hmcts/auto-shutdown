@@ -7,8 +7,16 @@ from dateutil.parser import parse
 listObj = []
 filepath = "issues_list.json"
 new_data = json.loads(os.environ.get("NEW_DATA", "{}"))
-new_data["skip_start_date"] = new_data.pop("Skip shutdown start date")
-new_data["skip_end_date"] = new_data.pop("Skip shutdown end date")
+# Check if "Skip shutdown start date" is None or empty
+skip_shutdown_start_date = new_data.get("Skip shutdown start date", None)
+if skip_shutdown_start_date is None:
+    new_data["start_date"] = new_data.pop("On Demand start date")
+    new_data["end_date"] = new_data.pop("On Demand end date")
+    new_data["request_type"] = "start"
+else:
+    new_data["start_date"] = new_data.pop("Skip shutdown start date")
+    new_data["end_date"] = new_data.pop("Skip shutdown end date")
+    new_data["request_type"] = "stop"
 new_data["environment"] = new_data.pop("Environment")
 new_data["business_area"] = new_data.pop("Business area")
 new_data["change_jira_id"] = new_data.pop("Change or Jira reference")
@@ -67,12 +75,12 @@ if new_data:
     """
 #Start Date logic
     try:
-        new_data["skip_start_date"] = parse(new_data["skip_start_date"], dayfirst=True).date()
-        if new_data["skip_start_date"] < today:
+        new_data["start_date"] = parse(new_data["start_date"], dayfirst=True).date()
+        if new_data["start_date"] < today:
             raise RuntimeError("Start Date is in the past")
         else:
-            date_start_date = new_data["skip_start_date"]
-            new_data["skip_start_date"] = new_data["skip_start_date"].strftime("%d-%m-%Y")
+            date_start_date = new_data["start_date"]
+            new_data["start_date"] = new_data["start_date"].strftime("%d-%m-%Y")
     except RuntimeError:
             update_env_vars("ISSUE_COMMENT=Processing failed", "ISSUE_COMMENT=Error: Start date cannot be in the past")
             print("RuntimeError")
@@ -82,21 +90,21 @@ if new_data:
             print("Unexpected Error")
             exit(0)
 #End Date logic
-    if new_data["skip_end_date"] == "_No response_":
+    if new_data["end_date"] == "_No response_":
         if date_start_date > today:
-            new_data["skip_end_date"] = new_data["skip_start_date"]
+            new_data["end_date"] = new_data["start_date"]
         elif date_start_date == today:
-            new_data["skip_end_date"] = today.strftime("%d-%m-%Y")
-    elif new_data["skip_end_date"] != "_No response_":
+            new_data["end_date"] = today.strftime("%d-%m-%Y")
+    elif new_data["end_date"] != "_No response_":
         try:
-            new_data["skip_end_date"] = parse(new_data["skip_end_date"], dayfirst=True).date()
-            if new_data["skip_end_date"] < date_start_date:
+            new_data["end_date"] = parse(new_data["end_date"], dayfirst=True).date()
+            if new_data["end_date"] < date_start_date:
                 print("in if statement")
                 raise RuntimeError("End date cannot be before start date")
             else:
                 print("in else")
-                date_end_date = new_data["skip_end_date"]
-                new_data["skip_end_date"] = new_data["skip_end_date"].strftime("%d-%m-%Y")
+                date_end_date = new_data["end_date"]
+                new_data["end_date"] = new_data["end_date"].strftime("%d-%m-%Y")
         except RuntimeError:
                 update_env_vars("ISSUE_COMMENT=Processing failed", "ISSUE_COMMENT=Error: End date cannot be before start date")
                 exit(0)

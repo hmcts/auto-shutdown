@@ -1,11 +1,33 @@
 [
     {
-        "skip_start_date": "01-11-2023",
-        "skip_end_date": "30-11-2023",
-        "environment": "Demo",
+        "start_date": "15-11-2023",
+        "end_date": "15-12-2023",
+        "environment": "Test / Perftest",
         "business_area": "cross-cutting",
         "change_jira_id": "DTSPO-15384",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/168",
-        "request_type": "start"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/219"
+    },
+    {
+        "start_date": "28-11-2023",
+        "end_date": "28-11-2023",
+        "request_type": "stop",
+        "environment": "AAT / Staging",
+        "business_area": "cft",
+        "change_jira_id": "CHG5013944",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/236"
+    },
+    {
+        "start_date": "27-11-2023",
+        "end_date": "28-11-2023",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "Demo",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "DTSPB-3601",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/237"
     }
 ]

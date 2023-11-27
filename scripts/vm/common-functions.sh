@@ -10,7 +10,7 @@ function get_subscription_vms() {
 function get_vm_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $vm)
   VM_NAME=$(jq -r '.name' <<< $vm)
-  VM_STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $vm)
+  STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $vm)
 }
 
 function check_vm_status() {
@@ -65,44 +65,4 @@ function check_vm_status() {
         notification "#green-daily-checks" "$message"
         notification "#vm-monitor-$SLACK_CHANNEL_SUFFIX" "$message"
     fi
-}
-
-function should_skip_start_stop () {
-  local vm_env vm_business_area issue
-  vm_env=$1
-  vm_business_area=$2
-  mode=$3
-  # If the vm is not onDemand we don't need to check the file issues_list.json for startup
-  if [[ $VM_STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
-    echo "false"
-    return
-  fi
-  while read issue; do
-    local env_entry business_area_entry start_date end_date
-    env_entry=$(jq -r '."environment"' <<< $issue)
-    business_area_entry=$(jq -r '."business_area"' <<< $issue)
-    start_date=$(jq -r '."skip_start_date"' <<< $issue)
-    end_date=$(jq -r '."skip_end_date"' <<< $issue)
-    get_request_type "$issue"
-
-    if [[ $request_type != $mode ]]; then
-      continue
-    fi
-    if [[ $env_entry =~ $vm_env && $vm_business_area == $business_area_entry ]]; then 
-      if [[ $(is_in_date_range $start_date $end_date) == "true" ]]; then
-        if [[ $mode == "stop" ]]; then
-          echo "true"
-        else
-          echo "false"
-        fi
-        return
-      fi
-    fi
-  done < <(jq -c '.[]' issues_list.json)
-# If its onDemand vm and there are no issues matching above we should skip startup
-  if [[ $VM_STARTUP_MODE == "onDemand" && $mode == "start" ]]; then
-    echo "true"
-  else
-    echo "false"
-  fi
 }

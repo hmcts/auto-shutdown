@@ -30,8 +30,8 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
 		while read id; do
 			business_area_entry=$(jq -r '."business_area"' <<<$id)
 			env_entry=$(jq -r '."environment"' <<<$id)
-			start_date=$(jq -r '."skip_start_date"' <<<$id)
-			end_date=$(jq -r '."skip_end_date"' <<<$id)
+			start_date=$(jq -r '."start_date"' <<<$id)
+			end_date=$(jq -r '."end_date"' <<<$id)
 			#start date business_area_entry formatting
 			start_date_formatting=$(awk -F'-' '{printf("%04d-%02d-%02d\n",$3,$2,$1)}' <<<$start_date)
 			start_date_seconds=$(date -d "$start_date_formatting 00:00:00" +%s)
