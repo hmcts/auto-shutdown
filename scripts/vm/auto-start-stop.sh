@@ -49,7 +49,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 		if [[ $SKIP == "false" ]]; then
             echo -e "${GREEN}About to run $MODE operation on vm $VM_NAME (rg:$RESOURCE_GROUP)"
             echo az vm $MODE --ids $ID --no-wait || echo Ignoring any errors while $MODE operation on vm
-            # az vm $MODE --ids $ID --no-wait || echo Ignoring any errors while $MODE operation on vm
+            az vm $MODE --ids $ID --no-wait || echo Ignoring any errors while $MODE operation on vm
         else
             echo -e "${AMBER}vm $VM_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
         fi
