@@ -18,6 +18,6 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: VM Auto Start
-        run: ./scripts/vm/auto-start.sh
+        run: ./scripts/vm/auto-start-stop.sh start
       - name: VM Auto start status check
         run: ./scripts/vm/vmstatus.sh
