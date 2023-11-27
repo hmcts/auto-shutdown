@@ -5,6 +5,7 @@ AMBER='\033[1;33m'
 GREEN='\033[0;32m'
 
 source scripts/aks/common-functions.sh
+source scripts/common/common-functions.sh
 
 MODE=${1:-start}
 registrySlackWebhook=$2

@@ -5,6 +5,7 @@ AMBER='\033[1;33m'
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 source scripts/vm/common-functions.sh
+source scripts/common/common-functions.sh
 
 MODE=${1:-start}
 SKIP="false"
@@ -18,29 +19,32 @@ SUBSCRIPTIONS=$(az account list -o json)
 
 jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 	get_subscription_vms
+    if [[ $SUBSCRIPTION_NAME == "HMCTS-HUB-NONPROD-INTSVC" ]]; then
+        continue
+    fi
     # set -x
 	jq -c '.[]' <<<$VMS | while read vm; do
         get_vm_details
 		ID=$(jq -r '.id' <<<$vm)
         name=$(jq -r '.name' <<<$vm)
         rg=$(jq -r '.resourceGroup' <<<$vm)
-        set -x
+        # set -x
         ENVIRONMENT=$(jq -r '.tags.environment' <<<$vm)
-        vm_envs=(
+        declare -A vm_envs=(
             [sandbox]="sbox"
             [testing]="test"
-            [testing]="perftest"
             [staging]="aat"
             [development]="dev"
             [production]="prod"
             [demo]="demo"
             [ithc]="ithc"
         )
-        if [ -v "${vm_envs[$ENVIRONMENT]}" ]; then
+        if [[ "${vm_envs[$ENVIRONMENT]}" ]]; then
             ENV_SUFFIX="${vm_envs[$ENVIRONMENT]}"
         else
             ENV_SUFFIX="$ENVIRONMENT"
         fi
+        # echo "$ENV_SUFFIX for $ENVIRONMENT"
         vm_business_area=$(jq -r '.tags.businessArea' <<<$vm)
 		status=$(az vm show -d --ids $ID --query "powerState")
 
