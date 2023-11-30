@@ -8,45 +8,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/219"
     },
     {
-        "start_date": "29-11-2023",
-        "end_date": "29-11-2023",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CCD-4822",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/238"
-    },
-    {
-        "start_date": "29-11-2023",
-        "end_date": "29-11-2023",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CCD-4822",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/238"
-    },
-    {
-        "start_date": "28-11-2023",
-        "end_date": "29-11-2023",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "ITHC"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "DTSRD-1213",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/239"
-    },
-    {
         "start_date": "30-11-2023",
         "end_date": "30-11-2023",
         "request_type": "stop",
