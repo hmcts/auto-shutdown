@@ -8,22 +8,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/219"
     },
     {
-        "start_date": "30-11-2023",
-        "end_date": "01-12-2023",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Test / Perftest",
-            "Demo",
-            "ITHC",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RWA-2925",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/244"
-    },
-    {
         "start_date": "01-12-2023",
         "end_date": "03-12-2023",
         "request_type": "stop",
