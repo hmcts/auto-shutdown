@@ -8,15 +8,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/219"
     },
     {
-        "start_date": "01-12-2023",
-        "end_date": "03-12-2023",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4310",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/245"
-    },
-    {
         "start_date": "04-12-2023",
         "end_date": "04-12-2023",
         "request_type": "stop",
