@@ -18,6 +18,6 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-shutdown.sh
+        run: ./scripts/appgateway/auto-start-stop.sh stop
       - name: App Gateway Auto Shutdown status check
         run: ./scripts/appgateway/appstatus.sh
