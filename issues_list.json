@@ -9,36 +9,6 @@
     },
     {
         "start_date": "04-12-2023",
-        "end_date": "04-12-2023",
-        "request_type": "stop",
-        "environment": "PTL",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RBC-17267",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/248"
-    },
-    {
-        "start_date": "04-12-2023",
-        "end_date": "04-12-2023",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RBC-17267",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/249"
-    },
-    {
-        "start_date": "04-12-2023",
-        "end_date": "04-12-2023",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "DTSPB-3601",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/251"
-    },
-    {
-        "start_date": "04-12-2023",
         "end_date": "05-12-2023",
         "request_type": "stop",
         "environment": [
