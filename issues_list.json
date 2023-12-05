@@ -63,5 +63,18 @@
         "business_area": "cft",
         "change_jira_id": "https://mojcppprod.service-now.com/nav_to.do?uri=%2Fchange_request.do%3Fsys_id%3Dce22a2d51b92f5504e6f2fc7bd4bcb8c",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/253"
+    },
+    {
+        "start_date": "11-12-2023",
+        "end_date": "11-12-2023",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5014385",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/254"
     }
 ]
