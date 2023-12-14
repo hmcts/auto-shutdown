@@ -30,8 +30,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
     if [[ $SKIP == "false" ]]; then
         echo -e "${GREEN}About to run $MODE operation on sql server $SERVER_NAME (rg:$RESOURCE_GROUP)"
-        echo az sql mi $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
-        az sql mi $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
+        echo az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
+        az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
     else
         echo -e "${AMBER}sql server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
     fi
