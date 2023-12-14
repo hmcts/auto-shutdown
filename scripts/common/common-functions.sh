@@ -51,7 +51,7 @@ function should_skip_start_stop () {
   env=$1
   business_area=$2
   mode=$3
-  # If the vm is not onDemand we don't need to check the file issues_list.json for startup
+  # If its not onDemand we don't need to check the file issues_list.json for startup
   if [[ $STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
     echo "false"
     return
