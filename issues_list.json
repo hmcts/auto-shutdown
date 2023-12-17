@@ -1,18 +1,5 @@
 [
     {
-        "start_date": "13-12-2023",
-        "end_date": "16-12-2023",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-11186 https://tools.hmcts.net/jira/browse/CIV-11834 https://tools.hmcts.net/jira/browse/CIV-11473 https://tools.hmcts.net/jira/browse/CIV-11781 https://tools.hmcts.net/jira/browse/CIV-8791 https://tools.hmcts.net/jira/browse/CIV-11749",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/264"
-    },
-    {
         "start_date": "14-12-2023",
         "end_date": "22-12-2023",
         "environment": "ITHC",
