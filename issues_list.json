@@ -34,17 +34,5 @@
         "business_area": "cft",
         "change_jira_id": "DTSPO-16192",
         "request_type": "start"
-    },
-    {
-        "start_date": "19-12-2023",
-        "end_date": "19-12-2023",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4846",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/269"
     }
 ]
