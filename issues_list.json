@@ -1,18 +1,1 @@
-[
-    {
-        "start_date": "14-12-2023",
-        "end_date": "22-12-2023",
-        "environment": "ITHC",
-        "business_area": "cross-cutting",
-        "change_jira_id": "DTSPO-16192",
-        "request_type": "start"
-    },
-    {
-        "start_date": "14-12-2023",
-        "end_date": "22-12-2023",
-        "environment": "ITHC",
-        "business_area": "cft",
-        "change_jira_id": "DTSPO-16192",
-        "request_type": "start"
-    }
-]
+[]
