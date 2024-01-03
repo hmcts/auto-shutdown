@@ -1,8 +1,15 @@
 name: aks-auto-start
 on:
   workflow_dispatch:
+    inputs:
+      DRYRUN:
+        options:
+          - "false"
+          - "true"
   schedule:
-    - cron: '30 5 * * 1-5' # Every weekday at 6:30am BST
+    - cron: '30 6 * * 1-5' # Every weekday at 6:30am BST
+env:
+  DRYRUN: ${{ inputs.DRYRUN }}
 permissions:
   id-token: write
 jobs:
@@ -10,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
@@ -18,4 +25,8 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: AKS Auto Start
-        run: ./scripts/aks/auto-start.sh ${{ secrets.REGISTRYSLACKWEBHOOK }}
+        run: ./scripts/aks/auto-start-stop.sh start 
+      - name: Wait for cluster to start
+        run: sleep 600
+      - name: AKS Auto Shutdown status check
+        run: ./scripts/aks/auto-shutdown-status.sh start ${{ secrets.REGISTRYSLACKWEBHOOK }}

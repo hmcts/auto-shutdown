@@ -2,7 +2,7 @@ name: vm-auto-shutdown
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *' # Every day at 8pm BST
+    - cron: '0 20 * * *' # Every day at 8pm BST
 permissions:
   id-token: write
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: 'Az CLI login'
         uses: azure/login@v1
         with:
@@ -18,6 +18,6 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: VM Auto Shutdown
-        run: ./scripts/vm/auto-shutdown.sh
+        run: ./scripts/vm/auto-start-stop.sh stop
       - name: VM Auto Shutdown status check
         run: ./scripts/vm/vmstatus.sh
