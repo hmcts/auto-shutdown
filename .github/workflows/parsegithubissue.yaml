@@ -40,7 +40,7 @@ jobs:
             High Cost
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
@@ -75,7 +75,7 @@ jobs:
 
       - name: Create Issue Comment
         if: env.PROCESS_SUCCESS != 'true'
-        uses: peter-evans/create-or-update-comment@v3.0.2
+        uses: peter-evans/create-or-update-comment@v3.1.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -101,7 +101,7 @@ jobs:
 
       - name: Add cost details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true'
-        uses: peter-evans/create-or-update-comment@v3.0.2
+        uses: peter-evans/create-or-update-comment@v3.1.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -109,7 +109,7 @@ jobs:
 
       - name: Add cost error details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS == 'true'
-        uses: peter-evans/create-or-update-comment@v3.0.2
+        uses: peter-evans/create-or-update-comment@v3.1.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
