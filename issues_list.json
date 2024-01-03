@@ -12,5 +12,14 @@
         "business_area": "cft",
         "change_jira_id": "AM-2943",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/270"
+    },
+    {
+        "start_date": "03-01-2024",
+        "end_date": "04-01-2024",
+        "request_type": "stop",
+        "environment": "AAT / Staging",
+        "business_area": "cft",
+        "change_jira_id": "RWA-3047",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/271"
     }
 ]
