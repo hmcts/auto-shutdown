@@ -13,19 +13,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/276"
     },
     {
-        "start_date": "13-01-2024",
-        "end_date": "13-01-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/FPET-833,",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/282"
-    },
-    {
         "start_date": "12-01-2024",
         "end_date": "15-01-2024",
         "request_type": "stop",
