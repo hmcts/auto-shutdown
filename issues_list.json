@@ -1,32 +1,5 @@
 [
     {
-        "start_date": "17-01-2024",
-        "end_date": "17-01-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5014690",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/276"
-    },
-    {
-        "start_date": "16-01-2024",
-        "end_date": "17-01-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "ITHC",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5014753",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/286"
-    },
-    {
         "start_date": "18-01-2024",
         "end_date": "19-01-2024",
         "request_type": "stop",
@@ -38,15 +11,6 @@
         "business_area": "cft",
         "change_jira_id": "CHG5013965",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/287"
-    },
-    {
-        "start_date": "17-01-2024",
-        "end_date": "17-01-2024",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "CHG5014690",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/288"
     },
     {
         "start_date": "23-01-2024",
@@ -61,15 +25,6 @@
         "business_area": "cft",
         "change_jira_id": "CHG5014827",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/291"
-    },
-    {
-        "start_date": "17-01-2024",
-        "end_date": "17-01-2024",
-        "request_type": "stop",
-        "environment": "ITHC",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4192",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/292"
     },
     {
         "start_date": "18-01-2024",
