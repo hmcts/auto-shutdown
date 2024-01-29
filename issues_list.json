@@ -34,5 +34,18 @@
         "business_area": "cft",
         "change_jira_id": "CHG5014589",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/304"
+    },
+    {
+        "start_date": "30-01-2024",
+        "end_date": "31-01-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-468",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/305"
     }
 ]
