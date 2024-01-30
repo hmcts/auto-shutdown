@@ -13,20 +13,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/296"
     },
     {
-        "start_date": "26-01-2024",
-        "end_date": "29-01-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4785",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/302"
-    },
-    {
         "start_date": "29-01-2024",
         "end_date": "30-01-2024",
         "request_type": "stop",
@@ -56,28 +42,6 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-8790",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/306"
-    },
-    {
-        "start_date": "29-01-2024",
-        "end_date": "29-01-2024",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3715",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/307"
-    },
-    {
-        "start_date": "29-01-2024",
-        "end_date": "29-01-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-4804",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/308"
     },
     {
         "start_date": "30-01-2024",
