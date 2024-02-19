@@ -1,43 +1,5 @@
 [
     {
-        "start_date": "16-02-2024",
-        "end_date": "18-02-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-10055 https://tools.hmcts.net/jira/browse/CIV-12361 https://tools.hmcts.net/jira/browse/CIV-10053",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/332"
-    },
-    {
-        "start_date": "18-02-2024",
-        "end_date": "18-02-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5064",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/334"
-    },
-    {
-        "start_date": "16-02-2024",
-        "end_date": "18-02-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5064",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/335"
-    },
-    {
         "start_date": "18-02-2024",
         "end_date": "19-02-2024",
         "request_type": "stop",
