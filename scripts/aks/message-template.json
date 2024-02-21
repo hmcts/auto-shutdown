@@ -1,0 +1,36 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "You have a new request:\n*<ISSUE_URL>*"
+			}
+		},
+		{
+			"type": "section",
+			"fields": [
+				{
+					"type": "mrkdwn",
+					"text": "*Business Area:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*When:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Start Date:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*End Date:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Value*\n£"
+				}
+			]
+		}
+	]
+}
