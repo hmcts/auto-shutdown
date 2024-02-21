@@ -48,5 +48,17 @@
         "business_area": "cft",
         "change_jira_id": "CHG5015258/DFPL-1918/DFPL-1882",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/343"
+    },
+    {
+        "start_date": "21-02-2024",
+        "end_date": "21-02-2024",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4499",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/345"
     }
 ]
