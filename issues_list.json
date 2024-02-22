@@ -64,5 +64,18 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSRD-1213",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/347"
+    },
+    {
+        "start_date": "22-02-2024",
+        "end_date": "22-02-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4818",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/348"
     }
 ]
