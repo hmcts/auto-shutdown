@@ -122,7 +122,7 @@ jobs:
           env.APPROVAL_NEEDED = true
 
       - name: Add high cost label
-        if: env.COST_DETAILS >= 2000 && < 6000
+        if: env.COST_DETAILS >= 2000 && env.COST_DETAILS < 6000
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "High Cost"
@@ -199,4 +199,14 @@ jobs:
       - name: Send slack message
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
-        run: ./scripts/aks/send-slack-message.sh ${{ env.SLACK_WEBHOOK }} ${{ env.CHANGE_JIRA_ID }} ${{ env.REQUEST_URL }} ${{ env.BUSINESS_AREA_ENTRY }} ${{ env.START_DATE }} ${{ env.END_DATE }} ${{ env.COST_DETAILS_FORMATTED }}
+        run: ./scripts/aks/send-slack-message.sh
+        env:
+          SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
+          CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
+          REQUEST_URL: ${{ env.REQUEST_URL }}
+          BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}
+          START_DATE: ${{ env.START_DATE }}
+          END_DATE: ${{ env.END_DATE }}
+          COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
+          ENVIRONMENT: ${{ env.ENVIRONMENT }}
+          REQUESTER: ${{ github.actor }}

@@ -84,6 +84,7 @@ echo END_DATE=$end_date >>$GITHUB_ENV
 echo BUSINESS_AREA_ENTRY=$business_area_entry >>$GITHUB_ENV
 echo REQUEST_URL=$request_url >>$GITHUB_ENV
 echo CHANGE_JIRA_ID=$change_jira_id >>$GITHUB_ENV
+echo ENVIRONMENT=$env_entry >>$GITHUB_ENV
 
 #Remove temp text file.
 rm sku_details.txt
