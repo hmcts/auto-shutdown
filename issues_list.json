@@ -17,19 +17,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/347"
     },
     {
-        "start_date": "26-02-2024",
-        "end_date": "26-02-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5015300",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/349"
-    },
-    {
         "start_date": "28-02-2024",
         "end_date": "28-02-2024",
         "request_type": "stop",
