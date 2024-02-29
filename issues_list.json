@@ -40,5 +40,14 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-12869 https://tools.hmcts.net/jira/browse/CIV-12741 https://tools.hmcts.net/jira/browse/CIV-12752 https://tools.hmcts.net/jira/browse/CIV-12847",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/354"
+    },
+    {
+        "start_date": "29-02-2024",
+        "end_date": "29-02-2024",
+        "request_type": "stop",
+        "environment": "Test / Perftest",
+        "business_area": "cft",
+        "change_jira_id": "CIV-3708",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/355"
     }
 ]
