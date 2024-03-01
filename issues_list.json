@@ -59,5 +59,14 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4449",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/357"
+    },
+    {
+        "start_date": "01-03-2024",
+        "end_date": "03-03-2024",
+        "request_type": "stop",
+        "environment": "Test / Perftest",
+        "business_area": "cft",
+        "change_jira_id": "CIV-3708",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/358"
     }
 ]
