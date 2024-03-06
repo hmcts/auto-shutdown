@@ -13,50 +13,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/362"
     },
     {
-        "start_date": "04-03-2024",
-        "end_date": "05-03-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-4449",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/364"
-    },
-    {
-        "start_date": "05-03-2024",
-        "end_date": "05-03-2024",
-        "request_type": "stop",
-        "environment": "Test / Perftest",
-        "business_area": "cft",
-        "change_jira_id": "Skip auto shutdown for perf-test",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/365"
-    },
-    {
-        "start_date": "05-03-2024",
-        "end_date": "05-03-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5385",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/366"
-    },
-    {
-        "start_date": "05-03-2024",
-        "end_date": "05-03-2024",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5385",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/367"
-    },
-    {
         "start_date": "06-03-2024",
         "end_date": "06-03-2024",
         "request_type": "stop",
