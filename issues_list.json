@@ -26,5 +26,22 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-2692",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/368"
+    },
+    {
+        "start_date": "07-03-2024",
+        "end_date": "07-03-2024",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox",
+            "AAT / Staging",
+            "Preview / Dev",
+            "Test / Perftest",
+            "Demo",
+            "ITHC",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSRD-1213",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/369"
     }
 ]
