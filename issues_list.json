@@ -35,5 +35,19 @@
         "business_area": "cross-cutting",
         "change_jira_id": "JM-6536 (CGI Jira)",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/375"
+    },
+    {
+        "start_date": "11-03-2024",
+        "end_date": "11-03-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "ITHC",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5390",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/376"
     }
 ]
