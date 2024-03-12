@@ -62,5 +62,18 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
+    },
+    {
+        "start_date": "12-03-2024",
+        "end_date": "12-03-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     }
 ]
