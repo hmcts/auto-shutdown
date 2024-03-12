@@ -106,5 +106,14 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/378"
+    },
+    {
+        "start_date": "12-03-2024",
+        "end_date": "13-03-2024",
+        "request_type": "stop",
+        "environment": "Test / Perftest",
+        "business_area": "cft",
+        "change_jira_id": "SIDM-8790",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/379"
     }
 ]
