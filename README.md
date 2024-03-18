@@ -30,6 +30,8 @@ In the event that an environment or environments are needed outside of the defau
 
 All shutdown requests are now subject to an approval process, primarily based on the associated additional cost of running clusters for longer.
 
+Any requests under n estimated value of £5,000 will be auto approved. Anything higher will require a an approval from someone other than the requester.
+
 It is important to monitor the comment section of the request (GitHub issue), the automated process will provide feedback in these comments including:
 
 - Associated cost of request in £
