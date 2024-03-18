@@ -58,7 +58,7 @@ In this example, the shutdown start date should be 20-03-2024 with an end date o
 
 Request can be approved by adding the "approved" label to the request.
 
-<img src="images/request-approved.png" alt="approval" height="150"/>
+<img src="images/request-approval.png" alt="approval" height="150"/>
 
 
 A request can be denied by adding the "denied" label to the request. This will automatically close the ticket.
