@@ -26,7 +26,7 @@ In the event that an environment or environments are needed outside of the defau
 - Issue will automatically close
 - Review [shutdown exclusions json](https://github.com/hmcts/aks-auto-shutdown/blob/master/issues_list.json)
 
-## Skip shutdown review process
+## Shutdown exclusion request - review process
 
 All shutdown requests are now subject to an approval process, primarily based on the associated additional cost of running clusters for longer.
 
@@ -36,7 +36,7 @@ It is important to monitor the comment section of the request (GitHub issue), th
 - Errors in form submission or cost processing
 - Approval status
 
-### Who can approve shutdown skip requests? 
+### Who can approve requests? 
 
 Currently, anyone other than the request can be an approver. The main purpose of this approval system is to sanity check that requests are not excessive.
 
