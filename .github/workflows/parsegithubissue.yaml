@@ -11,7 +11,7 @@ env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
   APPROVAL_STATE: "Pending Approval"
-  APPROVAL_COMMENT: "Auto approved"
+  APPROVAL_COMMENT: "Pending Approval"
 permissions:
   id-token: write
 jobs:
@@ -64,7 +64,7 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           comment: | 
-            Your request has been denied, most likely due to associated costs being too high.
+            Your request has been denied by ${{ github.actor }}, most likely due to associated costs being too high.
             Closing issue.
 
     #if approval state == denied, remove processing and pending approval labels
@@ -173,9 +173,9 @@ jobs:
         run: |
           python ./scripts/cost-calculator.py || echo "Calculating cost failed"
 
-    #Send slack message if denied label applied
+    #Send slack message if approval_state == denied
       - name: Send denied slack message
-        if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Denied'
+        if: env.APPROVAL_STATE == 'Denied'
         run: ./scripts/aks/send-slack-message.sh
         env:
           SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
@@ -188,7 +188,7 @@ jobs:
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
           REQUESTER: ${{ github.event.issue.user.login }}
-          APPROVAL_STATE: ${{ env.APPROVAL_COMMENT }}
+          APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
 
     #End workflow if approval state == denied
       - name: exit flow if denied
@@ -257,7 +257,7 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Due to the level of cost associated with this request, an approval will be required. Note, you cannot approve your own request.
+            Due to the level of cost associated with this request, an approval will be required from any additional person. Note, you cannot approve your own request.
 
     #If approved label is applued, set approval variables.
       - name: set approved status
@@ -328,4 +328,4 @@ jobs:
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
           REQUESTER: ${{ github.event.issue.user.login }}
-          APPROVAL_STATE: ${{ env.APPROVAL_COMMENT }}
+          APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}

@@ -17,7 +17,7 @@ jq --arg issue_url "$request_url_link" \
    --arg requester "$REQUESTER" \
    --arg current_date "$current_date" \
    --arg cost_value "£$COST_DETAILS_FORMATTED" \
-   --arg status "$APPROVAL_STATE" \
+   --arg status "$APPROVAL_COMMENT" \
    --arg issue_ID "$CHANGE_JIRA_ID" \
    --arg raw_issue_url "$REQUEST_URL" \
    '.blocks[0].text.text |= $issue_title | 
