@@ -25,8 +25,8 @@ diff = (end - start).days
 total_days = (diff +1)
 weekend_days = (total_days - business_days)
 
-#FUnction to add entries to the GitHub env list.
-def writeVar(varName, varValue):
+#Function to add entries to the GitHub env list.
+def writeStringVar(varName, varValue):
     with open(env_file_path, 'a') as env_file:
         env_file.write('\n' + varName + "=" + str(varValue) + '\n')
         env_file.close()
@@ -51,7 +51,7 @@ def azPriceAPI(vm_sku, productNameVar, osQuery,retry=0):
             return azPriceAPI(vm_sku, productNameVar, osQuery,retry+1)
         else:
             print("Unable to get costs, defaulting to £0.00")
-            writeVar("ERROR_IN_COSTS", "true")
+            writeStringVar("ERROR_IN_COSTS", "true")
             default_rate = 0
             return default_rate
 
@@ -96,5 +96,5 @@ with open("sku_details.txt", "r") as filestream:
 #Delete temp text file.
 os.remove("sku_details.txt")
 
-writeVar("COST_DETAILS", cost_output)
-writeVar("COST_DETAILS_FORMATTED", cost_output_formatted)
+writeStringVar("COST_DETAILS", cost_output)
+writeStringVar("COST_DETAILS_FORMATTED", cost_output_formatted)
