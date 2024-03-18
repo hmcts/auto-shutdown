@@ -30,7 +30,7 @@ In the event that an environment or environments are needed outside of the defau
 
 All shutdown requests are now subject to an approval process, primarily based on the associated additional cost of running clusters for longer.
 
-Any requests under n estimated value of £5,000 will be auto approved. Anything higher will require a an approval from someone other than the requester.
+Any requests under an estimated value of £5,000 will be auto approved. Anything higher will require an approval from someone other than the requester.
 
 It is important to monitor the comment section of the request (GitHub issue), the automated process will provide feedback in these comments including:
 
@@ -40,7 +40,7 @@ It is important to monitor the comment section of the request (GitHub issue), th
 
 ### Who can approve requests? 
 
-Currently, anyone other than the request can be an approver. The main purpose of this approval system is to sanity check that requests are not excessive.
+Currently, anyone other than the requester can be an approver. The main purpose of this approval system is to sanity check that requests are not excessive.
 
 ### What is the approval guidenance?
 
@@ -56,9 +56,9 @@ Examples:
 
 In this example, the shutdown start date should be 20-03-2024 with an end date of 20-03-2024. Tip: Leaving the end date blank will default the end date to the same as the start date.
 
-### How is approval added?
+### How is an approval added?
 
-Request can be approved by adding the "approved" label to the request.
+A request can be approved by adding the "approved" label to the request.
 
 <img src="images/request-approval.png" alt="approval"/>
 
