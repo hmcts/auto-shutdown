@@ -75,5 +75,17 @@
         "business_area": "cft",
         "change_jira_id": "FACT-1650",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/391"
+    },
+    {
+        "start_date": "19-03-2024",
+        "end_date": "19-03-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "JM-6595 (CGI Jira)",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/392"
     }
 ]
