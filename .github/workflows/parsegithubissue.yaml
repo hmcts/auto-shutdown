@@ -1,4 +1,4 @@
-name: Auto shutdown exclusion requests
+name: Auto Parse github form
 run-name: ${{ github.actor }} - issue:${{ github.event.issue.number }}
 on:
   issues:
@@ -152,6 +152,11 @@ jobs:
             ${{ env.ISSUE_COMMENT }}
             Please edit this issue and select "Update comment" to resubmit.
 
+    #End workflow if for processing finds an error
+      - name: exit flow if approver == requester 
+        if: env.PROCESS_SUCCESS != 'true'
+        run: exit 1
+
     # Login to Azure CLI (for cost analysis)
       - name: 'Az CLI login'
         uses: azure/login@v1
@@ -221,9 +226,11 @@ jobs:
           labels: "Cost Error"
 
     #Set approval_state environment var to auto-approved if cost value is less than £5,000
-      - name: set auto-approved status
+      - name: set approved status
         if: env.COST_DETAILS < 5000
-        run: echo "APPROVAL_STATE=auto-approved" >> $GITHUB_ENV
+        run: |
+          echo "APPROVAL_STATE=auto-approved" >> $GITHUB_ENV
+          echo "APPROVAL_COMMENT=Auto approved" >> $GITHUB_ENV
 
     #Add auto approved label if approval_state == auto-approved
       - name: Add auto-approved label
