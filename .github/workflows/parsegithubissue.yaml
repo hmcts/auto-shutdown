@@ -29,7 +29,7 @@ jobs:
     #Comment if approver is equal to requester
       - name: Cannot self approve comment
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -145,7 +145,7 @@ jobs:
     # Provide any error messages to user as a comment
       - name: Create Issue Comment
         if: env.PROCESS_SUCCESS != 'true'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -203,7 +203,7 @@ jobs:
     #Add output of cost calculator as a comment to user
       - name: Add cost details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -212,7 +212,7 @@ jobs:
     #If cost calculator fails, provide feedback to user as a comment
       - name: Add cost error details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS == 'true'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -242,7 +242,7 @@ jobs:
     #Add auto-approval comment if approval_state == auto-approved
       - name: Add auto approval comment
         if: env.APPROVAL_STATE == 'auto-approved'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -260,7 +260,7 @@ jobs:
     #If approval_state == Pending Approval && workflow is running at submission time, not approval time.
       - name: Very High Cost approval comment
         if: env.APPROVAL_STATE == 'Pending Approval' && github.event.issue.user.login == github.actor
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -276,7 +276,7 @@ jobs:
     #Add approval comment if approval_state == Approved
       - name: Add auto approval comment
         if: env.APPROVAL_STATE == 'Approved'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
