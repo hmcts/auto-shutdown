@@ -25,3 +25,43 @@ In the event that an environment or environments are needed outside of the defau
     - Processing checks will automatically restart.
 - Issue will automatically close
 - Review [shutdown exclusions json](https://github.com/hmcts/aks-auto-shutdown/blob/master/issues_list.json)
+
+## Shutdown exclusion request - review process
+
+All shutdown requests are now subject to an approval process, primarily based on the associated additional cost of running clusters for longer.
+
+Any requests under an estimated value of £5,000 will be auto approved. Anything higher will require an approval from someone other than the requester.
+
+It is important to monitor the comment section of the request (GitHub issue), the automated process will provide feedback in these comments including:
+
+- Associated cost of request in £
+- Errors in form submission or cost processing
+- Approval status
+
+### Who can approve requests? 
+
+Currently, anyone other than the requester can be an approver. The main purpose of this approval system is to sanity check that requests are not excessive.
+
+### What is the approval guidenance?
+
+Requests should only be approved when the shutdown exclusion is necessary and for the appropriate amount of time.
+
+You should check:
+- Request has an appropriate Change or JIRA reference ID
+- The start and end dates of the request are the minimum required, see below example.
+- Only the necessary enviornments have been included in the request. Note: If you need AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request
+
+Examples:
+- An exclusion is needed for an out of hours release on 20th March 2024.
+
+In this example, the shutdown start date should be 20-03-2024 with an end date of 20-03-2024. Tip: Leaving the end date blank will default the end date to the same as the start date.
+
+### How is an approval added?
+
+A request can be approved by adding the "approved" label to the request.
+
+<img src="images/request-approval.png" alt="approval"/>
+
+
+A request can be denied by adding the "denied" label to the request. This will automatically close the ticket.
+
