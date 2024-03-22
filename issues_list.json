@@ -77,5 +77,14 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5283",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/396"
+    },
+    {
+        "start_date": "24-03-2024",
+        "end_date": "24-03-2024",
+        "request_type": "stop",
+        "environment": "Demo",
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCS-12239",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/397"
     }
 ]
