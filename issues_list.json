@@ -40,47 +40,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/391"
     },
     {
-        "start_date": "24-03-2024",
-        "end_date": "24-03-2024",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCS-12239",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/397"
-    },
-    {
-        "start_date": "23-03-2024",
-        "end_date": "24-03-2024",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCS-12239",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/398"
-    },
-    {
-        "start_date": "22-03-2024",
-        "end_date": "24-03-2024",
-        "request_type": "stop",
-        "environment": "Test / Perftest",
-        "business_area": "cft",
-        "change_jira_id": "CIV-3708",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/400"
-    },
-    {
-        "start_date": "22-03-2024",
-        "end_date": "24-03-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5063",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/401"
-    },
-    {
         "start_date": "25-03-2024",
         "end_date": "25-03-2024",
         "request_type": "stop",
