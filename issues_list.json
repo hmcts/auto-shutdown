@@ -73,5 +73,14 @@
         "business_area": "cross-cutting",
         "change_jira_id": "S28-2692",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/404"
+    },
+    {
+        "start_date": "26-03-2024",
+        "end_date": "26-03-2024",
+        "request_type": "stop",
+        "environment": "ITHC",
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5209",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/405"
     }
 ]
