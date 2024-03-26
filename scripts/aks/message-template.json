@@ -1,0 +1,62 @@
+{
+	"blocks": [
+		{
+			"type": "section",
+			"text": {
+				"type": "mrkdwn",
+				"text": "You have a new request:\n*<ISSUE_URL>*"
+			}
+		},
+		{
+			"type": "section",
+			"fields": [
+				{
+					"type": "mrkdwn",
+					"text": "*Business Area:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Environment:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Start Date:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*End Date:*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Submitter*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Submitted*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Value*\n£"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "*Status*\n"
+				}
+			]
+		},
+		{
+			"type": "actions",
+			"elements": [
+				{
+					"type": "button",
+					"text": {
+						"type": "plain_text",
+						"text": "Review Request"
+					},
+					"style": "primary",
+					"url": "request_url"
+				}
+			]
+		}		
+	]
+}

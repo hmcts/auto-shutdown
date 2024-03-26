@@ -1,7 +1,7 @@
 [
     {
-        "start_date": "09-03-2024",
-        "end_date": "10-03-2024",
+        "start_date": "12-09-2024",
+        "end_date": "12-09-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
@@ -9,34 +9,56 @@
             "PTL"
         ],
         "business_area": "cft",
-        "change_jira_id": "CHG5015453",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/362"
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "12-03-2024",
-        "end_date": "12-03-2024",
+        "start_date": "13-05-2024",
+        "end_date": "13-05-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
             "Preview / Dev",
+            "ITHC",
             "PTL"
         ],
         "business_area": "cft",
-        "change_jira_id": "CHG5015519",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/370"
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5239",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/384"
     },
     {
-        "start_date": "08-03-2024",
-        "end_date": "10-03-2024",
+        "start_date": "27-03-2024",
+        "end_date": "27-03-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
             "Preview / Dev",
-            "Demo",
             "PTL"
         ],
         "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5320",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/372"
+        "change_jira_id": "FACT-1650",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/391"
+    },
+    {
+        "start_date": "25-03-2024",
+        "end_date": "25-03-2024",
+        "request_type": "stop",
+        "environment": "AAT / Staging",
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5443",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/402"
+    },
+    {
+        "start_date": "25-03-2024",
+        "end_date": "25-03-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5364",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/403"
     }
 ]
