@@ -49,3 +49,15 @@ body:
     description: "DD-MM-YYYY - Defaults to start date. 20:00 shutdown job will skip provided clusters on this date."
   validations:
     required: false
+
+- type: dropdown
+  id: soft-limit
+  attributes:
+    label: Do you need this exclusion past 23:00?
+    description: Default is set to no. Shutdown of all environments will occur at 23:00 unless the below is ticked.
+    multiple: false
+    options: 
+      - 'No'
+      - 'Yes'
+  validations:
+    required: true
