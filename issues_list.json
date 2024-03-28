@@ -27,19 +27,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/384"
     },
     {
-        "start_date": "27-03-2024",
-        "end_date": "27-03-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "FACT-1650",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/391"
-    },
-    {
         "start_date": "10-04-2024",
         "end_date": "10-04-2024",
         "request_type": "stop",
@@ -53,19 +40,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/404"
     },
     {
-        "start_date": "26-03-2024",
-        "end_date": "27-03-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-692",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/407"
-    },
-    {
         "start_date": "27-03-2024",
         "end_date": "28-03-2024",
         "request_type": "stop",
@@ -77,27 +51,5 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-719",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/408"
-    },
-    {
-        "start_date": "27-03-2024",
-        "end_date": "27-03-2024",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5301",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/409"
-    },
-    {
-        "start_date": "27-03-2024",
-        "end_date": "27-03-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5390",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/410"
     }
 ]
