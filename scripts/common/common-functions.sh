@@ -24,6 +24,10 @@ function get_current_date() {
   $date_command +'%d-%m-%Y %H:%M'
 }
 
+function get_current_hour() {
+  $date_command +'%H'
+}
+
 function get_current_date_seconds() {
   local current_date_formatting
   current_date_formatting=$($date_command +'%Y-%m-%d')
@@ -35,6 +39,14 @@ function convert_date_to_timestamp() {
     local valid_date="$year-$month-$day"
     local timestamp=$($date_command -d "$valid_date" +%s)
     echo "$timestamp"
+}
+
+function is_late_night_run() {
+  if [[ $(get_current_hour) -gt 20 ]]; then
+    echo "true"
+  else
+    echo "true"
+  fi
 }
 
 function is_in_date_range() {
@@ -61,25 +73,26 @@ function should_skip_start_stop () {
     return
   fi
   while read issue; do
-    local env_entry business_area_entry start_date end_date
+    local env_entry business_area_entry start_date end_date stay_on_late
     env_entry=$(jq -r '."environment"' <<< $issue)
     business_area_entry=$(jq -r '."business_area"' <<< $issue)
     start_date=$(jq -r '."start_date"' <<< $issue)
     end_date=$(jq -r '."end_date"' <<< $issue)
+    stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
     get_request_type "$issue"
 
     if [[ $request_type != $mode ]]; then
       continue
     fi
-    if [[ $env_entry =~ $env && $business_area == $business_area_entry ]]; then 
-      if [[ $(is_in_date_range $start_date $end_date) == "true" ]]; then
-        if [[ $mode == "stop" ]]; then
-          echo "true"
-        else
-          echo "false"
-        fi
-        return
+    if [[ $mode == "stop" && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then 
+      if [[ $(is_late_night_run) == "false" ]]; then
+        echo "true"
+      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" ]]; then
+        echo "true"
+      else
+        echo "false"
       fi
+      return
     fi
   done < <(jq -c '.[]' issues_list.json)
 # If its onDemand and there are no issues matching above we should skip startup

@@ -10,6 +10,7 @@
         ],
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
+        "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
@@ -24,6 +25,7 @@
         ],
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5239",
+        "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/384"
     },
     {
@@ -37,6 +39,7 @@
         ],
         "business_area": "cross-cutting",
         "change_jira_id": "S28-2692",
+        "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/404"
     },
     {
@@ -50,6 +53,7 @@
         ],
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-719",
+        "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/408"
     }
 ]

@@ -23,13 +23,13 @@ body:
     label: Environment
     description: "If AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request"
     multiple: true
-    options:
+    options: 
       - Sandbox
       - AAT / Staging
-      - Preview / Dev
-      - Test / Perftest
+      - Preview / Dev 
+      - Test / Perftest 
       - Demo
-      - ITHC
+      - ITHC 
       - PTL
   validations:
     required: true
@@ -61,3 +61,4 @@ body:
       - 'Yes'
   validations:
     required: true
+
