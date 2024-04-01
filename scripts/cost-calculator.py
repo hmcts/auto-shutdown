@@ -10,6 +10,7 @@ import os
 start_date = os.getenv("START_DATE")
 end_date = os.getenv("END_DATE")
 env_file_path = os.getenv("GITHUB_ENV")
+stay_on_late = os.getenv("STAY_ON_LATE")
 
 #Read start/end dates from env vars
 start = parse(start_date, dayfirst=True).date()
@@ -24,6 +25,22 @@ business_days = np.busday_count(start, (end + timedelta(days=1)))
 diff = (end - start).days
 total_days = (diff +1)
 weekend_days = (total_days - business_days)
+
+def getBusHours(stayOnLate):
+    if stayOnLate == "Yes":
+        businessHours = 11
+    else:
+        businessHours = 3
+    
+    return businessHours
+
+def getWeekendHours(stayOnLate):
+    if stayOnLate == "Yes":
+        weekendHours = 24
+    else:
+        weekendHours = 11
+    
+    return weekendHours
 
 #Function to add entries to the GitHub env list.
 def writeStringVar(varName, varValue):
@@ -60,8 +77,8 @@ def azPriceAPI(vm_sku, productNameVar, osQuery,retry=0):
 #Cost is equal to hourly cluster node rate, multiplied by total number of additional running hours, multiplied by the number of cluster nodes.
 #25% add to costs, to take into account the other MS Azure resources impacted by extended running hours (logs etc).
 def calculate_cost(env_rate, node_count, skip_bus_days, skip_weekend_days):
-    bus_hours = (11 * skip_bus_days)
-    weekend_hours = (24 * skip_weekend_days)
+    bus_hours = (getBusHours(stay_on_late) * skip_bus_days)
+    weekend_hours = (getWeekendHours(stay_on_late) * skip_weekend_days)
     total_hours = (bus_hours + weekend_hours)
     node_cost = (env_rate * total_hours)*node_count
     total_cost = ((node_cost // 100) * 25) + node_cost
