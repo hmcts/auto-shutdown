@@ -3,7 +3,7 @@ name: sftp check status
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 6 * * 1-5" # Every weekday at 6:30am BST
+    - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
 permissions:
   id-token: write
 jobs:
