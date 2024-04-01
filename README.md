@@ -16,6 +16,7 @@ In the event that an environment or environments are needed outside of the defau
 - Enter the "start date" for when automatic shutdown skips should begin.
 - If available, enter an end date for when your desired enviornment nolonger needs to be skipped from the automatic shutdown schedule.
 - If no end date is provided, it will default to the same day as the start date.
+- Select "Yes" or "No" from the dropdown menu to indicate if the requested envitonment can be shutdown at 23:00. Default is No.
 - Select "Submit new issue"
 - Wait for form processing to complete (~5 seconds) - you will see feedback comments if there are errors or when processing is complete.
     - In the event you need to edit your issue due to an error (unexpected date format error).
