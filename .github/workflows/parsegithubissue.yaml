@@ -12,6 +12,7 @@ env:
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
   APPROVAL_STATE: "Pending Approval"
   APPROVAL_COMMENT: "Pending Approval"
+  SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_OAUTH_TOKEN }}
 permissions:
   id-token: write
 jobs:
@@ -29,7 +30,7 @@ jobs:
     #Comment if approver is equal to requester
       - name: Cannot self approve comment
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -145,7 +146,7 @@ jobs:
     # Provide any error messages to user as a comment
       - name: Create Issue Comment
         if: env.PROCESS_SUCCESS != 'true'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -159,7 +160,7 @@ jobs:
 
     # Login to Azure CLI (for cost analysis)
       - name: 'Az CLI login'
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
@@ -203,7 +204,7 @@ jobs:
     #Add output of cost calculator as a comment to user
       - name: Add cost details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -212,7 +213,7 @@ jobs:
     #If cost calculator fails, provide feedback to user as a comment
       - name: Add cost error details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS == 'true'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -242,7 +243,7 @@ jobs:
     #Add auto-approval comment if approval_state == auto-approved
       - name: Add auto approval comment
         if: env.APPROVAL_STATE == 'auto-approved'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -260,11 +261,12 @@ jobs:
     #If approval_state == Pending Approval && workflow is running at submission time, not approval time.
       - name: Very High Cost approval comment
         if: env.APPROVAL_STATE == 'Pending Approval' && github.event.issue.user.login == github.actor
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Due to the level of cost associated with this request, an approval will be required from any additional person. Note, you cannot approve your own request.
+            An approval is provided by adding the "Approved" label to this GitHub issue. See [Review Process](https://github.com/hmcts/auto-shutdown?tab=readme-ov-file#shutdown-exclusion-request---review-process) for additional information.
 
     #If approved label is applued, set approval variables.
       - name: set approved status
@@ -276,7 +278,7 @@ jobs:
     #Add approval comment if approval_state == Approved
       - name: Add auto approval comment
         if: env.APPROVAL_STATE == 'Approved'
-        uses: peter-evans/create-or-update-comment@v3.1.0
+        uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |

@@ -48,7 +48,7 @@ Currently, anyone other than the requester can be an approver. The main purpose 
 Requests should only be approved when the shutdown exclusion is necessary and for the appropriate amount of time.
 
 You should check:
-- Request has an appropriate Change or JIRA reference ID
+- Request has an appropriate Change or Jira reference ID
 - The start and end dates of the request are the minimum required, see below example.
 - Only the necessary enviornments have been included in the request. Note: If you need AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request
 

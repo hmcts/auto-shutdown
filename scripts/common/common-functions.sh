@@ -45,7 +45,7 @@ function is_late_night_run() {
   if [[ $(get_current_hour) -gt 20 ]]; then
     echo "true"
   else
-    echo "true"
+    echo "false"
   fi
 }
 
@@ -110,4 +110,30 @@ get_request_type() {
   if [[ -z $request_type || $request_type == "null" ]]; then
     request_type="stop"
   fi
+}
+
+get_slack_displayname_from_github_username() {
+    local github_username="$1"
+    
+    # Using curl to fetch content from github-slack-user-mappings repo
+    local user_mappings=$(curl -sS "https://raw.githubusercontent.com/hmcts/github-slack-user-mappings/master/slack.json")
+    
+    # Filtering JSON data based on GitHub field using jq
+    local slack_id=$(echo "$user_mappings" | jq -r ".users[] | select(.github == \"$github_username\") | .slack")
+ 
+    if [[ -z $slack_id ]]; then
+        #setting output to input GitHub username as slack mapping doesn't exist.
+        echo $github_username
+    else
+        # Slack API request to get user information based on ID.
+        local url="https://slack.com/api/users.profile.get?include_labels=real_name&user=$slack_id&pretty=1"
+        local data='{"user": "'"$slack_id"'"}'
+        local response=$(curl -s -X POST \
+            -H "Authorization: Bearer $SLACK_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "$data" "$url")
+
+        local slack_real_name=$(echo "$response" | jq -r '.profile.real_name')
+        echo $slack_real_name
+    fi
 }
