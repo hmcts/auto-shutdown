@@ -78,5 +78,19 @@
         "change_jira_id": "DTSPO-17357",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/424"
+    },
+    {
+        "start_date": "10-04-2024",
+        "end_date": "10-04-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            "Preview / Dev",
+            "PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5465",
+        "stay_on_late": "Yes",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/425"
     }
 ]
