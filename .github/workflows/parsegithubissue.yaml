@@ -266,6 +266,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Due to the level of cost associated with this request, an approval will be required from any additional person. Note, you cannot approve your own request.
+            An approval is provided by adding the "Approved" label to this GitHub issue. See [Review Process](https://github.com/hmcts/auto-shutdown?tab=readme-ov-file#shutdown-exclusion-request---review-process) for additional information.
 
     #If approved label is applued, set approval variables.
       - name: set approved status
