@@ -92,5 +92,15 @@
         "change_jira_id": "CIV-11170",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/426"
+    },
+    {
+        "start_date": "10-04-2024",
+        "end_date": "10-04-2024",
+        "request_type": "stop",
+        "environment": "Demo",
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4818",
+        "stay_on_late": "Yes",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/427"
     }
 ]
