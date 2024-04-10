@@ -60,28 +60,13 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/413"
     },
     {
-        "start_date": "05-04-2024",
-        "end_date": "08-04-2024",
+        "start_date": "09-04-2024",
+        "end_date": "09-04-2024",
         "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo",
-            "PTL"
-        ],
+        "environment": "AAT / Staging",
         "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5074",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-34",
         "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/418"
-    },
-    {
-        "start_date": "05-04-2024",
-        "end_date": "08-04-2024",
-        "request_type": "stop",
-        "environment": "ITHC",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5487",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/419"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/423"
     }
 ]
