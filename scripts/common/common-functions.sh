@@ -114,7 +114,6 @@ get_request_type() {
 
 get_slack_displayname_from_github_username() {
     local github_username="$1"
-    local SLACK_TOKEN=$2
     
     # Using curl to fetch content from github-slack-user-mappings repo
     local user_mappings=$(curl -sS "https://raw.githubusercontent.com/hmcts/github-slack-user-mappings/master/slack.json")

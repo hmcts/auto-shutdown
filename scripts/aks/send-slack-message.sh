@@ -6,7 +6,7 @@ request_url_link="*<$REQUEST_URL|$CHANGE_JIRA_ID>*"
 request_title_link="*<$REQUEST_URL|$ISSUE_TITLE>*"
 current_date=$(get_current_date)
 environment_field=$(echo "$ENVIRONMENT" | sed 's/\[//; s/\]//; s/"//g')
-slack_username=$(get_slack_displayname_from_github_username $REQUESTER $SLACK_TOKEN)
+slack_username=$(get_slack_displayname_from_github_username $REQUESTER)
 
 # Use jq with variables
 jq --arg issue_url "$request_url_link" \
