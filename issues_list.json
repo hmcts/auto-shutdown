@@ -29,20 +29,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/384"
     },
     {
-        "start_date": "10-04-2024",
-        "end_date": "10-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "S28-2692",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/404"
-    },
-    {
         "start_date": "22-04-2024",
         "end_date": "22-04-2024",
         "request_type": "stop",
@@ -68,40 +54,6 @@
         "change_jira_id": "DTSPO-17357",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/424"
-    },
-    {
-        "start_date": "10-04-2024",
-        "end_date": "10-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5465",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/425"
-    },
-    {
-        "start_date": "10-04-2024",
-        "end_date": "10-04-2024",
-        "request_type": "stop",
-        "environment": "Test / Perftest",
-        "business_area": "cft",
-        "change_jira_id": "CIV-11170",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/426"
-    },
-    {
-        "start_date": "10-04-2024",
-        "end_date": "10-04-2024",
-        "request_type": "stop",
-        "environment": "Demo",
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-4818",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/427"
     },
     {
         "start_date": "11-04-2024",
