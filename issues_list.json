@@ -78,5 +78,15 @@
         "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5112",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/429"
+    },
+    {
+        "start_date": "12-04-2024",
+        "end_date": "15-04-2024",
+        "request_type": "stop",
+        "environment": "Demo",
+        "business_area": "cross-cutting",
+        "change_jira_id": "JM-6092 (cgi jira)",
+        "stay_on_late": "Yes",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/430"
     }
 ]
