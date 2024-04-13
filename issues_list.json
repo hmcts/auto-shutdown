@@ -66,21 +66,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/430"
     },
     {
-        "start_date": "12-04-2024",
-        "end_date": "12-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "Sandbox",
-            "AAT / Staging",
-            "Preview / Dev",
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "AM-2943",
-        "stay_on_late": "No",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/431"
-    },
-    {
         "start_date": "15-04-2024",
         "end_date": "05-05-2024",
         "request_type": "stop",
@@ -104,16 +89,6 @@
         "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5613",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/433"
-    },
-    {
-        "start_date": "12-04-2024",
-        "end_date": "12-04-2024",
-        "request_type": "stop",
-        "environment": "Test / Perftest",
-        "business_area": "cft",
-        "change_jira_id": "CIV-11170",
-        "stay_on_late": "No",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/434"
     },
     {
         "start_date": "12-04-2024",
