@@ -12,7 +12,7 @@ def remove_entry(issue_number):
 
             # Find and remove the entry with the given issue number
             for i, entry in enumerate(data):
-                if entry.get("issue_link") == f"https://github.com/hmcts/aks-auto-shutdown-releases/issues/{issue_number}":
+                if entry.get("issue_link") == f"https://github.com/hmcts/auto-shutdown/issues/{issue_number}":
                     del data[i]
                     entry_found = True
                     
