@@ -36,9 +36,9 @@ jobs:
           ISSUE_NUMBER='${{ github.event.issue.number }}'
           git config user.name hmcts-platform-operations
           git config user.email github-platform-operations@hmcts.net
-          git add issues_list.json
+          git add .
           git commit -m parseissue-$ISSUE_NUMBER-removed
-          git push origin HEAD:$BRANCH
+          git push
           commit_tree_url=$(gh browse -c -n)
           commit_url=${commit_tree_url/tree/commit}
           echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
