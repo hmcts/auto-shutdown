@@ -68,11 +68,13 @@ jobs:
         if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
         run: |
           echo "The script will run"
+          echo "value of RUN_AUTO_START_STOP_SCRIPT is $RUN_AUTO_START_STOP_SCRIPT"
 
       - name: Script won't run
         if: env.RUN_AUTO_START_STOP_SCRIPT != 'true'
         run: |
           echo "The script won't run"
+          echo "value of RUN_AUTO_START_STOP_SCRIPT is $RUN_AUTO_START_STOP_SCRIPT"
 
       # - name: AKS Auto Shutdown
       #   if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
