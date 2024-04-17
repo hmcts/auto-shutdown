@@ -48,6 +48,24 @@ jobs:
           commit_url=${commit_tree_url/tree/commit}
           echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
 
+    # Check if the auto start stop script should run
+      - name: Check the time
+        run: |
+          CURRENT_HOUR=$(date +%H)
+          if [ $CURRENT_HOUR -ge 0 ] && [ $CURRENT_HOUR -lt 7 ]; then
+            echo "It's after midnight but before 7am"
+            echo "RUN_AUTO_START_STOP_SCRIPT=true"
+            echo "$RUN_AUTO_START_STOP_SCRIPT" >> GITHUB_ENV
+          elif [ $CURRENT_HOUR -lt 23 ] && [ $CURRENT_HOUR -ge 7 ]; then
+            echo "It's between 7am and 11pm"
+            echo "RUN_AUTO_START_STOP_SCRIPT=false"
+            echo "$RUN_AUTO_START_STOP_SCRIPT" >> GITHUB_ENV
+          else
+            echo "It's sometime after 11pm but before midnight"
+            echo "RUN_AUTO_START_STOP_SCRIPT=true"
+            echo "$RUN_AUTO_START_STOP_SCRIPT" >> GITHUB_ENV
+          fi
+          
       - name: Script will run
         if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
         run: |
