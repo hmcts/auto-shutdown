@@ -1,15 +1,5 @@
 [
     {
-        "start_date": "15-04-2024",
-        "end_date": "05-05-2024",
-        "request_type": "stop",
-        "environment": "Test / Perftest",
-        "business_area": "cross-cutting",
-        "change_jira_id": "GOB-529",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1"
-    },
-    {
         "start_date": "18-04-2024",
         "end_date": "18-04-2024",
         "request_type": "stop",
