@@ -47,3 +47,21 @@ jobs:
           commit_tree_url=$(gh browse -c -n)
           commit_url=${commit_tree_url/tree/commit}
           echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
+
+      - name: Script will run
+        if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
+        run: |
+          echo "The script will run"
+
+      - name: Script won't run
+        if: env.RUN_AUTO_START_STOP_SCRIPT != 'true'
+        run: |
+          echo "The script won't run"
+
+      # - name: AKS Auto Shutdown
+      #   if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
+      #   run: ./scripts/aks/auto-start-stop.sh stop
+
+      # - name: AKS Auto Shutdown status check
+      #   if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
+      #   run: ./scripts/aks/auto-shutdown-status.sh stop ${{ secrets.SLACK_WEBHOOK }}
