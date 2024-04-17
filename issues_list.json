@@ -14,7 +14,7 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSRD-1213",
         "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/413"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1"
     },
     {
         "start_date": "10-04-2024",
