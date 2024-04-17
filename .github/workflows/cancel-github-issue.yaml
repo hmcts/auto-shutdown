@@ -55,13 +55,13 @@ jobs:
           CURRENT_HOUR=1
           if [ $CURRENT_HOUR -ge 0 ] && [ $CURRENT_HOUR -lt 7 ]; then
             echo "It's after midnight but before 7am"
-            echo "RUN_AUTO_START_STOP_SCRIPT=true" >> GITHUB_ENV
+            echo "RUN_AUTO_START_STOP_SCRIPT=true" >> $GITHUB_ENV
           elif [ $CURRENT_HOUR -lt 23 ] && [ $CURRENT_HOUR -ge 7 ]; then
             echo "It's between 7am and 11pm"
-            echo "RUN_AUTO_START_STOP_SCRIPT=false" >> GITHUB_ENV
+            echo "RUN_AUTO_START_STOP_SCRIPT=false" >> $GITHUB_ENV
           else
             echo "It's sometime after 11pm but before midnight"
-            echo "RUN_AUTO_START_STOP_SCRIPT=true" >> GITHUB_ENV
+            echo "RUN_AUTO_START_STOP_SCRIPT=true" >> $GITHUB_ENV
           fi
           
       - name: Script will run
