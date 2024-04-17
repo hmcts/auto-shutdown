@@ -33,5 +33,17 @@ jobs:
         run: |
           # Logic to remove entry from issues_list.json
           python ./scripts/remove_entry.py ${{ github.event.issue.number }}
-          # Exit the workflow
-          exit 0
+
+    #Commit issue removal if canceled
+      - name: Commit changes - issue canceled
+        if: contains(github.event.issue.labels.*.name, 'cancel') && github.event.action == 'labeled'
+        run: |
+          ISSUE_NUMBER='${{ github.event.issue.number }}'
+          git config user.name hmcts-platform-operations
+          git config user.email github-platform-operations@hmcts.net
+          git add .
+          git commit -m parseissue-$ISSUE_NUMBER-removed
+          git push
+          commit_tree_url=$(gh browse -c -n)
+          commit_url=${commit_tree_url/tree/commit}
+          echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
