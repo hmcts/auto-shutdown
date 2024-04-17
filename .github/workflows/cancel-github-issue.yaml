@@ -65,12 +65,12 @@ jobs:
           fi
           
       - name: Script will run
-        if: env.RUN_AUTO_START_STOP_SCRIPT == true
+        if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
         run: |
           echo "The script will run"
 
       - name: Script won't run
-        if: env.RUN_AUTO_START_STOP_SCRIPT != true
+        if: env.RUN_AUTO_START_STOP_SCRIPT != 'true'
         run: |
           echo "The script won't run"
 
