@@ -10,7 +10,7 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-224",
         "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/444"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1"
     },
     {
         "start_date": "16-04-2024",
