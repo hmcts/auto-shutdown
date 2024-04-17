@@ -66,3 +66,11 @@ A request can be approved by adding the "approved" label to the request.
 
 A request can be denied by adding the "denied" label to the request. This will automatically close the ticket.
 
+## Cancelling a shutdown or startup
+
+If you have raised an issue to get an exclusion and this is no longer required, you can cancel it.
+
+To cancel it, simply add the `cancel` label to the original issue.
+
+A github action will run to remove the issue from the json so the original exclusion you raised will not proceed.
+
