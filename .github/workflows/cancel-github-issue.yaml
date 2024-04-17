@@ -54,31 +54,22 @@ jobs:
           CURRENT_HOUR=$(date +%H)
           if [ $CURRENT_HOUR -ge 0 ] && [ $CURRENT_HOUR -lt 7 ]; then
             echo "It's after midnight but before 7am"
+            echo "Auto-start-stop script will run"
             echo "RUN_AUTO_START_STOP_SCRIPT=true" >> $GITHUB_ENV
           elif [ $CURRENT_HOUR -lt 23 ] && [ $CURRENT_HOUR -ge 7 ]; then
             echo "It's between 7am and 11pm"
+            echo "Auto-start-stop script won't run"
             echo "RUN_AUTO_START_STOP_SCRIPT=false" >> $GITHUB_ENV
           else
             echo "It's sometime after 11pm but before midnight"
+            echo "Auto-start-stop script will run"
             echo "RUN_AUTO_START_STOP_SCRIPT=true" >> $GITHUB_ENV
           fi
-          
-      - name: Script will run
+
+      - name: AKS Auto Shutdown
         if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
-        run: |
-          echo "The script will run"
-          echo "value of RUN_AUTO_START_STOP_SCRIPT is $RUN_AUTO_START_STOP_SCRIPT"
+        run: ./scripts/aks/auto-start-stop.sh stop
 
-      - name: Script won't run
-        if: env.RUN_AUTO_START_STOP_SCRIPT != 'true'
-        run: |
-          echo "The script won't run"
-          echo "value of RUN_AUTO_START_STOP_SCRIPT is $RUN_AUTO_START_STOP_SCRIPT"
-
-      # - name: AKS Auto Shutdown
-      #   if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
-      #   run: ./scripts/aks/auto-start-stop.sh stop
-
-      # - name: AKS Auto Shutdown status check
-      #   if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
-      #   run: ./scripts/aks/auto-shutdown-status.sh stop ${{ secrets.SLACK_WEBHOOK }}
+      - name: AKS Auto Shutdown status check
+        if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
+        run: ./scripts/aks/auto-shutdown-status.sh stop ${{ secrets.SLACK_WEBHOOK }}
