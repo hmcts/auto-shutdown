@@ -19,7 +19,7 @@ jobs:
   process-request:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: github.event.issue.user.login != 'renovate[bot]'
+    if: github.event.issue.user.login != 'renovate[bot]' && !contains(github.event.issue.labels.*.name, 'cancel')
     steps:
     #Allows workflow to access repo
       - name: Checkout
