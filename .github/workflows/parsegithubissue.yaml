@@ -49,6 +49,11 @@ jobs:
           commit_tree_url=$(gh browse -c -n)
           commit_url=${commit_tree_url/tree/commit}
           echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
+
+    #Exit workflow if canceled
+      - name: Exit workflow
+        if: contains(github.event.issue.labels.*.name, 'cancel') && github.event.action == 'labeled'
+        run: |
           exit 0
 
     #Adds label for user feedback
