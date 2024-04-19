@@ -45,7 +45,7 @@ jobs:
     #End workflow if user is equal to requester
       - name: exit flow if approver == requester 
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
-        run: exit 1
+        run: exit 0
     #if denied label is applied, set approval environment variables appropriately 
       - name: set denied status
         if: contains(github.event.issue.labels.*.name, 'denied')
@@ -90,7 +90,7 @@ jobs:
       - name: Save parsed jsonString data
         run: | 
           echo '${{ steps.parse_issue.outputs.jsonString }}' > NEW_DATA.json
-          echo NEW_DATA=$(cat NEW_DATA.json | jq -c) >> $GITHUB_ENV
+          echo NEW_DATA=$(cat NEW_DATA.json | jq -c | jq '.form_environment |= split(",")') >> $GITHUB_ENV
           rm NEW_DATA.json
           echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
           echo ISSUE_NUMBER='${{ github.event.issue.number }}' >> $GITHUB_ENV
@@ -170,10 +170,10 @@ jobs:
     #End workflow if approval state == denied
       - name: exit flow if denied
         if: env.APPROVAL_STATE == 'Denied'
-        run: exit 1
+        run: exit 0
     #Add output of cost calculator as a comment to user
       - name: Add cost details as a comment
-        if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true'
+        if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true' && !contains(github.event.issue.labels.*.name, 'approved')
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
