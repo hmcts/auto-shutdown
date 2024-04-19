@@ -100,31 +100,16 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/440"
     },
     {
-        "start_date": "16-04-2024",
-        "end_date": "16-04-2024",
+        "start_date": "19-04-2024",
+        "end_date": "22-04-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
-            "PTL"
+            "Demo"
         ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-224",
+        "business_area": "cross-cutting",
+        "change_jira_id": "JM-6092 (cgi jira)",
         "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/444"
-    },
-    {
-        "start_date": "16-04-2024",
-        "end_date": "16-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "ITHC",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5390",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/445"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/457"
     }
 ]
