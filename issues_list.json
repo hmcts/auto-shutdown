@@ -111,17 +111,5 @@
         "change_jira_id": "JM-6092 (cgi jira)",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/457"
-    },
-    {
-        "start_date": "05-05-2024",
-        "end_date": "05-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "DTSPO-15447",
-        "stay_on_late": "No",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/459"
     }
 ]
