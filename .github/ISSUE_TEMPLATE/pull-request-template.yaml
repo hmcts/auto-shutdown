@@ -1,6 +1,6 @@
 name: 'Test changes in a pull request'
 description: Test the changes you are making in a pull request by using this issue template
-labels: ["pull_request"]
+labels: ["pull-request"]
 body:
 - type: input
   attributes:
