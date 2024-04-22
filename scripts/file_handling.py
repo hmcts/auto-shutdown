@@ -8,20 +8,23 @@ listObj = []
 filepath = "issues_list.json"
 new_data = json.loads(os.environ.get("NEW_DATA", "{}"))
 # Check if "Skip shutdown start date" is None or empty
-skip_shutdown_start_date = new_data.get("Skip shutdown start date", None)
+print(new_data)
+skip_shutdown_start_date = new_data.get("form_start_date", None)
 if skip_shutdown_start_date is None:
-    new_data["start_date"] = new_data.pop("On Demand start date")
-    new_data["end_date"] = new_data.pop("On Demand end date")
+    print("no json data entered")
+    new_data["start_date"] = new_data.pop("on_demand_start_date")
+    new_data["end_date"] = new_data.pop("on_demand_end_date")
     new_data["request_type"] = "start"
 else:
-    new_data["start_date"] = new_data.pop("Skip shutdown start date")
-    new_data["end_date"] = new_data.pop("Skip shutdown end date")
+    print("in else statement")
+    new_data["start_date"] = new_data.pop("form_start_date")
+    new_data["end_date"] = new_data.pop("form_end_date")
     new_data["request_type"] = "stop"
-new_data["environment"] = new_data.pop("Environment")
-new_data["business_area"] = new_data.pop("Business area")
-new_data["change_jira_id"] = new_data.pop("Change or Jira reference")
+new_data["environment"] = new_data.pop("form_environment")
+new_data["business_area"] = new_data.pop("form_business_area")
+new_data["change_jira_id"] = new_data.pop("form_change_jira_id")
 new_data["business_area"] = new_data["business_area"].lower()
-new_data["stay_on_late"] = new_data.pop("Do you need this exclusion past 23:00?")
+new_data["stay_on_late"] = new_data.pop("form_stay_on_late")
 print("==================")
 issue_number = os.environ.get("ISSUE_NUMBER")
 github_repository = os.environ.get("GITHUB_REPO")
@@ -78,12 +81,12 @@ if new_data:
             print("Unexpected Error")
             exit(0)
 #End Date logic
-    if new_data["end_date"] == "_No response_":
+    if new_data["end_date"] == "":
         if date_start_date > today:
             new_data["end_date"] = new_data["start_date"]
         elif date_start_date == today:
             new_data["end_date"] = today.strftime("%d-%m-%Y")
-    elif new_data["end_date"] != "_No response_":
+    elif new_data["end_date"] != "":
         try:
             new_data["end_date"] = parse(new_data["end_date"], dayfirst=True).date()
             if new_data["end_date"] < date_start_date:

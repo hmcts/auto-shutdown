@@ -21,7 +21,7 @@ jobs:
   process-request:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: github.event.issue.user.login != 'renovate[bot]' && github.actor != 'hmcts-platform-operations' && !contains(github.event.issue.labels.*.name, 'cancel') && !contains(github.event.issue.labels.*.name, 'pull-request')
+    if: github.event.issue.user.login != 'renovate[bot]' && github.actor != 'hmcts-platform-operations' && !contains(github.event.issue.labels.*.name, 'cancel')
     steps:
     #Adds label for user feedback
       - name: add processing label
