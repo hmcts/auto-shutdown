@@ -35,10 +35,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
           TITLE: "PR-${{ github.event.pull_request.number }}"
+          PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
           ENVIRONMENT: "Sandbox"
-          START_DATE: env.START_DATE
-          END_DATE: env.END_DATE
+          START_DATE: "${{ env.START_DATE }}"
+          END_DATE: "${{ env.END_DATE }}"
           POST_11PM: "No"
         with:
           filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
