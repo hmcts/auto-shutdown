@@ -25,10 +25,8 @@ jobs:
 
       - name: Get the date
         run: |
-          echo "START_DATE=$(date +%d-%m-%Y -d "+30 days")"
-          echo "$START_DATE" >> GITHUB_ENV
-          echo "END_DATE=$(date +%d-%m-%Y -d "+31 days")"
-          echo "$END_DATE" >> GITHUB_ENV
+          echo "START_DATE=$(date +%d-%m-%Y -d "+30 days")" >> GITHUB_ENV
+          echo "END_DATE=$(date +%d-%m-%Y -d "+31 days")" >> GITHUB_ENV
 
       - uses: JasonEtco/create-an-issue@v2
         id: create-issue
@@ -81,7 +79,6 @@ jobs:
           echo "APPROVAL_STATE=Denied" >> $GITHUB_ENV
           echo "APPROVAL_COMMENT=Denied by ${{ github.actor }}" >> $GITHUB_ENV
           
-
     #if approval state == denied, close issue 
       - name: Close Issue with denied
         if: env.APPROVAL_STATE == 'Denied'
