@@ -76,7 +76,9 @@ A github action will run to remove the issue from the json so the original exclu
 
 ## Testing changes to this repo
 
-If you wish to test changes to the repo, create a pull request and then raise a new issue with the `pull-request` label.
+If you wish to test changes to the repo, create a pull request. An action will run to create a test issue for you and it will process that test issue.
 
-This label will be detected an a dedicated workflow will run so you can test the output of the changes.
+The issue will be named for your PR e.g. PR-100.
+
+The issue may get closed but this is expected. The same issue will be reused on subsequent runs so you don't need to open a new one. You can manually reopen the test issue if you need to test a change will close the issue.
 
