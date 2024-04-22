@@ -201,7 +201,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Denied'
         run: ./scripts/aks/send-slack-message.sh
         env:
-          SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ env.TEST_CHANNEL_SLACK_WEBHOOK }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
@@ -344,7 +344,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true'
         run: ./scripts/aks/send-slack-message.sh
         env:
-          SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ env.TEST_CHANNEL_SLACK_WEBHOOK }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
