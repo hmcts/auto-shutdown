@@ -22,6 +22,7 @@ jobs:
         with:
           fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Get the date
         run: |
@@ -45,6 +46,7 @@ jobs:
         with:
           filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
           update_existing: true
+          search_existing: all
 
     #Adds label for user feedback
       - name: add processing label
@@ -307,7 +309,6 @@ jobs:
         run: |
           git config user.name hmcts-platform-operations
           git config user.email github-platform-operations@hmcts.net
-          git checkout ${{ github.event.pull_request.base.ref }}
           git add .
           git commit -m parseissue-${{ steps.create-issue.outputs.number }}
           git push
