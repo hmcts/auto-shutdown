@@ -120,17 +120,16 @@ jobs:
     #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
-        uses: onmax/issue-form-parser@v1.4
+        uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          issue_number: ${{ steps.create-issue.outputs.number }}
+          template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
 
     #Save parsed date into environment variables  
-      - name: Save parsed payload data
-        run: |
-          # Using the character `'` to prevent all characters enclosed within
-          # them from being treated as special characters (e.g. $ or `)
-          echo '${{ steps.parse_issue.outputs.payload }}'
-          echo NEW_DATA='${{ steps.parse_issue.outputs.payload }}' >> $GITHUB_ENV
+      - name: Save parsed jsonString data
+        run: | 
+          echo '${{ steps.parse_issue.outputs.jsonString }}' > NEW_DATA.json
+          echo NEW_DATA=$(cat NEW_DATA.json | jq -c | jq '.form_environment |= split(",")') >> $GITHUB_ENV
+          rm NEW_DATA.json
           echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
           echo ISSUE_NUMBER='${{ steps.create-issue.outputs.number }}' >> $GITHUB_ENV
 
