@@ -80,5 +80,5 @@ If you wish to test changes to the repo, create a pull request. An action will r
 
 The issue will be named for your PR e.g. PR-100.
 
-The issue may get closed but this is expected. The same issue will be reused on subsequent runs so you don't need to open a new one. You can manually reopen the test issue if you need to test a change will close the issue.
+The issue may get closed but this is expected. The same issue will be reused on subsequent runs so you don't need to open a new one. You can manually reopen the test issue if you need to test a change that will close the issue.
 
