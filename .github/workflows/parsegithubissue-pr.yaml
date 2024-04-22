@@ -27,7 +27,7 @@ jobs:
         run: |
           echo "START_DATE=$(date +%d-%m-%Y -d "+30 days")"
           echo "$START_DATE" >> GITHUB_ENV
-          echo "$END_DATE=$(date +%d-%m-%Y -d "+31 days")"
+          echo "END_DATE=$(date +%d-%m-%Y -d "+31 days")"
           echo "$END_DATE" >> GITHUB_ENV
 
       - uses: JasonEtco/create-an-issue@v2
@@ -37,11 +37,12 @@ jobs:
           TITLE: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
           ENVIRONMENT: "Sandbox"
-          START_DATE: ${{ env.START_DATE }}
-          END_DATE: ${{ env.END_DATE }}
+          START_DATE: env.START_DATE
+          END_DATE: env.END_DATE
           POST_11PM: "No"
         with:
           filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
+          update_existing: true
 
     #Adds label for user feedback
       - name: add processing label
