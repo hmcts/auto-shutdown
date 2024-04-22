@@ -1,0 +1,65 @@
+name: 'Test changes in a pull request'
+description: Test the changes you are making in a pull request by using this issue template
+labels: ["pull_request"]
+body:
+- type: input
+  attributes:
+    label: Change or Jira reference
+  validations:
+    required: true
+
+- type: dropdown
+  id: download
+  attributes:
+    label: Business area
+    options:
+      - CFT
+      - Cross-Cutting
+  validations:
+    required: true
+    
+- type: dropdown
+  id: Environment
+  attributes:
+    label: Environment
+    description: "If AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request"
+    multiple: true
+    options: 
+      - Sandbox
+      - AAT / Staging
+      - Preview / Dev 
+      - Test / Perftest 
+      - Demo
+      - ITHC 
+      - PTL
+  validations:
+    required: true
+      
+- type: input
+  id: Start_Date
+  attributes:
+    label: Skip shutdown start date
+    description: "DD-MM-YYYY - date covers shutdown period, 20:00 to 20:00 the following day"
+  validations:
+    required: true
+    
+- type: input
+  id: End_Date
+  attributes:
+    label: Skip shutdown end date
+    description: "DD-MM-YYYY - Defaults to start date. 20:00 shutdown job will skip provided clusters on this date."
+  validations:
+    required: false
+
+- type: dropdown
+  id: soft-limit
+  attributes:
+    label: Do you need this exclusion past 23:00?
+    description: Default is set to no. Shutdown of all environments will occur at 23:00 unless the below is ticked.
+    multiple: false
+    options: 
+      - 'No'
+      - 'Yes'
+  validations:
+    required: true
+
