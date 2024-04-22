@@ -74,3 +74,9 @@ To cancel it, simply add the `cancel` label to the original issue.
 
 A github action will run to remove the issue from the json so the original exclusion you raised will not proceed.
 
+## Testing changes to this repo
+
+If you wish to test changes to the repo, create a pull request and then raise a new issue with the `pull-request` label.
+
+This label will be detected an a dedicated workflow will run so you can test the output of the changes.
+
