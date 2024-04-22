@@ -182,13 +182,13 @@ jobs:
         if: env.PROCESS_SUCCESS != 'true'
         run: exit 1
 
-    # # Login to Azure CLI (for cost analysis)
-    #   - name: 'Az CLI login'
-    #     uses: azure/login@v2
-    #     with:
-    #       client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
-    #       tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
-    #       allow-no-subscriptions: true
+    # Login to Azure CLI (for cost analysis)
+      - name: 'Az CLI login'
+        uses: azure/login@v2
+        with:
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
 
     #Run bash script to get Azure resouce details for cost analysis
       - name: get aks resource details
