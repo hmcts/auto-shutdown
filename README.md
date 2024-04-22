@@ -1,6 +1,8 @@
 # aks-auto-shutdown
 Config for Auto-Shutdown/Start of the AKS clusters
 
+## Dummy change
+
 In the near future, all environments excluding Production will be automatically shutdown. This action is to reduce the unnecessary infrastructure costs while the environments are not in use.
 
 ## Default cluster shutdown hours
