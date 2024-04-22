@@ -22,7 +22,6 @@ jobs:
         with:
           fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
-          ref: ${{ github.event.pull_request.base.ref }}
 
       - name: Get the date
         run: |
@@ -308,6 +307,7 @@ jobs:
         run: |
           git config user.name hmcts-platform-operations
           git config user.email github-platform-operations@hmcts.net
+          git checkout ${{ github.event.pull_request.base.ref }}
           git add .
           git commit -m parseissue-${{ steps.create-issue.outputs.number }}
           git push
