@@ -217,7 +217,7 @@ jobs:
           END_DATE: ${{ env.END_DATE }}
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
-          REQUESTER: ${{ github.event.issue.user.login }}
+          REQUESTER: ${{ github.event.pull_request.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
 
     #End workflow if approval state == denied
