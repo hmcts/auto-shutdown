@@ -16,7 +16,7 @@ jobs:
   process-request:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login != 'renovate[bot]' && && github.event.pull_request.user.login != 'hmcts-platform-operations'
+    if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'hmcts-platform-operations'
     steps:
     #Allows workflow to access repo
       - name: Checkout
