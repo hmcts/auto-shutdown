@@ -4,7 +4,7 @@ on:
   pull_request:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
-  SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+  SLACK_WEBHOOK: ${{ secrets.TEST_CHANNEL_SLACK_WEBHOOK }}
   APPROVAL_STATE: "Pending Approval"
   APPROVAL_COMMENT: "Pending Approval"
   SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_OAUTH_TOKEN }}
@@ -22,6 +22,7 @@ jobs:
         with:
           fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Get the date
         run: |
@@ -201,7 +202,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Denied'
         run: ./scripts/aks/send-slack-message.sh
         env:
-          SLACK_WEBHOOK: ${{ env.TEST_CHANNEL_SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
@@ -301,18 +302,18 @@ jobs:
           body: |
             ${{ env.APPROVAL_COMMENT }}
 
-    # #Commit issue submission to master if approved or auto-approved.
-    #   - name: Commit to master
-    #     if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
-    #     run: |
-    #       git config user.name hmcts-platform-operations
-    #       git config user.email github-platform-operations@hmcts.net
-    #       git add .
-    #       git commit -m parseissue-${{ steps.create-issue.outputs.number }}
-    #       git push
-    #       commit_tree_url=$(gh browse -c -n)
-    #       commit_url=${commit_tree_url/tree/commit}
-    #       echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
+    #Commit issue submission to branch if approved or auto-approved.
+      - name: Commit to branch
+        if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
+        run: |
+          git config user.name hmcts-platform-operations
+          git config user.email github-platform-operations@hmcts.net
+          git add .
+          git commit -m parseissue-${{ steps.create-issue.outputs.number }}
+          git push
+          commit_tree_url=$(gh browse -c -n)
+          commit_url=${commit_tree_url/tree/commit}
+          echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
 
     #Remove processing label
       - name: Remove processing label
@@ -344,7 +345,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true'
         run: ./scripts/aks/send-slack-message.sh
         env:
-          SLACK_WEBHOOK: ${{ env.TEST_CHANNEL_SLACK_WEBHOOK }}
+          SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
