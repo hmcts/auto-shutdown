@@ -1,5 +1,5 @@
 name: Auto Parse github form - pull request
-run-name: ${{ github.actor }} - issue:${{ steps.create-issue.outputs.number }}
+run-name: ${{ github.actor }} - issue:${{ steps.create_issue.outputs.number }}
 on:
   pull_request:
 env:
@@ -31,7 +31,7 @@ jobs:
           echo "$END_DATE" >> GITHUB_ENV
 
       - uses: JasonEtco/create-an-issue@v2
-        id: create-issue
+        id: create_issue
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
           TITLE: "PR-${{ github.event.pull_request.number }}"
@@ -42,11 +42,6 @@ jobs:
           POST_11PM: "No"
         with:
           filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
-
-      - name: Get issue number
-        run: |
-          echo "ISSUE_NUMBER=$(echo ${{ steps.create-issue.outputs.number }})
-          echo "$ISSUE_NUMBER" >> GITHUB_ENV
 
     #Adds label for user feedback
       - name: add processing label
@@ -59,7 +54,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           body: |
             Requester cannot also be approver - please seek a second approver.
 
@@ -90,7 +85,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Denied'
         uses: peter-evans/close-issue@v3
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           comment: | 
             Your request has been denied by ${{ github.actor }}, most likely due to associated costs being too high.
             Closing issue.
@@ -120,7 +115,7 @@ jobs:
         id: parse_issue
         uses: onmax/issue-form-parser@v1.4
         with:
-          issue_number: ${{ steps.create-issue.outputs.number }}
+          issue_number: ${{ steps.create_issue.outputs.number }}
 
     #Save parsed date into environment variables  
       - name: Save parsed payload data
@@ -130,7 +125,7 @@ jobs:
           echo '${{ steps.parse_issue.outputs.payload }}'
           echo NEW_DATA='${{ steps.parse_issue.outputs.payload }}' >> $GITHUB_ENV
           echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
-          echo ISSUE_NUMBER='${{ steps.create-issue.outputs.number }}' >> $GITHUB_ENV
+          echo ISSUE_NUMBER='${{ steps.create_issue.outputs.number }}' >> $GITHUB_ENV
 
     #Setup Python
       - uses: actions/setup-python@v5
@@ -168,7 +163,7 @@ jobs:
         if: env.PROCESS_SUCCESS != 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           body: |
             ${{ env.ISSUE_COMMENT }}
             Please edit this issue and select "Update comment" to resubmit.
@@ -226,7 +221,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           body: |
             Total estimated cost of skipping shutdown for the provided dates is **£${{ env.COST_DETAILS_FORMATTED }}**
 
@@ -235,7 +230,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS == 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           body: |
             We have been unable to estimate the cost of this skip request.
 
@@ -265,7 +260,7 @@ jobs:
         if: env.APPROVAL_STATE == 'auto-approved'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           body: |
             You request has been automatically approved.
 
@@ -283,7 +278,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Pending Approval' && github.event.issue.user.login == github.actor
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           body: |
             Due to the level of cost associated with this request, an approval will be required from any additional person. Note, you cannot approve your own request.
             An approval is provided by adding the "Approved" label to this GitHub issue. See [Review Process](https://github.com/hmcts/auto-shutdown?tab=readme-ov-file#shutdown-exclusion-request---review-process) for additional information.
@@ -300,7 +295,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Approved'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           body: |
             ${{ env.APPROVAL_COMMENT }}
 
@@ -311,7 +306,7 @@ jobs:
           git config user.name hmcts-platform-operations
           git config user.email github-platform-operations@hmcts.net
           git add .
-          git commit -m parseissue-${{ steps.create-issue.outputs.number }}
+          git commit -m parseissue-${{ steps.create_issue.outputs.number }}
           git push
           commit_tree_url=$(gh browse -c -n)
           commit_url=${commit_tree_url/tree/commit}
@@ -337,7 +332,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
         uses: peter-evans/close-issue@v3
         with:
-          issue_number: env.ISSUE_NUMBER
+          issue-number: ${{ steps.create_issue.outputs.number }}
           comment: | 
             Success! Your [commit](${{ env.COMMIT_URL }}) has been added to the json exclusions file.
             Auto-closing issue.
