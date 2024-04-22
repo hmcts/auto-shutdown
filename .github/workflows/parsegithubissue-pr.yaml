@@ -301,18 +301,18 @@ jobs:
           body: |
             ${{ env.APPROVAL_COMMENT }}
 
-    #Commit issue submission to master if approved or auto-approved.
-      - name: Commit to master
-        if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
-        run: |
-          git config user.name hmcts-platform-operations
-          git config user.email github-platform-operations@hmcts.net
-          git add .
-          git commit -m parseissue-${{ steps.create-issue.outputs.number }}
-          git push
-          commit_tree_url=$(gh browse -c -n)
-          commit_url=${commit_tree_url/tree/commit}
-          echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
+    # #Commit issue submission to master if approved or auto-approved.
+    #   - name: Commit to master
+    #     if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
+    #     run: |
+    #       git config user.name hmcts-platform-operations
+    #       git config user.email github-platform-operations@hmcts.net
+    #       git add .
+    #       git commit -m parseissue-${{ steps.create-issue.outputs.number }}
+    #       git push
+    #       commit_tree_url=$(gh browse -c -n)
+    #       commit_url=${commit_tree_url/tree/commit}
+    #       echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
 
     #Remove processing label
       - name: Remove processing label
