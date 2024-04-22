@@ -27,6 +27,7 @@ jobs:
         run: |
           echo "START_DATE=$(date +%d-%m-%Y -d "+30 days")" >> GITHUB_ENV
           echo "END_DATE=$(date +%d-%m-%Y -d "+31 days")" >> GITHUB_ENV
+          echo "START_DATE is $START_DATE"
 
       - uses: JasonEtco/create-an-issue@v2
         id: create-issue
@@ -36,8 +37,8 @@ jobs:
           PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
           ENVIRONMENT: "Sandbox"
-          START_DATE: "${{ env.START_DATE }}"
-          END_DATE: "${{ env.END_DATE }}"
+          START_DATE: ${{ env.START_DATE }}
+          END_DATE: ${{ env.END_DATE }}
           POST_11PM: "No"
         with:
           filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
