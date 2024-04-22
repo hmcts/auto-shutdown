@@ -1,6 +1,7 @@
-markdown
 ---
 Title: {{ env.TITLE }}
+labels: "pull-request"
+---
 Change or Jira reference: {{ env.TITLE }}
 Business area: {{ env.BUSINESS_AREA }}
 Environment: {{ env.ENVIRONMENT }}

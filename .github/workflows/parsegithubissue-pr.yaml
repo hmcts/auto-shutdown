@@ -25,8 +25,8 @@ jobs:
 
       - name: Get the date
         run: |
-          NEXT_MONTH=$(date +%d -d "+30 days")
-          echo $NEXT_MONTH >> GITHUB_ENV
+          echo "NEXT_MONTH=$(date +%d -d "+30 days")"
+          echo "$NEXT_MONTH" >> GITHUB_ENV
 
       - uses: JasonEtco/create-an-issue@v2
         env:
