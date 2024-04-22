@@ -1,12 +1,7 @@
 name: Auto Parse github form - pull request
 run-name: ${{ github.actor }} - issue:${{ github.event.issue.number }}
 on:
-  issues:
-    types:
-      - opened
-      - edited
-      - labeled
-  workflow_dispatch:
+  pull_request:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
@@ -19,14 +14,29 @@ jobs:
   process-request:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: github.event.issue.user.login != 'renovate[bot]' && !contains(github.event.issue.labels.*.name, 'cancel')
+    if: github.event.pull_request.user.login != 'renovate[bot]'
     steps:
     #Allows workflow to access repo
-      # - name: Checkout
-      #   uses: actions/checkout@v4
-      #   with:
-      #     fetch-depth: '0'
-      #     token: ${{ env.GH_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+          token: ${{ env.GH_TOKEN }}
+
+      - name: Get the date
+        run: |
+          NEXT_MONTH=$(date +%d -d "+30 days")
+          echo $NEXT_MONTH >> GITHUB_ENV
+
+      - uses: JasonEtco/create-an-issue@v2
+        env:
+          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
+        with:
+          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.yaml
+          Pull_request_branch: ""
+          Business_area: "CFT"
+          Environment: "Sandbox"
+          Skip_shutdown_start_date: ${{ env.NEXT_MONTH }}
 
     #Adds label for user feedback
       - name: add processing label

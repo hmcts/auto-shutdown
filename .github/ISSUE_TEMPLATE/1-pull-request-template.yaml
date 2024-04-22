@@ -4,7 +4,7 @@ labels: ["pull-request"]
 body:
 - type: input
   attributes:
-    label: Change or Jira reference
+    label: Pull request branch
   validations:
     required: true
 
