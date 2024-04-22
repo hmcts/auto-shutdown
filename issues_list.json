@@ -108,5 +108,17 @@
         "change_jira_id": "AM-2943",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/464"
+    },
+    {
+        "start_date": "24-04-2024",
+        "end_date": "24-04-2024",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "DTSPO-17430",
+        "stay_on_late": "No",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/469"
     }
 ]
