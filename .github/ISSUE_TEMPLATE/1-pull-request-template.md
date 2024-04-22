@@ -16,11 +16,11 @@ labels: "pull-request"
 
 ### Skip shutdown start date
 
-"{{ env.START_DATE }}"
+{{ env.START_DATE }}
 
 ### Skip shutdown end date
 
-"{{ env.END_DATE }}"
+{{ env.END_DATE }}
 
 ### Do you need this exclusion past 23:00?
 
