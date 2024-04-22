@@ -2,6 +2,8 @@ name: Auto Parse github form - pull request
 run-name: ${{ github.actor }} - PR:${{ github.event.pull_request.number }}
 on:
   pull_request:
+    paths-ignore:
+          - 'issues_list.json'
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.TEST_CHANNEL_SLACK_WEBHOOK }}
