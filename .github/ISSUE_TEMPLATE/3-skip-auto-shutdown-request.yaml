@@ -2,13 +2,14 @@ name: '🌍 Skip auto shutdown'
 description: Request that an environment is not shutdown (automatically processed)
 body:
 - type: input
+  id: form_change_jira_id
   attributes:
     label: Change or Jira reference
   validations:
     required: true
 
 - type: dropdown
-  id: download
+  id: form_business_area
   attributes:
     label: Business area
     options:
@@ -18,7 +19,7 @@ body:
     required: true
     
 - type: dropdown
-  id: Environment
+  id: form_environment
   attributes:
     label: Environment
     description: "If AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request"
@@ -35,7 +36,7 @@ body:
     required: true
       
 - type: input
-  id: Start_Date
+  id: form_start_date
   attributes:
     label: Skip shutdown start date
     description: "DD-MM-YYYY - date covers shutdown period, 20:00 to 20:00 the following day"
@@ -43,7 +44,7 @@ body:
     required: true
     
 - type: input
-  id: End_Date
+  id: form_end_date
   attributes:
     label: Skip shutdown end date
     description: "DD-MM-YYYY - Defaults to start date. 20:00 shutdown job will skip provided clusters on this date."
@@ -51,7 +52,7 @@ body:
     required: false
 
 - type: dropdown
-  id: soft-limit
+  id: form_stay_on_late
   attributes:
     label: Do you need this exclusion past 23:00?
     description: Default is set to no. Shutdown of all environments will occur at 23:00 unless the below is ticked.
@@ -61,4 +62,3 @@ body:
       - 'Yes'
   validations:
     required: true
-
