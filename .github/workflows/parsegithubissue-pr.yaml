@@ -22,7 +22,7 @@ jobs:
         with:
           fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.base.ref }}
 
       - name: Get the date
         run: |
