@@ -122,7 +122,7 @@ jobs:
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          template-path: .github/ISSUE_TEMPLATE/1-skip-auto-shutdown-request.yaml
+          template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
 
     #Save parsed date into environment variables  
       - name: Save parsed jsonString data
