@@ -53,6 +53,7 @@ jobs:
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "Processing"
+          number: ${{ steps.create-issue.outputs.number }}
 
     #Comment if approver is equal to requester
       - name: Cannot self approve comment
@@ -71,6 +72,7 @@ jobs:
           labels: |
             approved
             auto-approved
+          number: ${{ steps.create-issue.outputs.number }}
 
     #End workflow if user is equal to requester
       - name: exit flow if approver == requester 
@@ -102,6 +104,7 @@ jobs:
           labels: |
             Processing
             Pending approval
+          number: ${{ steps.create-issue.outputs.number }}
 
     #Remove labels from a previous run if present
       - name: Remove labels
@@ -154,6 +157,7 @@ jobs:
         with:
           labels: |
             Error in form
+          number: ${{ steps.create-issue.outputs.number }}
 
     # Add form error label if process_success not equal to true
       - name: Add error label
@@ -161,6 +165,7 @@ jobs:
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "Error in form"
+          number: ${{ steps.create-issue.outputs.number }}
 
     # Provide any error messages to user as a comment
       - name: Create Issue Comment
@@ -244,6 +249,7 @@ jobs:
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "Cost Error"
+          number: ${{ steps.create-issue.outputs.number }}
 
     #Set approval_state environment var to auto-approved if cost value is less than £5,000
       - name: set approved status
@@ -258,6 +264,7 @@ jobs:
         uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: "auto-approved"
+          number: ${{ steps.create-issue.outputs.number }}
 
     #Add auto-approval comment if approval_state == auto-approved
       - name: Add auto approval comment
@@ -276,6 +283,7 @@ jobs:
           labels: |
             Pending approval
             Very high cost
+          number: ${{ steps.create-issue.outputs.number }}
 
     #If approval_state == Pending Approval && workflow is running at submission time, not approval time.
       - name: Very High Cost approval comment
@@ -309,6 +317,7 @@ jobs:
         with:
           labels: |
             Processing
+          number: ${{ steps.create-issue.outputs.number }}
 
     #Remove pending approval label if approved
       - name: Remove processing label
@@ -317,6 +326,7 @@ jobs:
         with:
           labels: |
             Pending approval
+          number: ${{ steps.create-issue.outputs.number }}
     
     #Close issue if approved
       - name: Close Issue with success
