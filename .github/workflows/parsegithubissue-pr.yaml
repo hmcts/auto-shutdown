@@ -43,6 +43,11 @@ jobs:
         with:
           filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
 
+      - name: Get issue number
+        run: |
+          echo "ISSUE_NUMBER=$(echo ${{ steps.create-issue.outputs.number }})
+          echo "$ISSUE_NUMBER" >> GITHUB_ENV
+
     #Adds label for user feedback
       - name: add processing label
         uses: actions-ecosystem/action-add-labels@v1
@@ -54,7 +59,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           body: |
             Requester cannot also be approver - please seek a second approver.
 
@@ -85,7 +90,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Denied'
         uses: peter-evans/close-issue@v3
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           comment: | 
             Your request has been denied by ${{ github.actor }}, most likely due to associated costs being too high.
             Closing issue.
@@ -163,7 +168,7 @@ jobs:
         if: env.PROCESS_SUCCESS != 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           body: |
             ${{ env.ISSUE_COMMENT }}
             Please edit this issue and select "Update comment" to resubmit.
@@ -221,7 +226,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           body: |
             Total estimated cost of skipping shutdown for the provided dates is **£${{ env.COST_DETAILS_FORMATTED }}**
 
@@ -230,7 +235,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS == 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           body: |
             We have been unable to estimate the cost of this skip request.
 
@@ -260,7 +265,7 @@ jobs:
         if: env.APPROVAL_STATE == 'auto-approved'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           body: |
             You request has been automatically approved.
 
@@ -278,7 +283,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Pending Approval' && github.event.issue.user.login == github.actor
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           body: |
             Due to the level of cost associated with this request, an approval will be required from any additional person. Note, you cannot approve your own request.
             An approval is provided by adding the "Approved" label to this GitHub issue. See [Review Process](https://github.com/hmcts/auto-shutdown?tab=readme-ov-file#shutdown-exclusion-request---review-process) for additional information.
@@ -295,7 +300,7 @@ jobs:
         if: env.APPROVAL_STATE == 'Approved'
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           body: |
             ${{ env.APPROVAL_COMMENT }}
 
@@ -332,7 +337,7 @@ jobs:
         if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
         uses: peter-evans/close-issue@v3
         with:
-          issue-number: ${{ steps.create-issue.outputs.number }}
+          issue_number: env.ISSUE_NUMBER
           comment: | 
             Success! Your [commit](${{ env.COMMIT_URL }}) has been added to the json exclusions file.
             Auto-closing issue.
