@@ -122,12 +122,13 @@ jobs:
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          template-path: .github/ISSUE_TEMPLATE/1-pull-request-template.md
+          template-path: .github/ISSUE_TEMPLATE/1-skip-auto-shutdown-request.yaml
 
     #Save parsed date into environment variables  
       - name: Save parsed jsonString data
         run: | 
           echo '${{ steps.parse_issue.outputs.jsonString }}' > NEW_DATA.json
+          cat NEW_DATA.json
           echo NEW_DATA=$(cat NEW_DATA.json | jq -c | jq '.form_environment |= split(",")') >> $GITHUB_ENV
           rm NEW_DATA.json
           echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
