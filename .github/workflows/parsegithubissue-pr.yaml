@@ -25,6 +25,7 @@ jobs:
 
       - name: Get the date
         run: |
+          date +%d-%m-%Y -d "+30 days"
           echo "START_DATE=$(date +%d-%m-%Y -d "+30 days")" >> GITHUB_ENV
           echo "END_DATE=$(date +%d-%m-%Y -d "+31 days")" >> GITHUB_ENV
           echo "START_DATE is $START_DATE"
