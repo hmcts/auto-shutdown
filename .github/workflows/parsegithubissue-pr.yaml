@@ -31,6 +31,12 @@ jobs:
           echo "END_DATE=$END_DATE" >> GITHUB_ENV
           echo "START_DATE is $START_DATE"
 
+      - name: Get the date
+        env:
+          START_DATE: ${{ env.START_DATE }}
+        run: |
+          echo "START_DATE is $START_DATE"
+
       - uses: JasonEtco/create-an-issue@v2
         id: create-issue
         env:
