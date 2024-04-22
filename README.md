@@ -43,7 +43,7 @@ It is important to monitor the comment section of the request (GitHub issue), th
 
 Currently, anyone other than the requester can be an approver. The main purpose of this approval system is to sanity check that requests are not excessive.
 
-### What is the approval guidenance?
+### What is the approval guidance?
 
 Requests should only be approved when the shutdown exclusion is necessary and for the appropriate amount of time.
 
