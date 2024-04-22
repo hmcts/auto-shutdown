@@ -173,7 +173,7 @@ jobs:
             Please edit this issue and select "Update comment" to resubmit.
 
     #End workflow if for processing finds an error
-      - name: exit flow if approver == requester 
+      - name: exit flow if an error occurred
         if: env.PROCESS_SUCCESS != 'true'
         run: exit 1
 
@@ -335,7 +335,7 @@ jobs:
         run: ./scripts/aks/send-slack-message.sh
         env:
           SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
-          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_TITLE: ${{ steps.create-issue.outputs.title }}
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
           BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}
@@ -343,5 +343,5 @@ jobs:
           END_DATE: ${{ env.END_DATE }}
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
-          REQUESTER: ${{ github.event.issue.user.login }}
+          REQUESTER: ${{ github.event.pull_request.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
