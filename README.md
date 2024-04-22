@@ -43,7 +43,7 @@ It is important to monitor the comment section of the request (GitHub issue), th
 
 Currently, anyone other than the requester can be an approver. The main purpose of this approval system is to sanity check that requests are not excessive.
 
-### What is the approval guidenance?
+### What is the approval guidance?
 
 Requests should only be approved when the shutdown exclusion is necessary and for the appropriate amount of time.
 
@@ -73,4 +73,12 @@ If you have raised an issue to get an exclusion and this is no longer required, 
 To cancel it, simply add the `cancel` label to the original issue.
 
 A github action will run to remove the issue from the json so the original exclusion you raised will not proceed.
+
+## Testing changes to this repo
+
+If you wish to test changes to the repo, create a pull request. An action will run to create a test issue for you and it will process that test issue.
+
+The issue will be named for your PR e.g. PR-100.
+
+The issue may get closed but this is expected. The same issue will be reused on subsequent runs so you don't need to open a new one. You can manually reopen the test issue if you need to test a change that will close the issue.
 
