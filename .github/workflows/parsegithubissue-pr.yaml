@@ -31,12 +31,12 @@ jobs:
       - uses: JasonEtco/create-an-issue@v2
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
-        with:
-          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
           TITLE: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
           ENVIRONMENT: "Sandbox"
           START_DATE: ${{ env.NEXT_MONTH }}
+        with:
+          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
 
     #Adds label for user feedback
       - name: add processing label
