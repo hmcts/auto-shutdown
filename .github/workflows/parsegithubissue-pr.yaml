@@ -32,11 +32,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
         with:
-          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.yaml
-          Pull_request_branch: ""
-          Business_area: "CFT"
-          Environment: "Sandbox"
-          Skip_shutdown_start_date: ${{ env.NEXT_MONTH }}
+          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
+          TITLE: "PR-${{ github.event.pull_request.number }}"
+          BUSINESS_AREA: "CFT"
+          ENVIRONMENT: "Sandbox"
+          START_DATE: ${{ env.NEXT_MONTH }}
 
     #Adds label for user feedback
       - name: add processing label
