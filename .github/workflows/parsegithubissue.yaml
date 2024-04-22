@@ -1,4 +1,4 @@
-name: Auto Parse github form
+name: Auto Parse github form - master
 run-name: ${{ github.actor }} - issue:${{ github.event.issue.number }}
 on:
   issues:
