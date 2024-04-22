@@ -121,5 +121,15 @@
         "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-224",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/454"
+    },
+    {
+        "start_date": "22-05-2024",
+        "end_date": "23-05-2024",
+        "request_type": "stop",
+        "environment": "Sandbox",
+        "business_area": "cft",
+        "change_jira_id": "PR-8",
+        "stay_on_late": "No",
+        "issue_link": "https://github.com/hmcts/auto-shutdown_DTSPO-17430/issues/11"
     }
 ]
