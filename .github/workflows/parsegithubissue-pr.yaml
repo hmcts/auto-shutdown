@@ -2,8 +2,6 @@ name: Auto Parse github form - pull request
 run-name: ${{ github.actor }} - PR:${{ github.event.pull_request.number }}
 on:
   pull_request:
-    paths-ignore:
-      - 'issues_list.json'
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.TEST_CHANNEL_SLACK_WEBHOOK }}
@@ -327,7 +325,8 @@ jobs:
         with:
           issue-number: ${{ steps.create-issue.outputs.number }}
           comment: | 
-            Success! Your [commit](${{ env.COMMIT_URL }}) has been added to the json exclusions file.
+            Success!
+            Note: Since this is a pull request, no changes have been made to the exclusion list json.
             Auto-closing issue.
 
     #Send slack message if form parse process is successfull.
