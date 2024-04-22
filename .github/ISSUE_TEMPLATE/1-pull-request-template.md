@@ -1,5 +1,5 @@
 ---
-title: {{ env.TITLE }}
+title: "{{ env.TITLE }}"
 labels: "pull-request"
 ---
 Change or Jira reference: {{ env.TITLE }}
