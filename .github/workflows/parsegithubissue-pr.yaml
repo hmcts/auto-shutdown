@@ -304,10 +304,17 @@ jobs:
             ${{ env.APPROVAL_COMMENT }}
 
     #Commit issue submission to branch if approved or auto-approved.
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        id: auto-commit-action
-        with:
-          commit_message: parseissue-${{ steps.create-issue.outputs.number }}
+      - name: Commit to branch
+        if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
+        run: |
+          git config user.name hmcts-platform-operations
+          git config user.email github-platform-operations@hmcts.net
+          git add .
+          git commit -m parseissue-${{ steps.create-issue.outputs.number }}
+          git push
+          commit_tree_url=$(gh browse -c -n)
+          commit_url=${commit_tree_url/tree/commit}
+          echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
 
     #Remove processing label
       - name: Remove processing label
@@ -331,7 +338,7 @@ jobs:
         with:
           issue-number: ${{ steps.create-issue.outputs.number }}
           comment: | 
-            Success! Your [commit](https://github.com/hmcts/auto-shutdown/commit/${{ steps.auto-commit-action.outputs.commit_hash }}) has been added to the json exclusions file.
+            Success! Your [commit](${{ env.COMMIT_URL }}) has been added to the json exclusions file.
             Auto-closing issue.
 
     #Send slack message if form parse process is successfull.
