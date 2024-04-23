@@ -29,23 +29,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/384"
     },
     {
-        "start_date": "22-04-2024",
-        "end_date": "22-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "Test / Perftest",
-            "Demo",
-            "ITHC",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSRD-1213",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/413"
-    },
-    {
         "start_date": "10-04-2024",
         "end_date": "10-05-2024",
         "request_type": "stop",
@@ -64,50 +47,6 @@
         "change_jira_id": "GOB-529",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/432"
-    },
-    {
-        "start_date": "19-04-2024",
-        "end_date": "22-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "JM-6092 (cgi jira)",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/457"
-    },
-    {
-        "start_date": "19-04-2024",
-        "end_date": "22-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5457",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/460"
-    },
-    {
-        "start_date": "22-04-2024",
-        "end_date": "22-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "Sandbox",
-            " AAT / Staging",
-            " Preview / Dev",
-            " Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "AM-2943",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/464"
     },
     {
         "start_date": "23-04-2024",
