@@ -44,7 +44,7 @@ jobs:
           END_DATE: "${{ env.END_DATE }}"
           POST_11PM: "No"
         with:
-          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
+          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.yaml
           update_existing: true
           search_existing: all
 
@@ -128,7 +128,7 @@ jobs:
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
           # issue-body: ${{ env.ISSUE_BODY }}
-          template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
+          template-path: .github/ISSUE_TEMPLATE/1-pull-request-template.yaml
 
     #Save parsed date into environment variables  
       - name: Save parsed jsonString data
