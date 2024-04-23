@@ -36,7 +36,7 @@ jobs:
         id: create-issue
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
-          TITLE: "PR-${{ github.event.pull_request.number }}"
+          # TITLE: "PR-${{ github.event.pull_request.number }}"
           PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
           ENVIRONMENT: "Sandbox"
