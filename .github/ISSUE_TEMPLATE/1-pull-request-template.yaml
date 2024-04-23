@@ -1,6 +1,6 @@
 name: '🌍 Skip auto shutdown'
 description: Request that an environment is not shutdown (automatically processed)
-title: "{{ env.TITLE }}"
+title: PR-465
 body:
 - type: input
   id: form_change_jira_id
