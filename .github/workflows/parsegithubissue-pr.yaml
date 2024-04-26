@@ -219,6 +219,7 @@ jobs:
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
           REQUESTER: ${{ github.event.pull_request.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
+          REVIEWER: ${{ github.actor }}
 
     #End workflow if approval state == denied
       - name: exit flow if denied
@@ -355,3 +356,4 @@ jobs:
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
           REQUESTER: ${{ github.event.pull_request.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
+          REVIEWER: ${{ github.actor }}
