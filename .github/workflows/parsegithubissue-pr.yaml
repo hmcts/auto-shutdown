@@ -121,7 +121,7 @@ jobs:
       - name: Get issue body
         id: get_issue_body
         run: |     
-          gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body' > body_1.json
+          gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body' > body.json
           cat body.json
           
       - name: multiline github var
