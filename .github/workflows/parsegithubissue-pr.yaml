@@ -28,7 +28,7 @@ jobs:
         run: |
           START_DATE=$(date +%d-%m-%Y -d "+30 days")
           echo "START_DATE=$START_DATE" >> $GITHUB_ENV
-          END_DATE=$(date +%d-%m-%Y -d "+51 days")
+          END_DATE=$(date +%d-%m-%Y -d "+31 days")
           echo "END_DATE=$END_DATE" >> $GITHUB_ENV
           echo "START_DATE is $START_DATE"
 
@@ -39,7 +39,7 @@ jobs:
           TITLE: "PR-${{ github.event.pull_request.number }}"
           PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
-          ENVIRONMENT: "AAT / Staging, PTL, Preview / Dev"
+          ENVIRONMENT: "Sandbox"
           START_DATE: "${{ env.START_DATE }}"
           END_DATE: "${{ env.END_DATE }}"
           POST_11PM: "No"
