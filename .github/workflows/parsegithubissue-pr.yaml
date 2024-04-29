@@ -120,16 +120,16 @@ jobs:
             Very high cost
 
     #Get issue body
-      # - name: Get issue body
-      #   run: |     
-      #     echo ISSUE_BODY=$(gh issue view --repo hmcts/auto-shutdown ${{ steps.create-issue.outputs.number }} --json body | jq -c '.') >> $GITHUB_ENV
+      - name: Get issue body
+        run: |     
+          echo ISSUE_BODY=$(gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -c '.') >> $GITHUB_ENV
     
     #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          # issue-body: ${{ env.ISSUE_BODY }}
+          issue-body: ${{ env.ISSUE_BODY }}
           template-path: .github/ISSUE_TEMPLATE/1-pull-request-template.yaml
 
     #Save parsed date into environment variables  
