@@ -39,7 +39,7 @@ jobs:
           TITLE: "PR-${{ github.event.pull_request.number }}"
           PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
-          ENVIRONMENT: "Prod"
+          ENVIRONMENT: "AAT / Staging"
           START_DATE: "${{ env.START_DATE }}"
           END_DATE: "${{ env.END_DATE }}"
           POST_11PM: "No"
