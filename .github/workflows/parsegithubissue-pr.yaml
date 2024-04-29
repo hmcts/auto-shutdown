@@ -122,7 +122,7 @@ jobs:
     #Get issue body
       - name: Get issue body
         run: |     
-          echo ISSUE_BODY=$(gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body') >> $GITHUB_ENV
+          echo ISSUE_BODY=$(gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -c '.body') >> $GITHUB_ENV
     
     #Parse issue form that trigger workflow
       - name: Read submitted issue
