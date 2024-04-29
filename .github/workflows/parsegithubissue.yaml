@@ -45,13 +45,15 @@ jobs:
     #End workflow if user is equal to requester
       - name: exit flow if approver == requester 
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
-        run: exit 0
+        run: exit 1
+
+
     #if denied label is applied, set approval environment variables appropriately 
       - name: set denied status
         if: contains(github.event.issue.labels.*.name, 'denied')
         run: |
           echo "APPROVAL_STATE=Denied" >> $GITHUB_ENV
-          echo "APPROVAL_COMMENT=Denied by ${{ github.actor }}" >> $GITHUB_ENV
+          echo "APPROVAL_COMMENT=Denied by" >> $GITHUB_ENV
           
     #if approval state == denied, close issue 
       - name: Close Issue with denied
@@ -167,10 +169,11 @@ jobs:
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
           REQUESTER: ${{ github.event.issue.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
+          REVIEWER: ${{ github.actor }}
     #End workflow if approval state == denied
       - name: exit flow if denied
         if: env.APPROVAL_STATE == 'Denied'
-        run: exit 0
+        run: exit 1
     #Add output of cost calculator as a comment to user
       - name: Add cost details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true' && !contains(github.event.issue.labels.*.name, 'approved')
@@ -233,7 +236,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'approved')
         run: |
           echo "APPROVAL_STATE=Approved" >> $GITHUB_ENV
-          echo "APPROVAL_COMMENT=Approved by ${{ github.actor }}" >> $GITHUB_ENV
+          echo "APPROVAL_COMMENT=Approved by" >> $GITHUB_ENV
     #Add approval comment if approval_state == Approved
       - name: Add auto approval comment
         if: env.APPROVAL_STATE == 'Approved'
@@ -292,3 +295,4 @@ jobs:
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
           REQUESTER: ${{ github.event.issue.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
+          REVIEWER: ${{ github.actor }}

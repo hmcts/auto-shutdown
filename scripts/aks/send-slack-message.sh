@@ -7,6 +7,14 @@ request_title_link="*<$REQUEST_URL|$ISSUE_TITLE>*"
 current_date=$(get_current_date)
 environment_field=$(echo "$ENVIRONMENT" | sed 's/\[//; s/\]//; s/"//g')
 slack_username=$(get_slack_displayname_from_github_username $REQUESTER)
+slack_reviewer=$(get_slack_displayname_from_github_username $REVIEWER)
+
+# Check if the string contains the specific phrase
+if [[ $APPROVAL_COMMENT == *"Approved by"* || $APPROVAL_COMMENT == *"Denied by"* ]]; then
+    status="$APPROVAL_COMMENT $slack_reviewer"
+else
+    status=$APPROVAL_COMMENT
+fi
 
 # Use jq with variables
 jq --arg issue_url "$request_url_link" \
@@ -18,7 +26,7 @@ jq --arg issue_url "$request_url_link" \
    --arg requester "$slack_username" \
    --arg current_date "$current_date" \
    --arg cost_value "£$COST_DETAILS_FORMATTED" \
-   --arg status "$APPROVAL_COMMENT" \
+   --arg status "$status" \
    --arg raw_issue_url "$REQUEST_URL" \
    '.blocks[0].text.text |= $issue_title | 
     .blocks[1].fields[0].text |= "*Business Area:*\n\($business_area)" |
