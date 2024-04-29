@@ -32,21 +32,21 @@ jobs:
           echo "END_DATE=$END_DATE" >> $GITHUB_ENV
           echo "START_DATE is $START_DATE"
 
-      # - uses: JasonEtco/create-an-issue@v2
-      #   id: create-issue
-      #   env:
-      #     GITHUB_TOKEN: ${{ env.GH_TOKEN }}
-      #     TITLE: "PR-${{ github.event.pull_request.number }}"
-      #     PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
-      #     BUSINESS_AREA: "CFT"
-      #     ENVIRONMENT: "Sandbox"
-      #     START_DATE: "${{ env.START_DATE }}"
-      #     END_DATE: "${{ env.END_DATE }}"
-      #     POST_11PM: "No"
-      #   with:
-      #     filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
-      #     update_existing: true
-      #     search_existing: all
+      - uses: JasonEtco/create-an-issue@v2
+        id: create-issue
+        env:
+          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
+          TITLE: "PR-${{ github.event.pull_request.number }}"
+          PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
+          BUSINESS_AREA: "CFT"
+          ENVIRONMENT: "Sandbox"
+          START_DATE: "${{ env.START_DATE }}"
+          END_DATE: "${{ env.END_DATE }}"
+          POST_11PM: "No"
+        with:
+          filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
+          update_existing: true
+          search_existing: all
 
     #Adds label for user feedback
       - name: add processing label
@@ -60,8 +60,7 @@ jobs:
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
-          # issue-number: ${{ steps.create-issue.outputs.number }}
-          issue-number: 480
+          issue-number: ${{ steps.create-issue.outputs.number }}
           body: |
             Requester cannot also be approver - please seek a second approver.
 
@@ -73,8 +72,7 @@ jobs:
           labels: |
             approved
             auto-approved
-          # number: ${{ steps.create-issue.outputs.number }}
-          number: 480
+          number: ${{ steps.create-issue.outputs.number }}
 
     #End workflow if user is equal to requester
       - name: exit flow if approver == requester 
@@ -124,23 +122,23 @@ jobs:
         id: get_issue_body
         run: |     
           gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body' > body_1.json
-          cat body_1.json
-          echo ISSUE_BODY=$(cat body_1.json) >> $GITHUB_ENV
+          cat body.json
           
       - name: multiline github var
         run: |
-          echo 'MULTILINE_VAR<<EOF' >> $GITHUB_ENV
+          echo 'ISSUE_BODY<<EOF' >> $GITHUB_ENV
           while read LINE; do
           echo "$LINE" >> $GITHUB_ENV;
-          done < body_1.json
+          done < body.json
           echo 'EOF' >> $GITHUB_ENV
+          rm body.json
 
     #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          issue-body: ${{ env.MULTILINE_VAR }}
+          issue-body: ${{ env.ISSUE_BODY }}
           template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
 
     #Save parsed date into environment variables  
