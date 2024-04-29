@@ -2,6 +2,11 @@ name: Auto Parse github form - pull request
 run-name: ${{ github.actor }} - PR:${{ github.event.pull_request.number }}
 on:
   pull_request:
+  issues:
+    types:
+      - opened
+      - edited
+      - labeled
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.TEST_CHANNEL_SLACK_WEBHOOK }}
@@ -14,7 +19,7 @@ jobs:
   process-request:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'hmcts-platform-operations'
+    if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'hmcts-platform-operations' && contains(github.event.issue.labels.*.name, 'bug')
     steps:
     #Allows workflow to access repo
       - name: Checkout
@@ -131,7 +136,7 @@ jobs:
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          issue-body: ${{ env.ISSUE_BODY }}
+          # issue-body: ${{ env.ISSUE_BODY }}
           template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
 
     #Save parsed date into environment variables  
