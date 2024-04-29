@@ -121,15 +121,26 @@ jobs:
 
     #Get issue body
       - name: Get issue body
+        id: get_issue_body
         run: |     
-          echo ISSUE_BODY=$(gh api -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /repos/hmcts/auto-shutdown/issues/480 | jq '.body |= gsub("\\r\\n"; "\n")' | jq -r '.body') >> $GITHUB_ENV
-    
+          gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body' > body_1.json
+          cat body_1.json
+          echo ISSUE_BODY=$(cat body_1.json) >> $GITHUB_ENV
+          
+      - name: multiline github var
+        run: |
+          echo 'MULTILINE_VAR<<EOF' >> $GITHUB_ENV
+          while read LINE; do
+          echo "$LINE" >> $GITHUB_ENV;
+          done < body_1.json
+          echo 'EOF' >> $GITHUB_ENV
+
     #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          issue-body: ${{ env.ISSUE_BODY }}
+          issue-body: ${{ env.MULTILINE_VAR }}
           template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
 
     #Save parsed date into environment variables  
