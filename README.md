@@ -80,5 +80,10 @@ If you wish to test changes to the repo, create a pull request. An action will r
 
 The issue will be named for your PR e.g. PR-100.
 
+The action will search for issues based on the title so do not change this or create another issue with the same name.
+
 The issue may get closed but this is expected. The same issue will be reused on subsequent runs so you don't need to open a new one. You can manually reopen the test issue if you need to test a change that will close the issue.
 
+You can update the action to test different scenarios such as having a longer skip period if you need to test very high cost skips.
+
+Just update the [values](.github/workflows/parsegithubissue-pr.yaml#L31-L45) as appropriate
