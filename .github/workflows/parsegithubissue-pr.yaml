@@ -2,11 +2,6 @@ name: Auto Parse github form - pull request
 run-name: ${{ github.actor }} - PR:${{ github.event.pull_request.number }}
 on:
   pull_request:
-  issues:
-    types:
-      - opened
-      - edited
-      - labeled
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.TEST_CHANNEL_SLACK_WEBHOOK }}
@@ -19,7 +14,7 @@ jobs:
   process-request:
     permissions: write-all
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'hmcts-platform-operations' && contains(github.event.issue.labels.*.name, 'DO_NOT_MERGE')
+    if: github.event.pull_request.user.login != 'renovate[bot]' && github.event.pull_request.user.login != 'hmcts-platform-operations'
     steps:
     #Allows workflow to access repo
       - name: Checkout
@@ -66,7 +61,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@v4.0.0
         with:
           # issue-number: ${{ steps.create-issue.outputs.number }}
-          issue-number: 480
+          issue-number: ${{ github.event.pull_request.body }}
           body: |
             Requester cannot also be approver - please seek a second approver.
 
@@ -79,7 +74,7 @@ jobs:
             approved
             auto-approved
           # number: ${{ steps.create-issue.outputs.number }}
-          number: 480
+          number: ${{ github.event.pull_request.body }}
 
     #End workflow if user is equal to requester
       - name: exit flow if approver == requester 
@@ -124,19 +119,19 @@ jobs:
             Success
             Very high cost
 
-    #Get issue body
-      - name: Get issue body
-        run: |     
-          gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body' > body.txt
-          echo ISSUE_BODY=$(cat body.txt) >> $GITHUB_ENV
-          rm body.txt
+    # #Get issue body
+    #   - name: Get issue body
+    #     run: |     
+    #       gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body' > body.txt
+    #       echo ISSUE_BODY=$(cat body.txt) >> $GITHUB_ENV
+    #       rm body.txt
     
     #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.0
         with:
-          # issue-body: ${{ env.ISSUE_BODY }}
+          issue-body: ${{ github.event.pull_request.body }}
           template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
 
     #Save parsed date into environment variables  
