@@ -227,7 +227,7 @@ jobs:
         run: ./scripts/aks/send-slack-message.sh
         env:
           SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
-          ISSUE_TITLE: ${{ steps.create-issue.outputs.title }}
+          ISSUE_TITLE: "PR-${{ steps.create-issue.outputs.number }}"
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
           BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}
@@ -364,7 +364,7 @@ jobs:
         run: ./scripts/aks/send-slack-message.sh
         env:
           SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
-          ISSUE_TITLE: ${{ steps.create-issue.outputs.title }}
+          ISSUE_TITLE: "PR-${{ steps.create-issue.outputs.number }}"
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
           BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}
