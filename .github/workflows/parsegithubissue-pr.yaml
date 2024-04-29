@@ -122,7 +122,7 @@ jobs:
     #Get issue body
       - name: Get issue body
         run: |     
-          gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -c '.body' > body.txt
+          gh issue view --repo hmcts/auto-shutdown 480 --json body | jq -r '.body' > body.txt
           echo ISSUE_BODY=$(cat body.txt) >> $GITHUB_ENV
           rm body.txt
     
