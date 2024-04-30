@@ -167,9 +167,11 @@ jobs:
           END_DATE: ${{ env.END_DATE }}
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
+          JUSTIFICATION: ${{ env.JUSTIFICATION }}
           REQUESTER: ${{ github.event.issue.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
           REVIEWER: ${{ github.actor }}
+          
     #End workflow if approval state == denied
       - name: exit flow if denied
         if: env.APPROVAL_STATE == 'Denied'
@@ -293,6 +295,7 @@ jobs:
           END_DATE: ${{ env.END_DATE }}
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
           ENVIRONMENT: ${{ env.ENVIRONMENT }}
+          JUSTIFICATION: ${{ env.JUSTIFICATION }}
           REQUESTER: ${{ github.event.issue.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
           REVIEWER: ${{ github.actor }}

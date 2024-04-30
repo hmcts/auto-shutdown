@@ -8,6 +8,13 @@ body:
   validations:
     required: true
 
+- type: input
+  id: form_justification
+  attributes:
+    label: Justification for exclusion?
+  validations:
+    required: true
+
 - type: dropdown
   id: form_business_area
   attributes:
