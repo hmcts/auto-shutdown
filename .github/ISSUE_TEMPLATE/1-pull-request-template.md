@@ -6,7 +6,7 @@ labels: pull-request
 
 {{ env.PULL_REQUEST }}
 
-### Justification
+### Justification for exclusion?
 
 {{ env.JUSTIFICATION }}
 
