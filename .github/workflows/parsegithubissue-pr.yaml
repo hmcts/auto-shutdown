@@ -37,6 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
           TITLE: "PR-${{ github.event.pull_request.number }}"
+          JUSTIFICATION: "Development work"
           PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
           ENVIRONMENT: "Sandbox"
