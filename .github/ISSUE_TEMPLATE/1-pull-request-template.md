@@ -6,6 +6,10 @@ labels: pull-request
 
 {{ env.PULL_REQUEST }}
 
+### Justification for exclusion?
+
+{{ env.JUSTIFICATION }}
+
 ### Business area
 
 {{ env.BUSINESS_AREA }}
