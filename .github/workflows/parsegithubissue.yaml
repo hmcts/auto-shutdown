@@ -85,7 +85,7 @@ jobs:
     #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
-        uses: stefanbuck/github-issue-parser@v3.1.0
+        uses: stefanbuck/github-issue-parser@v3.1.1
         with:
           template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
     #Save parsed date into environment variables  
