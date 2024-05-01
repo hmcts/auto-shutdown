@@ -83,22 +83,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/472"
     },
     {
-        "start_date": "30-04-2024",
-        "end_date": "30-04-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5636",
-        "stay_on_late": "Yes",
-        "justification": "WA task can be tested in sublive env. It generally gets available after work day",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/490"
-    },
-    {
         "start_date": "08-05-2024",
         "end_date": "08-05-2024",
         "request_type": "stop",
