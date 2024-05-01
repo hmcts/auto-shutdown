@@ -97,5 +97,19 @@
         "stay_on_late": "Yes",
         "justification": "WA task can be tested in sublive env. It generally gets available after work day",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/490"
+    },
+    {
+        "start_date": "08-05-2024",
+        "end_date": "08-05-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "S28-2692",
+        "stay_on_late": "Yes",
+        "justification": "PRE OoO release 3.0.0",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/491"
     }
 ]
