@@ -137,18 +137,5 @@
         "stay_on_late": "No",
         "justification": "performance testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/495"
-    },
-    {
-        "start_date": "01-06-2024",
-        "end_date": "01-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "Sandbox"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "test",
-        "stay_on_late": "No",
-        "justification": "test",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/499"
     }
 ]
