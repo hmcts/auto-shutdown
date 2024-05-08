@@ -64,22 +64,5 @@
         "stay_on_late": "No",
         "justification": "performance testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/495"
-    },
-    {
-        "start_date": "07-05-2024",
-        "end_date": "07-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-5568",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for testing Key features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/504"
     }
 ]
