@@ -106,5 +106,18 @@
         "stay_on_late": "Yes",
         "justification": "PRL needs to close this task to enable backend work",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/508"
+    },
+    {
+        "start_date": "09-05-2024",
+        "end_date": "09-05-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-11170",
+        "stay_on_late": "No",
+        "justification": "need to run the sdo perftest and data prep",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/509"
     }
 ]
