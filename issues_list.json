@@ -58,5 +58,20 @@
         "stay_on_late": "Yes",
         "justification": "Production Release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/511"
+    },
+    {
+        "start_date": "16-05-2024",
+        "end_date": "16-05-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5016189",
+        "stay_on_late": "Yes",
+        "justification": "postgres migration",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/512"
     }
 ]
