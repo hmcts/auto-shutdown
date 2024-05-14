@@ -14,37 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "13-05-2024",
-        "end_date": "13-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "ITHC",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5239",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/384"
-    },
-    {
-        "start_date": "10-05-2024",
-        "end_date": "13-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5313",
-        "stay_on_late": "Yes",
-        "justification": "PRL will be testing multiple scenarios including urgent cases, DA cases with without notice. also many dev work will be carried out",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/510"
-    },
-    {
         "start_date": "16-05-2024",
         "end_date": "16-05-2024",
         "request_type": "stop",
@@ -58,22 +27,6 @@
         "stay_on_late": "Yes",
         "justification": "postgres migration",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/512"
-    },
-    {
-        "start_date": "13-05-2024",
-        "end_date": "13-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5663",
-        "stay_on_late": "Yes",
-        "justification": "PRL needs to close this task to enable backend work",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/515"
     },
     {
         "start_date": "14-05-2024",
