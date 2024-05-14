@@ -93,5 +93,21 @@
         "stay_on_late": "No",
         "justification": "OOH Deployment",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/516"
+    },
+    {
+        "start_date": "14-05-2024",
+        "end_date": "14-05-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5663",
+        "stay_on_late": "Yes",
+        "justification": "Need environments to be up and running for Nudge policy work",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/517"
     }
 ]
