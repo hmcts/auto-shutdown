@@ -12,5 +12,18 @@
         "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
+    },
+    {
+        "start_date": "20-05-2024",
+        "end_date": "20-05-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-11170",
+        "stay_on_late": "Yes",
+        "justification": "need to run the sdo perftest and data prep",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/522"
     }
 ]
