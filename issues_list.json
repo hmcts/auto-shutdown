@@ -43,5 +43,20 @@
         "stay_on_late": "Yes",
         "justification": "Courtnav journey to be tested and completed to unblock the journey",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/525"
+    },
+    {
+        "start_date": "23-05-2024",
+        "end_date": "23-05-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5016337",
+        "stay_on_late": "No",
+        "justification": "CHG5016337",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/526"
     }
 ]
