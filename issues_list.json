@@ -12,49 +12,5 @@
         "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
-    },
-    {
-        "start_date": "23-05-2024",
-        "end_date": "23-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5016337",
-        "stay_on_late": "No",
-        "justification": "CHG5016337",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/526"
-    },
-    {
-        "start_date": "23-05-2024",
-        "end_date": "23-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-5615",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for testing Key features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/528"
-    },
-    {
-        "start_date": "23-05-2024",
-        "end_date": "23-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "ITHC"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5781",
-        "stay_on_late": "Yes",
-        "justification": "C100 release checks",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/529"
     }
 ]
