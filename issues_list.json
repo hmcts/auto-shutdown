@@ -42,5 +42,18 @@
         "stay_on_late": "Yes",
         "justification": "Need to get this activity completed before tech readiness (which is on 30th)",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/532"
+    },
+    {
+        "start_date": "28-05-2024",
+        "end_date": "28-05-2024",
+        "request_type": "stop",
+        "environment": [
+            "ITHC"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-4784",
+        "stay_on_late": "Yes",
+        "justification": "Restricted case access management - want to try all the possible suggestions",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/533"
     }
 ]
