@@ -12,19 +12,5 @@
         "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
-    },
-    {
-        "start_date": "29-05-2024",
-        "end_date": "30-05-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-8154 https://tools.hmcts.net/jira/browse/CIV-13751 https://tools.hmcts.net/jira/browse/CIV-13517",
-        "stay_on_late": "No",
-        "justification": "Plenty of tickets to deploy. Considering multiple teams are merging their stuff, we are quite limited to how much we will be able to deploy in working hours.",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/534"
     }
 ]
