@@ -12,5 +12,36 @@
         "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
         "stay_on_late": "Yes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
+    },
+    {
+        "start_date": "03-06-2024",
+        "end_date": "03-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3949",
+        "stay_on_late": "Yes",
+        "justification": "Restricted case access management - want to try all the possible suggestions",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/538"
+    },
+    {
+        "start_date": "03-06-2024",
+        "end_date": "03-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-5232",
+        "stay_on_late": "No",
+        "justification": "release CCD change",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/539"
     }
 ]
