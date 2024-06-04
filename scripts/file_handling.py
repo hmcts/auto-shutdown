@@ -74,6 +74,7 @@ if new_data:
     try:
         new_data["start_date"] = parse(new_data["start_date"], dayfirst=True).date()
         if new_data["start_date"] < today and status != "Denied":
+            print("++ Both conditions met ++")
             raise RuntimeError("Start Date is in the past")
         else:
             date_start_date = new_data["start_date"]
