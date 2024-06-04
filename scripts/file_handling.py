@@ -52,7 +52,7 @@ with open(env_file_path, 'a') as env_file:
     env_file.close()
 
 if new_data:
-    new_data["issue_link"] = ("https://github.com/" + github_repository + "/issues/" + issue_number)
+    new_data["issue_link"] = ("https://github.com/" + github_repository + "/issues/ " + status)
     #Business area validation
     try:
         if new_data["business_area"] not in ("cft", "cross-cutting"):
