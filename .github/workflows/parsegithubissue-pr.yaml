@@ -41,7 +41,7 @@ jobs:
           PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
           BUSINESS_AREA: "CFT"
           ENVIRONMENT: "Sandbox"
-          START_DATE: "${{ env.START_DATE }}"
+          START_DATE: "02/06/2024"
           END_DATE: "${{ env.END_DATE }}"
           POST_11PM: "No"
         with:
