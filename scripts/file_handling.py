@@ -16,7 +16,6 @@ if skip_shutdown_start_date is None:
     new_data["end_date"] = new_data.pop("on_demand_end_date")
     new_data["request_type"] = "start"
 else:
-    print("in else statement")
     new_data["start_date"] = new_data.pop("form_start_date")
     new_data["end_date"] = new_data.pop("form_end_date")
     new_data["request_type"] = "stop"
@@ -100,7 +99,6 @@ if new_data:
                 print("in if statement")
                 raise RuntimeError("End date cannot be before start date")
             else:
-                print("in else")
                 date_end_date = new_data["end_date"]
                 new_data["end_date"] = new_data["end_date"].strftime("%d-%m-%Y")
         except RuntimeError:
