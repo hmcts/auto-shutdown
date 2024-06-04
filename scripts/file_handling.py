@@ -7,7 +7,6 @@ from dateutil.parser import parse
 listObj = []
 filepath = "issues_list.json"
 new_data = json.loads(os.environ.get("NEW_DATA", "{}"))
-status = os.getenv('APPROVAL_STATE')
 # Check if "Skip shutdown start date" is None or empty
 print(new_data)
 skip_shutdown_start_date = new_data.get("form_start_date", None)
@@ -32,6 +31,11 @@ issue_number = os.environ.get("ISSUE_NUMBER")
 github_repository = os.environ.get("GITHUB_REPO")
 today = date.today()
 env_file_path = os.getenv("GITHUB_ENV")
+status = os.getenv("APPROVAL_STATE")
+print("--------")
+print(status)
+print("--------")
+
 
 def update_env_vars(var_to_update, new_var):
     env_vars_file = open(env_file_path, 'rt')
@@ -52,7 +56,7 @@ with open(env_file_path, 'a') as env_file:
     env_file.close()
 
 if new_data:
-    new_data["issue_link"] = ("https://github.com/" + github_repository + "/issues/ " + status)
+    new_data["issue_link"] = ("https://github.com/" + github_repository + "/issues/" + issue_number)
     #Business area validation
     try:
         if new_data["business_area"] not in ("cft", "cross-cutting"):
