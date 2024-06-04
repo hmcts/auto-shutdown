@@ -31,6 +31,7 @@ github_repository = os.environ.get("GITHUB_REPO")
 today = date.today()
 env_file_path = os.getenv("GITHUB_ENV")
 status = os.getenv("APPROVAL_STATE")
+excluded_statuses = ["Denied", "Approved"]
 print("--------")
 print(status)
 print("--------")
@@ -72,7 +73,7 @@ if new_data:
 #Start Date logic
     try:
         new_data["start_date"] = parse(new_data["start_date"], dayfirst=True).date()
-        if new_data["start_date"] < today and status != "Denied":
+        if new_data["start_date"] < today and status not in excluded_statuses:
             print("++ Both conditions met ++")
             raise RuntimeError("Start Date is in the past")
         else:
@@ -96,7 +97,6 @@ if new_data:
         try:
             new_data["end_date"] = parse(new_data["end_date"], dayfirst=True).date()
             if new_data["end_date"] < date_start_date:
-                print("in if statement")
                 raise RuntimeError("End date cannot be before start date")
             else:
                 date_end_date = new_data["end_date"]
