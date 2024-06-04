@@ -40,5 +40,20 @@
         "stay_on_late": "Yes",
         "justification": "This ticket is blocking other QA work",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/543"
+    },
+    {
+        "start_date": "04-06-2024",
+        "end_date": "04-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3949",
+        "stay_on_late": "Yes",
+        "justification": "Restricted case access management - want to try all the possible suggestions",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/544"
     }
 ]
