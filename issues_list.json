@@ -43,5 +43,19 @@
         "stay_on_late": "No",
         "justification": "release CCD change",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/539"
+    },
+    {
+        "start_date": "07-06-2024",
+        "end_date": "08-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "JM-7477 in CGI Jira",
+        "stay_on_late": "Yes",
+        "justification": "Approaching go-live, testing activities needed over the weekend",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/542"
     }
 ]
