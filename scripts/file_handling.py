@@ -7,6 +7,7 @@ from dateutil.parser import parse
 listObj = []
 filepath = "issues_list.json"
 new_data = json.loads(os.environ.get("NEW_DATA", "{}"))
+status = os.getenv('APPROVAL_STATE')
 # Check if "Skip shutdown start date" is None or empty
 print(new_data)
 skip_shutdown_start_date = new_data.get("form_start_date", None)
@@ -68,7 +69,7 @@ if new_data:
 #Start Date logic
     try:
         new_data["start_date"] = parse(new_data["start_date"], dayfirst=True).date()
-        if new_data["start_date"] < today:
+        if new_data["start_date"] < today and status != "Denied":
             raise RuntimeError("Start Date is in the past")
         else:
             date_start_date = new_data["start_date"]
