@@ -70,5 +70,18 @@
         "stay_on_late": "No",
         "justification": "OOH release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/545"
+    },
+    {
+        "start_date": "05-06-2024",
+        "end_date": "05-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "ITHC"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "JM-5164 (cgi jira)",
+        "stay_on_late": "No",
+        "justification": "testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/546"
     }
 ]
