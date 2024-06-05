@@ -55,5 +55,20 @@
         "stay_on_late": "Yes",
         "justification": "Restricted case access management - want to try all the possible suggestions",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/544"
+    },
+    {
+        "start_date": "11-06-2024",
+        "end_date": "11-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5016571",
+        "stay_on_late": "No",
+        "justification": "OOH release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/545"
     }
 ]
