@@ -36,7 +36,7 @@ body:
     id: on_demand_start_date
     attributes:
       label: On Demand start date
-      description: "DD-MM-YYYY - date covers start period, 08:00 to 20:00 the same day"
+      description: "DD-MM-YYYY - date covers start period, 8am till 8pm the same day"
     validations:
       required: true
 
@@ -44,6 +44,6 @@ body:
     id: on_demand_end_date
     attributes:
       label: On Demand end date
-      description: "DD-MM-YYYY - Defaults to start date. 08:00 startup job will start on demand environment till this date."
+      description: "DD-MM-YYYY - Defaults to start date. 8am startup job will start on demand environment till this date."
     validations:
       required: false
