@@ -46,7 +46,7 @@ body:
   id: form_start_date
   attributes:
     label: Skip shutdown start date
-    description: "DD-MM-YYYY - date covers shutdown period, 20:00 to 20:00 the following day"
+    description: "DD-MM-YYYY - date covers shutdown period, 8pm till 8pm the following day"
   validations:
     required: true
     
@@ -54,15 +54,15 @@ body:
   id: form_end_date
   attributes:
     label: Skip shutdown end date
-    description: "DD-MM-YYYY - Defaults to start date. 20:00 shutdown job will skip provided clusters on this date."
+    description: "DD-MM-YYYY - Defaults to start date. 8pm shutdown job will skip auto shutdown on this date."
   validations:
     required: false
 
 - type: dropdown
   id: form_stay_on_late
   attributes:
-    label: Do you need this exclusion past 23:00?
-    description: Default is set to no. Shutdown of all environments will occur at 23:00 unless the below is ticked.
+    label: Do you need this exclusion past 11pm?
+    description: Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night.
     multiple: false
     options: 
       - 'No'
