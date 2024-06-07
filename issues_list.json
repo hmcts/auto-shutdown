@@ -57,19 +57,5 @@
         "stay_on_late": "No",
         "justification": "SDO-R2 Release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/548"
-    },
-    {
-        "start_date": "06-06-2024",
-        "end_date": "06-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "JM-7503 (CGI Jira)",
-        "stay_on_late": "No",
-        "justification": "Database Testing activities",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/552"
     }
 ]
