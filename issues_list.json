@@ -14,20 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "07-06-2024",
-        "end_date": "08-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "JM-7477 in CGI Jira",
-        "stay_on_late": "Yes",
-        "justification": "Approaching go-live, testing activities needed over the weekend",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/542"
-    },
-    {
         "start_date": "11-06-2024",
         "end_date": "11-06-2024",
         "request_type": "stop",
