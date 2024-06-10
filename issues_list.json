@@ -58,5 +58,20 @@
         "stay_on_late": "No",
         "justification": "OOH release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/555"
+    },
+    {
+        "start_date": "19-06-2024",
+        "end_date": "19-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "EXUI-1805 / EXUI-1810",
+        "stay_on_late": "No",
+        "justification": "Potential need for pipeline pushes during release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/556"
     }
 ]
