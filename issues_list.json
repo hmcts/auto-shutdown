@@ -73,5 +73,21 @@
         "stay_on_late": "No",
         "justification": "Potential need for pipeline pushes during release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/556"
+    },
+    {
+        "start_date": "11-06-2024",
+        "end_date": "11-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5878",
+        "stay_on_late": "Yes",
+        "justification": "Need for key feature testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/558"
     }
 ]
