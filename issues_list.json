@@ -42,5 +42,18 @@
         "stay_on_late": "Yes",
         "justification": "Need PRL pods to be up and runnning for testing Key features",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/561"
+    },
+    {
+        "start_date": "17-06-2024",
+        "end_date": "23-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "CGI Jira JM-7568",
+        "stay_on_late": "Yes",
+        "justification": "Need environment to stay up for extended testing purposes",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/562"
     }
 ]
