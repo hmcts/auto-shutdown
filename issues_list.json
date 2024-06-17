@@ -40,5 +40,19 @@
         "stay_on_late": "Yes",
         "justification": "Need environment to stay up for extended testing purposes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/562"
+    },
+    {
+        "start_date": "17-06-2024",
+        "end_date": "17-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-216",
+        "stay_on_late": "Yes",
+        "justification": "Need this ticket to unblock tests",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/563"
     }
 ]
