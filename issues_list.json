@@ -42,53 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/562"
     },
     {
-        "start_date": "17-06-2024",
-        "end_date": "17-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-216",
-        "stay_on_late": "Yes",
-        "justification": "Need this ticket to unblock tests",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/563"
-    },
-    {
-        "start_date": "17-06-2024",
-        "end_date": "17-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Test / Perftest",
-            " Demo",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5016568",
-        "stay_on_late": "Yes",
-        "justification": "need all environments up and running fro release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/564"
-    },
-    {
-        "start_date": "17-06-2024",
-        "end_date": "17-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3849",
-        "stay_on_late": "Yes",
-        "justification": "Need environments to be up and running for restricted case access",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/565"
-    },
-    {
         "start_date": "18-06-2024",
         "end_date": "18-06-2024",
         "request_type": "stop",
