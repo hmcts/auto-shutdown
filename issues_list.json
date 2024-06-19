@@ -85,5 +85,21 @@
         "stay_on_late": "Yes",
         "justification": "Need environments to be up and running for restricted case access",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/569"
+    },
+    {
+        "start_date": "19-06-2024",
+        "end_date": "19-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3849",
+        "stay_on_late": "Yes",
+        "justification": "Need environments to be up and running for restricted case access",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/570"
     }
 ]
