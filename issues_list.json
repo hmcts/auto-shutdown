@@ -14,21 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "19-06-2024",
-        "end_date": "19-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "EXUI-1805 / EXUI-1810",
-        "stay_on_late": "No",
-        "justification": "Potential need for pipeline pushes during release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/556"
-    },
-    {
         "start_date": "17-06-2024",
         "end_date": "23-06-2024",
         "request_type": "stop",
@@ -54,38 +39,6 @@
         "stay_on_late": "Yes",
         "justification": "Need the ITHC environemnt to stay up while we run additional testing before go-live",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/568"
-    },
-    {
-        "start_date": "19-06-2024",
-        "end_date": "19-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3849",
-        "stay_on_late": "Yes",
-        "justification": "Need environments to be up and running for restricted case access",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/569"
-    },
-    {
-        "start_date": "19-06-2024",
-        "end_date": "19-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3849",
-        "stay_on_late": "Yes",
-        "justification": "Need environments to be up and running for restricted case access",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/570"
     },
     {
         "start_date": "20-06-2024",
