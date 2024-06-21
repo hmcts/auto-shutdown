@@ -80,8 +80,8 @@ while read i; do
 done < <(jq -r 'last | .environment[]' issues_list.json || jq -r 'last | .environment' issues_list.json)
 
 #Add GitHub env vars
-# echo START_DATE=$start_date >>$GITHUB_ENV
-# echo END_DATE=$end_date >>$GITHUB_ENV
+echo START_DATE=$start_date >>$GITHUB_ENV
+echo END_DATE=$end_date >>$GITHUB_ENV
 echo BUSINESS_AREA_ENTRY=$business_area_entry >>$GITHUB_ENV
 echo REQUEST_URL=$request_url >>$GITHUB_ENV
 echo CHANGE_JIRA_ID=$change_jira_id >>$GITHUB_ENV
