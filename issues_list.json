@@ -68,5 +68,19 @@
         "stay_on_late": "Yes",
         "justification": "Automation backlog work to be completed by end of this month",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/572"
+    },
+    {
+        "start_date": "21-06-2024",
+        "end_date": "23-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-14197,https://tools.hmcts.net/jira/browse/CIV-14215,https://tools.hmcts.net/jira/browse/CIV-14096,",
+        "stay_on_late": "No",
+        "justification": "We need to deploy all CUI R2 tickets so that its deployed in ITHC and Perftest",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/575"
     }
 ]
