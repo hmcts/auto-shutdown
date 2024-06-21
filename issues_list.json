@@ -82,5 +82,21 @@
         "stay_on_late": "No",
         "justification": "We need to deploy all CUI R2 tickets so that its deployed in ITHC and Perftest",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/575"
+    },
+    {
+        "start_date": "21-06-2024",
+        "end_date": "21-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "PRL-5615",
+        "stay_on_late": "Yes",
+        "justification": "Need PRL pods to be up and runnning for testing Key features",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/576"
     }
 ]
