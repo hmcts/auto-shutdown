@@ -69,5 +69,19 @@
         "stay_on_late": "Yes",
         "justification": "Need PRL pods to be up and runnning for testing Key features",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/576"
+    },
+    {
+        "start_date": "22-06-2024",
+        "end_date": "22-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-201",
+        "stay_on_late": "Yes",
+        "justification": "Automation backlog work to be completed asap",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/577"
     }
 ]
