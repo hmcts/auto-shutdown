@@ -82,5 +82,20 @@
         "stay_on_late": "No",
         "justification": "CHG5016577",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/578"
+    },
+    {
+        "start_date": "22-06-2024",
+        "end_date": "23-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5016577",
+        "stay_on_late": "Yes",
+        "justification": "CHG5016577",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/579"
     }
 ]
