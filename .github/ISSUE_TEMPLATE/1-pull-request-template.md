@@ -26,6 +26,6 @@ labels: pull-request
 
 {{ env.END_DATE }}
 
-### Do you need this exclusion past 23:00?
+### Do you need this exclusion past 11pm?
 
 {{ env.POST_11PM }}
