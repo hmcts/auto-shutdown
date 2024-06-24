@@ -41,8 +41,22 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/568"
     },
     {
-        "start_date": "20-06-2024",
-        "end_date": "20-06-2024",
+        "start_date": "21-06-2024",
+        "end_date": "23-06-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-14197,https://tools.hmcts.net/jira/browse/CIV-14215,https://tools.hmcts.net/jira/browse/CIV-14096,",
+        "stay_on_late": "No",
+        "justification": "We need to deploy all CUI R2 tickets so that its deployed in ITHC and Perftest",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/575"
+    },
+    {
+        "start_date": "22-06-2024",
+        "end_date": "23-06-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
@@ -50,23 +64,24 @@
             " PTL"
         ],
         "business_area": "cft",
-        "change_jira_id": "PRL-5615",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for testing Key features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/571"
+        "change_jira_id": "CHG5016577",
+        "stay_on_late": "No",
+        "justification": "CHG5016577",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/578"
     },
     {
-        "start_date": "20-06-2024",
-        "end_date": "20-06-2024",
+        "start_date": "22-06-2024",
+        "end_date": "23-06-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
+            " Preview / Dev",
             " PTL"
         ],
         "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-201",
+        "change_jira_id": "CHG5016577",
         "stay_on_late": "Yes",
-        "justification": "Automation backlog work to be completed by end of this month",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/572"
+        "justification": "CHG5016577",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/579"
     }
 ]
