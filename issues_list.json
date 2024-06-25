@@ -25,21 +25,5 @@
         "stay_on_late": "Yes",
         "justification": "Need environment to stay up for extended testing purposes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/580"
-    },
-    {
-        "start_date": "24-06-2024",
-        "end_date": "24-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5786",
-        "stay_on_late": "Yes",
-        "justification": "Testing SOA",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/581"
     }
 ]
