@@ -27,22 +27,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/580"
     },
     {
-        "start_date": "27-06-2024",
-        "end_date": "27-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5648",
-        "stay_on_late": "Yes",
-        "justification": "Ticket needs to be testing completed by tomorrow",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/586"
-    },
-    {
         "start_date": "28-06-2024",
         "end_date": "01-07-2024",
         "request_type": "stop",
