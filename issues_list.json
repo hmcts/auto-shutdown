@@ -40,5 +40,19 @@
         "stay_on_late": "Yes",
         "justification": "Ticket needs to be testing completed by tomorrow",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/587"
+    },
+    {
+        "start_date": "01-07-2024",
+        "end_date": "01-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-188",
+        "stay_on_late": "Yes",
+        "justification": "Automation backlog work to be completed this week",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/588"
     }
 ]
