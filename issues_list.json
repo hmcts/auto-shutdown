@@ -14,19 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "24-06-2024",
-        "end_date": "30-06-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "JM-7641",
-        "stay_on_late": "Yes",
-        "justification": "Need environment to stay up for extended testing purposes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/580"
-    },
-    {
         "start_date": "28-06-2024",
         "end_date": "01-07-2024",
         "request_type": "stop",
