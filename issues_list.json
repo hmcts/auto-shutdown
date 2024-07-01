@@ -41,5 +41,19 @@
         "stay_on_late": "Yes",
         "justification": "Automation backlog work to be completed this week",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/588"
+    },
+    {
+        "start_date": "01-07-2024",
+        "end_date": "04-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "ITHC",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "JM-7696",
+        "stay_on_late": "Yes",
+        "justification": "Juror are running test packs in run up to go-live",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/589"
     }
 ]
