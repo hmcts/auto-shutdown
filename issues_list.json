@@ -55,5 +55,18 @@
         "stay_on_late": "Yes",
         "justification": "Juror are running test packs in run up to go-live",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/589"
+    },
+    {
+        "start_date": "02-07-2024",
+        "end_date": "04-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "CGI Jira",
+        "stay_on_late": "Yes",
+        "justification": "Juror Team are testing in Staging",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/590"
     }
 ]
