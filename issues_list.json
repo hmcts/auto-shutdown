@@ -84,5 +84,19 @@
         "stay_on_late": "Yes",
         "justification": "Ticket needs to be testing completed by tomorrow",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/595"
+    },
+    {
+        "start_date": "04-07-2024",
+        "end_date": "04-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "HMAN-578",
+        "stay_on_late": "No",
+        "justification": "HMAN-578",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/596"
     }
 ]
