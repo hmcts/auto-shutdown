@@ -14,33 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "01-07-2024",
-        "end_date": "04-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "ITHC",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "JM-7696",
-        "stay_on_late": "Yes",
-        "justification": "Juror are running test packs in run up to go-live",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/589"
-    },
-    {
-        "start_date": "02-07-2024",
-        "end_date": "04-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "CGI Jira",
-        "stay_on_late": "Yes",
-        "justification": "Juror Team are testing in Staging",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/590"
-    },
-    {
         "start_date": "09-07-2024",
         "end_date": "09-07-2024",
         "request_type": "stop",
@@ -69,34 +42,5 @@
         "stay_on_late": "No",
         "justification": "data migration release will require running environments to push any fixes in the event of a failure",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/594"
-    },
-    {
-        "start_date": "04-07-2024",
-        "end_date": "04-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6056",
-        "stay_on_late": "Yes",
-        "justification": "Ticket needs to be testing completed by tomorrow",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/595"
-    },
-    {
-        "start_date": "04-07-2024",
-        "end_date": "04-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "HMAN-578",
-        "stay_on_late": "No",
-        "justification": "HMAN-578",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/596"
     }
 ]
