@@ -59,5 +59,18 @@
         "stay_on_late": "No",
         "justification": "Civil National Rollout release on july 18th",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
+    },
+    {
+        "start_date": "09-07-2024",
+        "end_date": "09-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-11224",
+        "stay_on_late": "No",
+        "justification": "need to run the data prep for CUI R2",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/599"
     }
 ]
