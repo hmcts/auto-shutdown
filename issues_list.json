@@ -72,5 +72,19 @@
         "stay_on_late": "No",
         "justification": "need to run the data prep for CUI R2",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/599"
+    },
+    {
+        "start_date": "09-07-2024",
+        "end_date": "09-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "Critical feature to be tested",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/600"
     }
 ]
