@@ -44,5 +44,20 @@
         "stay_on_late": "Yes",
         "justification": "Ticket needs to be testing completed by tomorrow",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/597"
+    },
+    {
+        "start_date": "17-07-2024",
+        "end_date": "18-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-14461",
+        "stay_on_late": "No",
+        "justification": "Civil National Rollout release on july 18th",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
     }
 ]
