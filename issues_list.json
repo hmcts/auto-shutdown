@@ -14,21 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "09-07-2024",
-        "end_date": "09-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5017058",
-        "stay_on_late": "Yes",
-        "justification": "Production Release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/593"
-    },
-    {
         "start_date": "17-07-2024",
         "end_date": "18-07-2024",
         "request_type": "stop",
@@ -42,48 +27,6 @@
         "stay_on_late": "No",
         "justification": "Civil National Rollout release on july 18th",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
-    },
-    {
-        "start_date": "09-07-2024",
-        "end_date": "09-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CIV-11224",
-        "stay_on_late": "No",
-        "justification": "need to run the data prep for CUI R2",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/599"
-    },
-    {
-        "start_date": "09-07-2024",
-        "end_date": "09-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
-        "stay_on_late": "Yes",
-        "justification": "Critical feature to be tested",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/600"
-    },
-    {
-        "start_date": "09-07-2024",
-        "end_date": "09-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for testing Key features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/601"
     },
     {
         "start_date": "10-07-2024",
