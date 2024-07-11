@@ -29,34 +29,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
     },
     {
-        "start_date": "10-07-2024",
-        "end_date": "10-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RIA-7391",
-        "stay_on_late": "Yes",
-        "justification": "Need AAT to support out of office hours data migration release for IAC",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/602"
-    },
-    {
-        "start_date": "10-07-2024",
-        "end_date": "10-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-5615",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for testing Key features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/603"
-    },
-    {
         "start_date": "11-07-2024",
         "end_date": "11-07-2024",
         "request_type": "stop",
