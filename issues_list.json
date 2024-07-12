@@ -27,5 +27,21 @@
         "stay_on_late": "No",
         "justification": "Civil National Rollout release on july 18th",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
+    },
+    {
+        "start_date": "12-07-2024",
+        "end_date": "15-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "PRL-5615",
+        "stay_on_late": "Yes",
+        "justification": "Need PRL pods to be up and runnning for testing Key features",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/607"
     }
 ]
