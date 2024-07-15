@@ -43,5 +43,21 @@
         "stay_on_late": "Yes",
         "justification": "Need PRL pods to be up and runnning for testing Key features",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/607"
+    },
+    {
+        "start_date": "15-07-2024",
+        "end_date": "17-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "JM-7795",
+        "stay_on_late": "Yes",
+        "justification": "Juror Test packs running for Stabilisation",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/608"
     }
 ]
