@@ -29,22 +29,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
     },
     {
-        "start_date": "12-07-2024",
-        "end_date": "15-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-5615",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for testing Key features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/607"
-    },
-    {
         "start_date": "15-07-2024",
         "end_date": "17-07-2024",
         "request_type": "stop",
@@ -59,35 +43,5 @@
         "stay_on_late": "Yes",
         "justification": "Juror Test packs running for Stabilisation",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/608"
-    },
-    {
-        "start_date": "15-07-2024",
-        "end_date": "15-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-198",
-        "stay_on_late": "Yes",
-        "justification": "Automation backlog work to be completed asap",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/610"
-    },
-    {
-        "start_date": "15-07-2024",
-        "end_date": "15-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
-        "stay_on_late": "Yes",
-        "justification": "Need to testing during OOO",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/609"
     }
 ]
