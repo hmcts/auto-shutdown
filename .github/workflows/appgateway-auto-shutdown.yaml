@@ -20,4 +20,4 @@ jobs:
       - name: App Gateway Auto Shutdown
         run: ./scripts/appgateway/auto-start-stop.sh stop
       - name: App Gateway Auto Shutdown status check
-        run: ./scripts/appgateway/appstatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/appgateway/appgw_status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
