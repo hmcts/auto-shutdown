@@ -48,7 +48,7 @@ function auto_shutdown_notification() {
     local silentResponse="-s -o /dev/null" 
     
     curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
-        https://hooks.slack.com/services/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 # ${notificationSlackWebhook}
+        ${notificationSlackWebhook}
 }
 
 function get_current_date() {
