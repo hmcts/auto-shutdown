@@ -14,7 +14,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription
 do
     get_sftp_servers
 
-    jq -c '.[]'<<< $SFTP_SERVERS | while read sftpserver
+    jq -c '.[]'<<< $( [[ $MODE == "start" ]] && ENABLED_SFTP_SERVERS || DISABLED_SFTP_SERVERS ) | while read sftpserver
     do
         # Function that returns the Resource Group, Id and Name of the Storage Account and the current state of the SFTP Server as variables
         get_sftp_server_details

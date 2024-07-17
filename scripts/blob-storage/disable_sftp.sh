@@ -1,27 +1,28 @@
 #!/usr/bin/env bash
 # set -x
 shopt -s nocasematch
-AMBER='\033[1;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
+
+# Source shared function scripts
+source scripts/blob-storage/common-functions.sh
+source scripts/common/common-functions.sh
+
+MODE=${1:-start}
+SKIP="false"
+
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
-	SUBSCRIPTION_ID=$(jq -r '.id' <<<$subscription)
-	SUBSCRIPTION_NAME=$(jq -r '.name' <<<$subscription)
-	az account set -s $SUBSCRIPTION_ID
-	APPGS=$(az storage account list --query "[?tags.autoShutdown == 'true' && isSftpEnabled]" -o json)
+	
+	get_sftp_servers
+	
+	jq -c '.[]'<<< $ENABLED_SFTP_SERVERS | while read sftpserver
 
-	jq -c '.[]' <<<$APPGS | while read app; do
-
-		SKIP="false"
-		name=$(jq -r '.name' <<<$app)
-		rg=$(jq -r '.resourceGroup' <<<$app)
+		get_sftp_server_details
 
 		if [[ $SKIP == "false" ]]; then
-			echo -e "${GREEN}Disabling SFTP on $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
-			az storage account update -g $rg -n $name --enable-sftp=false || echo Ignoring errors Disabling $name
+			ts_echo_color GREEN "Disabling SFTP on $STORAGE_ACCOUNT_NAME in Resource Group: $RESOURCE_GROUP and Subscription: $SUBSCRIPTION_NAME"
+			az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=false || echo Ignoring errors Disabling $STORAGE_ACCOUNT_NAME
 		else
-			echo -e "${AMBER}storage account $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
+			ts_echo_color AMBER "Storage account $STORAGE_ACCOUNT_NAME in Resource Group:$RESOURCE_GROUP and Subscription:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
 	done
 done

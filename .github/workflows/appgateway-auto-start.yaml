@@ -19,5 +19,7 @@ jobs:
           allow-no-subscriptions: true
       - name: App Gateway Auto Start
         run: ./scripts/appgateway/auto-start-stop.sh start
+      - name: Wait for App Gateways to start
+        run: sleep 300
       - name: App Gateway Auto start status check
         run: ./scripts/appgateway/appgw_status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
