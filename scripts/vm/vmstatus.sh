@@ -1,22 +1,46 @@
 #!/usr/bin/env bash
-#set -x
-AMBER='\033[1;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
+# set -x
+shopt -s nocasematch
+
+# Source shared function scripts
+source scripts/vm/common-functions.sh
+source scripts/common/common-functions.sh
+
+MODE=${1:-start}
+notificationSlackWebhook=$2
+
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+	echo "Invalid MODE. Please use 'start' or 'stop'."
+	exit 1
+fi
+
 SUBSCRIPTIONS=$(az account list -o json)
-jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
-	SUBSCRIPTION_ID=$(jq -r '.id' <<<$subcription)
-	az account set -s $SUBSCRIPTION_ID
-	VMS=$(az resource list --resource-type Microsoft.Compute/virtualMachines --query "[?tags.autoShutdown == 'true']" -o json)
+jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+
+	get_subscription_vms
+	echo "Scanning $SUBSCRIPTION_NAME..."
+
 	jq -c '.[]' <<<$VMS | while read vm; do
-		ID=$(jq -r '.id' <<<$vm)
-		status=$(az vm show -d --ids $ID --query "powerState")
-		if [[ "$status" =~ .*"deallocated".* ]]; then
-			echo -e "${RED}status of VM in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<<$vm)  Name: $(jq -r '.name' <<<$vm) is $status"
-		elif [[ "$status" =~ .*"running".* ]]; then
-			echo -e "${GREEN}status of VM in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<<$vm)  Name: $(jq -r '.name' <<<$vm) is $status"
+
+		get_vm_details
+		
+		logMessage="VM: $VM_NAME in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $RESOURCE_GROUP is $VM_STATE after $MODE action."
+		slackMessage="VM: *$VM_NAME* in Subscription: *$SUBSCRIPTION_NAME*  ResourceGroup: *$RESOURCE_GROUP* is *$VM_STATE* after *$MODE* action."
+
+		if [[ "$VM_STATE" =~ .*"running".* ]]; then
+			ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+			if [[ $MODE == "stop" ]]; then
+				auto_shutdown_notification ":red_circle: $slackMessage"
+			fi   
+		elif [[  "$VM_STATE" =~ .*"deallocated".* ]]; then
+			ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+			if [[ $MODE == "start" ]]; then
+				auto_shutdown_notification ":red_circle: $slackMessage"
+			fi   
 		else
-			echo -e "${AMBER}status of VM in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<<$vm)  Name: $(jq -r '.name' <<<$vm) is $status"
+			ts_echo_color ${AMBER} "$logMessage" 
+			auto_shutdown_notification ":yellow_circle: $slackMessage"
 		fi
+		
 	done
 done

@@ -9,6 +9,11 @@ source scripts/common/common-functions.sh
 MODE=${1:-start}
 notificationSlackWebhook=$2
 
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+     echo "Invalid MODE. Please use 'start' or 'stop'."
+     exit 1
+fi
+
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
      # Function that returns the Subscription Id and Name as variables, sets the subscription as the default then returns a json formatted variable of available App Gateways with an autoshutdown tag

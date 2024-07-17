@@ -9,6 +9,11 @@ source scripts/common/common-functions.sh
 MODE=${1:-start}
 SKIP="false"
 
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+    echo "Invalid MODE. Please use 'start' or 'stop'."
+    exit 1
+fi
+
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 	

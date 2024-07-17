@@ -1,25 +1,46 @@
 #!/usr/bin/env bash
-#set -x
-AMBER='\033[1;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
+# set -x
+shopt -s nocasematch
+
+# Source shared function scripts
+source scripts/sqlmi/common-functions.sh
+source scripts/common/common-functions.sh
+
+MODE=${1:-start}
+notificationSlackWebhook=$2
+
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+     echo "Invalid MODE. Please use 'start' or 'stop'."
+     exit 1
+fi
+
 SUBSCRIPTIONS=$(az account list -o json)
-jq -c '.[]' <<< $SUBSCRIPTIONS | while read subcription 
-do
-     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subcription) 
-     az account set -s $SUBSCRIPTION_ID
-     SERVERS=$(az resource list --resource-type Microsoft.Sql/managedInstances --query "[?tags.autoShutdown == 'true']" -o json)
+jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+
+     get_sql_mi_servers
      
-     jq -c '.[]'<<< $SERVERS | while read server
-     do
-          ID=$(jq -r '.id' <<< $server)
-          status=$(az sql mi show  --ids $ID --query "state")
-          if [[  "$status" =~ .*"Stopped".* ]]; then
-               echo -e  "${RED}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status"
-          elif [[ "$status" =~ .*"Ready".* ]]; then
-               echo -e "${GREEN}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status" 
+     echo "Scanning $SUBSCRIPTION_NAME..."
+     jq -c '.[]'<<< $MI_SQL_SERVERS | while read server; do
+
+          get_sql_mi_server_details
+
+          logMessage="SQL managed-instance: $SERVER_NAME in Subscription: $SUBSCRIPTION_NAME and ResourceGroup: $RESOURCE_GROUP is $SERVER_STATE after $MODE action"
+          slackMessage="SQL managed-instance: *$SERVER_NAME* in Subscription: *$SUBSCRIPTION_NAME* and ResourceGroup: *$RESOURCE_GROUP* is *$SERVER_STATE* after *$MODE* action"
+
+          if [[ "$SERVER_STATE" =~ "Ready" ]]; then
+               ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+               if [[ $MODE == "stop" ]]; then
+                    auto_shutdown_notification ":red_circle: $slackMessage"
+               fi   
+          elif [[  "$SERVER_STATE" =~ "Stopped" ]]; then
+               ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+               if [[ $MODE == "start" ]]; then
+                    auto_shutdown_notification ":red_circle: $slackMessage"
+               fi   
           else
-               echo -e "${AMBER}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status" 
+               ts_echo_color ${AMBER} "$logMessage" 
+               auto_shutdown_notification ":yellow_circle: $slackMessage"
           fi
+
      done
 done

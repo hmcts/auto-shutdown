@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-
+# set -x
 shopt -s nocasematch
-AMBER='\033[1;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
+
+# Source shared function scripts
 source scripts/vm/common-functions.sh
 source scripts/common/common-functions.sh
 
@@ -11,8 +10,8 @@ MODE=${1:-start}
 SKIP="false"
 
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
-    echo "Invalid MODE. Please use 'start' or 'stop'."
-    exit 1
+	echo "Invalid MODE. Please use 'start' or 'stop'."
+	exit 1
 fi
 
 SUBSCRIPTIONS=$(az account list -o json)
@@ -23,16 +22,20 @@ SORTED_SUBSCRIPTIONS=$(jq -r '[
 IS_HUB_NEEDED="false"
 
 for row in $(echo "$SORTED_SUBSCRIPTIONS" | jq -r '.[] | @base64' ); do
+    
     _jq() {
     echo ${row} | base64 --decode | jq -r ${1}
     }
 
     SUBSCRIPTION_ID=$(_jq '.id')
     SUBSCRIPTION_NAME=$(_jq '.name')
-	get_subscription_vms
+    az account set -s $SUBSCRIPTION_ID
+    VMS=$(az resource list --resource-type Microsoft.Compute/virtualMachines --query "[?tags.autoShutdown == 'true']" -o json)
+    
     if [[ $SUBSCRIPTION_NAME == "HMCTS-HUB-NONPROD-INTSVC" && $IS_HUB_NEEDED == "true" && $MODE == "stop" ]]; then
 		continue
 	fi
+    
     for vm_row in $(echo "$VMS" | jq -r '.[] | @base64' ); do
         _jq_vm() {
         echo ${vm_row} | base64 --decode | jq -r ${1}

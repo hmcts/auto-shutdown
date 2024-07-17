@@ -1,8 +1,19 @@
 #!/usr/bin/env bash
+# set -x
+shopt -s nocasematch
 
-function ts_echo() {
-	date +"%H:%M:%S $(printf "%s " "$@")"
-}
+# Source shared function scripts
+source scripts/sqlmi/common-functions.sh
+source scripts/common/common-functions.sh
+
+MODE=${1:-start}
+notificationSlackWebhook=$2
+
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+    echo "Invalid MODE. Please use 'start' or 'stop'."
+    exit 1
+fi
+
 if [[ $SELECTED_ENV == "sbox" ]]; then
 	SELECTED_ENV="box"
 fi
@@ -19,27 +30,28 @@ elif [[ $SELECTED_ENV == "aat/staging" ]] && [[ $PROJECT == "SDS" ]]; then
 elif [[ $SELECTED_ENV == "aat/staging" ]] && [[ $PROJECT == "CFT" ]]; then
 	SELECTED_ENV="aat"
 fi
+
 SUBSCRIPTIONS=$(az account list -o json)
-jq -c '.[]' <<<$SUBSCRIPTIONS | while read subcription; do
-	SUBSCRIPTION_ID=$(jq -r '.id' <<<$subcription)
-	SUBSCRIPTION_NAME=$(jq -r '.name' <<<$subcription)
+
+jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+
+	get_sql_mi_servers
+
 	if [[ $PROJECT == "SDS" ]] && [[ $SUBSCRIPTION_NAME =~ "DCD-" ]]; then
 		continue
 	fi
 	if [[ $PROJECT == "CFT" ]] && [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]]; then
 		continue
 	fi
-	az account set -s $SUBSCRIPTION_ID
 
-	SERVERS=$(az resource list --resource-type Microsoft.Sql/managedInstances --query "[?tags.autoShutdown == 'true']" -o json)
-	jq -c '.[]' <<<$SERVERS | while read server; do
-		ID=$(jq -r '.id' <<<$server)
-		NAME=$(jq -r '.name' <<<$server)
-		if [[ $NAME =~ $SELECTED_ENV ]]; then
-			status=$(az sql mi show  --ids $ID --query "state")
-			if [[ "$status" != *"Ready"* ]]; then
-				ts_echo "Starting sql managed-instance show  in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<<$server)  Name: $NAME"
-				az sql mi start --ids $ID --no-wait || echo Ignoring error starting $NAME
+	jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
+
+		get_sql_mi_server_details
+		
+		if [[ $SERVER_NAME =~ $SELECTED_ENV ]]; then
+			if [[ "$SERVER_STATE" != *"Ready"* ]]; then
+				ts_echo "Starting SQL managed-instance: $SERVER_NAME in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $RESOURCE_GROUP  Name: $SERVER_NAME"
+				az sql mi start --ids $SERVER_ID --no-wait || echo Ignoring error starting $SERVER_NAME
 			fi
 		fi
 	done

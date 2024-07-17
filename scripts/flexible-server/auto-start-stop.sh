@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
-
+# set -x
 shopt -s nocasematch
 
+# Source shared function scripts
 source scripts/flexible-server/common-functions.sh
 source scripts/common/common-functions.sh
+
+MODE=${1:-start}
+notificationSlackWebhook=$2
 
 MODE=${1:-start}
 SKIP="false"
