@@ -20,4 +20,4 @@ jobs:
       - name: sftp enable
         run: ./scripts/blob-storage/enable_sftp.sh
       - name: sftp status check
-        run: ./scripts/blob-storage/sftp-check-status.sh
+        run: ./scripts/blob-storage/sftp-check-status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

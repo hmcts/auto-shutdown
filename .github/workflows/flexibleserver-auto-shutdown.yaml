@@ -20,4 +20,4 @@ jobs:
       - name: Postgres Flexible server  Auto Shutdown
         run: ./scripts/flexible-server/auto-start-stop.sh stop
       - name: Postgres Flexible server status check
-        run: ./scripts/flexible-server/flexserverstatus.sh
+        run: ./scripts/flexible-server/flexserverstatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

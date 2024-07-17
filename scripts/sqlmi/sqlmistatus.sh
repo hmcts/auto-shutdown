@@ -6,20 +6,20 @@ RED='\033[0;31m'
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subcription 
 do
-    SUBSCRIPTION_ID=$(jq -r '.id' <<< $subcription) 
-    az account set -s $SUBSCRIPTION_ID
-    SERVERS=$(az resource list --resource-type Microsoft.Sql/managedInstances --query "[?tags.autoShutdown == 'true']" -o json)
-    
-    jq -c '.[]'<<< $SERVERS | while read server
-    do
-       ID=$(jq -r '.id' <<< $server)
-       status=$(az sql mi show  --ids $ID --query "state")
-       if [[  "$status" =~ .*"Stopped".* ]]; then
-            echo -e  "${RED}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status"
-       elif [[ "$status" =~ .*"Ready".* ]]; then
-            echo -e "${GREEN}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status" 
-       else
-            echo -e "${AMBER}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status" 
-       fi
-    done
+     SUBSCRIPTION_ID=$(jq -r '.id' <<< $subcription) 
+     az account set -s $SUBSCRIPTION_ID
+     SERVERS=$(az resource list --resource-type Microsoft.Sql/managedInstances --query "[?tags.autoShutdown == 'true']" -o json)
+     
+     jq -c '.[]'<<< $SERVERS | while read server
+     do
+          ID=$(jq -r '.id' <<< $server)
+          status=$(az sql mi show  --ids $ID --query "state")
+          if [[  "$status" =~ .*"Stopped".* ]]; then
+               echo -e  "${RED}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status"
+          elif [[ "$status" =~ .*"Ready".* ]]; then
+               echo -e "${GREEN}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status" 
+          else
+               echo -e "${AMBER}status of sql managed-instance Name: $(jq -r '.name' <<< $server) in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<< $server) is $status" 
+          fi
+     done
 done

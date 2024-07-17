@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 shopt -s nocasematch
-AMBER='\033[1;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
+
 source scripts/appgateway/common-functions.sh
 source scripts/common/common-functions.sh
 
@@ -29,11 +27,11 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     SKIP=$(should_skip_start_stop $application_gateway_env $application_gateway_business_area $MODE)
 
     if [[ $SKIP == "false" ]]; then
-        echo -e "${GREEN}About to run $MODE operation on application gateway $APPLICATION_GATEWAY_NAME (rg:$RESOURCE_GROUP)"
+        ts_echo_color GREEN "About to run $MODE operation on application gateway $APPLICATION_GATEWAY_NAME (rg:$RESOURCE_GROUP)"
         echo az network application-gateway $MODE --resource-group $RESOURCE_GROUP --name $APPLICATION_GATEWAY_NAME --no-wait || echo Ignoring any errors while $MODE operation on application_gateway
         az network application-gateway $MODE --resource-group $RESOURCE_GROUP --name $APPLICATION_GATEWAY_NAME --no-wait || echo Ignoring any errors while $MODE operation on application_gateway
     else
-        echo -e "${AMBER}application_gateway $APPLICATION_GATEWAY_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
+        ts_echo_color AMBER "Application_gateway $APPLICATION_GATEWAY_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
     fi
   done
 done

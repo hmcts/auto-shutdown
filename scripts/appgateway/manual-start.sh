@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+# set -x
+shopt -s nocasematch
+
+# Source shared function scripts
+source scripts/appgateway/common-functions.sh
+source scripts/common/common-functions.sh
 
 function subscription() {
 	if [[ $SELECTED_ENV == "test/perftest" && $PROJECT == "SDS" ]]; then
@@ -36,17 +42,16 @@ function subscription() {
 	ts_echo $SUBSCRIPTION selected
 }
 
-function ts_echo() {
-	date +"%H:%M:%S $(printf "%s " "$@")"
-}
-
 subscription
-APPGS=$(az resource list --resource-type Microsoft.Network/applicationGateways --query "[?tags.autoShutdown == 'true']" -o json)
-jq -c '.[]' <<<$APPGS | while read appg; do
-	ID=$(jq -r '.id' <<<$appg)
-	status=$(az network application-gateway show --ids $ID --query "operationalState")
-	if [[ "$status" != *"Running"* ]]; then
-		ts_echo "Starting APP Gateway in Subscription: $(az account show --query name)  ResourceGroup: $(jq -r '.resourceGroup' <<<$appg)  Name: $(jq -r '.name' <<<$appg)"
-		az network application-gateway start --ids $ID --no-wait || echo Ignoring errors Stopping appgateway
+APPLICATION_GATEWAYS=$(az resource list --resource-type Microsoft.Network/applicationGateways --query "[?tags.autoShutdown == 'true']" -o json)
+
+jq -c '.[]'<<< $APPLICATION_GATEWAYS | while read application_gateway; do
+	
+	# Function that returns the Resource Group, Id and Name of the Application Gateway and its current state as variables
+	get_application_gateways_details
+	
+	if [[ "$APPLICATION_GATEWAY_STATE" != *"Running"* ]]; then
+		ts_echo "Starting APP Gateway in Subscription: $(az account show --query name) and ResourceGroup: $RESOURCE_GROUP  Name: $APPLICATION_GATEWAY_NAME"
+		az network application-gateway start --ids $APPLICATION_GATEWAY_ID --no-wait || echo Ignoring errors Stopping appgateway
 	fi
 done

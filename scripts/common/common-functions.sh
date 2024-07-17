@@ -10,7 +10,27 @@ elif [[ $platform == "Linux" ]]; then
 fi
 
 function ts_echo() {
-    date +"%H:%M:%S $(printf "%s "  "$@")"
+  printf "%s $(printf "%s "  "$@")\n" "$(get_current_time)"
+}
+
+function ts_echo_color() {
+    color=$1
+    shift
+    case $color in
+        RED)
+            color_code="\033[0;31m"
+            ;;
+        GREEN)
+            color_code="\033[0;32m"
+            ;;
+        AMBER)
+            color_code="\033[0;33m"
+            ;;
+        *)
+            color_code=""
+            ;;
+    esac
+    printf "%s $(printf "${color_code}%s\033[0m"  "$@")\n" "$(get_current_time)"
 }
 
 function notification() {
@@ -20,12 +40,27 @@ function notification() {
         ${registrySlackWebhook}
 }
 
+function auto_shutdown_notification() {
+    local message="$1"
+    
+    # This silences the slack response message in logs. 
+    # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
+    local silentResponse="-s -o /dev/null" 
+    
+    curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+        https://hooks.slack.com/services/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 # ${notificationSlackWebhook}
+}
+
 function get_current_date() {
   $date_command +'%d-%m-%Y %H:%M'
 }
 
 function get_current_hour() {
   $date_command +'%H'
+}
+
+function get_current_time() {
+  $date_command +'%H:%M:%S'
 }
 
 function get_current_date_seconds() {
