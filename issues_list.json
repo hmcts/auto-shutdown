@@ -59,5 +59,21 @@
         "stay_on_late": "Yes",
         "justification": "Need PRL pods to be up and runnning for deployment to ithc",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/612"
+    },
+    {
+        "start_date": "18-07-2024",
+        "end_date": "22-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "CGI Jira Board",
+        "stay_on_late": "Yes",
+        "justification": "We need to continue running tests out of hours during a Stabilisation period",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/615"
     }
 ]
