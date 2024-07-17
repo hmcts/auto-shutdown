@@ -20,4 +20,4 @@ jobs:
       - name: VM Auto Shutdown
         run: ./scripts/vm/auto-start-stop.sh stop
       - name: VM Auto Shutdown status check
-        run: ./scripts/vm/vmstatus.sh
+        run: ./scripts/vm/vmstatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
