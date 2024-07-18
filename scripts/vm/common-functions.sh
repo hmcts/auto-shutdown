@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Function that uses the subscription input to get set variables for later use and gather all VMs within the subscription for shutdown
 function get_subscription_vms() {
   SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
   SUBSCRIPTION_NAME=$(jq -r '.name' <<< $subscription)
@@ -7,6 +8,7 @@ function get_subscription_vms() {
   VMS=$(az resource list --resource-type Microsoft.Compute/virtualMachines --query "[?tags.autoShutdown == 'true']" -o json)
 }
 
+# Function that accepts the VM json as input and sets variables for later use to stop or start VM
 function get_vm_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $vm)
   VM_ID=$(jq -r '.id' <<< $vm)

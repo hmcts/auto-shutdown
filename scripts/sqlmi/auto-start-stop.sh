@@ -6,41 +6,50 @@ shopt -s nocasematch
 source scripts/sqlmi/common-functions.sh
 source scripts/common/common-functions.sh
 
-MODE=${1:-start}
-notificationSlackWebhook=$2
-
+# Set variables for later use, MODE has a default but can be overridden at usage time
 MODE=${1:-start}
 SKIP="false"
 
+# Catch problems with MODE input, must be one of Start/Stop
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     echo "Invalid MODE. Please use 'start' or 'stop'."
     exit 1
 fi
 
+# Find all subscriptions that are available to the credential used and saved to SUBSCRIPTIONS variable
 SUBSCRIPTIONS=$(az account list -o json)
 
+# For each subscription found, start the loop
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
-  get_sql_mi_servers
-  echo "Scanning $SUBSCRIPTION_NAME..."
+    # Function that returns the Subscription Id and Name as variables, 
+    # sets the subscription as the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
+    get_sql_mi_servers
+    echo "Scanning $SUBSCRIPTION_NAME..."
 
-  jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
-  
-    get_sql_mi_server_details
-  
-    server_env=$(echo $SERVER_NAME | cut -d'-' -f 3)
-    server_env=${server_env/stg/Staging}
-    server_business_area=${server_business_area/ss/cross-cutting}
-    server_business_area=$( jq -r '.tags.businessArea' <<< $server)
+    # For each App Gateway found in the function `get_sql_mi_servers` start another loop
+    jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
+    
+        # Function that returns the Resource Group, Id and Name of the Managed SQL Instances and its current state as variables
+        get_sql_mi_server_details
+    
+        # Set variables based on inputs which are used to decide when to SKIP an environment
+        server_env=$(echo $SERVER_NAME | cut -d'-' -f 3)
+        server_env=${server_env/stg/Staging}
+        server_business_area=$( jq -r '.tags.businessArea' <<< $server)
+        server_business_area=${server_business_area/ss/cross-cutting}
 
-    SKIP=$(should_skip_start_stop $server_env $server_business_area $MODE)
+        # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
+        # based on the issues_list.json file which contains user requests to keep environments online after normal hours
+        SKIP=$(should_skip_start_stop $server_env $server_business_area $MODE)
 
-    if [[ $SKIP == "false" ]]; then
-        ts_echo_color GREEN "About to run $MODE operation on sql server $SERVER_NAME (rg:$RESOURCE_GROUP)"
-        ts_echo_color GREEN "Command to run: az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server"
-        az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
-    else
-        ts_echo_color AMBER "SQL server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
-    fi
-  done
+        # If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
+        if [[ $SKIP == "false" ]]; then
+            ts_echo_color GREEN "About to run $MODE operation on sql server $SERVER_NAME (rg:$RESOURCE_GROUP)"
+            ts_echo_color GREEN "Command to run: az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server"
+            az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
+        else
+            ts_echo_color AMBER "SQL server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
+        fi
+    done
 done

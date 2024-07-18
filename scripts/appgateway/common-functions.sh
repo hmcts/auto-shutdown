@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Function that uses the subscription input to get set variables for later use and gather all app gateways within the subscription for shutdown
 function get_application_gateways() {
   SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
   SUBSCRIPTION_NAME=$(jq -r '.name' <<< $subscription)
@@ -7,6 +8,7 @@ function get_application_gateways() {
   APPLICATION_GATEWAYS=$(az resource list --resource-type Microsoft.Network/applicationGateways  --query "[?tags.autoShutdown == 'true']" -o json)
 }
 
+# Function that accepts the app gateway json as input and sets variables for later use to stop or start App Gateway
 function get_application_gateways_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $application_gateway)
   APPLICATION_GATEWAY_ID=$(jq -r '.id' <<< $application_gateway)

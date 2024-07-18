@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Function that uses the subscription input to get set variables for later use and gather all flexible sql servers within the subscription for shutdown
 function get_subscription_flexible_sql_servers() {
   SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
   SUBSCRIPTION_NAME=$(jq -r '.name' <<< $subscription)
@@ -7,6 +8,7 @@ function get_subscription_flexible_sql_servers() {
   FLEXIBLE_SERVERS=$(az resource list --resource-type Microsoft.DBforPostgreSQL/flexibleServers --query "[?tags.autoShutdown == 'true']" -o json)
 }
 
+# Function that accepts the flexible sql server json as input and sets variables for later use to stop or start the flexible sql server
 function get_flexible_sql_server_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $flexibleserver)
   SERVER_ID=$(jq -r '.id' <<< $flexibleserver)
