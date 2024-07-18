@@ -19,7 +19,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription
 do
 
      get_subscription_flexible_sql_servers
-     
+     echo "Scanning $SUBSCRIPTION_NAME..."
+
      jq -c '.[]'<<< $FLEXIBLE_SERVERS | while read flexibleserver
      do
           get_flexible_sql_server_details

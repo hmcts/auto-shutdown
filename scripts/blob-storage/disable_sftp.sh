@@ -15,16 +15,19 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
 fi
 
 SUBSCRIPTIONS=$(az account list -o json)
-jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
+jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription
+do
 	
 	get_sftp_servers
-	
-	jq -c '.[]'<<< $ENABLED_SFTP_SERVERS | while read sftpserver
+    echo "Scanning $SUBSCRIPTION_NAME..."
 
+	jq -c '.[]'<<< $ENABLED_SFTP_SERVERS | while read sftpserver
+	do
 		get_sftp_server_details
 
 		if [[ $SKIP == "false" ]]; then
-			ts_echo_color GREEN "Disabling SFTP on $STORAGE_ACCOUNT_NAME in Resource Group: $RESOURCE_GROUP and Subscription: $SUBSCRIPTION_NAME"
+			ts_echo_color GREEN "Disabling SFTP on Storage Account: $STORAGE_ACCOUNT_NAME in Resource Group: $RESOURCE_GROUP and Subscription: $SUBSCRIPTION_NAME"
+			ts_echo_color GREEN "Command to run: az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=false || echo Ignoring errors Disabling $STORAGE_ACCOUNT_NAME"
 			az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=false || echo Ignoring errors Disabling $STORAGE_ACCOUNT_NAME
 		else
 			ts_echo_color AMBER "Storage account $STORAGE_ACCOUNT_NAME in Resource Group:$RESOURCE_GROUP and Subscription:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"

@@ -20,8 +20,10 @@ fi
 SUBSCRIPTIONS=$(az account list -o json)
 
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+
   get_subscription_flexible_sql_servers
-  
+  echo "Scanning $SUBSCRIPTION_NAME..."
+
   jq -c '.[]' <<< $FLEXIBLE_SERVERS | while read flexibleserver; do
     
     get_flexible_sql_server_details
@@ -34,8 +36,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     SKIP=$(should_skip_start_stop $server_env $server_business_area $MODE)
 
     if [[ $SKIP == "false" ]]; then
-        ts_echo_color GREEN "About to run $MODE operation on sql server $SERVER_NAME (rg:$RESOURCE_GROUP)"
-        echo az postgres flexible-server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
+        ts_echo_color GREEN "About to run $MODE operation on flexible sql server $SERVER_NAME Resource Group: $RESOURCE_GROUP"
+        ts_echo_color GREEN "Command to run: az postgres flexible sql server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server"
         az postgres flexible-server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
     else
         ts_echo_color AMBER "SQL server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"

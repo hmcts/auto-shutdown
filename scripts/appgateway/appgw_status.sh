@@ -18,6 +18,7 @@ SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
      # Function that returns the Subscription Id and Name as variables, sets the subscription as the default then returns a json formatted variable of available App Gateways with an autoshutdown tag
      get_application_gateways
+     echo "Scanning $SUBSCRIPTION_NAME..."
 
      jq -c '.[]'<<< $APPLICATION_GATEWAYS | while read application_gateway
      do

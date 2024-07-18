@@ -18,8 +18,8 @@ SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
      get_sql_mi_servers
-     
      echo "Scanning $SUBSCRIPTION_NAME..."
+     
      jq -c '.[]'<<< $MI_SQL_SERVERS | while read server; do
 
           get_sql_mi_server_details

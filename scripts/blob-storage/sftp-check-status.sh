@@ -18,6 +18,7 @@ SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription
 do
     get_sftp_servers
+    echo "Scanning $SUBSCRIPTION_NAME..."
 
     jq -c '.[]'<<< $( [[ $MODE == "start" ]] && ENABLED_SFTP_SERVERS || DISABLED_SFTP_SERVERS ) | while read sftpserver
     do
