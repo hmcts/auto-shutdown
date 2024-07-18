@@ -43,5 +43,21 @@
         "stay_on_late": "Yes",
         "justification": "We need to continue running tests out of hours during a Stabilisation period",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/615"
+    },
+    {
+        "start_date": "18-07-2024",
+        "end_date": "18-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "Need PRL pods to be up and runnning for deployment to ithc",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/618"
     }
 ]
