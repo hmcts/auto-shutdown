@@ -29,22 +29,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
     },
     {
-        "start_date": "15-07-2024",
-        "end_date": "17-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "JM-7795",
-        "stay_on_late": "Yes",
-        "justification": "Juror Test packs running for Stabilisation",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/608"
-    },
-    {
         "start_date": "18-07-2024",
         "end_date": "22-07-2024",
         "request_type": "stop",
@@ -59,34 +43,5 @@
         "stay_on_late": "Yes",
         "justification": "We need to continue running tests out of hours during a Stabilisation period",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/615"
-    },
-    {
-        "start_date": "17-07-2024",
-        "end_date": "17-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "CGI Jira Board",
-        "stay_on_late": "No",
-        "justification": "Juror testing during Stabilisation",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/616"
-    },
-    {
-        "start_date": "17-07-2024",
-        "end_date": "17-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for deployment to ithc",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/617"
     }
 ]
