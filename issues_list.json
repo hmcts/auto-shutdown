@@ -73,5 +73,21 @@
         "stay_on_late": "No",
         "justification": "Weekend work for ILA integration release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/619"
+    },
+    {
+        "start_date": "19-07-2024",
+        "end_date": "19-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "Need PRL pods to be up and runnning for deployment to ithc",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/620"
     }
 ]
