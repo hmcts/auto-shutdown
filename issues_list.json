@@ -28,19 +28,5 @@
         "stay_on_late": "Yes",
         "justification": "We need to continue running tests out of hours during a Stabilisation period",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/615"
-    },
-    {
-        "start_date": "19-07-2024",
-        "end_date": "20-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RIA-9201",
-        "stay_on_late": "No",
-        "justification": "Weekend work for ILA integration release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/619"
     }
 ]
