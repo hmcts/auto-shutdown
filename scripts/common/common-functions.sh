@@ -116,9 +116,11 @@ function should_skip_start_stop () {
       continue
     fi
     if [[ $mode == "stop" && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then 
-      if [[ $(is_late_night_run) == "false" && $(is_weekend_in_range $start_date $end_date) == "false" ]]; then
-        echo "false"
+      if [[ $(is_late_night_run) == "false" ]]; then
+        echo "true"
       elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" ]]; then
+        echo "true"
+      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" && $(is_weekend_in_range $start_date $end_date) == "true" ]]; then
         echo "true"
       else
         echo "false"
