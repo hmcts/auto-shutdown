@@ -43,5 +43,21 @@
         "stay_on_late": "No",
         "justification": "sanity checks for cu/cd deployments",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/629"
+    },
+    {
+        "start_date": "24-07-2024",
+        "end_date": "28-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "CGI Jira Board",
+        "stay_on_late": "Yes",
+        "justification": "Juror team are running test packs against various environments to create tested release fixes",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/630"
     }
 ]
