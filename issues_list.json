@@ -57,5 +57,20 @@
         "stay_on_late": "Yes",
         "justification": "Ticket needs to be testing completed by tomorrow",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/628"
+    },
+    {
+        "start_date": "23-07-2024",
+        "end_date": "23-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/RIA-9201",
+        "stay_on_late": "No",
+        "justification": "sanity checks for cu/cd deployments",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/629"
     }
 ]
