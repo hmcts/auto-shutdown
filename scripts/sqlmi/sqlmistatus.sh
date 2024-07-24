@@ -7,7 +7,7 @@ source scripts/sqlmi/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification` 
+# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
 MODE=${1:-start}
 notificationSlackWebhook=$2
 
@@ -23,11 +23,11 @@ SUBSCRIPTIONS=$(az account list -o json)
 # For each subscription found, start the loop
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
-    # Function that returns the Subscription Id and Name as variables, 
+    # Function that returns the Subscription Id and Name as variables,
     # sets the subscription as the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
     get_sql_mi_servers
     echo "Scanning $SUBSCRIPTION_NAME..."
-    
+
     # For each App Gateway found in the function `get_application_gateways` start another loop
     jq -c '.[]'<<< $MI_SQL_SERVERS | while read server; do
 
@@ -47,14 +47,14 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
             ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
             if [[ $MODE == "stop" ]]; then
                 auto_shutdown_notification ":red_circle: $slackMessage"
-            fi   
+            fi
         elif [[  "$SERVER_STATE" =~ "Stopped" ]]; then
             ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
             if [[ $MODE == "start" ]]; then
                 auto_shutdown_notification ":red_circle: $slackMessage"
-            fi   
+            fi
         else
-            ts_echo_color ${AMBER} "$logMessage" 
+            ts_echo_color ${AMBER} "$logMessage"
             auto_shutdown_notification ":yellow_circle: $slackMessage"
         fi
 
