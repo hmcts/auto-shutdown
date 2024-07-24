@@ -120,7 +120,7 @@ function should_skip_start_stop () {
         echo "true"
       elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" ]]; then
         echo "true"
-      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" && $(is_weekend_in_range $start_date $end_date) == "true" ]]; then
+      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" ]]; then
         echo "true"
       else
         echo "false"
