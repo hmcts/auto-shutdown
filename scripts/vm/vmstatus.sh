@@ -41,10 +41,10 @@ do
 		slackMessage="VM: *$VM_NAME* in Subscription: *$SUBSCRIPTION_NAME*  ResourceGroup: *$RESOURCE_GROUP* is *$VM_STATE* state after *$MODE* action."
 
 		# Check state of the VM and print output as required
-        # Depending on the value of MODE a notification will also be sent
-        #    - If MODE = Start then a stopped App Gateway is incorrect and we should notify
-        #    - If MODE = Stop then a running App Gateway is incorrect and we should notify
-        #    - If neither Running or Stopped is found then something else is going on and we should notify
+		# Depending on the value of MODE a notification will also be sent
+		#    - If MODE = Start then a stopped App Gateway is incorrect and we should notify
+		#    - If MODE = Stop then a running App Gateway is incorrect and we should notify
+		#    - If neither Running or Stopped is found then something else is going on and we should notify
 		if [[ "$VM_STATE" =~ .*"running".* ]]; then
 			ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
 			if [[ $MODE == "stop" ]]; then
