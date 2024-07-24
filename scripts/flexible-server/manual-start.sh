@@ -45,7 +45,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 		continue
 	fi
 
-    # For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
+	# For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
 	jq -c '.[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
 
         # Function that returns the Resource Group, Id and Name of the Flexible SQL Server and its current state as variables
