@@ -7,7 +7,7 @@ source scripts/blob-storage/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification` 
+# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
 MODE=${1:-start}
 notificationSlackWebhook=$2
 
@@ -24,8 +24,8 @@ SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription
 do
 
-	# Function that returns the Subscription Id and Name as variables, sets the subscription 
-	# as the default then returns a json formatted variable of available SFTP Servers with an autoshutdown tag
+    # Function that returns the Subscription Id and Name as variables, sets the subscription
+    # as the default then returns a json formatted variable of available SFTP Servers with an autoshutdown tag
     get_sftp_servers
     echo "Scanning $SUBSCRIPTION_NAME..."
 
