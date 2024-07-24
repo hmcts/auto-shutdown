@@ -28,15 +28,15 @@ IS_HUB_NEEDED="false"
 # For each subscription found, start the loop
 jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
 
-	# Function that returns the Subscription Id and Name as variables, 
+    # Function that returns the Subscription Id and Name as variables,
     # sets the subscription as the default then returns a json formatted variable of available VMs with an autoshutdown tag
     get_subscription_vms
-	echo "Scanning $SUBSCRIPTION_NAME..."
+    echo "Scanning $SUBSCRIPTION_NAME..."
 
     if [[ $SUBSCRIPTION_NAME == "HMCTS-HUB-NONPROD-INTSVC" && $IS_HUB_NEEDED == "true" && $MODE == "stop" ]]; then
 		continue
 	fi
-    
+
     # For each App Gateway found in the function `get_sql_mi_servers` start another loop
     jq -c '.[]' <<<$VMS | while read vm; do
 
@@ -53,7 +53,7 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
             [demo]="demo"
             [ithc]="ithc"
         )
-        
+
         # Check the map of environments using the VM_ENVIRONMENT variable to see if one is found
         # If found set the name based on the value from the `vm_envs` variable map
         if [[ "${vm_envs[$VM_ENVIRONMENT]}" ]]; then
@@ -61,11 +61,11 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
         else
             ENV_SUFFIX="$VM_ENVIRONMENT"
         fi
-		
+
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-        SKIP=$(should_skip_start_stop $ENV_SUFFIX $VM_BUSINESS_AREA $MODE) 
-		
+        SKIP=$(should_skip_start_stop $ENV_SUFFIX $VM_BUSINESS_AREA $MODE)
+
         # If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then
             ts_echo_color GREEN "About to run $MODE operation on VM: $VM_NAME in Resource Group: $RESOURCE_GROUP"
