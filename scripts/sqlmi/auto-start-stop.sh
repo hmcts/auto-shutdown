@@ -22,17 +22,17 @@ SUBSCRIPTIONS=$(az account list -o json)
 # For each subscription found, start the loop
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
-    # Function that returns the Subscription Id and Name as variables, 
+    # Function that returns the Subscription Id and Name as variables,
     # sets the subscription as the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
     get_sql_mi_servers
     echo "Scanning $SUBSCRIPTION_NAME..."
 
     # For each App Gateway found in the function `get_sql_mi_servers` start another loop
     jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
-    
+
         # Function that returns the Resource Group, Id and Name of the Managed SQL Instances and its current state as variables
         get_sql_mi_server_details
-    
+
         # Set variables based on inputs which are used to decide when to SKIP an environment
         server_env=$(echo $SERVER_NAME | cut -d'-' -f 3)
         server_env=${server_env/stg/Staging}
