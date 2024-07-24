@@ -39,7 +39,7 @@ SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
 	# Function that returns the Subscription Id and Name as variables, sets the subscription as
-    # the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
+	# the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
 	get_sql_mi_servers
 	echo "Scanning $SUBSCRIPTION_NAME..."
 
