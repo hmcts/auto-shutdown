@@ -38,7 +38,7 @@ SUBSCRIPTIONS=$(az account list -o json)
 # For each subscription found, start the loop
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
-	# Function that returns the Subscription Id and Name as variables, sets the subscription as 
+	# Function that returns the Subscription Id and Name as variables, sets the subscription as
     # the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
 	get_sql_mi_servers
 	echo "Scanning $SUBSCRIPTION_NAME..."
@@ -50,14 +50,14 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 		continue
 	fi
 
-    # For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
+	# For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
 	jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
 
         # Function that returns the Resource Group, Id and Name of the Managed SQL Instance and its current state as variables
 		get_sql_mi_server_details
-		
+
 		# If SERVER_NAME matches the regex of the SELECTED_ENV then continue
-		# If SERVER_STATE is not Ready then start the flexible server 
+		# If SERVER_STATE is not Ready then start the flexible server
 		if [[ $SERVER_NAME =~ $SELECTED_ENV ]]; then
 			if [[ "$SERVER_STATE" != *"Ready"* ]]; then
 				ts_echo "Starting SQL managed-instance: $SERVER_NAME in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $RESOURCE_GROUP  Name: $SERVER_NAME"
