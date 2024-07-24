@@ -25,8 +25,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription
 do
 
 	# Function that returns the Subscription Id and Name as variables,
-    # sets the subscription as the default then returns a json formatted variable of available VMs with an autoshutdown tag
-    get_subscription_vms
+	# sets the subscription as the default then returns a json formatted variable of available VMs with an autoshutdown tag
+	get_subscription_vms
 	echo "Scanning $SUBSCRIPTION_NAME..."
 
 	# For each App Gateway found in the function `get_subscription_vms` start another loop
