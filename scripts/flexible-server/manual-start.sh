@@ -33,10 +33,10 @@ SUBSCRIPTIONS=$(az account list -o json)
 # For each subscription found, start the loop
 jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 
-    # Function that returns the Subscription Id and Name as variables, sets the subscription as 
-    # the default then returns a json formatted variable of available App Gateways with an autoshutdown tag
+	# Function that returns the Subscription Id and Name as variables, sets the subscription as
+	# the default then returns a json formatted variable of available App Gateways with an autoshutdown tag
 	get_subscription_flexible_sql_servers
-    echo "Scanning $SUBSCRIPTION_NAME..."
+	echo "Scanning $SUBSCRIPTION_NAME..."
 
 	if [[ $PROJECT == "SDS" ]] && [[ $SUBSCRIPTION_NAME =~ "DCD-" ]]; then
 		continue
@@ -52,7 +52,7 @@ jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
 		get_flexible_sql_server_details
 
 		# If SERVER_NAME matches the regex of the SELECTED_ENV then continue
-		# If SERVER_STATE is not Ready then start the flexible server 
+		# If SERVER_STATE is not Ready then start the flexible server
 		if [[ $SERVER_NAME =~ $SELECTED_ENV ]]; then
 			if [[ "$SERVER_STATE" != *"Ready"* ]]; then
 				ts_echo "Starting flexible-server: $SERVER_NAME in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $RESOURCE_GROUP"
