@@ -28,5 +28,21 @@
         "stay_on_late": "Yes",
         "justification": "Juror team are running test packs against various environments to create tested release fixes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/630"
+    },
+    {
+        "start_date": "25-07-2024",
+        "end_date": "25-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPO-18165",
+        "stay_on_late": "Yes",
+        "justification": "Redis cache issue testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/639"
     }
 ]
