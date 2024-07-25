@@ -72,11 +72,11 @@ do
 		#    - If MODE = Stop then a running App Gateway is incorrect and we should notify
 		#    - If neither Running or Stopped is found then something else is going on and we should notify
             case "$VM_STATE" in
-                *"Ready"*)
+                *"running"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
                     [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
                     ;;
-                *"Stopped"*)
+                *"deallocated"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
                     [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
                     ;;
