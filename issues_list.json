@@ -28,33 +28,5 @@
         "stay_on_late": "Yes",
         "justification": "Juror team are running test packs against various environments to create tested release fixes",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/630"
-    },
-    {
-        "start_date": "24-07-2024",
-        "end_date": "24-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5017058",
-        "stay_on_late": "Yes",
-        "justification": "Production Release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/631"
-    },
-    {
-        "start_date": "24-07-2024",
-        "end_date": "24-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CIV-11224",
-        "stay_on_late": "No",
-        "justification": "need to run the data prep for CUI R2",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/633"
     }
 ]
