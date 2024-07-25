@@ -14,80 +14,47 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "17-07-2024",
-        "end_date": "18-07-2024",
+        "start_date": "24-07-2024",
+        "end_date": "28-07-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-14461",
-        "stay_on_late": "No",
-        "justification": "Civil National Rollout release on july 18th",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/598"
-    },
-    {
-        "start_date": "12-07-2024",
-        "end_date": "15-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
             " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-5615",
-        "stay_on_late": "Yes",
-        "justification": "Need PRL pods to be up and runnning for testing Key features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/607"
-    },
-    {
-        "start_date": "15-07-2024",
-        "end_date": "17-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
             " ITHC",
             " PTL"
         ],
         "business_area": "cross-cutting",
-        "change_jira_id": "JM-7795",
+        "change_jira_id": "CGI Jira Board",
         "stay_on_late": "Yes",
-        "justification": "Juror Test packs running for Stabilisation",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/608"
+        "justification": "Juror team are running test packs against various environments to create tested release fixes",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/630"
     },
     {
-        "start_date": "15-07-2024",
-        "end_date": "15-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-198",
-        "stay_on_late": "Yes",
-        "justification": "Automation backlog work to be completed asap",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/610"
-    },
-    {
-        "start_date": "15-07-2024",
-        "end_date": "15-07-2024",
+        "start_date": "24-07-2024",
+        "end_date": "24-07-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
             " Preview / Dev",
-            " Demo",
             " PTL"
         ],
         "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "change_jira_id": "CHG5017058",
         "stay_on_late": "Yes",
-        "justification": "Need to testing during OOO",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/609"
+        "justification": "Production Release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/631"
+    },
+    {
+        "start_date": "24-07-2024",
+        "end_date": "24-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-11224",
+        "stay_on_late": "No",
+        "justification": "need to run the data prep for CUI R2",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/633"
     }
 ]
