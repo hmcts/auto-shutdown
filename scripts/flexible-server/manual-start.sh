@@ -6,7 +6,7 @@
 shopt -s nocasematch
 
 # Source shared function scripts
-source scripts/appgateway/common-functions.sh
+source scripts/flexible-server/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set the SELECTED_ENV and SUBSCRIPTION based on inputs from workflow supplied by the user triggering the workflow via GitHub UI
