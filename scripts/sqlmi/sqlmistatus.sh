@@ -68,6 +68,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
                     auto_shutdown_notification ":yellow_circle: $slackMessage"
                     ;;
             esac
+        else
+            ts_echo_color AMBER "SQL managed-instance: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
         fi
     done
 done

@@ -85,6 +85,8 @@ do
                     auto_shutdown_notification ":yellow_circle: $slackMessage"
                     ;;
             esac
+        else
+            ts_echo_color AMBER "VM: $VM_NAME in Resource Group: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
         fi
 
 	done
