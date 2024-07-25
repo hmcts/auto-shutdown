@@ -13,7 +13,9 @@ function get_vm_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $vm)
   VM_ID=$(jq -r '.id' <<< $vm)
   VM_NAME=$(jq -r '.name' <<< $vm)
-  VM_ENVIRONMENT=$(jq -r '.tags.environment' <<< $vm)
-  VM_BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $vm)
+  ENVIRONMENT=$(jq -r '.tags.environment' <<< $vm)
+  BUSINESS_AREA=$(jq -r '.tags.businessArea' <<< $vm)
+  STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vm)
   VM_STATE=$(az vm show -d --ids $VM_ID --query "powerState" | jq -r)
+
 }

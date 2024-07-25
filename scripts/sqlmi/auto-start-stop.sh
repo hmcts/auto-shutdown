@@ -34,16 +34,14 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         get_sql_mi_server_details
 
         # Set variables based on inputs which are used to decide when to SKIP an environment
-        server_env=$(echo $SERVER_NAME | cut -d'-' -f 3)
-        server_env=${server_env/stg/Staging}
-        server_business_area=$( jq -r '.tags.businessArea' <<< $server)
-        server_business_area=${server_business_area/ss/cross-cutting}
+        managed_instance_env=${ENVIRONMENT/stg/Staging}
+        managed_instance_business_area=${BUSINESS_AREA/ss/cross-cutting}
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-        SKIP=$(should_skip_start_stop $server_env $server_business_area $MODE)
+        SKIP=$(should_skip_start_stop $managed_instance_env $managed_instance_business_area $MODE)
 
-        # If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
+        # If SKIP is false then we progress with the action (stop/start) for the particular Managed SQL Instance in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then
             ts_echo_color GREEN "About to run $MODE operation on sql server $SERVER_NAME (rg:$RESOURCE_GROUP)"
             ts_echo_color GREEN "Command to run: az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server"
