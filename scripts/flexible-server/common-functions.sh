@@ -13,6 +13,9 @@ function get_flexible_sql_server_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $flexibleserver)
   SERVER_ID=$(jq -r '.id' <<< $flexibleserver)
   SERVER_NAME=$(jq -r '.name' <<< $flexibleserver)
+  ENVIRONMENT=$(echo $SERVER_NAME | rev | cut -d'-' -f 1 | rev )
+  BUSINESS_AREA=$( jq -r '.tags.businessArea' <<< $flexibleserver)
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $flexibleserver)
   SERVER_STATE=$(az postgres flexible-server show --ids $SERVER_ID --query "state" | jq -r)
+
 }

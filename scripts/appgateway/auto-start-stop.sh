@@ -22,7 +22,7 @@ SUBSCRIPTIONS=$(az account list -o json)
 # For each subscription found, start the loop
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
-    # Function that returns the Subscription Id and Name as variables, sets the subscription as 
+    # Function that returns the Subscription Id and Name as variables, sets the subscription as
     # the default then returns a json formatted variable of available App Gateways with an autoshutdown tag
     get_application_gateways
     echo "Scanning $SUBSCRIPTION_NAME..."
@@ -34,10 +34,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         get_application_gateways_details
 
         # Set variables based on inputs which are used to decide when to SKIP an environment
-        application_gateway_env=$(echo $APPLICATION_GATEWAY_NAME | rev | cut -d'-' -f 2 | rev )
-        application_gateway_env=${application_gateway_env/stg/Staging}
-        application_gateway_business_area=$( jq -r '.tags.businessArea' <<< $application_gateway)
-        application_gateway_business_area=${application_gateway_business_area/ss/cross-cutting}
+        application_gateway_env=${ENVIRONMENT/stg/Staging}
+        application_gateway_business_area=${BUSINESS_AREA/ss/cross-cutting}
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours

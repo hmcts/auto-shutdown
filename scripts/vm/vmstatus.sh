@@ -10,6 +10,7 @@ source scripts/common/common-functions.sh
 # notificationSlackWebhook is used during the function call `auto_shutdown_notification`
 MODE=${1:-start}
 notificationSlackWebhook=$2
+SKIP="false"
 
 # Catch problems with MODE input, must be one of Start/Stop
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
@@ -36,29 +37,55 @@ do
 		# Function that returns the Resource Group, Id and Name of the VMs and its current state as variables
 		get_vm_details
 
+        # Declare and populate a map of environments and real names
+        declare -a vm_envs=(
+            [sandbox]="sbox"
+            [testing]="test"
+            [staging]="aat"
+            [development]="dev"
+            [production]="prod"
+            [demo]="demo"
+            [ithc]="ithc"
+        )
+
+        # Check the map of environments using the ENVIRONMENT returned by `get_vm_details` to see if one is found
+        # If found set the name based on the value from the `vm_envs` variable map
+        if [[ "${vm_envs[$ENVIRONMENT]}" ]]; then
+            ENV_SUFFIX="${vm_envs[$ENVIRONMENT]}"
+        else
+            ENV_SUFFIX="$ENVIRONMENT"
+        fi
+
+        # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
+        # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
+        SKIP=$(should_skip_start_stop $ENV_SUFFIX $BUSINESS_AREA $MODE)
+
         # Setup message output templates for later use
 		logMessage="VM: $VM_NAME in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $RESOURCE_GROUP is $VM_STATE state after $MODE action."
 		slackMessage="VM: *$VM_NAME* in Subscription: *$SUBSCRIPTION_NAME*  ResourceGroup: *$RESOURCE_GROUP* is *$VM_STATE* state after *$MODE* action."
 
+        # If SKIP is false then we progress with the status chec for the particular VM in this loop run, if SKIP is true then do nothing
+        if [[ $SKIP == "false" ]]; then
 		# Check state of the VM and print output as required
 		# Depending on the value of MODE a notification will also be sent
 		#    - If MODE = Start then a stopped App Gateway is incorrect and we should notify
 		#    - If MODE = Stop then a running App Gateway is incorrect and we should notify
 		#    - If neither Running or Stopped is found then something else is going on and we should notify
-		if [[ "$VM_STATE" =~ .*"running".* ]]; then
-			ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
-			if [[ $MODE == "stop" ]]; then
-				auto_shutdown_notification ":red_circle: $slackMessage"
-			fi
-		elif [[  "$VM_STATE" =~ .*"deallocated".* ]]; then
-			ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
-			if [[ $MODE == "start" ]]; then
-				auto_shutdown_notification ":red_circle: $slackMessage"
-			fi
-		else
-			ts_echo_color ${AMBER} "$logMessage"
-			auto_shutdown_notification ":yellow_circle: $slackMessage"
-		fi
+            case "$VM_STATE" in
+                *"Ready"*)
+                    ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+                    [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                    ;;
+                *"Stopped"*)
+                    ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+                    [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                    ;;
+                *)
+                    ts_echo_color AMBER "$logMessage"
+                    auto_shutdown_notification ":yellow_circle: $slackMessage"
+                    ;;
+            esac
+        fi
 
 	done
 done

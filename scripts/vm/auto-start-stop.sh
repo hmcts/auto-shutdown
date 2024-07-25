@@ -54,19 +54,19 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
             [ithc]="ithc"
         )
 
-        # Check the map of environments using the VM_ENVIRONMENT variable to see if one is found
+        # Check the map of environments using the ENVIRONMENT returned by `get_vm_details` to see if one is found
         # If found set the name based on the value from the `vm_envs` variable map
-        if [[ "${vm_envs[$VM_ENVIRONMENT]}" ]]; then
-            ENV_SUFFIX="${vm_envs[$VM_ENVIRONMENT]}"
+        if [[ "${vm_envs[$ENVIRONMENT]}" ]]; then
+            ENV_SUFFIX="${vm_envs[$ENVIRONMENT]}"
         else
-            ENV_SUFFIX="$VM_ENVIRONMENT"
+            ENV_SUFFIX="$ENVIRONMENT"
         fi
 
-        # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
-        # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-        SKIP=$(should_skip_start_stop $ENV_SUFFIX $VM_BUSINESS_AREA $MODE)
+        # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
+        # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
+        SKIP=$(should_skip_start_stop $ENV_SUFFIX $BUSINESS_AREA $MODE)
 
-        # If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
+        # If SKIP is false then we progress with the action (stop/start) for the particular VM in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then
             ts_echo_color GREEN "About to run $MODE operation on VM: $VM_NAME in Resource Group: $RESOURCE_GROUP"
             ts_echo_color GREEN  "Command to run: az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm"
