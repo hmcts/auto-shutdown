@@ -44,5 +44,20 @@
         "stay_on_late": "Yes",
         "justification": "Redis cache issue testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/639"
+    },
+    {
+        "start_date": "26-07-2024",
+        "end_date": "28-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5017055",
+        "stay_on_late": "No",
+        "justification": "CHG5017055",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/642"
     }
 ]
