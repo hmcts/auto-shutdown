@@ -30,31 +30,19 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/630"
     },
     {
-        "start_date": "24-07-2024",
-        "end_date": "24-07-2024",
+        "start_date": "25-07-2024",
+        "end_date": "25-07-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
             " Preview / Dev",
+            " Demo",
             " PTL"
         ],
         "business_area": "cft",
-        "change_jira_id": "CHG5017058",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPO-18165",
         "stay_on_late": "Yes",
-        "justification": "Production Release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/631"
-    },
-    {
-        "start_date": "24-07-2024",
-        "end_date": "24-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CIV-11224",
-        "stay_on_late": "No",
-        "justification": "need to run the data prep for CUI R2",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/633"
+        "justification": "Redis cache issue testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/639"
     }
 ]
