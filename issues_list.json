@@ -57,5 +57,21 @@
         "stay_on_late": "Yes",
         "justification": "Automation backlog work to be completed asap",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/643"
+    },
+    {
+        "start_date": "29-07-2024",
+        "end_date": "29-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-5512",
+        "stay_on_late": "Yes",
+        "justification": "PRL needs to close this task to enable backend work",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/644"
     }
 ]
