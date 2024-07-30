@@ -12,9 +12,9 @@ MODE=${1:-start}
 notificationSlackWebhook=$2
 SKIP="false"
 
-# Catch problems with MODE input, must be one of Start/Stop
-if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
-	echo "Invalid MODE. Please use 'start' or 'stop'."
+# Catch problems with MODE input, must be one of start/deallocate
+if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
+	echo "Invalid MODE. Please use 'start' or 'deallocate'."
 	exit 1
 fi
 
@@ -68,8 +68,8 @@ do
         if [[ $SKIP == "false" ]]; then
 		# Check state of the VM and print output as required
 		# Depending on the value of MODE a notification will also be sent
-		#    - If MODE = Start then a stopped App Gateway is incorrect and we should notify
-		#    - If MODE = Stop then a running App Gateway is incorrect and we should notify
+		#    - If MODE = start then a stopped VM is incorrect and we should notify
+		#    - If MODE = deallocate then a running VM is incorrect and we should notify
 		#    - If neither Running or Stopped is found then something else is going on and we should notify
             case "$VM_STATE" in
                 *"running"*)

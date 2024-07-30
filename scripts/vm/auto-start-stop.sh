@@ -11,8 +11,8 @@ MODE=${1:-start}
 SKIP="false"
 
 # Catch problems with MODE input, must be one of Start/Stop
-if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
-	echo "Invalid MODE. Please use 'start' or 'stop'."
+if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
+	echo "Invalid MODE. Please use 'start' or 'deallocate'."
 	exit 1
 fi
 
@@ -33,7 +33,7 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
     get_subscription_vms
     echo "Scanning $SUBSCRIPTION_NAME..."
 
-    if [[ $SUBSCRIPTION_NAME == "HMCTS-HUB-NONPROD-INTSVC" && $IS_HUB_NEEDED == "true" && $MODE == "stop" ]]; then
+    if [[ $SUBSCRIPTION_NAME == "HMCTS-HUB-NONPROD-INTSVC" && $IS_HUB_NEEDED == "true" && $MODE == "deallocate" ]]; then
 		continue
 	fi
 
@@ -66,7 +66,7 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
         # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
         SKIP=$(should_skip_start_stop $ENV_SUFFIX $BUSINESS_AREA $MODE)
 
-        # If SKIP is false then we progress with the action (stop/start) for the particular VM in this loop run, if not skip and print message to the logs
+        # If SKIP is false then we progress with the action (deallocate/start) for the particular VM in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then
             ts_echo_color GREEN "About to run $MODE operation on VM: $VM_NAME in Resource Group: $RESOURCE_GROUP"
             ts_echo_color GREEN  "Command to run: az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm"
