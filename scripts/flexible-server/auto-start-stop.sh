@@ -22,22 +22,20 @@ SUBSCRIPTIONS=$(az account list -o json)
 # For each subscription found, start the loop
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
-    # Function that returns the Subscription Id and Name as variables, sets the subscription as 
+    # Function that returns the Subscription Id and Name as variables, sets the subscription as
     # the default then returns a json formatted variable of available App Gateways with an autoshutdown tag
     get_subscription_flexible_sql_servers
     echo "Scanning $SUBSCRIPTION_NAME..."
 
     # For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
     jq -c '.[]' <<< $FLEXIBLE_SERVERS | while read flexibleserver; do
-        
+
         # Function that returns the Resource Group, Id and Name of the Flexible SQL Server and its current state as variables
         get_flexible_sql_server_details
 
         # Set variables based on inputs which are used to decide when to SKIP an environment
-        server_env=$(echo $SERVER_NAME | rev | cut -d'-' -f 1 | rev )
-        server_env=${server_env/stg/Staging}
-        server_business_area=$( jq -r '.tags.businessArea' <<< $flexibleserver)
-        server_business_area=${server_business_area/ss/cross-cutting}
+        flexible_server_env=${ENVIRONMENT/stg/Staging}
+        flexible_server_business_area=${BUSINESS_AREA/ss/cross-cutting}
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours
