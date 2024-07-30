@@ -43,5 +43,22 @@
         "stay_on_late": "No",
         "justification": "PROD",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/645"
+    },
+    {
+        "start_date": "30-07-2024",
+        "end_date": "30-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "CGI Jira",
+        "stay_on_late": "No",
+        "justification": "Juror test packs need to be run overnight due to the Azure platform being down this afternoon",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/648"
     }
 ]
