@@ -73,5 +73,22 @@
         "stay_on_late": "Yes",
         "justification": "Ticket needs to be testing completed by tomorrow",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/650"
+    },
+    {
+        "start_date": "31-07-2024",
+        "end_date": "31-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "CGI Jira",
+        "stay_on_late": "No",
+        "justification": "Juror releases",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/651"
     }
 ]
