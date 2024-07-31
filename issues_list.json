@@ -14,67 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "29-07-2024",
-        "end_date": "30-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG0083066",
-        "stay_on_late": "No",
-        "justification": "PROD",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/645"
-    },
-    {
-        "start_date": "30-07-2024",
-        "end_date": "30-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "CGI Jira",
-        "stay_on_late": "No",
-        "justification": "Juror test packs need to be run overnight due to the Azure platform being down this afternoon",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/648"
-    },
-    {
-        "start_date": "30-07-2024",
-        "end_date": "30-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-204",
-        "stay_on_late": "Yes",
-        "justification": "Automation backlog work to be completed asap",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/649"
-    },
-    {
-        "start_date": "30-07-2024",
-        "end_date": "30-07-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-3849",
-        "stay_on_late": "Yes",
-        "justification": "Ticket needs to be testing completed by tomorrow",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/650"
-    },
-    {
         "start_date": "31-07-2024",
         "end_date": "31-07-2024",
         "request_type": "stop",
