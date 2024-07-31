@@ -44,5 +44,21 @@
         "stay_on_late": "No",
         "justification": "Allow testing to happen after 6 PM",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/652"
+    },
+    {
+        "start_date": "31-07-2024",
+        "end_date": "31-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6054",
+        "stay_on_late": "Yes",
+        "justification": "Needed for demo prep and testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/653"
     }
 ]
