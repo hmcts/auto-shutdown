@@ -90,5 +90,20 @@
         "stay_on_late": "No",
         "justification": "Juror releases",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/651"
+    },
+    {
+        "start_date": "31-07-2024",
+        "end_date": "31-07-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/RIA-8902",
+        "stay_on_late": "No",
+        "justification": "Allow testing to happen after 6 PM",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/652"
     }
 ]
