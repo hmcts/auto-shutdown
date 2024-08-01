@@ -1,0 +1,81 @@
+@startuml vmStopStart
+start
+partition #LightCyan VM Stop/Start {
+while (With Subscription in **Subscriptions** list)
+    if (**Subscription** is //HMCTS-HUB-NONPROD-INTSVC// \n AND \n**IS_HUB_NEEDED** = //true// \n AND \n**mode** = //stop// ) then ((<color:green>Yes))
+        :End Loop - Skip to the next subscription;
+    else ((<color:red>No))
+        :Call **get_subscription_vms()** function;
+        :Return **VMs** list;
+        while (With VMs in **VMs** list)
+            :Call **get_vm_details()** function;
+            :Declare a map of environments;
+            :Set **ENV_SUFFIX** variable;
+            :Set **SKIP** variable based on **should_skip_start_stop()** function;
+                partition #LightYellow Skip Check Function {
+                    :should_skip_start_stop();
+                    if (**STARTUP_MODE** != //onDemand// \n AND \n**MODE** != //start//) then (<color:green>True)
+                        :return false;
+                        detach
+                    else  (<color:red>False)
+                        while (read issues from **issues_list.json**)
+                            :Run **get_request_type()** function;
+                            if (result of **get_request_type()** = **MODE**) then (<color:green>True)
+                                :Exit this iteration;
+                            else (<color:red>False)
+                                if (**MODE** = //stop//\n AND \n**env_entry** = //env//\n AND \n**business_area** = //business_area_entry//\n AND \n**is_in_date_range()** = //true//) then (<color:green>True)
+                                    if (is_late_night_run() = false) then (<color:green>True)
+                                        :return true;
+                                        detach
+                                    else  (<color:red>False)
+                                        if (stay_on_late = true) then (<color:green>True)
+                                            :return true;
+                                            detach
+                                        else  (<color:red>False)
+                                            :return false;
+                                            detach
+                                        endif
+                                    endif
+                                else (<color:red>False)
+                                    :Exit this iteration;
+                                endif
+                            endif
+                        endwhile
+                        if (**STARTUP_MODE** = //onDemand// and **MODE** = //start//) then (<color:green>True)
+                            :return true;
+                            detach
+                        else  (<color:red>False)
+                            :return false;
+                            detach
+                        endif
+                    endif
+                }
+            :continue;
+            note right: Continue with result of **should_skip_start_stop()** function
+            if (SKIP is false) then (yes)
+                switch (VM_STATE)
+                case (  running  )
+                    :Output to log running;
+                    if (MODE == stop) then (yes)
+                        :Slack Notification;
+                    endif
+                case (  deallocated  )
+                    :Output to log deallocated;
+                    if (MODE == start) then (yes)
+                        :Slack Notification;
+                    endif
+                case (  no match  )
+                    :Output to log <state>;
+                    :Slack Notification;
+                endswitch
+            else (no)
+                :Output to logs - Skipped;
+            endif
+        endwhile ( No VMs remaining )
+        :End VM loop;
+    endif
+endwhile ( No subscriptions remaining )
+: End subscription loop;
+}
+end
+@enduml

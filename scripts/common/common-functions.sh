@@ -10,7 +10,27 @@ elif [[ $platform == "Linux" ]]; then
 fi
 
 function ts_echo() {
-    date +"%H:%M:%S $(printf "%s "  "$@")"
+  printf "%s $(printf "%s "  "$@")\n" "$(get_current_time)"
+}
+
+function ts_echo_color() {
+    color=$1
+    shift
+    case $color in
+        RED)
+            color_code="\033[0;31m"
+            ;;
+        GREEN)
+            color_code="\033[0;32m"
+            ;;
+        AMBER)
+            color_code="\033[0;33m"
+            ;;
+        *)
+            color_code=""
+            ;;
+    esac
+    printf "%s $(printf "${color_code}%s\033[0m"  "$@")\n" "$(get_current_time)"
 }
 
 function notification() {
@@ -20,12 +40,27 @@ function notification() {
         ${registrySlackWebhook}
 }
 
+function auto_shutdown_notification() {
+    local message="$1"
+
+    # This silences the slack response message in logs.
+    # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
+    local silentResponse="-s -o /dev/null"
+
+    curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+      ${notificationSlackWebhook}
+}
+
 function get_current_date() {
   $date_command +'%d-%m-%Y %H:%M'
 }
 
 function get_current_hour() {
   $date_command +'%H'
+}
+
+function get_current_time() {
+  $date_command +'%H:%M:%S'
 }
 
 function get_current_date_seconds() {
@@ -115,7 +150,7 @@ function should_skip_start_stop () {
     if [[ $request_type != $mode ]]; then
       continue
     fi
-    if [[ $mode == "stop" && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then 
+    if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
       if [[ $(is_late_night_run) == "false" ]]; then
         echo "true"
       elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" ]]; then
@@ -147,13 +182,13 @@ get_request_type() {
 
 get_slack_displayname_from_github_username() {
     local github_username="$1"
-    
+
     # Using curl to fetch content from github-slack-user-mappings repo
     local user_mappings=$(curl -sS "https://raw.githubusercontent.com/hmcts/github-slack-user-mappings/master/slack.json")
-    
+
     # Filtering JSON data based on GitHub field using jq
     local slack_id=$(echo "$user_mappings" | jq -r ".users[] | select(.github == \"$github_username\") | .slack")
- 
+
     if [[ -z $slack_id ]]; then
         #setting output to input GitHub username as slack mapping doesn't exist.
         echo $github_username

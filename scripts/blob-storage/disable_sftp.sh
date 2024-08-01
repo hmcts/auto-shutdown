@@ -1,27 +1,48 @@
 #!/usr/bin/env bash
 # set -x
 shopt -s nocasematch
-AMBER='\033[1;33m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
+
+# Source shared function scripts
+source scripts/blob-storage/common-functions.sh
+source scripts/common/common-functions.sh
+
+# Set variables for later use, MODE has a default but can be overridden at usage time
+MODE=${1:-start}
+SKIP="false"
+
+# Catch problems with MODE input, must be one of Start/Stop
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+    echo "Invalid MODE. Please use 'start' or 'stop'."
+    exit 1
+fi
+
+# Find all subscriptions that are available to the credential used and saved to SUBSCRIPTIONS variable
 SUBSCRIPTIONS=$(az account list -o json)
-jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
-	SUBSCRIPTION_ID=$(jq -r '.id' <<<$subscription)
-	SUBSCRIPTION_NAME=$(jq -r '.name' <<<$subscription)
-	az account set -s $SUBSCRIPTION_ID
-	APPGS=$(az storage account list --query "[?tags.autoShutdown == 'true' && isSftpEnabled]" -o json)
 
-	jq -c '.[]' <<<$APPGS | while read app; do
+# For each subscription found, start the loop
+jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription
+do
 
-		SKIP="false"
-		name=$(jq -r '.name' <<<$app)
-		rg=$(jq -r '.resourceGroup' <<<$app)
+	# Function that returns the Subscription Id and Name as variables, sets the subscription
+	# as the default then returns a json formatted variable of available SFTP Servers with an autoshutdown tag
+	get_sftp_servers
+	echo "Scanning $SUBSCRIPTION_NAME..."
 
+	# For each Storage Account found in the function `get_sftp_servers` start another loop
+	# The list of SFTP Servers used is DISABLED_SFTP_SERVERS as we want to start the SFTP service
+	jq -c '.[]'<<< $ENABLED_SFTP_SERVERS | while read sftpserver
+	do
+
+		# Function that returns the Resource Group, Id and Name of the Storage Account and the current state of the SFTP Server as variables
+		get_sftp_server_details
+
+		# If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
 		if [[ $SKIP == "false" ]]; then
-			echo -e "${GREEN}Disabling SFTP on $name (rg:$rg) sub:$SUBSCRIPTION_NAME"
-			az storage account update -g $rg -n $name --enable-sftp=false || echo Ignoring errors Disabling $name
+			ts_echo_color GREEN "Disabling SFTP on Storage Account: $STORAGE_ACCOUNT_NAME in Resource Group: $RESOURCE_GROUP and Subscription: $SUBSCRIPTION_NAME"
+			ts_echo_color GREEN "Command to run: az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=false || echo Ignoring errors Disabling $STORAGE_ACCOUNT_NAME"
+			az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=false || echo Ignoring errors Disabling $STORAGE_ACCOUNT_NAME
 		else
-			echo -e "${AMBER}storage account $name (rg:$rg) sub:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
+			ts_echo_color AMBER "Storage account $STORAGE_ACCOUNT_NAME in Resource Group:$RESOURCE_GROUP and Subscription:$SUBSCRIPTION_NAME has been skipped from todays shutdown schedule"
 		fi
 	done
 done

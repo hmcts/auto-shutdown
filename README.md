@@ -39,7 +39,7 @@ It is important to monitor the comment section of the request (GitHub issue), th
 - Errors in form submission or cost processing
 - Approval status
 
-### Who can approve requests? 
+### Who can approve requests?
 
 Currently, anyone other than the requester can be an approver. The main purpose of this approval system is to sanity check that requests are not excessive.
 
@@ -87,3 +87,19 @@ The issue may get closed but this is expected. The same issue will be reused on 
 You can update the action to test different scenarios such as having a longer skip period if you need to test very high cost skips.
 
 Just update the [values](.github/workflows/parsegithubissue-pr.yaml#L31-L45) as appropriate
+
+## Diagrams
+
+Diagrams can be added to help understand the logic of the shutdown/startup scripts.
+
+These should be written in [UML](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/) which are diagrams written in code, specifically using [PlantUML](https://plantuml.com/).
+
+If you are using VSCode you can install the PlantUML [plugin](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) which will allow you to preview the diagrams locally and view changes in realtime.
+
+Example of the VSCode plugin and preview:
+
+![Alt Text](https://raw.githubusercontent.com/qjebbs/vscode-plantuml/7bc1758ed73dc269f5721d78c6c6c01f461d7cb0/images/auto_update_demo.gif)
+
+An export of the diagram is also kept alongside the `.puml` file which contains the code.
+
+This makes it easier to view the diagram within GitHub without the need for the plugin or a rendering server.
