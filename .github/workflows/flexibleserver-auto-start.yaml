@@ -19,7 +19,11 @@ jobs:
           allow-no-subscriptions: true
       - name: Postgres Flexible server  Auto Start
         run: ./scripts/flexible-server/auto-start-stop.sh start
+        env:
+          DEV_ENV: ${{ secrets.DEV_ENV }}
+
       - name: Wait for Flexible servers to start
         run: sleep 600
+        
       - name: Postgres Flexible server status check
         run: ./scripts/flexible-server/flexserverstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

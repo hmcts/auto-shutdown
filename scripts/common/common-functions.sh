@@ -23,6 +23,9 @@ function ts_echo_color() {
         GREEN)
             color_code="\033[0;32m"
             ;;
+        BLUE)
+            color_code="\033[0;34m"
+            ;;
         AMBER)
             color_code="\033[0;33m"
             ;;
@@ -171,16 +174,4 @@ get_slack_displayname_from_github_username() {
         local slack_real_name=$(echo "$response" | jq -r '.profile.real_name')
         echo $slack_real_name
     fi
-}
-
-#Usage examples: 
-#log "INFO" "This is an informational message."
-#log "WARNING" "This is an informational message."
-
-log() {
-    MAGENTA='\033[0;35m'
-    local LOG_LEVEL=$1
-    shift
-    local TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
-    echo -e "${MAGENTA}${TIMESTAMP} [${LOG_LEVEL}] $*"
 }
