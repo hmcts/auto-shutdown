@@ -42,5 +42,18 @@
         "stay_on_late": "Yes",
         "justification": "Needed this for delivery of critical items",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/657"
+    },
+    {
+        "start_date": "05-08-2024",
+        "end_date": "05-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "ITHC"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "DTSPO-18502",
+        "stay_on_late": "Yes",
+        "justification": "Troubleshooting",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/660"
     }
 ]
