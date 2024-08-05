@@ -172,3 +172,15 @@ get_slack_displayname_from_github_username() {
         echo $slack_real_name
     fi
 }
+
+#Usage examples: 
+#log "INFO" "This is an informational message."
+#log "WARNING" "This is an informational message."
+
+log() {
+    MAGENTA='\033[0;35m'
+    local LOG_LEVEL=$1
+    shift
+    local TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+    echo -e "${MAGENTA}${TIMESTAMP} [${LOG_LEVEL}] $*"
+}
