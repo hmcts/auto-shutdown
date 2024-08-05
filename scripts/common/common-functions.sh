@@ -172,11 +172,3 @@ get_slack_displayname_from_github_username() {
         echo $slack_real_name
     fi
 }
-
-log() {
-    AMBER='\033[1;33m'
-    local LOG_LEVEL=$1
-    shift
-    local TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
-    echo -e "${AMBER} ${TIMESTAMP} [${LOG_LEVEL}] $*"
-}
