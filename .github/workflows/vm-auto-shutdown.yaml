@@ -19,7 +19,11 @@ jobs:
           allow-no-subscriptions: true
       - name: VM Auto Shutdown
         run: ./scripts/vm/auto-start-stop.sh deallocate
+        env:
+          DEV_ENV: ${{ secrets.DEV_ENV }}
+
       - name: Wait for VMs to stop
         run: sleep 600
+        
       - name: VM Auto Shutdown status check
         run: ./scripts/vm/vmstatus.sh deallocate ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

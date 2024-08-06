@@ -18,3 +18,8 @@ function get_sql_mi_server_details() {
   SERVER_STATE=$(az sql mi show --ids $SERVER_ID --query "state")
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $server)
 }
+
+function sqlmi_state_messages() {
+    ts_echo_color GREEN "About to run $MODE operation on sql server $SERVER_NAME (rg:$RESOURCE_GROUP)"
+    ts_echo_color GREEN "Command to run: az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server"
+}
