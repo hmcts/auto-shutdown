@@ -36,9 +36,13 @@ do
 
 		# If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
 		if [[ $SKIP == "false" ]]; then
-			ts_echo_color GREEN "Enabling SFTP on Storage Account: $STORAGE_ACCOUNT_NAME in Resource Group: $RESOURCE_GROUP and Subscription: $SUBSCRIPTION_NAME"
-			ts_echo_color GREEN "Command to run: az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=true || echo Ignoring errors Enabling $STORAGE_ACCOUNT_NAME"
-			az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=true || echo Ignoring errors Enabling $STORAGE_ACCOUNT_NAME
+			if [[ $DEV_ENV != "true" ]]; then
+				blob_state_messages
+				az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=true || echo Ignoring errors Enabling $STORAGE_ACCOUNT_NAME
+			else
+				ts_echo_color BLUE "Development Env: simulating state commands only."
+				blob_state_messages
+			fi
 		else
 			ts_echo_color AMBER "Storage account $STORAGE_ACCOUNT_NAME in Resource Group:$RESOURCE_GROUP and Subscription:$SUBSCRIPTION_NAME has been skipped from todays startup schedule"
 		fi

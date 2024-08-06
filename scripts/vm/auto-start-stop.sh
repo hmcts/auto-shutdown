@@ -69,13 +69,11 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
         # If SKIP is false then we progress with the action (deallocate/start) for the particular VM in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then
             if [[ $DEV_ENV != "true" ]]; then
-                ts_echo_color GREEN "About to run $MODE operation on VM: $VM_NAME in Resource Group: $RESOURCE_GROUP"
-                ts_echo_color GREEN  "Command to run: az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm"
+                vm_state_messages
                 az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm
             else
                 ts_echo_color BLUE "Development Env: simulating state commands only."
-                ts_echo_color GREEN "About to run $MODE operation on VM: $VM_NAME in Resource Group: $RESOURCE_GROUP"
-                ts_echo_color GREEN  "Command to run: az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm"
+                vm_state_messages
             fi
         else
             ts_echo_color AMBER "VM: $VM_NAME in Resource Group: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"

@@ -44,14 +44,11 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         # If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then
             if [[ $DEV_ENV != "true" ]]; then
-                ts_echo_color GREEN "About to run $MODE operation on application gateway $APPLICATION_GATEWAY_NAME in Resource Group: $RESOURCE_GROUP"
-                ts_echo_color GREEN "Command to run: az network application-gateway $MODE --resource-group $RESOURCE_GROUP --name $APPLICATION_GATEWAY_NAME --no-wait || echo Ignoring any errors while $MODE operation on application_gateway"
+                appgateway_state_messages
                 az network application-gateway $MODE --resource-group $RESOURCE_GROUP --name $APPLICATION_GATEWAY_NAME --no-wait || echo Ignoring any errors while $MODE operation on application_gateway
             else
                 ts_echo_color BLUE "Development Env: simulating state commands only."
-                ts_echo_color GREEN "About to run $MODE operation on application gateway $APPLICATION_GATEWAY_NAME in Resource Group: $RESOURCE_GROUP"
-                ts_echo_color GREEN "Command to run: az network application-gateway $MODE --resource-group $RESOURCE_GROUP --name $APPLICATION_GATEWAY_NAME --no-wait || echo Ignoring any errors while $MODE operation on application_gateway"
-            fi
+                appgateway_state_messages
         else
             ts_echo_color AMBER "Application_gateway $APPLICATION_GATEWAY_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
         fi

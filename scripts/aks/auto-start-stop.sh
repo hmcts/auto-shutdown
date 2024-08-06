@@ -14,6 +14,12 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
+function aks_state_messages() {
+  ts_echo_color GREEN "Running $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
+  ts_echo_color GREEN "az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster"
+} 
+
+
 SUBSCRIPTIONS=$(az account list -o json)
 jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
   get_subscription_clusters
@@ -29,11 +35,12 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
     if [[ $SKIP == "false" ]]; then
       if [[ $DEV_ENV != "true" ]]; then
-        ts_echo_color GREEN "Running $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
+        aks_state_messages
         az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster
+        
       else
         ts_echo_color BLUE "Development Env: simulating state commands only."
-        ts_echo_color GREEN "Running $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
+        aks_state_messages
       fi
     else
       ts_echo_color AMBER "cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"

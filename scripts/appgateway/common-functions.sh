@@ -18,3 +18,8 @@ function get_application_gateways_details() {
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $application_gateway)
   APPLICATION_GATEWAY_STATE=$(az network application-gateway show --ids $APPLICATION_GATEWAY_ID | jq -r .operationalState)
 }
+
+function appgateway_state_messages() {
+  ts_echo_color GREEN "About to run $MODE operation on application gateway $APPLICATION_GATEWAY_NAME in Resource Group: $RESOURCE_GROUP"
+  ts_echo_color GREEN "Command to run: az network application-gateway $MODE --resource-group $RESOURCE_GROUP --name $APPLICATION_GATEWAY_NAME --no-wait || echo Ignoring any errors while $MODE operation on application_gateway"
+}
