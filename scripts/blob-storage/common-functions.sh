@@ -18,3 +18,8 @@ function get_sftp_server_details() {
   SFTP_SERVER_ENABLED=$(jq -r '.isSftpEnabled' <<< $sftpserver)
   SFTP_SERVER_STATE=$( [[ "$SFTP_SERVER_ENABLED" =~ "true" ]] && echo enabled || echo disabled )
 }
+
+function blob_state_messages() {
+	ts_echo_color GREEN "Disabling SFTP on Storage Account: $STORAGE_ACCOUNT_NAME in Resource Group: $RESOURCE_GROUP and Subscription: $SUBSCRIPTION_NAME"
+	ts_echo_color GREEN "Command to run: az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --enable-sftp=false || echo Ignoring errors Disabling $STORAGE_ACCOUNT_NAME"
+}
