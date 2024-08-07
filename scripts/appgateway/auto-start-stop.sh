@@ -49,6 +49,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
             else
                 ts_echo_color BLUE "Development Env: simulating state commands only."
                 appgateway_state_messages
+            fi
         else
             ts_echo_color AMBER "Application_gateway $APPLICATION_GATEWAY_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
         fi
