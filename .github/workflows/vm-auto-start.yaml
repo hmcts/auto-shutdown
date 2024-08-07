@@ -19,7 +19,11 @@ jobs:
           allow-no-subscriptions: true
       - name: VM Auto Start
         run: ./scripts/vm/auto-start-stop.sh start
+        env:
+          DEV_ENV: ${{ secrets.DEV_ENV }}
+
       - name: Wait for VMs to start
         run: sleep 600
+        
       - name: VM Auto start status check
         run: ./scripts/vm/vmstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

@@ -19,3 +19,8 @@ function get_vm_details() {
   VM_STATE=$(az vm show -d --ids $VM_ID --query "powerState" | jq -r)
 
 }
+
+function vm_state_messages() {
+    ts_echo_color GREEN "About to run $MODE operation on VM: $VM_NAME in Resource Group: $RESOURCE_GROUP"
+    ts_echo_color GREEN  "Command to run: az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm"
+}

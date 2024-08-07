@@ -23,6 +23,9 @@ function ts_echo_color() {
         GREEN)
             color_code="\033[0;32m"
             ;;
+        BLUE)
+            color_code="\033[0;34m"
+            ;;
         AMBER)
             color_code="\033[0;33m"
             ;;

@@ -19,7 +19,11 @@ jobs:
           allow-no-subscriptions: true
       - name: Sql Managed Instance  Auto Shutdown
         run: ./scripts/sqlmi/auto-start-stop.sh stop
+        env:
+          DEV_ENV: ${{ secrets.DEV_ENV }}
+
       - name: Wait for Sql Managed Instance to stop
         run: sleep 600
+        
       - name: Sql Managed Instance status check
         run: ./scripts/sqlmi/sqlmistatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
