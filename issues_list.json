@@ -28,5 +28,18 @@
         "stay_on_late": "Yes",
         "justification": "Needed this for delivery of critical items",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/665"
+    },
+    {
+        "start_date": "07-08-2024",
+        "end_date": "08-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "INC5629229",
+        "stay_on_late": "Yes",
+        "justification": "SDS Stg up across a few nights to aid testing needed for incident",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/668"
     }
 ]
