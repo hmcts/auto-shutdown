@@ -35,7 +35,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 
         # Set variables based on inputs which are used to decide when to SKIP an environment
         application_gateway_env=${ENVIRONMENT/stg/Staging}
-        application_gateway_business_area=${BUSINESS_AREA/ss/cross-cutting}
+        application_gateway_business_area=$BUSINESS_AREA
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours

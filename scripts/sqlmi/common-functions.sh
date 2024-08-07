@@ -14,7 +14,7 @@ function get_sql_mi_server_details() {
   SERVER_ID=$(jq -r '.id' <<< $server)
   SERVER_NAME=$(jq -r '.name' <<< $server)
   ENVIRONMENT=$(echo $SERVER_NAME | cut -d'-' -f 3)
-  BUSINESS_AREA=$( jq -r '.tags.businessArea' <<< $server)
+  BUSINESS_AREA=$( jq -r 'if (.tags.businessArea|ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea|ascii_downcase end' <<< $server)
   SERVER_STATE=$(az sql mi show --ids $SERVER_ID --query "state")
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $server)
 }
