@@ -70,5 +70,18 @@
         "stay_on_late": "Yes",
         "justification": "Needed this for delivery of critical items",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/672"
+    },
+    {
+        "start_date": "09-08-2024",
+        "end_date": "11-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "ET Data Prep",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/673"
     }
 ]
