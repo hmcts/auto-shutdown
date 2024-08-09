@@ -14,19 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "07-08-2024",
-        "end_date": "08-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "INC5629229",
-        "stay_on_late": "Yes",
-        "justification": "SDS Stg up across a few nights to aid testing needed for incident",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/668"
-    },
-    {
         "start_date": "08-08-2024",
         "end_date": "16-08-2024",
         "request_type": "stop",
@@ -38,38 +25,6 @@
         "stay_on_late": "Yes",
         "justification": "SDS STG needed to be up to aid VH testing for incident",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/670"
-    },
-    {
-        "start_date": "08-08-2024",
-        "end_date": "08-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5017443",
-        "stay_on_late": "Yes",
-        "justification": "Bails ref data release scheduled from 8 PM",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/671"
-    },
-    {
-        "start_date": "08-08-2024",
-        "end_date": "08-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6054",
-        "stay_on_late": "Yes",
-        "justification": "Needed this for delivery of critical items",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/672"
     },
     {
         "start_date": "09-08-2024",
