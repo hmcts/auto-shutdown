@@ -25,7 +25,10 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
     cluster_business_area=${cluster_business_area/ss/cross-cutting}
 
+    log "checking skip logic for cluster_env: $cluster_env, cluster_business_area: $cluster_business_area, mode: $MODE"
     SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
+
+    log "SKIP evalulated to $SKIP"
 
     if [[ $SKIP == "false" ]]; then
       if [[ $DEV_ENV != "true" ]]; then
