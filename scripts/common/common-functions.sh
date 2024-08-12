@@ -36,6 +36,10 @@ function ts_echo_color() {
     printf "%s $(printf "${color_code}%s\033[0m"  "$@")\n" "$(get_current_time)"
 }
 
+function log() {
+  ts_echo "$1" >> scripts/common/log.txt
+}
+
 function notification() {
     local channel="$1"
     local message="$2"
