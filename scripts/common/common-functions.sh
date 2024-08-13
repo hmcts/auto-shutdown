@@ -112,6 +112,10 @@ function should_skip_start_stop () {
   env=$1
   business_area=$2
   mode=$3
+  log "Checking function input vars"
+  log "env set to $env"
+  log "business_area set to $business_area"
+  log "mode set to $mode"
   # If its not onDemand we don't need to check the file issues_list.json for startup
   if [[ $STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
     echo "false"
