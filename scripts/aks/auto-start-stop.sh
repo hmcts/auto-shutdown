@@ -20,10 +20,21 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
   jq -c '.[]' <<< $CLUSTERS | while read cluster; do
     get_cluster_details
     cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
-    cluster_env=${cluster_env/#sbox/Sandbox}
-    cluster_env=${cluster_env/stg/Staging}
+
+    if [[  $cluster_env == "sbox" ]]; then
+      cluster_env=${cluster_env/#sbox/Sandbox}
+    elif [[ $cluster_env == "ptlsbox" ]]; then
+      cluster_env=${cluster_env/ptlsbox/Sandbox}
+    elif [[ $cluster_env == "stg" ]]; then
+      cluster_env=${cluster_env/stg/Staging}
+    fi
+
     cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
     cluster_business_area=${cluster_business_area/ss/cross-cutting}
+
+    log "====================================================="
+    log "Processing Cluster: $CLUSTER_NAME"
+    log "====================================================="
 
     log "checking skip logic for cluster_env: $cluster_env, cluster_business_area: $cluster_business_area, mode: $MODE"
     SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)

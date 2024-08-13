@@ -2,7 +2,7 @@ name: AppGateway-auto-shutdown
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *' # Every day at 8pm BST
+    - cron: '0 19,22 * * *' # Every day at 20:00 and 23:00 BST
 permissions:
   id-token: write
 jobs:
@@ -21,6 +21,9 @@ jobs:
         run: ./scripts/appgateway/auto-start-stop.sh stop
         env:
           DEV_ENV: ${{ secrets.DEV_ENV }}
+
+      - name: Output log file
+        run: ./scripts/common/log-output.sh
 
       - name: Wait for App Gateways to stop
         run: sleep 300
