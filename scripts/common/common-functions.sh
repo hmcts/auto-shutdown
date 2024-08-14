@@ -87,10 +87,15 @@ function convert_date_to_timestamp() {
 }
 
 function is_late_night_run() {
-  if [[ $(get_current_hour) -gt 20 ]]; then
+  local current_hour=$(get_current_hour)
+
+  log "current hour result: $(get_current_hour)"
+  if [[ $current_hour -gt 20 ]]; then
+    log "is_late_night_run: set to 'true'"
     echo "true"
   else
     echo "false"
+    log "is_late_night_run: set to 'false'"
   fi
 }
 
@@ -134,11 +139,17 @@ function should_skip_start_stop () {
       continue
     fi
     if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
+    log "Exclusion FOUND"
       if [[ $(is_late_night_run) == "false" ]]; then
+        log "== 20:00 run =="
+        log "skip set to 'true as an exclusion request was found for this resource at the 20:00 run'"
         echo "true"
       elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" ]]; then
+        log "== 23:00 run =="
+        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
         echo "true"
       else
+        log "defaulting skip var to false"
         echo "false"
       fi
       return
