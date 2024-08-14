@@ -27,21 +27,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/670"
     },
     {
-        "start_date": "12-08-2024",
-        "end_date": "13-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5017531",
-        "stay_on_late": "No",
-        "justification": "OOH data migration release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/675"
-    },
-    {
         "start_date": "14-08-2024",
         "end_date": "16-08-2024",
         "request_type": "stop",
@@ -55,18 +40,5 @@
         "stay_on_late": "Yes",
         "justification": "OOH Data migration",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/682"
-    },
-    {
-        "start_date": "13-08-2024",
-        "end_date": "13-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CIV-11224",
-        "stay_on_late": "No",
-        "justification": "need to run the data prep for CUI R2",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/683"
     }
 ]
