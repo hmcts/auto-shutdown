@@ -40,5 +40,21 @@
         "stay_on_late": "Yes",
         "justification": "OOH Data migration",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/682"
+    },
+    {
+        "start_date": "15-08-2024",
+        "end_date": "15-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CHG5017540",
+        "stay_on_late": "Yes",
+        "justification": "OOH release start at 8 PM",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/686"
     }
 ]
