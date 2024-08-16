@@ -69,5 +69,20 @@
         "stay_on_late": "No",
         "justification": "will be working on env issues in the weekend",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/687"
+    },
+    {
+        "start_date": "16-08-2024",
+        "end_date": "19-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-372",
+        "stay_on_late": "Yes",
+        "justification": "Urgent automation work for SSCS",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/688"
     }
 ]
