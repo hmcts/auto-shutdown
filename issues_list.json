@@ -14,34 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "08-08-2024",
-        "end_date": "16-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "INC5629229",
-        "stay_on_late": "Yes",
-        "justification": "SDS STG needed to be up to aid VH testing for incident",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/670"
-    },
-    {
-        "start_date": "14-08-2024",
-        "end_date": "16-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5017513",
-        "stay_on_late": "Yes",
-        "justification": "OOH Data migration",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/682"
-    },
-    {
         "start_date": "16-08-2024",
         "end_date": "19-08-2024",
         "request_type": "stop",
