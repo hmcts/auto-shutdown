@@ -53,5 +53,18 @@
         "stay_on_late": "No",
         "justification": "will be working on env issues in the weekend",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/689"
+    },
+    {
+        "start_date": "19-08-2024",
+        "end_date": "23-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "INC5629229",
+        "stay_on_late": "Yes",
+        "justification": "SDS STG needed to be up to aid VH testing for incident",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/690"
     }
 ]
