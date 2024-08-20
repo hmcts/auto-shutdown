@@ -56,10 +56,29 @@ function auto_shutdown_notification() {
     # This silences the slack response message in logs.
     # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
     local silentResponse="-s -o /dev/null"
-
+    # 
     curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
       ${notificationSlackWebhook}
 }
+
+# Saves to JSON file in this repo which is to be used by another repo for daily-monitoring
+function addToJson() {
+  local resource="$1"
+  local statusMessage="$2"
+  local subscription="$3"
+  local pathToJson="status_updates.json"
+
+  # Create json file if not exists or file is empty
+  if [[ ! -f "$pathToJson"  || ! -s "$pathToJson"  ]]; then
+    echo "[]" > "$pathToJson"
+  fi
+
+  # Append the status object to the JSON file
+  jq --arg resource "$resource" --arg statusMessage "$statusMessage" --arg subscription "$subscription" \
+     '. += [{"resource": $resource, "statusMessage": $statusMessage, "subscription": $subscription}]' "$pathToJson" \
+     > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
+}
+
 
 function get_current_date() {
   $date_command +'%d-%m-%Y %H:%M'
