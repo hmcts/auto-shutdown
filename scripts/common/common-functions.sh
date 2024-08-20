@@ -56,7 +56,6 @@ function auto_shutdown_notification() {
     # This silences the slack response message in logs.
     # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
     local silentResponse="-s -o /dev/null"
-    # 
     curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
       ${notificationSlackWebhook}
 }
@@ -75,7 +74,14 @@ function addToJson() {
 
   # Append the status object to the JSON file
   jq --arg resource "$resource" --arg statusMessage "$statusMessage" --arg subscription "$subscription" \
-     '. += [{"resource": $resource, "statusMessage": $statusMessage, "subscription": $subscription}]' "$pathToJson" \
+     '. += 
+     [
+        {
+          "resource": $resource, 
+          "statusMessage": $statusMessage, 
+          "subscription": $subscription
+        }
+      ]' "$pathToJson" \
      > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
 }
 
