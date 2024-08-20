@@ -34,10 +34,17 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     do
         # Function that returns the Resource Group, Id and Name of the Application Gateway and its current state as variables
         get_application_gateways_details
-
+        
         # Set variables based on inputs which are used to decide when to SKIP an environment
-        application_gateway_env=${ENVIRONMENT/stg/Staging}
-        application_gateway_business_area=${BUSINESS_AREA/ss/cross-cutting}
+        if [[  $ENVIRONMENT == "stg" ]]; then
+            application_gateway_env=${ENVIRONMENT/stg/Staging}
+        elif [[ $ENVIRONMENT == "sbox" ]]; then
+            application_gateway_env=${ENVIRONMENT/sbox/Sandbox}
+        else
+            application_gateway_env=$ENVIRONMENT
+        fi
+
+        application_gateway_business_area=$BUSINESS_AREA
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours
