@@ -64,6 +64,7 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
         # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
+        log "Env: $ENV_SUFFIX, Business Area: $BUSINESS_AREA, Mode: $MODE"
         SKIP=$(should_skip_start_stop $ENV_SUFFIX $BUSINESS_AREA $MODE)
 
         # If SKIP is false then we progress with the action (deallocate/start) for the particular VM in this loop run, if not skip and print message to the logs
