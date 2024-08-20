@@ -135,9 +135,16 @@ function should_skip_start_stop () {
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
     get_request_type "$issue"
 
+    # handle stop requests for VMs  
+    # mode for VMs is "deallocate" instead of "stop"
+    if [[ $request_type == "stop" && $mode == "deallocate" ]]; then
+      request_type="deallocate"
+    fi
+
     if [[ $request_type != $mode ]]; then
       continue
     fi
+    
     if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
     log "Exclusion FOUND"
       if [[ $(is_late_night_run) == "false" ]]; then
