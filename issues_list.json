@@ -42,22 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/698"
     },
     {
-        "start_date": "20-08-2024",
-        "end_date": "20-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "PRL-6015",
-        "stay_on_late": "Yes",
-        "justification": "Needed this for delivery of critical items",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/700"
-    },
-    {
         "start_date": "21-08-2024",
         "end_date": "21-08-2024",
         "request_type": "stop",
