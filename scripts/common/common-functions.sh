@@ -89,6 +89,9 @@ function convert_date_to_timestamp() {
 function is_late_night_run() {
   local current_hour=$(get_current_hour)
 
+  # Remove leading zeros to play nice with jq
+  current_hour=$(echo $current_hour | sed 's/^0*//')
+
   log "current hour result: $(get_current_hour)"
   if [[ $current_hour -gt 20 ]]; then
     log "is_late_night_run: set to 'true'"
