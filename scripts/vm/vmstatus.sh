@@ -61,7 +61,7 @@ do
         SKIP=$(should_skip_start_stop $ENV_SUFFIX $BUSINESS_AREA $MODE)
 
         # Setup message output templates for later use
-		logMessage="VM: $VM_NAME in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $RESOURCE_GROUP is $VM_STATE state after $MODE action."
+		logMessage="VM: $VM_NAME in ResourceGroup: $RESOURCE_GROUP is $VM_STATE state after $MODE action."
 		slackMessage="VM: *$VM_NAME* in Subscription: *$SUBSCRIPTION_NAME*  ResourceGroup: *$RESOURCE_GROUP* is *$VM_STATE* state after *$MODE* action."
 
         # If SKIP is false then we progress with the status chec for the particular VM in this loop run, if SKIP is true then do nothing
