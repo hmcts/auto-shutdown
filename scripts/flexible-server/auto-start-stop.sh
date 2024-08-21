@@ -34,12 +34,23 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         get_flexible_sql_server_details
 
         # Set variables based on inputs which are used to decide when to SKIP an environment
-        flexible_server_env=${ENVIRONMENT/stg/Staging}
+        if [[  $ENVIRONMENT == "stg" ]]; then
+            flexible_server_env=${ENVIRONMENT/stg/Staging}
+        elif [[ $ENVIRONMENT == "sbox" ]]; then
+            flexible_server_env=${ENVIRONMENT/sbox/Sandbox}
+        else
+            flexible_server_env=$ENVIRONMENT
+        fi
+
         flexible_server_business_area=$BUSINESS_AREA
+
+        log "====================================================="
+        log "Processing Flexible Server: $SERVER_NAME"
+        log "====================================================="
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-        SKIP=$(should_skip_start_stop $server_env $server_business_area $MODE)
+        SKIP=$(should_skip_start_stop $flexible_server_env $flexible_server_business_area $MODE)
 
         # If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then

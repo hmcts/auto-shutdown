@@ -22,6 +22,9 @@ jobs:
         env:
           DEV_ENV: ${{ secrets.DEV_ENV }}
 
+      - name: Output log file
+        run: ./scripts/common/log-output.sh
+
       - name: Wait for VMs to start
         run: sleep 600
         

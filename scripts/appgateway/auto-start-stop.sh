@@ -43,9 +43,8 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         fi
 
         application_gateway_business_area=$BUSINESS_AREA
-        gatewayname=$APPLICATION_GATEWAY_NAME
         log "====================================================="
-        log "Processing gateway: $gatewayname"
+        log "Processing gateway: $APPLICATION_GATEWAY_NAME"
         log "====================================================="
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value

@@ -26,6 +26,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     # sets the subscription as the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
     get_sql_mi_servers
     echo "Scanning $SUBSCRIPTION_NAME..."
+    log "Scanning $SUBSCRIPTION_NAME..."
 
     # For each App Gateway found in the function `get_sql_mi_servers` start another loop
     jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
@@ -34,12 +35,23 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
         get_sql_mi_server_details
 
         # Set variables based on inputs which are used to decide when to SKIP an environment
-        managed_instance_env=${ENVIRONMENT/stg/Staging}
+        if [[  $ENVIRONMENT == "stg" ]]; then
+            managed_instance_env=${ENVIRONMENT/stg/Staging}
+        elif [[ $ENVIRONMENT == "sbox" ]]; then
+            managed_instance_env=${ENVIRONMENT/sbox/Sandbox}
+        else
+            managed_instance_env=$ENVIRONMENT
+        fi
+
         managed_instance_business_area=$BUSINESS_AREA
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours
         SKIP=$(should_skip_start_stop $managed_instance_env $managed_instance_business_area $MODE)
+
+        log "====================================================="
+        log "Processing SQL Managed Instance: $SERVER_NAME"
+        log "====================================================="
 
         # If SKIP is false then we progress with the action (stop/start) for the particular Managed SQL Instance in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then

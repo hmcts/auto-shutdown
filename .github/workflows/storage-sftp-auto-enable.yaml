@@ -19,7 +19,12 @@ jobs:
           allow-no-subscriptions: true
       - name: sftp enable
         run: ./scripts/blob-storage/enable_sftp.sh
+
+      - name: Output log file
+        run: ./scripts/common/log-output.sh
+
       - name: Wait for SFTP Servers to start
         run: sleep 300
+        
       - name: sftp status check
         run: ./scripts/blob-storage/sftp-check-status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
