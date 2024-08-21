@@ -27,6 +27,7 @@ do
 	# as the default then returns a json formatted variable of available SFTP Servers with an autoshutdown tag
 	get_sftp_servers
 	echo "Scanning $SUBSCRIPTION_NAME..."
+	log "Scanning $SUBSCRIPTION_NAME..."
 
 	# For each Storage Account found in the function `get_sftp_servers` start another loop
 	# The list of SFTP Servers used is DISABLED_SFTP_SERVERS as we want to start the SFTP service

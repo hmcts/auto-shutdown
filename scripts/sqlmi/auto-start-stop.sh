@@ -26,6 +26,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
     # sets the subscription as the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
     get_sql_mi_servers
     echo "Scanning $SUBSCRIPTION_NAME..."
+    log "Scanning $SUBSCRIPTION_NAME..."
 
     # For each App Gateway found in the function `get_sql_mi_servers` start another loop
     jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
