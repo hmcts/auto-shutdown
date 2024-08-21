@@ -2,7 +2,7 @@ name: VM-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
+    - cron: '30 5 * * 1-5' # Every weekday at 6:30am BST
 permissions:
   id-token: write
 jobs:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: "Az CLI login"
+      - name: 'Az CLI login'
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
@@ -27,6 +27,6 @@ jobs:
 
       - name: Wait for VMs to start
         run: sleep 600
-
+        
       - name: VM Auto start status check
         run: ./scripts/vm/vmstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
