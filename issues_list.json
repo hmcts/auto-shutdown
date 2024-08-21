@@ -68,5 +68,18 @@
         "stay_on_late": "No",
         "justification": "need to run the data prep for CUI R2",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/704"
+    },
+    {
+        "start_date": "22-08-2024",
+        "end_date": "06-09-2024",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "Change",
+        "stay_on_late": "No",
+        "justification": "Overtime authorised for testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/705"
     }
 ]
