@@ -44,7 +44,7 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
         get_vm_details
 
         # Declare and populate a map of environments and real names
-        declare -a vm_envs=(
+        declare -A vm_envs=(
             [sandbox]="sbox"
             [testing]="test"
             [staging]="aat"
