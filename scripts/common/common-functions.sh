@@ -89,6 +89,9 @@ function convert_date_to_timestamp() {
 function is_late_night_run() {
   local current_hour=$(get_current_hour)
 
+  # Remove leading zeros to play nice with jq
+  current_hour=$(echo $current_hour | sed 's/^0*//')
+
   log "current hour result: $(get_current_hour)"
   if [[ $current_hour -gt 20 ]]; then
     log "is_late_night_run: set to 'true'"
@@ -135,9 +138,17 @@ function should_skip_start_stop () {
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
     get_request_type "$issue"
 
-    if [[ $request_type != $mode ]]; then
+    # determine if we should continue checking the resource for an exclusion
+    if [[ ($request_type == "stop" && $mode == "deallocate") || $request_type == $mode ]]; then
+      check_resource="true"
+    else
+      check_resource="false"
+    fi
+
+    if [[ $check_resource == "false" ]]; then
       continue
     fi
+    
     if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
     log "Exclusion FOUND"
       if [[ $(is_late_night_run) == "false" ]]; then
