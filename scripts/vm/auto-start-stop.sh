@@ -32,9 +32,7 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
     # sets the subscription as the default then returns a json formatted variable of available VMs with an autoshutdown tag
     get_subscription_vms
     echo "Scanning $SUBSCRIPTION_NAME..."
-    log "====================================================="
-    log "Processing Subscription: $SUBSCRIPTION_NAME"
-    log "====================================================="
+    log "Scannning Subscription: $SUBSCRIPTION_NAME"
 
     if [[ $SUBSCRIPTION_NAME == "HMCTS-HUB-NONPROD-INTSVC" && $IS_HUB_NEEDED == "true" && $MODE == "deallocate" ]]; then
 		continue
@@ -46,8 +44,9 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
         # Function that returns the Resource Group, Id and Name of the VMs and its current state as variables
         get_vm_details
         
+        log "====================================================="
         log "Processing Virtual Machine: $VM_NAME in Resource Group: $RESOURCE_GROUP"
-        
+        log "====================================================="
 
         # Declare and populate a map of environments and real names
         declare -A vm_envs=(
