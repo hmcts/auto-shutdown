@@ -34,6 +34,10 @@ do
 		# Function that returns the Resource Group, Id and Name of the Storage Account and the current state of the SFTP Server as variables
 		get_sftp_server_details
 
+		log "====================================================="
+        log "Processing SFTP: $STORAGE_ACCOUNT_NAME"
+        log "====================================================="
+
 		# If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
 		if [[ $SKIP == "false" ]]; then
 			if [[ $DEV_ENV != "true" ]]; then
