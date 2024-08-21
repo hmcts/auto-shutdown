@@ -135,13 +135,14 @@ function should_skip_start_stop () {
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
     get_request_type "$issue"
 
-    # handle stop requests for VMs  
-    # mode for VMs is "deallocate" instead of "stop"
-    if [[ $request_type == "stop" && $mode == "deallocate" ]]; then
-      request_type="deallocate"
+    # determine if we should continue checking the resource for an exclusion
+    if [[ ($request_type == "stop" && $mode == "deallocate") || $request_type == $mode ]]; then
+      check_resource="true"
+    else
+      check_resource="false"
     fi
 
-    if [[ $request_type != $mode ]]; then
+    if [[ $check_resource == "false" ]]; then
       continue
     fi
     
