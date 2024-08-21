@@ -27,6 +27,7 @@ do
 	# as the default then returns a json formatted variable of available SFTP Servers with an autoshutdown tag
 	get_sftp_servers
 	echo "Scanning $SUBSCRIPTION_NAME..."
+	log "Scanning $SUBSCRIPTION_NAME..."
 
 	# For each Storage Account found in the function `get_sftp_servers` start another loop
 	# The list of SFTP Servers used is DISABLED_SFTP_SERVERS as we want to start the SFTP service
@@ -35,6 +36,10 @@ do
 
 		# Function that returns the Resource Group, Id and Name of the Storage Account and the current state of the SFTP Server as variables
 		get_sftp_server_details
+
+		log "====================================================="
+        log "Processing SFTP: $STORAGE_ACCOUNT_NAME"
+        log "====================================================="
 
 		# If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
 		if [[ $SKIP == "false" ]]; then

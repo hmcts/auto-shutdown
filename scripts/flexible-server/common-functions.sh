@@ -14,7 +14,7 @@ function get_flexible_sql_server_details() {
   SERVER_ID=$(jq -r '.id' <<< $flexibleserver)
   SERVER_NAME=$(jq -r '.name' <<< $flexibleserver)
   ENVIRONMENT=$(echo $SERVER_NAME | rev | cut -d'-' -f 1 | rev )
-  BUSINESS_AREA=$( jq -r 'if (.tags.businessArea|ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea|ascii_downcase end' <<< $flexibleserver)
+  BUSINESS_AREA=$( jq -r 'if (.tags.businessArea | ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea | ascii_downcase end' <<< $flexibleserver)
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $flexibleserver)
   SERVER_STATE=$(az postgres flexible-server show --ids $SERVER_ID --query "state" | jq -r)
 
