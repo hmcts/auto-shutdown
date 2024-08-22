@@ -86,6 +86,15 @@ function convert_date_to_timestamp() {
     echo "$timestamp"
 }
 
+function read_date() {
+    IFS='-' read -r day month year <<< "$1"
+    local valid_date="$year-$month-$day"
+    local timestamp=$($date_command -d "$valid_date" +%Y-%m-%d)
+    echo "$timestamp"
+}
+
+
+
 function is_late_night_run() {
   local current_hour=$(get_current_hour)
 
@@ -100,6 +109,60 @@ function is_late_night_run() {
     echo "false"
     log "is_late_night_run: set to 'false'"
   fi
+}
+
+function is_friday() {
+  local today=$(get_current_date)
+  local day_of_week=$($date_command -d "$today" +"%u")
+  log "day_of_week var set to $day_of_week"
+  if [[ $day_of_week -eq 5 ]]; then
+    log "Today is Friday"
+    log "day of week $day_of_week"
+    echo "true"
+  else
+    log "Today is not Friday"
+    log "day of week $day_of_week"
+    echo "false"
+  fi
+}
+
+# Function to check if a date is a weekend
+function is_weekend_day() {
+    local current_date=$1
+    local day_of_week=$($date_command -d "$current_date" +"%u")
+    log "day_of_week var set to $day_of_week"
+    if [[ $day_of_week -gt 5 ]]; then
+        log "weekend day found, returning 0 from is_weekend_day()"
+        return 0  # Weekend
+    else
+        log "weekend day not found, returning 1 from is_weekend_day()"
+        return 1  # Weekday
+    fi
+}
+
+# Function to iterate through the date range and check for weekends
+function is_weekend_in_range() {
+    local start_date=$(read_date $1)
+    log "start_date set to '$start_date'"
+    local end_date=$(read_date $2)
+    log "end_date set to '$end_date'"
+    local current_date=$start_date
+    local weekend_in_range="false"
+
+    while [[ "$current_date" < "$end_date" || "$current_date" == "$end_date" ]]; do
+        if is_weekend_day "$current_date"; then
+            weekend_in_range="true"
+        fi
+        current_date=$($date_command -I -d "$current_date +1 day")
+    done
+
+    if [[ $weekend_in_range == "true" ]]; then
+        log "Provided dates include a weekend within scope"
+        echo "true"
+    else
+        log "Provided dates do not include a weekend within scope"
+        echo "false"
+    fi
 }
 
 function is_in_date_range() {
@@ -158,6 +221,10 @@ function should_skip_start_stop () {
       elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" ]]; then
         log "== 23:00 run =="
         log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
+        echo "true"
+      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $(is_friday) == "true" ]]; then
+        log "== 23:00 run =="
+        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running on a Friday evening and the environment is required over the weekend."
         echo "true"
       else
         log "defaulting skip var to false"
