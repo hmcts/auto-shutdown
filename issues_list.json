@@ -38,5 +38,18 @@
         "stay_on_late": "No",
         "justification": "need to run the data prep for CUI R2",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/710"
+    },
+    {
+        "start_date": "23-08-2024",
+        "end_date": "23-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "ITHC"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "DTSPO-0000",
+        "stay_on_late": "No",
+        "justification": "Testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/711"
     }
 ]
