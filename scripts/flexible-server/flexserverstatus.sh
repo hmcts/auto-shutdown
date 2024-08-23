@@ -36,8 +36,15 @@ do
         get_flexible_sql_server_details
 
         # Set variables based on inputs which are used to decide when to SKIP an environment
-        flexible_server_env=${ENVIRONMENT/stg/Staging}
-        flexible_server_business_area=${BUSINESS_AREA/ss/cross-cutting}
+        if [[  $ENVIRONMENT == "stg" ]]; then
+            flexible_server_env=${ENVIRONMENT/stg/Staging}
+        elif [[ $ENVIRONMENT == "sbox" ]]; then
+            flexible_server_env=${ENVIRONMENT/sbox/Sandbox}
+        else
+            flexible_server_env=$ENVIRONMENT
+        fi
+
+        flexible_server_business_area=$BUSINESS_AREA
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
         # based on the issues_list.json file which contains user requests to keep environments online after normal hours
