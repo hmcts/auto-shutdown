@@ -14,19 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
     },
     {
-        "start_date": "19-08-2024",
-        "end_date": "23-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "INC5629229",
-        "stay_on_late": "Yes",
-        "justification": "SDS STG needed to be up to aid VH testing for incident",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/690"
-    },
-    {
         "start_date": "24-08-2024",
         "end_date": "25-08-2024",
         "request_type": "stop",
@@ -38,19 +25,6 @@
         "stay_on_late": "No",
         "justification": "need to run the data prep for CUI R2",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/710"
-    },
-    {
-        "start_date": "23-08-2024",
-        "end_date": "23-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "ITHC"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "DTSPO-0000",
-        "stay_on_late": "No",
-        "justification": "Testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/711"
     },
     {
         "start_date": "23-08-2024",
