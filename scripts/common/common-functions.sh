@@ -111,32 +111,25 @@ function is_late_night_run() {
   fi
 }
 
-function is_friday() {
-  local today=$(get_current_date)
-  local day_of_week=$($date_command -d "$today" +"%u")
-  log "day_of_week var set to $day_of_week"
-  if [[ $day_of_week -eq 5 ]]; then
-    log "Today is Friday"
-    log "day of week $day_of_week"
-    echo "true"
-  else
-    log "Today is not Friday"
-    log "day of week $day_of_week"
-    echo "false"
-  fi
-}
-
 # Function to check if a date is a weekend
 function is_weekend_day() {
-    local current_date=$1
+    if [ -z "$1" ]; then
+      local current_date=$(get_current_date)
+      log "current_date defaulted to: $current_date"
+    else
+      local current_date=$1
+      log "current_date set to: $current_date"
+    fi
+
     local day_of_week=$($date_command -d "$current_date" +"%u")
     log "day_of_week var set to $day_of_week"
-    if [[ $day_of_week -gt 5 ]]; then
-        log "weekend day found, returning 0 from is_weekend_day()"
-        return 0  # Weekend
+
+    if [[ $day_of_week -ge 5 ]]; then
+        log "weekend day found"
+        echo "true"  # Weekend
     else
-        log "weekend day not found, returning 1 from is_weekend_day()"
-        return 1  # Weekday
+        log "weekend day not found"
+        echo "false" # Weekday
     fi
 }
 
@@ -150,7 +143,7 @@ function is_weekend_in_range() {
     local weekend_in_range="false"
 
     while [[ "$current_date" < "$end_date" || "$current_date" == "$end_date" ]]; do
-        if is_weekend_day "$current_date"; then
+        if [[ $(is_weekend_day "$current_date") == "true" ]]; then
             weekend_in_range="true"
         fi
         current_date=$($date_command -I -d "$current_date +1 day")
@@ -222,9 +215,9 @@ function should_skip_start_stop () {
         log "== 23:00 run =="
         log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
         echo "true"
-      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $(is_friday) == "true" ]]; then
+      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $(is_weekend_day) == "true" ]]; then
         log "== 23:00 run =="
-        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running on a Friday evening and the environment is required over the weekend."
+        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running at the weekend and the environment is required over the weekend."
         echo "true"
       else
         log "defaulting skip var to false"
