@@ -46,7 +46,7 @@ body:
   id: form_start_date
   attributes:
     label: Skip shutdown start date
-    description: "DD-MM-YYYY - date covers shutdown period, 8pm till 8pm the following day"
+    description: "DD-MM-YYYY - If env needed on Sat & Sunday, start date should include Friday."
   validations:
     required: true
     
