@@ -87,5 +87,18 @@
         "stay_on_late": "Yes",
         "justification": "SDS STG for testing for incident",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/719"
+    },
+    {
+        "start_date": "28-08-2024",
+        "end_date": "28-08-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-11224",
+        "stay_on_late": "No",
+        "justification": "need to do perf test scripting",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/720"
     }
 ]
