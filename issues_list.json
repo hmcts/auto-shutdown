@@ -27,34 +27,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/719"
     },
     {
-        "start_date": "03-09-2024",
-        "end_date": "03-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5017352",
-        "stay_on_late": "Yes",
-        "justification": "OOH Data migration",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/721"
-    },
-    {
-        "start_date": "03-09-2024",
-        "end_date": "03-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CIV-11224",
-        "stay_on_late": "Yes",
-        "justification": "preparing the test data and sanity testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/725"
-    },
-    {
         "start_date": "04-09-2024",
         "end_date": "04-09-2024",
         "request_type": "stop",
