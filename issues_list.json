@@ -58,5 +58,18 @@
         "stay_on_late": "Yes",
         "justification": "Need for key feature testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/731"
+    },
+    {
+        "start_date": "10-09-2024",
+        "end_date": "10-09-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-11224",
+        "stay_on_late": "No",
+        "justification": "preparing the test data and sanity testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/732"
     }
 ]
