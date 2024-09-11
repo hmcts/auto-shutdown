@@ -69,5 +69,22 @@
         "stay_on_late": "No",
         "justification": "preparing the test data and sanity testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/736"
+    },
+    {
+        "start_date": "11-09-2024",
+        "end_date": "12-09-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
+        "stay_on_late": "Yes",
+        "justification": "Needed for testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/737"
     }
 ]
