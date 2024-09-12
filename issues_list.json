@@ -27,22 +27,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/719"
     },
     {
-        "start_date": "09-09-2024",
-        "end_date": "11-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
-        "stay_on_late": "Yes",
-        "justification": "Need for key feature testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/731"
-    },
-    {
         "start_date": "11-09-2024",
         "end_date": "12-09-2024",
         "request_type": "stop",
@@ -56,19 +40,6 @@
         "stay_on_late": "Yes",
         "justification": "Automation backlog work to be completed asap",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/735"
-    },
-    {
-        "start_date": "11-09-2024",
-        "end_date": "11-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CIV-11224",
-        "stay_on_late": "No",
-        "justification": "preparing the test data and sanity testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/736"
     },
     {
         "start_date": "11-09-2024",
