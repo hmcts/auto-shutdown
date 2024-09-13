@@ -57,5 +57,22 @@
         "stay_on_late": "Yes",
         "justification": "Needed for testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/737"
+    },
+    {
+        "start_date": "13-09-2024",
+        "end_date": "16-09-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "Needed for delivery and testing of critical items",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/740"
     }
 ]
