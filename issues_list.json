@@ -74,5 +74,21 @@
         "stay_on_late": "Yes",
         "justification": "Needed for delivery and testing of critical items",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/740"
+    },
+    {
+        "start_date": "13-10-2024",
+        "end_date": "14-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-15025",
+        "stay_on_late": "No",
+        "justification": "Civils require AAT to continue testing HMC integration for release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/741"
     }
 ]
