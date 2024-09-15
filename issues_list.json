@@ -44,18 +44,5 @@
         "stay_on_late": "No",
         "justification": "Civils require AAT to continue testing HMC integration for release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/741"
-    },
-    {
-        "start_date": "14-09-2024",
-        "end_date": "14-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Perf testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/743"
     }
 ]
