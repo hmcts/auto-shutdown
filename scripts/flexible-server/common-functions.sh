@@ -1,23 +1,23 @@
 #!/bin/bash
 
-# Function that uses the subscription input to get set variables for later use and gather all flexible sql servers within the subscription for shutdown
-function get_subscription_flexible_sql_servers() {
-  SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
-  SUBSCRIPTION_NAME=$(jq -r '.name' <<< $subscription)
-  az account set -s $SUBSCRIPTION_ID
-  FLEXIBLE_SERVERS=$(az resource list --resource-type Microsoft.DBforPostgreSQL/flexibleServers --query "reverse(sort_by([?tags.autoShutdown == 'true'], &to_string(contains(id, 'replica'))))" -o json)
-}
-
 # Function that accepts the flexible sql server json as input and sets variables for later use to stop or start the flexible sql server
 function get_flexible_sql_server_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $flexibleserver)
+  log "$RESOURCE_GROUP"
   SERVER_ID=$(jq -r '.id' <<< $flexibleserver)
+  log "$SERVER_ID"
   SERVER_NAME=$(jq -r '.name' <<< $flexibleserver)
+  log "$SERVER_NAME"
   ENVIRONMENT=$(echo $SERVER_NAME | rev | cut -d'-' -f 1 | rev )
+  log "$ENVIRONMENT"
   BUSINESS_AREA=$( jq -r 'if (.tags.businessArea | ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea | ascii_downcase end' <<< $flexibleserver)
+  log "$BUSINESS_AREA"
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $flexibleserver)
-  SERVER_STATE=$(az postgres flexible-server show --ids $SERVER_ID --query "state" | jq -r)
-
+  log "$STARTUP_MODE"
+  SERVER_STATE=$(jq -r '.properties_state' <<< $flexibleserver)
+  log "$SERVER_STATE"
+  SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $flexibleserver)
+  log "$SUBSCRIPTION"
 }
 
 function flexible_server_state_messages() {
