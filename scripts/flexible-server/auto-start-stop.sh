@@ -16,6 +16,10 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
+log "Running az graph query..."
+FLEXIBLE_SERVERS=$(az graph query -q "resources | where type =~ 'microsoft.dbforpostgresql/flexibleservers' | where tags.autoShutdown == 'true' | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id']" --first 1000 -o json)
+log "az graph query complete"
+
 # For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
 jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
 
