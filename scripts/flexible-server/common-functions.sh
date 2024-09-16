@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function that accepts the flexible sql server json as input and sets variables for later use to stop or start the flexible sql server
+# Function that accepts the PostgreSQL flexible server json as input and sets variables for later use to stop or start as required.
 function get_flexible_sql_server_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $flexibleserver)
   log "$RESOURCE_GROUP"

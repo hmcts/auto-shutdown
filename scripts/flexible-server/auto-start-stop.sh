@@ -20,10 +20,10 @@ log "Running az graph query..."
 FLEXIBLE_SERVERS=$(az graph query -q "resources | where type =~ 'microsoft.dbforpostgresql/flexibleservers' | where tags.autoShutdown == 'true' | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id']" --first 1000 -o json)
 log "az graph query complete"
 
-# For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
+# For each PostgreSQL Flexible Server returned from the az graph query start another loop
 jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
 
-    # Function that returns the Resource Group, Id and Name of the Flexible SQL Server and its current state as variables
+    # Function that returns details of the PostgreSQL Flexible Server json output.
     get_flexible_sql_server_details
 
     # Set variables based on inputs which are used to decide when to SKIP an environment
@@ -45,7 +45,7 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
     # based on the issues_list.json file which contains user requests to keep environments online after normal hours
     SKIP=$(should_skip_start_stop $flexible_server_env $flexible_server_business_area $MODE)
 
-    # If SKIP is false then we progress with the action (stop/start) for the particular App Gateway in this loop run, if not skip and print message to the logs
+    # If SKIP is false then we progress with the action (stop/start) for the particular Flexible Server in this loop run, if not skip and print message to the logs
     if [[ $SKIP == "false" ]]; then
         if [[ $DEV_ENV != "true" ]]; then
             flexible_server_state_messages
