@@ -16,6 +16,7 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
+#MS az graph query to find and return a list of all PostgreSQL Flexible Servers tagged to be included in the auto-shutdown process.
 log "Running az graph query..."
 FLEXIBLE_SERVERS=$(az graph query -q "resources | where type =~ 'microsoft.dbforpostgresql/flexibleservers' | where tags.autoShutdown == 'true' | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id']" --first 1000 -o json)
 log "az graph query complete"
