@@ -224,6 +224,7 @@ function should_skip_start_stop () {
         echo "false"
       fi
       return
+    log "No exclusion request found"
     fi
   done < <(jq -c '.[]' issues_list.json)
 # If its onDemand and there are no issues matching above we should skip startup
