@@ -16,8 +16,8 @@ function get_flexible_sql_server_details() {
   log "$STARTUP_MODE"
   SERVER_STATE=$(jq -r '.properties_state' <<< $flexibleserver)
   log "$SERVER_STATE"
-  SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $flexibleserver)
-  log "$SUBSCRIPTION"
+  SUBSCRIPTION_ID=$(jq -r '.subscriptionId' <<< $flexibleserver)
+  log "$SUBSCRIPTION_ID"
 }
 
 function flexible_server_state_messages() {

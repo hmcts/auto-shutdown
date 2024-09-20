@@ -50,7 +50,7 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
     if [[ $SKIP == "false" ]]; then
         if [[ $DEV_ENV != "true" ]]; then
             flexible_server_state_messages
-            az postgres flexible-server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on sql server
+            az postgres flexible-server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --subscription $SUBSCRIPTION_ID --no-wait || echo Ignoring any errors while $MODE operation on sql server
         else
             ts_echo_color BLUE "Development Env: simulating state commands only."
             flexible_server_state_messages
