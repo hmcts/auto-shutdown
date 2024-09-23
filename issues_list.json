@@ -29,36 +29,8 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/741"
     },
     {
-        "start_date": "18-09-2024",
-        "end_date": "19-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-147",
-        "stay_on_late": "Yes",
-        "justification": "Need this ticket to be completed before other dependencies pushed to prod for SSCS",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/749"
-    },
-    {
-        "start_date": "19-09-2024",
-        "end_date": "19-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "ITHC"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "JM-8210 (cgi jira)",
-        "stay_on_late": "No",
-        "justification": "release testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/750"
-    },
-    {
-        "start_date": "19-09-2024",
-        "end_date": "20-09-2024",
+        "start_date": "20-09-2024",
+        "end_date": "23-09-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
@@ -69,7 +41,7 @@
         "business_area": "cft",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
         "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/751"
+        "justification": "Needed for delivery and testing of critical items",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/752"
     }
 ]
