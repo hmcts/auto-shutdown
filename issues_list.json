@@ -43,5 +43,21 @@
         "stay_on_late": "Yes",
         "justification": "Civils HMC ILA Release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/755"
+    },
+    {
+        "start_date": "25-09-2024",
+        "end_date": "26-09-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "Needed for delivering critical items for the release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/756"
     }
 ]
