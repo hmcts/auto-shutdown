@@ -21,7 +21,7 @@ fi
 FLEXIBLE_SERVERS=$(get_flexible_sql_servers)
 
 # For each Flexible SQL Server found in the function `get_subscription_flexible_sql_servers` start another loop
-jq -c '.[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
+jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
     # Function that returns the Resource Group, Id and Name of the Flexible SQL Server and its current state as variables
     get_flexible_sql_server_details
 
@@ -41,8 +41,8 @@ jq -c '.[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
     SKIP=$(should_skip_start_stop $flexible_server_env $flexible_server_business_area $MODE)
 
     # Setup message output templates for later use
-    logMessage="Flexible SQL Server: $SERVER_NAME in Subscription: $SUBSCRIPTION_ID  ResourceGroup: $RESOURCE_GROUP is in $SERVER_STATE state after $MODE action"
-    slackMessage="Flexible SQL Server: *$SERVER_NAME* in Subscription: *$SUBSCRIPTION_ID* is in *$SERVER_STATE* state after *$MODE* action"
+    logMessage="Flexible SQL Server: $SERVER_NAME in Subscription: $SUBSCRIPTION  ResourceGroup: $RESOURCE_GROUP is in $SERVER_STATE state after $MODE action"
+    slackMessage="Flexible SQL Server: *$SERVER_NAME* in Subscription: *$SUBSCRIPTION* is in *$SERVER_STATE* state after *$MODE* action"
 
     # If SKIP is false then we progress with the status check for the particular Flexible server in this loop run, if SKIP is true then do nothing
     if [[ $SKIP == "false" ]]; then

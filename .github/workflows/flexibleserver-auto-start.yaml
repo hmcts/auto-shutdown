@@ -19,7 +19,7 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-          
+
       - name: Staging - Postgres Flexible server Auto Start
         run: ./scripts/flexible-server/auto-start-stop.sh start staging
         env:
@@ -61,7 +61,7 @@ jobs:
       - name: Wait for Flexible servers to start
         if: env.DEV_ENV != 'true'
         run: sleep 600
-
+        
       - name: Postgres Flexible server status check
         if: env.DEV_ENV != 'true'
         run: ./scripts/flexible-server/flexserverstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
