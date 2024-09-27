@@ -91,5 +91,18 @@
         "stay_on_late": "Yes",
         "justification": "Needed for delivering critical items for the release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/760"
+    },
+    {
+        "start_date": "27-09-2024",
+        "end_date": "28-09-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-11224",
+        "stay_on_late": "No",
+        "justification": "scripting for settle & discontinue functionality in civil",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/761"
     }
 ]
