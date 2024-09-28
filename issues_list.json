@@ -30,22 +30,6 @@
     },
     {
         "start_date": "26-09-2024",
-        "end_date": "27-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-391",
-        "stay_on_late": "Yes",
-        "justification": "Ticket needs to be testing completed by tomorrow",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/759"
-    },
-    {
-        "start_date": "26-09-2024",
         "end_date": "30-09-2024",
         "request_type": "stop",
         "environment": [
