@@ -18,7 +18,7 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
-APPLICATION_GATEWAYS=$(get_application_gateways "$2")
+APPLICATION_GATEWAYS=$(get_application_gateways)
 
 # For each App Gateway found in the function `get_application_gateways` start another loop
 jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
