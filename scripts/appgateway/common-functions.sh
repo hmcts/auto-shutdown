@@ -18,7 +18,7 @@ function get_application_gateways() {
       | where type =~ 'microsoft.network/applicationgateways'
       | where tags.autoShutdown == 'true'
       $env_selector
-      | project name, resourceGroup, subscriptionId, ['tags'], properties.provisioningState, ['id']
+      | project name, resourceGroup, subscriptionId, ['tags'], properties.operationalState, ['id']
     " --first 1000 -o json
 
   log "az graph query complete"
@@ -32,7 +32,7 @@ function get_application_gateways_details() {
   SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $application_gateway)
   BUSINESS_AREA=$( jq -r 'if (.tags.businessArea|ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea|ascii_downcase end' <<< $application_gateway)
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $application_gateway)
-  APPLICATION_GATEWAY_STATE=$(jq -r '.properties_provisioningState' <<< $application_gateway)
+  APPLICATION_GATEWAY_STATE=$(jq -r '.properties_operationalState' <<< $application_gateway)
 }
 
 function appgateway_state_messages() {
