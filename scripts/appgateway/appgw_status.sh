@@ -21,7 +21,7 @@ fi
 APPLICATION_GATEWAYS=$(get_application_gateways "$2")
 
 # For each App Gateway found in the function `get_application_gateways` start another loop
-jq -c '.[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
+jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
     # Function that returns the Resource Group, Id and Name of the Application Gateway and its current state as variables
     get_application_gateways_details
 
