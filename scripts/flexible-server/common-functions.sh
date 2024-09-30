@@ -1,4 +1,5 @@
 #!/bin/bash
+
 function get_flexible_sql_servers() {
   #MS az graph query to find and return a list of all PostgreSQL Flexible Servers tagged to be included in the auto-shutdown process.
   log "----------------------------------------------"
@@ -23,7 +24,6 @@ function get_flexible_sql_servers() {
   log "az graph query complete"
 }
 
-
 # Function that accepts the PostgreSQL flexible server json as input and sets variables for later use to stop or start as required.
 function get_flexible_sql_server_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $flexibleserver)
@@ -33,7 +33,8 @@ function get_flexible_sql_server_details() {
   BUSINESS_AREA=$( jq -r 'if (.tags.businessArea | ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea | ascii_downcase end' <<< $flexibleserver)
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $flexibleserver)
   SERVER_STATE=$(jq -r '.properties_state' <<< $flexibleserver)
-  SUBSCRIPTION_ID=$(jq -r '.subscriptionId' <<< $flexibleserver)
+  SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $flexibleserver)
+
 }
 
 function flexible_server_state_messages() {

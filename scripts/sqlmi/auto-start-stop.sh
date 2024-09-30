@@ -16,54 +16,46 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
-# Find all subscriptions that are available to the credential used and saved to SUBSCRIPTIONS variable
-SUBSCRIPTIONS=$(az account list -o json)
+MI_SQL_SERVERS=$(get_sql_mi_servers "$2")
+mi_sql_server_count=$(jq -c -r '.count' <<< $MI_SQL_SERVERS)
+log "$mi_sql_server_count MI SQL Servers found"
+log "----------------------------------------------"
 
-# For each subscription found, start the loop
-jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+# For each App Gateway found in the function `get_sql_mi_servers` start another loop
+jq -c '.data[]' <<<$MI_SQL_SERVERS | while read server; do
 
-    # Function that returns the Subscription Id and Name as variables,
-    # sets the subscription as the default then returns a json formatted variable of available Managed SQL Instances with an autoshutdown tag
-    get_sql_mi_servers
-    echo "Scanning $SUBSCRIPTION_NAME..."
-    log "Scanning $SUBSCRIPTION_NAME..."
+    # Function that returns the Resource Group, Id and Name of the Managed SQL Instances and its current state as variables
+    get_sql_mi_server_details
 
-    # For each App Gateway found in the function `get_sql_mi_servers` start another loop
-    jq -c '.[]' <<< $MI_SQL_SERVERS | while read server; do
+    # Set variables based on inputs which are used to decide when to SKIP an environment
+    if [[ $ENVIRONMENT == "stg" ]]; then
+        managed_instance_env=${ENVIRONMENT/stg/Staging}
+    elif [[ $ENVIRONMENT == "sbox" ]]; then
+        managed_instance_env=${ENVIRONMENT/sbox/Sandbox}
+    else
+        managed_instance_env=$ENVIRONMENT
+    fi
 
-        # Function that returns the Resource Group, Id and Name of the Managed SQL Instances and its current state as variables
-        get_sql_mi_server_details
+    managed_instance_business_area=$BUSINESS_AREA
 
-        # Set variables based on inputs which are used to decide when to SKIP an environment
-        if [[  $ENVIRONMENT == "stg" ]]; then
-            managed_instance_env=${ENVIRONMENT/stg/Staging}
-        elif [[ $ENVIRONMENT == "sbox" ]]; then
-            managed_instance_env=${ENVIRONMENT/sbox/Sandbox}
+    # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
+    # based on the issues_list.json file which contains user requests to keep environments online after normal hours
+    SKIP=$(should_skip_start_stop $managed_instance_env $managed_instance_business_area $MODE)
+
+    log "====================================================="
+    log "Processing SQL Managed Instance: $SERVER_NAME"
+    log "====================================================="
+
+    # If SKIP is false then we progress with the action (stop/start) for the particular Managed SQL Instance in this loop run, if not skip and print message to the logs
+    if [[ $SKIP == "false" ]]; then
+        if [[ $DEV_ENV != "true" ]]; then
+            sqlmi_state_messages
+            az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on sql server
         else
-            managed_instance_env=$ENVIRONMENT
+            ts_echo_color BLUE "Development Env: simulating state commands only."
+            sqlmi_state_messages
         fi
-
-        managed_instance_business_area=$BUSINESS_AREA
-
-        # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
-        # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-        SKIP=$(should_skip_start_stop $managed_instance_env $managed_instance_business_area $MODE)
-
-        log "====================================================="
-        log "Processing SQL Managed Instance: $SERVER_NAME"
-        log "====================================================="
-
-        # If SKIP is false then we progress with the action (stop/start) for the particular Managed SQL Instance in this loop run, if not skip and print message to the logs
-        if [[ $SKIP == "false" ]]; then
-            if [[ $DEV_ENV != "true" ]]; then
-                sqlmi_state_messages
-                az sql mi $MODE --resource-group $RESOURCE_GROUP --mi $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server
-            else
-                ts_echo_color BLUE "Development Env: simulating state commands only."
-                sqlmi_state_messages
-            fi
-        else
-            ts_echo_color AMBER "SQL server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
-        fi
-    done
+    else
+        ts_echo_color AMBER "SQL server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
+    fi
 done
