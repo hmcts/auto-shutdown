@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '30 5 * * 1-5' # Every weekday at 6:30am BST
+env:
+  DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
   id-token: write
 jobs:
@@ -17,13 +19,48 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: Sql Managed Instance  Auto Start
-        run: ./scripts/sqlmi/auto-start-stop.sh start
+      - name: Staging - Sql Managed Instance Auto Start
+        run: ./scripts/sqlmi/auto-start-stop.sh start staging
         env:
-          DEV_ENV: ${{ secrets.DEV_ENV }}
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Testing - Sql Managed Instance Auto Start
+        run: ./scripts/sqlmi/auto-start-stop.sh start testing
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Demo - Sql Managed Instance Auto Start
+        run: ./scripts/sqlmi/auto-start-stop.sh start demo
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Development - Sql Managed Instance Auto Start
+        run: ./scripts/sqlmi/auto-start-stop.sh start development
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Sandbox - Sql Managed Instance Auto Start
+        run: ./scripts/sqlmi/auto-start-stop.sh start sandbox
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: ITHC - Sql Managed Instance Auto Start
+        run: ./scripts/sqlmi/auto-start-stop.sh start ithc
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Untagged - Sql Managed Instance Auto Start
+        run: ./scripts/sqlmi/auto-start-stop.sh start untagged
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Output log file
+        run: ./scripts/common/log-output.sh
 
       - name: Wait for Sql Managed Instances to start
+        if: env.DEV_ENV != 'true'
         run: sleep 600
         
       - name: Sql Managed Instance status check
+        if: env.DEV_ENV != 'true'
         run: ./scripts/sqlmi/sqlmistatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

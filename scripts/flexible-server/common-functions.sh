@@ -1,22 +1,39 @@
 #!/bin/bash
 
-# Function that uses the subscription input to get set variables for later use and gather all flexible sql servers within the subscription for shutdown
-function get_subscription_flexible_sql_servers() {
-  SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
-  SUBSCRIPTION_NAME=$(jq -r '.name' <<< $subscription)
-  az account set -s $SUBSCRIPTION_ID
-  FLEXIBLE_SERVERS=$(az resource list --resource-type Microsoft.DBforPostgreSQL/flexibleServers --query "[?tags.autoShutdown == 'true']" -o json)
+function get_flexible_sql_servers() {
+  #MS az graph query to find and return a list of all PostgreSQL Flexible Servers tagged to be included in the auto-shutdown process.
+  log "----------------------------------------------"
+  log "Running az graph query..."
+
+  if [ -z $1 ]; then
+    env_selector=""
+  elif [ $1 == "untagged" ]; then
+    env_selector="| where isnull(tags.environment)"
+  else
+    env_selector="| where tags.environment == '$1'"
+  fi
+
+  az graph query -q "
+    resources
+    | where type =~ 'microsoft.dbforpostgresql/flexibleservers'
+    | where tags.autoShutdown == 'true'
+    $env_selector
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id']
+    " --first 1000 -o json
+
+  log "az graph query complete"
 }
 
-# Function that accepts the flexible sql server json as input and sets variables for later use to stop or start the flexible sql server
+# Function that accepts the PostgreSQL flexible server json as input and sets variables for later use to stop or start as required.
 function get_flexible_sql_server_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $flexibleserver)
   SERVER_ID=$(jq -r '.id' <<< $flexibleserver)
   SERVER_NAME=$(jq -r '.name' <<< $flexibleserver)
   ENVIRONMENT=$(echo $SERVER_NAME | rev | cut -d'-' -f 1 | rev )
-  BUSINESS_AREA=$( jq -r 'if (.tags.businessArea|ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea|ascii_downcase end' <<< $flexibleserver)
+  BUSINESS_AREA=$( jq -r 'if (.tags.businessArea | ascii_downcase) == "ss" then "cross-cutting" else .tags.businessArea | ascii_downcase end' <<< $flexibleserver)
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $flexibleserver)
-  SERVER_STATE=$(az postgres flexible-server show --ids $SERVER_ID --query "state" | jq -r)
+  SERVER_STATE=$(jq -r '.properties_state' <<< $flexibleserver)
+  SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $flexibleserver)
 
 }
 

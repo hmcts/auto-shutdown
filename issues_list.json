@@ -1,62 +1,7 @@
 [
     {
-        "start_date": "12-09-2024",
-        "end_date": "12-09-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            "Preview / Dev",
-            "PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RR-3088",
-        "stay_on_late": "Yes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/377"
-    },
-    {
-        "start_date": "16-08-2024",
-        "end_date": "19-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cross-cutting",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RET-5014, https://tools.hmcts.net/jira/browse/RET-4897",
-        "stay_on_late": "No",
-        "justification": "will be working on env issues in the weekend",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/687"
-    },
-    {
-        "start_date": "16-08-2024",
-        "end_date": "19-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSSI-372",
-        "stay_on_late": "Yes",
-        "justification": "Urgent automation work for SSCS",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/688"
-    },
-    {
-        "start_date": "16-08-2024",
-        "end_date": "19-08-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RET-5014, https://tools.hmcts.net/jira/browse/RET-4897",
-        "stay_on_late": "No",
-        "justification": "will be working on env issues in the weekend",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/689"
-    },
-    {
-        "start_date": "19-08-2024",
-        "end_date": "23-08-2024",
+        "start_date": "28-08-2024",
+        "end_date": "30-09-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging"
@@ -64,7 +9,71 @@
         "business_area": "cross-cutting",
         "change_jira_id": "INC5629229",
         "stay_on_late": "Yes",
-        "justification": "SDS STG needed to be up to aid VH testing for incident",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/690"
+        "justification": "SDS STG for testing for incident",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/719"
+    },
+    {
+        "start_date": "13-10-2024",
+        "end_date": "14-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "CIV-15025",
+        "stay_on_late": "No",
+        "justification": "Civils require AAT to continue testing HMC integration for release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/741"
+    },
+    {
+        "start_date": "26-09-2024",
+        "end_date": "30-09-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "Needed for delivering critical items for the release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/760"
+    },
+    {
+        "start_date": "02-10-2024",
+        "end_date": "02-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://mojcppprod.service-now.com/nav_to.do?uri=%2Fchange_request.do%3Fsys_id%3D70ccb1961bb45e5400bfb8c8dc4bcb81%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull",
+        "stay_on_late": "Yes",
+        "justification": "Civil release- https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+CHG5018154+-+ES+Reindex+for+Civil-Rel-5.0-Citizen+UI+2+-+Release+Implementation+Plan",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/762"
+    },
+    {
+        "start_date": "30-09-2024",
+        "end_date": "01-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "Need for testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/763"
     }
 ]

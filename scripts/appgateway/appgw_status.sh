@@ -18,37 +18,34 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
-# Find all subscriptions that are available to the credential used and saved to SUBSCRIPTIONS variable
-SUBSCRIPTIONS=$(az account list -o json)
+APPLICATION_GATEWAYS=$(get_application_gateways)
 
-# For each subscription found, start the loop
-jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
+# For each App Gateway found in the function `get_application_gateways` start another loop
+jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
+    # Function that returns the Resource Group, Id and Name of the Application Gateway and its current state as variables
+    get_application_gateways_details
 
-    # Function that returns the Subscription Id and Name as variables,
-    # sets the subscription as the default then returns a json formatted variable of available App Gateways with an autoshutdown tag
-    get_application_gateways
-    echo "Scanning $SUBSCRIPTION_NAME..."
-
-    # For each App Gateway found in the function `get_application_gateways` start another loop
-    jq -c '.[]'<<< $APPLICATION_GATEWAYS | while read application_gateway
-    do
-        # Function that returns the Resource Group, Id and Name of the Application Gateway and its current state as variables
-        get_application_gateways_details
-
-        # Set variables based on inputs which are used to decide when to SKIP an environment
+    # Set variables based on inputs which are used to decide when to SKIP an environment
+    if [[ $ENVIRONMENT == "stg" ]]; then
         application_gateway_env=${ENVIRONMENT/stg/Staging}
-        application_gateway_business_area=${BUSINESS_AREA/ss/cross-cutting}
+    elif [[ $ENVIRONMENT == "sbox" ]]; then
+        application_gateway_env=${ENVIRONMENT/sbox/Sandbox}
+    else
+        application_gateway_env=$ENVIRONMENT
+    fi
 
-        # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
-        # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-        SKIP=$(should_skip_start_stop $application_gateway_env $application_gateway_business_area $MODE)
+    application_gateway_business_area=$BUSINESS_AREA
 
-        # Setup message output templates for later use
-        logMessage="Application Gateway: $APPLICATION_GATEWAY_NAME in Subscription: $SUBSCRIPTION_NAME and ResourceGroup: $RESOURCE_GROUP is $APPLICATION_GATEWAY_STATE after $MODE action"
-        slackMessage="Application Gateway: *$APPLICATION_GATEWAY_NAME* in Subscription: *$SUBSCRIPTION_NAME* is $APPLICATION_GATEWAY_STATE after *$MODE* action."
+    # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
+    # based on the issues_list.json file which contains user requests to keep environments online after normal hours
+    SKIP=$(should_skip_start_stop $application_gateway_env $application_gateway_business_area $MODE)
 
-        # If SKIP is false then we progress with the status check for the particular App Gateway in this loop run, if SKIP is true then do nothing
-        if [[ $SKIP == "false" ]]; then
+    # Setup message output templates for later use
+    logMessage="Application Gateway: $APPLICATION_GATEWAY_NAME in Subscription: $SUBSCRIPTION and ResourceGroup: $RESOURCE_GROUP is $APPLICATION_GATEWAY_STATE after $MODE action"
+    slackMessage="Application Gateway: *$APPLICATION_GATEWAY_NAME* in Subscription: *$SUBSCRIPTION* is $APPLICATION_GATEWAY_STATE after *$MODE* action."
+
+    # If SKIP is false then we progress with the status check for the particular App Gateway in this loop run, if SKIP is true then do nothing
+    if [[ $SKIP == "false" ]]; then
         # Check state of the Application Gateway and print output as required
         # Depending on the value of MODE a notification will also be sent
         #    - If MODE = Start then a stopped App Gateway is incorrect and we should notify

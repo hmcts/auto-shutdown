@@ -32,6 +32,7 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
     # sets the subscription as the default then returns a json formatted variable of available VMs with an autoshutdown tag
     get_subscription_vms
     echo "Scanning $SUBSCRIPTION_NAME..."
+    log "Scannning Subscription: $SUBSCRIPTION_NAME"
 
     if [[ $SUBSCRIPTION_NAME == "HMCTS-HUB-NONPROD-INTSVC" && $IS_HUB_NEEDED == "true" && $MODE == "deallocate" ]]; then
 		continue
@@ -42,9 +43,13 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
 
         # Function that returns the Resource Group, Id and Name of the VMs and its current state as variables
         get_vm_details
+        
+        log "====================================================="
+        log "Processing Virtual Machine: $VM_NAME in Resource Group: $RESOURCE_GROUP"
+        log "====================================================="
 
         # Declare and populate a map of environments and real names
-        declare -a vm_envs=(
+        declare -A vm_envs=(
             [sandbox]="sbox"
             [testing]="test"
             [staging]="aat"
@@ -64,7 +69,9 @@ jq -c '.[]' <<< $SORTED_SUBSCRIPTIONS | while read subscription; do
 
         # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
         # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
+        log "checking skip logic for env: $ENV_SUFFIX, business_area: $BUSINESS_AREA, mode: $MODE"
         SKIP=$(should_skip_start_stop $ENV_SUFFIX $BUSINESS_AREA $MODE)
+        log "SKIP evalulated to $SKIP"
 
         # If SKIP is false then we progress with the action (deallocate/start) for the particular VM in this loop run, if not skip and print message to the logs
         if [[ $SKIP == "false" ]]; then
