@@ -79,13 +79,14 @@ do
                 *"deallocated"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
                     [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                    add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm"
                     ;;
                 *)
                     ts_echo_color AMBER "$logMessage"
                     auto_shutdown_notification ":yellow_circle: $slackMessage"
+                    add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm"
                     ;;
             esac
-            add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm"
         else
             ts_echo_color AMBER "VM: $VM_NAME in Resource Group: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
         fi

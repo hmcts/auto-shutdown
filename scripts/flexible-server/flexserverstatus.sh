@@ -59,13 +59,14 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
             *"Stopped"*)
                 ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
                 [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
                 ;;
             *)
                 ts_echo_color AMBER "$logMessage"
                 auto_shutdown_notification ":yellow_circle: $slackMessage"
+                add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
                 ;;
         esac
-        add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
     else
         ts_echo_color AMBER "Flexible SQL Server: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
     fi
