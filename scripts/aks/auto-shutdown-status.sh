@@ -17,7 +17,6 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
 jq -c '.[]' <<< $CLUSTERS | while read cluster; do
     get_cluster_details
     cluster_data=$(az aks show -n $CLUSTER_NAME -g $RESOURCE_GROUP -o json)
-    cluster_id=$(echo $cluster_data | jq '.id')
     cluster_status=$(jq -r '.powerState.code' <<< "$cluster_data")
 
     if [[ $cluster_status == "Stopped" ]]; then
@@ -28,6 +27,5 @@ jq -c '.[]' <<< $CLUSTERS | while read cluster; do
     if [[ $MODE == "start" ]]; then
       check_cluster_status
     fi
-    add_to_json "$cluster_id" "$CLUSTER_NAME" "$CLUSTER_NAME is $cluster_status" "aks"
 done
 done
