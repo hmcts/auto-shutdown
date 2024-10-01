@@ -79,10 +79,12 @@ do
                 *"deallocated"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
                     [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                    add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm"
                     ;;
                 *)
                     ts_echo_color AMBER "$logMessage"
                     auto_shutdown_notification ":yellow_circle: $slackMessage"
+                    add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm"
                     ;;
             esac
         else

@@ -52,18 +52,20 @@ jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
         #    - If MODE = Stop then a running App Gateway is incorrect and we should notify
         #    - If neither Running or Stopped is found then something else is going on and we should notify
         case "$APPLICATION_GATEWAY_STATE" in
-        *"Running"*)
-            ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
-            [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-            ;;
-        *"Stopped"*)
-            ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
-            [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-            ;;
-        *)
-            ts_echo_color AMBER "$logMessage"
-            auto_shutdown_notification ":yellow_circle: $slackMessage"
-            ;;
+            *"Running"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+                [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                ;;
+            *"Stopped"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+                [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway"
+                ;;
+            *)
+                ts_echo_color AMBER "$logMessage"
+                auto_shutdown_notification ":yellow_circle: $slackMessage"
+                add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway"
+                ;;
         esac
     else
         ts_echo_color AMBER "Application Gateway: $APPLICATION_GATEWAY_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"

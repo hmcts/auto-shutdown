@@ -52,18 +52,20 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
         #    - If MODE = Stop then a running Flexible SQL Server is incorrect and we should notify
         #    - If neither Running or Stopped is found then something else is going on and we should notify
         case "$SERVER_STATE" in
-        *"Ready"*)
-            ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
-            [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-            ;;
-        *"Stopped"*)
-            ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
-            [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-            ;;
-        *)
-            ts_echo_color AMBER "$logMessage"
-            auto_shutdown_notification ":yellow_circle: $slackMessage"
-            ;;
+            *"Ready"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+                [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                ;;
+            *"Stopped"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+                [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
+                ;;
+            *)
+                ts_echo_color AMBER "$logMessage"
+                auto_shutdown_notification ":yellow_circle: $slackMessage"
+                add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
+                ;;
         esac
     else
         ts_echo_color AMBER "Flexible SQL Server: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"

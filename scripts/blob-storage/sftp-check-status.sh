@@ -51,11 +51,13 @@ do
             ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
             if [[ $MODE == "stop" ]]; then
                 auto_shutdown_notification "$slackMessage"
+                add_to_json "$STORAGE_ACCOUNT_ID" "$STORAGE_ACCOUNT_NAME" "$slackMessage" "blob-storage"
             fi
         elif [[  "$SFTP_SERVER_ENABLED" =~ "false" ]]; then
             ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
             if [[ $MODE == "start" ]]; then
                 auto_shutdown_notification "$slackMessage"
+                add_to_json "$STORAGE_ACCOUNT_ID" "$STORAGE_ACCOUNT_NAME" "$slackMessage" "blob-storage"
             fi
         fi
     done
