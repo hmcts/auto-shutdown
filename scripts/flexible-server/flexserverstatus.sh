@@ -68,6 +68,7 @@ do
                     auto_shutdown_notification ":yellow_circle: $slackMessage"
                     ;;
             esac
+            add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
         else
             ts_echo_color AMBER "Flexible SQL Server: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
         fi

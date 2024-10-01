@@ -68,6 +68,7 @@ jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
                     auto_shutdown_notification ":yellow_circle: $slackMessage"
                     ;;
             esac
+            add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway"
         else
             ts_echo_color AMBER "Application Gateway: $APPLICATION_GATEWAY_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
         fi
