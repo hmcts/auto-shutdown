@@ -61,28 +61,69 @@ function auto_shutdown_notification() {
 }
 
 # Saves to JSON file in this repo which is to be used by another repo for daily-monitoring
-function addToJson() {
-  local resource="$1"
-  local statusMessage="$2"
-  local subscription="$3"
+# function add_to_json() {
+#   local id="$1"
+#   local resource="$2"
+#   local statusMessage="$3"
+#   local subscription="$4"
+#   local pathToJson="status_updates.json"
+
+#   # Create json file if not exists or file is empty
+#   if [[ ! -f "$pathToJson"  || ! -s "$pathToJson"  ]]; then
+#     echo "[]" > "$pathToJson"
+#   fi
+
+#   # Prevents re-runs of the same individual pipeline in the day re-
+#   if jq -e --arg id "$id" '.[] | select(.id == $id)' "$pathToJson" > /dev/null; then
+#     echo "Resource '$id' status already added to JSON file. Skipping addition."
+#   else
+#     # Append the status object to the JSON file
+#     jq --arg id "$id" --arg resource "$resource" --arg statusMessage "$statusMessage" --arg subscription "$subscription" \
+#       '. += 
+#       [
+#           {
+#             "id": $id,
+#             "resource": $resource, 
+#             "statusMessage": $statusMessage, 
+#             "subscription": $subscription
+#           }
+#         ]' "$pathToJson" \
+#       > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
+#   fi
+# }
+
+function add_to_json() {
+  local id="$1"
+  local resource="$2"
+  local statusMessage="$3"
+  local subscription="$4"
   local pathToJson="status_updates.json"
 
-  # Create json file if not exists or file is empty
-  if [[ ! -f "$pathToJson"  || ! -s "$pathToJson"  ]]; then
+  # Create JSON file if it does not exist or is empty
+  if [[ ! -f "$pathToJson" || ! -s "$pathToJson" ]]; then
     echo "[]" > "$pathToJson"
   fi
 
-  # Append the status object to the JSON file
-  jq --arg resource "$resource" --arg statusMessage "$statusMessage" --arg subscription "$subscription" \
-     '. += 
-     [
-        {
-          "resource": $resource, 
-          "statusMessage": $statusMessage, 
-          "subscription": $subscription
-        }
-      ]' "$pathToJson" \
+  # Update the existing object if the ID is found, else add a new object
+  jq --arg id "$id" --arg resource "$resource" --arg statusMessage "$statusMessage" --arg subscription "$subscription" \
+     'map(if .id == $id then 
+            .resource = $resource | 
+            .statusMessage = $statusMessage | 
+            .subscription = $subscription 
+          else 
+            . 
+          end) 
+      + if any(.id == $id) then [] else 
+          [{
+            "id": $id, 
+            "resource": $resource, 
+            "statusMessage": $statusMessage, 
+            "subscription": $subscription
+          }] 
+        end' "$pathToJson" \
      > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
+
+  echo "JSON file updated successfully."
 }
 
 
