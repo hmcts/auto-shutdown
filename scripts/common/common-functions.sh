@@ -66,7 +66,8 @@ function add_to_json() {
   local resource="$2"
   local statusMessage="$3"
   local resourceType="$4"
-  local pathToJson="status_updates.json"
+  # Send to json file dependent on resource type
+  local pathToJson="status/${resourceType}_status_updates.json"
 
   # Create JSON file if it does not exist or is empty
   if [[ ! -f "$pathToJson" || ! -s "$pathToJson" ]]; then
@@ -76,22 +77,22 @@ function add_to_json() {
   # Update the existing object if the ID is found, else add a new object
   # Saves us duplicates if there is another individual pipeline run during the day, whilst still allowing for potential status updates
   jq --arg id "$id" --arg resource "$resource" --arg statusMessage "$statusMessage" --arg resourceType "$resourceType" \
-     'map(if .id == $id then 
-            .resource = $resource |
-            .statusMessage = $statusMessage |
-            .resourceType = $resourceType |
-          else
-            .
-          end)
-      + if any(.id == $id) then [] else
-          [{
-            "id": $id,
-            "resource": $resource,
-            "statusMessage": $statusMessage,
-            "resourceType": $resourceType,
-          }]
-        end' "$pathToJson" \
-     > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
+   'map(if .id == $id then 
+          .resource = $resource |
+          .statusMessage = $statusMessage |
+          .resourceType = $resourceType
+        else
+          .
+        end)
+    + (if any(.id == $id) then [] else
+        [{
+          "id": $id,
+          "resource": $resource,
+          "statusMessage": $statusMessage,
+          "resourceType": $resourceType
+        }] 
+      end)' "$pathToJson" \
+   > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
   echo "JSON file updated successfully."
 }
 
