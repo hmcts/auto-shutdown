@@ -52,23 +52,22 @@ jq -c '.[]' <<<$MI_SQL_SERVERS | while read server; do
         #    - If MODE = Start then a stopped App Gateway is incorrect and we should notify
         #    - If MODE = Stop then a running App Gateway is incorrect and we should notify
         #    - If neither Running or Stopped is found then something else is going on and we should notify
-            case "$SERVER_STATE" in
-                *"Ready"*)
-                    ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
-                    [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-                    ;;
-                *"Stopped"*)
-                    ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
-                    [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-                    ;;
-                *)
-                    ts_echo_color AMBER "$logMessage"
-                    auto_shutdown_notification ":yellow_circle: $slackMessage"
-                    ;;
-            esac
-            add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "sql"
-        else
-            ts_echo_color AMBER "SQL managed-instance: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
-        fi
-    done
+        case "$SERVER_STATE" in
+            *"Ready"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+                [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                ;;
+            *"Stopped"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+                [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                ;;
+            *)
+                ts_echo_color AMBER "$logMessage"
+                auto_shutdown_notification ":yellow_circle: $slackMessage"
+                ;;
+        esac
+        add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "sql"
+    else
+        ts_echo_color AMBER "SQL managed-instance: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
+    fi
 done

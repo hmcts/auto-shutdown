@@ -22,7 +22,6 @@ jq -c '.[]' <<< $CLUSTERS | while read cluster; do
 
     if [[ $cluster_status == "Stopped" ]]; then
         echo -e "${GREEN}$CLUSTER_NAME is $cluster_status"
-        
     elif [[ $cluster_status == "Running" ]]; then
         echo -e "${AMBER}$CLUSTER_NAME is $cluster_status"
     fi

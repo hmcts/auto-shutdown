@@ -44,30 +44,29 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
     logMessage="Flexible SQL Server: $SERVER_NAME in Subscription: $SUBSCRIPTION  ResourceGroup: $RESOURCE_GROUP is in $SERVER_STATE state after $MODE action"
     slackMessage="Flexible SQL Server: *$SERVER_NAME* in Subscription: *$SUBSCRIPTION* is in *$SERVER_STATE* state after *$MODE* action"
 
-        # If SKIP is false then we progress with the status check for the particular Flexible server in this loop run, if SKIP is true then do nothing
-        if [[ $SKIP == "false" ]]; then
-            # Check state of the Flexible SQL Server and print output as required
-            # Depending on the value of MODE a notification will also be sent
-            #    - If MODE = Start then a stopped Flexible SQL Server is incorrect and we should notify
-            #    - If MODE = Stop then a running Flexible SQL Server is incorrect and we should notify
-            #    - If neither Running or Stopped is found then something else is going on and we should notify
-            case "$SERVER_STATE" in
-                *"Ready"*)
-                    ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
-                    [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-                    ;;
-                *"Stopped"*)
-                    ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
-                    [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-                    ;;
-                *)
-                    ts_echo_color AMBER "$logMessage"
-                    auto_shutdown_notification ":yellow_circle: $slackMessage"
-                    ;;
-            esac
-            add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
-        else
-            ts_echo_color AMBER "Flexible SQL Server: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
-        fi
-    done
+    # If SKIP is false then we progress with the status check for the particular Flexible server in this loop run, if SKIP is true then do nothing
+    if [[ $SKIP == "false" ]]; then
+        # Check state of the Flexible SQL Server and print output as required
+        # Depending on the value of MODE a notification will also be sent
+        #    - If MODE = Start then a stopped Flexible SQL Server is incorrect and we should notify
+        #    - If MODE = Stop then a running Flexible SQL Server is incorrect and we should notify
+        #    - If neither Running or Stopped is found then something else is going on and we should notify
+        case "$SERVER_STATE" in
+            *"Ready"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+                [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                ;;
+            *"Stopped"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+                [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                ;;
+            *)
+                ts_echo_color AMBER "$logMessage"
+                auto_shutdown_notification ":yellow_circle: $slackMessage"
+                ;;
+        esac
+        add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server"
+    else
+        ts_echo_color AMBER "Flexible SQL Server: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
+    fi
 done
