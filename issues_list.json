@@ -30,34 +30,5 @@
         "stay_on_late": "Yes",
         "justification": "Civil release- https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+CHG5018154+-+ES+Reindex+for+Civil-Rel-5.0-Citizen+UI+2+-+Release+Implementation+Plan",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/762"
-    },
-    {
-        "start_date": "30-09-2024",
-        "end_date": "01-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/763"
-    },
-    {
-        "start_date": "01-10-2024",
-        "end_date": "01-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "Perf testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/766"
     }
 ]
