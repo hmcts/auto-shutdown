@@ -30,5 +30,18 @@
         "stay_on_late": "Yes",
         "justification": "Civil release- https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+CHG5018154+-+ES+Reindex+for+Civil-Rel-5.0-Citizen+UI+2+-+Release+Implementation+Plan",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/762"
+    },
+    {
+        "start_date": "03-10-2024",
+        "end_date": "15-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "VIH-11010",
+        "stay_on_late": "No",
+        "justification": "SDS TEST for testing for incident",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/767"
     }
 ]
