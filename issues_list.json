@@ -43,5 +43,18 @@
         "stay_on_late": "No",
         "justification": "SDS TEST for testing for incident",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/767"
+    },
+    {
+        "start_date": "03-10-2024",
+        "end_date": "15-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "VIH-11010",
+        "stay_on_late": "Yes",
+        "justification": "To investigate CPU issue on VH service",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/768"
     }
 ]
