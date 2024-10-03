@@ -16,22 +16,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/741"
     },
     {
-        "start_date": "02-10-2024",
-        "end_date": "02-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://mojcppprod.service-now.com/nav_to.do?uri=%2Fchange_request.do%3Fsys_id%3D70ccb1961bb45e5400bfb8c8dc4bcb81%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull",
-        "stay_on_late": "Yes",
-        "justification": "Civil release- https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+CHG5018154+-+ES+Reindex+for+Civil-Rel-5.0-Citizen+UI+2+-+Release+Implementation+Plan",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/762"
-    },
-    {
         "start_date": "03-10-2024",
         "end_date": "15-11-2024",
         "request_type": "stop",
