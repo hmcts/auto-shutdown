@@ -56,5 +56,19 @@
         "stay_on_late": "Yes",
         "justification": "https://tools.hmcts.net/confluence/display/RSTR/Civil-Rel-5.0-Citizen+UI+2+-+Release+Implementation+Plan",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/769"
+    },
+    {
+        "start_date": "04-10-2024",
+        "end_date": "04-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "change_jira_id": "many...",
+        "stay_on_late": "No",
+        "justification": "R2 Testing and bug fixing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/771"
     }
 ]
