@@ -1,66 +1,66 @@
-name: AppGateway-auto-shutdown
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 19,22 * * *' # Every day at 20:00 and 23:00 BST
-env:
-  DEV_ENV: ${{ secrets.DEV_ENV }}
-permissions:
-  id-token: write
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: 'Az CLI login'
-        uses: azure/login@v2
-        with:
-          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
-          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
-          allow-no-subscriptions: true
-      - name: Staging - App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-start-stop.sh stop staging
-        env:
-          DEV_ENV: ${{ env.DEV_ENV }}
+# name: AppGateway-auto-shutdown
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '0 19,22 * * *' # Every day at 20:00 and 23:00 BST
+# env:
+#   DEV_ENV: ${{ secrets.DEV_ENV }}
+# permissions:
+#   id-token: write
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - name: 'Az CLI login'
+#         uses: azure/login@v2
+#         with:
+#           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+#           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+#           allow-no-subscriptions: true
+#       - name: Staging - App Gateway Auto Shutdown
+#         run: ./scripts/appgateway/auto-start-stop.sh stop staging
+#         env:
+#           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Testing - App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-start-stop.sh stop testing
-        env:
-          DEV_ENV: ${{ env.DEV_ENV }}
+#       - name: Testing - App Gateway Auto Shutdown
+#         run: ./scripts/appgateway/auto-start-stop.sh stop testing
+#         env:
+#           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Demo - App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-start-stop.sh stop demo
-        env:
-          DEV_ENV: ${{ env.DEV_ENV }}
+#       - name: Demo - App Gateway Auto Shutdown
+#         run: ./scripts/appgateway/auto-start-stop.sh stop demo
+#         env:
+#           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Development - App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-start-stop.sh stop development
-        env:
-          DEV_ENV: ${{ env.DEV_ENV }}
+#       - name: Development - App Gateway Auto Shutdown
+#         run: ./scripts/appgateway/auto-start-stop.sh stop development
+#         env:
+#           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Sandbox - App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-start-stop.sh stop sandbox
-        env:
-          DEV_ENV: ${{ env.DEV_ENV }}
+#       - name: Sandbox - App Gateway Auto Shutdown
+#         run: ./scripts/appgateway/auto-start-stop.sh stop sandbox
+#         env:
+#           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: ITHC - App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-start-stop.sh stop ithc
-        env:
-          DEV_ENV: ${{ env.DEV_ENV }}
+#       - name: ITHC - App Gateway Auto Shutdown
+#         run: ./scripts/appgateway/auto-start-stop.sh stop ithc
+#         env:
+#           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Untagged - App Gateway Auto Shutdown
-        run: ./scripts/appgateway/auto-start-stop.sh stop untagged
-        env:
-          DEV_ENV: ${{ env.DEV_ENV }}
+#       - name: Untagged - App Gateway Auto Shutdown
+#         run: ./scripts/appgateway/auto-start-stop.sh stop untagged
+#         env:
+#           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Output log file
-        run: ./scripts/common/log-output.sh
+#       - name: Output log file
+#         run: ./scripts/common/log-output.sh
 
-      - name: Wait for App Gateways to stop
-        if: env.DEV_ENV != 'true'
-        run: sleep 300
-        
-      - name: App Gateway Auto Shutdown status check
-        if: env.DEV_ENV != 'true'
-        run: ./scripts/appgateway/appgw_status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+#       - name: Wait for App Gateways to stop
+#         if: env.DEV_ENV != 'true'
+#         run: sleep 300
+
+#       - name: App Gateway Auto Shutdown status check
+#         if: env.DEV_ENV != 'true'
+#         run: ./scripts/appgateway/appgw_status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

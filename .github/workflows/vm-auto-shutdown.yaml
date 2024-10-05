@@ -1,32 +1,32 @@
-name: vm-auto-shutdown
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 19,22 * * *' # Every day at 20:00 and 23:00 BST
-permissions:
-  id-token: write
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: 'Az CLI login'
-        uses: azure/login@v2
-        with:
-          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
-          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
-          allow-no-subscriptions: true
-      - name: VM Auto Shutdown
-        run: ./scripts/vm/auto-start-stop.sh deallocate
-        env:
-          DEV_ENV: ${{ secrets.DEV_ENV }}
+# name: vm-auto-shutdown
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     - cron: '0 19,22 * * *' # Every day at 20:00 and 23:00 BST
+# permissions:
+#   id-token: write
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - name: 'Az CLI login'
+#         uses: azure/login@v2
+#         with:
+#           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+#           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+#           allow-no-subscriptions: true
+#       - name: VM Auto Shutdown
+#         run: ./scripts/vm/auto-start-stop.sh deallocate
+#         env:
+#           DEV_ENV: ${{ secrets.DEV_ENV }}
 
-      - name: Output log file
-        run: ./scripts/common/log-output.sh
+#       - name: Output log file
+#         run: ./scripts/common/log-output.sh
 
-      - name: Wait for VMs to stop
-        run: sleep 600
-        
-      - name: VM Auto Shutdown status check
-        run: ./scripts/vm/vmstatus.sh deallocate ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+#       - name: Wait for VMs to stop
+#         run: sleep 600
+
+#       - name: VM Auto Shutdown status check
+#         run: ./scripts/vm/vmstatus.sh deallocate ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
