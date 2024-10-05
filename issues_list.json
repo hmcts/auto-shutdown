@@ -59,20 +59,6 @@
     },
     {
         "start_date": "04-10-2024",
-        "end_date": "04-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "many...",
-        "stay_on_late": "No",
-        "justification": "R2 Testing and bug fixing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/771"
-    },
-    {
-        "start_date": "04-10-2024",
         "end_date": "07-10-2024",
         "request_type": "stop",
         "environment": [
