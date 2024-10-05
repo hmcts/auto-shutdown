@@ -1,60 +1,60 @@
-# name: storage-sftp-auto-disable
-# on:
-#   workflow_dispatch:
-#   schedule:
-#     - cron: "0 19 * * *" # Every day at 8pm BST
-# env:
-#   DEV_ENV: ${{ secrets.DEV_ENV }}
-# permissions:
-#   id-token: write
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
-#       - name: "Az CLI login"
-#         uses: azure/login@v2
-#         with:
-#           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
-#           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
-#           allow-no-subscriptions: true
-#       - name: Staging - disable sftp
-#         run: ./scripts/blob-storage/disable_sftp.sh staging
-#         env:
-#           DEV_ENV: ${{ env.DEV_ENV }}
-#       - name: Testing - disable sftp
-#         run: ./scripts/blob-storage/disable_sftp.sh testing
-#         env:
-#           DEV_ENV: ${{ env.DEV_ENV }}
-#       - name: Demo - disable sftp
-#         run: ./scripts/blob-storage/disable_sftp.sh demo
-#         env:
-#           DEV_ENV: ${{ env.DEV_ENV }}
-#       - name: Development - disable sftp
-#         run: ./scripts/blob-storage/disable_sftp.sh development
-#         env:
-#           DEV_ENV: ${{ env.DEV_ENV }}
-#       - name: Sandbox - disable sftp
-#         run: ./scripts/blob-storage/disable_sftp.sh sandbox
-#         env:
-#           DEV_ENV: ${{ env.DEV_ENV }}
-#       - name: ITHC - disable sftp
-#         run: ./scripts/blob-storage/disable_sftp.sh ithc
-#         env:
-#           DEV_ENV: ${{ env.DEV_ENV }}
-#       - name: Untagged - disable sftp
-#         run: ./scripts/blob-storage/disable_sftp.sh untagged
-#         env:
-#           DEV_ENV: ${{ env.DEV_ENV }}
+name: storage-sftp-auto-disable
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 19 * * *" # Every day at 8pm BST
+env:
+  DEV_ENV: ${{ secrets.DEV_ENV }}
+permissions:
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: "Az CLI login"
+        uses: azure/login@v2
+        with:
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
+      - name: Staging - disable sftp
+        run: ./scripts/blob-storage/disable_sftp.sh staging
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+      - name: Testing - disable sftp
+        run: ./scripts/blob-storage/disable_sftp.sh testing
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+      - name: Demo - disable sftp
+        run: ./scripts/blob-storage/disable_sftp.sh demo
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+      - name: Development - disable sftp
+        run: ./scripts/blob-storage/disable_sftp.sh development
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+      - name: Sandbox - disable sftp
+        run: ./scripts/blob-storage/disable_sftp.sh sandbox
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+      - name: ITHC - disable sftp
+        run: ./scripts/blob-storage/disable_sftp.sh ithc
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+      - name: Untagged - disable sftp
+        run: ./scripts/blob-storage/disable_sftp.sh untagged
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
 
-#       - name: Output log file
-#         run: ./scripts/common/log-output.sh
+      - name: Output log file
+        run: ./scripts/common/log-output.sh
 
-#       - name: Wait for SFTP Servers to stop
-#         if: env.DEV_ENV != 'true'
-#         run: sleep 300
+      - name: Wait for SFTP Servers to stop
+        if: env.DEV_ENV != 'true'
+        run: sleep 300
 
-#       - name: sftp status check
-#         if: env.DEV_ENV != 'true'
-#         run: ./scripts/blob-storage/sftp-check-status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+      - name: sftp status check
+        if: env.DEV_ENV != 'true'
+        run: ./scripts/blob-storage/sftp-check-status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
