@@ -73,18 +73,5 @@
         "stay_on_late": "Yes",
         "justification": "Need for testing critical features",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/772"
-    },
-    {
-        "start_date": "05-10-2024",
-        "end_date": "05-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CIV-12247",
-        "stay_on_late": "No",
-        "justification": "to develop performance test scripts",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/773"
     }
 ]
