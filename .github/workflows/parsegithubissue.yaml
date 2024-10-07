@@ -91,11 +91,11 @@ jobs:
     #Save parsed date into environment variables  
       - name: Save parsed jsonString data
         run: | 
-          echo '${{ steps.parse_issue.outputs.jsonString }}' > NEW_DATA.json
+          echo "${{ steps.parse_issue.outputs.jsonString }}" > NEW_DATA.json
           echo NEW_DATA=$(cat NEW_DATA.json | jq -c | jq '.form_environment |= split(",")') >> $GITHUB_ENV
           rm NEW_DATA.json
-          echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
-          echo ISSUE_NUMBER='${{ github.event.issue.number }}' >> $GITHUB_ENV
+          echo GITHUB_REPO="${{ github.repository }}" >> $GITHUB_ENV
+          echo ISSUE_NUMBER="${{ github.event.issue.number }}" >> $GITHUB_ENV
     #Setup Python
       - uses: actions/setup-python@v5
         with:
