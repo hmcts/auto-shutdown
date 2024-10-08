@@ -40,51 +40,5 @@
         "stay_on_late": "Yes",
         "justification": "To investigate CPU issue on VH service",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/768"
-    },
-    {
-        "start_date": "07-10-2024",
-        "end_date": "07-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "CHG5018154",
-        "stay_on_late": "Yes",
-        "justification": "https://tools.hmcts.net/confluence/display/RSTR/Civil-Rel-5.0-Citizen+UI+2+-+Release+Implementation+Plan",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/769"
-    },
-    {
-        "start_date": "04-10-2024",
-        "end_date": "07-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " ITHC",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing critical features",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/772"
-    },
-    {
-        "start_date": "07-10-2024",
-        "end_date": "07-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Sandbox"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "Test",
-        "stay_on_late": "No",
-        "justification": "Testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/774"
     }
 ]
