@@ -55,17 +55,10 @@ function auto_shutdown_notification() {
 
     # This silences the slack response message in logs.
     # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
-    # local silentResponse="-s -o /dev/null"
+    local silentResponse="-s -o /dev/null"
 
-    response=$(curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" ${notificationSlackWebhook} 2>&1)
-    exit_code=$?
-
-    if [ $exit_code -ne 0 ]; then
-        echo "Error: $response"
-        exit $exit_code
-    else
-        echo "Success: $response"
-    fi
+    curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+      ${notificationSlackWebhook}
 }
 
 function get_current_date() {

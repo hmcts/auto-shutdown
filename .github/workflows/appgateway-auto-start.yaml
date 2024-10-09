@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
 env:
-  DEV_ENV: "true"
+  DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
   id-token: write
 jobs:
@@ -62,5 +62,5 @@ jobs:
         run: sleep 300
 
       - name: App Gateway Auto start status check
-        # if: env.DEV_ENV != 'true'
+        if: env.DEV_ENV != 'true'
         run: ./scripts/appgateway/appgw_status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
