@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
 env:
-  DEV_ENV: ${{ secrets.DEV_ENV }}
+  DEV_ENV: "true"
 permissions:
   id-token: write
 jobs:
