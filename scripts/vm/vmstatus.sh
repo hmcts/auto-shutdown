@@ -74,11 +74,15 @@ do
             case "$VM_STATE" in
                 *"running"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
-                    [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                    if [[ $MODE == "deallocate" ]]; then
+                        auto_shutdown_notification ":red_circle: $slackMessage"
+                    fi
                     ;;
                 *"deallocated"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
-                    [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                    if [[ $MODE == "start" ]]; then
+                        auto_shutdown_notification ":red_circle: $slackMessage"
+                    fi
                     ;;
                 *)
                     ts_echo_color AMBER "$logMessage"
