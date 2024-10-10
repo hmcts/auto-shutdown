@@ -5,8 +5,8 @@ on:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.TEST_CHANNEL_SLACK_WEBHOOK }}
-  APPROVAL_STATE: "Pending Approval"
-  APPROVAL_COMMENT: "Pending Approval"
+  APPROVAL_STATE: 'Pending Approval'
+  APPROVAL_COMMENT: 'Pending Approval'
   SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_OAUTH_TOKEN }}
 permissions:
   id-token: write
@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: "0"
+          fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
           ref: ${{ github.head_ref }}
 
@@ -36,15 +36,15 @@ jobs:
         id: create-issue
         env:
           GITHUB_TOKEN: ${{ env.GH_TOKEN }}
-          TITLE: "PR-${{ github.event.pull_request.number }}"
-          JUSTIFICATION: "Development"
-          PULL_REQUEST: "PR-${{ github.event.pull_request.number }}"
-          BUSINESS_AREA: "CFT"
-          TEAM_NAME: "PlatOps"
-          ENVIRONMENT: "AAT / Staging"
-          START_DATE: "${{ env.START_DATE }}"
-          END_DATE: "${{ env.END_DATE }}"
-          POST_11PM: "No"
+          TITLE: 'PR-${{ github.event.pull_request.number }}'
+          JUSTIFICATION: 'Development'
+          PULL_REQUEST: 'PR-${{ github.event.pull_request.number }}'
+          BUSINESS_AREA: 'CFT'
+          TEAM_NAME: 'PlatOps'
+          ENVIRONMENT: 'AAT / Staging'
+          START_DATE: '${{ env.START_DATE }}'
+          END_DATE: '${{ env.END_DATE }}'
+          POST_11PM: 'No'
         with:
           filename: .github/ISSUE_TEMPLATE/1-pull-request-template.md
           update_existing: true
@@ -54,7 +54,7 @@ jobs:
       - name: add processing label
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: "Processing"
+          labels: 'Processing'
           number: ${{ steps.create-issue.outputs.number }}
 
       #Comment if approver is equal to requester
@@ -157,7 +157,7 @@ jobs:
       #Setup Python
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       # Install Python requirements
       - name: Install Python Requirements
@@ -184,7 +184,7 @@ jobs:
         if: env.PROCESS_SUCCESS != 'true'
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: "Error in form"
+          labels: 'Error in form'
           number: ${{ steps.create-issue.outputs.number }}
 
       # Provide any error messages to user as a comment
@@ -203,7 +203,7 @@ jobs:
         run: exit 1
 
       # Login to Azure CLI (for cost analysis)
-      - name: "Az CLI login"
+      - name: 'Az CLI login'
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
@@ -229,7 +229,7 @@ jobs:
         run: ./scripts/aks/send-slack-message.sh
         env:
           SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
-          ISSUE_TITLE: "PR-${{ github.event.pull_request.number }}"
+          ISSUE_TITLE: 'PR-${{ github.event.pull_request.number }}'
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
           BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}
@@ -270,7 +270,7 @@ jobs:
         if: env.ERROR_IN_COSTS == 'true'
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: "Cost Error"
+          labels: 'Cost Error'
           number: ${{ steps.create-issue.outputs.number }}
 
       #Set approval_state environment var to auto-approved if cost value is less than £5,000
@@ -285,7 +285,7 @@ jobs:
         if: env.APPROVAL_STATE == 'auto-approved'
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: "auto-approved"
+          labels: 'auto-approved'
           number: ${{ steps.create-issue.outputs.number }}
 
       #Add auto-approval comment if approval_state == auto-approved
@@ -367,7 +367,7 @@ jobs:
         run: ./scripts/aks/send-slack-message.sh
         env:
           SLACK_WEBHOOK: ${{ env.SLACK_WEBHOOK }}
-          ISSUE_TITLE: "PR-${{ github.event.pull_request.number }}"
+          ISSUE_TITLE: 'PR-${{ github.event.pull_request.number }}'
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
           BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}

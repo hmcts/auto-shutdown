@@ -10,8 +10,8 @@ on:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  APPROVAL_STATE: "Pending Approval"
-  APPROVAL_COMMENT: "Pending Approval"
+  APPROVAL_STATE: 'Pending Approval'
+  APPROVAL_COMMENT: 'Pending Approval'
   SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_OAUTH_TOKEN }}
   GH_REPO: ${{ github.repository }}
   NUMBER: ${{ github.event.issue.number }}
@@ -79,7 +79,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: "0"
+          fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
       #Parse issue form that trigger workflow
       - name: Read submitted issue
@@ -98,7 +98,7 @@ jobs:
       #Setup Python
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
       # Install Python requirements
       - name: Install Python Requirements
         run: |
@@ -134,7 +134,7 @@ jobs:
         if: env.PROCESS_SUCCESS != 'true'
         run: exit 1
       # Login to Azure CLI (for cost analysis)
-      - name: "Az CLI login"
+      - name: 'Az CLI login'
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
