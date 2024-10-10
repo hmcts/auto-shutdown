@@ -40,5 +40,20 @@
         "stay_on_late": "Yes",
         "justification": "To investigate CPU issue on VH service",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/768"
+    },
+    {
+        "start_date": "10-10-2024",
+        "end_date": "10-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "CUI",
+        "change_jira_id": "many tickets",
+        "stay_on_late": "No",
+        "justification": "Overtimes deployment and testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/789"
     }
 ]
