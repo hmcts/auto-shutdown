@@ -23,6 +23,10 @@
 				},
 				{
 					"type": "mrkdwn",
+					"text": "Team/Application Name:*\n"
+				},
+				{
+					"type": "mrkdwn",
 					"text": "*Environment:*\n"
 				},
 				{
@@ -64,6 +68,6 @@
 					"url": "request_url"
 				}
 			]
-		}		
+		}
 	]
 }
