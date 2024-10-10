@@ -21,6 +21,7 @@ else:
     new_data["request_type"] = "stop"
 new_data["environment"] = new_data.pop("form_environment")
 new_data["business_area"] = new_data.pop("form_business_area")
+new_data["team_name"] = new_data.pop("form_team_name")
 new_data["change_jira_id"] = new_data.pop("form_change_jira_id")
 new_data["business_area"] = new_data["business_area"].lower()
 new_data["stay_on_late"] = new_data.pop("form_stay_on_late")
