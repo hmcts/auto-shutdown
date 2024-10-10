@@ -1,4 +1,4 @@
-name: '🌍 Start On Demand Environment'
+name: "🌍 Start On Demand Environment"
 description: Request that an on demand environment is started (Work In Progress)
 body:
   - type: input
@@ -15,6 +15,14 @@ body:
       options:
         - CFT
         - Cross-Cutting
+    validations:
+      required: true
+
+  - type: input
+    id: form_team_name
+    attributes:
+      label: Team/Application Name
+      description: "The name of the team or application making the request"
     validations:
       required: true
 
