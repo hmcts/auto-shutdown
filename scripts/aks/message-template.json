@@ -23,10 +23,6 @@
 				},
 				{
 					"type": "mrkdwn",
-					"text": "Team/Application Name:*\n"
-				},
-				{
-					"type": "mrkdwn",
 					"text": "*Environment:*\n"
 				},
 				{
@@ -40,6 +36,10 @@
 				{
 					"type": "mrkdwn",
 					"text": "*Submitter*\n"
+				},
+				{
+					"type": "mrkdwn",
+					"text": "Team/Application Name:*\n"
 				},
 				{
 					"type": "mrkdwn",

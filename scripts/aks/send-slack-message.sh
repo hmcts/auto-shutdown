@@ -33,11 +33,11 @@ jq --arg issue_url "$request_url_link" \
    '.blocks[0].text.text |= $issue_title |
     .blocks[1].text.text |= "*Justification:* \($justification)" |  
     .blocks[2].fields[0].text |= "*Business Area:*\n\($business_area)" |
-    .blocks[2].fields[1].text |= "*Team/Application Name:*\n\($team_name)" |
-    .blocks[2].fields[2].text |= "*Environment:*\n\($environment)" |
-    .blocks[2].fields[3].text |= "*Start Date:*\n\($start_date)" |
-    .blocks[2].fields[4].text |= "*End Date:*\n\($end_date)" |
-    .blocks[2].fields[5].text |= "*Requester:*\n\($requester)" |
+    .blocks[2].fields[1].text |= "*Environment:*\n\($environment)" |
+    .blocks[2].fields[2].text |= "*Start Date:*\n\($start_date)" |
+    .blocks[2].fields[3].text |= "*End Date:*\n\($end_date)" |
+    .blocks[2].fields[4].text |= "*Requester:*\n\($requester)" |
+    .blocks[2].fields[5].text |= "*Team/Application Name:*\n\($team_name)" |
     .blocks[2].fields[6].text |= "*Submitted:*\n\($current_date)" |
     .blocks[2].fields[7].text |= "*Value:*\n\($cost_value)" |
     .blocks[2].fields[8].text |= "*Status:*\n\($status)" |
