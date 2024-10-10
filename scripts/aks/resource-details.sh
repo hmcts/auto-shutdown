@@ -43,6 +43,7 @@ function get_costs() {
         cluster_business_area=${cluster_business_area/ss/cross-cutting}
 
         business_area_entry=$(jq -r '. | last | .business_area' issues_list.json)
+        team_name=$(jq -r '. | last | .team_name' issues_list.json)
         env_entry=$(jq -r '. | last | .environment' issues_list.json)
         start_date=$(jq -r '. | last | .start_date' issues_list.json)
         end_date=$(jq -r '. | last | .end_date' issues_list.json)
@@ -83,6 +84,7 @@ done < <(jq -r 'last | .environment[]' issues_list.json || jq -r 'last | .enviro
 echo START_DATE=$start_date >>$GITHUB_ENV
 echo END_DATE=$end_date >>$GITHUB_ENV
 echo BUSINESS_AREA_ENTRY=$business_area_entry >>$GITHUB_ENV
+echo TEAM_NAME=$team_name >>$GITHUB_ENV
 echo REQUEST_URL=$request_url >>$GITHUB_ENV
 echo CHANGE_JIRA_ID=$change_jira_id >>$GITHUB_ENV
 echo ENVIRONMENT=$env_entry >>$GITHUB_ENV

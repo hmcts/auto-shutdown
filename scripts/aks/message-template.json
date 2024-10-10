@@ -39,6 +39,10 @@
 				},
 				{
 					"type": "mrkdwn",
+					"text": "Team/Application Name:*\n"
+				},
+				{
+					"type": "mrkdwn",
 					"text": "*Submitted*\n"
 				},
 				{
@@ -64,6 +68,6 @@
 					"url": "request_url"
 				}
 			]
-		}		
+		}
 	]
 }

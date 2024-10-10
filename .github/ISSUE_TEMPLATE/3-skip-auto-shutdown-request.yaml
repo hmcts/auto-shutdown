@@ -1,71 +1,79 @@
-name: '🌍 Skip auto shutdown'
+name: "🌍 Skip auto shutdown"
 description: Request that an environment is not shutdown (automatically processed)
 body:
-- type: input
-  id: form_change_jira_id
-  attributes:
-    label: Change or Jira reference
-  validations:
-    required: true
+  - type: input
+    id: form_change_jira_id
+    attributes:
+      label: Change or Jira reference
+    validations:
+      required: true
 
-- type: input
-  id: form_justification
-  attributes:
-    label: Justification for exclusion?
-  validations:
-    required: true
+  - type: input
+    id: form_justification
+    attributes:
+      label: Justification for exclusion?
+    validations:
+      required: true
 
-- type: dropdown
-  id: form_business_area
-  attributes:
-    label: Business area
-    options:
-      - CFT
-      - Cross-Cutting
-  validations:
-    required: true
-    
-- type: dropdown
-  id: form_environment
-  attributes:
-    label: Environment
-    description: "If AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request"
-    multiple: true
-    options: 
-      - Sandbox
-      - AAT / Staging
-      - Preview / Dev 
-      - Test / Perftest 
-      - Demo
-      - ITHC 
-      - PTL
-  validations:
-    required: true
-      
-- type: input
-  id: form_start_date
-  attributes:
-    label: Skip shutdown start date
-    description: "DD-MM-YYYY - If env needed on Sat & Sunday, start date should include Friday."
-  validations:
-    required: true
-    
-- type: input
-  id: form_end_date
-  attributes:
-    label: Skip shutdown end date
-    description: "DD-MM-YYYY - Defaults to start date. 8pm shutdown job will skip auto shutdown on this date."
-  validations:
-    required: false
+  - type: dropdown
+    id: form_business_area
+    attributes:
+      label: Business area
+      options:
+        - CFT
+        - Cross-Cutting
+    validations:
+      required: true
 
-- type: dropdown
-  id: form_stay_on_late
-  attributes:
-    label: Do you need this exclusion past 11pm?
-    description: Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night.
-    multiple: false
-    options: 
-      - 'No'
-      - 'Yes'
-  validations:
-    required: true
+  - type: input
+    id: form_team_name
+    attributes:
+      label: Team/Application Name
+      description: "The name of the team or application making the request"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: form_environment
+    attributes:
+      label: Environment
+      description: "If AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request"
+      multiple: true
+      options:
+        - Sandbox
+        - AAT / Staging
+        - Preview / Dev
+        - Test / Perftest
+        - Demo
+        - ITHC
+        - PTL
+    validations:
+      required: true
+
+  - type: input
+    id: form_start_date
+    attributes:
+      label: Skip shutdown start date
+      description: "DD-MM-YYYY - If env needed on Sat & Sunday, start date should include Friday."
+    validations:
+      required: true
+
+  - type: input
+    id: form_end_date
+    attributes:
+      label: Skip shutdown end date
+      description: "DD-MM-YYYY - Defaults to start date. 8pm shutdown job will skip auto shutdown on this date."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: form_stay_on_late
+    attributes:
+      label: Do you need this exclusion past 11pm?
+      description: Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night.
+      multiple: false
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
