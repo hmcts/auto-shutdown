@@ -149,8 +149,8 @@ jobs:
         env:
           JSON_STRING: ${{ steps.parse_issue.outputs.jsonString }}
         run: |
-          cat $JSON_STRING > NEW_DATA.json
-          echo '${{ steps.parse_issue.outputs.jsonString }}'
+          echo '$JSON_STRING' > NEW_DATA.json
+          echo '$JSON_STRING'
           echo NEW_DATA=$(cat NEW_DATA.json | jq -c | jq '.form_environment |= split(",")') >> $GITHUB_ENV
           rm NEW_DATA.json
           echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
