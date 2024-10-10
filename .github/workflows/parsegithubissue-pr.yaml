@@ -146,8 +146,10 @@ jobs:
 
       #Save parsed date into environment variables
       - name: Save parsed jsonString data
+        env:
+          JSON_STRING: ${{ steps.parse_issue.outputs.jsonString }}
         run: |
-          cat <<EOF > NEW_DATA.json '${{ steps.parse_issue.outputs.jsonString }}' EOF
+          cat $JSON_STRING > NEW_DATA.json
           echo '${{ steps.parse_issue.outputs.jsonString }}'
           echo NEW_DATA=$(cat NEW_DATA.json | jq -c | jq '.form_environment |= split(",")') >> $GITHUB_ENV
           rm NEW_DATA.json
