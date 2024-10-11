@@ -106,5 +106,19 @@
         "stay_on_late": "Yes",
         "justification": "We want the ability to release code changes in the event of issues during this release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/798"
+    },
+    {
+        "start_date": "11-10-2024",
+        "end_date": "12-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "https://github.com/hmcts/rpx-xui-webapp/pull/3942",
+        "stay_on_late": "Yes",
+        "justification": "Performance test a memory change in XUI over an extended period of time",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/799"
     }
 ]
