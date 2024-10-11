@@ -90,5 +90,21 @@
         "stay_on_late": "Yes",
         "justification": "We are planning to do tech release on weekend",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/797"
+    },
+    {
+        "start_date": "15-10-2024",
+        "end_date": "15-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "PRE",
+        "change_jira_id": "CHG5018204",
+        "stay_on_late": "Yes",
+        "justification": "We want the ability to release code changes in the event of issues during this release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/798"
     }
 ]
