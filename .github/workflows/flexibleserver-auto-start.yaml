@@ -63,5 +63,5 @@ jobs:
         run: sleep 600
 
       - name: Postgres Flexible server status check
-        if: env.DEV_ENV != 'true'
+        #if: env.DEV_ENV != 'true'
         run: ./scripts/flexible-server/flexserverstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
