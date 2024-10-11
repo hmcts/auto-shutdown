@@ -40,7 +40,7 @@ jobs:
           JUSTIFICATION: 'Development'
           PULL_REQUEST: 'PR-${{ github.event.pull_request.number }}'
           BUSINESS_AREA: 'CFT'
-          TEAM_NAME: 'PlatOps'
+          TEAM_NAME: "PlatOp's"
           ENVIRONMENT: 'AAT / Staging'
           START_DATE: '${{ env.START_DATE }}'
           END_DATE: '${{ env.END_DATE }}'
