@@ -42,37 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/768"
     },
     {
-        "start_date": "10-10-2024",
-        "end_date": "10-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "CUI",
-        "change_jira_id": "many tickets",
-        "stay_on_late": "No",
-        "justification": "Overtimes deployment and testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/789"
-    },
-    {
-        "start_date": "10-10-2024",
-        "end_date": "10-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "ITHC",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Pro",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
-        "stay_on_late": "Yes",
-        "justification": "Needed for critical testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/792"
-    },
-    {
         "start_date": "11-10-2024",
         "end_date": "14-10-2024",
         "request_type": "stop",
