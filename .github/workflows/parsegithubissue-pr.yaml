@@ -131,7 +131,8 @@ jobs:
         run: |
           echo 'ISSUE_BODY<<EOF' >> $GITHUB_ENV
           while read LINE; do
-          echo "$LINE" >> $GITHUB_ENV;
+          LINE_ESC=$(echo "$LINE" | sed "s/'/'\\\\''/g")
+          echo "$LINE_ESC" >> $GITHUB_ENV;
           done < body.json
           echo 'EOF' >> $GITHUB_ENV
           rm body.json
