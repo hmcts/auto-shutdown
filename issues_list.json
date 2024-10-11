@@ -71,5 +71,24 @@
         "stay_on_late": "Yes",
         "justification": "Needed for critical testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/792"
+    },
+    {
+        "start_date": "11-10-2024",
+        "end_date": "14-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Test / Perftest",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Private law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "stay_on_late": "Yes",
+        "justification": "We are planning to do tech release on weekend",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/797"
     }
 ]
