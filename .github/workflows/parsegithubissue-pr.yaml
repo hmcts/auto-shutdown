@@ -123,8 +123,9 @@ jobs:
       - name: Get issue body
         id: get_issue_body
         run: |
-          gh issue view --repo hmcts/auto-shutdown ${{ steps.create-issue.outputs.number }} --json body | jq -r '.body' > body.json
-          cat body.json
+          gh issue view --repo hmcts/auto-shutdown ${{ steps.create-issue.outputs.number }} --json body | jq -r '.body' > body.txt
+          sed -i "s/'//g" body.txt 
+          cat body.txt
 
       #Create a multiline variable so it can be read by parser
       - name: multiline github var
@@ -132,9 +133,9 @@ jobs:
           echo 'ISSUE_BODY<<EOF' >> $GITHUB_ENV
           while read LINE; do
           echo "$LINE" >> $GITHUB_ENV;
-          done < body.json
+          done < body.txt
           echo 'EOF' >> $GITHUB_ENV
-          rm body.json
+          rm body.txt
 
       #Parse issue form that trigger workflow
       - name: Read submitted issue
