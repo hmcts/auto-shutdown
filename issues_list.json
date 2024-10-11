@@ -85,5 +85,19 @@
         "stay_on_late": "No",
         "justification": "Testing what happens when an issue contains a `",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/795"
+    },
+    {
+        "start_date": "13-12-2024",
+        "end_date": "14-12-2024",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox"
+        ],
+        "business_area": "cft",
+        "team_name": "PlatOps",
+        "change_jira_id": "Test",
+        "stay_on_late": "No",
+        "justification": "Testing what happens when issue contains",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/796"
     }
 ]
