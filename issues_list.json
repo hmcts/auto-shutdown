@@ -89,19 +89,5 @@
         "stay_on_late": "Yes",
         "justification": "Performance test a memory change in XUI over an extended period of time",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/799"
-    },
-    {
-        "start_date": "11-10-2024",
-        "end_date": "11-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "Ref Data",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSRD-3527",
-        "stay_on_late": "Yes",
-        "justification": "We will start a 6 hour load in demo starting soon but will run out of time",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/800"
     }
 ]
