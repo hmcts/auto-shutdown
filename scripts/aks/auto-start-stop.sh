@@ -15,7 +15,7 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
 fi
 
 CLUSTERS=$(get_clusters "$2")
-clusters_count=$(jq -c -r '.count' <<< $CLUSTERS)
+clusters_count=$(jq -c -r '.count' <<<$CLUSTERS)
 log "$clusters_count AKS Clusters found"
 log "----------------------------------------------"
 

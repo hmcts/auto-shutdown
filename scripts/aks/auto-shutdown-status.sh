@@ -11,11 +11,11 @@ MODE=${1:-start}
 registrySlackWebhook=$2
 
 CLUSTERS=$(get_clusters)
-clusters_count=$(jq -c -r '.count' <<< $CLUSTERS)
+clusters_count=$(jq -c -r '.count' <<<$CLUSTERS)
 log "$clusters_count AKS Clusters found"
 log "----------------------------------------------"
 
-jq -c '.data[]' <<< $CLUSTERS | while read cluster; do
+jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
     get_cluster_details
 
     if [[ $cluster_status == "Stopped" ]]; then
@@ -24,6 +24,6 @@ jq -c '.data[]' <<< $CLUSTERS | while read cluster; do
         echo -e "${AMBER}$CLUSTER_NAME is $cluster_status"
     fi
     if [[ $MODE == "start" ]]; then
-      check_cluster_status
+        check_cluster_status
     fi
 done
