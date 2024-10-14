@@ -10,48 +10,49 @@ MODE=${1:-start}
 SKIP="false"
 
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
-    echo "Invalid MODE. Please use 'start' or 'stop'."
-    exit 1
+  echo "Invalid MODE. Please use 'start' or 'stop'."
+  exit 1
 fi
 
-SUBSCRIPTIONS=$(az account list -o json)
-jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-  get_subscription_clusters
-  jq -c '.[]' <<< $CLUSTERS | while read cluster; do
-    get_cluster_details
-    cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
+CLUSTERS=$(get_clusters "$2")
+clusters_count=$(jq -c -r '.count' <<< $CLUSTERS)
+log "$clusters_count AKS Clusters found"
+log "----------------------------------------------"
 
-    if [[  $cluster_env == "sbox" ]]; then
-      cluster_env=${cluster_env/#sbox/Sandbox}
-    elif [[ $cluster_env == "ptlsbox" ]]; then
-      cluster_env=${cluster_env/ptlsbox/Sandbox}
-    elif [[ $cluster_env == "stg" ]]; then
-      cluster_env=${cluster_env/stg/Staging}
-    fi
+jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
+  get_cluster_details
+  cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
 
-    cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
-    cluster_business_area=${cluster_business_area/ss/cross-cutting}
+  if [[ $cluster_env == "sbox" ]]; then
+    cluster_env=${cluster_env/#sbox/Sandbox}
+  elif [[ $cluster_env == "ptlsbox" ]]; then
+    cluster_env=${cluster_env/ptlsbox/Sandbox}
+  elif [[ $cluster_env == "stg" ]]; then
+    cluster_env=${cluster_env/stg/Staging}
+  fi
 
-    log "====================================================="
-    log "Processing Cluster: $CLUSTER_NAME"
-    log "====================================================="
+  cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
+  cluster_business_area=${cluster_business_area/ss/cross-cutting}
 
-    log "checking skip logic for cluster_env: $cluster_env, cluster_business_area: $cluster_business_area, mode: $MODE"
-    SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
+  log "====================================================="
+  log "Processing Cluster: $CLUSTER_NAME"
+  log "====================================================="
 
-    log "SKIP evalulated to $SKIP"
+  log "checking skip logic for cluster_env: $cluster_env, cluster_business_area: $cluster_business_area, mode: $MODE"
+  SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
 
-    if [[ $SKIP == "false" ]]; then
-      if [[ $DEV_ENV != "true" ]]; then
-        aks_state_messages
-        az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster
-        
-      else
-        ts_echo_color BLUE "Development Env: simulating state commands only."
-        aks_state_messages
-      fi
+  log "SKIP evalulated to $SKIP"
+
+  if [[ $SKIP == "false" ]]; then
+    if [[ $DEV_ENV != "true" ]]; then
+      aks_state_messages
+      az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster
+
     else
-      ts_echo_color AMBER "cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
+      ts_echo_color BLUE "Development Env: simulating state commands only."
+      aks_state_messages
     fi
-  done
+  else
+    ts_echo_color AMBER "cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
+  fi
 done

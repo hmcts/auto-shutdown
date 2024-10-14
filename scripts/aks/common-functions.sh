@@ -1,15 +1,33 @@
 #!/bin/bash
+function get_clusters() {
+  #MS az graph query to find and return a list of all AKS tagged to be included in the auto-shutdown process.
+  log "----------------------------------------------"
+  log "Running az graph query..."
 
-function get_subscription_clusters() {
-    SUBSCRIPTION_ID=$(jq -r '.id' <<< $subscription)
-    az account set -s $SUBSCRIPTION_ID
-    CLUSTERS=$(az resource list --resource-type Microsoft.ContainerService/managedClusters --query "[?tags.autoShutdown == 'true']" -o json)
+  if [ -z $1 ]; then
+    env_selector=""
+  elif [ $1 == "untagged" ]; then
+    env_selector="| where isnull(tags.environment)"
+  else
+    env_selector="| where tags.environment == '$1'"
+  fi
+
+  az graph query -q "
+    resources
+    | where type =~ 'Microsoft.ContainerService/managedClusters'
+    | where tags.autoShutdown == 'true'
+    $env_selector
+    | project name, resourceGroup, subscriptionId, ['tags'], properties, ['id']
+    " --first 1000 -o json
+
+  log "az graph query complete"
 }
 
 function get_cluster_details() {
     RESOURCE_GROUP=$(jq -r '.resourceGroup' <<< $cluster)
     CLUSTER_NAME=$(jq -r '.name' <<< $cluster)
     STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $cluster)
+    CLUSTER_STATUS=$(jq -r '.powerState.code' <<< $cluster)
 }
 
 function check_cluster_status() {

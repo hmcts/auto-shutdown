@@ -10,14 +10,13 @@ source scripts/common/common-functions.sh
 MODE=${1:-start}
 registrySlackWebhook=$2
 
-SUBSCRIPTIONS=$(az account list -o json)
-jq -c '.[]' <<< $SUBSCRIPTIONS | while read subscription; do
-    get_subscription_clusters
+CLUSTERS=$(get_clusters)
+clusters_count=$(jq -c -r '.count' <<< $CLUSTERS)
+log "$clusters_count AKS Clusters found"
+log "----------------------------------------------"
 
-jq -c '.[]' <<< $CLUSTERS | while read cluster; do
+jq -c '.data[]' <<< $CLUSTERS | while read cluster; do
     get_cluster_details
-    cluster_data=$(az aks show -n $CLUSTER_NAME -g $RESOURCE_GROUP -o json)
-    cluster_status=$(jq -r '.powerState.code' <<< "$cluster_data")
 
     if [[ $cluster_status == "Stopped" ]]; then
         echo -e "${GREEN}$CLUSTER_NAME is $cluster_status"
@@ -27,5 +26,4 @@ jq -c '.[]' <<< $CLUSTERS | while read cluster; do
     if [[ $MODE == "start" ]]; then
       check_cluster_status
     fi
-done
 done
