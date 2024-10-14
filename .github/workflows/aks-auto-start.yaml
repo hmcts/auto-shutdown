@@ -1,15 +1,10 @@
 name: aks-auto-start
 on:
   workflow_dispatch:
-    inputs:
-      DRYRUN:
-        options:
-          - "false"
-          - "true"
   schedule:
     - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
 env:
-  DRYRUN: ${{ inputs.DRYRUN }}
+  DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
   id-token: write
 jobs:
@@ -26,16 +21,48 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
 
-      - name: AKS Auto Start
-        run: ./scripts/aks/auto-start-stop.sh start
+      - name: Staging - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start staging
         env:
-          DEV_ENV: ${{ secrets.DEV_ENV }}
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Test - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start testing
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Demo - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start demo
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Development - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start development
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Sandbox - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start sandbox
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: ITHC - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start ithc
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Untagged - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start untagged
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
 
       - name: Wait for cluster to start
+        if: env.DEV_ENV != 'true'
         run: sleep 600
 
       - name: AKS Auto Shutdown status check
+        #if: env.DEV_ENV != 'true'
         run: ./scripts/aks/auto-shutdown-status.sh start ${{ secrets.REGISTRYSLACKWEBHOOK }}
