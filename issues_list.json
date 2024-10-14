@@ -91,5 +91,21 @@
         "stay_on_late": "Yes",
         "justification": "Prep for 3 days workshop",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/805"
+    },
+    {
+        "start_date": "14-10-2024",
+        "end_date": "15-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "Private law",
+        "change_jira_id": "PRL-6089",
+        "stay_on_late": "Yes",
+        "justification": "UAT issue fixes & verification",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/806"
     }
 ]
