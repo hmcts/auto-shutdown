@@ -46,7 +46,7 @@ jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
   if [[ $SKIP == "false" ]]; then
     if [[ $DEV_ENV != "true" ]]; then
       aks_state_messages
-      az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster
+      az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on cluster
 
     else
       ts_echo_color BLUE "Development Env: simulating state commands only."

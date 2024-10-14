@@ -28,6 +28,7 @@ function get_cluster_details() {
     CLUSTER_NAME=$(jq -r '.name' <<<$cluster)
     STARTUP_MODE=$(jq -r '.tags.startupMode' <<<$cluster)
     CLUSTER_STATUS=$(jq -r '.powerState.code' <<<$cluster)
+    SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$cluster)
 }
 
 function check_cluster_status() {
