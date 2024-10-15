@@ -107,5 +107,21 @@
         "stay_on_late": "Yes",
         "justification": "UAT issue fixes & verification",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/806"
+    },
+    {
+        "start_date": "04-11-2024",
+        "end_date": "05-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "civil",
+        "change_jira_id": "CIV-15570",
+        "stay_on_late": "Yes",
+        "justification": "release of CARM feature",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
     }
 ]
