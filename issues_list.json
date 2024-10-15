@@ -123,5 +123,21 @@
         "stay_on_late": "Yes",
         "justification": "release of CARM feature",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
+    },
+    {
+        "start_date": "15-10-2024",
+        "end_date": "18-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Private law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6308",
+        "stay_on_late": "Yes",
+        "justification": "Private law",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/810"
     }
 ]
