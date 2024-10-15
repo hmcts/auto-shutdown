@@ -65,4 +65,4 @@ jobs:
 
       - name: AKS Auto Shutdown status check
         #if: env.DEV_ENV != 'true'
-        run: ./scripts/aks/auto-shutdown-status.sh start ${{ secrets.REGISTRYSLACKWEBHOOK }}
+        run: ./scripts/aks/auto-shutdown-status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
