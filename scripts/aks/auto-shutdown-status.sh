@@ -14,8 +14,7 @@ fi
 
 CLUSTERS=$(get_clusters)
 clusters_count=$(jq -c -r '.count' <<<$CLUSTERS)
-log "$clusters_count AKS Clusters found"
-log "----------------------------------------------"
+ts_echo "$clusters_count AKS Clusters found"
 
 jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
   get_cluster_details
