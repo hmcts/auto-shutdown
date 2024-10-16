@@ -1,22 +1,19 @@
 #!/usr/bin/env bash
 
 shopt -s nocasematch
+# Source shared function scripts
 source scripts/aks/common-functions.sh
 source scripts/common/common-functions.sh
 
 MODE=${1:-start}
 SKIP="false"
 
-if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
-  echo "Invalid MODE. Please use 'start' or 'stop'."
-  exit 1
-fi
-
 CLUSTERS=$(get_clusters)
 clusters_count=$(jq -c -r '.count' <<<$CLUSTERS)
 ts_echo "$clusters_count AKS Clusters found"
 
 jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
+# Function that returns the Resource Group, Id and Name of the AKS Cluster and its current state as variables
   get_cluster_details
   cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
 
