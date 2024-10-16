@@ -1,53 +1,54 @@
 #!/usr/bin/env bash
-# set -x
-shopt -s nocasematch
 
-# Source shared function scripts
+shopt -s nocasematch
+AMBER='\033[1;33m'
+GREEN='\033[0;32m'
 source scripts/aks/common-functions.sh
 source scripts/common/common-functions.sh
 
-# Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
 MODE=${1:-start}
-notificationSlackWebhook=$2
 SKIP="false"
 
-# Catch problems with MODE input, must be one of Start/Stop
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
-    echo "Invalid MODE. Please use 'start' or 'stop'."
-    exit 1
+  echo "Invalid MODE. Please use 'start' or 'stop'."
+  exit 1
 fi
 
 CLUSTERS=$(get_clusters)
 clusters_count=$(jq -c -r '.count' <<<$CLUSTERS)
-ts_echo "$clusters_count AKS Clusters found"
+log "$clusters_count AKS Clusters found"
+log "----------------------------------------------"
 
-# For each AKS Cluster found in the function `get_clusters` start another loop
 jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
-    # Function that returns the Resource Group, Id and Name of the AKS Cluster and its current state as variables
-    get_cluster_details
+  get_cluster_details
+  cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
 
-    # Set variables based on inputs which are used to decide when to SKIP an environment
-    if [[ $cluster_env == "sbox" ]]; then
-        cluster_env=${cluster_env/#sbox/Sandbox}
-    elif [[ $cluster_env == "ptlsbox" ]]; then
-        cluster_env=${cluster_env/ptlsbox/Sandbox}
-    elif [[ $cluster_env == "stg" ]]; then
-        cluster_env=${cluster_env/stg/Staging}
-    fi
+  if [[ $cluster_env == "sbox" ]]; then
+    cluster_env=${cluster_env/#sbox/Sandbox}
+  elif [[ $cluster_env == "ptlsbox" ]]; then
+    cluster_env=${cluster_env/ptlsbox/Sandbox}
+  elif [[ $cluster_env == "stg" ]]; then
+    cluster_env=${cluster_env/stg/Staging}
+  fi
 
-    cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
-    cluster_business_area=${cluster_business_area/ss/cross-cutting}
+  cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
+  cluster_business_area=${cluster_business_area/ss/cross-cutting}
+
+  log "====================================================="
+  log "Processing Cluster: $CLUSTER_NAME"
+  log "====================================================="
+
+  log "checking skip logic for cluster_env: $cluster_env, cluster_business_area: $cluster_business_area, mode: $MODE"
 
     # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
     # based on the issues_list.json file which contains user requests to keep environments online after normal hours
     SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
 
     # Setup message output templates for later use
-    logMessage="Cluster: $CLUSTER_NAME in Subscription: $SUBSCRIPTION  ResourceGroup: $RESOURCE_GROUP is in $CLUSTER_STATUS state after $MODE action"
-    slackMessage="Cluster: *$CLUSTER_NAME* in Subscription: *$SUBSCRIPTION* is in *$CLUSTER_STATUS* state after *$MODE* action"
+    logMessage="SKIP was $SKIP on Cluster: $CLUSTER_NAME in Subscription: $SUBSCRIPTION  ResourceGroup: $RESOURCE_GROUP is in $CLUSTER_STATUS state after $MODE action"
+    slackMessage="SKIP was $SKIP on Cluster: *$CLUSTER_NAME* in Subscription: *$SUBSCRIPTION* is in *$CLUSTER_STATUS* state after *$MODE* action"
 
-    # If SKIP is false then we progress with the status check for the particular Flexible server in this loop run, if SKIP is true then do nothing
+    # If SKIP is false then we progress with the status check for the particular AKS Cluster in this loop run, if SKIP is true then do nothing
     if [[ $SKIP == "false" ]]; then
         # Check state of the AKS Cluster and print output as required
         # Depending on the value of MODE a notification will also be sent
@@ -73,6 +74,6 @@ jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
             ;;
         esac
     else
-        ts_echo_color AMBER "Cluster: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
+        ts_echo_color AMBER "Cluster: $CLUSTER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
     fi
 done
