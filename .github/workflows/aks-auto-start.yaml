@@ -51,6 +51,12 @@ jobs:
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
+      #Production is referenced here to include the PTL clusters, these are the only production clusters that will be impacted.
+      - name: PROD - AKS Auto Start
+        run: ./scripts/aks/auto-start-stop.sh start production
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
       - name: Untagged - AKS Auto Start
         run: ./scripts/aks/auto-start-stop.sh start untagged
         env:
