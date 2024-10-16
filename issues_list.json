@@ -56,5 +56,19 @@
         "stay_on_late": "Yes",
         "justification": "Private law",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/810"
+    },
+    {
+        "start_date": "16-10-2024",
+        "end_date": "17-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "IDAM",
+        "change_jira_id": "idam Demo",
+        "stay_on_late": "Yes",
+        "justification": "Idam Demo issue requires jenkins and AKS for demo to be up for resolution and testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/813"
     }
 ]
