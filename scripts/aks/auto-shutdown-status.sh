@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 shopt -s nocasematch
-AMBER='\033[1;33m'
-GREEN='\033[0;32m'
 source scripts/aks/common-functions.sh
 source scripts/common/common-functions.sh
 
@@ -46,7 +44,7 @@ jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
 
     # Setup message output templates for later use
     logMessage="SKIP was $SKIP on Cluster: $CLUSTER_NAME in Subscription: $SUBSCRIPTION  ResourceGroup: $RESOURCE_GROUP is in $CLUSTER_STATUS state after $MODE action"
-    slackMessage="SKIP was $SKIP on Cluster: *$CLUSTER_NAME* in Subscription: *$SUBSCRIPTION* is in *$CLUSTER_STATUS* state after *$MODE* action"
+    slackMessage="Cluster: *$CLUSTER_NAME* in Subscription: *$SUBSCRIPTION* is in *$CLUSTER_STATUS* state after *$MODE* action"
 
     # If SKIP is false then we progress with the status check for the particular AKS Cluster in this loop run, if SKIP is true then do nothing
     if [[ $SKIP == "false" ]]; then
