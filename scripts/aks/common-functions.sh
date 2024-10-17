@@ -1,4 +1,13 @@
 #!/bin/bash
+shopt -s nocasematch
+
+# Function to convert a string to lowercase
+to_lowercase() {
+    local input="$1"          
+    local lowercase="${input,,}"  # Convert to lowercase using parameter expansion
+    echo "$lowercase"
+}
+
 function get_clusters() {
     #MS az graph query to find and return a list of all AKS tagged to be included in the auto-shutdown process.
     log "----------------------------------------------"
@@ -12,11 +21,18 @@ function get_clusters() {
         env_selector="| where tags.environment == '$1'"
     fi
 
+    if [ -z $2 ]; then
+        area_selector=""
+    else
+        area_selector="| where tags.businessArea == '$2'"
+    fi
+
     az graph query -q "
     resources
     | where type =~ 'Microsoft.ContainerService/managedClusters'
     | where tags.autoShutdown == 'true'
     $env_selector
+    $area_selector
     | project name, resourceGroup, subscriptionId, ['tags'], properties, ['id']
     " --first 1000 -o json
 
