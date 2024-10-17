@@ -2,7 +2,7 @@ name: AKS Manual Start
 on:
   workflow_dispatch:
     inputs:
-      PROJECT:
+      SELECTED_AREA:
         type: choice
         description: "Business area"
         options:
@@ -20,17 +20,10 @@ on:
           - ITHC
           - PTL
           - PTLSBOX
-      INSTANCES:
-        type: choice
-        description: "Cluster"
-        options:
-          - All
-          - "00"
-          - "01"
 env:
-  PROJECT: ${{ inputs.PROJECT }}
+  SELECTED_AREA: ${{ inputs.SELECTED_AREA }}
   SELECTED_ENV: ${{ inputs.SELECTED_ENV }}
-  INSTANCES: ${{ inputs.INSTANCES }}
+  DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
   id-token: write
 jobs:
