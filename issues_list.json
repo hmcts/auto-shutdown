@@ -85,5 +85,23 @@
         "stay_on_late": "Yes",
         "justification": "PRE will be releasing 4.0.0 which involves swapping out Media Services",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/816"
+    },
+    {
+        "start_date": "18-10-2024",
+        "end_date": "21-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL",
+            " ITHC"
+        ],
+        "business_area": "cft",
+        "team_name": "Private law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
+        "stay_on_late": "Yes",
+        "justification": "Needed for testing features before business walkthrough",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/819"
     }
 ]
