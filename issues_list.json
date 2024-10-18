@@ -58,35 +58,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/810"
     },
     {
-        "start_date": "16-10-2024",
-        "end_date": "17-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "IDAM",
-        "change_jira_id": "idam Demo",
-        "stay_on_late": "Yes",
-        "justification": "Idam Demo issue requires jenkins and AKS for demo to be up for resolution and testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/813"
-    },
-    {
-        "start_date": "17-10-2024",
-        "end_date": "17-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Pre Recorded Evidence",
-        "change_jira_id": "CHG5018204",
-        "stay_on_late": "Yes",
-        "justification": "PRE will be releasing 4.0.0 which involves swapping out Media Services",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/816"
-    },
-    {
         "start_date": "18-10-2024",
         "end_date": "21-10-2024",
         "request_type": "stop",
