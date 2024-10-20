@@ -75,5 +75,19 @@
         "stay_on_late": "No",
         "justification": "IA",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/820"
+    },
+    {
+        "start_date": "20-10-2024",
+        "end_date": "20-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Testing",
+        "change_jira_id": "N/A",
+        "stay_on_late": "No",
+        "justification": "XUI Performance Testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/822"
     }
 ]
