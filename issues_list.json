@@ -60,37 +60,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/819"
     },
     {
-        "start_date": "18-10-2024",
-        "end_date": "20-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration and Asylum Service",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RIA-9590",
-        "stay_on_late": "No",
-        "justification": "IA",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/820"
-    },
-    {
-        "start_date": "20-10-2024",
-        "end_date": "20-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance Testing",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "XUI Performance Testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/822"
-    },
-    {
         "start_date": "21-10-2024",
         "end_date": "22-10-2024",
         "request_type": "stop",
