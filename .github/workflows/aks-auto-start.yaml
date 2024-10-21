@@ -64,12 +64,3 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
-
-      #15 minute wait
-      - name: Wait for cluster to start
-        if: env.DEV_ENV != 'true'
-        run: sleep 900
-
-      - name: AKS Auto Shutdown status check
-        #if: env.DEV_ENV != 'true'
-        run: ./scripts/aks/auto-shutdown-status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

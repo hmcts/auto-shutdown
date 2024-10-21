@@ -50,11 +50,3 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
-
-      - name: Wait for SFTP Servers to stop
-        if: env.DEV_ENV != 'true'
-        run: sleep 300
-
-      - name: sftp status check
-        if: env.DEV_ENV != 'true'
-        run: ./scripts/blob-storage/sftp-check-status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

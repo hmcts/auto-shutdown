@@ -56,11 +56,3 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
-
-      - name: Wait for Sql Managed Instances to start
-        if: env.DEV_ENV != 'true'
-        run: sleep 600
-
-      - name: Sql Managed Instance status check
-        if: env.DEV_ENV != 'true'
-        run: ./scripts/sqlmi/sqlmistatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}

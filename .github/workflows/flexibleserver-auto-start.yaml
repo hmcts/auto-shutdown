@@ -57,11 +57,3 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
-
-      - name: Wait for Flexible servers to start
-        if: env.DEV_ENV != 'true'
-        run: sleep 600
-
-      - name: Postgres Flexible server status check
-        if: env.DEV_ENV != 'true'
-        run: ./scripts/flexible-server/flexserverstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
