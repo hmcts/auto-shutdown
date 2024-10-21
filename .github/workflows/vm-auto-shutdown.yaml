@@ -24,9 +24,3 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
-
-      - name: Wait for VMs to stop
-        run: sleep 600
-
-      - name: VM Auto Shutdown status check
-        run: ./scripts/vm/vmstatus.sh deallocate ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
