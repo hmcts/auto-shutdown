@@ -103,5 +103,22 @@
         "stay_on_late": "Yes",
         "justification": "OOH Data migration",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/828"
+    },
+    {
+        "start_date": "22-10-2024",
+        "end_date": "25-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Private law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
+        "stay_on_late": "Yes",
+        "justification": "Need for workshop testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/829"
     }
 ]
