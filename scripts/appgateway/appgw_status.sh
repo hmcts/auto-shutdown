@@ -59,12 +59,12 @@ jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
             *"Stopped"*)
                 ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
                 [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
-                add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway"
+                add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway" "$MODE"
                 ;;
             *)
                 ts_echo_color AMBER "$logMessage"
                 auto_shutdown_notification ":yellow_circle: $slackMessage"
-                add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway"
+                add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway" "$MODE"
                 ;;
         esac
     else

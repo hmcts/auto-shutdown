@@ -64,3 +64,12 @@ jobs:
       - name: App Gateway Auto start status check
         if: env.DEV_ENV != 'true'
         run: ./scripts/appgateway/appgw_status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+      
+      - name: Commit JSON status updates to master
+        continue-on-error: true
+        run: |
+          git config user.name hmcts-platform-operations
+          git config user.email github-platform-operations@hmcts.net
+          git add ./status/appgateway_status_updates_start.json
+          git commit -m "Updating appgateway start status json file"
+          git push

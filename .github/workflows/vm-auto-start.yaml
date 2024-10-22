@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '30 5 * * 1-5' # Every weekday at 6:30am BST
+env:
+  GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
 permissions:
   id-token: write
 jobs:
@@ -30,3 +32,12 @@ jobs:
         
       - name: VM Auto start status check
         run: ./scripts/vm/vmstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+      
+      - name: Commit JSON status updates to master
+        continue-on-error: true
+        run: |
+          git config user.name hmcts-platform-operations
+          git config user.email github-platform-operations@hmcts.net
+          git add ./status/vm_status_updates_start.json
+          git commit -m "Updating VM start status json file"
+          git push

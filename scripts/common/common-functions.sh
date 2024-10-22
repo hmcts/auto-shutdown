@@ -66,8 +66,9 @@ function add_to_json() {
   local resource="$2"
   local statusMessage="$3"
   local resourceType="$4"
+  local mode="$5"
   # Send to json file dependent on resource type
-  local pathToJson="status/${resourceType}_status_updates.json"
+  local pathToJson="status/${resourceType}_status_updates_${mode}.json"
 
   # Create JSON file if it does not exist or is empty
   if [[ ! -f "$pathToJson" || ! -s "$pathToJson" ]]; then
