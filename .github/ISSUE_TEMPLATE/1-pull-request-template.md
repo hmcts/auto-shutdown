@@ -2,6 +2,7 @@
 title: "{{ env.TITLE }}"
 labels: pull-request
 ---
+
 ### Change or Jira reference
 
 {{ env.PULL_REQUEST }}
@@ -13,6 +14,10 @@ labels: pull-request
 ### Business area
 
 {{ env.BUSINESS_AREA }}
+
+### Team/Application Name
+
+{{ env.TEAM_NAME }}
 
 ### Environment
 

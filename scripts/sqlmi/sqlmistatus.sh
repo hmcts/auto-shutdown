@@ -56,6 +56,7 @@ jq -c '.[]' <<<$MI_SQL_SERVERS | while read server; do
             *"Ready"*)
                 ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
                 [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "sql" "$MODE"
                 ;;
             *"Stopped"*)
                 ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"

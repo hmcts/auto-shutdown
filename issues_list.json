@@ -1,79 +1,125 @@
 [
     {
-        "start_date": "28-08-2024",
-        "end_date": "30-09-2024",
+        "start_date": "03-10-2024",
+        "end_date": "15-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cross-cutting",
+        "change_jira_id": "VIH-11010",
+        "stay_on_late": "No",
+        "justification": "SDS TEST for testing for incident",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/767"
+    },
+    {
+        "start_date": "03-10-2024",
+        "end_date": "15-11-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging"
         ],
         "business_area": "cross-cutting",
-        "change_jira_id": "INC5629229",
+        "change_jira_id": "VIH-11010",
         "stay_on_late": "Yes",
-        "justification": "SDS STG for testing for incident",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/719"
+        "justification": "To investigate CPU issue on VH service",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/768"
     },
     {
-        "start_date": "13-10-2024",
-        "end_date": "14-10-2024",
+        "start_date": "04-11-2024",
+        "end_date": "05-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "civil",
+        "change_jira_id": "CIV-15570",
+        "stay_on_late": "Yes",
+        "justification": "release of CARM feature",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
+    },
+    {
+        "start_date": "18-10-2024",
+        "end_date": "21-10-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
             " Preview / Dev",
             " Demo",
-            " PTL"
+            " PTL",
+            " ITHC"
         ],
         "business_area": "cft",
-        "change_jira_id": "CIV-15025",
-        "stay_on_late": "No",
-        "justification": "Civils require AAT to continue testing HMC integration for release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/741"
+        "team_name": "Private law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
+        "stay_on_late": "Yes",
+        "justification": "Needed for testing features before business walkthrough",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/819"
     },
     {
-        "start_date": "26-09-2024",
-        "end_date": "30-09-2024",
+        "start_date": "21-10-2024",
+        "end_date": "22-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "IDAM",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9487",
+        "stay_on_late": "Yes",
+        "justification": "Deployment of Forgerock 7.5",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/825"
+    },
+    {
+        "start_date": "21-10-2024",
+        "end_date": "22-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Private law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
+        "stay_on_late": "Yes",
+        "justification": "Needed for testing features before business walkthrough",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/826"
+    },
+    {
+        "start_date": "21-10-2024",
+        "end_date": "22-10-2024",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
             " Preview / Dev",
             " Demo",
-            " PTL"
+            " PTL",
+            " Test / Perftest"
         ],
         "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
+        "team_name": "Private law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
         "stay_on_late": "Yes",
-        "justification": "Needed for delivering critical items for the release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/760"
+        "justification": "Needed for walkthrough session",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/827"
     },
     {
-        "start_date": "02-10-2024",
-        "end_date": "02-10-2024",
+        "start_date": "23-10-2024",
+        "end_date": "23-10-2024",
         "request_type": "stop",
         "environment": [
-            "AAT / Staging",
+            "PTL",
             " Preview / Dev",
-            " Demo",
-            " PTL"
+            " AAT / Staging"
         ],
         "business_area": "cft",
-        "change_jira_id": "https://mojcppprod.service-now.com/nav_to.do?uri=%2Fchange_request.do%3Fsys_id%3D70ccb1961bb45e5400bfb8c8dc4bcb81%26sysparm_view%3D%26sysparm_domain%3Dnull%26sysparm_domain_scope%3Dnull",
+        "team_name": "Probate",
+        "change_jira_id": "CHG5018518",
         "stay_on_late": "Yes",
-        "justification": "Civil release- https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+CHG5018154+-+ES+Reindex+for+Civil-Rel-5.0-Citizen+UI+2+-+Release+Implementation+Plan",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/762"
-    },
-    {
-        "start_date": "30-09-2024",
-        "end_date": "01-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6023",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/763"
+        "justification": "OOH Data migration",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/828"
     }
 ]

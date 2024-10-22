@@ -2,9 +2,7 @@ name: VM-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 5 * * 1-5' # Every weekday at 6:30am BST
-env:
-  GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
+    - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
 permissions:
   id-token: write
 jobs:
@@ -13,7 +11,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: 'Az CLI login'
+      - name: "Az CLI login"
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
@@ -26,18 +24,3 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
-
-      - name: Wait for VMs to start
-        run: sleep 600
-        
-      - name: VM Auto start status check
-        run: ./scripts/vm/vmstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
-      
-      - name: Commit JSON status updates to master
-        continue-on-error: true
-        run: |
-          git config user.name hmcts-platform-operations
-          git config user.email github-platform-operations@hmcts.net
-          git add ./status/vm_status_updates_start.json
-          git commit -m "Updating VM start status json file"
-          git push

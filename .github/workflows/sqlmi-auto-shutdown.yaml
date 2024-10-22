@@ -2,7 +2,7 @@ name: sql-managed-instance-auto-shutdown
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *' # Every day at 8pm BST
+    - cron: "0 19 * * *" # Every day at 8pm BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: 'Az CLI login'
+      - name: "Az CLI login"
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
@@ -56,20 +56,3 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
-
-      - name: Wait for Sql Managed Instance to stop
-        if: env.DEV_ENV != 'true'
-        run: sleep 600
-        
-      - name: Sql Managed Instance status check
-        if: env.DEV_ENV != 'true'
-        run: ./scripts/sqlmi/sqlmistatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
-
-      - name: Commit JSON status updates to master
-        continue-on-error: true
-        run: |
-          git config user.name hmcts-platform-operations
-          git config user.email github-platform-operations@hmcts.net
-          git add ./status/sql_status_updates_stop.json
-          git commit -m "Updating sql stop status json file"
-          git push

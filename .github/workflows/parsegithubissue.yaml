@@ -10,8 +10,8 @@ on:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  APPROVAL_STATE: "Pending Approval"
-  APPROVAL_COMMENT: "Pending Approval"
+  APPROVAL_STATE: 'Pending Approval'
+  APPROVAL_COMMENT: 'Pending Approval'
   SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_OAUTH_TOKEN }}
   GH_REPO: ${{ github.repository }}
   NUMBER: ${{ github.event.issue.number }}
@@ -23,12 +23,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.issue.user.login != 'renovate[bot]' && github.actor != 'hmcts-platform-operations' && !contains(github.event.issue.labels.*.name, 'cancel') && !contains(github.event.issue.labels.*.name, 'pull-request')
     steps:
-    #Adds label for user feedback
+      #Adds label for user feedback
       - name: add processing label
         run: gh issue edit "$NUMBER" --add-label "$LABELS"
         env:
           LABELS: processing
-    #Comment if approver is equal to requester
+      #Comment if approver is equal to requester
       - name: Cannot self approve comment
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
         uses: peter-evans/create-or-update-comment@v4.0.0
@@ -36,92 +36,108 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Requester cannot also be approver - please seek a second approver.
-    #Remove any approval labels if approver is equal to requester
+      #Remove any approval labels if approver is equal to requester
       - name: Remove approved label
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved')
         run: gh issue edit "$NUMBER" --remove-label "$LABELS"
         env:
           LABELS: approved,auto-approved
-    #End workflow if user is equal to requester
-      - name: exit flow if approver == requester 
+      #End workflow if user is equal to requester
+      - name: exit flow if approver == requester
         if: contains(github.event.issue.labels.*.name, 'approved') && github.event.issue.user.login == github.actor || contains(github.event.issue.labels.*.name, 'auto-approved') && github.event.issue.user.login == github.actor
         run: exit 1
 
-
-    #if denied label is applied, set approval environment variables appropriately 
+      #if denied label is applied, set approval environment variables appropriately
       - name: set denied status
         if: contains(github.event.issue.labels.*.name, 'denied')
         run: |
           echo "APPROVAL_STATE=Denied" >> $GITHUB_ENV
           echo "APPROVAL_COMMENT=Denied by" >> $GITHUB_ENV
-          
-    #if approval state == denied, close issue 
+
+      #if approval state == denied, close issue
       - name: Close Issue with denied
         if: env.APPROVAL_STATE == 'Denied'
         uses: peter-evans/close-issue@v3
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment: | 
+          comment: |
             Your request has been denied by ${{ github.actor }}, most likely due to associated costs being too high.
             Closing issue.
-    #if approval state == denied, remove processing and pending approval labels
+      #if approval state == denied, remove processing and pending approval labels
       - name: Remove labels
         if: env.APPROVAL_STATE == 'Denied'
         run: gh issue edit "$NUMBER" --remove-label "$LABELS"
         env:
           LABELS: Processing,Pending approval
-    #Remove labels from a previous run if present
+      #Remove labels from a previous run if present
       - name: Remove labels
         if: contains(github.event.issue.labels.*.name, 'Cost Error') || contains(github.event.issue.labels.*.name, 'Pending Approval') || contains(github.event.issue.labels.*.name, 'Success') || contains(github.event.issue.labels.*.name, 'Very high cost')
         run: gh issue edit "$NUMBER" --remove-label "$LABELS"
         env:
           LABELS: Cost Error,Pending approval,Very high cost
-    #Allows workflow to access repo
+      #Allows workflow to access repo
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
-    #Parse issue form that trigger workflow
+      #Get issue body
+      - name: Get issue body
+        id: get_issue_body
+        run: |
+          gh issue view --repo hmcts/auto-shutdown ${{ github.event.issue.number }} --json body | jq -r '.body' > body.txt
+          sed -i "s/'//g" body.txt 
+          cat body.txt
+      #Create a multiline variable so it can be read by parser
+      - name: multiline github var
+        run: |
+          echo 'ISSUE_BODY<<EOF' >> $GITHUB_ENV
+          while read LINE; do
+          echo "$LINE" >> $GITHUB_ENV;
+          done < body.txt
+          echo 'EOF' >> $GITHUB_ENV
+          rm body.txt
+      #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
         uses: stefanbuck/github-issue-parser@v3.1.1
         with:
+          issue-body: ${{ env.ISSUE_BODY }}
           template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
-    #Save parsed date into environment variables  
+      #Save parsed date into environment variables
       - name: Save parsed jsonString data
-        run: | 
+        run: |
           echo '${{ steps.parse_issue.outputs.jsonString }}' > NEW_DATA.json
           echo NEW_DATA=$(cat NEW_DATA.json | jq -c | jq '.form_environment |= split(",")') >> $GITHUB_ENV
           rm NEW_DATA.json
           echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
           echo ISSUE_NUMBER='${{ github.event.issue.number }}' >> $GITHUB_ENV
-    #Setup Python
+      #Setup Python
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11' 
-    # Install Python requirements
+          python-version: '3.11'
+      # Install Python requirements
       - name: Install Python Requirements
         run: |
           pip3 install -r requirements.txt
-    # Run custom python script to handle form data / apply form verification
+      # Run custom python script to handle form data / apply form verification
       - name: process form data
         continue-on-error: true
         run: |
           python ./scripts/file_handling.py
-    # Remove label if present
+      # Remove label if present
       - name: Remove error labels
         if: env.PROCESS_SUCCESS == 'true' && contains(github.event.issue.labels.*.name, 'Error in form')
         run: gh issue edit "$NUMBER" --remove-label "$LABELS"
         env:
           LABELS: Error in form
-    # Add form error label if process_success not equal to true
+      # Add form error label if process_success not equal to true
       - name: Add error label
         if: env.PROCESS_SUCCESS != 'true'
         run: gh issue edit "$NUMBER" --add-label "$LABELS"
         env:
           LABELS: Error in form
-    # Provide any error messages to user as a comment
+      # Provide any error messages to user as a comment
       - name: Create Issue Comment
         if: env.PROCESS_SUCCESS != 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
@@ -130,29 +146,29 @@ jobs:
           body: |
             ${{ env.ISSUE_COMMENT }}
             Please edit this issue and select "Update comment" to resubmit.
-    #End workflow if for processing finds an error
-      - name: exit flow if approver == requester 
+      #End workflow if for processing finds an error
+      - name: exit flow if approver == requester
         if: env.PROCESS_SUCCESS != 'true'
         run: exit 1
-    # Login to Azure CLI (for cost analysis)
+      # Login to Azure CLI (for cost analysis)
       - name: 'Az CLI login'
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-    #Run bash script to get Azure resouce details for cost analysis
+      #Run bash script to get Azure resouce details for cost analysis
       - name: get aks resource details
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
         run: ./scripts/aks/resource-details.sh
-    #Run cost calculator python script
+      #Run cost calculator python script
       - name: process costs
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
         run: |
           python ./scripts/cost-calculator.py || echo "Calculating cost failed"
-    #Send slack message if approval_state == denied
+      #Send slack message if approval_state == denied
       - name: Send denied slack message
         if: env.APPROVAL_STATE == 'Denied'
         run: ./scripts/aks/send-slack-message.sh
@@ -163,6 +179,7 @@ jobs:
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
           BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}
+          TEAM_NAME: ${{ env.TEAM_NAME }}
           START_DATE: ${{ env.START_DATE }}
           END_DATE: ${{ env.END_DATE }}
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
@@ -171,12 +188,12 @@ jobs:
           REQUESTER: ${{ github.event.issue.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
           REVIEWER: ${{ github.actor }}
-          
-    #End workflow if approval state == denied
+
+      #End workflow if approval state == denied
       - name: exit flow if denied
         if: env.APPROVAL_STATE == 'Denied'
         run: exit 1
-    #Add output of cost calculator as a comment to user
+      #Add output of cost calculator as a comment to user
       - name: Add cost details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS != 'true' && !contains(github.event.issue.labels.*.name, 'approved')
         uses: peter-evans/create-or-update-comment@v4.0.0
@@ -184,7 +201,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Total estimated cost of skipping shutdown for the provided dates is **£${{ env.COST_DETAILS_FORMATTED }}**
-    #If cost calculator fails, provide feedback to user as a comment
+      #If cost calculator fails, provide feedback to user as a comment
       - name: Add cost error details as a comment
         if: env.PROCESS_SUCCESS == 'true' && env.ERROR_IN_COSTS == 'true'
         uses: peter-evans/create-or-update-comment@v4.0.0
@@ -198,19 +215,19 @@ jobs:
         run: gh issue edit "$NUMBER" --add-label "$LABELS"
         env:
           LABELS: Cost Error
-    #Set approval_state environment var to auto-approved if cost value is less than £5,000
+      #Set approval_state environment var to auto-approved if cost value is less than £5,000
       - name: set approved status
         if: env.COST_DETAILS < 5000
         run: |
           echo "APPROVAL_STATE=auto-approved" >> $GITHUB_ENV
           echo "APPROVAL_COMMENT=Auto approved" >> $GITHUB_ENV
-    #Add auto approved label if approval_state == auto-approved
+      #Add auto approved label if approval_state == auto-approved
       - name: Add auto-approved label
         if: env.APPROVAL_STATE == 'auto-approved'
         run: gh issue edit "$NUMBER" --add-label "$LABELS"
         env:
           LABELS: auto-approved
-    #Add auto-approval comment if approval_state == auto-approved
+      #Add auto-approval comment if approval_state == auto-approved
       - name: Add auto approval comment
         if: env.APPROVAL_STATE == 'auto-approved'
         uses: peter-evans/create-or-update-comment@v4.0.0
@@ -218,13 +235,13 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             You request has been automatically approved.
-    #If approval_state == Pending Approval add appropriate labels
+      #If approval_state == Pending Approval add appropriate labels
       - name: Add very high cost label
         if: env.APPROVAL_STATE == 'Pending Approval'
         run: gh issue edit "$NUMBER" --add-label "$LABELS"
         env:
           LABELS: Pending approval,Very high cost
-    #If approval_state == Pending Approval && workflow is running at submission time, not approval time.
+      #If approval_state == Pending Approval && workflow is running at submission time, not approval time.
       - name: Very High Cost approval comment
         if: env.APPROVAL_STATE == 'Pending Approval' && github.event.issue.user.login == github.actor
         uses: peter-evans/create-or-update-comment@v4.0.0
@@ -233,13 +250,13 @@ jobs:
           body: |
             Due to the level of cost associated with this request, an approval will be required from any additional person. Note, you cannot approve your own request.
             An approval is provided by adding the "Approved" label to this GitHub issue. See [Review Process](https://github.com/hmcts/auto-shutdown?tab=readme-ov-file#shutdown-exclusion-request---review-process) for additional information.
-    #If approved label is applued, set approval variables.
+      #If approved label is applued, set approval variables.
       - name: set approved status
         if: contains(github.event.issue.labels.*.name, 'approved')
         run: |
           echo "APPROVAL_STATE=Approved" >> $GITHUB_ENV
           echo "APPROVAL_COMMENT=Approved by" >> $GITHUB_ENV
-    #Add approval comment if approval_state == Approved
+      #Add approval comment if approval_state == Approved
       - name: Add auto approval comment
         if: env.APPROVAL_STATE == 'Approved'
         uses: peter-evans/create-or-update-comment@v4.0.0
@@ -247,7 +264,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             ${{ env.APPROVAL_COMMENT }}
-    #Commit issue submission to master if approved or auto-approved.
+      #Commit issue submission to master if approved or auto-approved.
       - name: Commit to master
         if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
         run: |
@@ -259,28 +276,28 @@ jobs:
           commit_tree_url=$(gh browse -c -n)
           commit_url=${commit_tree_url/tree/commit}
           echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
-    #Remove processing label
+      #Remove processing label
       - name: Remove processing label
         run: gh issue edit "$NUMBER" --remove-label "$LABELS"
         env:
           LABELS: Processing
-    #Remove pending approval label if approved
+      #Remove pending approval label if approved
       - name: Remove processing label
         if: env.APPROVAL_STATE == 'Approved'
         run: gh issue edit "$NUMBER" --remove-label "$LABELS"
         env:
           LABELS: Pending approval
-    
-    #Close issue if approved
+
+      #Close issue if approved
       - name: Close Issue with success
         if: env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'Approved' || env.PROCESS_SUCCESS == 'true' && env.APPROVAL_STATE == 'auto-approved'
         uses: peter-evans/close-issue@v3
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment: | 
+          comment: |
             Success! Your [commit](${{ env.COMMIT_URL }}) has been added to the json exclusions file.
             Auto-closing issue.
-    #Send slack message if form parse process is successfull.
+      #Send slack message if form parse process is successfull.
       - name: Send slack message
         if: env.PROCESS_SUCCESS == 'true'
         run: ./scripts/aks/send-slack-message.sh
@@ -291,6 +308,7 @@ jobs:
           CHANGE_JIRA_ID: ${{ env.CHANGE_JIRA_ID }}
           REQUEST_URL: ${{ env.REQUEST_URL }}
           BUSINESS_AREA_ENTRY: ${{ env.BUSINESS_AREA_ENTRY }}
+          TEAM_NAME: ${{ env.TEAM_NAME }}
           START_DATE: ${{ env.START_DATE }}
           END_DATE: ${{ env.END_DATE }}
           COST_DETAILS_FORMATTED: ${{ env.COST_DETAILS_FORMATTED }}
