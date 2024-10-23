@@ -42,53 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
     },
     {
-        "start_date": "21-10-2024",
-        "end_date": "22-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "IDAM",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9487",
-        "stay_on_late": "Yes",
-        "justification": "Deployment of Forgerock 7.5",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/825"
-    },
-    {
-        "start_date": "21-10-2024",
-        "end_date": "22-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Private law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
-        "stay_on_late": "Yes",
-        "justification": "Needed for testing features before business walkthrough",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/826"
-    },
-    {
-        "start_date": "21-10-2024",
-        "end_date": "22-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL",
-            " Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Private law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6015",
-        "stay_on_late": "Yes",
-        "justification": "Needed for walkthrough session",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/827"
-    },
-    {
         "start_date": "23-10-2024",
         "end_date": "23-10-2024",
         "request_type": "stop",
