@@ -56,17 +56,20 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
             ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
             if [[ $MODE == "stop" ]]; then
                 auto_shutdown_notification ":red_circle: $slackMessage"
+                add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server" "$MODE"
             fi
             ;;
         *"Stopped"*)
             ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
             if [[ $MODE == "start" ]]; then
                 auto_shutdown_notification ":red_circle: $slackMessage"
+                add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server" "$MODE"
             fi
             ;;
         *)
             ts_echo_color AMBER "$logMessage"
             auto_shutdown_notification ":yellow_circle: $slackMessage"
+            add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server" "$MODE"
             ;;
         esac
     else

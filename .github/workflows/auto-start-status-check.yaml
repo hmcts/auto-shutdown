@@ -39,3 +39,14 @@ jobs:
 
       - name: Output log file
         run: ./scripts/common/log-output.sh
+
+      - name: Commit status update json files
+        continue-on-error: true
+        run: |
+          git config user.name hmcts-platform-operations
+          git config user.email github-platform-operations@hmcts.net
+          git pull
+          git checkout -b testing-json-file-updates
+          git add ./status
+          git commit -m "Update json files start status updates"
+          git push
