@@ -120,5 +120,19 @@
         "stay_on_late": "Yes",
         "justification": "Need for workshop testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/829"
+    },
+    {
+        "start_date": "25-10-2024",
+        "end_date": "27-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "IDAM",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9480",
+        "stay_on_late": "Yes",
+        "justification": "Jenkins and AKS required for testing once upgraded",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/830"
     }
 ]
