@@ -69,6 +69,9 @@ function add_to_json() {
   local mode="$5"
   # Send to json file dependent on resource type
   local pathToJson="status/${resourceType}_status_updates_${mode}.json"
+  
+  # Create dir if not exists
+  mkdir -p status
 
   # Create JSON file if it does not exist or is empty
   if [[ ! -f "$pathToJson" || ! -s "$pathToJson" ]]; then
