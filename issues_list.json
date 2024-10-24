@@ -87,5 +87,22 @@
         "stay_on_late": "Yes",
         "justification": "Jenkins and AKS required for testing once upgraded",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/830"
+    },
+    {
+        "start_date": "24-10-2024",
+        "end_date": "25-10-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Demo",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration & Asylum",
+        "change_jira_id": "CHG5018413",
+        "stay_on_late": "Yes",
+        "justification": "IA",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/835"
     }
 ]
