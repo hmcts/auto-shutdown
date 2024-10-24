@@ -42,22 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
     },
     {
-        "start_date": "23-10-2024",
-        "end_date": "23-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " Preview / Dev",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Probate",
-        "change_jira_id": "CHG5018518",
-        "stay_on_late": "Yes",
-        "justification": "OOH Data migration",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/828"
-    },
-    {
         "start_date": "22-10-2024",
         "end_date": "25-10-2024",
         "request_type": "stop",
