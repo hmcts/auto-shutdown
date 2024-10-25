@@ -49,4 +49,4 @@ jobs:
           git checkout -b testing-json-file-updates
           git add ./status
           git commit -m "Update json files start status updates"
-          git push
+          git push --set-upstream origin testing-json-file-updates-stop
