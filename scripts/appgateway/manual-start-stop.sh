@@ -79,6 +79,6 @@ jq -c '.data[]'<<< $APPLICATION_GATEWAYS | while read -r application_gateway; do
     fi
 
 	# Get the AppGateway state after the operation
-    RESULT=$(az network application-gateway show --name "$APPLICATION_GATEWAY_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .properties.operationalState)
+    RESULT=$(az network application-gateway show --name "$APPLICATION_GATEWAY_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .operationalState)
     ts_echo "Application Gateway: $APPLICATION_GATEWAY_NAME is in state: $RESULT"
 done
