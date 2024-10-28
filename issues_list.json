@@ -43,34 +43,6 @@
     },
     {
         "start_date": "25-10-2024",
-        "end_date": "27-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "IDAM",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9480",
-        "stay_on_late": "Yes",
-        "justification": "Jenkins and AKS required for testing once upgraded",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/830"
-    },
-    {
-        "start_date": "25-10-2024",
-        "end_date": "27-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Civil Perftest",
-        "change_jira_id": "CIV-10435",
-        "stay_on_late": "Yes",
-        "justification": "need to run the script over long time to identify the issues and then make the fixes as my work is coming to an end",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/838"
-    },
-    {
-        "start_date": "25-10-2024",
         "end_date": "28-10-2024",
         "request_type": "stop",
         "environment": [
