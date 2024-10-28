@@ -1,0 +1,194 @@
+[
+  {
+    "id": "a94a1244-1497-42c8-bc0f-ffbad4b25c69",
+    "resource": "darts-dartsproxy1-test",
+    "statusMessage": "VM: *darts-dartsproxy1-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "72ca7d0b-e5c7-46fc-bb5d-88929d8cefce",
+    "resource": "darts-dartsproxy2-test",
+    "statusMessage": "VM: *darts-dartsproxy2-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "236c4c81-2f0f-4e64-8d63-33291e1fb906",
+    "resource": "perftstlindarts",
+    "statusMessage": "VM: *perftstlindarts* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "3b81cad0-6142-4b6e-b84f-f4297b7116b5",
+    "resource": "perftstwindarts",
+    "statusMessage": "VM: *perftstwindarts* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "2126e003-96d5-4cdc-b183-8fb1e522f87e",
+    "resource": "edit-vm1-test",
+    "statusMessage": "VM: *edit-vm1-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *pre-test* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "c1a530f8-d10e-4547-9a38-f4fc7c4d8c42",
+    "resource": "mgmt-perf-test-vm-00",
+    "statusMessage": "VM: *mgmt-perf-test-vm-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "88cc257c-13b4-4afb-be5e-5428fb45ed4e",
+    "resource": "mgmt-perf-test-vm-01",
+    "statusMessage": "VM: *mgmt-perf-test-vm-01* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "fe12d6df-842e-4c58-a387-dac782d63950",
+    "resource": "mgmt-perf-test-vm-02",
+    "statusMessage": "VM: *mgmt-perf-test-vm-02* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "8966e077-f103-4766-a869-7ce6b9e82c06",
+    "resource": "mgmt-perf-testing-vm-00",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "52fc1499-bb6f-4eb9-8102-879eebdeb85d",
+    "resource": "mgmt-perf-testing-vm-01",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-01* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "0e4dbe54-9180-4d8a-8648-d42cfb9b86e8",
+    "resource": "mgmt-perf-testing-vm-02",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-02* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "f3c37b6c-e669-401f-a2f1-e012fe5317ad",
+    "resource": "mgmt-perf-testing-vm-win-00",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-win-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "7698a7b3-237c-4723-b6d3-bbd9a303391a",
+    "resource": "edit-vm1-dev",
+    "statusMessage": "VM: *edit-vm1-dev* in Subscription: *867a878b-cb68-4de5-9741-361ac9e178b6*  ResourceGroup: *pre-dev* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "7ab624d4-cd3a-4284-8e42-9f37039af0a1",
+    "resource": "flow-vm-2",
+    "statusMessage": "VM: *flow-vm-2* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab*  ResourceGroup: *ss-sbox-00-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "796e6933-abea-41cc-815f-e6197e2e57e5",
+    "resource": "bastion-sbox",
+    "statusMessage": "VM: *bastion-sbox* in Subscription: *b3394340-6c9f-44ca-aa3e-9ff38bd1f9ac*  ResourceGroup: *bastion-sbox-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "31247465-dc7c-4034-a035-ccc3f79301a9",
+    "resource": "bastion-secops-sbox",
+    "statusMessage": "VM: *bastion-secops-sbox* in Subscription: *b3394340-6c9f-44ca-aa3e-9ff38bd1f9ac*  ResourceGroup: *bastion-sbox-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "6ff76e5a-bfd4-462b-9abe-1b6e7e90b154",
+    "resource": "darts-dartsproxy1-ithc",
+    "statusMessage": "VM: *darts-dartsproxy1-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139*  ResourceGroup: *darts-ithc-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "48bc5af1-9075-4fc1-97ca-334b0d131d0e",
+    "resource": "darts-dartsproxy2-ithc",
+    "statusMessage": "VM: *darts-dartsproxy2-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139*  ResourceGroup: *darts-ithc-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "",
+    "resource": "",
+    "statusMessage": "VM: ** in Subscription: **  ResourceGroup: ** is ** state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "19cee315-20e3-4edd-a490-16742dbf0c34",
+    "resource": "darts-dartsproxy1-demo",
+    "statusMessage": "VM: *darts-dartsproxy1-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c*  ResourceGroup: *darts-demo-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "02190535-64e7-4261-b37a-80d4ca74a8ec",
+    "resource": "darts-dartsproxy2-demo",
+    "statusMessage": "VM: *darts-dartsproxy2-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c*  ResourceGroup: *darts-demo-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "8a31aad0-ee0f-417d-854e-42c92db906fb",
+    "resource": "edit-vm1-demo",
+    "statusMessage": "VM: *edit-vm1-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c*  ResourceGroup: *pre-demo* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "e4a241aa-9cd5-4e02-9a26-5d780d33d1c7",
+    "resource": "roboticswin10vm",
+    "statusMessage": "VM: *roboticswin10vm* in Subscription: *cdc31e8e-43f4-4c8a-8b50-635e954c27d3*  ResourceGroup: *robotics-win10-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "f37feb9a-3e49-4658-9712-8457979076b8",
+    "resource": "glimr-app-vm01-dev",
+    "statusMessage": "VM: *glimr-app-vm01-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "8d24840f-d2ec-4199-ac5f-d342fbc5a30f",
+    "resource": "glimr-app-vm02-dev",
+    "statusMessage": "VM: *glimr-app-vm02-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "bfdf1eb3-85fe-4314-b749-a04b86b01c0d",
+    "resource": "glimr-ssrs-vm01-dev",
+    "statusMessage": "VM: *glimr-ssrs-vm01-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "50508ea9-e60a-4ca2-8301-9b4457dca1b9",
+    "resource": "ingest00-legacy-sql-sbox",
+    "statusMessage": "VM: *ingest00-legacy-sql-sbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-main-sbox* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "c0bca8bb-d788-4277-9067-8ce227fea670",
+    "resource": "3a27299e5f2a464abde6bc26ec6118bb",
+    "statusMessage": "VM: *3a27299e5f2a464abde6bc26ec6118bb* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "660631a0-d590-461d-a0fd-d4b4f89977a5",
+    "resource": "d2bda72563a84b99b2564adf5bf1424d",
+    "statusMessage": "VM: *d2bda72563a84b99b2564adf5bf1424d* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "c33efeac-2aba-4f0e-94dd-2d36fde8f07b",
+    "resource": "ff4f9d970e354c268df1899188521e28",
+    "statusMessage": "VM: *ff4f9d970e354c268df1899188521e28* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "b8a86c90-e658-4651-ba7c-ee6d10a63d1f",
+    "resource": "hmcts-hub-sbox-int-palo-ansible",
+    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-ansible* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "0c628663-1e48-4407-86af-010329a602fd",
+    "resource": "hmcts-hub-sbox-int-palo-vm-0",
+    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-vm-0* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  }
+]
