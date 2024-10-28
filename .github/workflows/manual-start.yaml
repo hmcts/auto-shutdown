@@ -52,7 +52,7 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       - name: Start appgateway Manually in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
-        run: ./scripts/appgateway/manual-start.sh
+        run: ./scripts/appgateway/manual-start-stop.sh
   flexible-server:
     runs-on: ubuntu-latest
     steps:
