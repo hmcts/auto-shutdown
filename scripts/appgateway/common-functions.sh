@@ -13,18 +13,11 @@ function get_application_gateways() {
     env_selector="| where tags.environment == '$1'"
   fi
 
-  if [ -z $2 ]; then
-    area_selector=""
-  else
-    area_selector="| where tags.businessArea == '$2'"
-  fi
-
   az graph query -q "
     resources
       | where type =~ 'microsoft.network/applicationgateways'
       | where tags.autoShutdown == 'true'
       $env_selector
-      $area_selector
       | project name, resourceGroup, subscriptionId, ['tags'], properties.operationalState, ['id']
     " --first 1000 -o json
 
