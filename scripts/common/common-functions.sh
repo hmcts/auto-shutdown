@@ -36,6 +36,13 @@ function ts_echo_color() {
     printf "%s $(printf "${color_code}%s\033[0m"  "$@")\n" "$(get_current_time)"
 }
 
+# Function to convert a string to lowercase
+to_lowercase() {
+    local input="$1"          
+    local lowercase="${input,,}"  # Convert to lowercase using parameter expansion
+    echo "$lowercase"
+}
+
 #Outputs text to scripts/common/log.txt
 #log contents output to pipeline via ./scripts/common/log-output.sh
 #Usage: log "message to log, including $vars"
@@ -216,10 +223,6 @@ function should_skip_start_stop () {
   env=$1
   business_area=$2
   mode=$3
-  log "Checking function input vars"
-  log "env set to $env"
-  log "business_area set to $business_area"
-  log "mode set to $mode"
   # If its not onDemand we don't need to check the file issues_list.json for startup
   if [[ $STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
     echo "false"
@@ -244,7 +247,7 @@ function should_skip_start_stop () {
     if [[ $check_resource == "false" ]]; then
       continue
     fi
-    
+
     if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
     log "Exclusion FOUND"
       if [[ $(is_late_night_run) == "false" ]]; then
