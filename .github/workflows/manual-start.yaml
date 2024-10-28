@@ -1,36 +1,36 @@
 name: Manual Start
 on:
   workflow_dispatch:
-    inputs:
-      SELECTED_MODE:
-        type: choice
-        description: "MODE"
-        options:
-          - start
-          - stop
-      SELECTED_AREA:
-        type: choice
-        description: "Business area"
-        options:
+      inputs:
+        PROJECT:
+          type: choice
+          description: "Business area"
+          options:
           - SDS
           - CFT
-      SELECTED_ENV:
-        type: choice
-        description: "Environment"
-        options:
-          - Sandbox
-          - AAT / Staging
-          - Preview / Dev
-          - Test / Perftest
-          - Demo
-          - ITHC
-          - PTL
-          - PTLSBOX
+        SELECTED_ENV:
+          type: choice
+          description: "Environment"
+          options:
+          - sbox
+          - test/perftest
+          - ithc
+          - demo
+          - ptlsbox
+          - preview/dev
+          - aat/staging
+          - ptl
+        AKS-INSTANCES:
+          type: choice
+          description: "Cluster"
+          options:
+          - All
+          - '00'
+          - '01'
 env:
-  SELECTED_AREA: ${{ inputs.SELECTED_AREA }}
+  PROJECT: ${{ inputs.PROJECT }}
   SELECTED_ENV: ${{ inputs.SELECTED_ENV }}
-  SELECTED_MODE: ${{ inputs.SELECTED_MODE }}
-  DEV_ENV: ${{ secrets.DEV_ENV }}
+  INSTANCES: ${{ inputs.AKS-INSTANCES }}
 permissions:
   id-token: write
 jobs:
@@ -45,8 +45,8 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: AKS Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
-        run: ./scripts/aks/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
+      - name: AKS Manual Start in ${{ inputs.PROJECT }} ${{ inputs.SELECTED_ENV }} Environment 
+        run: ./scripts/aks/manual-start-stop.sh start
   appgateway:
     runs-on: ubuntu-latest
     steps:
@@ -58,8 +58,8 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: App Gateway Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
-        run: ./scripts/appgateway/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
+      - name: Start appgateway Manually in ${{ inputs.PROJECT }} ${{ inputs.SELECTED_ENV }} Environment 
+        run: ./scripts/appgateway/manual-start.sh
   flexible-server:
     runs-on: ubuntu-latest
     steps:
@@ -71,6 +71,6 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: Flexible Server Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
-        run: ./scripts/flexible-server/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}   
+      - name: Start flexible-server Manually in ${{ inputs.PROJECT }} ${{ inputs.SELECTED_ENV }} Environment 
+        run: ./scripts/flexible-server/manual-start.sh   
   

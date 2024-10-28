@@ -62,9 +62,7 @@ fi
 jq -c '.data[]' <<< "$CLUSTERS" | while read -r cluster; do
     get_cluster_details  # Assuming this function processes individual clusters
 
-    log "================================================================================"
-    log "Processing Cluster: $CLUSTER_NAME, RG: $RESOURCE_GROUP, SUB: $SUBSCRIPTION"
-    log "================================================================================"
+    ts_echo_color BLUE "Processing Cluster: $CLUSTER_NAME, RG: $RESOURCE_GROUP, SUB: $SUBSCRIPTION"
 
     if [[ "$DEV_ENV" != "true" ]]; then
         aks_state_messages  # Function for displaying state messages
