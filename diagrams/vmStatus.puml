@@ -1,16 +1,11 @@
 @startuml vmStopStart
 start
 partition #LightCyan VM Stop/Start {
-while (With Subscription in **Subscriptions** list)
-    if (**Subscription** is //HMCTS-HUB-NONPROD-INTSVC// \n AND \n**IS_HUB_NEEDED** = //true// \n AND \n**mode** = //stop// ) then ((<color:green>Yes))
-        :End Loop - Skip to the next subscription;
-    else ((<color:red>No))
-        :Call **get_subscription_vms()** function;
-        :Return **VMs** list;
+        :Call **get_vms()** function;
+        :Returns **VMs** list via MS Graph;
         while (With VMs in **VMs** list)
             :Call **get_vm_details()** function;
-            :Declare a map of environments;
-            :Set **ENV_SUFFIX** variable;
+            :Set VM details variables;
             :Set **SKIP** variable based on **should_skip_start_stop()** function;
                 partition #LightYellow Skip Check Function {
                     :should_skip_start_stop();
@@ -73,9 +68,6 @@ while (With Subscription in **Subscriptions** list)
             endif
         endwhile ( No VMs remaining )
         :End VM loop;
-    endif
-endwhile ( No subscriptions remaining )
-: End subscription loop;
 }
 end
 @enduml
