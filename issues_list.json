@@ -42,23 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
     },
     {
-        "start_date": "25-10-2024",
-        "end_date": "28-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "Private law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6343",
-        "stay_on_late": "Yes",
-        "justification": "C8 refuge changes dev completion",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/839"
-    },
-    {
         "start_date": "28-10-2024",
         "end_date": "29-10-2024",
         "request_type": "stop",
