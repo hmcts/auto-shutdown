@@ -2,7 +2,7 @@ name: sql-managed-instance-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
+    - cron: "30 6 * * 1-5" # Every weekday at 6:30am BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:

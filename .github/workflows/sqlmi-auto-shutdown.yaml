@@ -2,7 +2,7 @@ name: sql-managed-instance-auto-shutdown
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 19 * * *" # Every day at 8pm BST
+    - cron: "0 20 * * *" # Every day at 8pm BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
