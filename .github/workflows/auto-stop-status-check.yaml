@@ -52,5 +52,5 @@ jobs:
           git config user.email github-platform-operations@hmcts.net
           git pull
           git add ./status
-          git commit -m "Update json files start status updates"
+          git commit -m "Update json files stop status updates"
           git push
