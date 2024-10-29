@@ -51,7 +51,5 @@ jobs:
           git config user.name hmcts-platform-operations
           git config user.email github-platform-operations@hmcts.net
           git pull
-          git checkout -b testing-json-file-updates-stop
           git add ./status
-          git commit -m "Update json files stop status updates"
-          git push --set-upstream origin testing-json-file-updates-stop
+          git push
