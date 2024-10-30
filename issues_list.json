@@ -42,23 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
     },
     {
-        "start_date": "28-10-2024",
-        "end_date": "29-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6430",
-        "stay_on_late": "Yes",
-        "justification": "Testing cafcass",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/847"
-    },
-    {
         "start_date": "29-10-2024",
         "end_date": "30-10-2024",
         "request_type": "stop",
