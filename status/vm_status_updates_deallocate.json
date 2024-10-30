@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions//resourceGroups//providers/Microsoft.Compute/virtualMachines/",
+    "resource": "",
+    "statusMessage": "VM: ** in Subscription: **  ResourceGroup: ** is ** state after *deallocate* action.",
+    "resourceType": "vm"
+  }
+]
