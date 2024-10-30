@@ -31,9 +31,9 @@ jq -c '.data[]' <<<$VMS | while read vm; do
     log "====================================================="
 
     if [[ $ENVIRONMENT == "development" ]]; then
-        VM_ENV=${ENVIRONMENT/development/'Preview / Dev'}
+        VM_ENV=${ENVIRONMENT/development/Preview}
     elif [[ $ENVIRONMENT == "testing" ]]; then
-        VM_ENV=${ENVIRONMENT/testing/'Test / Perftest'}
+        VM_ENV=${ENVIRONMENT/testing/Perftest}
     else
         VM_ENV=$(to_lowercase "$ENVIRONMENT")
     fi

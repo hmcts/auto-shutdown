@@ -48,7 +48,7 @@ jq -c '.data[]' <<<$VMS | while read vm; do
     if [[ $SKIP == "false" ]]; then
         if [[ $DEV_ENV != "true" ]]; then
             vm_state_messages
-            az vm $MODE --ids $VM_ID --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on vm
+            az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm
         else
             ts_echo_color BLUE "Development Env: simulating state commands only."
             vm_state_messages
