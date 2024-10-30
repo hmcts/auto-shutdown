@@ -1,0 +1,56 @@
+[
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-test",
+    "resource": "darts-api-test",
+    "statusMessage": "Flexible SQL Server: *darts-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/flexible-pip-account-management-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-account-management-test",
+    "resource": "flexible-pip-account-management-test",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/flexible-pip-data-management-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-data-management-test",
+    "resource": "flexible-pip-data-management-test",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-data-management-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/flexible-pip-subscription-management-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-subscription-management-test",
+    "resource": "flexible-pip-subscription-management-test",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-subscription-management-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/juror-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-api-test",
+    "resource": "juror-api-test",
+    "statusMessage": "Flexible SQL Server: *juror-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/juror-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-scheduler-api-test",
+    "resource": "juror-scheduler-api-test",
+    "statusMessage": "Flexible SQL Server: *juror-scheduler-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/libragob-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/libragob-test",
+    "resource": "libragob-test",
+    "statusMessage": "Flexible SQL Server: *libragob-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/pre-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-db-test",
+    "resource": "pre-db-test",
+    "statusMessage": "Flexible SQL Server: *pre-db-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/toffee-v14-flexible-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-test",
+    "resource": "toffee-v14-flexible-test",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  }
+]
