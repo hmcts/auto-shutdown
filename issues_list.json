@@ -42,37 +42,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
     },
     {
-        "start_date": "29-10-2024",
-        "end_date": "30-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "civil perf test team",
-        "change_jira_id": "CIV-10435",
-        "stay_on_late": "Yes",
-        "justification": "need o finish the script changes",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/852"
-    },
-    {
-        "start_date": "29-10-2024",
-        "end_date": "30-10-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " PTL",
-            " Preview / Dev",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6428",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/853"
-    },
-    {
         "start_date": "31-10-2024",
         "end_date": "01-11-2024",
         "request_type": "stop",
