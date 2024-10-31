@@ -71,5 +71,22 @@
         "stay_on_late": "Yes",
         "justification": "Need for testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/853"
+    },
+    {
+        "start_date": "31-10-2024",
+        "end_date": "01-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration & Asylum",
+        "change_jira_id": "CHG5018722",
+        "stay_on_late": "Yes",
+        "justification": "IA - ICC out of hours release for CCD elastic search index rebuilding",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/862"
     }
 ]
