@@ -40,53 +40,5 @@
         "stay_on_late": "Yes",
         "justification": "release of CARM feature",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/807"
-    },
-    {
-        "start_date": "31-10-2024",
-        "end_date": "01-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration & Asylum",
-        "change_jira_id": "CHG5018722",
-        "stay_on_late": "Yes",
-        "justification": "IA - ICC out of hours release for CCD elastic search index rebuilding",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/862"
-    },
-    {
-        "start_date": "31-10-2024",
-        "end_date": "01-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest",
-            " Demo",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Private law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6191",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/863"
-    },
-    {
-        "start_date": "31-10-2024",
-        "end_date": "01-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Civil Damage",
-        "change_jira_id": "CIV-10435",
-        "stay_on_late": "Yes",
-        "justification": "Test run",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/864"
     }
 ]
