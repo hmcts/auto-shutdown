@@ -86,5 +86,21 @@
         "stay_on_late": "No",
         "justification": "Deploymment of idFR 7.5",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/868"
+    },
+    {
+        "start_date": "08-11-2024",
+        "end_date": "11-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6541",
+        "stay_on_late": "Yes",
+        "justification": "Need for testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/869"
     }
 ]
