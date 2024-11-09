@@ -26,40 +26,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/768"
     },
     {
-        "start_date": "06-11-2024",
-        "end_date": "08-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            " Demo",
-            " PTL",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6428",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/865"
-    },
-    {
-        "start_date": "06-11-2024",
-        "end_date": "08-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6428",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/866"
-    },
-    {
         "start_date": "08-11-2024",
         "end_date": "10-11-2024",
         "request_type": "stop",
