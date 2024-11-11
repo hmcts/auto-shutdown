@@ -1,0 +1,150 @@
+name: Add issue to Projects Dashboard
+run-name: ${{ github.actor }} - issue:${{ github.event.issue.number }}
+
+on:
+  issues:
+    types: [closed]
+  workflow_dispatch:
+
+env:
+  GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
+  GH_REPO: ${{ github.repository }}
+  NUMBER: ${{ github.event.issue.number }}
+  PROJECT_NUMBER: 30
+  PROJECT_OWNER: hmcts
+
+permissions:
+  id-token: write
+
+jobs:
+  process-request:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    if: github.event.issue.user.login != 'renovate[bot]' && github.actor != 'hmcts-platform-operations' && !contains(github.event.issue.labels.*.name, 'pull-request')
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+
+    - name: Get issue body and extract values
+      id: get_issue_body
+      run: |
+        gh issue view ${{ github.event.issue.number }} --json body | jq -r '.body' > body.txt
+        sed -i "s/'//g" body.txt
+        
+        START_DATE=$(sed -n '/^### Skip shutdown start date/,/^###/p' body.txt | tail -n +2 | head -n -1 | tr -d '[:space:]')
+        END_DATE=$(sed -n '/^### Skip shutdown end date/,/^###/p' body.txt | tail -n +2 | head -n -1 | tr -d '[:space:]')
+        BUSINESS_AREA=$(sed -n '/^### Business area/,/^###/p' body.txt | tail -n +2 | head -n -1 | tr -d '[:space:]')
+        TEAM_NAME=$(sed -n '/^### Team\/Application Name/,/^###/p' body.txt | tail -n +2 | head -n -1 | tr -d '[:space:]')
+        ENVIRONMENTS_REQUESTED=$(sed -n '/^### Environment/,/^###/p' body.txt | tail -n +2 | head -n -1 | tr -d '[:space:]')
+        PAST_11PM=$(sed -n '/^### Do you need this exclusion past 11pm?/,$p' body.txt | tail -n +2 | sed '/^###/d' | xargs)
+        
+        echo "start_date=$START_DATE" >> $GITHUB_OUTPUT
+        echo "end_date=$END_DATE" >> $GITHUB_OUTPUT
+        echo "business_area=$BUSINESS_AREA" >> $GITHUB_OUTPUT
+        echo "team_name=$TEAM_NAME" >> $GITHUB_OUTPUT
+        echo "environments_requested=$ENVIRONMENTS_REQUESTED" >> $GITHUB_OUTPUT
+        echo "past_11pm=$PAST_11PM" >> $GITHUB_OUTPUT
+
+    - name: Update GitHub Project
+      if: "!contains(github.event.issue.labels.*.name, 'cancel')"
+      run: |
+
+        ITEM_ID=$(gh project item-add $PROJECT_NUMBER --owner $PROJECT_OWNER --url ${{ github.event.issue.html_url }} --format json | jq -r '.id')
+        echo "Item ID: $ITEM_ID"
+
+        # Get project ID
+        PROJECT_ID=$(gh project view $PROJECT_NUMBER --owner $PROJECT_OWNER --format json | jq -r '.id')
+        echo "Project ID: $PROJECT_ID"
+
+
+        # Convert dates to ISO 8601 format
+        convert_date() {
+          local input_date="$1"
+          local day=$(echo $input_date | cut -d'-' -f1)
+          local month=$(echo $input_date | cut -d'-' -f2)
+          local year=$(echo $input_date | cut -d'-' -f3)
+          echo "$year-$month-$day"
+        }
+
+        START_DATE=$(convert_date "${{ steps.get_issue_body.outputs.start_date }}")
+        END_DATE=$(convert_date "${{ steps.get_issue_body.outputs.end_date }}")
+
+        echo "Converted Start Date: $START_DATE"
+        echo "Converted End Date: $END_DATE"
+
+        FIELDS=$(gh project field-list $PROJECT_NUMBER --owner $PROJECT_OWNER --format json)
+
+        echo "All fields:"
+        echo "$FIELDS" | jq '.'
+
+        # Extract StartDate and EndDate field IDs
+        START_DATE_FIELD_ID=$(echo "$FIELDS" | jq -r '.fields[] | select(.name == "StartDate") | .id')
+        END_DATE_FIELD_ID=$(echo "$FIELDS" | jq -r '.fields[] | select(.name == "EndDate") | .id')
+
+        echo "StartDate Field ID: $START_DATE_FIELD_ID"
+        echo "EndDate Field ID: $END_DATE_FIELD_ID"
+
+        # Update StartDate field
+        gh project item-edit --project-id "$PROJECT_ID" --id "$ITEM_ID" --field-id "$START_DATE_FIELD_ID" --date "$START_DATE"
+
+        # Update EndDate field
+        gh project item-edit --project-id "$PROJECT_ID" --id "$ITEM_ID" --field-id "$END_DATE_FIELD_ID" --date "$END_DATE"
+
+        echo "Project update completed"
+      env:
+        GH_TOKEN: ${{ env.GH_TOKEN }}
+
+    - name: Update issue title
+      if: "!contains(github.event.issue.labels.*.name, 'cancel')"
+      run: |
+        CURRENT_TITLE=$(gh issue view ${{ github.event.issue.number }} --json title -q .title)
+        
+          # Check if past 11pm is requested
+          if [[ "${{ steps.get_issue_body.outputs.past_11pm }}" == "No" ]]; then
+              PAST_11PM="🕒"
+            else
+              PAST_11PM=""
+          fi
+        
+        if [[ "$CURRENT_TITLE" == *"- ❌"* ]]; then
+          CURRENT_TITLE=$(echo "$CURRENT_TITLE" | sed 's/- ❌//g')
+          gh issue edit ${{ github.event.issue.number }} --title "$CURRENT_TITLE"
+        fi
+        
+        NEW_INFO="${{ steps.get_issue_body.outputs.business_area }} - ${{ steps.get_issue_body.outputs.team_name }} - ${{ steps.get_issue_body.outputs.environments_requested }} $PAST_11PM"
+        
+        if [[ "$CURRENT_TITLE" != *"$NEW_INFO"* ]]; then
+          NEW_TITLE="${CURRENT_TITLE} - ${NEW_INFO}"
+          gh issue edit ${{ github.event.issue.number }} --title "$NEW_TITLE"
+        fi
+
+    - name: Keep last 20 issues on project board
+      run: |
+
+        # Get project ID
+        PROJECT_ID=$(gh project view $PROJECT_NUMBER --owner $PROJECT_OWNER --format json | jq -r '.id')
+        echo "Project ID: $PROJECT_ID"
+
+        # Fetch all items from the project
+        ALL_ITEMS=$(gh project item-list $PROJECT_NUMBER --owner $PROJECT_OWNER --format json)
+
+        # Sort items by creation date (newest first) and get IDs of items to remove
+        ITEMS_TO_REMOVE=$(echo "$ALL_ITEMS" | jq -r '.items | sort_by(.createdAt) | reverse | .[20:] | .[].id')
+
+        # Count items to remove
+        REMOVE_COUNT=$(echo "$ITEMS_TO_REMOVE" | wc -w)
+        echo "Items to remove: $REMOVE_COUNT"
+
+        # Remove each item
+        for ITEM_ID in $ITEMS_TO_REMOVE; do
+          echo "Removing item $ITEM_ID"
+          gh project item-delete $PROJECT_NUMBER --owner $PROJECT_OWNER --id $ITEM_ID
+        done
+
+        echo "Cleanup completed. Kept the 10 most recent items."
+
+      env:
+        GH_TOKEN: ${{ env.GH_TOKEN }}
