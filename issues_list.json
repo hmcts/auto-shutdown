@@ -27,34 +27,6 @@
     },
     {
         "start_date": "08-11-2024",
-        "end_date": "10-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "idam",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9488",
-        "stay_on_late": "Yes",
-        "justification": "Deploying AAT at weekend causes least disruption",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/867"
-    },
-    {
-        "start_date": "08-11-2024",
-        "end_date": "10-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "idam",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9488",
-        "stay_on_late": "No",
-        "justification": "Deploymment of idFR 7.5",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/868"
-    },
-    {
-        "start_date": "08-11-2024",
         "end_date": "11-11-2024",
         "request_type": "stop",
         "environment": [
