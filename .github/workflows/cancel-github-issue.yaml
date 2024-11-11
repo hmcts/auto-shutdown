@@ -13,6 +13,8 @@ env:
   APPROVAL_STATE: "Pending Approval"
   APPROVAL_COMMENT: "Pending Approval"
   SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_OAUTH_TOKEN }}
+  PROJECT_NUMBER: 30
+  PROJECT_OWNER: hmcts
 permissions:
   id-token: write
 jobs:
@@ -47,6 +49,20 @@ jobs:
           commit_tree_url=$(gh browse -c -n)
           commit_url=${commit_tree_url/tree/commit}
           echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
+
+  
+      - name: Run if cancel label added
+        if: contains(github.event.issue.labels.*.name, 'cancel')
+        run: |
+          CURRENT_TITLE=$(gh issue view ${{ github.event.issue.number }} --json title -q .title)
+          if [[ "$CURRENT_TITLE" != *"- ❌"* ]]; then
+            NEW_TITLE="${CURRENT_TITLE} - ❌"
+            gh issue edit ${{ github.event.issue.number }} --title "$NEW_TITLE"
+          fi
+
+          ITEM_ID=$(gh project item-add $PROJECT_NUMBER --owner $PROJECT_OWNER --url ${{ github.event.issue.html_url }} --format json | jq -r '.id')
+          echo "Item ID: $ITEM_ID"
+          gh project item-delete $PROJECT_NUMBER --owner $PROJECT_OWNER --id $ITEM_ID
 
     # Check if the auto start stop script should run
       - name: Check the time

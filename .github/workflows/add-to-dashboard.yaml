@@ -3,8 +3,7 @@ run-name: ${{ github.actor }} - issue:${{ github.event.issue.number }}
 
 on:
   issues:
-    # types: [opened, edited, labeled, reopened, unlabeled]
-    types: [closed, labeled]
+    types: [closed]
   workflow_dispatch:
 
 env:
@@ -122,20 +121,7 @@ jobs:
           gh issue edit ${{ github.event.issue.number }} --title "$NEW_TITLE"
         fi
 
-    - name: Run if cancel label added
-      if: contains(github.event.issue.labels.*.name, 'cancel')
-      run: |
-        CURRENT_TITLE=$(gh issue view ${{ github.event.issue.number }} --json title -q .title)
-        if [[ "$CURRENT_TITLE" != *"- ❌"* ]]; then
-          NEW_TITLE="${CURRENT_TITLE} - ❌"
-          gh issue edit ${{ github.event.issue.number }} --title "$NEW_TITLE"
-        fi
-
-        ITEM_ID=$(gh project item-add $PROJECT_NUMBER --owner $PROJECT_OWNER --url ${{ github.event.issue.html_url }} --format json | jq -r '.id')
-        echo "Item ID: $ITEM_ID"
-        gh project item-delete $PROJECT_NUMBER --owner $PROJECT_OWNER --id $ITEM_ID
-
-    - name: Keep last 10 issues on project board
+    - name: Keep last 20 issues on project board
       run: |
 
         # Get project ID
@@ -146,7 +132,7 @@ jobs:
         ALL_ITEMS=$(gh project item-list $PROJECT_NUMBER --owner $PROJECT_OWNER --format json)
 
         # Sort items by creation date (newest first) and get IDs of items to remove
-        ITEMS_TO_REMOVE=$(echo "$ALL_ITEMS" | jq -r '.items | sort_by(.createdAt) | reverse | .[10:] | .[].id')
+        ITEMS_TO_REMOVE=$(echo "$ALL_ITEMS" | jq -r '.items | sort_by(.createdAt) | reverse | .[20:] | .[].id')
 
         # Count items to remove
         REMOVE_COUNT=$(echo "$ITEMS_TO_REMOVE" | wc -w)
