@@ -280,5 +280,11 @@
     "resource": "ef271515e3af47c1a27f8e4cb532455b",
     "statusMessage": "VM: *ef271515e3af47c1a27f8e4cb532455b* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
     "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/darts-demo-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy1-demo",
+    "resource": "darts-dartsproxy1-demo",
+    "statusMessage": "VM: *darts-dartsproxy1-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c*  ResourceGroup: *darts-demo-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
   }
 ]
