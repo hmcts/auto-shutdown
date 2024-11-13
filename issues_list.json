@@ -24,5 +24,19 @@
         "stay_on_late": "Yes",
         "justification": "To investigate CPU issue on VH service",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/768"
+    },
+    {
+        "start_date": "13-11-2024",
+        "end_date": "13-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "performance test team",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-15029",
+        "stay_on_late": "No",
+        "justification": "need to run the performance tesst",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/872"
     }
 ]
