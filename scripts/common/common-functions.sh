@@ -107,9 +107,12 @@ function add_to_json() {
   echo "JSON file updated successfully."
 }
 
+function get_current_date_time() {
+  $date_command +'%d-%m-%Y %H:%M'
+}
 
 function get_current_date() {
-  $date_command +'%d-%m-%Y %H:%M'
+  $date_command +'%Y-%m-%d'
 }
 
 function get_current_hour() {
@@ -140,8 +143,6 @@ function read_date() {
     echo "$timestamp"
 }
 
-
-
 function is_late_night_run() {
   local current_hour=$(get_current_hour)
 
@@ -149,7 +150,7 @@ function is_late_night_run() {
   current_hour=$(echo $current_hour | sed 's/^0*//')
 
   log "current hour result: $(get_current_hour)"
-  if [[ $current_hour -gt 20 ]]; then
+  if [[ $current_hour -gt 20 || $current_hour -lt 05 ]]; then
     log "is_late_night_run: set to 'true'"
     echo "true"
   else
@@ -162,47 +163,42 @@ function is_late_night_run() {
 function is_weekend_day() {
     if [ -z "$1" ]; then
       local current_date=$(get_current_date)
-      log "current_date defaulted to: $current_date"
     else
       local current_date=$1
-      log "current_date set to: $current_date"
     fi
 
     local day_of_week=$($date_command -d "$current_date" +"%u")
-    log "day_of_week var set to $day_of_week"
 
     if [[ $day_of_week -ge 5 ]]; then
-        log "weekend day found"
-        echo "true"  # Weekend
+        echo "true"  # Weekend (Fri - Sunday)
     else
-        log "weekend day not found"
         echo "false" # Weekday
     fi
 }
 
 # Function to iterate through the date range and check for weekends
 function is_weekend_in_range() {
-    local start_date=$(read_date $1)
-    log "start_date set to '$start_date'"
-    local end_date=$(read_date $2)
-    log "end_date set to '$end_date'"
-    local current_date=$start_date
-    local weekend_in_range="false"
+  local start_date=$(read_date $1)
+  local end_date=$(read_date $2)
 
-    while [[ "$current_date" < "$end_date" || "$current_date" == "$end_date" ]]; do
-        if [[ $(is_weekend_day "$current_date") == "true" ]]; then
-            weekend_in_range="true"
-        fi
-        current_date=$($date_command -I -d "$current_date +1 day")
-    done
+  local current_date=$start_date
+  local weekend_in_range="false"
 
-    if [[ $weekend_in_range == "true" ]]; then
-        log "Provided dates include a weekend within scope"
-        echo "true"
-    else
-        log "Provided dates do not include a weekend within scope"
-        echo "false"
+  while [[ "$current_date" < "$end_date" || "$current_date" == "$end_date" ]]; do
+    if [[ $(is_weekend_day "$current_date") == "true" ]]; then
+      weekend_in_range="true"
+      break  # Add break statement to exit the loop
     fi
+    current_date=$($date_command -I -d "$current_date +1 day")
+  done
+
+  if [[ $weekend_in_range == "true" ]]; then
+    log "Provided dates include a weekend within scope"
+    echo "true"
+  else
+    log "Provided dates do not include a weekend within scope"
+    echo "false"
+  fi
 }
 
 function is_in_date_range() {
@@ -228,6 +224,12 @@ function should_skip_start_stop () {
     echo "false"
     return
   fi
+
+  late_night_run=$(is_late_night_run)
+  log "late_night_run var set to: $late_night_run"
+  weekend_day=$(is_weekend_day)
+  log "Runtime day is a weekend day (includes Friday): $weekend_day"
+
   while read issue; do
     local env_entry business_area_entry start_date end_date stay_on_late
     env_entry=$(jq -r '."environment"' <<< $issue)
@@ -250,15 +252,15 @@ function should_skip_start_stop () {
 
     if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
     log "Exclusion FOUND"
-      if [[ $(is_late_night_run) == "false" ]]; then
+      if [[ $late_night_run == "false" ]]; then
         log "== 20:00 run =="
         log "skip set to 'true as an exclusion request was found for this resource at the 20:00 run'"
         echo "true"
-      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "Yes" ]]; then
+      elif [[ $late_night_run == "true" && $stay_on_late == "Yes" ]]; then
         log "== 23:00 run =="
         log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
         echo "true"
-      elif [[ $(is_late_night_run) == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $(is_weekend_day) == "true" ]]; then
+      elif [[ $late_night_run == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $weekend_day == "true" ]]; then
         log "== 23:00 run =="
         log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running at the weekend and the environment is required over the weekend."
         echo "true"
