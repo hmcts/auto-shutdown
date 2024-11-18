@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "start_date": "18-11-2024",
+        "end_date": "19-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "idam",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9516",
+        "stay_on_late": "No",
+        "justification": "Testing code due for release on wednesday",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/878"
+    }
+]
