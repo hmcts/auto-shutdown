@@ -14,20 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/878"
     },
     {
-        "start_date": "18-11-2024",
-        "end_date": "18-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance test team",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-15029",
-        "stay_on_late": "No",
-        "justification": "need to run the performance tesst",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/879"
-    },
-    {
         "start_date": "19-11-2024",
         "end_date": "19-11-2024",
         "request_type": "stop",
