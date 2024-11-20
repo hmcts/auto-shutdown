@@ -6,6 +6,8 @@ from dateutil.parser import parse
 import numpy as np
 import os
 
+print("Calculating costs...")
+
 #Read GitHub environment variables
 start_date = os.getenv("START_DATE")
 end_date = os.getenv("END_DATE")
