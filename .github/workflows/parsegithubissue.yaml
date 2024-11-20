@@ -85,7 +85,7 @@ jobs:
       - name: Get issue body
         id: get_issue_body
         run: |
-          gh issue view --repo hmcts/auto-shutdown ${{ github.event.issue.number }} --json body | jq -r '.body' > body.txt
+          gh issue view --repo ${{ github.repository }} ${{ github.event.issue.number }} --json body | jq -r '.body' > body.txt
           sed -i "s/'//g" body.txt 
           cat body.txt
       #Create a multiline variable so it can be read by parser

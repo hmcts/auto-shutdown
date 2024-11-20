@@ -4,12 +4,14 @@ shopt -s nocasematch
 AMBER='\033[1;33m'
 GREEN='\033[0;32m'
 
+source scripts/aks/common-functions.sh
+source scripts/common/common-functions.sh
+
 node_count=0
 business_area_entry=$(jq -r '. | last | .business_area' issues_list.json)
 #declare associative array
 declare -A sku_sizes
 
-source scripts/aks/set-subscription.sh
 #Function to add SKU and node count to array.
 #Create new entry if SKU does not already exist. Update entry if SKU already exists in array.
 function countSku() {
@@ -31,15 +33,14 @@ function nodeSummary() {
 }
 #Get nodepool details from Azure, node count, nodepool name, nodepool SKU...
 function get_costs() {
-    CLUSTERS=$(az resource list --resource-type Microsoft.ContainerService/managedClusters --query "[?tags.autoShutdown == 'true']" -o json)
+    CLUSTERS=$(get_clusters)
 
     while read cluster; do
-        RESOURCE_GROUP=$(jq -r '.resourceGroup' <<<$cluster)
-        cluster_name=$(jq -r '.name' <<<$cluster)
-        cluster_env=$(echo $cluster_name | cut -d'-' -f2)
+        get_cluster_details
+        cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
         cluster_env=${cluster_env/#sbox/Sandbox}
         cluster_env=${cluster_env/stg/Staging}
-        cluster_business_area=$(echo $cluster_name | cut -d'-' -f1)
+        cluster_business_area=$(echo $CLUSTER_NAME | cut -d'-' -f1)
         cluster_business_area=${cluster_business_area/ss/cross-cutting}
 
         business_area_entry=$(jq -r '. | last | .business_area' issues_list.json)
@@ -52,7 +53,7 @@ function get_costs() {
         justification=$(jq -r '. | last | .justification' issues_list.json)
 
         if [[ ${env_entry} =~ ${cluster_env} ]] && [[ $cluster_business_area == $business_area_entry ]]; then
-            nodepool_details=$(az aks nodepool list --cluster-name $cluster_name --resource-group $RESOURCE_GROUP -o json)
+            nodepool_details=$(az aks nodepool list --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION -o json)
             while read nodepool; do
                 nodepool_count=$(jq -r '."count"' <<< $nodepool)
                 nodepool_name=$(jq -r '."name"' <<< $nodepool)
@@ -65,20 +66,14 @@ function get_costs() {
                 continue
             done < <(jq -c '.[]' <<<$nodepool_details)
         fi
-    done < <(jq -c '.[]' <<<$CLUSTERS) # end_of_cluster_loop
+    done < <(jq -c '.data[]' <<<$CLUSTERS) # end_of_cluster_loop
 }
 
-#Set subscription based on user entry.
-#If statements used to deal with subscription naming convention and enviornment dropdown values. Eg "AAT / Staging"
-while read i; do
-    PROJECT="CFT"
-    if [[ $business_area_entry =~ "Cross-Cutting" ]]; then
-        PROJECT="SDS"
-    fi
-    SELECTED_ENV=$i
-    subscription
-    get_costs
-done < <(jq -r 'last | .environment[]' issues_list.json || jq -r 'last | .environment' issues_list.json)
+#Remove temp text file.
+rm sku_details.txt
+
+#Get clister information to allow cost estimates to be calculated.
+get_costs
 
 #Add GitHub env vars
 echo START_DATE=$start_date >>$GITHUB_ENV
@@ -90,10 +85,8 @@ echo CHANGE_JIRA_ID=$change_jira_id >>$GITHUB_ENV
 echo ENVIRONMENT=$env_entry >>$GITHUB_ENV
 echo JUSTIFICATION=$justification >>$GITHUB_ENV
 
-#Remove temp text file.
-rm sku_details.txt
 #Call node summary function and output to tempory text file.
-#Temp file used by "cost-calculator.py" script for cost calculations.
+#Temp file used by "cost-calculator.py" script for cost calculations
 nodeSummary >>sku_details.txt
 
 #adding test entry to cause cost failure scenario. Uncomment as needed.
