@@ -40,5 +40,19 @@
         "stay_on_late": "No",
         "justification": "need to run the performance tesst",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/883"
+    },
+    {
+        "start_date": "20-11-2024",
+        "end_date": "20-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "PlatOps",
+        "change_jira_id": "DTSPO-22369",
+        "stay_on_late": "No",
+        "justification": "Testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/886"
     }
 ]
