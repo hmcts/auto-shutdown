@@ -490,5 +490,11 @@
     "resource": "toffee-v14-flexible-sbox",
     "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-sbox* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/pcs-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pcs-perftest",
+    "resource": "pcs-perftest",
+    "statusMessage": "Flexible SQL Server: *pcs-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
