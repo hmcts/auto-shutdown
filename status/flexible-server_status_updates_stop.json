@@ -496,5 +496,11 @@
     "resource": "pcs-perftest",
     "statusMessage": "Flexible SQL Server: *pcs-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/payment-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/payment-postgres-db-v15-ithc",
+    "resource": "payment-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *payment-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
