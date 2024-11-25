@@ -78,6 +78,6 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
     fi
 
 	# Get the app gateway state after the operation
-    RESULT=$(az postgres flexible-server show --name "$SERVER_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .operationalState)
+    RESULT=$(az postgres flexible-server show --name "$SERVER_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .state)
     ts_echo "Flexible Server: $SERVER_NAME is in state: $RESULT"
 done
