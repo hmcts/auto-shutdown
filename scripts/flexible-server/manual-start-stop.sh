@@ -61,7 +61,7 @@ if [[ $flexible_server_count -eq 0 ]]; then
 fi
 
 
-jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
+jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
 
 	# Function that returns the Resource Group, Id and Name of the Flexible Server and its current state as variables
     get_flexible_sql_server_details
