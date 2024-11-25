@@ -13,11 +13,18 @@ function get_flexible_sql_servers() {
     env_selector="| where tags.environment == '$1'"
   fi
 
+  if [ -z $2 ]; then
+    area_selector=""
+  else
+    area_selector="| where tags.businessArea == '$2'"
+  fi
+
   az graph query -q "
     resources
     | where type =~ 'microsoft.dbforpostgresql/flexibleservers'
     | where tags.autoShutdown == 'true'
     $env_selector
+    $area_selector
     | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id']
     " --first 1000 -o json
 
@@ -39,5 +46,5 @@ function get_flexible_sql_server_details() {
 
 function flexible_server_state_messages() {
     ts_echo_color GREEN "About to run $MODE operation on flexible sql server $SERVER_NAME Resource Group: $RESOURCE_GROUP"
-    ts_echo_color GREEN "Command to run: az postgres flexible sql server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --no-wait || echo Ignoring any errors while $MODE operation on sql server"
+    ts_echo_color GREEN "Command to run: az postgres flexible sql server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on sql server"
 }

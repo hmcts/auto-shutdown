@@ -103,5 +103,5 @@ function check_cluster_status() {
 
 function aks_state_messages() {
     ts_echo_color GREEN "Running $MODE operation on cluster $CLUSTER_NAME (rg:$RESOURCE_GROUP)"
-    ts_echo_color GREEN "az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --no-wait || echo Ignoring any errors while $MODE operation on cluster"
+    ts_echo_color GREEN "az aks $MODE --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on cluster"
 }

@@ -9,55 +9,75 @@ shopt -s nocasematch
 source scripts/flexible-server/common-functions.sh
 source scripts/common/common-functions.sh
 
-# Set the SELECTED_ENV and SUBSCRIPTION based on inputs from workflow supplied by the user triggering the workflow via GitHub UI
-if [[ $SELECTED_ENV == "sbox" ]]; then
-	SELECTED_ENV="box"
-fi
-if [[ $SELECTED_ENV == "test/perftest" ]] && [[ $PROJECT == "CFT" ]]; then
-	SELECTED_ENV="perftest"
-elif [[ $SELECTED_ENV == "test/perftest" ]] && [[ $PROJECT == "SDS" ]]; then
-	SELECTED_ENV="test"
-elif [[ $SELECTED_ENV == "preview/dev" ]] && [[ $PROJECT == "SDS" ]]; then
-	SELECTED_ENV="dev"
-elif [[ $SELECTED_ENV == "preview/dev" ]] && [[ $PROJECT == "CFT" ]]; then
-	SELECTED_ENV="preview"
-elif [[ $SELECTED_ENV == "aat/staging" ]] && [[ $PROJECT == "SDS" ]]; then
-	SELECTED_ENV="stg"
-elif [[ $SELECTED_ENV == "aat/staging" ]] && [[ $PROJECT == "CFT" ]]; then
-	SELECTED_ENV="aat"
+# Check and set default MODE if not provided
+MODE=${1:-start}
+
+# Ensure valid MODE
+if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
+    echo "Invalid MODE. Please use 'start' or 'stop'." >&2
+    exit 1
 fi
 
-# Find all subscriptions that are available to the credential used and saved to SUBSCRIPTIONS variable
-SUBSCRIPTIONS=$(az account list -o json)
+# Ensure SELECTED_ENV and SELECTED_AREA are set
+if [[ -z "$SELECTED_ENV" || -z "$SELECTED_AREA" ]]; then
+    echo "Environment or Area not set. Please check your configuration." >&2
+    exit 1
+fi
 
-# For each subscription found, start the loop
-jq -c '.[]' <<<$SUBSCRIPTIONS | while read subscription; do
+# Map the environment name to match Azure enviornment tag
+case "$SELECTED_ENV" in
+    "AAT / Staging")
+        flexible_server_env="staging"
+        ;;
+    "Preview / Dev")
+        flexible_server_env="development"
+        ;;
+    "Test / Perftest")
+        flexible_server_env="testing"
+        ;;
+    "PTL")
+        flexible_server_env="production"
+        ;;
+    "PTLSBOX")
+        flexible_server_env="sandbox"
+        ;;
+    *)
+        flexible_server_env=$(to_lowercase "$SELECTED_ENV")
+        ;;
+esac
 
-	# Function that returns the Subscription Id and Name as variables, sets the subscription as
-	# the default then returns a json formatted variable of available App Gateways with an autoshutdown tag
-	get_subscription_flexible_sql_servers
-	echo "Scanning $SUBSCRIPTION_NAME..."
+# Map the Flexible Server area if necessary
+flexible_server_business_area="$SELECTED_AREA"
+if [[ "$flexible_server_business_area" == "SDS" ]]; then
+    flexible_server_business_area="Cross-Cutting"
+fi
 
-	if [[ $PROJECT == "SDS" ]] && [[ $SUBSCRIPTION_NAME =~ "DCD-" ]]; then
-		continue
-	fi
-	if [[ $PROJECT == "CFT" ]] && [[ $SUBSCRIPTION_NAME =~ "SHAREDSERVICES" ]]; then
-		continue
-	fi
+# Retrieve Flexible Servers based on environment and area
+FLEXIBLE_SERVERS=$(get_flexible_sql_servers "$flexible_server_env" "$flexible_server_business_area")
+flexible_server_count=$(jq -c -r '.count' <<<$FLEXIBLE_SERVERS)
+if [[ $flexible_server_count -eq 0 ]]; then
+    echo "No clusters found for environment: $flexible_server_env and area: $flexible_server_business_area." >&2
+    exit 1
+fi
 
-	# For each App Gateway found in the function `get_subscription_flexible_sql_servers` start another loop
-	jq -c '.[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
 
-        # Function that returns the Resource Group, Id and Name of the Flexible SQL Server and its current state as variables
-		get_flexible_sql_server_details
+jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
 
-		# If SERVER_NAME matches the regex of the SELECTED_ENV then continue
-		# If SERVER_STATE is not Ready then start the flexible server
-		if [[ $SERVER_NAME =~ $SELECTED_ENV ]]; then
-			if [[ "$SERVER_STATE" != *"Ready"* ]]; then
-				ts_echo "Starting flexible-server: $SERVER_NAME in Subscription: $SUBSCRIPTION_NAME  ResourceGroup: $RESOURCE_GROUP"
-				az postgres flexible-server start --ids $SERVER_ID --no-wait || echo Ignoring error starting $NAME
-			fi
-		fi
-	done
+	# Function that returns the Resource Group, Id and Name of the Flexible Server and its current state as variables
+    get_flexible_sql_server_details
+
+	ts_echo_color BLUE "Processing Flexible Server: $SERVER_NAME, RG: $RESOURCE_GROUP, SUB: $SUBSCRIPTION"
+
+    # If SKIP is false then we progress with the action (stop/start) for the particular Flexible Server in this loop run, if not skip and print message to the logs
+    if [[ $DEV_ENV != "true" ]]; then
+    	flexible_server_state_messages
+    	az postgres flexible-server $MODE --resource-group $RESOURCE_GROUP --name $SERVER_NAME --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on flexible server
+    else
+        ts_echo_color BLUE "Development Env: simulating state commands only."
+        flexible_server_state_messages
+    fi
+
+	# Get the app gateway state after the operation
+    RESULT=$(az postgres flexible-server show --name "$SERVER_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .operationalState)
+    ts_echo "Flexible Server: $SERVER_NAME is in state: $RESULT"
 done
