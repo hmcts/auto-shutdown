@@ -80,11 +80,7 @@ jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
     fi
 
 	# Get the app gateway state after the operation
-    RESULT=$(az aks show --name "$APPLICATION_GATEWAY_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .properties_operationalState)
+    RESULT=$(az network application-gateway show --name "$APPLICATION_GATEWAY_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .properties_operationalState)
     ts_echo "Cluster $CLUSTER_NAME is in state: $RESULT"
 done
-
-
-
-
 
