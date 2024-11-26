@@ -29,5 +29,19 @@
         "stay_on_late": "Yes",
         "justification": "Need for testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/892"
+    },
+    {
+        "start_date": "26-11-2024",
+        "end_date": "26-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Team",
+        "change_jira_id": "n/a",
+        "stay_on_late": "No",
+        "justification": "Performance Test",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/894"
     }
 ]
