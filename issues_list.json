@@ -14,22 +14,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/888"
     },
     {
-        "start_date": "22-11-2024",
-        "end_date": "25-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "PrivateLaw",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6541",
-        "stay_on_late": "Yes",
-        "justification": "Need for development",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/890"
-    },
-    {
         "start_date": "25-11-2024",
         "end_date": "26-11-2024",
         "request_type": "stop",
@@ -45,19 +29,5 @@
         "stay_on_late": "Yes",
         "justification": "Need for testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/892"
-    },
-    {
-        "start_date": "25-11-2024",
-        "end_date": "25-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance test team",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-15029",
-        "stay_on_late": "No",
-        "justification": "need to run the test",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/893"
     }
 ]
