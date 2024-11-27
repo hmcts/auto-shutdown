@@ -12,50 +12,5 @@
         "stay_on_late": "Yes",
         "justification": "Video engine supplier, Vodafone are planning to test the integration during out of office hours from today",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/888"
-    },
-    {
-        "start_date": "25-11-2024",
-        "end_date": "26-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Test / Perftest",
-            " PTL",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6575",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/892"
-    },
-    {
-        "start_date": "26-11-2024",
-        "end_date": "26-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance Team",
-        "change_jira_id": "n/a",
-        "stay_on_late": "No",
-        "justification": "Performance Test",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/894"
-    },
-    {
-        "start_date": "26-11-2024",
-        "end_date": "26-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance test team",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-15968",
-        "stay_on_late": "Yes",
-        "justification": "need to run the performance test",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/895"
     }
 ]
