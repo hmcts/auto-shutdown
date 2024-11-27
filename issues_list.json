@@ -12,5 +12,19 @@
         "stay_on_late": "Yes",
         "justification": "Video engine supplier, Vodafone are planning to test the integration during out of office hours from today",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/888"
+    },
+    {
+        "start_date": "27-11-2024",
+        "end_date": "27-11-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Team",
+        "change_jira_id": "N/A",
+        "stay_on_late": "No",
+        "justification": "ET Perf Test",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/896"
     }
 ]
