@@ -1,16 +1,1 @@
-[
-    {
-        "start_date": "22-11-2024",
-        "end_date": "29-11-2024",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Video Hearing Service",
-        "change_jira_id": "VIH-11171",
-        "stay_on_late": "Yes",
-        "justification": "Video engine supplier, Vodafone are planning to test the integration during out of office hours from today",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/888"
-    }
-]
+[]
