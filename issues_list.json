@@ -1,1 +1,19 @@
-[]
+[
+    {
+        "start_date": "02-12-2024",
+        "end_date": "03-12-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration & Asylum Service",
+        "change_jira_id": "CHG5019132",
+        "stay_on_late": "Yes",
+        "justification": "IA",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/897"
+    }
+]
