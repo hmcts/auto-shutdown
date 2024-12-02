@@ -31,5 +31,22 @@
         "stay_on_late": "Yes",
         "justification": "Services needed for deployment into production and out of hours testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/898"
+    },
+    {
+        "start_date": "04-12-2024",
+        "end_date": "04-12-2024",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Civils (Team 3)",
+        "change_jira_id": "CHG5018997",
+        "stay_on_late": "Yes",
+        "justification": "Services needed for deployment into production and out of hours testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/899"
     }
 ]
