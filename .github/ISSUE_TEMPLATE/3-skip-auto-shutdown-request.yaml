@@ -62,7 +62,7 @@ body:
     id: form_end_date
     attributes:
       label: Skip shutdown end date
-      description: "DD-MM-YYYY - Defaults to start date. 8pm shutdown job will skip auto shutdown on this date."
+      description: "DD-MM-YYYY - Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only."
     validations:
       required: false
 
