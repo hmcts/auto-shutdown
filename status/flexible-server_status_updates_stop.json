@@ -458,7 +458,7 @@
   {
     "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/sscs-tya-notif-postgres-v15-db-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/sscs-tya-notif-postgres-v15-db-perftest",
     "resource": "sscs-tya-notif-postgres-v15-db-perftest",
-    "statusMessage": "Flexible SQL Server: *sscs-tya-notif-postgres-v15-db-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "statusMessage": "Flexible SQL Server: *sscs-tya-notif-postgres-v15-db-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Starting* state after *stop* action",
     "resourceType": "flexible-server"
   },
   {
