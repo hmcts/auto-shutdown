@@ -106,5 +106,17 @@
     "resource": "sscs-tya-notif-postgres-v15-db-perftest",
     "statusMessage": "Flexible SQL Server: *sscs-tya-notif-postgres-v15-db-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Starting* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rpe-draft-store-v14-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rpe-draft-store-v14-ithc",
+    "resource": "rpe-draft-store-v14-ithc",
+    "statusMessage": "Flexible SQL Server: *rpe-draft-store-v14-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rpts-api-flexible-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rpts-api-flexible-postgres-db-v15-ithc",
+    "resource": "rpts-api-flexible-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *rpts-api-flexible-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]
