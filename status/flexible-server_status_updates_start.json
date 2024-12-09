@@ -118,5 +118,11 @@
     "resource": "rpts-api-flexible-postgres-db-v15-ithc",
     "statusMessage": "Flexible SQL Server: *rpts-api-flexible-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/flexible-pip-subscription-management-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-subscription-management-ithc",
+    "resource": "flexible-pip-subscription-management-ithc",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-subscription-management-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]
