@@ -17,17 +17,16 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
-# For each Storage Account found in the function `get_sftp_servers` start another loop
-# The list of SFTP Servers used is determined by the MODE variable
-#  - Start = ENABLED_SFTP_SERVERS
-#  - Stop = DISABLED_SFTP_SERVERS
-jq -c '.data[]' <<<$([[ $MODE == "start" ]] && ENABLED_SFTP_SERVERS || DISABLED_SFTP_SERVERS) | while read sftpserver; do
+# Find all servers with a tag of autoShutdown no matter which state it is in
+ALL_SFTP_SERVERS=$(get_sftp_servers)
+
+jq -c '.data[]' <<<$ALL_SFTP_SERVERS | while read sftpserver; do
     # Function that returns the Resource Group, Id and Name of the Storage Account and the current state of the SFTP Server as variables
     get_sftp_server_details
 
     # Setup message output templates for later use
-    logMessage="SFTP Server is $SFTP_SERVER_STATE on Storage Account: $STORAGE_ACCOUNT_NAME in Subscription: $SUBSCRIPTION and ResourceGroup: $RESOURCE_GROUP"
-    slackMessage=":red_circle: SFTP Server on Storage Account: *$STORAGE_ACCOUNT_NAME* in Subscription: *$SUBSCRIPTION* is $SFTP_SERVER_STATE after *$MODE* action."
+    logMessage="Storage Account: $STORAGE_ACCOUNT_NAME in Subscription: $SUBSCRIPTION and ResourceGroup: $RESOURCE_GROUP after $MODE action, is SFTP enabled: $SFTP_SERVER_ENABLED"
+    slackMessage=":red_circle: Storage Account: *$STORAGE_ACCOUNT_NAME* in Subscription: *$SUBSCRIPTION* after *$MODE* action, is SFTP enabled: $SFTP_SERVER_ENABLED ."
 
     # Check state of the SFTP Server feature and print output as required
     # Depending on the value of MODE a notification will also be sent
@@ -37,13 +36,13 @@ jq -c '.data[]' <<<$([[ $MODE == "start" ]] && ENABLED_SFTP_SERVERS || DISABLED_
     if [[ "$SFTP_SERVER_ENABLED" =~ "true" ]]; then
         ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
         if [[ $MODE == "stop" ]]; then
-            auto_shutdown_notification "$slackMessage"
+            # auto_shutdown_notification "$slackMessage"
             add_to_json "$STORAGE_ACCOUNT_ID" "$STORAGE_ACCOUNT_NAME" "$slackMessage" "blob-storage" "$MODE"
         fi
     elif [[ "$SFTP_SERVER_ENABLED" =~ "false" ]]; then
         ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
         if [[ $MODE == "start" ]]; then
-            auto_shutdown_notification "$slackMessage"
+            # auto_shutdown_notification "$slackMessage"
             add_to_json "$STORAGE_ACCOUNT_ID" "$STORAGE_ACCOUNT_NAME" "$slackMessage" "blob-storage" "$MODE"
         fi
     fi
