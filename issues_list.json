@@ -14,5 +14,20 @@
         "stay_on_late": "Yes",
         "justification": "Need for testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/903"
+    },
+    {
+        "start_date": "16-12-2024",
+        "end_date": "16-12-2024",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "ET",
+        "change_jira_id": "CHG5019246",
+        "stay_on_late": "Yes",
+        "justification": "ES Reindexing OOH",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/904"
     }
 ]
