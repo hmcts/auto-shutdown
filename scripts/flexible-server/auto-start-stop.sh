@@ -16,7 +16,7 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
-FLEXIBLE_SERVERS=$(get_flexible_sql_servers "$2")
+FLEXIBLE_SERVERS=$(get_flexible_sql_servers "$2" "$3" "$4")
 flexible_server_count=$(jq -c -r '.count' <<< $FLEXIBLE_SERVERS)
 log "$flexible_server_count Flexible Servers found"
 log "----------------------------------------------"
