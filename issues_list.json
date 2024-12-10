@@ -29,5 +29,19 @@
         "stay_on_late": "Yes",
         "justification": "ES Reindexing OOH",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/904"
+    },
+    {
+        "start_date": "10-12-2024",
+        "end_date": "10-12-2024",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance test team",
+        "change_jira_id": "CIV-15968",
+        "stay_on_late": "No",
+        "justification": "general application scripting",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/909"
     }
 ]
