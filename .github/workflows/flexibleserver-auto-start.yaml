@@ -2,7 +2,7 @@ name: flexible-server-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 6 * * 1-5" # Every weekday at 6:30am BST
+    - cron: '30 6 * * 1-5' # Every weekday at 6:30am BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
@@ -13,45 +13,82 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: "Az CLI login"
+      - name: 'Az CLI login'
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
 
+      # REPLICA
+      - name: Staging Replicas - Postgres Flexible server Auto Start
+        run: ./scripts/flexible-server/auto-start-stop.sh start staging '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Test Replicas - Postgres Flexible server Auto Start
+        run: ./scripts/flexible-server/auto-start-stop.sh start testing '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Demo Replicas - Postgres Flexible server Auto Start
+        run: ./scripts/flexible-server/auto-start-stop.sh start demo '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Development Replicas - Postgres Flexible server Auto Start
+        run: ./scripts/flexible-server/auto-start-stop.sh start development '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Sandbox Replicas - Postgres Flexible server Auto Start
+        run: ./scripts/flexible-server/auto-start-stop.sh start sandbox '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: ITHC Replicas - Postgres Flexible server Auto Start
+        run: ./scripts/flexible-server/auto-start-stop.sh start ithc '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Untagged Replicas - Postgres Flexible server Auto Start
+        run: ./scripts/flexible-server/auto-start-stop.sh start untagged '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      # PRIMARY
       - name: Staging - Postgres Flexible server Auto Start
-        run: ./scripts/flexible-server/auto-start-stop.sh start staging
+        run: ./scripts/flexible-server/auto-start-stop.sh start staging '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
       - name: Test - Postgres Flexible server Auto Start
-        run: ./scripts/flexible-server/auto-start-stop.sh start testing
+        run: ./scripts/flexible-server/auto-start-stop.sh start testing '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
       - name: Demo - Postgres Flexible server Auto Start
-        run: ./scripts/flexible-server/auto-start-stop.sh start demo
+        run: ./scripts/flexible-server/auto-start-stop.sh start demo '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
       - name: Development - Postgres Flexible server Auto Start
-        run: ./scripts/flexible-server/auto-start-stop.sh start development
+        run: ./scripts/flexible-server/auto-start-stop.sh start development '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
       - name: Sandbox - Postgres Flexible server Auto Start
-        run: ./scripts/flexible-server/auto-start-stop.sh start sandbox
+        run: ./scripts/flexible-server/auto-start-stop.sh start sandbox '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
       - name: ITHC - Postgres Flexible server Auto Start
-        run: ./scripts/flexible-server/auto-start-stop.sh start ithc
+        run: ./scripts/flexible-server/auto-start-stop.sh start ithc '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
       - name: Untagged - Postgres Flexible server Auto Start
-        run: ./scripts/flexible-server/auto-start-stop.sh start untagged
+        run: ./scripts/flexible-server/auto-start-stop.sh start untagged '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
