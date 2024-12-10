@@ -124,5 +124,11 @@
     "resource": "flexible-pip-subscription-management-ithc",
     "statusMessage": "Flexible SQL Server: *flexible-pip-subscription-management-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Stopped* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/opal-user-service-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-user-service-stg",
+    "resource": "opal-user-service-stg",
+    "statusMessage": "Flexible SQL Server: *opal-user-service-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]
