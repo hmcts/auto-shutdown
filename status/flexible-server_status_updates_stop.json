@@ -646,5 +646,11 @@
     "resource": "pre-db-dev",
     "statusMessage": "Flexible SQL Server: *pre-db-dev* in Subscription: *867a878b-cb68-4de5-9741-361ac9e178b6* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/bf308a5c-0624-4334-8ff8-8dca9fd43783/resourceGroups/idam-api-v14-data-idam-sandbox/providers/Microsoft.DBforPostgreSQL/flexibleServers/idam-api-v14-idam-sandbox",
+    "resource": "idam-api-v14-idam-sandbox",
+    "statusMessage": "Flexible SQL Server: *idam-api-v14-idam-sandbox* in Subscription: *bf308a5c-0624-4334-8ff8-8dca9fd43783* is in *Starting* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
