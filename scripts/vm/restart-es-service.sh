@@ -8,7 +8,7 @@ PRIVATE_KEY="~/.ssh/elk_private_key"
 STAGING_HOSTS=("10.96.149.7" "10.96.149.5" "10.96.149.4" "10.96.149.10")  # ccd-data-0, ccd-data-1, ccd-data-2, ccd-data-3
 DEMO_HOSTS=("10.96.216.4" "10.96.216.7" "10.96.216.5" "10.96.216.6")  # ccd-data-0, ccd-data-1, ccd-data-2, ccd-data-3
 ITHC_HOSTS=("10.112.53.5" "10.112.53.9" "10.112.53.6" "10.112.53.7")  # ccd-data-0, ccd-data-1, ccd-data-2, ccd-data-3
-PERFTEST_HOSTS=("10.112.153.7", "10.112.153.6", "10.112.153.9", "10.112.153.5") # ccd-data-0, ccd-data-1, ccd-data-2, ccd-data-3
+PERFTEST_HOSTS=("10.112.153.7" "10.112.153.6" "10.112.153.9" "10.112.153.5") # ccd-data-0, ccd-data-1, ccd-data-2, ccd-data-3
 
 CHECK_COMMAND="sudo systemctl is-failed elasticsearch.service"
 RESTART_COMMAND="sudo systemctl restart elasticsearch.service"
