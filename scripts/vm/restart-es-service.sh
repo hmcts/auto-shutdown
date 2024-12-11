@@ -41,6 +41,7 @@ esac
 
 for REMOTE_HOST in "${REMOTE_HOSTS[@]}"; do
   STATUS=$(ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${CHECK_COMMAND}")
+	echo $STATUS
   if [[ "${STATUS}" == "active" ]]; then
 		echo "Elasticsearch service on ${REMOTE_HOST} is active."
 	elif [[ "${STATUS}" == *"Connection timed out"* ]]; then
