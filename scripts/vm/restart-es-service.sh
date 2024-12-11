@@ -14,8 +14,8 @@ PERFTEST_HOSTS=("10.112.153.7" "10.112.153.6" "10.112.153.9" "10.112.153.5") # c
 CHECK_COMMAND="sudo systemctl is-failed elasticsearch.service"
 RESTART_COMMAND="sudo systemctl restart elasticsearch.service"
 
-if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <environment>"
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <environment> <private_key>"
   exit 1
 fi
 
