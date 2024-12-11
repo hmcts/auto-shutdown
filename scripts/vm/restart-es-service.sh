@@ -40,13 +40,13 @@ case "${ENVIRONMENT}" in
 esac
 
 for REMOTE_HOST in "${REMOTE_HOSTS[@]}"; do
-  STATUS=$(ssh -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${CHECK_COMMAND}")
-  if [ "${STATUS}" == "active" ]; then
+  STATUS=$(ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${CHECK_COMMAND}")
+  if [[ "${STATUS}" == "active" ]]; then
 		echo "Elasticsearch service on ${REMOTE_HOST} is active."
 	elif [[ "${STATUS}" == *"Connection timed out"* ]]; then
 		echo "Connection to ${REMOTE_HOST} timed out."
 	else
 		echo "Restarting Elasticsearch service on ${REMOTE_HOST}"
-    ssh -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${RESTART_COMMAND}"
+    ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${RESTART_COMMAND}"
   fi
 done
