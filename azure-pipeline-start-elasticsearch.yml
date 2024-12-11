@@ -12,36 +12,29 @@ trigger:
     include:
       - master
 
-variables:
-  timeoutInMinutes: 60
-  agentPool: 'hmcts-cftptl-agent-pool'
-  service_connection: 'GA'
+pool:
+  name: 'hmcts-cftptl-agent-pool'
 
-stages:
-  stage: StartElasticsearchService
-  jobs:
-    job: StartElasticsearchService
-    displayName: Start Elasticsearch Service
-    pool:
-      name: $(agentPool)
+jobs:
+  job: StartElasticsearchService
+  displayName: Start Elasticsearch Service
+  steps:
+    - checkout: self
+      clean: true
 
-    steps:
-      - checkout: self
-        clean: true
+    - task: DownloadSecureFile@1
+      name: elkprivatekey
+      inputs:
+        secureFile: 'elk_private_key'
 
-      - task: DownloadSecureFile@1
-        name: elkprivatekey
-        inputs:
-          secureFile: 'elk_private_key'
+    - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
+      displayName: 'Start Elasticsearch Staging'
 
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch Staging'
+    - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
+      displayName: 'Start Elasticsearch Demo'
 
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch Demo'
+    - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
+      displayName: 'Start Elasticsearch Perftest'
 
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch Perftest'
-
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch ITHC'
+    - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
+      displayName: 'Start Elasticsearch ITHC'
