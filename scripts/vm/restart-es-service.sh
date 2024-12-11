@@ -3,7 +3,8 @@
 shopt -s nocasematch
 
 REMOTE_USER="elkadmin"
-PRIVATE_KEY="~/.ssh/elk_private_key"
+ENVIRONMENT=$1
+PRIVATE_KEY=$2
 
 STAGING_HOSTS=("10.96.149.7" "10.96.149.5" "10.96.149.4" "10.96.149.10")  # ccd-data-0, ccd-data-1, ccd-data-2, ccd-data-3
 DEMO_HOSTS=("10.96.216.4" "10.96.216.7" "10.96.216.5" "10.96.216.6")  # ccd-data-0, ccd-data-1, ccd-data-2, ccd-data-3
@@ -17,8 +18,6 @@ if [ "$#" -ne 1 ]; then
   echo "Usage: $0 <environment>"
   exit 1
 fi
-
-ENVIRONMENT=$1
 
 case "${ENVIRONMENT}" in
   staging)
