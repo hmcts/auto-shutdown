@@ -15,5 +15,15 @@ jobs:
         run: echo "${{ secrets.ELK_PRIVATE_KEY }}" > ~/.ssh/elk_private_key
       - name: Set Permissions
         run: chmod 600 ~/.ssh/elk_private_key
-      - name: Restart Elasticsearch
-        run: ./scripts/vm/restart-es-service.sh
+
+      - name: Restart Elasticsearch Staging
+        run: ./scripts/vm/restart-es-service.sh staging
+
+      - name: Restart Elasticsearch Demo
+        run: ./scripts/vm/restart-es-service.sh demo
+
+      - name: Restart Elasticsearch Perftest
+        run: ./scripts/vm/restart-es-service.sh perftest
+
+      - name: Restart Elasticsearch ITHC
+        run: ./scripts/vm/restart-es-service.sh ithc
