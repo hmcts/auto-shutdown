@@ -1,0 +1,19 @@
+name: elasticsearch-auto-start
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 6 * * 1-5' # Every weekday at 6:30am BST
+env:
+  DEV_ENV: ${{ secrets.DEV_ENV }}
+permissions:
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download ELK Private Key
+        run: echo "${{ secrets.ELK_PRIVATE_KEY }}" > ~/.ssh/elk_private_key
+      - name: Set Permissions
+        run: chmod 600 ~/.ssh/elk_private_key
+      - name: Restart Elasticsearch
+        run: ./scripts/vm/restart-es-service.sh
