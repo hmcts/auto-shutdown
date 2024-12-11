@@ -2,7 +2,7 @@ name: elasticsearch-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 6 * * 1-5' # Every weekday at 6:30am BST
+    - cron: '45 6 * * 1-5' # Every weekday at 6:45am BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
