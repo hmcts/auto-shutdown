@@ -41,7 +41,6 @@ esac
 
 for REMOTE_HOST in "${REMOTE_HOSTS[@]}"; do
   STATUS=$(ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${CHECK_COMMAND}")
-	echo $STATUS
   if [[ -z "${STATUS}" ]]; then
 		echo "Problem connecting to ${REMOTE_HOST}."
 	else 
