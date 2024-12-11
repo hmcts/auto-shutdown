@@ -43,5 +43,19 @@
         "stay_on_late": "No",
         "justification": "general application scripting",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/909"
+    },
+    {
+        "start_date": "11-12-2024",
+        "end_date": "11-12-2024",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Possession Claims Service",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/HDPI-86",
+        "stay_on_late": "No",
+        "justification": "Testing and debugging",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/912"
     }
 ]
