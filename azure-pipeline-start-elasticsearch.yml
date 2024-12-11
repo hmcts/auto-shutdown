@@ -32,6 +32,9 @@ jobs:
         inputs:
           secureFile: 'elk_private_key'
 
+      - script: chmod 600 $(elkprivatekey.secureFilePath)
+        displayName: 'Set permissions on private key'
+
       - script: ./scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
         displayName: 'Start Elasticsearch Staging'
 
