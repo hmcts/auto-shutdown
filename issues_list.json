@@ -13,47 +13,5 @@
         "stay_on_late": "Yes",
         "justification": "ES Reindexing OOH",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/904"
-    },
-    {
-        "start_date": "11-12-2024",
-        "end_date": "11-12-2024",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Possession Claims Service",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/HDPI-86",
-        "stay_on_late": "No",
-        "justification": "Testing and debugging",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/912"
-    },
-    {
-        "start_date": "11-12-2024",
-        "end_date": "11-12-2024",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Possessions Claims Service",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/HDPI-86",
-        "stay_on_late": "No",
-        "justification": "Testing and debugging s2s auth in preview/AAT to support delivery milestones",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/913"
-    },
-    {
-        "start_date": "11-12-2024",
-        "end_date": "11-12-2024",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Possessions Claims Service",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/HDPI-86",
-        "stay_on_late": "No",
-        "justification": "supporting infrastructure completion for PCS in Dev/Staging",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/914"
     }
 ]
