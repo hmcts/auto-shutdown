@@ -1,21 +1,5 @@
 [
     {
-        "start_date": "09-12-2024",
-        "end_date": "10-12-2024",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            " Test / Perftest",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Prl",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/903"
-    },
-    {
         "start_date": "16-12-2024",
         "end_date": "16-12-2024",
         "request_type": "stop",
@@ -29,20 +13,6 @@
         "stay_on_late": "Yes",
         "justification": "ES Reindexing OOH",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/904"
-    },
-    {
-        "start_date": "10-12-2024",
-        "end_date": "10-12-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance test team",
-        "change_jira_id": "CIV-15968",
-        "stay_on_late": "No",
-        "justification": "general application scripting",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/909"
     },
     {
         "start_date": "11-12-2024",
