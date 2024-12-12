@@ -12,11 +12,6 @@ trigger:
     include:
       - master
 
-pr:
-  branches:
-    include:
-      - master
-
 pool:
   name: 'hmcts-cftptl-agent-pool'
 
