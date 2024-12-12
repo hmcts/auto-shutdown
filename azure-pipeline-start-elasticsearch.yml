@@ -7,11 +7,6 @@ schedules:
       include:
         - master
 
-trigger:
-  branches:
-    include:
-      - master
-
 pool:
   name: 'hmcts-cftptl-agent-pool'
 
