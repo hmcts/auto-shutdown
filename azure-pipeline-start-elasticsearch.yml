@@ -7,24 +7,12 @@ schedules:
       include:
         - master
 
-trigger:
-  branches:
-    include:
-      - master
+pool:
+  name: 'hmcts-cftptl-agent-pool'
 
-variables:
-  timeoutInMinutes: 60
-  agentPool: 'hmcts-cftptl-agent-pool'
-  service_connection: 'GA'
-
-stages:
-  stage: StartElasticsearchService
-  jobs:
-    job: StartElasticsearchService
+jobs:
+  - job: StartElasticsearchService
     displayName: Start Elasticsearch Service
-    pool:
-      name: $(agentPool)
-
     steps:
       - checkout: self
         clean: true
@@ -34,14 +22,17 @@ stages:
         inputs:
           secureFile: 'elk_private_key'
 
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
+      - script: chmod 600 $(elkprivatekey.secureFilePath)
+        displayName: 'Set permissions on private key'
+
+      - script: ./scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
         displayName: 'Start Elasticsearch Staging'
 
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
+      - script: ./scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
         displayName: 'Start Elasticsearch Demo'
 
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
+      - script: ./scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
         displayName: 'Start Elasticsearch Perftest'
 
-      - script: ./$(System.DefaultWorkingDirectory)/scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
+      - script: ./scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
         displayName: 'Start Elasticsearch ITHC'

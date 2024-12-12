@@ -14,8 +14,8 @@ PERFTEST_HOSTS=("10.112.153.7" "10.112.153.6" "10.112.153.9" "10.112.153.5") # c
 CHECK_COMMAND="sudo systemctl is-failed elasticsearch.service"
 RESTART_COMMAND="sudo systemctl restart elasticsearch.service"
 
-if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <environment>"
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <environment> <private_key>"
   exit 1
 fi
 
@@ -40,11 +40,15 @@ case "${ENVIRONMENT}" in
 esac
 
 for REMOTE_HOST in "${REMOTE_HOSTS[@]}"; do
-  STATUS=$(ssh -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${CHECK_COMMAND}")
-  if [ "${STATUS}" != "active" ]; then
-		echo "Restarting Elasticsearch service on ${REMOTE_HOST}"
-    ssh -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${RESTART_COMMAND}"
-  else
-    echo "Elasticsearch service on ${REMOTE_HOST} is active."
-  fi
+  STATUS=$(ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${CHECK_COMMAND}")
+  if [[ -z "${STATUS}" ]]; then
+		echo "Problem connecting to host ${REMOTE_HOST}."
+	else 
+		if [[ "${STATUS}" == "active" ]]; then
+			echo "Elasticsearch service on ${REMOTE_HOST} is active."
+		else
+			echo "Restarting Elasticsearch service on ${REMOTE_HOST}"
+    	ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${RESTART_COMMAND}"
+		fi
+	fi
 done
