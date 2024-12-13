@@ -214,5 +214,23 @@
     "resource": "hmisademo",
     "statusMessage": ":red_circle: Storage Account: *hmisademo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* after *start* action, is SFTP enabled: false .",
     "resourceType": "blob-storage"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.Storage/storageAccounts/dartsarmtest",
+    "resource": "dartsarmtest",
+    "statusMessage": ":red_circle: Storage Account: *dartsarmtest* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* after *start* action, is SFTP enabled: false .",
+    "resourceType": "blob-storage"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/darts-ithc-rg/providers/Microsoft.Storage/storageAccounts/dartsarmithc",
+    "resource": "dartsarmithc",
+    "statusMessage": ":red_circle: Storage Account: *dartsarmithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* after *start* action, is SFTP enabled: false .",
+    "resourceType": "blob-storage"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/darts-demo-rg/providers/Microsoft.Storage/storageAccounts/dartsarmdemo",
+    "resource": "dartsarmdemo",
+    "statusMessage": ":red_circle: Storage Account: *dartsarmdemo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* after *start* action, is SFTP enabled: false .",
+    "resourceType": "blob-storage"
   }
 ]
