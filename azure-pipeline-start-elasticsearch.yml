@@ -1,8 +1,8 @@
 name: Start Elasticsearch Service
 
 schedules:
-  - cron: '45 6 * * 1-5' # Every weekday at 6:45am BST
-    displayName: Weekdays @ 6:45am
+  - cron: '*/10 * * * *' # Every 10 minutes
+    displayName: Every 10 minutes - Temporary
     branches:
       include:
         - master
@@ -28,11 +28,11 @@ jobs:
       - script: ./scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
         displayName: 'Start Elasticsearch Staging'
 
-      - script: ./scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch Demo'
+      # - script: ./scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
+      #   displayName: 'Start Elasticsearch Demo'
 
-      - script: ./scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch Perftest'
+      # - script: ./scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
+      #   displayName: 'Start Elasticsearch Perftest'
 
-      - script: ./scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch ITHC'
+      # - script: ./scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
+      #   displayName: 'Start Elasticsearch ITHC'
