@@ -148,5 +148,17 @@
     "resource": "flexible-pip-account-management-ithc",
     "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Stopped* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/am-judicial-booking-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/am-judicial-booking-service-postgres-db-v15-ithc",
+    "resource": "am-judicial-booking-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *am-judicial-booking-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/lau-case-backend-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/lau-case-backend-flexible-ithc",
+    "resource": "lau-case-backend-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *lau-case-backend-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]
