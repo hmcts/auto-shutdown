@@ -78,6 +78,6 @@ jq -c '.data[]' <<<$VMS | while read vm; do
     fi
 
 	# Get the app gateway state after the operation
-    RESULT=$(az vm show --name $VM_ID | jq -r .state)
+    RESULT=$(az vm show --ids $VM_ID | jq -r .state)
     ts_echo "Virtual Machine: $VM_NAME is in state: $RESULT"
 done
