@@ -25,14 +25,14 @@ jobs:
       - script: chmod 600 $(elkprivatekey.secureFilePath)
         displayName: 'Set permissions on private key'
 
-      - script: ./scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
-        displayName: 'Start Elasticsearch Staging'
+      # - script: ./scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
+      #   displayName: 'Start Elasticsearch Staging'
 
       # - script: ./scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
       #   displayName: 'Start Elasticsearch Demo'
 
-      # - script: ./scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
-      #   displayName: 'Start Elasticsearch Perftest'
+      - script: ./scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
+        displayName: 'Start Elasticsearch Perftest'
 
       # - script: ./scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
       #   displayName: 'Start Elasticsearch ITHC'
