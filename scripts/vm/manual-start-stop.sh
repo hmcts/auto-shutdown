@@ -79,7 +79,7 @@ jq -c '.data[]' <<<$VMS | while read vm; do
 
 	# Get the VM state after the operation
     RESULT=$(az graph query -q "resources 
-    | where ['id'] == 'VM_ID' 
+    | where ['id'] == '$VM_ID' 
     | project properties" -o json | jq -r '.data[0].properties.extended.instanceView.powerState.code')
 
     ts_echo "Virtual Machine: $VM_NAME is in state: $RESULT"
