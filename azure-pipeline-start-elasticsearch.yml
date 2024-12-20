@@ -1,8 +1,8 @@
 name: Start Elasticsearch Service
 
 schedules:
-  - cron: '*/10 * * * *' # Every 10 minutes
-    displayName: Every 10 minutes - Temporary
+  - cron: '0 * * * *' # Every hour
+    displayName: Every hour
     branches:
       include:
         - master
