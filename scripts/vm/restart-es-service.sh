@@ -40,7 +40,7 @@ case "${ENVIRONMENT}" in
 esac
 
 for REMOTE_HOST in "${REMOTE_HOSTS[@]}"; do
-	if [[ nc -z -w 5 ${REMOTE_HOST} 22 ]]; then
+	if nc -z -w 5 ${REMOTE_HOST} 22 >/dev/null 2>&1; then
   	STATUS=$(ssh -o ConnectTimeout=20 -o StrictHostKeyChecking=no -i "${PRIVATE_KEY}" ${REMOTE_USER}@${REMOTE_HOST} "${CHECK_COMMAND}")
 	else
 		continue
