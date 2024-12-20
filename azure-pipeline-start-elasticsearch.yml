@@ -28,8 +28,8 @@ jobs:
       - script: ./scripts/vm/restart-es-service.sh staging $(elkprivatekey.secureFilePath)
         displayName: 'Start Elasticsearch Staging'
 
-      # - script: ./scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
-      #   displayName: 'Start Elasticsearch Demo'
+      - script: ./scripts/vm/restart-es-service.sh demo $(elkprivatekey.secureFilePath)
+        displayName: 'Start Elasticsearch Demo'
 
       # - script: ./scripts/vm/restart-es-service.sh perftest $(elkprivatekey.secureFilePath)
       #   displayName: 'Start Elasticsearch Perftest'
