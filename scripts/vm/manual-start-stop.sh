@@ -12,9 +12,15 @@ source scripts/common/common-functions.sh
 # Check and set default MODE if not provided
 MODE=${1:-start}
 
+# Check if MODE is stop and set to deallocate
+if [[ $MODE == "stop" ]]; then
+    MODE="deallocate"
+fi
+
 # Ensure valid MODE
-if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
-    echo "Invalid MODE. Please use 'start' or 'stop'." >&2
+# Catch problems with MODE input, must be one of Start/Stop
+if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
+    echo "Invalid MODE. Please use 'start' or 'deallocate'."
     exit 1
 fi
 
