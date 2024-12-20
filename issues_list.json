@@ -1,16 +1,1 @@
-[
-    {
-        "start_date": "19-12-2024",
-        "end_date": "19-12-2024",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "CUIR2",
-        "change_jira_id": "CIV-12247",
-        "stay_on_late": "No",
-        "justification": "need to prep test data",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/925"
-    }
-]
+[]
