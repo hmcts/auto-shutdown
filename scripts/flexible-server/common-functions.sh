@@ -16,7 +16,7 @@ function get_flexible_sql_servers() {
   if [ -z $2 ]; then
     area_selector=""
   else
-    area_selector="| where tags.businessArea == '$2'"
+    area_selector="| where tolower(tags.businessArea) == tolower('$2')"
   fi
 
   if [ -z $3 ]; then

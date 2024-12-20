@@ -24,7 +24,7 @@ function get_clusters() {
     if [ -z $2 ]; then
         area_selector=""
     else
-        area_selector="| where tags.businessArea == '$2'"
+        area_selector="| where tolower(tags.businessArea) == tolower('$2')"
     fi
 
     az graph query -q "
