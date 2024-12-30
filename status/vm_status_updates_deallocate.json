@@ -560,7 +560,7 @@
   {
     "id": "/subscriptions/b44eb479-9ae2-42e7-9c63-f3c599719b6f/resourceGroups/bastion-nonprod-rg/providers/Microsoft.Compute/virtualMachines/bastion-nonprod",
     "resource": "bastion-nonprod",
-    "statusMessage": "VM: *bastion-nonprod* in Subscription: *b44eb479-9ae2-42e7-9c63-f3c599719b6f*  ResourceGroup: *bastion-nonprod-rg* is *null* state after *deallocate* action.",
+    "statusMessage": "VM: *bastion-nonprod* in Subscription: *b44eb479-9ae2-42e7-9c63-f3c599719b6f*  ResourceGroup: *bastion-nonprod-rg* is *PowerState/running* state after *deallocate* action.",
     "resourceType": "vm"
   },
   {
