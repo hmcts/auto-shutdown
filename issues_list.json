@@ -14,5 +14,21 @@
         "stay_on_late": "Yes",
         "justification": "Need for setting up data for cafcass testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/931"
+    },
+    {
+        "start_date": "06-01-2025",
+        "end_date": "07-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "PRL-5766",
+        "stay_on_late": "Yes",
+        "justification": "Need for PRL testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/932"
     }
 ]
