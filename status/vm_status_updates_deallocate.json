@@ -1474,5 +1474,59 @@
     "resource": "d8980ce59b164c2eb5a50f7d2811d86d",
     "statusMessage": "VM: *d8980ce59b164c2eb5a50f7d2811d86d* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
     "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/2e6bf64d2a1d4639922626e18e51f8f5",
+    "resource": "2e6bf64d2a1d4639922626e18e51f8f5",
+    "statusMessage": "VM: *2e6bf64d2a1d4639922626e18e51f8f5* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/4ac30ac67ac4484794d5e02f6299c01c",
+    "resource": "4ac30ac67ac4484794d5e02f6299c01c",
+    "statusMessage": "VM: *4ac30ac67ac4484794d5e02f6299c01c* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/55394e9e87e949abbac7dc1a694ebc13",
+    "resource": "55394e9e87e949abbac7dc1a694ebc13",
+    "statusMessage": "VM: *55394e9e87e949abbac7dc1a694ebc13* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/615a8cde5ff04d18abb96991bb7726c0",
+    "resource": "615a8cde5ff04d18abb96991bb7726c0",
+    "statusMessage": "VM: *615a8cde5ff04d18abb96991bb7726c0* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/6685a683a18848669bc6a55525ecbb61",
+    "resource": "6685a683a18848669bc6a55525ecbb61",
+    "statusMessage": "VM: *6685a683a18848669bc6a55525ecbb61* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/689603fae3db426fac182f5f470183fa",
+    "resource": "689603fae3db426fac182f5f470183fa",
+    "statusMessage": "VM: *689603fae3db426fac182f5f470183fa* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/9badd59614e74a509e00fed0a33f1715",
+    "resource": "9badd59614e74a509e00fed0a33f1715",
+    "statusMessage": "VM: *9badd59614e74a509e00fed0a33f1715* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/ba8e4079ab2a4e87a33d1b23814b41ac",
+    "resource": "ba8e4079ab2a4e87a33d1b23814b41ac",
+    "statusMessage": "VM: *ba8e4079ab2a4e87a33d1b23814b41ac* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/fd8dc4a9c1bc414db10db1ddbd7475e6",
+    "resource": "fd8dc4a9c1bc414db10db1ddbd7475e6",
+    "statusMessage": "VM: *fd8dc4a9c1bc414db10db1ddbd7475e6* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
+    "resourceType": "vm"
   }
 ]
