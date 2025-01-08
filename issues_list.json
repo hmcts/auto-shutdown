@@ -32,5 +32,19 @@
         "stay_on_late": "Yes",
         "justification": "We are planning to do tech release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/934"
+    },
+    {
+        "start_date": "08-01-2025",
+        "end_date": "08-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "N/A",
+        "stay_on_late": "No",
+        "justification": "Data prep and test activity",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/935"
     }
 ]
