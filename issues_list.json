@@ -1,21 +1,5 @@
 [
     {
-        "start_date": "07-01-2025",
-        "end_date": "12-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Needed by external party(Cafcass) to do the testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/933"
-    },
-    {
         "start_date": "10-01-2025",
         "end_date": "13-01-2025",
         "request_type": "stop",
