@@ -1606,5 +1606,11 @@
     "resource": "dc99d9f09fd9436eacfb447f8e8d3806",
     "statusMessage": "VM: *dc99d9f09fd9436eacfb447f8e8d3806* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *PowerState/running* state after *deallocate* action.",
     "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/bf308a5c-0624-4334-8ff8-8dca9fd43783/resourceGroups/core-infra-idam-sandbox/providers/Microsoft.Compute/virtualMachines/idam-sandbox-jumpbox",
+    "resource": "idam-sandbox-jumpbox",
+    "statusMessage": "VM: *idam-sandbox-jumpbox* in Subscription: *bf308a5c-0624-4334-8ff8-8dca9fd43783*  ResourceGroup: *core-infra-idam-sandbox* is *PowerState/deallocating* state after *deallocate* action.",
+    "resourceType": "vm"
   }
 ]
