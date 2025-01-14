@@ -19,6 +19,7 @@ body:
     id: form_business_area
     attributes:
       label: Business area
+      description: "Bastion servers are considered part of Cross-Cutting, if you need these but this request is for CFT, raise a separate request for the bastion servers."
       options:
         - CFT
         - Cross-Cutting
