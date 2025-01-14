@@ -45,5 +45,21 @@
         "stay_on_late": "Yes",
         "justification": "AAT environment needed for running our pipelines.",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/938"
+    },
+    {
+        "start_date": "14-01-2025",
+        "end_date": "14-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Adoption",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/ADOP-2555",
+        "stay_on_late": "Yes",
+        "justification": "AAT environment needed for running jenkins pipeline",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/939"
     }
 ]
