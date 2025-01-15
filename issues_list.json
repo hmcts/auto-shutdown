@@ -14,52 +14,5 @@
         "stay_on_late": "Yes",
         "justification": "Cafcass requested for testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/937"
-    },
-    {
-        "start_date": "14-01-2025",
-        "end_date": "14-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Family Public Law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2572",
-        "stay_on_late": "Yes",
-        "justification": "AAT environment needed for running our pipelines.",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/938"
-    },
-    {
-        "start_date": "14-01-2025",
-        "end_date": "14-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Adoption",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/ADOP-2555",
-        "stay_on_late": "Yes",
-        "justification": "AAT environment needed for running jenkins pipeline",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/939"
-    },
-    {
-        "start_date": "14-01-2025",
-        "end_date": "14-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Family Public Law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2572",
-        "stay_on_late": "Yes",
-        "justification": "Environments needed for raising PRs and running our master pipelines",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/940"
     }
 ]
