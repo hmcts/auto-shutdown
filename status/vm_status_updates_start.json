@@ -4,5 +4,11 @@
     "resource": "",
     "statusMessage": "VM: ** in Subscription: **  ResourceGroup: ** is ** state after *start* action.",
     "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ea3a8c1e-af9d-4108-bc86-a7e2d267f49c/resourceGroups/hmcts-hub-sbox-int/providers/Microsoft.Compute/virtualMachines/hmcts-hub-sbox-int-palo-vm-0",
+    "resource": "hmcts-hub-sbox-int-palo-vm-0",
+    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-vm-0* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *null* state after *start* action.",
+    "resourceType": "vm"
   }
 ]
