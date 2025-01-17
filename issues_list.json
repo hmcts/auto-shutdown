@@ -14,5 +14,19 @@
         "stay_on_late": "Yes",
         "justification": "Cafcass requested for testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/937"
+    },
+    {
+        "start_date": "17-01-2025",
+        "end_date": "19-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "N/A",
+        "stay_on_late": "No",
+        "justification": "perf test preparation for testing next week",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/943"
     }
 ]
