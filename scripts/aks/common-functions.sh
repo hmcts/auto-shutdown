@@ -33,7 +33,7 @@ function get_clusters() {
     | where tags.autoShutdown == 'true'
     $env_selector
     $area_selector
-    | project name, resourceGroup, subscriptionId, ['tags'], properties, ['id']
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.powerState.code, ['id']
     " --first 1000 -o json
 
     log "az graph query complete"
