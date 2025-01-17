@@ -33,7 +33,7 @@ function get_clusters() {
     | where tags.autoShutdown == 'true'
     $env_selector
     $area_selector
-    | project name, resourceGroup, subscriptionId, ['tags'], properties, ['id']
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.powerState.code, ['id']
     " --first 1000 -o json
 
     log "az graph query complete"
@@ -43,7 +43,7 @@ function get_cluster_details() {
     RESOURCE_GROUP=$(jq -r '.resourceGroup' <<<$cluster)
     CLUSTER_NAME=$(jq -r '.name' <<<$cluster)
     STARTUP_MODE=$(jq -r '.tags.startupMode' <<<$cluster)
-    CLUSTER_STATUS=$(jq -r '.properties.powerState.code' <<<$cluster)
+    CLUSTER_STATUS=$(jq -r '.properties_powerState_code' <<<$cluster)
     SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$cluster)
 }
 
