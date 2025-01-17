@@ -43,7 +43,7 @@ function get_cluster_details() {
     RESOURCE_GROUP=$(jq -r '.resourceGroup' <<<$cluster)
     CLUSTER_NAME=$(jq -r '.name' <<<$cluster)
     STARTUP_MODE=$(jq -r '.tags.startupMode' <<<$cluster)
-    CLUSTER_STATUS=$(jq -r '.properties.powerState.code' <<<$cluster)
+    CLUSTER_STATUS=$(jq -r '.properties_powerState_code' <<<$cluster)
     SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$cluster)
 }
 

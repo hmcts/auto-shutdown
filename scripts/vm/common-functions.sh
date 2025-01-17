@@ -25,7 +25,7 @@ function get_vms() {
     | where tags.autoShutdown == 'true'
     $env_selector
     $area_selector
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.code, ['id']
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, ['id']
     " --first 1000 -o json
 
     log "az graph query complete"
@@ -38,7 +38,7 @@ function get_vm_details() {
   ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vm")
   BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vm)
   STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vm)
-  VM_STATE=$(jq -r '.properties_extended_instanceView_powerState_codee' <<< $vm)
+  VM_STATE=$(jq -r '.properties_extended_instanceView_powerState_displayStatus' <<< $vm)
   SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$vm)
   VM_ID="/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Compute/virtualMachines/$VM_NAME"
 }
