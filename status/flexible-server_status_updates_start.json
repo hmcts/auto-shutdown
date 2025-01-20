@@ -166,5 +166,11 @@
     "resource": "opal-db-stg",
     "statusMessage": "Flexible SQL Server: *opal-db-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Starting* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-ithc",
+    "resource": "cft-task-postgres-db-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]
