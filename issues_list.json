@@ -1,35 +1,5 @@
 [
     {
-        "start_date": "20-01-2025",
-        "end_date": "21-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "Skip shutdown for demo",
-        "stay_on_late": "Yes",
-        "justification": "Cafcass data set up",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/944"
-    },
-    {
-        "start_date": "21-01-2025",
-        "end_date": "21-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance",
-        "change_jira_id": "n/a",
-        "stay_on_late": "No",
-        "justification": "for Perf testing activity",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/945"
-    },
-    {
         "start_date": "21-01-2025",
         "end_date": "22-01-2025",
         "request_type": "stop",
