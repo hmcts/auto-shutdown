@@ -8,7 +8,403 @@
   {
     "id": "/subscriptions/ea3a8c1e-af9d-4108-bc86-a7e2d267f49c/resourceGroups/hmcts-hub-sbox-int/providers/Microsoft.Compute/virtualMachines/hmcts-hub-sbox-int-palo-vm-0",
     "resource": "hmcts-hub-sbox-int-palo-vm-0",
-    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-vm-0* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *null* state after *start* action.",
+    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-vm-0* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/0978315c-75fe-4ada-9d11-1eb5e0e0b214/resourceGroups/hmcts-hub-prod-int/providers/Microsoft.Compute/virtualMachines/hmcts-hub-prod-int-palo-ansible",
+    "resource": "hmcts-hub-prod-int-palo-ansible",
+    "statusMessage": "VM: *hmcts-hub-prod-int-palo-ansible* in Subscription: *0978315c-75fe-4ada-9d11-1eb5e0e0b214*  ResourceGroup: *hmcts-hub-prod-int* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy1-test",
+    "resource": "darts-dartsproxy1-test",
+    "statusMessage": "VM: *darts-dartsproxy1-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy2-test",
+    "resource": "darts-dartsproxy2-test",
+    "statusMessage": "VM: *darts-dartsproxy2-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.Compute/virtualMachines/perftstlindarts",
+    "resource": "perftstlindarts",
+    "statusMessage": "VM: *perftstlindarts* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.Compute/virtualMachines/perftstwindarts",
+    "resource": "perftstwindarts",
+    "statusMessage": "VM: *perftstwindarts* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/pre-test/providers/Microsoft.Compute/virtualMachines/edit-vm1-test",
+    "resource": "edit-vm1-test",
+    "statusMessage": "VM: *edit-vm1-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *pre-test* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_bastion_resource_group/providers/Microsoft.Compute/virtualMachines/bau_stg_bastion",
+    "resource": "bau_stg_bastion",
+    "statusMessage": "VM: *bau_stg_bastion* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_bastion_resource_group* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/dmzbais01_stg",
+    "resource": "dmzbais01_stg",
+    "statusMessage": "VM: *dmzbais01_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/dmzbais02_stg",
+    "resource": "dmzbais02_stg",
+    "statusMessage": "VM: *dmzbais02_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/eftbais01_stg",
+    "resource": "eftbais01_stg",
+    "statusMessage": "VM: *eftbais01_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/eftbais02_stg",
+    "resource": "eftbais02_stg",
+    "statusMessage": "VM: *eftbais02_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-migration-stg-rg/providers/Microsoft.Compute/virtualMachines/migration-vm",
+    "resource": "migration-vm",
+    "statusMessage": "VM: *migration-vm* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *darts-migration-stg-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-stg-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy1-stg",
+    "resource": "darts-dartsproxy1-stg",
+    "statusMessage": "VM: *darts-dartsproxy1-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *darts-stg-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-stg-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy2-stg",
+    "resource": "darts-dartsproxy2-stg",
+    "statusMessage": "VM: *darts-dartsproxy2-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *darts-stg-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-stg-rg/providers/Microsoft.Compute/virtualMachines/stgdartsmidmock",
+    "resource": "stgdartsmidmock",
+    "statusMessage": "VM: *stgdartsmidmock* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *darts-stg-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/pre-stg/providers/Microsoft.Compute/virtualMachines/edit-vm1-stg",
+    "resource": "edit-vm1-stg",
+    "statusMessage": "VM: *edit-vm1-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *pre-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/79898897-729c-41a0-a5ca-53c764839d95/resourceGroups/rg-prp-atl-int-01/providers/Microsoft.Compute/virtualMachines/PRPATL01DGST03.cp.cjs.hmcts.net",
+    "resource": "PRPATL01DGST03.cp.cjs.hmcts.net",
+    "statusMessage": "VM: *PRPATL01DGST03.cp.cjs.hmcts.net* in Subscription: *79898897-729c-41a0-a5ca-53c764839d95*  ResourceGroup: *rg-prp-atl-int-01* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-test-vm-00",
+    "resource": "mgmt-perf-test-vm-00",
+    "statusMessage": "VM: *mgmt-perf-test-vm-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-test-vm-01",
+    "resource": "mgmt-perf-test-vm-01",
+    "statusMessage": "VM: *mgmt-perf-test-vm-01* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-test-vm-02",
+    "resource": "mgmt-perf-test-vm-02",
+    "statusMessage": "VM: *mgmt-perf-test-vm-02* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-test-vm-win-00",
+    "resource": "mgmt-perf-test-vm-win-00",
+    "statusMessage": "VM: *mgmt-perf-test-vm-win-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-testing-vm-00",
+    "resource": "mgmt-perf-testing-vm-00",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-testing-vm-01",
+    "resource": "mgmt-perf-testing-vm-01",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-01* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-testing-vm-02",
+    "resource": "mgmt-perf-testing-vm-02",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-02* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-testing-vm-win-00",
+    "resource": "mgmt-perf-testing-vm-win-00",
+    "statusMessage": "VM: *mgmt-perf-testing-vm-win-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/867a878b-cb68-4de5-9741-361ac9e178b6/resourceGroups/pre-dev/providers/Microsoft.Compute/virtualMachines/edit-vm1-dev",
+    "resource": "edit-vm1-dev",
+    "statusMessage": "VM: *edit-vm1-dev* in Subscription: *867a878b-cb68-4de5-9741-361ac9e178b6*  ResourceGroup: *pre-dev* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/a8140a9e-f1b0-481f-a4de-09e2ee23f7ab/resourceGroups/ss-sbox-00-rg/providers/Microsoft.Compute/virtualMachines/flow-vm-2",
+    "resource": "flow-vm-2",
+    "statusMessage": "VM: *flow-vm-2* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab*  ResourceGroup: *ss-sbox-00-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/glimr-rg-stg/providers/Microsoft.Compute/virtualMachines/glimr-app-vm01-stg",
+    "resource": "glimr-app-vm01-stg",
+    "statusMessage": "VM: *glimr-app-vm01-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *glimr-rg-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/glimr-rg-stg/providers/Microsoft.Compute/virtualMachines/glimr-app-vm02-stg",
+    "resource": "glimr-app-vm02-stg",
+    "statusMessage": "VM: *glimr-app-vm02-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *glimr-rg-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/glimr-rg-stg/providers/Microsoft.Compute/virtualMachines/glimr-ssrs-vm01-stg",
+    "resource": "glimr-ssrs-vm01-stg",
+    "statusMessage": "VM: *glimr-ssrs-vm01-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *glimr-rg-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/martha-rg/providers/Microsoft.Compute/virtualMachines/martha-vm1-stg",
+    "resource": "martha-vm1-stg",
+    "statusMessage": "VM: *martha-vm1-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *martha-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/martha-rg/providers/Microsoft.Compute/virtualMachines/martha-vm2-stg",
+    "resource": "martha-vm2-stg",
+    "statusMessage": "VM: *martha-vm2-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *martha-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/sdrs-rg-stg/providers/Microsoft.Compute/virtualMachines/sdrs-frontend-vm01-stg",
+    "resource": "sdrs-frontend-vm01-stg",
+    "statusMessage": "VM: *sdrs-frontend-vm01-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *sdrs-rg-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/sdrs-rg-stg/providers/Microsoft.Compute/virtualMachines/sdrs-frontend-vm02-stg",
+    "resource": "sdrs-frontend-vm02-stg",
+    "statusMessage": "VM: *sdrs-frontend-vm02-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *sdrs-rg-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b3394340-6c9f-44ca-aa3e-9ff38bd1f9ac/resourceGroups/bastion-sbox-rg/providers/Microsoft.Compute/virtualMachines/bastion-sbox",
+    "resource": "bastion-sbox",
+    "statusMessage": "VM: *bastion-sbox* in Subscription: *b3394340-6c9f-44ca-aa3e-9ff38bd1f9ac*  ResourceGroup: *bastion-sbox-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b3394340-6c9f-44ca-aa3e-9ff38bd1f9ac/resourceGroups/bastion-sbox-rg/providers/Microsoft.Compute/virtualMachines/bastion-secops-sbox",
+    "resource": "bastion-secops-sbox",
+    "statusMessage": "VM: *bastion-secops-sbox* in Subscription: *b3394340-6c9f-44ca-aa3e-9ff38bd1f9ac*  ResourceGroup: *bastion-sbox-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b44eb479-9ae2-42e7-9c63-f3c599719b6f/resourceGroups/bastion-nonprod-rg/providers/Microsoft.Compute/virtualMachines/bastion-nonprod",
+    "resource": "bastion-nonprod",
+    "statusMessage": "VM: *bastion-nonprod* in Subscription: *b44eb479-9ae2-42e7-9c63-f3c599719b6f*  ResourceGroup: *bastion-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-confluence-02",
+    "resource": "atlassian-nonprod-confluence-02",
+    "statusMessage": "VM: *atlassian-nonprod-confluence-02* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-confluence-04",
+    "resource": "atlassian-nonprod-confluence-04",
+    "statusMessage": "VM: *atlassian-nonprod-confluence-04* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-crowd-01",
+    "resource": "atlassian-nonprod-crowd-01",
+    "statusMessage": "VM: *atlassian-nonprod-crowd-01* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-gluster-01",
+    "resource": "atlassian-nonprod-gluster-01",
+    "statusMessage": "VM: *atlassian-nonprod-gluster-01* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-gluster-02",
+    "resource": "atlassian-nonprod-gluster-02",
+    "statusMessage": "VM: *atlassian-nonprod-gluster-02* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-gluster-03",
+    "resource": "atlassian-nonprod-gluster-03",
+    "statusMessage": "VM: *atlassian-nonprod-gluster-03* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-jira-01",
+    "resource": "atlassian-nonprod-jira-01",
+    "statusMessage": "VM: *atlassian-nonprod-jira-01* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-jira-02",
+    "resource": "atlassian-nonprod-jira-02",
+    "statusMessage": "VM: *atlassian-nonprod-jira-02* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Compute/virtualMachines/atlassian-nonprod-jira-03",
+    "resource": "atlassian-nonprod-jira-03",
+    "statusMessage": "VM: *atlassian-nonprod-jira-03* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8*  ResourceGroup: *atlassian-nonprod-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/darts-ithc-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy1-ithc",
+    "resource": "darts-dartsproxy1-ithc",
+    "statusMessage": "VM: *darts-dartsproxy1-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139*  ResourceGroup: *darts-ithc-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/darts-ithc-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy2-ithc",
+    "resource": "darts-dartsproxy2-ithc",
+    "statusMessage": "VM: *darts-dartsproxy2-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139*  ResourceGroup: *darts-ithc-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/bf308a5c-0624-4334-8ff8-8dca9fd43783/resourceGroups/core-infra-idam-sandbox/providers/Microsoft.Compute/virtualMachines/idam-sandbox-jumpbox",
+    "resource": "idam-sandbox-jumpbox",
+    "statusMessage": "VM: *idam-sandbox-jumpbox* in Subscription: *bf308a5c-0624-4334-8ff8-8dca9fd43783*  ResourceGroup: *core-infra-idam-sandbox* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/bf308a5c-0624-4334-8ff8-8dca9fd43783/resourceGroups/datalake-rg/providers/Microsoft.Compute/virtualMachines/cts",
+    "resource": "cts",
+    "statusMessage": "VM: *cts* in Subscription: *bf308a5c-0624-4334-8ff8-8dca9fd43783*  ResourceGroup: *datalake-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/darts-demo-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy1-demo",
+    "resource": "darts-dartsproxy1-demo",
+    "statusMessage": "VM: *darts-dartsproxy1-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c*  ResourceGroup: *darts-demo-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/darts-demo-rg/providers/Microsoft.Compute/virtualMachines/darts-dartsproxy2-demo",
+    "resource": "darts-dartsproxy2-demo",
+    "statusMessage": "VM: *darts-dartsproxy2-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c*  ResourceGroup: *darts-demo-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/pre-demo/providers/Microsoft.Compute/virtualMachines/edit-vm1-demo",
+    "resource": "edit-vm1-demo",
+    "statusMessage": "VM: *edit-vm1-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c*  ResourceGroup: *pre-demo* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/cad00ede-36df-4e04-ad0b-d34a1e94ef76/resourceGroups/a360-c2x2555-uat/providers/Microsoft.Compute/virtualMachines/a360-c2x2555-dz-elk01",
+    "resource": "a360-c2x2555-dz-elk01",
+    "statusMessage": "VM: *a360-c2x2555-dz-elk01* in Subscription: *cad00ede-36df-4e04-ad0b-d34a1e94ef76*  ResourceGroup: *a360-c2x2555-uat* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/cad00ede-36df-4e04-ad0b-d34a1e94ef76/resourceGroups/a360-c2x2555-uat/providers/Microsoft.Compute/virtualMachines/a360-c2x2555-ubuntu-agent",
+    "resource": "a360-c2x2555-ubuntu-agent",
+    "statusMessage": "VM: *a360-c2x2555-ubuntu-agent* in Subscription: *cad00ede-36df-4e04-ad0b-d34a1e94ef76*  ResourceGroup: *a360-c2x2555-uat* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/cad00ede-36df-4e04-ad0b-d34a1e94ef76/resourceGroups/a360-c2x2555-uat/providers/Microsoft.Compute/virtualMachines/a360-c2x2555-windows-agent",
+    "resource": "a360-c2x2555-windows-agent",
+    "statusMessage": "VM: *a360-c2x2555-windows-agent* in Subscription: *cad00ede-36df-4e04-ad0b-d34a1e94ef76*  ResourceGroup: *a360-c2x2555-uat* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/cdc31e8e-43f4-4c8a-8b50-635e954c27d3/resourceGroups/robotics-win10-rg/providers/Microsoft.Compute/virtualMachines/roboticswin10vm",
+    "resource": "roboticswin10vm",
+    "statusMessage": "VM: *roboticswin10vm* in Subscription: *cdc31e8e-43f4-4c8a-8b50-635e954c27d3*  ResourceGroup: *robotics-win10-rg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/d24c931e-2e6d-4508-8583-85ac42715580/resourceGroups/glimr-rg-dev/providers/Microsoft.Compute/virtualMachines/glimr-app-vm01-dev",
+    "resource": "glimr-app-vm01-dev",
+    "statusMessage": "VM: *glimr-app-vm01-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/d24c931e-2e6d-4508-8583-85ac42715580/resourceGroups/glimr-rg-dev/providers/Microsoft.Compute/virtualMachines/glimr-app-vm02-dev",
+    "resource": "glimr-app-vm02-dev",
+    "statusMessage": "VM: *glimr-app-vm02-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/d24c931e-2e6d-4508-8583-85ac42715580/resourceGroups/glimr-rg-dev/providers/Microsoft.Compute/virtualMachines/glimr-ssrs-vm01-dev",
+    "resource": "glimr-ssrs-vm01-dev",
+    "statusMessage": "VM: *glimr-ssrs-vm01-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/da8a21e5-d260-4162-9391-6bdadf9103f8/resourceGroups/ingest00-main-stg/providers/Microsoft.Compute/virtualMachines/ingest00-ithc-kali-stg",
+    "resource": "ingest00-ithc-kali-stg",
+    "statusMessage": "VM: *ingest00-ithc-kali-stg* in Subscription: *da8a21e5-d260-4162-9391-6bdadf9103f8*  ResourceGroup: *ingest00-main-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/da8a21e5-d260-4162-9391-6bdadf9103f8/resourceGroups/ingest00-main-stg/providers/Microsoft.Compute/virtualMachines/ingest00-legacy-sql-stg",
+    "resource": "ingest00-legacy-sql-stg",
+    "statusMessage": "VM: *ingest00-legacy-sql-stg* in Subscription: *da8a21e5-d260-4162-9391-6bdadf9103f8*  ResourceGroup: *ingest00-main-stg* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-main-sbox/providers/Microsoft.Compute/virtualMachines/ingest00-legacy-sql-sbox",
+    "resource": "ingest00-legacy-sql-sbox",
+    "statusMessage": "VM: *ingest00-legacy-sql-sbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-main-sbox* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest01-main-sbox/providers/Microsoft.Compute/virtualMachines/ingest01-legacy-sql-sbox",
+    "resource": "ingest01-legacy-sql-sbox",
+    "statusMessage": "VM: *ingest01-legacy-sql-sbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest01-main-sbox* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ea3a8c1e-af9d-4108-bc86-a7e2d267f49c/resourceGroups/hmcts-hub-sbox-int/providers/Microsoft.Compute/virtualMachines/hmcts-hub-sbox-int-palo-ansible",
+    "resource": "hmcts-hub-sbox-int-palo-ansible",
+    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-ansible* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/fb084706-583f-4c9a-bdab-949aac66ba5c/resourceGroups/hmcts-hub-nonprodi/providers/Microsoft.Compute/virtualMachines/hmcts-hub-nonprodi-palo-ansible",
+    "resource": "hmcts-hub-nonprodi-palo-ansible",
+    "statusMessage": "VM: *hmcts-hub-nonprodi-palo-ansible* in Subscription: *fb084706-583f-4c9a-bdab-949aac66ba5c*  ResourceGroup: *hmcts-hub-nonprodi* is *VM deallocated* state after *start* action.",
     "resourceType": "vm"
   }
 ]
