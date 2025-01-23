@@ -1,7 +1,7 @@
 [
     {
         "start_date": "27-01-2025",
-        "end_date": "28-01-2025",
+        "end_date": "27-01-2025",
         "request_type": "stop",
         "environment": [
             "AAT / Staging",
