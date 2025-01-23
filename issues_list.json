@@ -27,5 +27,23 @@
         "stay_on_late": "No",
         "justification": "PRL performance testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/947"
+    },
+    {
+        "start_date": "27-01-2025",
+        "end_date": "28-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL",
+            " Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Civil",
+        "change_jira_id": "CIV-16425",
+        "stay_on_late": "Yes",
+        "justification": "Environment required to be kept up and stable for the release to go ahead",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/948"
     }
 ]
