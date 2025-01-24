@@ -16,5 +16,21 @@
         "stay_on_late": "Yes",
         "justification": "Environment required to be kept up and stable for the release to go ahead",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/948"
+    },
+    {
+        "start_date": "24-01-2025",
+        "end_date": "26-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Cafcass need it for testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/949"
     }
 ]
