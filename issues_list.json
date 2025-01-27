@@ -49,5 +49,20 @@
         "stay_on_late": "Yes",
         "justification": "Cafcass and C100 release testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/952"
+    },
+    {
+        "start_date": "27-01-2025",
+        "end_date": "27-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Platform Operations",
+        "change_jira_id": "DTSPO-23611",
+        "stay_on_late": "No",
+        "justification": "Troubleshooting with MSFT",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/953"
     }
 ]
