@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "start_date": "29-01-2025",
+        "end_date": "29-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Civil",
+        "change_jira_id": "CIV-16311",
+        "stay_on_late": "Yes",
+        "justification": "Ensuring Pods are up for the release first thing in the morning",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/954"
+    }
+]
