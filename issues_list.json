@@ -44,5 +44,25 @@
         "stay_on_late": "No",
         "justification": "Perf testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/956"
+    },
+    {
+        "start_date": "30-01-2025",
+        "end_date": "31-01-2025",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox",
+            " AAT / Staging",
+            " Preview / Dev",
+            " Test / Perftest",
+            " PTL",
+            " Demo",
+            " ITHC"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "CHG5019629 | Change Request | HMCTS | ServiceNow | PRODUCTION",
+        "stay_on_late": "Yes",
+        "justification": "For PRL tech release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/957"
     }
 ]
