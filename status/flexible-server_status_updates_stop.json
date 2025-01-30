@@ -1040,7 +1040,7 @@
   {
     "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/recipes-shared-infrastructure-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-stg",
     "resource": "recipes-sds-flexible-stg",
-    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Starting* state after *stop* action",
+    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
   },
   {
