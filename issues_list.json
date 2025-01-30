@@ -47,7 +47,7 @@
     },
     {
         "start_date": "30-01-2025",
-        "end_date": "31-01-2025",
+        "end_date": "30-01-2025",
         "request_type": "stop",
         "environment": [
             "Sandbox",
