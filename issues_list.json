@@ -1,22 +1,6 @@
 [
     {
         "start_date": "29-01-2025",
-        "end_date": "29-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Civil",
-        "change_jira_id": "CIV-16311",
-        "stay_on_late": "Yes",
-        "justification": "Ensuring Pods are up for the release first thing in the morning",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/954"
-    },
-    {
-        "start_date": "29-01-2025",
         "end_date": "30-01-2025",
         "request_type": "stop",
         "environment": [
@@ -30,20 +14,6 @@
         "stay_on_late": "Yes",
         "justification": "Needed for Cafcass testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/955"
-    },
-    {
-        "start_date": "29-01-2025",
-        "end_date": "29-01-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "Perf testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/956"
     },
     {
         "start_date": "30-01-2025",
