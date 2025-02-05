@@ -1048,5 +1048,11 @@
     "resource": "recipes-cft-flexible-perftest",
     "statusMessage": "Flexible SQL Server: *recipes-cft-flexible-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-location-ref-api-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-location-ref-api-postgres-db-v16-ithc",
+    "resource": "rd-location-ref-api-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-location-ref-api-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
