@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "start_date": "26-02-2025",
+        "end_date": "26-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Civils",
+        "change_jira_id": "CIV-16370",
+        "stay_on_late": "Yes",
+        "justification": "release for civils team at 7pm on 26th feb",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/966"
+    }
+]
