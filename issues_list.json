@@ -14,35 +14,5 @@
         "stay_on_late": "Yes",
         "justification": "release for civils team at 7pm on 26th feb",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/966"
-    },
-    {
-        "start_date": "05-02-2025",
-        "end_date": "05-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Bulk scan and citizen release testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/967"
-    },
-    {
-        "start_date": "05-02-2025",
-        "end_date": "05-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "Performance testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/968"
     }
 ]
