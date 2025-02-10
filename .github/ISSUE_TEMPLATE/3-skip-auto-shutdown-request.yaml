@@ -58,7 +58,7 @@ body:
     id: form_start_date
     attributes:
       label: Skip shutdown start date
-      description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday. Example: For a weekend exclusion, enter the start date as the preceding Friday. Use the format DD-MM-YYYY to avoid typos or incorrect date formatting."
+      description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday. Example: For a weekend exclusion, enter the start date as the preceding Friday."
     validations:
       required: true
 
@@ -66,15 +66,15 @@ body:
     id: form_end_date
     attributes:
       label: Skip shutdown end date
-      description: "Enter the end date in DD-MM-YYYY format. Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only. Example: For a weekend exclusion, enter the end date as the following Sunday. Use the format DD-MM-YYYY to avoid typos or incorrect date formatting."
+      description: "Enter the end date in DD-MM-YYYY format. Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only. Example: For a weekend exclusion, enter the end date as the following Sunday"
     validations:
       required: false
 
   - type: dropdown
     id: form_stay_on_late
     attributes:
-      label: Do you need this exclusion past 11pm?
-      description: "Most people only need an extra couple of hours past the default 8pm. Select 'Yes' if you need the environment to stay up the whole night. Clarification: Specify whether the 11pm is GMT, BST, or an 'actual' 11pm."
+      label: Do you need this exclusion past 11pm? (This is the actual time zone)
+      description: "Most people only need an extra couple of hours past the default 8pm. Select 'Yes' if you need the environment to stay up the whole night."
       multiple: false
       options:
         - "No"
