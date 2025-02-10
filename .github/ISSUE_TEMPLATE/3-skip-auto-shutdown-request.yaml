@@ -73,8 +73,8 @@ body:
   - type: dropdown
     id: form_stay_on_late
     attributes:
-      label: Do you need this exclusion past 11pm?
-      description: Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night, This is the actual time zone
+      label: Do you need this exclusion past 11pm? (This is the actual time zone)
+      description: Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night
       multiple: false
       options:
         - "No"
