@@ -57,7 +57,7 @@ body:
   - type: input
     id: form_start_date
     attributes:
-      label: Skip shutdown start date 
+      label: Skip shutdown start date
       description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday. Example: For a weekend exclusion, enter the start date as the preceding Friday. Use the format DD-MM-YYYY to avoid typos or incorrect date formatting."
     validations:
       required: true
@@ -73,7 +73,7 @@ body:
   - type: dropdown
     id: form_stay_on_late
     attributes:
-      label: Do you need this exclusion past 11pm? (Please note this is the actual time zone)
+      label: Do you need this exclusion past 11pm?
       description: "Most people only need an extra couple of hours past the default 8pm. Select 'Yes' if you need the environment to stay up the whole night. Clarification: Specify whether the 11pm is GMT, BST, or an 'actual' 11pm."
       multiple: false
       options:
