@@ -1,17 +1,20 @@
 name: "🌍 Skip auto shutdown"
-description: Request that an environment is not shutdown (automatically processed)
+description: Request that an environment is not shutdown (automatically processed). For more details, refer to the [README](https://github.com/hmcts/auto-shutdown).
+
 body:
   - type: input
     id: form_change_jira_id
     attributes:
       label: Change or Jira reference
+      description: "Provide the Change or Jira reference related to this request. Justification for exclusion? Provide a clear reason for the exclusion."
     validations:
       required: true
 
   - type: input
     id: form_justification
     attributes:
-      label: Justification for exclusion?
+      label: Justification for exclusion
+      description: "Provide a clear reason for the exclusion."
     validations:
       required: true
 
@@ -19,7 +22,7 @@ body:
     id: form_business_area
     attributes:
       label: Business area
-      description: "Bastion servers are considered part of Cross-Cutting, if you need these but this request is for CFT, raise a separate request for the bastion servers."
+      description: "Select the business area. Bastion servers are considered part of Cross-Cutting. If you need these but this request is for CFT, raise a separate request for the bastion servers."
       options:
         - CFT
         - Cross-Cutting
@@ -30,7 +33,7 @@ body:
     id: form_team_name
     attributes:
       label: Team/Application Name
-      description: "The name of the team or application making the request"
+      description: "Provide the name of the team or application making the request."
     validations:
       required: true
 
@@ -38,7 +41,7 @@ body:
     id: form_environment
     attributes:
       label: Environment
-      description: "If AAT / Staging then you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request"
+      description: "Select the environment. If AAT / Staging, you may want to also select PTL for Jenkins and Preview / Dev if you need to do a pull request."
       multiple: true
       options:
         - Sandbox
@@ -54,8 +57,8 @@ body:
   - type: input
     id: form_start_date
     attributes:
-      label: Skip shutdown start date
-      description: "DD-MM-YYYY - If env needed on Sat & Sunday, start date should include Friday."
+      label: Skip shutdown start date 
+      description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday. Example: For a weekend exclusion, enter the start date as the preceding Friday. Use the format DD-MM-YYYY to avoid typos or incorrect date formatting."
     validations:
       required: true
 
@@ -63,15 +66,15 @@ body:
     id: form_end_date
     attributes:
       label: Skip shutdown end date
-      description: "DD-MM-YYYY - Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only."
+      description: "Enter the end date in DD-MM-YYYY format. Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only. Example: For a weekend exclusion, enter the end date as the following Sunday. Use the format DD-MM-YYYY to avoid typos or incorrect date formatting."
     validations:
       required: false
 
   - type: dropdown
     id: form_stay_on_late
     attributes:
-      label: Do you need this exclusion past 11pm?
-      description: Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night.
+      label: Do you need this exclusion past 11pm? (Please note this is the actual time zone)
+      description: "Most people only need an extra couple of hours past the default 8pm. Select 'Yes' if you need the environment to stay up the whole night. Clarification: Specify whether the 11pm is GMT, BST, or an 'actual' 11pm."
       multiple: false
       options:
         - "No"
