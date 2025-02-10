@@ -58,7 +58,7 @@ body:
     id: form_start_date
     attributes:
       label: Skip shutdown start date
-      description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday. Example: For a weekend exclusion, enter the start date as the preceding Friday."
+      description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday"
     validations:
       required: true
 
@@ -66,7 +66,7 @@ body:
     id: form_end_date
     attributes:
       label: Skip shutdown end date
-      description: "Enter the end date in DD-MM-YYYY format. Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only. Example: For a weekend exclusion, enter the end date as the following Sunday"
+      description: "Enter the end date in DD-MM-YYYY format. Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only"
     validations:
       required: false
 
