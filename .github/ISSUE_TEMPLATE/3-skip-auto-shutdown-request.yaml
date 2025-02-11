@@ -6,7 +6,7 @@ body:
     id: form_change_jira_id
     attributes:
       label: Change or Jira reference
-      description: "Provide the Change or Jira reference related to this request. Justification for exclusion? Provide a clear reason for the exclusion."
+      description: "Provide the Change or Jira reference related to this request."
     validations:
       required: true
 
