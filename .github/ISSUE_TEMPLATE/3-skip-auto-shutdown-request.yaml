@@ -1,5 +1,5 @@
 name: "🌍 Skip auto shutdown"
-description: Request that an environment is not shutdown (automatically processed). For more details, refer to the [README](https://github.com/hmcts/auto-shutdown).
+description: Request that an environment is not shutdown (automatically processed). For more details, refer to the [README](https://github.com/hmcts/auto-shutdown). Please note for any cancel requests, use the cancel label github.
 
 body:
   - type: input
@@ -74,7 +74,7 @@ body:
     id: form_stay_on_late
     attributes:
       label: Do you need this exclusion past 11pm?
-      description: Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night. This is the current time zone
+      description: This is the current time zone. Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night.
       multiple: false
       options:
         - "No"
