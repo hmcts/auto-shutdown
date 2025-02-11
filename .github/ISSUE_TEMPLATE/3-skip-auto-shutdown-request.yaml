@@ -1,4 +1,4 @@
-name: "🌍 Skip auto shutdown"
+name: "🌍 Auto shutdown exemption request"
 description: Request that an environment is not shutdown (automatically processed). For more details, refer to the [README](https://github.com/hmcts/auto-shutdown). Please note for any cancel requests, use the cancel label github.
 
 body:
@@ -14,7 +14,7 @@ body:
     id: form_justification
     attributes:
       label: Justification for exclusion?
-      description: "Provide a clear reason for the exclusion."
+      description: "Provide a clear reason for the exemption. Explain why the environment needs to remain active and justify the additional cost. Highlight the importance of this request and how it contributes to saving money or achieving critical goals."
     validations:
       required: true
 
@@ -81,7 +81,15 @@ body:
         - "Yes"
     validations:
       required: true
-  
+
+  - type: input
+    id: form_review_date
+    attributes:
+      label: Review date
+      description: "Enter the review date in DD-MM-YYYY format. This is to reassess the necessity of the exemption after a certain period, typically 3 months."
+    validations:
+      required: true
+
   - type: markdown
     attributes:
       value: |
