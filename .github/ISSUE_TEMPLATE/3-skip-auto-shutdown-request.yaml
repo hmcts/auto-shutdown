@@ -86,7 +86,7 @@ body:
     id: form_review_date
     attributes:
       label: Review date
-      description: "Enter the review date in DD-MM-YYYY format. This is to reassess the necessity of the exemption after a certain period, typically 3 months."
+      description: "Enter the review date in DD-MM-YYYY format. This is to reassess after a certain period, typically 3 months."
     validations:
       required: true
 
