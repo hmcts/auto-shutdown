@@ -77,5 +77,19 @@
         "stay_on_late": "Yes",
         "justification": "P2_INC5686429 - https://incidents.hmcts.net/incident/249/",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/974"
+    },
+    {
+        "start_date": "11-02-2025",
+        "end_date": "11-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Tooling team | JIRA",
+        "change_jira_id": "AT-10175",
+        "stay_on_late": "Yes",
+        "justification": "re-indexing takes too long to run during the day (15 hours)",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/975"
     }
 ]
