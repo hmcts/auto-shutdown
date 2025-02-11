@@ -81,3 +81,8 @@ body:
         - "Yes"
     validations:
       required: true
+  
+  - type: markdown
+    attributes:
+      value: |
+        **Note:** If you need to delete a request, please add the cancel label on your request.
