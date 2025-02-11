@@ -47,5 +47,35 @@
         "stay_on_late": "Yes",
         "justification": "Cafcass are requesting env to be up and running",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/970"
+    },
+    {
+        "start_date": "10-02-2025",
+        "end_date": "10-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            " PTL",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Citizen release testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/973"
+    },
+    {
+        "start_date": "10-02-2025",
+        "end_date": "11-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Civil CI",
+        "change_jira_id": "P2_INC5686429 - https://incidents.hmcts.net/incident/249/",
+        "stay_on_late": "Yes",
+        "justification": "P2_INC5686429 - https://incidents.hmcts.net/incident/249/",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/974"
     }
 ]
