@@ -17,24 +17,6 @@
     },
     {
         "start_date": "07-02-2025",
-        "end_date": "10-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " Test / Perftest",
-            " Preview / Dev",
-            " AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Darts Dry Run",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/969"
-    },
-    {
-        "start_date": "07-02-2025",
         "end_date": "14-02-2025",
         "request_type": "stop",
         "environment": [
@@ -47,22 +29,6 @@
         "stay_on_late": "Yes",
         "justification": "Cafcass are requesting env to be up and running",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/970"
-    },
-    {
-        "start_date": "10-02-2025",
-        "end_date": "10-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            " PTL",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Citizen release testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/973"
     },
     {
         "start_date": "10-02-2025",
