@@ -73,5 +73,25 @@
         "stay_on_late": "Yes",
         "justification": "Need for PRL citizen release testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/976"
+    },
+    {
+        "start_date": "12-02-2025",
+        "end_date": "13-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox",
+            " AAT / Staging",
+            " Preview / Dev",
+            " Test / Perftest",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL/Fee and Pay/Telephony",
+        "change_jira_id": "CHG5019641",
+        "stay_on_late": "Yes",
+        "justification": "Release is happening out of office hours",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/978"
     }
 ]
