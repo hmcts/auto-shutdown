@@ -1,5 +1,5 @@
 name: "🌍 Auto shutdown exemption request"
-description: Request that an environment is not shutdown (automatically processed). For more details, refer to the [README](https://github.com/hmcts/auto-shutdown). Please note for any cancel requests, use the cancel label github.
+description: "Request that an environment is not shutdown. For more details, refer to the README. For cancel requests, use the cancel label."
 
 body:
   - type: input
@@ -14,7 +14,7 @@ body:
     id: form_justification
     attributes:
       label: Justification for exclusion?
-      description: "Provide a clear reason for the exemption. Explain why the environment needs to remain active and justify the additional cost. Highlight the importance of this request and how it contributes to saving money or achieving critical goals."
+      description: "Provide a clear reason for the exemption. Explain why the environment needs to remain active and justify the additional cost."
     validations:
       required: true
 
@@ -22,7 +22,7 @@ body:
     id: form_business_area
     attributes:
       label: Business area
-      description: "Select the business area. Bastion servers are considered part of Cross-Cutting. If you need these but this request is for CFT, raise a separate request for the bastion servers."
+      description: "Select the business area. Bastion servers are part of Cross-Cutting. If you need these but this request is for CFT, raise a separate request for the bastion servers."
       options:
         - CFT
         - Cross-Cutting
@@ -33,7 +33,7 @@ body:
     id: form_team_name
     attributes:
       label: Team/Application Name
-      description: "The name of the team or application making the request"
+      description: "The name of the team or application making the request."
     validations:
       required: true
 
@@ -58,7 +58,7 @@ body:
     id: form_start_date
     attributes:
       label: Skip shutdown start date
-      description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday"
+      description: "Enter the start date in DD-MM-YYYY format. If the environment is needed on Saturday & Sunday, the start date should include Friday."
     validations:
       required: true
 
@@ -66,7 +66,7 @@ body:
     id: form_end_date
     attributes:
       label: Skip shutdown end date
-      description: "Enter the end date in DD-MM-YYYY format. Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only"
+      description: "Enter the end date in DD-MM-YYYY format. Dates are inclusive, only include required dates. Leave blank to exclude shutdown for one night only."
     validations:
       required: false
 
@@ -74,7 +74,7 @@ body:
     id: form_stay_on_late
     attributes:
       label: Do you need this exclusion past 11pm?
-      description: This is the current time zone. Most people only need an extra couple of hours past the default 8pm, select 'Yes' if you need the environment to stay up the whole night.
+      description: "Most people only need an extra couple of hours past the default 8pm. Select 'Yes' if you need the environment to stay up the whole night."
       multiple: false
       options:
         - "No"
