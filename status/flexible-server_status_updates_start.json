@@ -730,5 +730,11 @@
     "resource": "opal-file-handler-stg",
     "statusMessage": "Flexible SQL Server: *opal-file-handler-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Starting* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccpay-notifications-service-postgres-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccpay-notifications-service-postgres-db-v15-perftest",
+    "resource": "ccpay-notifications-service-postgres-db-v15-perftest",
+    "statusMessage": "Flexible SQL Server: *ccpay-notifications-service-postgres-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]
