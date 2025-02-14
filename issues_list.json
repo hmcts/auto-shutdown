@@ -49,5 +49,21 @@
         "stay_on_late": "Yes",
         "justification": "Release is happening out of office hours",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/978"
+    },
+    {
+        "form_review_date": "27-02-2025",
+        "start_date": "14-02-2025",
+        "end_date": "28-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Video Hearing Service",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/VIH-11298",
+        "stay_on_late": "Yes",
+        "justification": "To enable the supplier to complete their integration testing to meet the milestones",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/981"
     }
 ]
