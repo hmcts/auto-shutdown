@@ -16,21 +16,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/966"
     },
     {
-        "start_date": "07-02-2025",
-        "end_date": "14-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Cafcass are requesting env to be up and running",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/970"
-    },
-    {
         "form_review_date": "27-02-2025",
         "start_date": "14-02-2025",
         "end_date": "28-02-2025",
