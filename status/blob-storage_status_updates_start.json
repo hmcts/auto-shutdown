@@ -238,5 +238,11 @@
     "resource": "atlassiannonprod",
     "statusMessage": ":red_circle: Storage Account: *atlassiannonprod* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8* after *start* action, is SFTP enabled: false .",
     "resourceType": "blob-storage"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-stg-rg/providers/Microsoft.Storage/storageAccounts/dartsarmstg",
+    "resource": "dartsarmstg",
+    "statusMessage": ":red_circle: Storage Account: *dartsarmstg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* after *start* action, is SFTP enabled: false .",
+    "resourceType": "blob-storage"
   }
 ]
