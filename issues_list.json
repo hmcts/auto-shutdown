@@ -32,36 +32,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/981"
     },
     {
-        "form_review_date": "20/02/2025",
-        "start_date": "19-02-2025",
-        "end_date": "19-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "RD",
-        "change_jira_id": "DTSPO-23183",
-        "stay_on_late": "No",
-        "justification": "Need to run pipeline",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/985"
-    },
-    {
-        "form_review_date": "20/02/2025",
-        "start_date": "19-02-2025",
-        "end_date": "19-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "RD",
-        "change_jira_id": "DTSPO-23183",
-        "stay_on_late": "No",
-        "justification": "Needed to run pipeline OOH",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/986"
-    },
-    {
         "form_review_date": "26-05-2025",
         "start_date": "26-02-2025",
         "end_date": "26-02-2025",
