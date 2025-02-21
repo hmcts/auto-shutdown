@@ -16,7 +16,16 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
     exit 1
 fi
 
-VMS=$(get_vmss "$2")
-vm_count=$(jq -c -r '.count' <<<$VMS)
+VMSS=$(get_vmss "$2")
+vm_count=$(jq -c -r '.count' <<<$VMSS)
 log "$vmss_count VMSS's found"
 log "----------------------------------------------"
+
+# For each VMSS found in the function `get_vmss` start another loop
+jq -c '.data[]' <<<$VMSS | while read vmss; do
+    # Function that returns the Resource Group, Id and Name of the VMSSs and its current state as variables
+    get_vm_details
+
+    log "====================================================="
+    log "Processing Virtual Machine: $VM_NAME in Resource Group: $RESOURCE_GROUP"
+    log "====================================================="
