@@ -27,5 +27,13 @@ jq -c '.data[]' <<<$VMSS | while read vmss; do
     get_vm_details
 
     log "====================================================="
-    log "Processing Virtual Machine: $VM_NAME in Resource Group: $RESOURCE_GROUP"
+    log "Processing Virtual Machine Scale Set: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"
     log "====================================================="
+
+if [[ $ENVIRONMENT == "development" ]]; then
+    VM_ENV=${ENVIRONMENT/development/Preview}
+elif [[ $ENVIRONMENT == "testing" ]]; then
+    VM_ENV=${ENVIRONMENT/testing/Perftest}
+else
+    VM_ENV=$(to_lowercase "$ENVIRONMENT")
+fi
