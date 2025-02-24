@@ -60,5 +60,22 @@
         "stay_on_late": "No",
         "justification": "Pre Rec Evidence out of ours release. DEV also required for releases",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/990"
+    },
+    {
+        "form_review_date": "23-02-2025",
+        "start_date": "21-02-2025",
+        "end_date": "23-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Needed for Bulk scan testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/991"
     }
 ]
