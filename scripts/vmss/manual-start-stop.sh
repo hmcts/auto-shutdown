@@ -22,3 +22,9 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
     echo "Invalid MODE. Please use 'start' or 'deallocate'."
     exit 1
 fi
+
+# Ensure environment and area are set
+if [[ -z "$SELECTED_ENV" || -z "$SELECTED_AREA" ]]; then
+    echo "Environment or Area not set. Please check your configuration." >&2
+    exit 1
+fi
