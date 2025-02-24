@@ -65,3 +65,5 @@ if [[ $vmss_count -eq 0 ]]; then
     echo "No VMSS found for environment: $vmss_env and area: $vmss_business_area." >&2
     exit 1
 fi
+
+jq -c '.data[]' <<<$VMS | while read vm; do
