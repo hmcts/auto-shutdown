@@ -50,3 +50,9 @@ case "$SELECTED_ENV" in
         vmss_env=$(to_lowercase "$SELECTED_ENV")
         ;;
 esac
+
+# Map business area if necessary
+vmss_business_area="$SELECTED_AREA"
+if [[ "$vmss_business_area" == "SDS" ]]; then
+    vmss_business_area="Cross-Cutting"
+fi
