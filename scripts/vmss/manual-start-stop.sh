@@ -31,7 +31,6 @@ fi
 
 # Map environment name to Azure-friendly tag
 case "$SELECTED_ENV" in
-case "$SELECTED_ENV" in
     "AAT / Staging")
         vmss_env="staging"
         ;;
