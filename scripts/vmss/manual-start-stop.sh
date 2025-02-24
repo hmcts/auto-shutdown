@@ -28,3 +28,26 @@ if [[ -z "$SELECTED_ENV" || -z "$SELECTED_AREA" ]]; then
     echo "Environment or Area not set. Please check your configuration." >&2
     exit 1
 fi
+
+# Map environment name to Azure-friendly tag
+case "$SELECTED_ENV" in
+case "$SELECTED_ENV" in
+    "AAT / Staging")
+        vmss_env="staging"
+        ;;
+    "Preview / Dev")
+        vmss_env="development"
+        ;;
+    "Test / Perftest")
+        vmss_env="testing"
+        ;;
+    "PTL")
+        vmss_env="production"
+        ;;
+    "PTLSBOX")
+        vvmss_envm_env="sandbox"
+        ;;
+    *)
+        vmss_env=$(to_lowercase "$SELECTED_ENV")
+        ;;
+esac
