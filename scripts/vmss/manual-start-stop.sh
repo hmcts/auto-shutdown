@@ -11,3 +11,14 @@ source scripts/common/common-functions.sh
 
 # Check and set default MODE if not provided
 MODE=${1:-start}
+
+# Convert "stop" to "deallocate"
+if [[ "$MODE" == "stop" ]]; then
+    MODE="deallocate"
+fi
+
+# Validate MODE
+if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
+    echo "Invalid MODE. Please use 'start' or 'deallocate'."
+    exit 1
+fi
