@@ -56,3 +56,12 @@ vmss_business_area="$SELECTED_AREA"
 if [[ "$vmss_business_area" == "SDS" ]]; then
     vmss_business_area="Cross-Cutting"
 fi
+
+# Retrieve VMSS list from Azure
+VMSS_LIST=$(az vmss list --query "[?tags.environment=='$vmss_env' && tags.businessArea=='$vmss_business_area']" -o json)
+vmss_count=$(echo "$VMSS_LIST" | jq 'length')
+
+if [[ $vmss_count -eq 0 ]]; then
+    echo "No VMSS found for environment: $vmss_env and area: $vmss_business_area." >&2
+    exit 1
+fi
