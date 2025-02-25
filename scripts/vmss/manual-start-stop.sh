@@ -71,3 +71,12 @@ jq -c '.data[]' <<<$VMS | while read vm; do
 get_vmss_details
 
 ts_echo_color BLUE "Processing VMSS: $VMSS_NAME, RG: $RESOURCE_GROUP, SUB: $SUBSCRIPTION"
+
+# If SKIP is false then we progress with the action (stop/start) for the particular VMSS in this loop run
+if [[ $DEV_ENV != "true" ]]; then
+    vmss_state_messages
+    az vmss $MODE --ids $VMSS_ID --no-wait || echo "Ignoring any errors while $MODE operation on vmss"
+else
+    ts_echo_color BLUE "Development Env: simulating state commands only."
+    vmss_state_messages
+fi
