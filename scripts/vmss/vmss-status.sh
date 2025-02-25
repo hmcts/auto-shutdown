@@ -46,3 +46,36 @@ jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
     # Setup message output templates for later use
 	logMessage="VMSS: $VMSS_NAME in ResourceGroup: $RESOURCE_GROUP is in $VMSS_STATE after $MODE action."
     slackMessage="VMSS: *$VMSS_NAME* in Subscription: *$SUBSCRIPTION* ResourceGroup: *$RESOURCE_GROUP* is *$VMSS_STATE* after *$MODE* action."
+
+	# If SKIP is false then we progress with the status check for the particular VMSS in this loop run, if SKIP is true then do nothing 
+    if [[ $SKIP == "false" ]]; then
+	# Check state of the VMSS and print output as required
+	# Depending on the value of MODE a notification will also be sent
+	#    - If MODE = start then a stopped VMSS is incorrect and we should notify
+	#    - If MODE = deallocate then a running VMSS is incorrect and we should notify
+	#    - If neither Running or Stopped is found then something else is going on and we should notify
+        case "$VMSS_STATE" in
+            *"running"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
+                if [[ $MODE == "deallocate" ]]; then
+                    auto_shutdown_notification ":red_circle: $slackMessage"
+                    add_to_json "$VMSS_ID" "$VMSS_NAME" "$slackMessage" "vmss" "$MODE"
+                fi
+                ;;
+            *"deallocated"*)
+                ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
+                if [[ $MODE == "start" ]]; then
+                    auto_shutdown_notification ":red_circle: $slackMessage"
+                    add_to_json "$VMSS_ID" "$VMSS_NAME" "$slackMessage" "vmss" "$MODE"
+                fi
+                ;;
+            *)
+                ts_echo_color AMBER "$logMessage"
+                auto_shutdown_notification ":yellow_circle: $slackMessage"
+                add_to_json "$VMSS_ID" "$VMSS_NAME" "$slackMessage" "vmss" "$MODE"
+                ;;
+        esac
+    else
+        ts_echo_color AMBER "VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule."
+    fi
+done

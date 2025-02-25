@@ -48,7 +48,7 @@ jq -c '.data[]' <<<$VMS | while read vm; do
 		logMessage="VM: $VM_NAME in ResourceGroup: $RESOURCE_GROUP is $VM_STATE state after $MODE action."
 		slackMessage="VM: *$VM_NAME* in Subscription: *$SUBSCRIPTION*  ResourceGroup: *$RESOURCE_GROUP* is *$VM_STATE* state after *$MODE* action."
 
-        # If SKIP is false then we progress with the status chec for the particular VM in this loop run, if SKIP is true then do nothing
+        # If SKIP is false then we progress with the status check for the particular VM in this loop run, if SKIP is true then do nothing
         if [[ $SKIP == "false" ]]; then
 		# Check state of the VM and print output as required
 		# Depending on the value of MODE a notification will also be sent
