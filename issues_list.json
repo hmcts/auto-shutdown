@@ -62,20 +62,18 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/990"
     },
     {
-        "form_review_date": "23-02-2025",
-        "start_date": "21-02-2025",
-        "end_date": "23-02-2025",
+        "form_review_date": "28/02/2025",
+        "start_date": "24-02-2025",
+        "end_date": "24-02-2025",
         "request_type": "stop",
         "environment": [
-            "Demo",
-            " Preview / Dev",
-            " PTL"
+            "AAT / Staging"
         ],
-        "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "N/A",
+        "business_area": "cross-cutting",
+        "team_name": "PlatOps",
+        "change_jira_id": "DTSPO-23913",
         "stay_on_late": "Yes",
-        "justification": "Needed for Bulk scan testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/991"
+        "justification": "Environment will be unusable during work so will be OOH",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/992"
     }
 ]
