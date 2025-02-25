@@ -67,3 +67,7 @@ if [[ $vmss_count -eq 0 ]]; then
 fi
 
 jq -c '.data[]' <<<$VMS | while read vm; do
+
+get_vmss_details
+
+ts_echo_color BLUE "Processing VMSS: $VMSS_NAME, RG: $RESOURCE_GROUP, SUB: $SUBSCRIPTION"
