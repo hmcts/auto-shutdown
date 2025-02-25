@@ -29,6 +29,7 @@ jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
     log "Processing VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"
     log "====================================================="
 
+    # Map the environment name to match Azure enviornment tag
     if [[ $ENVIRONMENT == "development" ]]; then
         VM_ENV=${ENVIRONMENT/development/Preview}
     elif [[ $ENVIRONMENT == "testing" ]]; then
@@ -36,3 +37,8 @@ jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
     else
         VM_ENV=$(to_lowercase "$ENVIRONMENT")
     fi
+
+    # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
+    # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours vmss
+    log "Checking skip logic for env: $VMSS_ENV, business_area: $BUSINESS_AREA, mode: $MODE"
+    SKIP=$(should_skip_start_stop $VMSS_ENV $BUSINESS_AREA $MODE)
