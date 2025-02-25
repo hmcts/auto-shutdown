@@ -42,3 +42,7 @@ jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
     # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours vmss
     log "Checking skip logic for env: $VMSS_ENV, business_area: $BUSINESS_AREA, mode: $MODE"
     SKIP=$(should_skip_start_stop $VMSS_ENV $BUSINESS_AREA $MODE)
+
+    # Setup message output templates for later use
+	logMessage="VMSS: $VMSS_NAME in ResourceGroup: $RESOURCE_GROUP is in $VMSS_STATE after $MODE action."
+    slackMessage="VMSS: *$VMSS_NAME* in Subscription: *$SUBSCRIPTION* ResourceGroup: *$RESOURCE_GROUP* is *$VMSS_STATE* after *$MODE* action."
