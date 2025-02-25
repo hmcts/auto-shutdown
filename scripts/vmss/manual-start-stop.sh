@@ -96,6 +96,6 @@ jq -c '.data[]' <<<$VMS | while read vm; do
     | where ['id'] == '$VMSS_ID' 
     | project properties" -o json | jq -r '.data[0].properties.extended.instanceView.powerState.code')
 
-    ts_echo "Virtual Machine: $VM_NAME is in state: $RESULT"
+    ts_echo "Virtual Machine: $VMSS_NAME is in state: $RESULT"
 
     done
