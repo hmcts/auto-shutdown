@@ -28,3 +28,11 @@ jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
     log "====================================================="
     log "Processing VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"
     log "====================================================="
+
+    if [[ $ENVIRONMENT == "development" ]]; then
+        VM_ENV=${ENVIRONMENT/development/Preview}
+    elif [[ $ENVIRONMENT == "testing" ]]; then
+        VM_ENV=${ENVIRONMENT/testing/Perftest}
+    else
+        VM_ENV=$(to_lowercase "$ENVIRONMENT")
+    fi
