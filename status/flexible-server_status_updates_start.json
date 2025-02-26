@@ -740,7 +740,7 @@
   {
     "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/civil-rtl-export-v15-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/civil-rtl-export-v15-demo",
     "resource": "civil-rtl-export-v15-demo",
-    "statusMessage": "Flexible SQL Server: *civil-rtl-export-v15-demo* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopped* state after *start* action",
+    "statusMessage": "Flexible SQL Server: *civil-rtl-export-v15-demo* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Starting* state after *start* action",
     "resourceType": "flexible-server"
   }
 ]
