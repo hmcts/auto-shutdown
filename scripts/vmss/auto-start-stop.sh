@@ -17,7 +17,7 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
 fi
 
 VMSS=$(get_vmss "$2")
-vm_count=$(jq -c -r '.count' <<<$VMSS)
+vmss_count=$(jq -c -r '.count' <<<$VMSS)
 log "$vmss_count VMSS's found"
 log "----------------------------------------------"
 
@@ -31,18 +31,18 @@ jq -c '.data[]' <<<$VMSS | while read vmss; do
     log "====================================================="
 
 if [[ $ENVIRONMENT == "development" ]]; then
-    VM_ENV=${ENVIRONMENT/development/Preview}
+    VMSS_ENV=${ENVIRONMENT/development/Preview}
 elif [[ $ENVIRONMENT == "testing" ]]; then
-    VM_ENV=${ENVIRONMENT/testing/Perftest}
+    VMSS_ENV=${ENVIRONMENT/testing/Perftest}
 else
-    VM_ENV=$(to_lowercase "$ENVIRONMENT")
+    VMSS_ENV=$(to_lowercase "$ENVIRONMENT")
 fi
 
 
 # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
 # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
-log "checking skip logic for env: $VM_ENV, business_area: $BUSINESS_AREA, mode: $MODE"
-SKIP=$(should_skip_start_stop $VM_ENV $BUSINESS_AREA $MODE)
+log "checking skip logic for env: $VMSS_ENV, business_area: $BUSINESS_AREA, mode: $MODE"
+SKIP=$(should_skip_start_stop $VMSS_ENV $BUSINESS_AREA $MODE)
 log "SKIP evaluated to $SKIP"
 
 # If SKIP is false then we progress with the action (deallocate/start) for the particular VMSS instance, otherwise, skip and log
