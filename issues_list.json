@@ -1,21 +1,5 @@
 [
     {
-        "start_date": "26-02-2025",
-        "end_date": "26-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Civils",
-        "change_jira_id": "CIV-16370",
-        "stay_on_late": "Yes",
-        "justification": "release for civils team at 7pm on 26th feb",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/966"
-    },
-    {
         "form_review_date": "27-02-2025",
         "start_date": "14-02-2025",
         "end_date": "28-02-2025",
@@ -30,50 +14,5 @@
         "stay_on_late": "Yes",
         "justification": "To enable the supplier to complete their integration testing to meet the milestones",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/981"
-    },
-    {
-        "form_review_date": "26-05-2025",
-        "start_date": "26-02-2025",
-        "end_date": "26-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Pre Recorded Evidence",
-        "change_jira_id": "https://tools.hmcts.net/confluence/pages/viewpage.action?pageId=1814326395",
-        "stay_on_late": "No",
-        "justification": "Pre Rec Evidence out of ours release. Jenkins also required for releases",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/989"
-    },
-    {
-        "form_review_date": "26-05-2025",
-        "start_date": "26-02-2025",
-        "end_date": "26-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Pre Recorded Evidence",
-        "change_jira_id": "https://tools.hmcts.net/confluence/pages/viewpage.action?pageId=1814326395",
-        "stay_on_late": "No",
-        "justification": "Pre Rec Evidence out of ours release. DEV also required for releases",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/990"
-    },
-    {
-        "form_review_date": "27/02/2025",
-        "start_date": "26-02-2025",
-        "end_date": "26-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "PlatOps",
-        "change_jira_id": "DTSPO-23913",
-        "stay_on_late": "Yes",
-        "justification": "Required to test process ahead of production change",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/993"
     }
 ]
