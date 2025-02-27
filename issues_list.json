@@ -14,5 +14,21 @@
         "stay_on_late": "Yes",
         "justification": "To enable the supplier to complete their integration testing to meet the milestones",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/981"
+    },
+    {
+        "form_review_date": "01-03-2025",
+        "start_date": "27-02-2025",
+        "end_date": "27-02-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Probate",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPB-4475",
+        "stay_on_late": "Yes",
+        "justification": "OOH Data migration testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/994"
     }
 ]
