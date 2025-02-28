@@ -45,5 +45,20 @@
         "stay_on_late": "No",
         "justification": "OOH Data migration testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/995"
+    },
+    {
+        "form_review_date": "11-03-2025",
+        "start_date": "04-03-2025",
+        "end_date": "04-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Probate",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPB-4475",
+        "stay_on_late": "Yes",
+        "justification": "OOH Probate R&D Data migration Release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/996"
     }
 ]
