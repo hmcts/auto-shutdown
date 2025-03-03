@@ -1,79 +1,32 @@
 [
     {
-        "start_date": "26-02-2025",
-        "end_date": "26-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Civils",
-        "change_jira_id": "CIV-16370",
-        "stay_on_late": "Yes",
-        "justification": "release for civils team at 7pm on 26th feb",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/966"
-    },
-    {
-        "form_review_date": "27-02-2025",
-        "start_date": "14-02-2025",
-        "end_date": "28-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Video Hearing Service",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/VIH-11298",
-        "stay_on_late": "Yes",
-        "justification": "To enable the supplier to complete their integration testing to meet the milestones",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/981"
-    },
-    {
-        "form_review_date": "26-05-2025",
-        "start_date": "26-02-2025",
-        "end_date": "26-02-2025",
+        "form_review_date": "11-03-2025",
+        "start_date": "04-03-2025",
+        "end_date": "04-03-2025",
         "request_type": "stop",
         "environment": [
             "AAT / Staging"
         ],
-        "business_area": "cross-cutting",
-        "team_name": "Pre Recorded Evidence",
-        "change_jira_id": "https://tools.hmcts.net/confluence/pages/viewpage.action?pageId=1814326395",
-        "stay_on_late": "No",
-        "justification": "Pre Rec Evidence out of ours release. Jenkins also required for releases",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/989"
+        "business_area": "cft",
+        "team_name": "Probate",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPB-4475",
+        "stay_on_late": "Yes",
+        "justification": "OOH Probate R&D Data migration Release",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/996"
     },
     {
-        "form_review_date": "26-05-2025",
-        "start_date": "26-02-2025",
-        "end_date": "26-02-2025",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Pre Recorded Evidence",
-        "change_jira_id": "https://tools.hmcts.net/confluence/pages/viewpage.action?pageId=1814326395",
-        "stay_on_late": "No",
-        "justification": "Pre Rec Evidence out of ours release. DEV also required for releases",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/990"
-    },
-    {
-        "form_review_date": "28/02/2025",
-        "start_date": "24-02-2025",
-        "end_date": "24-02-2025",
+        "form_review_date": "03/03/2025",
+        "start_date": "28-02-2025",
+        "end_date": "03-03-2025",
         "request_type": "stop",
         "environment": [
             "AAT / Staging"
         ],
         "business_area": "cross-cutting",
         "team_name": "PlatOps",
-        "change_jira_id": "DTSPO-23913",
+        "change_jira_id": "DTSPO-24225",
         "stay_on_late": "Yes",
-        "justification": "Environment will be unusable during work so will be OOH",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/992"
+        "justification": "Atlassian migration test environment",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/997"
     }
 ]
