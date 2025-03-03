@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Allowed subscriptions
-ALLOWED_SUBSCRIPTIONS=("7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c" "1c4f0704-a29e-403d-b719-b90c34ef14c9" "bf308a5c-0624-4334-8ff8-8dca9fd43783")
+ALLOWED_SUBSCRIPTIONS=("a8140a9e-f1b0-481f-a4de-09e2ee23f7ab")
 
 function get_vmss() {
     log "----------------------------------------------"
@@ -25,7 +25,7 @@ function get_vmss() {
     az graph query -q "
     resources
     | where type =~ 'Microsoft.Compute/virtualMachineScaleSets'
-    | where subscriptionId in~ ('7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c', '1c4f0704-a29e-403d-b719-b90c34ef14c9', 'bf308a5c-0624-4334-8ff8-8dca9fd43783')
+    | where subscriptionId in ('7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c', '1c4f0704-a29e-403d-b719-b90c34ef14c9', 'bf308a5c-0624-4334-8ff8-8dca9fd43783')
     | where tags.autoShutdown == 'true'
     $env_selector
     $area_selector

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# set -x
+set -x
 shopt -s nocasematch
 
 # Source shared function scripts
@@ -49,11 +49,11 @@ log "SKIP evaluated to $SKIP"
 if [[ $SKIP == "false" ]]; then
     if [[ $DEV_ENV != "true" ]]; then
         vm_state_messages
-        az vmss $MODE --instance-ids $VM_INSTANCE_ID --resource-group $RESOURCE_GROUP --name $VMSS_NAME --no-wait || echo "Ignoring any errors while performing $MODE operation on VMSS instance"
+    #     echo "az vmss $MODE --instance-ids 2aa1a8ae-f5c0-464a-b4a7-f9a0d2c6fa2c --resource-group labs-rg-roger-2502261325 --name $VMSS_NAME --no-wait || echo "Ignoring any errors while performing $MODE operation on VMSS instance"
     else
-        ts_echo_color BLUE "Development Env: simulating state commands only."
+        # ts_echo_color BLUE "Development Env: simulating state commands only."
         vm_state_messages
     fi
 else
-    ts_echo_color AMBER "VMSS Instance: $VM_INSTANCE_ID in Scale Set: $VMSS_NAME (Resource Group: $RESOURCE_GROUP) has been skipped from today's $MODE operation schedule"
+    # ts_echo_color AMBER "VMSS Instance: $VM_INSTANCE_ID in Scale Set: $VMSS_NAME (Resource Group: $RESOURCE_GROUP) has been skipped from todays $MODE operation schedule"
 fi

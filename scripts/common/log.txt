@@ -178,3 +178,37 @@
 16:04:35 ---------------------------------------------- 
 16:04:35 Running az graph query... 
 16:04:44 az graph query complete 
+15:21:13 ---------------------------------------------- 
+15:21:13 Running az graph query for VMSS within allowed subscriptions... 
+15:30:54 az graph query for VMSS complete 
+15:31:31 ---------------------------------------------- 
+15:31:31 Running az graph query for VMSS within allowed subscriptions... 
+15:34:49 az graph query for VMSS complete 
+15:34:55 ---------------------------------------------- 
+15:34:55 Running az graph query for VMSS within allowed subscriptions... 
+15:42:26 az graph query for VMSS complete 
+16:31:35 ---------------------------------------------- 
+16:31:35 Running az graph query for VMSS within allowed subscriptions... 
+16:31:39 az graph query for VMSS complete 
+16:31:39 4 VMSS's found 
+16:31:39 ---------------------------------------------- 
+16:32:47 ---------------------------------------------- 
+16:32:47 Running az graph query for VMSS within allowed subscriptions... 
+16:32:48 az graph query for VMSS complete 
+16:32:48 4 VMSS's found 
+16:32:49 ---------------------------------------------- 
+16:34:37 ---------------------------------------------- 
+16:34:37 Running az graph query for VMSS within allowed subscriptions... 
+16:34:39 az graph query for VMSS complete 
+16:34:39 4 VMSS's found 
+16:34:39 ---------------------------------------------- 
+16:35:47 ---------------------------------------------- 
+16:35:47 Running az graph query for VMSS within allowed subscriptions... 
+16:35:48 az graph query for VMSS complete 
+16:35:48 4 VMSS's found 
+16:35:48 ---------------------------------------------- 
+16:39:07 ---------------------------------------------- 
+16:39:07 Running az graph query for VMSS within allowed subscriptions... 
+16:39:09 az graph query for VMSS complete 
+16:39:09 4 VMSS's found 
+16:39:09 ---------------------------------------------- 
