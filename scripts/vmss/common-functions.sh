@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Allowed subscriptions
-ALLOWED_SUBSCRIPTIONS=("a8140a9e-f1b0-481f-a4de-09e2ee23f7ab")
-
 function get_vmss() {
+    #MS az graph query to find and return a list of all VMSS tagged to be included in the auto-shutdown process.
     log "----------------------------------------------"
-    log "Running az graph query for VMSS within allowed subscriptions..."
+    log "Running az graph query..."
 
     if [ -z $1 ]; then
         env_selector=""
@@ -21,7 +19,6 @@ function get_vmss() {
         area_selector="| where tolower(tags.businessArea) == tolower('$2')"
     fi
 
-    # Query VMSS and filter by allowed subscriptions
     az graph query -q "
     resources
     | where type =~ 'Microsoft.Compute/virtualMachineScaleSets'
@@ -29,32 +26,25 @@ function get_vmss() {
     | where tags.autoShutdown == 'true'
     $env_selector
     $area_selector
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.instanceView.statuses[0].code, ['id']
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, ['id']
     " --first 1000 -o json
 
-    log "az graph query for VMSS complete"
+    log "az graph query complete"
 }
 
-# Function to extract VMSS details from JSON input
-function get_vm_details() {
+# Function that accepts the VMSS json as input and sets variables for later use to stop or start VMSS
+function get_vmss_details() {
   RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $vmss)
   VMSS_NAME=$(jq -r '.name' <<< $vmss)
   ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vmss")
   BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vmss)
   STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vmss)
-  VMSS_STATE=$(jq -r '.properties.instanceView.statuses[0].code' <<< $vmss)
-  SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $vmss)
-
-  # Validate subscription
-  if [[ ! " ${ALLOWED_SUBSCRIPTIONS[@]} " =~ " ${SUBSCRIPTION} " ]]; then
-      log "Skipping VMSS $VMSS_NAME in subscription $SUBSCRIPTION (not in allowed list)"
-      return 1
-  fi
-
+  VMSS_STATE=$(jq -r '.properties_extended_instanceView_powerState_displayStatus' <<< $vmss)
+  SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$vmss)
   VMSS_ID="/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Compute/virtualMachineScaleSets/$VMSS_NAME"
 }
 
 function vmss_state_messages() {
     ts_echo_color GREEN "About to run $MODE operation on VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"
-    ts_echo_color GREEN  "Command to run: az vmss $MODE --ids $VMSS_ID --no-wait || echo Ignoring any errors while $MODE operation on VMSS"
+    ts_echo_color GREEN  "Command to run: az vmss $MODE --ids $VMSS_ID --no-wait || echo Ignoring any errors while $MODE operation on vmss"
 }
