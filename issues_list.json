@@ -14,5 +14,22 @@
         "stay_on_late": "Yes",
         "justification": "OOH Probate R&D Data migration Release",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1000"
+    },
+    {
+        "form_review_date": "04-06-2025",
+        "start_date": "04-03-2025",
+        "end_date": "04-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6158",
+        "stay_on_late": "Yes",
+        "justification": "Need for testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1001"
     }
 ]
