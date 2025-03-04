@@ -49,7 +49,7 @@ log "SKIP evaluated to $SKIP"
 if [[ $SKIP == "false" ]]; then
     if [[ $DEV_ENV != "true" ]]; then
         vm_state_messages
-    #     echo "az vmss $MODE --instance-ids 2aa1a8ae-f5c0-464a-b4a7-f9a0d2c6fa2c --resource-group labs-rg-roger-2502261325 --name $VMSS_NAME --no-wait || echo "Ignoring any errors while performing $MODE operation on VMSS instance"
+    #     Printf "az vmss $MODE --instance-ids 2aa1a8ae-f5c0-464a-b4a7-f9a0d2c6fa2c --resource-group labs-rg-roger-2502261325 --name $VMSS_NAME --no-wait || echo "Ignoring any errors while performing $MODE operation on VMSS instance"
     else
         # ts_echo_color BLUE "Development Env: simulating state commands only."
         vm_state_messages
