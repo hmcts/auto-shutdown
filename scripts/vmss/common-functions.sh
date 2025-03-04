@@ -37,13 +37,13 @@ function get_vmss() {
 
 # Function to extract VMSS details from JSON input
 function get_vm_details() {
-  RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $vm)
-  VMSS_NAME=$(jq -r '.name' <<< $vm)
-  ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vm")
+  RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $vmss)
+  VMSS_NAME=$(jq -r '.name' <<< $vmss)
+  ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vmss")
   BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vm)
-  STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vm)
-  VMSS_STATE=$(jq -r '.properties.instanceView.statuses[0].code' <<< $vm)
-  SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $vm)
+  STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vmss)
+  VMSS_STATE=$(jq -r '.properties.instanceView.statuses[0].code' <<< $vmss)
+  SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $vmss)
 
   # Validate subscription
   if [[ ! " ${ALLOWED_SUBSCRIPTIONS[@]} " =~ " ${SUBSCRIPTION} " ]]; then

@@ -57,3 +57,4 @@ if [[ $SKIP == "false" ]]; then
 else
     # ts_echo_color AMBER "VMSS Instance: $VM_INSTANCE_ID in Scale Set: $VMSS_NAME (Resource Group: $RESOURCE_GROUP) has been skipped from todays $MODE operation schedule"
 fi
+done
