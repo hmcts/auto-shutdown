@@ -49,5 +49,6 @@ function get_vmss_details() {
 
 function vmss_state_messages() {
     ts_echo_color GREEN "About to run $MODE operation on VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"
-    ts_echo_color GREEN  "Command to run: az vmss $MODE --ids $VMSS_ID --no-wait || echo Ignoring any errors while $MODE operation on vmss"
+    ts_echo_color GREEN  "Command to run: az vmss $MODE --name $VMSS_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on vmss"
 }
+
