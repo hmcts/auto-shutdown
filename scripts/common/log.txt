@@ -184,3 +184,23 @@
 17:51:58 ---------------------------------------------- 
 17:51:58 Running az graph query... 
 17:52:05 az graph query complete 
+14:10:51 ---------------------------------------------- 
+14:10:51 Running az graph query... 
+14:10:53 az graph query complete 
+14:10:53 2 VMSS found 
+14:10:53 ---------------------------------------------- 
+14:11:23 ---------------------------------------------- 
+14:11:23 Running az graph query... 
+14:11:25 az graph query complete 
+14:11:25 2 VMSS found 
+14:11:25 ---------------------------------------------- 
+14:11:25 ===================================================== 
+14:11:25 Processing Virtual Machine Scale Set: TEST-VMSS-23901 in Resource Group: labs-rg-roger-2502261325 
+14:11:25 ===================================================== 
+14:11:25 checking skip logic for env: sandbox, business_area: cross-cutting, mode: start 
+14:11:25 SKIP evaluated to false 
+14:11:27 ===================================================== 
+14:11:27 Processing Virtual Machine Scale Set: vmms-autoshutdown-test2 in Resource Group: vmss-autoshutdown-test 
+14:11:27 ===================================================== 
+14:11:28 checking skip logic for env: sandbox, business_area: cross-cutting, mode: start 
+14:11:28 SKIP evaluated to false 
