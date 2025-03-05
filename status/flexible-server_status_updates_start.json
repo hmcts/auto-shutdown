@@ -760,5 +760,101 @@
     "resource": "ccd-definition-store-api-postgres-db-v15-ithc",
     "statusMessage": "Flexible SQL Server: *ccd-definition-store-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-test",
+    "resource": "darts-api-test",
+    "statusMessage": "Flexible SQL Server: *darts-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/flexible-pip-subscription-management-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-subscription-management-test",
+    "resource": "flexible-pip-subscription-management-test",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-subscription-management-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/juror-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-api-test",
+    "resource": "juror-api-test",
+    "statusMessage": "Flexible SQL Server: *juror-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/libragob-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/libragob-test",
+    "resource": "libragob-test",
+    "statusMessage": "Flexible SQL Server: *libragob-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-stg-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-stg",
+    "resource": "darts-api-stg",
+    "statusMessage": "Flexible SQL Server: *darts-api-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-stg-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-stg-restore",
+    "resource": "darts-api-stg-restore",
+    "statusMessage": "Flexible SQL Server: *darts-api-stg-restore* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/flexible-pip-account-management-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-account-management-stg",
+    "resource": "flexible-pip-account-management-stg",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/flexible-pip-subscription-management-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-subscription-management-stg",
+    "resource": "flexible-pip-subscription-management-stg",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-subscription-management-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/opal-print-service-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-print-service-stg",
+    "resource": "opal-print-service-stg",
+    "statusMessage": "Flexible SQL Server: *opal-print-service-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/pre-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-restore1-stg",
+    "resource": "pre-restore1-stg",
+    "statusMessage": "Flexible SQL Server: *pre-restore1-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/toffee-v14-flexible-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-stg",
+    "resource": "toffee-v14-flexible-stg",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/a8140a9e-f1b0-481f-a4de-09e2ee23f7ab/resourceGroups/toffee-v14-flexible-data-sbox/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-sbox",
+    "resource": "toffee-v14-flexible-sbox",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-sbox* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/darts-demo-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-demo",
+    "resource": "darts-api-demo",
+    "statusMessage": "Flexible SQL Server: *darts-api-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/flexible-pip-account-management-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-account-management-demo",
+    "resource": "flexible-pip-account-management-demo",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/recipes-shared-infrastructure-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-demo",
+    "resource": "recipes-sds-flexible-demo",
+    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/toffee-v14-flexible-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-demo",
+    "resource": "toffee-v14-flexible-demo",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]

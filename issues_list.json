@@ -5,28 +5,31 @@
         "end_date": "04-03-2025",
         "request_type": "stop",
         "environment": [
-            "AAT / Staging"
+            "AAT / Staging",
+            " PTL"
         ],
         "business_area": "cft",
         "team_name": "Probate",
         "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPB-4475",
         "stay_on_late": "Yes",
         "justification": "OOH Probate R&D Data migration Release",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/996"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1000"
     },
     {
-        "form_review_date": "03/03/2025",
-        "start_date": "28-02-2025",
-        "end_date": "03-03-2025",
+        "form_review_date": "04-06-2025",
+        "start_date": "04-03-2025",
+        "end_date": "04-03-2025",
         "request_type": "stop",
         "environment": [
-            "AAT / Staging"
+            "Demo",
+            " PTL",
+            " Preview / Dev"
         ],
-        "business_area": "cross-cutting",
-        "team_name": "PlatOps",
-        "change_jira_id": "DTSPO-24225",
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6158",
         "stay_on_late": "Yes",
-        "justification": "Atlassian migration test environment",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/997"
+        "justification": "Need for testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1001"
     }
 ]
