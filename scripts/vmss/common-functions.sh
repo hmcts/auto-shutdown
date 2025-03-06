@@ -23,12 +23,12 @@ function get_vmss() {
     resources
     | where type =~ 'Microsoft.Compute/virtualMachineScaleSets'
     | where subscriptionId in ('7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c', '1c4f0704-a29e-403d-b719-b90c34ef14c9', 'bf308a5c-0624-4334-8ff8-8dca9fd43783')
-    | where tags.autoShutdown == 'true'
+    | where tags.autoShutdown == 'test'
     | where not (name matches regex '(^aks-|-aks-|-aks$)')
     | where not (resourceGroup matches regex '(^aks-|-aks-|-aks$)')
     $env_selector
     $area_selector
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, ['id']
+    | project *
     " --first 1000 -o json
 
     log "az graph query complete" 
@@ -36,6 +36,7 @@ function get_vmss() {
 
 # Function that accepts the VMSS json as input and sets variables for later use to stop or start VMSS
 function get_vmss_details() {
+  echo $vmss
   RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $vmss)
   VMSS_NAME=$(jq -r '.name' <<< $vmss)
   ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vmss")

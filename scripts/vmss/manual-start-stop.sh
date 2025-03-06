@@ -64,7 +64,7 @@ jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
 
     if [[ $DEV_ENV != "true" ]]; then
         vmss_state_messages
-        az vmss $MODE --name "$VMSS_NAME" --resource-group "$RESOURCE_GROUP" --no-wait || echo "Ignoring any errors during $MODE operation on VMSS."
+        az vmss $MODE --name $VMSS_NAME --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION --no-wait || echo Ignoring any errors while $MODE operation on vmss
     else
         ts_echo_color BLUE "Development Env: simulating state commands only."
         vmss_state_messages

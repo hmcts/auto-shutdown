@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# set -x
+set -x
 shopt -s nocasematch
 
 # Source shared function scripts
-source scripts/vm/common-functions.sh
+source scripts/vmss/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
@@ -21,9 +21,11 @@ fi
 VMSS=$(get_vmss)
 
 # Iterate over each VMSS instance
-jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
+jq -c '.data[]' <<<$VMSS | while read vmss; do
+echo 1
     # Retrieve details about the VMSS instance
     get_vmss_details
+    echo 2
 
     log "====================================================="
     log "Processing VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"
