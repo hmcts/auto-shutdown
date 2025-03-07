@@ -30,7 +30,6 @@ jq -c '.data[]' <<<$VMS | while read vm; do
     log "Processing Virtual Machine: $VM_NAME in Resource Group: $RESOURCE_GROUP"
     log "====================================================="
 
-   
     if [[ $ENVIRONMENT == "development" ]]; then
         VM_ENV=${ENVIRONMENT/development/Preview}
     elif [[ $ENVIRONMENT == "testing" ]]; then
