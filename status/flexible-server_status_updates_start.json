@@ -856,5 +856,11 @@
     "resource": "toffee-v14-flexible-demo",
     "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Stopped* state after *start* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/pre-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-db-test",
+    "resource": "pre-db-test",
+    "statusMessage": "Flexible SQL Server: *pre-db-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
   }
 ]
