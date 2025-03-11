@@ -18,10 +18,10 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
 	exit 1
 fi
 
-VMSS=$(get_vmss)
+VMSS=$(get_vmss | jq '.data | map(.tags |= fromjson)')
 
 # Iterate over each VMSS instance
-jq -c '.data[]' <<<$VMSS | while read vmss; do
+jq -c '.[]' <<<$VMSS | while read vmss; do
     # Retrieve details about the VMSS instance
     get_vmss_details
 
@@ -43,19 +43,16 @@ jq -c '.data[]' <<<$VMSS | while read vmss; do
     log "Checking skip logic for env: $VMSS_ENV, business_area: $BUSINESS_AREA, mode: $MODE"
     SKIP=$(should_skip_start_stop $VMSS_ENV $BUSINESS_AREA $MODE)
 
-
 	# If SKIP is false then we progress with the status check for the particular VMSS in this loop run, if SKIP is true then do nothing 
     if [[ $SKIP == "false" ]]; then
-        VMSS_POWER_STATE=$(get_vmss_power_state $VMSS_NAME $RESOURCE_GROUP $SUBSCRIPTION)
-
-        slackMessage="VMSS: *$VMSS_NAME* in Subscription: *$SUBSCRIPTION* ResourceGroup: *$RESOURCE_GROUP* is *$VMSS_POWER_STATE* after *$MODE* action."
+        slackMessage="VMSS: *$VMSS_NAME* in Subscription: *$SUBSCRIPTION* ResourceGroup: *$RESOURCE_GROUP* is *$VMSS_STATE* after *$MODE* action."
     
         # Check state of the VMSS and print output as required
         # Depending on the value of MODE a notification will also be sent
         #    - If MODE = start then a stopped VMSS is incorrect and we should notify
         #    - If MODE = deallocate then a running VMSS is incorrect and we should notify
         #    - If neither Running or Stopped is found then something else is going on and we should notify
-        case "$VMSS_POWER_STATE" in
+        case "$VMSS_STATE" in
             "running")
                 ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
                 if [[ $MODE == "deallocate" ]]; then
