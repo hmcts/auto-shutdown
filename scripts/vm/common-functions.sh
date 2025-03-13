@@ -5,19 +5,8 @@ function get_vms() {
     log "----------------------------------------------"
     log "Running az graph query..."
 
-    if [ -z $1 ]; then
-        env_selector=""
-    elif [ $1 == "untagged" ]; then
-        env_selector="| where isnull(tags.environment) and isnull(tags.Environment)"
-    else
-        env_selector="| where tags.environment contains '$1' or tags.Environment contains '$1'"
-    fi
-
-    if [ -z $2 ]; then
-        area_selector=""
-    else
-        area_selector="| where tolower(tags.businessArea) == tolower('$2')"
-    fi
+    env_selector=$(env_selector "$1")
+    area_selector=$(area_selector "$2")
 
     az graph query -q "
     resources

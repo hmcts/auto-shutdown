@@ -58,7 +58,7 @@ fi
 jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
 
     # Retrieve VMSS details
-    get_vmss_details
+    get_vmss_details "$vmss"
 
     ts_echo_color BLUE "Processing VMSS: $VMSS_NAME, RG: $RESOURCE_GROUP, SUB: $SUBSCRIPTION"
 

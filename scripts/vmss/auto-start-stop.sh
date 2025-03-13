@@ -24,7 +24,7 @@ log "----------------------------------------------"
 # For each VMSS found in the function `get_vmss` start another loop
 jq -c '.data[]' <<<$VMSS | while read vmss; do
     # Function that returns the Resource Group, Id and Name of the VMSS and its current state as variables
-    get_vmss_details
+    get_vmss_details "$vmss"
 
     log "====================================================="
     log "Processing Virtual Machine Scale Set: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"
