@@ -14,5 +14,23 @@
         "stay_on_late": "No",
         "justification": "We need to test GA for LiP release on AAT and preview envns",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1010"
+    },
+    {
+        "form_review_date": "18-03-2025",
+        "start_date": "19-03-2025",
+        "end_date": "20-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev",
+            " Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "CIVIL",
+        "change_jira_id": "CHG5020364",
+        "stay_on_late": "Yes",
+        "justification": "https://tools.hmcts.net/confluence/display/RSTR/CIV-9.0.0+-+General+Apps+for+Litigants+in+Person+-+Release+Implementation+Plan",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1011"
     }
 ]
