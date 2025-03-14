@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "14-03-2025",
+        "start_date": "14-03-2025",
+        "end_date": "15-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "CIVIL CUI",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-16628",
+        "stay_on_late": "No",
+        "justification": "We need to test GA for LiP release on AAT and preview envns",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1010"
+    }
+]
