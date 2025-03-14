@@ -1,0 +1,57 @@
+name: "🌍 Start On Demand Environment"
+description: Request that an on demand environment is started (Work In Progress)
+body:
+  - type: input
+    id: form_change_jira_id
+    attributes:
+      label: Change or Jira reference
+    validations:
+      required: true
+
+  - type: dropdown
+    id: form_business_area
+    attributes:
+      label: Business area
+      options:
+        - CFT
+        - Cross-Cutting
+    validations:
+      required: true
+
+  - type: input
+    id: form_team_name
+    attributes:
+      label: Team/Application Name
+      description: "The name of the team or application making the request"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: form_environment
+    attributes:
+      label: Environment
+      description: "Choose the on demand environment to start"
+      multiple: true
+      options:
+        - Sandbox
+        - Test / Perftest
+        - Demo
+        - ITHC
+    validations:
+      required: true
+
+  - type: input
+    id: on_demand_start_date
+    attributes:
+      label: On Demand start date
+      description: "DD-MM-YYYY - date covers start period, 8am till 8pm the same day"
+    validations:
+      required: true
+
+  - type: input
+    id: on_demand_end_date
+    attributes:
+      label: On Demand end date
+      description: "DD-MM-YYYY - Defaults to start date. 8am startup job will start on demand environment till this date."
+    validations:
+      required: false

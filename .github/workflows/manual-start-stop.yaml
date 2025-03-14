@@ -26,6 +26,7 @@ on:
           - ITHC
           - PTL
           - PTLSBOX
+
 env:
   SELECTED_AREA: ${{ inputs.SELECTED_AREA }}
   SELECTED_ENV: ${{ inputs.SELECTED_ENV }}
@@ -45,7 +46,7 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: AKS Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
+      - name: AKS Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment
         run: ./scripts/aks/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
   appgateway:
     runs-on: ubuntu-latest
@@ -58,7 +59,7 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: App Gateway Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
+      - name: App Gateway Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment
         run: ./scripts/appgateway/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
   flexible-server:
     runs-on: ubuntu-latest
@@ -71,7 +72,7 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: Flexible Server Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
+      - name: Flexible Server Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment
         run: ./scripts/flexible-server/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
   vm:
     runs-on: ubuntu-latest
@@ -84,7 +85,7 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: VM Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
+      - name: VM Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment
         run: ./scripts/vm/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
   vmss:
     runs-on: ubuntu-latest
@@ -97,5 +98,5 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: VMSS Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment 
+      - name: VMSS Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_AREA }} ${{ inputs.SELECTED_ENV }} Environment
         run: ./scripts/vmss/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
