@@ -57,7 +57,7 @@ body:
   - type: checkboxes
     id: form_bastion
     attributes:
-      label: Bastion
+      label: Bastion only option
       description: "Is this request for Bastion only?"
       options:
         - label: "Are you requesting this for Bastion only? If yes, select this option."
