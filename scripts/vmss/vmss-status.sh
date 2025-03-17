@@ -18,10 +18,10 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
 	exit 1
 fi
 
-VMSS=$(get_vmss | jq '.data | map(.tags |= fromjson)')
+VMSS=$(get_vmss)
 
 # Iterate over each VMSS instance
-jq -c '.[]' <<<$VMSS | while read vmss; do
+jq -c '.data[]' <<<$VMSS | while read vmss; do
     # Retrieve details about the VMSS instance
     get_vmss_details
 
