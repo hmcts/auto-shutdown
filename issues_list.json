@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "25/04/2025",
+        "start_date": "25-04-2025",
+        "end_date": "25-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "N/A",
+        "change_jira_id": "N/A",
+        "stay_on_late": "No",
+        "justification": "N/A",
+        "bastion_only": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/97"
+    }
+]
