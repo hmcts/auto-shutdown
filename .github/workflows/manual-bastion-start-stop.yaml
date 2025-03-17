@@ -12,7 +12,6 @@ on:
         type: choice
         description: "Environment"
         options:
-          - PTL
           - PTLSBOX
           - Sandbox
           - AAT / Staging
@@ -20,6 +19,7 @@ on:
           - Test / Perftest
           - Demo
           - ITHC
+          - PTL
 
 env:
   SELECTED_AREA: ${{ inputs.SELECTED_AREA }}
