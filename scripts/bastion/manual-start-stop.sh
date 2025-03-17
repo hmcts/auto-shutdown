@@ -30,43 +30,31 @@ if [[ -z "$SELECTED_ENV" ]]; then
     exit 1
 fi
 
+# Convert the second argument to lowercase
+env_name=$(echo "$SELECTED_ENV" | tr '[:upper:]' '[:lower:]')
+
 # Map the environment name to match Azure enviornment tag
-case "$SELECTED_ENV" in
-    "PTL")
-        vm_env="production"
+case "$env_name" in
+    "production" | "ptl")
+        bastionEnv="production"
         ;;
-    "AAT / Staging")
-        vm_env="staging"
+    "staging" | "aat / staging" | "preview / dev" | "test / perftest" | "ithc" | "demo")
+        bastionEnv="staging"
         ;;
-    "Preview / Dev")
-        vm_env="staging"
-        ;;
-    "Test / Perftest")
-        vm_env="staging"
-        ;;
-    "ITHC")
-        vm_env="staging"
-        ;;
-    "Demo")
-        vm_env="staging"
-        ;;
-    "Sandbox")
-        vm_env="sandbox"
-        ;;
-    "PTLSBOX")
-        vm_env="sandbox"
+    "sandbox" | "ptlsbox")
+        bastionEnv="sandbox"
         ;;
     *)
-        echo "Invalid SELECTED_ENV: $SELECTED_ENV" >&2
+        echo "Invalid environment name."
         exit 1
         ;;
 esac
 
 # Retrieve Virtual Machines based on environment
-BASTIONS=$(get_bastion "$vm_env")
+BASTIONS=$(get_bastions "$bastionEnv")
 bastion_count=$(jq -c -r '.count' <<<$BASTIONS)
 if [[ $bastion_count -lt 1 ]]; then
-    echo "No Bastion found for environment: $vm_env." >&2
+    echo "No Bastion found for environment: $bastionEnv." >&2
     exit 1
 fi
 
