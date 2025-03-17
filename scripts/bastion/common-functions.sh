@@ -10,22 +10,23 @@ function get_bastion() {
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where tags.builtFrom == 'https://github.com/hmcts/bastion'
     | where tags.environment contains '$1' or tags.Environment contains '$1'
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, ['id']
+    | extend powerState = properties.extended.instanceView.powerState.displayStatus
+    | project name, resourceGroup, subscriptionId, tags, powerState, id
     " --first 10 -o json
 
     log "az graph query complete"
 }
 
 # Function that accepts the VM json as input and sets variables for later use to stop or start VM
-function get_vm_details() {
-    RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $vm)
-    VM_NAME=$(jq -r '.name' <<< $vm)
-    ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vm")
+function get_bastion_details() {
+    RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $bastion)
+    VM_NAME=$(jq -r '.name' <<< $bastion)
+    ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$bastion")
     BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vm)
-    STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vm)
-    VM_STATE=$(jq -r '.properties_extended_instanceView_powerState_displayStatus' <<< $vm)
-    SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$vm)
-    VM_ID="/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Compute/virtualMachines/$VM_NAME"
+    STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $bastion)
+    VM_STATE=$(jq -r '.powerState' <<< $bastion)
+    SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$bastion)
+    VM_ID=$(jq -r '.id' <<<$bastion)
 }
 
 function vm_state_messages() {

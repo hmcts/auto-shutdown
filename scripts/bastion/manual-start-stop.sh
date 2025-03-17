@@ -70,10 +70,10 @@ if [[ $bastion_count -lt 1 ]]; then
     exit 1
 fi
 
-jq -c '.data[]' <<<$BASTIONS | while read vm; do
+jq -c '.data[]' <<<$BASTIONS | while read bastion; do
 
-	# Function that returns the Resource Group, Id and Name of the VM and its current state as variables
-    get_vm_details
+	# Function that returns the Resource Group, Id and Name of the Bastion and its current state as variables
+    get_bastion_details
 
     # Remove SecOps bastions from list
     if [[ $VM_NAME != **"secops"** ]]; then
