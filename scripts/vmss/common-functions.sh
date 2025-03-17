@@ -1,5 +1,15 @@
 #!/bin/bash
 
+function vmss_query_extend() {
+    echo "| extend vmssId = replace(@'\/virtualMachines\/[^\/]+$', '', id)
+          | extend name = extract(@'/([^\/]+)/virtualMachines/[^\/]+$', 1, id)"
+}
+
+function vmss_query_columns() {
+    echo "| project vmssId, name, resourceGroup, subscriptionId, ['tags'], powerState = properties.extended.instanceView.powerState.code
+          | summarize count() by tostring(powerState), vmssId, name, resourceGroup, subscriptionId, tostring(['tags'])"
+}
+
 function get_vmss() {
     #MS az graph query to find and return a list of all VMSS tagged to be included in the auto-shutdown process.
     log "----------------------------------------------"
@@ -27,11 +37,31 @@ function get_vmss() {
     | where not (name matches regex '(^aks-|-aks-|-aks$)')
     $env_selector
     $area_selector
-    | extend vmssId = replace(@'\/virtualMachines\/[^\/]+$', '', id)
-    | extend name = extract(@'/([^\/]+)/virtualMachines/[^\/]+$', 1, id)
-    | project vmssId, name, resourceGroup, subscriptionId, ['tags'], powerState = properties.extended.instanceView.powerState.code
-    | summarize count() by tostring(powerState), vmssId, name, resourceGroup, subscriptionId, tostring(['tags'])
-    " --first 1000 -o json
+    $(vmss_query_extend)
+    $(vmss_query_columns)
+    " --first 1000 -o json | jq -c -r '.data |= map(.tags |= fromjson)'
+
+    log "az graph query complete" 
+}
+
+# get VMSS with aggregated power status by id
+#
+# Usage: get_vmss_by_id <vmss_id>
+#
+function get_vmss_by_id() {
+    local vmss_id=$1
+    
+    if [ -z $vmss_id ]; then
+        log "No VMSS ID provided"
+        exit 1
+    fi
+
+    az graph query -q "
+    computeresources
+    | where type =~ 'Microsoft.Compute/virtualMachineScaleSets/VirtualMachines'
+    $(vmss_query_extend)
+    $(vmss_query_columns)
+    " --first 1 -o json | jq -c -r '.data |= map(.tags |= fromjson) | .data[0]'
 
     log "az graph query complete" 
 }
