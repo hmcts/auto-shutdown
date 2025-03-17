@@ -8,12 +8,6 @@ on:
         options:
           - start
           - stop
-      SELECTED_AREA:
-        type: choice
-        description: "Business area"
-        options:
-          - SDS
-          - CFT
       SELECTED_ENV:
         type: choice
         description: "Environment"
@@ -47,5 +41,5 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: Bastion Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_ENV }} Environment which is $BASTION_ENV
+      - name: Bastion Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_ENV }} Environment which is ${{ env.BASTION_ENV }}
         run: ./scripts/bastion/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
