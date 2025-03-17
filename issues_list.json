@@ -16,5 +16,21 @@
             "Are you requesting this for Bastion only? If yes, select this option."
         ],
         "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/90"
+    },
+    {
+        "form_review_date": "21/03/2025",
+        "start_date": "20-03-2025",
+        "end_date": "20-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox"
+        ],
+        "business_area": "cft",
+        "team_name": "Testing",
+        "change_jira_id": "N/A",
+        "stay_on_late": "No",
+        "justification": "N/A",
+        "bastion_only": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/93"
     }
 ]
