@@ -82,7 +82,7 @@ jq -c '.data[]' <<<$BASTIONS | while read vm; do
         # If SKIP is false then we progress with the action (stop/start) for the particular VM in this loop run, if not skip and print message to the logs
         if [[ $DEV_ENV != "true" ]]; then
             vm_state_messages
-            # az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm
+            az vm $MODE --ids $VM_ID --no-wait || echo Ignoring any errors while $MODE operation on vm
         else
             ts_echo_color BLUE "Development Env: simulating state commands only."
             vm_state_messages
