@@ -8,7 +8,10 @@ listObj = []
 filepath = "issues_list.json"
 new_data = json.loads(os.environ.get("NEW_DATA", "{}"))
 # Check if "Skip shutdown start date" is None or empty
+print("==================")
+print("Imported data from issue:")
 print(new_data)
+print("==================")
 skip_shutdown_start_date = new_data.get("form_start_date", None)
 if skip_shutdown_start_date is None:
     print("no json data entered")
@@ -26,9 +29,10 @@ new_data["change_jira_id"] = new_data.pop("form_change_jira_id")
 new_data["business_area"] = new_data["business_area"].lower()
 new_data["stay_on_late"] = new_data.pop("form_stay_on_late")
 new_data["justification"] = new_data.pop("form_justification")
-new_data["bastion_only"] = new_data.pop("form_bastion", False)
 new_data["bastion_only"] = bool(new_data.pop("form_bastion", []))
-
+print("==================")
+print("Updated new data variable:")
+print(new_data)
 print("==================")
 issue_number = os.environ.get("ISSUE_NUMBER")
 github_repository = os.environ.get("GITHUB_REPO")
