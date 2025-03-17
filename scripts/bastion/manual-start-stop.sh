@@ -24,7 +24,7 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
     exit 1
 fi
 
-# Ensure SELECTED_ENV and SELECTED_AREA are set
+# Ensure SELECTED_ENV is set
 if [[ -z "$SELECTED_ENV" ]]; then
     echo "Environment not set. Please check your configuration." >&2
     exit 1
@@ -62,7 +62,7 @@ case "$SELECTED_ENV" in
         ;;
 esac
 
-# Retrieve Virtual Machines based on environment and area
+# Retrieve Virtual Machines based on environment
 BASTIONS=$(get_bastion "$vm_env")
 bastion_count=$(jq -c -r '.count' <<<$BASTIONS)
 if [[ $bastion_count -lt 1 ]]; then

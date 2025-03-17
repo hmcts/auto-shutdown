@@ -8,12 +8,6 @@ on:
         options:
           - start
           - stop
-      SELECTED_AREA:
-        type: choice
-        description: "Business area"
-        options:
-          - SDS
-          - CFT
       SELECTED_ENV:
         type: choice
         description: "Environment"
