@@ -1,5 +1,5 @@
-name: "🌍 Start On Demand Environment"
-description: Request that an on demand environment is started (Work In Progress)
+name: "🌍 Start Bastion On Demand"
+description: Request that a Bastion is started on demand (Work In Progress)
 body:
   - type: input
     id: form_change_jira_id
@@ -37,6 +37,9 @@ body:
         - Test / Perftest
         - Demo
         - ITHC
+        - PTLSBOX
+        - Preview / Dev
+        - AAT / Staging
     validations:
       required: true
 
