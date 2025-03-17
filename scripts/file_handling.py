@@ -27,6 +27,8 @@ new_data["business_area"] = new_data["business_area"].lower()
 new_data["stay_on_late"] = new_data.pop("form_stay_on_late")
 new_data["justification"] = new_data.pop("form_justification")
 new_data["bastion_only"] = new_data.pop("form_bastion", False)
+new_data["bastion_only"] = bool(new_data.pop("form_bastion", []))
+
 print("==================")
 issue_number = os.environ.get("ISSUE_NUMBER")
 github_repository = os.environ.get("GITHUB_REPO")
