@@ -1,4 +1,4 @@
-name: Manual Start / Stop
+name: Manual Start / Stop Bastion
 on:
   workflow_dispatch:
     inputs:
