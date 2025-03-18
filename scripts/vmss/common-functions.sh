@@ -13,15 +13,15 @@ function _vmss_query_where() {
 
 function _vmss_query_extend() {
     echo "| extend vmssId = replace(@'\/virtualMachines\/[^\/]+$', '', id)
-          | extend name = extract(@'/([^\/]+)/virtualMachines/[^\/]+$', 1, id)"
+          | extend vmssName = extract(@'/([^\/]+)/virtualMachines/[^\/]+$', 1, id)"
 }
 
 function _vmss_query_project() {
-    echo "| project vmssId, name, resourceGroup, subscriptionId, ['tags'], powerState = properties.extended.instanceView.powerState.code"
+    echo "| project vmssId, vmssName, resourceGroup, subscriptionId, ['tags'], powerState = properties.extended.instanceView.powerState.code"
 }
 
 function _vmss_query_summarise() {
-    echo "| summarize count() by tostring(powerState), vmssId, name, resourceGroup, subscriptionId, tostring(['tags'])"
+    echo "| summarize count() by tostring(powerState), vmssId, vmssName, resourceGroup, subscriptionId, tostring(['tags'])"
 }
 
 function get_vmss() {
