@@ -59,7 +59,7 @@ function get_vmss_instances() {
     $query_where
     $(_vmss_query_extend)
     | extend instanceIdx = extract(@'/virtualMachines/([^\/]+)$', 1, id)
-    $(_vmss_query_project)
+    $(_vmss_query_project),
         osType = properties.storageProfile.osDisk.osType,
         vmSize=properties.hardwareProfile.vmSize,
         instanceIdx
