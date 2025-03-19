@@ -36,7 +36,7 @@ jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
 
     # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
     # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-    SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
+    SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE "aks")
 
     # Setup message output templates for later use
     logMessage="SKIP was $SKIP on Cluster: $CLUSTER_NAME in Subscription: $SUBSCRIPTION  ResourceGroup: $RESOURCE_GROUP is in $CLUSTER_STATUS state after $MODE action"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function get_bastion() {
+function get_bastions() {
     #MS az graph query to find and return bastion hosts based on environment and tags
     log "----------------------------------------------"
     log "Running az graph query..."
