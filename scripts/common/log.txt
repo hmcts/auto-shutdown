@@ -1,0 +1,79 @@
+13:40:54 ---------------------------------------------- 
+13:40:54 Running az graph query... 
+13:41:02 az graph query complete 
+13:41:02 2 VM's found 
+13:41:02 ---------------------------------------------- 
+13:41:02 ===================================================== 
+13:41:02 Processing Bastion: bastion-sbox in Resource Group: bastion-sbox-rg 
+13:41:02 ===================================================== 
+13:41:02 checking skip logic for env: sandbox, business_area: cross-cutting, mode: deallocate 
+13:41:02 current hour result: 13 
+13:41:02 is_late_night_run: set to 'false' 
+13:41:02 late_night_run var set to: false 
+13:41:02 Runtime day is a weekend day (includes Friday): false 
+13:41:02 SKIP evalulated to false 
+13:41:03 ===================================================== 
+13:41:03 Processing Bastion: bastion-secops-sbox in Resource Group: bastion-sbox-rg 
+13:41:03 ===================================================== 
+13:41:03 checking skip logic for env: sandbox, business_area: cross-cutting, mode: deallocate 
+13:41:03 current hour result: 13 
+13:41:03 is_late_night_run: set to 'false' 
+13:41:03 late_night_run var set to: false 
+13:41:03 Runtime day is a weekend day (includes Friday): false 
+13:41:03 SKIP evalulated to false 
+13:41:20 ---------------------------------------------- 
+13:41:20 Running az graph query... 
+13:41:21 az graph query complete 
+13:41:21 2 VM's found 
+13:41:21 ---------------------------------------------- 
+13:41:21 ===================================================== 
+13:41:22 Processing Bastion: bastion-sbox in Resource Group: bastion-sbox-rg 
+13:41:22 ===================================================== 
+13:41:22 checking skip logic for env: sandbox, business_area: cross-cutting, mode: deallocate 
+13:41:22 current hour result: 13 
+13:41:22 is_late_night_run: set to 'false' 
+13:41:22 late_night_run var set to: false 
+13:41:22 Runtime day is a weekend day (includes Friday): false 
+13:41:22 SKIP evalulated to false 
+13:41:22 ===================================================== 
+13:41:22 Processing Bastion: bastion-secops-sbox in Resource Group: bastion-sbox-rg 
+13:41:22 ===================================================== 
+13:41:22 checking skip logic for env: sandbox, business_area: cross-cutting, mode: deallocate 
+13:41:22 current hour result: 13 
+13:41:22 is_late_night_run: set to 'false' 
+13:41:22 late_night_run var set to: false 
+13:41:22 Runtime day is a weekend day (includes Friday): false 
+13:41:22 SKIP evalulated to false 
+13:41:28 ---------------------------------------------- 
+13:41:28 Running az graph query... 
+13:41:30 az graph query complete 
+13:41:30 0 VM's found 
+13:41:30 ---------------------------------------------- 
+13:42:35 ---------------------------------------------- 
+13:42:36 Running az graph query... 
+13:42:37 az graph query complete 
+13:42:37 0 VM's found for production bastion environment 
+13:42:37 ---------------------------------------------- 
+13:42:52 ---------------------------------------------- 
+13:42:52 Running az graph query... 
+13:42:57 az graph query complete 
+13:42:57 2 VM's found for sandbox bastion environment 
+13:42:57 ---------------------------------------------- 
+13:42:57 ===================================================== 
+13:42:57 Processing Bastion: bastion-sbox in Resource Group: bastion-sbox-rg 
+13:42:57 ===================================================== 
+13:42:57 checking skip logic for env: sandbox, business_area: cross-cutting, mode: deallocate 
+13:42:57 current hour result: 13 
+13:42:57 is_late_night_run: set to 'false' 
+13:42:58 late_night_run var set to: false 
+13:42:58 Runtime day is a weekend day (includes Friday): false 
+13:42:58 SKIP evalulated to false 
+13:42:58 ===================================================== 
+13:42:58 Processing Bastion: bastion-secops-sbox in Resource Group: bastion-sbox-rg 
+13:42:58 ===================================================== 
+13:42:58 checking skip logic for env: sandbox, business_area: cross-cutting, mode: deallocate 
+13:42:58 current hour result: 13 
+13:42:58 is_late_night_run: set to 'false' 
+13:42:58 late_night_run var set to: false 
+13:42:58 Runtime day is a weekend day (includes Friday): false 
+13:42:58 SKIP evalulated to false 

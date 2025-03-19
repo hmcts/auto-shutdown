@@ -43,7 +43,7 @@ esac
 
 BASTIONS=$(get_bastions "$bastionEnv")
 bastion_count=$(jq -c -r '.count' <<<$BASTIONS)
-log "$bastion_count VM's found"
+log "$bastion_count VM's found for $bastionEnv bastion environment"
 log "----------------------------------------------"
 
 # For each VM found in the function `get_vms` start another loop

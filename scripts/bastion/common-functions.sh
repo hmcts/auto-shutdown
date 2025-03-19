@@ -9,6 +9,7 @@ function get_bastions() {
     resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where tags.builtFrom == 'https://github.com/hmcts/bastion'
+    | where tags.autoShutdown == 'true'
     | where tags.environment contains '$1' or tags.Environment contains '$1'
     | extend powerState = properties.extended.instanceView.powerState.displayStatus
     | project name, resourceGroup, subscriptionId, tags, powerState, id
@@ -22,7 +23,7 @@ function get_bastion_details() {
     RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $bastion)
     VM_NAME=$(jq -r '.name' <<< $bastion)
     ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$bastion")
-    BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vm)
+    BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $bastion)
     STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $bastion)
     VM_STATE=$(jq -r '.powerState' <<< $bastion)
     SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$bastion)
