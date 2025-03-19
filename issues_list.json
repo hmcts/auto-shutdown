@@ -14,5 +14,21 @@
         "justification": "N/A",
         "bastion_only": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/97"
+    },
+    {
+        "form_review_date": "21/03/2025",
+        "start_date": "19-03-2025",
+        "end_date": "20-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox"
+        ],
+        "business_area": "cft",
+        "team_name": "Testing auto-shutdown",
+        "change_jira_id": "Testing auto-shutdown",
+        "stay_on_late": "No",
+        "justification": "Testing auto-shutdown",
+        "bastion_only": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/101"
     }
 ]
