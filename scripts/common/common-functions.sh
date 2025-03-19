@@ -239,19 +239,29 @@ function should_skip_start_stop () {
     end_date=$(jq -r '."end_date"' <<< $issue)
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
     bastion_only=$(jq -r '."bastion_only"' <<< $issue)
+    issue_number=$(jq -r '."issue_link"' <<< $issue | cut -d'/' -f7)
     get_request_type "$issue"
 
-    # determine if we should continue checking the resource based on Bastion only input and service type
-    if [[ ( $bastion_only && $serviceType != "bastion" ) ]]; then
-        echo "false"
-        return
-    fi
+    log "Evaluating issue: $issue_number"
 
     # determine if we should continue checking the resource for an exclusion
     if [[ ($request_type == "stop" && $mode == "deallocate") || $request_type == $mode ]]; then
       check_resource="true"
     else
       check_resource="false"
+    fi
+
+    # Determine if we should skip shutdown based on bastion_only and serviceType
+    if [[ $bastion_only == true ]]; then
+      if [[ $serviceType == "bastion" ]]; then
+        log "Bastion only check result: $bastion_only"
+        log "Service type is: $serviceType"
+        check_resource="true"
+      else
+        log "Bastion only check result: true"
+        log "Service type is: $serviceType"
+        check_resource="false"
+      fi
     fi
 
     if [[ $check_resource == "false" ]]; then
