@@ -49,5 +49,20 @@
         "stay_on_late": "No",
         "justification": "Need to perform an out of hours release/migration in preparation for Work Allocation",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1022"
+    },
+    {
+        "form_review_date": "20-06-2025",
+        "start_date": "20-03-2025",
+        "end_date": "20-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "PRL",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6158",
+        "stay_on_late": "Yes",
+        "justification": "XBP is testing",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1023"
     }
 ]
