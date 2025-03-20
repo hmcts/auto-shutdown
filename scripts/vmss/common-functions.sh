@@ -33,7 +33,7 @@ function get_vmss() {
     
     az graph query -q "
     computeresources
-    | where subscriptionId in ('bf308a5c-0624-4334-8ff8-8dca9fd43783')
+    | where subscriptionId in ('bf308a5c-0624-4334-8ff8-8dca9fd43783','7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c', '1c4f0704-a29e-403d-b719-b90c34ef14c9')
     $query_where
     $(_vmss_query_extend) $(_vmss_query_project) $(_vmss_query_summarise)
     " --first 1000 -o json | jq -c -r '.data |= map(.tags |= fromjson)'
