@@ -1,0 +1,6 @@
+14:07:41 ---------------------------------------------- 
+14:07:41 Running az graph query... 
+14:07:49 az graph query complete 
+14:07:55 ---------------------------------------------- 
+14:07:55 Running az graph query... 
+14:07:57 az graph query complete 
