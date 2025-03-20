@@ -23,7 +23,7 @@ VMSS=$(get_vmss)
 # Iterate over each VMSS instance
 jq -c '.data[]' <<<$VMSS | while read vmss; do
     # Retrieve details about the VMSS instance
-    get_vmss_details
+    get_vmss_details "$vmss"
 
     log "====================================================="
     log "Processing VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP"

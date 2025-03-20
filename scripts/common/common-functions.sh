@@ -314,3 +314,31 @@ get_slack_displayname_from_github_username() {
         echo $slack_real_name
     fi
 }
+
+# Get environment graph query filter
+#
+# Usage: env_selector [env_selector_param]
+#
+env_selector() {
+    local env="$1"
+    if [ -z "$env" ]; then
+        echo ""
+    elif [ "$env" == "untagged" ]; then
+        echo "| where isnull(tags.environment) and isnull(tags.Environment)"
+    else
+        echo "| where tolower(tags.environment) contains tolower('$env') or tolower(tags.Environment) contains tolower('$env')"
+    fi
+}
+
+# Get business area graph query filter
+#
+# Usage: area_selector [business_area_selector_param]
+#
+area_selector() {
+    local area="$1"
+    if [ -z "$area" ]; then
+        echo ""
+    else
+        echo "| where tolower(tags.businessArea) == tolower('$area')"
+    fi
+}
