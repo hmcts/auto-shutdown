@@ -32,5 +32,22 @@
         "stay_on_late": "Yes",
         "justification": "We need PTL available as will be merging in PRs OOH",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1019"
+    },
+    {
+        "form_review_date": "25-03-2025",
+        "start_date": "20-03-2025",
+        "end_date": "20-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "FPL",
+        "change_jira_id": "DFPL-2487 / CHG5020408",
+        "stay_on_late": "No",
+        "justification": "Need to perform an out of hours release/migration in preparation for Work Allocation",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1022"
     }
 ]
