@@ -158,7 +158,7 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       #Run bash script to get Azure resouce details for cost analysis
-      - name: get aks resource details
+      - name: get resource details
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
         run: ./scripts/resource-details.sh
