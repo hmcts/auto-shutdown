@@ -54,6 +54,15 @@ body:
     validations:
       required: true
 
+  - type: checkboxes
+    id: form_bastion
+    attributes:
+      label: Is this request for Bastion only?
+      description: "Do you only require the Bastion servers to remain active? If yes, select this option."
+      options:
+        - label: "Bastion only"
+          required: false
+
   - type: input
     id: form_start_date
     attributes:

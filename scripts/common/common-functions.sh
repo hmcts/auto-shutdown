@@ -38,7 +38,7 @@ function ts_echo_color() {
 
 # Function to convert a string to lowercase
 to_lowercase() {
-    local input="$1"          
+    local input="$1"
     local lowercase="${input,,}"  # Convert to lowercase using parameter expansion
     echo "$lowercase"
 }
@@ -76,7 +76,7 @@ function add_to_json() {
   local mode="$5"
   # Send to json file dependent on resource type
   local pathToJson="status/${resourceType}_status_updates_${mode}.json"
-  
+
   # Create dir if not exists
   mkdir -p status
 
@@ -88,7 +88,7 @@ function add_to_json() {
   # Update the existing object if the ID is found, else add a new object
   # Saves us duplicates if there is another individual pipeline run during the day, whilst still allowing for potential status updates
   jq --arg id "$id" --arg resource "$resource" --arg statusMessage "$statusMessage" --arg resourceType "$resourceType" \
-   'map(if .id == $id then 
+   'map(if .id == $id then
           .resource = $resource |
           .statusMessage = $statusMessage |
           .resourceType = $resourceType
@@ -101,7 +101,7 @@ function add_to_json() {
           "resource": $resource,
           "statusMessage": $statusMessage,
           "resourceType": $resourceType
-        }] 
+        }]
       end)' "$pathToJson" \
    > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
   echo "JSON file updated successfully."
@@ -219,6 +219,7 @@ function should_skip_start_stop () {
   env=$1
   business_area=$2
   mode=$3
+  serviceType=$4
   # If its not onDemand we don't need to check the file issues_list.json for startup
   if [[ $STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
     echo "false"
@@ -237,13 +238,30 @@ function should_skip_start_stop () {
     start_date=$(jq -r '."start_date"' <<< $issue)
     end_date=$(jq -r '."end_date"' <<< $issue)
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
+    bastion_only=$(jq -r '."bastion_only"' <<< $issue)
+    issue_number=$(jq -r '."issue_link"' <<< $issue | cut -d'/' -f7)
     get_request_type "$issue"
+
+    log "Evaluating issue: $issue_number"
 
     # determine if we should continue checking the resource for an exclusion
     if [[ ($request_type == "stop" && $mode == "deallocate") || $request_type == $mode ]]; then
       check_resource="true"
     else
       check_resource="false"
+    fi
+
+    # Determine if we should skip shutdown based on bastion_only and serviceType
+    if [[ $bastion_only == true ]]; then
+      if [[ $serviceType == "bastion" ]]; then
+        log "Bastion only check result: $bastion_only"
+        log "Service type is: $serviceType"
+        check_resource="true"
+      else
+        log "Bastion only check result: true"
+        log "Service type is: $serviceType"
+        check_resource="false"
+      fi
     fi
 
     if [[ $check_resource == "false" ]]; then

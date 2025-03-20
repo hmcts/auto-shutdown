@@ -1,0 +1,39 @@
+name: bastion-auto-shutdown
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 20,23 * * *" # Every day at 20:00 and 23:00 BST
+env:
+  DEV_ENV: ${{ secrets.DEV_ENV }}
+permissions:
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: "Az CLI login"
+        uses: azure/login@v2
+        with:
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
+      ## Production is included here to allow for select resoucres to be stopped. Only resources tagged with autoShutdown: true will be stopped.
+      - name: Production - Bastion Auto Stop
+        run: ./scripts/bastion/auto-start-stop.sh deallocate production
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Staging - Bastion Auto Stop
+        run: ./scripts/bastion/auto-start-stop.sh deallocate staging
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Sandbox - Bastion Auto Stop
+        run: ./scripts/bastion/auto-start-stop.sh deallocate sandbox
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Output log file
+        run: ./scripts/common/log-output.sh

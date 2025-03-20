@@ -1,0 +1,45 @@
+name: Manual Start / Stop Bastion
+on:
+  workflow_dispatch:
+    inputs:
+      SELECTED_MODE:
+        type: choice
+        description: "MODE"
+        options:
+          - start
+          - stop
+      SELECTED_ENV:
+        type: choice
+        description: "Environment"
+        options:
+          - PTLSBOX
+          - Sandbox
+          - AAT / Staging
+          - Preview / Dev
+          - Test / Perftest
+          - Demo
+          - ITHC
+          - PTL
+
+env:
+  SELECTED_AREA: ${{ inputs.SELECTED_AREA }}
+  SELECTED_ENV: ${{ inputs.SELECTED_ENV }}
+  SELECTED_MODE: ${{ inputs.SELECTED_MODE }}
+  BASTION_ENV: ${{ inputs.SELECTED_ENV == 'PTL' && 'prod' || inputs.SELECTED_ENV == 'PTLSBOX' && 'sbox' || inputs.SELECTED_ENV == 'Sandbox' && 'sbox' || 'non-prod' }}
+  DEV_ENV: ${{ secrets.DEV_ENV }}
+permissions:
+  id-token: write
+jobs:
+  bastion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: 'Az CLI login'
+        uses: azure/login@v2
+        with:
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
+      - name: Bastion Manual ${{ inputs.SELECTED_MODE }} in ${{ inputs.SELECTED_ENV }} Environment which is ${{ env.BASTION_ENV }}
+        run: ./scripts/bastion/manual-start-stop.sh ${{ inputs.SELECTED_MODE }}
