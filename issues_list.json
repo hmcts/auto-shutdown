@@ -1,22 +1,24 @@
 [
     {
-        "form_review_date": "25/04/2025",
-        "start_date": "25-04-2025",
-        "end_date": "25-04-2025",
+        "form_review_date": "18-03-2025",
+        "start_date": "19-03-2025",
+        "end_date": "20-03-2025",
         "request_type": "stop",
         "environment": [
-            "Demo"
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev",
+            " Demo"
         ],
         "business_area": "cft",
-        "team_name": "N/A",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "N/A",
-        "bastion_only": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/97"
+        "team_name": "CIVIL",
+        "change_jira_id": "CHG5020364",
+        "stay_on_late": "Yes",
+        "justification": "https://tools.hmcts.net/confluence/display/RSTR/CIV-9.0.0+-+General+Apps+for+Litigants+in+Person+-+Release+Implementation+Plan",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1011"
     },
     {
-        "form_review_date": "21/03/2025",
+        "form_review_date": "19-03-2025",
         "start_date": "19-03-2025",
         "end_date": "20-03-2025",
         "request_type": "stop",
@@ -24,11 +26,27 @@
             "Sandbox"
         ],
         "business_area": "cft",
-        "team_name": "Testing auto-shutdown",
-        "change_jira_id": "Testing auto-shutdown",
-        "stay_on_late": "No",
-        "justification": "Testing auto-shutdown",
-        "bastion_only": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/101"
+        "team_name": "CIVIL",
+        "change_jira_id": "DTSPO-23904",
+        "stay_on_late": "Yes",
+        "justification": "test",
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/104"
+    },
+    {
+        "form_review_date": "19-03-2025",
+        "start_date": "19-03-2025",
+        "end_date": "20-03-2025",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            " AAT / Staging",
+            " Sandbox"
+        ],
+        "business_area": "cft",
+        "team_name": "CIVIL",
+        "change_jira_id": "TEST",
+        "stay_on_late": "Yes",
+        "justification": "test",
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/105"
     }
 ]

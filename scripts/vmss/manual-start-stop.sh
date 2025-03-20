@@ -58,7 +58,7 @@ fi
 jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
 
     # Retrieve VMSS details
-    get_vmss_details
+    get_vmss_details "$vmss"
 
     ts_echo_color BLUE "Processing VMSS: $VMSS_NAME, RG: $RESOURCE_GROUP, SUB: $SUBSCRIPTION"
 
@@ -71,10 +71,7 @@ jq -c '.data[]' <<<$VMSS_LIST | while read vmss; do
     fi
 
     # Get VMSS power state after operation
-    RESULT=$(az graph query -q "resources 
-    | where ['name'] == '$VMSS_NAME' 
-    | project properties" -o json | jq -r '.data[0].properties.extended.instanceView.powerState.code')
-
-    ts_echo "VM Scale Set: $VMSS_NAME is in state: $RESULT"
+    new_state=$(get_vmss_by_id $VMSS_ID | jq -cr '.powerState | split("/")[1]')
+    ts_echo "VM Scale Set: $VMSS_NAME is in state: $new_state"
 
 done
