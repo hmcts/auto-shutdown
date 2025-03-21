@@ -39,7 +39,7 @@ jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
   log "====================================================="
 
   log "checking skip logic for cluster_env: $cluster_env, cluster_business_area: $cluster_business_area, mode: $MODE"
-  SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE)
+  SKIP=$(should_skip_start_stop $cluster_env $cluster_business_area $MODE "aks")
 
   log "SKIP evalulated to $SKIP"
 

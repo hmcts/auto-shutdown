@@ -39,7 +39,7 @@ jq -c '.[]' <<<$MI_SQL_SERVERS | while read server; do
 
     # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
     # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-    SKIP=$(should_skip_start_stop $managed_instance_env $managed_instance_business_area $MODE)
+    SKIP=$(should_skip_start_stop $managed_instance_env $managed_instance_business_area $MODE "sqlmi")
 
     # Setup message output templates for later use
     logMessage="SQL managed-instance: $SERVER_NAME in Subscription: $SUBSCRIPTION and ResourceGroup: $RESOURCE_GROUP is $SERVER_STATE after $MODE action"
