@@ -406,5 +406,65 @@
     "resource": "hmcts-hub-nonprodi-palo-ansible",
     "statusMessage": "VM: *hmcts-hub-nonprodi-palo-ansible* in Subscription: *fb084706-583f-4c9a-bdab-949aac66ba5c*  ResourceGroup: *hmcts-hub-nonprodi* is *VM deallocated* state after *start* action.",
     "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-ithc/providers/Microsoft.Compute/virtualMachines/ccd-data-0",
+    "resource": "ccd-data-0",
+    "statusMessage": "VM: *ccd-data-0* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-ithc* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-ithc/providers/Microsoft.Compute/virtualMachines/ccd-data-1",
+    "resource": "ccd-data-1",
+    "statusMessage": "VM: *ccd-data-1* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-ithc* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-ithc/providers/Microsoft.Compute/virtualMachines/ccd-data-2",
+    "resource": "ccd-data-2",
+    "statusMessage": "VM: *ccd-data-2* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-ithc* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-ithc/providers/Microsoft.Compute/virtualMachines/ccd-data-3",
+    "resource": "ccd-data-3",
+    "statusMessage": "VM: *ccd-data-3* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-ithc* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-perftest/providers/Microsoft.Compute/virtualMachines/ccd-data-0",
+    "resource": "ccd-data-0",
+    "statusMessage": "VM: *ccd-data-0* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-perftest* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-perftest/providers/Microsoft.Compute/virtualMachines/ccd-data-1",
+    "resource": "ccd-data-1",
+    "statusMessage": "VM: *ccd-data-1* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-perftest* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-perftest/providers/Microsoft.Compute/virtualMachines/ccd-data-2",
+    "resource": "ccd-data-2",
+    "statusMessage": "VM: *ccd-data-2* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-perftest* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-elastic-search-perftest/providers/Microsoft.Compute/virtualMachines/ccd-data-3",
+    "resource": "ccd-data-3",
+    "statusMessage": "VM: *ccd-data-3* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *ccd-elastic-search-perftest* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/core-infra-idam-ithc/providers/Microsoft.Compute/virtualMachines/idam-ithc-jumpbox",
+    "resource": "idam-ithc-jumpbox",
+    "statusMessage": "VM: *idam-ithc-jumpbox* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *core-infra-idam-ithc* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/core-infra-idam-perftest/providers/Microsoft.Compute/virtualMachines/idam-perftest-jumpbox",
+    "resource": "idam-perftest-jumpbox",
+    "statusMessage": "VM: *idam-perftest-jumpbox* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *core-infra-idam-perftest* is *VM deallocated* state after *start* action.",
+    "resourceType": "vm"
   }
 ]

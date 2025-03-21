@@ -57,10 +57,10 @@ body:
   - type: checkboxes
     id: form_bastion
     attributes:
-      label: Is this request for Bastion only?
-      description: "Do you only require the Bastion servers to remain active? If yes, select this option."
+      label: Do you require a Bastion host to be powered on?
+      description: "If you need access via a Bastion host then you should select this check box."
       options:
-        - label: "Bastion only"
+        - label: "Bastion host required?"
           required: false
 
   - type: input

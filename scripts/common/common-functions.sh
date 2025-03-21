@@ -238,11 +238,9 @@ function should_skip_start_stop () {
     start_date=$(jq -r '."start_date"' <<< $issue)
     end_date=$(jq -r '."end_date"' <<< $issue)
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
-    bastion_only=$(jq -r '."bastion_only"' <<< $issue)
+    bastion_required=$(jq -r '."bastion_required"' <<< $issue)
     issue_number=$(jq -r '."issue_link"' <<< $issue | cut -d'/' -f7)
     get_request_type "$issue"
-
-    log "Evaluating issue: $issue_number"
 
     # determine if we should continue checking the resource for an exclusion
     if [[ ($request_type == "stop" && $mode == "deallocate") || $request_type == $mode ]]; then
@@ -251,16 +249,13 @@ function should_skip_start_stop () {
       check_resource="false"
     fi
 
-    # Determine if we should skip shutdown based on bastion_only and serviceType
-    if [[ $bastion_only == true ]]; then
+    # Determine if we should skip shutdown based on bastion_required and serviceType
+    if [[ $bastion_required == true ]]; then
       if [[ $serviceType == "bastion" ]]; then
-        log "Bastion only check result: $bastion_only"
+        business_area_entry="Cross-Cutting"
+        log "Bastion required check result: $bastion_required"
         log "Service type is: $serviceType"
         check_resource="true"
-      else
-        log "Bastion only check result: true"
-        log "Service type is: $serviceType"
-        check_resource="false"
       fi
     fi
 
@@ -269,25 +264,26 @@ function should_skip_start_stop () {
     fi
 
     if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
-    log "Exclusion FOUND"
-      if [[ $late_night_run == "false" ]]; then
-        log "== 20:00 run =="
-        log "skip set to 'true as an exclusion request was found for this resource at the 20:00 run'"
-        echo "true"
-      elif [[ $late_night_run == "true" && $stay_on_late == "Yes" ]]; then
-        log "== 23:00 run =="
-        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
-        echo "true"
-      elif [[ $late_night_run == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $weekend_day == "true" ]]; then
-        log "== 23:00 run =="
-        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running at the weekend and the environment is required over the weekend."
-        echo "true"
-      else
-        log "defaulting skip var to false"
-        echo "false"
-      fi
-      return
-    log "No exclusion request found"
+      log "Exclusion FOUND"
+        if [[ $late_night_run == "false" ]]; then
+          log "== 20:00 run =="
+          log "skip set to 'true as an exclusion request was found for this resource at the 20:00 run'"
+          echo "true"
+        elif [[ $late_night_run == "true" && $stay_on_late == "Yes" ]]; then
+          log "== 23:00 run =="
+          log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
+          echo "true"
+        elif [[ $late_night_run == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $weekend_day == "true" ]]; then
+          log "== 23:00 run =="
+          log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running at the weekend and the environment is required over the weekend."
+          echo "true"
+        else
+          log "defaulting skip var to false"
+          echo "false"
+        fi
+        return
+    else
+      log "No exclusion found for issue: $issue_number"
     fi
   done < <(jq -c '.[]' issues_list.json)
 # If its onDemand and there are no issues matching above we should skip startup
