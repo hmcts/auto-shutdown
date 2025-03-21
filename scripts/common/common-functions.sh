@@ -238,7 +238,7 @@ function should_skip_start_stop () {
     start_date=$(jq -r '."start_date"' <<< $issue)
     end_date=$(jq -r '."end_date"' <<< $issue)
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
-    bastion_only=$(jq -r '."bastion_only"' <<< $issue)
+    bastion_required=$(jq -r '."bastion_required"' <<< $issue)
     issue_number=$(jq -r '."issue_link"' <<< $issue | cut -d'/' -f7)
     get_request_type "$issue"
 
@@ -249,17 +249,13 @@ function should_skip_start_stop () {
       check_resource="false"
     fi
 
-    # Determine if we should skip shutdown based on bastion_only and serviceType
-    if [[ $bastion_only == true ]]; then
+    # Determine if we should skip shutdown based on bastion_required and serviceType
+    if [[ $bastion_required == true ]]; then
       if [[ $serviceType == "bastion" ]]; then
         business_area_entry="Cross-Cutting"
-        log "Bastion only check result: $bastion_only"
+        log "Bastion required check result: $bastion_required"
         log "Service type is: $serviceType"
         check_resource="true"
-      else
-        log "Bastion only check result: true"
-        log "Service type is: $serviceType"
-        check_resource="false"
       fi
     fi
 
