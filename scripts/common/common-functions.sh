@@ -254,6 +254,7 @@ function should_skip_start_stop () {
     # Determine if we should skip shutdown based on bastion_only and serviceType
     if [[ $bastion_only == true ]]; then
       if [[ $serviceType == "bastion" ]]; then
+        business_area="Cross-Cutting"
         log "Bastion only check result: $bastion_only"
         log "Service type is: $serviceType"
         check_resource="true"
