@@ -1,5 +1,7 @@
 name: Auto Parse github form - pull request
 run-name: ${{ github.actor }} - PR:${{ github.event.pull_request.number }}
+on:
+  pull_request:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
   SLACK_WEBHOOK: ${{ secrets.TEST_CHANNEL_SLACK_WEBHOOK }}
@@ -122,7 +124,7 @@ jobs:
         id: get_issue_body
         run: |
           gh issue view --repo ${{ github.repository }} ${{ steps.create-issue.outputs.number }} --json body | jq -r '.body' > body.txt
-          sed -i "s/'//g" body.txt 
+          sed -i "s/'//g" body.txt
           cat body.txt
 
       #Create a multiline variable so it can be read by parser
