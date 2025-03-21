@@ -35,8 +35,8 @@
     },
     {
         "form_review_date": "20/03/2025",
-        "start_date": "20-03-2025",
-        "end_date": "21-03-2025",
+        "start_date": "21-03-2025",
+        "end_date": "22-03-2025",
         "request_type": "stop",
         "environment": [
             "Sandbox"
@@ -48,21 +48,5 @@
         "justification": "MF Testing",
         "bastion_only": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/107"
-    },
-    {
-        "form_review_date": "25/03/2025",
-        "start_date": "21-03-2025",
-        "end_date": "23-03-2025",
-        "request_type": "stop",
-        "environment": [
-            "Sandbox"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "MF Testing",
-        "change_jira_id": "MF Testing",
-        "stay_on_late": "No",
-        "justification": "MF Testing",
-        "bastion_only": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/108"
     }
 ]
