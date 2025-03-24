@@ -214,9 +214,25 @@ function is_in_date_range() {
   fi
 }
 
+function compare_json_lists() {
+  local json_list1="$1"
+  local json_list2="$2"
+
+  # remove whitespace in list entries and make lower case
+  local normalized_list1=$(jq -c 'map(gsub("^\\s+|\\s+$"; "") | ascii_downcase)' <<< "$json_list1")
+  local normalized_list2=$(jq -c 'map(gsub("^\\s+|\\s+$"; "") | ascii_downcase)' <<< "$json_list2")
+
+  # Compare lists and store matching values in result as JSON list " [] "
+  local result=$(jq --argjson list1 "$normalized_list1" --argjson list2 "$normalized_list2" '
+    [$list1[], $list2[]] | group_by(.) | map(select(length == 2)) | flatten | unique
+  ' <<< '{}')
+  # Return result to caller
+  echo $result
+}
+
 function should_skip_start_stop () {
-  local env business_area issue
-  env=$1
+  local script_env business_area issue
+  script_env=$1
   business_area=$2
   mode=$3
   serviceType=$4
@@ -232,8 +248,8 @@ function should_skip_start_stop () {
   log "Runtime day is a weekend day (includes Friday): $weekend_day"
 
   while read issue; do
-    local env_entry business_area_entry start_date end_date stay_on_late
-    env_entry=$(jq -r '."environment"' <<< $issue)
+    local issue_env business_area_entry start_date end_date stay_on_late bastion_required issue_number
+    issue_env=$(jq -r '."environment"' <<< $issue)
     business_area_entry=$(jq -r '."business_area"' <<< $issue)
     start_date=$(jq -r '."start_date"' <<< $issue)
     end_date=$(jq -r '."end_date"' <<< $issue)
@@ -255,6 +271,8 @@ function should_skip_start_stop () {
         business_area_entry="Cross-Cutting"
         log "Bastion required check result: $bastion_required"
         log "Service type is: $serviceType"
+        log "Business area set to: $business_area_entry as bastion is required"
+        script_env=$(compare_json_lists "$issue_env" "$script_env")
         check_resource="true"
       fi
     fi
@@ -263,7 +281,7 @@ function should_skip_start_stop () {
       continue
     fi
 
-    if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
+    if [[ ($mode == "stop" || $mode == "deallocate") && $issue_env =~ $script_env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
       log "Exclusion FOUND"
         if [[ $late_night_run == "false" ]]; then
           log "== 20:00 run =="

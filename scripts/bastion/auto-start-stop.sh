@@ -24,22 +24,31 @@ fi
 # Convert the second argument to lowercase
 env_name=$(echo "$2" | tr '[:upper:]' '[:lower:]')
 
-# Map the environment name to match Azure enviornment tag
+# Map the supplied environment name to the matching Bastion host environment.
+# Also creates a list of environments that a Bastion is assigned to.
 case "$env_name" in
-    "production" | "ptl")
+    "production")
         bastionEnv="production"
+        support_envs=("Production" "PTL")
         ;;
-    "staging" | "aat / staging" | "preview / dev" | "test / perftest" | "ithc" | "demo")
+    "staging")
         bastionEnv="staging"
+        support_envs=("AAT / Staging" "Preview / Dev" "Test / Perftest" "ITHC" "Demo")
         ;;
-    "sandbox" | "ptlsbox")
+    "sandbox")
         bastionEnv="sandbox"
+        support_envs=("Sandbox" "PTLSbox")
         ;;
     *)
         echo "Invalid environment name."
         exit 1
         ;;
 esac
+
+# Convert the array to a JSON list for later use
+# This list contains all the environments that a Bastion is assigned to
+# e.g. Non-Prod is assigned to many environments so we list them all here if this script was run for Non-Prod
+support_envs=$(printf '%s\n' "${support_envs[@]}" | jq -R . | jq -s .)
 
 BASTIONS=$(get_bastions "$bastionEnv")
 bastion_count=$(jq -c -r '.count' <<<$BASTIONS)
@@ -57,8 +66,9 @@ jq -c '.data[]' <<<$BASTIONS | while read bastion; do
 
     # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
     # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
+    # We supply the JSON formatted support_envs variable here.
     log "checking skip logic for env: "$env_name", business_area: $BUSINESS_AREA, mode: $MODE"
-    SKIP=$(should_skip_start_stop "$env_name" $BUSINESS_AREA $MODE "bastion")
+    SKIP=$(should_skip_start_stop "$support_envs" $BUSINESS_AREA $MODE "bastion")
     log "SKIP evalulated to $SKIP"
 
     # If SKIP is false then we progress with the action (deallocate/start) for the particular VM in this loop run, if not skip and print message to the logs
