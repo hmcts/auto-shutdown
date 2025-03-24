@@ -215,6 +215,7 @@ function is_in_date_range() {
 }
 
 function compare_json_lists() {
+  # Lists in the format ["item1", "item2", "item3"]
   local json_list1="$1"
   local json_list2="$2"
 
@@ -269,9 +270,10 @@ function should_skip_start_stop () {
     if [[ $bastion_required == true ]]; then
       if [[ $serviceType == "bastion" ]]; then
         business_area_entry="Cross-Cutting"
-        log "Bastion required check result: $bastion_required"
+        log "Bastion required is: $bastion_required"
         log "Service type is: $serviceType"
         log "Business area set to: $business_area_entry as bastion is required"
+        # Compare the list of environments supplied to the function and return common values
         script_env=$(compare_json_lists "$issue_env" "$script_env")
         check_resource="true"
       fi
