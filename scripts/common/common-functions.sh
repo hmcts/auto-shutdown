@@ -221,7 +221,9 @@ function compare_json_lists() {
 
   # remove whitespace in list entries and make lower case
   local normalized_list1=$(jq -c 'map(gsub("^\\s+|\\s+$"; "") | ascii_downcase)' <<< "$json_list1")
+  log "normalized_list1: $normalized_list1"
   local normalized_list2=$(jq -c 'map(gsub("^\\s+|\\s+$"; "") | ascii_downcase)' <<< "$json_list2")
+  log "normalized_list2: $normalized_list2"
 
   # Compare lists and store matching values in result as JSON list " [] "
   local result=$(jq --argjson list1 "$normalized_list1" --argjson list2 "$normalized_list2" '
@@ -233,7 +235,6 @@ function compare_json_lists() {
 
 function should_skip_start_stop () {
   local script_env business_area issue
-  script_env=$1
   business_area=$2
   mode=$3
   serviceType=$4
@@ -250,6 +251,7 @@ function should_skip_start_stop () {
 
   while read issue; do
     local issue_env business_area_entry start_date end_date stay_on_late bastion_required issue_number
+    script_env=$1
     issue_env=$(jq -r '."environment"' <<< $issue)
     business_area_entry=$(jq -r '."business_area"' <<< $issue)
     start_date=$(jq -r '."start_date"' <<< $issue)
@@ -282,6 +284,8 @@ function should_skip_start_stop () {
     if [[ $check_resource == "false" ]]; then
       continue
     fi
+
+    log "$issue_env =~ $script_env"
 
     if [[ ($mode == "stop" || $mode == "deallocate") && $issue_env =~ $script_env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
       log "Exclusion FOUND"
