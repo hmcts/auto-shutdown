@@ -1,23 +1,5 @@
 [
     {
-        "form_review_date": "18-03-2025",
-        "start_date": "19-03-2025",
-        "end_date": "20-03-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "CIVIL",
-        "change_jira_id": "CHG5020364",
-        "stay_on_late": "Yes",
-        "justification": "https://tools.hmcts.net/confluence/display/RSTR/CIV-9.0.0+-+General+Apps+for+Litigants+in+Person+-+Release+Implementation+Plan",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1011"
-    },
-    {
         "form_review_date": "30-04-2025",
         "start_date": "31-03-2025",
         "end_date": "31-03-2025",
@@ -34,35 +16,19 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1019"
     },
     {
-        "form_review_date": "25-03-2025",
-        "start_date": "20-03-2025",
-        "end_date": "20-03-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "FPL",
-        "change_jira_id": "DFPL-2487 / CHG5020408",
-        "stay_on_late": "No",
-        "justification": "Need to perform an out of hours release/migration in preparation for Work Allocation",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1022"
-    },
-    {
-        "form_review_date": "20-06-2025",
-        "start_date": "20-03-2025",
-        "end_date": "20-03-2025",
+        "form_review_date": "25/03/2025",
+        "start_date": "21-03-2025",
+        "end_date": "23-03-2025",
         "request_type": "stop",
         "environment": [
             "Demo"
         ],
         "business_area": "cft",
-        "team_name": "PRL",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PRL-6158",
-        "stay_on_late": "Yes",
-        "justification": "XBP is testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1023"
+        "team_name": "FPL",
+        "change_jira_id": "DFPL-2487 / CHG5020408",
+        "stay_on_late": "No",
+        "justification": "MF Testing",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/111"
     }
 ]
