@@ -14,21 +14,5 @@
         "stay_on_late": "Yes",
         "justification": "We need PTL available as will be merging in PRs OOH",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1019"
-    },
-    {
-        "form_review_date": "25/03/2025",
-        "start_date": "21-03-2025",
-        "end_date": "23-03-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "FPL",
-        "change_jira_id": "DFPL-2487 / CHG5020408",
-        "stay_on_late": "No",
-        "justification": "MF Testing",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/111"
     }
 ]
