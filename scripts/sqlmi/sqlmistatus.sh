@@ -20,6 +20,8 @@ fi
 
 MI_SQL_SERVERS=$(get_sql_mi_servers)
 mi_sql_server_count=$(jq -c -r '.count' <<< $MI_SQL_SERVERS)
+log "$mi_sql_server_count MI SQL Servers found"
+log "----------------------------------------------"
 
 #Cancel check process if there are no auto-shutdown resources
 if [[ $mi_sql_server_count -eq 0 ]]; then
