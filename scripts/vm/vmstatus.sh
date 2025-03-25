@@ -19,6 +19,9 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
 fi
 
 VMS=$(get_vms)
+vm_count=$(jq -c -r '.count' <<<$VMS)
+log "$vm_count VM's found"
+log "----------------------------------------------"
 
 # For each VM found in the function `get_vms` start another loop
 jq -c '.data[]' <<<$VMS | while read vm; do
