@@ -1,8 +1,8 @@
-name: storage-sftp-auto-disable
+name: vmss-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 20,23 * * *" # Every day at 20:00 and 23:00 BST
+    - cron: "30 6 * * 1-5" # Every weekday at 6:30am BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
@@ -19,32 +19,39 @@ jobs:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
-      - name: Staging - disable sftp
-        run: ./scripts/blob-storage/disable_sftp.sh staging
+
+      - name: Staging - VMSS Auto Start
+        run: ./scripts/vmss/auto-start-stop.sh start staging
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
-      - name: Testing - disable sftp
-        run: ./scripts/blob-storage/disable_sftp.sh testing
+
+      - name: Test - VMSS Auto Start
+        run: ./scripts/vmss/auto-start-stop.sh start test
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
-      - name: Demo - disable sftp
-        run: ./scripts/blob-storage/disable_sftp.sh demo
+
+      - name: Demo - VMSS Auto Start
+        run: ./scripts/vmss/auto-start-stop.sh start demo
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
-      - name: Development - disable sftp
-        run: ./scripts/blob-storage/disable_sftp.sh development
+
+      - name: Development - VMSS Auto Start
+        run: ./scripts/vmss/auto-start-stop.sh start development
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
-      - name: Sandbox - disable sftp
-        run: ./scripts/blob-storage/disable_sftp.sh sandbox
+
+      - name: Sandbox - VMSS Auto Start
+        run: ./scripts/vmss/auto-start-stop.sh start sandbox
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
-      - name: ITHC - disable sftp
-        run: ./scripts/blob-storage/disable_sftp.sh ithc
+
+      - name: ITHC - VMSS Auto Start
+        run: ./scripts/vmss/auto-start-stop.sh start ithc
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
-      - name: Untagged - disable sftp
-        run: ./scripts/blob-storage/disable_sftp.sh untagged
+
+      - name: Untagged - VMSS Auto Start
+        run: ./scripts/vmss/auto-start-stop.sh start untagged
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 

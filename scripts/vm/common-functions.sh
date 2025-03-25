@@ -5,19 +5,8 @@ function get_vms() {
     log "----------------------------------------------"
     log "Running az graph query..."
 
-    if [ -z $1 ]; then
-        env_selector=""
-    elif [ $1 == "untagged" ]; then
-        env_selector="| where isnull(tags.environment) and isnull(tags.Environment)"
-    else
-        env_selector="| where tags.environment contains '$1' or tags.Environment contains '$1'"
-    fi
-
-    if [ -z $2 ]; then
-        area_selector=""
-    else
-        area_selector="| where tags.businessArea == '$2'"
-    fi
+    env_selector=$(env_selector "$1")
+    area_selector=$(area_selector "$2")
 
     az graph query -q "
     resources
@@ -25,7 +14,7 @@ function get_vms() {
     | where tags.autoShutdown == 'true'
     $env_selector
     $area_selector
-    | project name, resourceGroup, subscriptionId, ['tags'], properties, ['id']
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, ['id']
     " --first 1000 -o json
 
     log "az graph query complete"
@@ -38,7 +27,7 @@ function get_vm_details() {
   ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vm")
   BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vm)
   STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vm)
-  VM_STATE=$(jq -r '.properties.extended.instanceView.powerState.code' <<< $vm)
+  VM_STATE=$(jq -r '.properties_extended_instanceView_powerState_displayStatus' <<< $vm)
   SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$vm)
   VM_ID="/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Compute/virtualMachines/$VM_NAME"
 }

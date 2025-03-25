@@ -1,4 +1,4 @@
-name: flexible-server-auto-shutdown
+name: vmss-auto-shutdown
 on:
   workflow_dispatch:
   schedule:
@@ -20,38 +20,38 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
 
-      - name: Staging - Postgres Flexible server Auto Stop
-        run: ./scripts/flexible-server/auto-start-stop.sh stop staging
+      - name: Staging - VMSS Auto Stop
+        run: ./scripts/vmss/auto-start-stop.sh deallocate staging
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Test - Postgres Flexible server Auto Stop
-        run: ./scripts/flexible-server/auto-start-stop.sh stop testing
+      - name: Test - VMSS Auto Stop
+        run: ./scripts/vmss/auto-start-stop.sh deallocate test
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Demo - Postgres Flexible server Auto Stop
-        run: ./scripts/flexible-server/auto-start-stop.sh stop demo
+      - name: Demo - VMSS Auto Stop
+        run: ./scripts/vmss/auto-start-stop.sh deallocate demo
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Development - Postgres Flexible server Auto Stop
-        run: ./scripts/flexible-server/auto-start-stop.sh stop development
+      - name: Development - VMSS Auto Stop
+        run: ./scripts/vmss/auto-start-stop.sh deallocate development
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Sandbox - Postgres Flexible server Auto Stop
-        run: ./scripts/flexible-server/auto-start-stop.sh stop sandbox
+      - name: Sandbox - VMSS Auto Stop
+        run: ./scripts/vmss/auto-start-stop.sh deallocate sandbox
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: ITHC - Postgres Flexible server Auto Stop
-        run: ./scripts/flexible-server/auto-start-stop.sh stop ithc
+      - name: ITHC - VMSS Auto Stop
+        run: ./scripts/vmss/auto-start-stop.sh deallocate ithc
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
-      - name: Untagged - Postgres Flexible server Auto Stop
-        run: ./scripts/flexible-server/auto-start-stop.sh stop untagged
+      - name: Untagged - VMSS Auto Stop
+        run: ./scripts/vmss/auto-start-stop.sh deallocate untagged
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 

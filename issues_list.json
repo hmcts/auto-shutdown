@@ -1,23 +1,8 @@
 [
     {
-        "start_date": "09-12-2024",
-        "end_date": "10-12-2024",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            " Test / Perftest",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Prl",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Need for testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/903"
-    },
-    {
-        "start_date": "16-12-2024",
-        "end_date": "16-12-2024",
+        "form_review_date": "30-04-2025",
+        "start_date": "31-03-2025",
+        "end_date": "31-03-2025",
         "request_type": "stop",
         "environment": [
             "PTL",
@@ -25,9 +10,9 @@
         ],
         "business_area": "cft",
         "team_name": "ET",
-        "change_jira_id": "CHG5019246",
+        "change_jira_id": "CHG5020422",
         "stay_on_late": "Yes",
-        "justification": "ES Reindexing OOH",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/904"
+        "justification": "We need PTL available as will be merging in PRs OOH",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1019"
     }
 ]
