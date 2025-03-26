@@ -3,15 +3,19 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 19 * * *' # Every day at 20:00 BST
+env:
+  GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
 permissions:
   id-token: write
-  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+          token: ${{ env.GH_TOKEN }}
 
       - name: Remove json status files
         run: |
