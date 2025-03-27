@@ -11,6 +11,7 @@ source scripts/common/common-functions.sh
 
 # Check and set default MODE if not provided
 MODE=${1:-start}
+INPUTENV=$2
 
 # Check if MODE is stop and set to deallocate
 if [[ $MODE == "stop" ]]; then
@@ -24,14 +25,14 @@ if [[ "$MODE" != "start" && "$MODE" != "deallocate" ]]; then
     exit 1
 fi
 
-# Ensure SELECTED_ENV is set
-if [[ -z "$SELECTED_ENV" ]]; then
+# Ensure INPUTENV is set
+if [[ -z "$INPUTENV" ]]; then
     echo "Environment not set. Please check your configuration." >&2
     exit 1
 fi
 
 # Convert the second argument to lowercase
-env_name=$(echo "$SELECTED_ENV" | tr '[:upper:]' '[:lower:]')
+env_name=$(echo "$INPUTENV" | tr '[:upper:]' '[:lower:]')
 
 # Map the environment name to match Azure enviornment tag
 case "$env_name" in
