@@ -19,6 +19,9 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
 fi
 
 APPLICATION_GATEWAYS=$(get_application_gateways)
+application_gateway_count=$(jq -c -r '.count' <<< $APPLICATION_GATEWAYS)
+log "$application_gateway_count Application Gateways found"
+log "----------------------------------------------"
 
 # For each App Gateway found in the function `get_application_gateways` start another loop
 jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do

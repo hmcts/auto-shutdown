@@ -1,8 +1,0 @@
-[
-  {
-    "id": "",
-    "resource": "atlassian-nonprod-app-gateway",
-    "statusMessage": "Application Gateway: *atlassian-nonprod-app-gateway* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8* is Running after *stop* action.",
-    "resourceType": "appgateway"
-  }
-]

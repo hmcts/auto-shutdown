@@ -48,6 +48,7 @@ jobs:
       - name: Commit status update json files
         continue-on-error: true
         run: |
+          ls ./status
           git config user.name hmcts-platform-operations
           git config user.email github-platform-operations@hmcts.net
           git pull

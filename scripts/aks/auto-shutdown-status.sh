@@ -10,7 +10,8 @@ SKIP="false"
 
 CLUSTERS=$(get_clusters)
 clusters_count=$(jq -c -r '.count' <<<$CLUSTERS)
-ts_echo "$clusters_count AKS Clusters found"
+log "$clusters_count AKS Clusters found"
+log "----------------------------------------------"
 
 jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
 # Function that returns the Resource Group, Id and Name of the AKS Cluster and its current state as variables
