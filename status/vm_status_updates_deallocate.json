@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/ac689133cbba4aba9f97e2a9abfae616",
+    "resource": "ac689133cbba4aba9f97e2a9abfae616",
+    "statusMessage": "VM: *ac689133cbba4aba9f97e2a9abfae616* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  }
+]
