@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-main-sbox/providers/Microsoft.Storage/storageAccounts/ingest00sftpsbox",
-    "resource": "ingest00sftpsbox",
-    "statusMessage": ":red_circle: Storage Account: *ingest00sftpsbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3* after *stop* action, is SFTP enabled: true .",
-    "resourceType": "blob-storage"
-  }
-]
