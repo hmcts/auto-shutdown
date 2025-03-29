@@ -54,6 +54,15 @@ body:
     validations:
       required: true
 
+  - type: checkboxes
+    id: form_bastion
+    attributes:
+      label: Do you require a Bastion host to be powered on?
+      description: "If you need access via a Bastion host then you should select this check box."
+      options:
+        - label: "Bastion host required?"
+          required: false
+
   - type: input
     id: form_start_date
     attributes:

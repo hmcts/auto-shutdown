@@ -38,7 +38,7 @@ function ts_echo_color() {
 
 # Function to convert a string to lowercase
 to_lowercase() {
-    local input="$1"          
+    local input="$1"
     local lowercase="${input,,}"  # Convert to lowercase using parameter expansion
     echo "$lowercase"
 }
@@ -76,7 +76,7 @@ function add_to_json() {
   local mode="$5"
   # Send to json file dependent on resource type
   local pathToJson="status/${resourceType}_status_updates_${mode}.json"
-  
+
   # Create dir if not exists
   mkdir -p status
 
@@ -88,7 +88,7 @@ function add_to_json() {
   # Update the existing object if the ID is found, else add a new object
   # Saves us duplicates if there is another individual pipeline run during the day, whilst still allowing for potential status updates
   jq --arg id "$id" --arg resource "$resource" --arg statusMessage "$statusMessage" --arg resourceType "$resourceType" \
-   'map(if .id == $id then 
+   'map(if .id == $id then
           .resource = $resource |
           .statusMessage = $statusMessage |
           .resourceType = $resourceType
@@ -101,7 +101,7 @@ function add_to_json() {
           "resource": $resource,
           "statusMessage": $statusMessage,
           "resourceType": $resourceType
-        }] 
+        }]
       end)' "$pathToJson" \
    > "json_file.tmp" && mv "json_file.tmp" "$pathToJson"
   echo "JSON file updated successfully."
@@ -214,11 +214,28 @@ function is_in_date_range() {
   fi
 }
 
+function compare_json_lists() {
+  # Lists in the format ["item1", "item2", "item3"]
+  local json_list1="$1"
+  local json_list2="$2"
+
+  # remove whitespace in list entries and make lower case
+  local normalized_list1=$(jq -c 'map(gsub("^\\s+|\\s+$"; "") | ascii_downcase)' <<< "$json_list1")
+  local normalized_list2=$(jq -c 'map(gsub("^\\s+|\\s+$"; "") | ascii_downcase)' <<< "$json_list2")
+
+  # Compare lists and store matching values in result as JSON list " [] "
+  local result=$(jq --argjson list1 "$normalized_list1" --argjson list2 "$normalized_list2" '
+    [$list1[], $list2[]] | group_by(.) | map(select(length == 2)) | flatten | unique
+  ' <<< '{}')
+  # Return result to caller
+  echo $result
+}
+
 function should_skip_start_stop () {
-  local env business_area issue
-  env=$1
+  local script_env business_area issue
   business_area=$2
   mode=$3
+  serviceType=$4
   # If its not onDemand we don't need to check the file issues_list.json for startup
   if [[ $STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
     echo "false"
@@ -231,12 +248,15 @@ function should_skip_start_stop () {
   log "Runtime day is a weekend day (includes Friday): $weekend_day"
 
   while read issue; do
-    local env_entry business_area_entry start_date end_date stay_on_late
-    env_entry=$(jq -r '."environment"' <<< $issue)
+    local issue_env business_area_entry start_date end_date stay_on_late bastion_required issue_number
+    script_env=$1
+    issue_env=$(jq -r '."environment"' <<< $issue)
     business_area_entry=$(jq -r '."business_area"' <<< $issue)
     start_date=$(jq -r '."start_date"' <<< $issue)
     end_date=$(jq -r '."end_date"' <<< $issue)
     stay_on_late=$(jq -r '."stay_on_late"' <<< $issue)
+    bastion_required=$(jq -r '."bastion_required"' <<< $issue)
+    issue_number=$(jq -r '."issue_link"' <<< $issue | cut -d'/' -f7)
     get_request_type "$issue"
 
     # determine if we should continue checking the resource for an exclusion
@@ -246,30 +266,44 @@ function should_skip_start_stop () {
       check_resource="false"
     fi
 
+    # Determine if we should skip shutdown based on bastion_required and serviceType
+    if [[ $bastion_required == true ]]; then
+      if [[ $serviceType == "bastion" ]]; then
+        business_area_entry="Cross-Cutting"
+        log "Bastion required is: $bastion_required"
+        log "Service type is: $serviceType"
+        log "Business area set to: $business_area_entry as bastion is required"
+        # Compare the list of environments supplied to the function and return common values
+        script_env=$(compare_json_lists "$issue_env" "$script_env")
+        check_resource="true"
+      fi
+    fi
+
     if [[ $check_resource == "false" ]]; then
       continue
     fi
 
-    if [[ ($mode == "stop" || $mode == "deallocate") && $env_entry =~ $env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
-    log "Exclusion FOUND"
-      if [[ $late_night_run == "false" ]]; then
-        log "== 20:00 run =="
-        log "skip set to 'true as an exclusion request was found for this resource at the 20:00 run'"
-        echo "true"
-      elif [[ $late_night_run == "true" && $stay_on_late == "Yes" ]]; then
-        log "== 23:00 run =="
-        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
-        echo "true"
-      elif [[ $late_night_run == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $weekend_day == "true" ]]; then
-        log "== 23:00 run =="
-        log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running at the weekend and the environment is required over the weekend."
-        echo "true"
-      else
-        log "defaulting skip var to false"
-        echo "false"
-      fi
-      return
-    log "No exclusion request found"
+    if [[ ($mode == "stop" || $mode == "deallocate") && $issue_env =~ $script_env && $business_area == $business_area_entry && $(is_in_date_range $start_date $end_date) == "true" ]]; then
+      log "Exclusion FOUND"
+        if [[ $late_night_run == "false" ]]; then
+          log "== 20:00 run =="
+          log "skip set to 'true as an exclusion request was found for this resource at the 20:00 run'"
+          echo "true"
+        elif [[ $late_night_run == "true" && $stay_on_late == "Yes" ]]; then
+          log "== 23:00 run =="
+          log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late "
+          echo "true"
+        elif [[ $late_night_run == "true" && $stay_on_late == "No" && $(is_weekend_in_range $start_date $end_date) == "true" && $weekend_day == "true" ]]; then
+          log "== 23:00 run =="
+          log "skip set to 'true' as an exclusion request was found at 23:00 with 'stay_on_late' var set to $stay_on_late, however shutdown will still be skipped as this is running at the weekend and the environment is required over the weekend."
+          echo "true"
+        else
+          log "defaulting skip var to false"
+          echo "false"
+        fi
+        return
+    else
+      log "No exclusion found for issue: $issue_number"
     fi
   done < <(jq -c '.[]' issues_list.json)
 # If its onDemand and there are no issues matching above we should skip startup
