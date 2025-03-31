@@ -44,5 +44,20 @@
         "stay_on_late": "Yes",
         "justification": "Darts Perf Testing",
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1032"
+    },
+    {
+        "form_review_date": "01-04-2025",
+        "start_date": "31-03-2025",
+        "end_date": "01-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "NA",
+        "stay_on_late": "Yes",
+        "justification": "Darts perftesting",
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1033"
     }
 ]
