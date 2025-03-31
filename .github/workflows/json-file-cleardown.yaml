@@ -2,7 +2,7 @@ name: json-file-cleardown
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 19 * * *' # Every day at 20:00 BST
+    - cron: '0 18 * * *' # Every day at 20:00 BST
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
 permissions:
