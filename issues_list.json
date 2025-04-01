@@ -1,36 +1,5 @@
 [
     {
-        "form_review_date": "30-04-2025",
-        "start_date": "31-03-2025",
-        "end_date": "31-03-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "ET",
-        "change_jira_id": "CHG5020422",
-        "stay_on_late": "Yes",
-        "justification": "We need PTL available as will be merging in PRs OOH",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1019"
-    },
-    {
-        "form_review_date": "31/03/2025",
-        "start_date": "26-03-2025",
-        "end_date": "31-03-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "we are running long running script to populate test data for performance testing",
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1029"
-    },
-    {
         "form_review_date": "01-04-2025",
         "start_date": "31-03-2025",
         "end_date": "01-04-2025",
