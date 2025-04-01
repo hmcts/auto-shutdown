@@ -8,6 +8,8 @@ function get_vms() {
     env_selector=$(env_selector "$1")
     area_selector=$(area_selector "$2")
 
+    # Query to get all VMs with autoShutdown tag set to true and not tagged as built from Bastion repository.
+    # Includes a number of conditional selections from above
     az graph query -q "
     resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
@@ -15,6 +17,7 @@ function get_vms() {
     $env_selector
     $area_selector
     | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, ['id']
+    | where not(tags.builtFrom == 'https://github.com/hmcts/bastion')
     " --first 1000 -o json
 
     log "az graph query complete"
@@ -22,14 +25,14 @@ function get_vms() {
 
 # Function that accepts the VM json as input and sets variables for later use to stop or start VM
 function get_vm_details() {
-  RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $vm)
-  VM_NAME=$(jq -r '.name' <<< $vm)
-  ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vm")
-  BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vm)
-  STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vm)
-  VM_STATE=$(jq -r '.properties_extended_instanceView_powerState_displayStatus' <<< $vm)
-  SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$vm)
-  VM_ID="/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Compute/virtualMachines/$VM_NAME"
+    RESOURCE_GROUP=$(jq -r '.resourceGroup // "value_not_retrieved"' <<< $vm)
+    VM_NAME=$(jq -r '.name' <<< $vm)
+    ENVIRONMENT=$(jq -r '.tags.environment // .tags.Environment // "tag_not_set"' <<< "$vm")
+    BUSINESS_AREA=$(jq -r 'if (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) == "ss" then "cross-cutting" else (.tags.businessArea // .tags.BusinessArea // "tag_not_set" | ascii_downcase) end' <<< $vm)
+    STARTUP_MODE=$(jq -r '.tags.startupMode // "false"' <<< $vm)
+    VM_STATE=$(jq -r '.properties_extended_instanceView_powerState_displayStatus' <<< $vm)
+    SUBSCRIPTION=$(jq -r '.subscriptionId' <<<$vm)
+    VM_ID="/subscriptions/$SUBSCRIPTION/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Compute/virtualMachines/$VM_NAME"
 }
 
 function vm_state_messages() {

@@ -44,7 +44,7 @@ jq -c '.data[]' <<<$VMS | while read vm; do
     # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
     # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
     log "checking skip logic for env: $VM_ENV, business_area: $BUSINESS_AREA, mode: $MODE"
-    SKIP=$(should_skip_start_stop $VM_ENV $BUSINESS_AREA $MODE)
+    SKIP=$(should_skip_start_stop $VM_ENV $BUSINESS_AREA $MODE "vm")
 
         # Setup message output templates for later use
 		logMessage="VM: $VM_NAME in ResourceGroup: $RESOURCE_GROUP is $VM_STATE state after $MODE action."
