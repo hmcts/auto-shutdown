@@ -2,7 +2,7 @@ name: Housekeeping Shutdown form
 run-name: Housekeeping json file
 on:
   schedule:
-    - cron:  '00 17 * * *'
+    - cron:  '00 16 * * *'
   workflow_dispatch:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
