@@ -16,5 +16,24 @@
         "justification": "Skip shutdown for LEV cert renewal release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1035"
+    },
+    {
+        "form_review_date": "10-07-2025",
+        "start_date": "10-04-2025",
+        "end_date": "10-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Demo",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration & Asylum",
+        "change_jira_id": "CHG5020662",
+        "stay_on_late": "Yes",
+        "justification": "Out of office hours release for CCD data migration, need environments to be available to support out of office hours release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1038"
     }
 ]
