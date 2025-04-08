@@ -2,7 +2,7 @@ name: flexible-server-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: '15 5 * * 1-5' # Every weekday at 6:15am BST
+    - cron: "15 5 * * 1-5" # Every weekday at 6:15am BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: 'Az CLI login'
+      - name: "Az CLI login"
         uses: azure/login@v2
         with:
           client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
@@ -55,6 +55,10 @@ jobs:
         run: ./scripts/flexible-server/auto-start-stop.sh start untagged '' replica
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Wait for 3 minutes
+        if: env.DEV_ENV == 'false'
+        run: sleep 180
 
       # PRIMARY
       - name: Staging - Postgres Flexible server Auto Start
