@@ -35,5 +35,22 @@
         "justification": "Out of office hours release for CCD data migration, need environments to be available to support out of office hours release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1038"
+    },
+    {
+        "form_review_date": "15-07-2025",
+        "start_date": "15-04-2025",
+        "end_date": "15-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Platform Operations",
+        "change_jira_id": "CHG5020642",
+        "stay_on_late": "Yes",
+        "justification": "PTL and SBOX required to be up as Docmosis pipeline runs on our own agent pools on these clusters",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1039"
     }
 ]
