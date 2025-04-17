@@ -36,5 +36,21 @@
         "justification": "Required to clear processes built up in Camunda which is causing delays in case processing in the perftest envrionment",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1041"
+    },
+    {
+        "form_review_date": "01-05-2025",
+        "start_date": "19-04-2025",
+        "end_date": "20-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "performance test team",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPO-25353",
+        "stay_on_late": "Yes",
+        "justification": "need to clear all processes in camunda",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1042"
     }
 ]
