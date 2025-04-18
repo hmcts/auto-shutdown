@@ -1,0 +1,8 @@
+[
+  {
+    "id": "",
+    "resource": "cft-aks00-perftest-agw",
+    "statusMessage": "Application Gateway: *cft-aks00-perftest-agw* in Subscription: *8a07fdcd-6abd-48b3-ad88-ff737a4b9e3c* is Stopped after *start* action.",
+    "resourceType": "appgateway"
+  }
+]
