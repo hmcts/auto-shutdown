@@ -53,5 +53,21 @@
         "justification": "un processed camunda tasks to be completed",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1046"
+    },
+    {
+        "form_review_date": "23-07-2025",
+        "start_date": "23-04-2025",
+        "end_date": "23-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "No",
+        "justification": "Required to continue clearing Camunda processes and prepare for PRL NRO load test",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1047"
     }
 ]
