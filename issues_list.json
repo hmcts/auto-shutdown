@@ -22,22 +22,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1040"
     },
     {
-        "form_review_date": "23-04-2025",
-        "start_date": "22-04-2025",
-        "end_date": "22-04-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance test team",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPO-25403",
-        "stay_on_late": "Yes",
-        "justification": "un processed camunda tasks to be completed",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1043"
-    },
-    {
         "form_review_date": "23-07-2025",
         "start_date": "23-04-2025",
         "end_date": "23-04-2025",
