@@ -36,5 +36,22 @@
         "justification": "un processed camunda tasks to be completed",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1043"
+    },
+    {
+        "form_review_date": "23-07-2025",
+        "start_date": "23-04-2025",
+        "end_date": "23-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Pre Recorded Evidence",
+        "change_jira_id": "CHG5020726",
+        "stay_on_late": "No",
+        "justification": "Need access to lower envs for prod release in case of any issues during release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1044"
     }
 ]
