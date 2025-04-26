@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "26-07-2025",
+        "start_date": "26-04-2025",
+        "end_date": "26-04-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "Yes",
+        "justification": "Required for perf test preparation",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1050"
+    }
+]
