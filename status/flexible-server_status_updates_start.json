@@ -1,0 +1,14 @@
+[
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/recipes-shared-infrastructure-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-test",
+    "resource": "recipes-sds-flexible-test",
+    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/opal-user-service-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-user-service-stg",
+    "resource": "opal-user-service-stg",
+    "statusMessage": "Flexible SQL Server: *opal-user-service-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Starting* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
