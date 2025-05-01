@@ -1,23 +1,5 @@
 [
     {
-        "form_review_date": "30-07-2025",
-        "start_date": "30-04-2025",
-        "end_date": "30-04-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "HMC",
-        "change_jira_id": "CHG5020781",
-        "stay_on_late": "Yes",
-        "justification": "CHG5020781 outbound adapter changes",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1051"
-    },
-    {
         "form_review_date": "05/08/2025",
         "start_date": "03-05-2025",
         "end_date": "05-05-2025",
