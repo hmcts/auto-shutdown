@@ -49,5 +49,21 @@
         "justification": "Perf testing overnight",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1053"
+    },
+    {
+        "form_review_date": "04-05-2025",
+        "start_date": "01-05-2025",
+        "end_date": "01-05-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Testing",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Performance testing of the case-disposer",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1054"
     }
 ]
