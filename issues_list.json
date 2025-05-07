@@ -32,5 +32,22 @@
         "justification": "ARM Database maintenance is overdue and can take over 48 hours to complete",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1057"
+    },
+    {
+        "form_review_date": "08-05-2025",
+        "start_date": "07-05-2025",
+        "end_date": "08-05-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "required for darts perf testing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1058"
     }
 ]
