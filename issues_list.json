@@ -65,5 +65,23 @@
         "justification": "I will need to create data on database for me to be able to run a performance test tomorrow. I will need environment to stay up tonight so that I can complete the data prep before tomorrow",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1059"
+    },
+    {
+        "form_review_date": "09-05-2025",
+        "start_date": "08-05-2025",
+        "end_date": "08-05-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Family Public Law",
+        "change_jira_id": "CHG5020906",
+        "stay_on_late": "Yes",
+        "justification": "Need to perform 3 migrations out of hours, so need to ensure the envs wont turn off in case of rollback",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1060"
     }
 ]
