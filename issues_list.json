@@ -32,56 +32,5 @@
         "justification": "ARM Database maintenance is overdue and can take over 48 hours to complete",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1057"
-    },
-    {
-        "form_review_date": "08-05-2025",
-        "start_date": "07-05-2025",
-        "end_date": "08-05-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "required for darts perf testing",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1058"
-    },
-    {
-        "form_review_date": "12-05-2025",
-        "start_date": "08-05-2025",
-        "end_date": "08-05-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance test team",
-        "change_jira_id": "https://tools.hmcts.net/confluence/display/RQA/Civil+-+Dashboard+Notification+Volumes+And+Civil+Regression+Test+Plan",
-        "stay_on_late": "Yes",
-        "justification": "I will need to create data on database for me to be able to run a performance test tomorrow. I will need environment to stay up tonight so that I can complete the data prep before tomorrow",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1059"
-    },
-    {
-        "form_review_date": "09-05-2025",
-        "start_date": "08-05-2025",
-        "end_date": "08-05-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Family Public Law",
-        "change_jira_id": "CHG5020906",
-        "stay_on_late": "Yes",
-        "justification": "Need to perform 3 migrations out of hours, so need to ensure the envs wont turn off in case of rollback",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1060"
     }
 ]
