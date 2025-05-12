@@ -18,22 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1056"
     },
     {
-        "form_review_date": "11/08/2025",
-        "start_date": "09-05-2025",
-        "end_date": "11-05-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "EFT BAIS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPO-25650",
-        "stay_on_late": "Yes",
-        "justification": "ARM Database maintenance is overdue and can take over 48 hours to complete",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1057"
-    },
-    {
         "form_review_date": "13-AUG-2025",
         "start_date": "12-05-2025",
         "end_date": "12-05-2025",
