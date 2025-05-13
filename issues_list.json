@@ -18,22 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1056"
     },
     {
-        "form_review_date": "13-AUG-2025",
-        "start_date": "12-05-2025",
-        "end_date": "12-05-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "EFT BAIS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPO-25752",
-        "stay_on_late": "Yes",
-        "justification": "ARM Database maintenance is still running after weekend shutdown exclusion and needs at least another day to complete",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1061"
-    },
-    {
         "form_review_date": "02-09-2025",
         "start_date": "02-06-2025",
         "end_date": "02-06-2025",
