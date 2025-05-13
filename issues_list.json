@@ -32,5 +32,23 @@
         "justification": "ARM Database maintenance is still running after weekend shutdown exclusion and needs at least another day to complete",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1061"
+    },
+    {
+        "form_review_date": "02-09-2025",
+        "start_date": "02-06-2025",
+        "end_date": "02-06-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Preview / Dev",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Civils",
+        "change_jira_id": "https://tools.hmcts.net/confluence/display/RSTR/EXUI+-+Civil+%28Legal+Rep%29+NRO+onboard+onto+Query+Management+Release+Implementation+Plan",
+        "stay_on_late": "Yes",
+        "justification": "We got a early release next day morning",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1062"
     }
 ]
