@@ -1,23 +1,5 @@
 [
     {
-        "form_review_date": "13-08-2025",
-        "start_date": "13-05-2025",
-        "end_date": "13-05-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " Preview / Dev",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Civil",
-        "change_jira_id": "CHG5020872",
-        "stay_on_late": "Yes",
-        "justification": "Release for civils CUI-ILA at 7pm on 13th May",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1056"
-    },
-    {
         "form_review_date": "02-09-2025",
         "start_date": "02-06-2025",
         "end_date": "02-06-2025",
