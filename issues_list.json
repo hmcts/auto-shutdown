@@ -18,22 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1062"
     },
     {
-        "form_review_date": "16-08-2025",
-        "start_date": "13-05-2025",
-        "end_date": "16-05-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "EFT BAIS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPO-25782",
-        "stay_on_late": "Yes",
-        "justification": "The ARM database used by BAIS requires housekeeping, this has not been run recently and needs an extended uptime on the server",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1063"
-    },
-    {
         "form_review_date": "19/05/2025",
         "start_date": "16-05-2025",
         "end_date": "19-05-2025",
