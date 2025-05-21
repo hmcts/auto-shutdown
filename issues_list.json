@@ -50,5 +50,21 @@
         "justification": "Need to perform a data migration of all FPL cases as part of the release this evening",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1072"
+    },
+    {
+        "form_review_date": "21-08-2025",
+        "start_date": "21-05-2025",
+        "end_date": "21-05-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "Yes",
+        "justification": "for performance test activities",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1073"
     }
 ]
