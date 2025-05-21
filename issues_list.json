@@ -32,5 +32,23 @@
         "justification": "Perftesting ahead of go live",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1064"
+    },
+    {
+        "form_review_date": "22-05-2025",
+        "start_date": "21-05-2025",
+        "end_date": "21-05-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "FPL",
+        "change_jira_id": "CHG5021021",
+        "stay_on_late": "Yes",
+        "justification": "Need to perform a data migration of all FPL cases as part of the release this evening",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1072"
     }
 ]
