@@ -35,5 +35,24 @@
         "justification": "need envs for db change",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1076"
+    },
+    {
+        "form_review_date": "28-05-2025",
+        "start_date": "28-05-2025",
+        "end_date": "28-05-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Test / Perftest",
+            " Preview / Dev",
+            " AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Need multiple envs to get an out of hours change through",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1077"
     }
 ]
