@@ -67,5 +67,21 @@
         "justification": "Demo for KT",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1080"
+    },
+    {
+        "form_review_date": "30-05-2025",
+        "start_date": "29-05-2025",
+        "end_date": "29-05-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Test team",
+        "change_jira_id": "DTSCCI-2009",
+        "stay_on_late": "Yes",
+        "justification": "I need to create data in evening to be able to run a performance test",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1081"
     }
 ]
