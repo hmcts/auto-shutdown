@@ -32,5 +32,21 @@
         "justification": "To create data for a load test",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1082"
+    },
+    {
+        "form_review_date": "04-06-2025",
+        "start_date": "02-06-2025",
+        "end_date": "03-06-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "test team",
+        "change_jira_id": "DTSCCI-2009",
+        "stay_on_late": "Yes",
+        "justification": "To create data for a civil perfregression test",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1083"
     }
 ]
