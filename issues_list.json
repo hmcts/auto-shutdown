@@ -16,21 +16,5 @@
         "justification": "Keep environments up during deployment of CBUS changes for SDT-241",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1084"
-    },
-    {
-        "form_review_date": "05-09-2025",
-        "start_date": "05-06-2025",
-        "end_date": "05-06-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance",
-        "change_jira_id": "n/a",
-        "stay_on_late": "No",
-        "justification": "For performance test activity",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1085"
     }
 ]
