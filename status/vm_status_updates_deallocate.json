@@ -1,0 +1,26 @@
+[
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/548a9de8765d48da910d95d6e255c206",
+    "resource": "548a9de8765d48da910d95d6e255c206",
+    "statusMessage": "VM: *548a9de8765d48da910d95d6e255c206* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/5f63ed0786834cb4bc66a3f879c81f3e",
+    "resource": "5f63ed0786834cb4bc66a3f879c81f3e",
+    "statusMessage": "VM: *5f63ed0786834cb4bc66a3f879c81f3e* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/bcda628939e74ecfaa5ac21fa8168cfd",
+    "resource": "bcda628939e74ecfaa5ac21fa8168cfd",
+    "statusMessage": "VM: *bcda628939e74ecfaa5ac21fa8168cfd* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-product-databricks001-managed-rg/providers/Microsoft.Compute/virtualMachines/d977e262085e44748aafef07cbcc140a",
+    "resource": "d977e262085e44748aafef07cbcc140a",
+    "statusMessage": "VM: *d977e262085e44748aafef07cbcc140a* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-product-databricks001-managed-rg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  }
+]
