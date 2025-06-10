@@ -589,6 +589,178 @@ function renderTrendChart() {
     });
 }
 
+function renderMonthlyCostChart() {
+    const ctx = document.getElementById('monthlyCostChart');
+    if (!ctx) return;
+    
+    // Destroy existing chart if it exists
+    if (window.monthlyCostChartInstance) {
+        window.monthlyCostChartInstance.destroy();
+    }
+    
+    // Group issues by month and calculate total cost per month
+    const monthlyData = {};
+    
+    filteredIssues.forEach(issue => {
+        if (!issue.created_at) return;
+        
+        const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+        
+        if (!monthlyData[monthKey]) {
+            monthlyData[monthKey] = {
+                label: issue.created_at.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
+                cost: 0,
+                count: 0
+            };
+        }
+        
+        monthlyData[monthKey].count++;
+        
+        // Parse cost if available
+        if (issue.cost) {
+            const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
+            if (costMatch) {
+                const cost = parseFloat(costMatch[1].replace(/,/g, ''));
+                monthlyData[monthKey].cost += cost;
+            }
+        }
+    });
+    
+    // Sort by month key and limit to last 12 months
+    const sortedMonths = Object.keys(monthlyData)
+        .sort()
+        .slice(-12);
+    
+    if (sortedMonths.length === 0) {
+        ctx.getContext('2d').fillText('No monthly cost data available', 10, 50);
+        return;
+    }
+    
+    const monthLabels = sortedMonths.map(key => monthlyData[key].label);
+    const monthlyCosts = sortedMonths.map(key => monthlyData[key].cost);
+    
+    window.monthlyCostChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: monthLabels,
+            datasets: [{
+                label: 'Total Cost (£)',
+                data: monthlyCosts,
+                backgroundColor: '#10b981',
+                borderColor: '#059669',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '£' + value.toLocaleString();
+                        }
+                    }
+                }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const monthKey = sortedMonths[index];
+                    const monthData = monthlyData[monthKey];
+                    showMonthlyCostDetails(monthKey, monthData);
+                }
+            }
+        }
+    });
+}
+
+function renderMonthlyRequestChart() {
+    const ctx = document.getElementById('monthlyRequestChart');
+    if (!ctx) return;
+    
+    // Destroy existing chart if it exists
+    if (window.monthlyRequestChartInstance) {
+        window.monthlyRequestChartInstance.destroy();
+    }
+    
+    // Group issues by month and count requests per month
+    const monthlyData = {};
+    
+    filteredIssues.forEach(issue => {
+        if (!issue.created_at) return;
+        
+        const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+        
+        if (!monthlyData[monthKey]) {
+            monthlyData[monthKey] = {
+                label: issue.created_at.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
+                count: 0
+            };
+        }
+        
+        monthlyData[monthKey].count++;
+    });
+    
+    // Sort by month key and limit to last 12 months
+    const sortedMonths = Object.keys(monthlyData)
+        .sort()
+        .slice(-12);
+    
+    if (sortedMonths.length === 0) {
+        ctx.getContext('2d').fillText('No monthly request data available', 10, 50);
+        return;
+    }
+    
+    const monthLabels = sortedMonths.map(key => monthlyData[key].label);
+    const monthlyCounts = sortedMonths.map(key => monthlyData[key].count);
+    
+    window.monthlyRequestChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: monthLabels,
+            datasets: [{
+                label: 'Total Requests',
+                data: monthlyCounts,
+                backgroundColor: '#3b82f6',
+                borderColor: '#1d4ed8',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const monthKey = sortedMonths[index];
+                    const monthData = monthlyData[monthKey];
+                    showMonthlyRequestDetails(monthKey, monthData);
+                }
+            }
+        }
+    });
+}
+
 function setupInsightsEventListeners() {
     // Filter event listeners
     const datePresetFilter = document.getElementById('date-preset-filter');
@@ -1309,6 +1481,93 @@ function showTopTeamsDetails(topTeams, teamIssues) {
     
     details += '</div>';
     showModal('Top Active Teams', details);
+}
+
+function showMonthlyCostDetails(monthKey, monthData) {
+    const [year, month] = monthKey.split('-');
+    const monthName = new Date(parseInt(year), parseInt(month) - 1, 1).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    
+    // Find all issues for this month
+    const monthIssues = filteredIssues.filter(issue => {
+        if (!issue.created_at) return false;
+        const issueMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+        return issueMonthKey === monthKey;
+    });
+    
+    let details = `<h3>Monthly Cost Analysis - ${monthName}</h3>`;
+    details += `<p><strong>Total Cost:</strong> £${monthData.cost.toFixed(2)}</p>`;
+    details += `<p><strong>Total Requests:</strong> ${monthData.count}</p>`;
+    details += '<div class="request-list">';
+    
+    // Show issues with costs first
+    const issuesWithCost = monthIssues.filter(issue => issue.cost);
+    if (issuesWithCost.length > 0) {
+        details += '<h4>Requests with Cost Data:</h4>';
+        issuesWithCost.forEach(issue => {
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                ${issue.cost ? ` (${issue.cost})` : ''}
+                <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
+            </div>`;
+        });
+    }
+    
+    // Show issues without costs
+    const issuesWithoutCost = monthIssues.filter(issue => !issue.cost);
+    if (issuesWithoutCost.length > 0) {
+        details += '<h4>Requests without Cost Data:</h4>';
+        issuesWithoutCost.forEach(issue => {
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
+            </div>`;
+        });
+    }
+    
+    details += '</div>';
+    showModal('Monthly Cost Details', details);
+}
+
+function showMonthlyRequestDetails(monthKey, monthData) {
+    const [year, month] = monthKey.split('-');
+    const monthName = new Date(parseInt(year), parseInt(month) - 1, 1).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    
+    // Find all issues for this month
+    const monthIssues = filteredIssues.filter(issue => {
+        if (!issue.created_at) return false;
+        const issueMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+        return issueMonthKey === monthKey;
+    });
+    
+    let details = `<h3>Monthly Request Analysis - ${monthName}</h3>`;
+    details += `<p><strong>Total Requests:</strong> ${monthData.count}</p>`;
+    
+    // Group by status
+    const statusGroups = {};
+    monthIssues.forEach(issue => {
+        const status = issue.status || 'unknown';
+        if (!statusGroups[status]) {
+            statusGroups[status] = [];
+        }
+        statusGroups[status].push(issue);
+    });
+    
+    details += '<div class="request-list">';
+    
+    Object.keys(statusGroups).forEach(status => {
+        const issues = statusGroups[status];
+        details += `<h4>${status.charAt(0).toUpperCase() + status.slice(1)} (${issues.length}):</h4>`;
+        issues.forEach(issue => {
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                ${issue.cost ? ` (${issue.cost})` : ''}
+                <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
+            </div>`;
+        });
+    });
+    
+    details += '</div>';
+    showModal('Monthly Request Details', details);
 }
 
 function showModal(title, content) {
