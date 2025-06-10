@@ -1,0 +1,68 @@
+name: Update Dashboard Data
+
+on:
+  # Run daily at 6 AM UTC
+  schedule:
+    - cron: '0 6 * * *'
+  
+  # Allow manual triggering
+  workflow_dispatch:
+  
+  # Run when issues are created or updated (to keep data fresh)
+  issues:
+    types: [opened, edited, labeled, unlabeled, closed, reopened]
+
+permissions:
+  contents: write  # Need write access to commit the updated data file
+
+jobs:
+  update-dashboard-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          
+      - name: Make script executable
+        run: chmod +x scripts/fetch-dashboard-data.js
+        
+      - name: Fetch dashboard data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-dashboard-data.js
+        
+      - name: Check if data file was updated
+        id: check_changes
+        run: |
+          if git diff --quiet docs/dashboard_data.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Commit updated dashboard data
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/dashboard_data.json
+          git commit -m "Update dashboard data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          git push
+          
+      - name: Summary
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          echo "✅ Dashboard data updated successfully"
+          echo "📊 Data file: docs/dashboard_data.json"
+          echo "🕒 Updated at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          
+      - name: No changes summary
+        if: steps.check_changes.outputs.changed == 'false'
+        run: |
+          echo "ℹ️ No changes detected in dashboard data"
+          echo "📊 Data file is up to date"

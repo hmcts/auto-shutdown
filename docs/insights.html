@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights - Autoshutdown Exclusion Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>Insights & Analytics</h1>
+            <p>Detailed analysis and statistics of environment shutdown exclusion requests</p>
+        </header>
+
+        <nav class="main-navigation">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">📅 Overview</a>
+                <a href="insights.html" class="nav-link active">📊 Insights</a>
+            </div>
+        </nav>
+
+        <div class="filters-section">
+            <div class="filter-group">
+                <label for="date-preset-filter">Quick Date Filter:</label>
+                <select id="date-preset-filter">
+                    <option value="">All Data</option>
+                    <option value="7">Last 7 Days</option>
+                    <option value="30">Last 30 Days</option>
+                    <option value="90">Last 90 Days</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="calendar-month-filter">Calendar Month:</label>
+                <select id="calendar-month-filter">
+                    <option value="">All Months</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="business-area-filter">Business Area:</label>
+                <select id="business-area-filter">
+                    <option value="">All</option>
+                    <option value="CFT">CFT</option>
+                    <option value="Cross-Cutting">Cross-Cutting</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="team-filter">Team/Application:</label>
+                <select id="team-filter">
+                    <option value="">All</option>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="environment-filter">Environment:</label>
+                <select id="environment-filter">
+                    <option value="">All</option>
+                    <option value="Sandbox">Sandbox</option>
+                    <option value="AAT / Staging">AAT / Staging</option>
+                    <option value="Preview / Dev">Preview / Dev</option>
+                    <option value="Test / Perftest">Test / Perftest</option>
+                    <option value="Demo">Demo</option>
+                    <option value="ITHC">ITHC</option>
+                    <option value="PTL">PTL</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="status-filter">Status:</label>
+                <select id="status-filter">
+                    <option value="">All</option>
+                    <option value="approved">Approved</option>
+                    <option value="auto-approved">Auto-Approved</option>
+                    <option value="pending">Pending</option>
+                    <option value="denied">Denied</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="date-range-filter">Date Range:</label>
+                <input type="date" id="start-date-filter">
+                <span>to</span>
+                <input type="date" id="end-date-filter">
+            </div>
+
+            <button id="clear-filters" class="btn-secondary">Clear Filters</button>
+            <button id="export-csv" class="btn-primary">Export Visible Data (CSV)</button>
+            <button id="export-json" class="btn-primary">Export Visible Data (JSON)</button>
+            <button id="export-pdf" class="btn-primary">Export Visible Data (PDF)</button>
+        </div>
+
+        <div class="summary-section">
+            <div class="summary-card">
+                <h3>📊 Active Requests</h3>
+                <div id="active-count" class="summary-number">-</div>
+            </div>
+            <div class="summary-card">
+                <h3>❌ Cancelled Requests</h3>
+                <div id="cancelled-count" class="summary-number">-</div>
+            </div>
+            <div class="summary-card">
+                <h3>⏳ Pending Approval</h3>
+                <div id="pending-count" class="summary-number">-</div>
+            </div>
+            <div class="summary-card">
+                <h3>📈 Total Requests (Last 30)</h3>
+                <div id="total-count" class="summary-number">-</div>
+            </div>
+        </div>
+
+        <!-- Enhanced Analytics Section -->
+        <div class="analytics-section">
+            <div class="summary-card">
+                <h3>💰 Total Cost Impact</h3>
+                <div id="total-cost" class="summary-number cost-highlight">-</div>
+                <div class="summary-subtitle">Estimated savings lost</div>
+            </div>
+            <div class="summary-card">
+                <h3>⏱️ Average Duration</h3>
+                <div id="avg-duration" class="summary-number">-</div>
+                <div class="summary-subtitle">Days per request</div>
+            </div>
+            <div class="summary-card">
+                <h3>✅ Approval Rate</h3>
+                <div id="approval-rate" class="summary-number success-highlight">-</div>
+                <div class="summary-subtitle">Auto + Manual approved</div>
+            </div>
+            <div class="summary-card">
+                <h3>🏆 Most Active Team</h3>
+                <div id="top-team" class="summary-text">-</div>
+                <div class="summary-subtitle">By request count</div>
+            </div>
+            <div class="summary-card">
+                <h3>📊 Cost by Team/Environment</h3>
+                <div id="cost-breakdown" class="summary-text">-</div>
+                <div class="summary-subtitle">Top cost contributors</div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>📊 Requests by Status</h3>
+                <canvas id="statusChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>🌍 Requests by Environment</h3>
+                <canvas id="environmentChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>💰 Cost Analysis</h3>
+                <canvas id="costChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>📈 Request Trends (Last 30 Days)</h3>
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading insights...</p>
+        </div>
+
+        <div id="error" class="error hidden">
+            <p>Error loading data. Please try again later.</p>
+        </div>
+    </div>
+
+    <!-- Request Detail Modal -->
+    <div id="request-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Request Details</h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="insights.js"></script>
+</body>
+</html>
