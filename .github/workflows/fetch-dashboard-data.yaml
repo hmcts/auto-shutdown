@@ -12,6 +12,9 @@ on:
   issues:
     types: [opened, edited, labeled, unlabeled, closed, reopened]
 
+env:
+  GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
+
 permissions:
   contents: write  # Need write access to commit the updated data file
 
@@ -22,6 +25,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: '0'
+          token: ${{ env.GH_TOKEN }}
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -48,14 +54,11 @@ jobs:
       - name: Commit updated dashboard data
         if: steps.check_changes.outputs.changed == 'true'
         run: |
-          git config user.name hmcts-platform-operations
-          git config user.email github-platform-operations@hmcts.net
+          git config --local user.email "github-platform-operations@hmcts.net"
+          git config --local user.name "hmcts-platform-operations"
           git add docs/dashboard_data.json
           git commit -m "Update dashboard data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           git push
-          commit_tree_url=$(gh browse -c -n)
-          commit_url=${commit_tree_url/tree/commit}
-          echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
           
       - name: Summary
         if: steps.check_changes.outputs.changed == 'true'
