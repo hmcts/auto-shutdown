@@ -28,7 +28,7 @@ function countResource() {
     local count="$4"
     local key="${resource_type},${sku},${os_or_tier}"
     
-    if [ -v sku_sizes["$key"] ]; then
+    if [[ -v sku_sizes["$key"] ]]; then
         echo "adding $count instances to existing count for $key"
         local existing_count=$(echo "${sku_sizes["$key"]}")
         local new_count=$((existing_count + count))
@@ -61,7 +61,7 @@ function get_vmss_costs() {
 
         if [[ $env_entry =~ $vmss_env ]] && [[ $vmss_business_area == $business_area_entry ]]; then
             echo "Including $VMSS_NAME VMSS instance number $VMSS_INSTANCE_IDX in shutdown skip cost. It has a size of $VMSS_SKU and OS of $VMSS_OS"
-            countSku $VMSS_SKU 1 ",$VMSS_OS"
+            countSku $VMSS_SKU 1 "$VMSS_OS"
         fi
         
     done < <(jq -c '.data[]' <<< $VMSS_INSTANCES)
@@ -76,7 +76,7 @@ function get_vm_costs() {
     | where tags.autoShutdown == 'true'
     | where tags.environment =~ '$env_entry'
     | where tolower(tags.businessArea) == tolower('$business_area_entry')
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, properties.hardwareProfile.vmSize, properties.storageProfile.osDisk.osType, ['id']
+    | project name, resourceGroup, subscriptionId, tags, properties.extended.instanceView.powerState.displayStatus, properties.hardwareProfile.vmSize, properties.storageProfile.osDisk.osType, id
     | where not(tags.builtFrom == 'https://github.com/hmcts/bastion')
     " --first 1000 -o json)
 
@@ -107,7 +107,7 @@ function get_appgateway_costs() {
     | where tags.autoShutdown == 'true'
     | where tags.environment =~ '$env_entry'
     | where tolower(tags.businessArea) == tolower('$business_area_entry')
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.operationalState, properties.sku.tier, properties.sku.name, properties.sku.capacity, ['id']
+    | project name, resourceGroup, subscriptionId, tags, properties.operationalState, properties.sku.tier, properties.sku.name, properties.sku.capacity, id
     " --first 1000 -o json)
 
     while read application_gateway; do
@@ -139,7 +139,7 @@ function get_flexible_server_costs() {
     | where tags.autoShutdown == 'true'
     | where tags.environment =~ '$env_entry'
     | where tolower(tags.businessArea) == tolower('$business_area_entry')
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.state, properties.sku.tier, properties.sku.name, ['id']
+    | project name, resourceGroup, subscriptionId, tags, properties.state, properties.sku.tier, properties.sku.name, id
     " --first 1000 -o json)
 
     while read flexibleserver; do
@@ -172,7 +172,7 @@ function get_sqlmi_costs() {
     | where tags.autoShutdown == 'true'
     | where tags.environment =~ '$env_entry'
     | where tolower(tags.businessArea) == tolower('$business_area_entry')
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.state, properties.sku.tier, properties.sku.name, properties.sku.family, properties.vCores, ['id']
+    | project name, resourceGroup, subscriptionId, tags, properties.state, properties.sku.tier, properties.sku.name, properties.sku.family, properties.vCores, id
     " --first 1000 -o json)
 
     while read server; do
@@ -217,7 +217,7 @@ function get_aks_costs() {
                 nodepool_name=$(jq -r '."name"' <<< $nodepool)
                 nodepool_sku_output=$(jq -r '."vmSize"' <<< $nodepool)
                 nodepool_os=$(jq -r '."osType"' <<< $nodepool)
-                osType=",$nodepool_os"
+                osType="$nodepool_os"
 
                 echo "Including $cluster_name in shutdown skip cost. It has $nodepool_count nodes with a size of $nodepool_sku_output in nodepool $nodepool_name and OS of $nodepool_os"
                 countSku $nodepool_sku_output $nodepool_count $osType

@@ -50,41 +50,14 @@ def writeStringVar(varName, varValue):
         env_file.write('\n' + varName + "=" + str(varValue) + '\n')
         env_file.close()
 
-def get_fallback_pricing(resource_type, sku, os_or_tier):
-    """
-    Provide fallback pricing when API is not available (for testing)
-    These are approximate hourly rates in GBP for common configurations
-    """
-    fallback_prices = {
-        "VM": {
-            "Standard_D2s_v3": 0.096,
-            "Standard_D4s_v3": 0.192,
-            "Standard_B2s": 0.041,
-            "Standard_B4ms": 0.166
-        },
-        "ApplicationGateway": {
-            "Standard_v2": 0.0252,  # Base gateway price per hour
-            "WAF_v2": 0.0327
-        },
-        "FlexibleServer": {
-            "GP_Standard_D2ds_v4": 0.096,
-            "B_Standard_B1ms": 0.013
-        },
-        "SqlManagedInstance": {
-            "GP_Gen5_4": 1.344,  # 4 vCore General Purpose
-            "GP_Gen5_8": 2.688
-        }
-    }
-    
-    resource_prices = fallback_prices.get(resource_type, {})
-    return resource_prices.get(sku, 0.05)  # Default to 5p/hour if not found
+
 
 def azPriceAPI(resource_type, sku, os_or_tier, retry=0):
     """
     Query Azure Pricing API for different resource types
     """
     try:
-        api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP&api-version=2021-10-01-preview"
+        api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP'&api-version=2021-10-01-preview"
         
         # Build product name and query based on resource type
         if resource_type == "VM":
@@ -148,12 +121,9 @@ def azPriceAPI(resource_type, sku, os_or_tier, retry=0):
         if retry < 5:
             return azPriceAPI(resource_type, sku, os_or_tier, retry + 1)
         else:
-            print(f"Unable to get costs from API for {resource_type} {sku}, using fallback pricing")
-            # Use fallback pricing instead of defaulting to 0
-            fallback_price = get_fallback_pricing(resource_type, sku, os_or_tier)
-            if fallback_price == 0:
-                writeStringVar("ERROR_IN_COSTS", "true")
-            return fallback_price
+            print(f"ERROR: Unable to get costs from API for {resource_type} {sku} after {retry + 1} attempts: {e}")
+            writeStringVar("ERROR_IN_COSTS", "true")
+            return 0
 
 #Cost calculation function.
 #Clusters are shutdown for ~11 hours on weekday nights and 24 hours on weekend days.
@@ -190,6 +160,13 @@ with open("sku_details.txt", "r") as filestream:
             sku = str(currentLine[0])
             os_or_tier = str(currentLine[1])
             count = int(currentLine[2])
+        elif len(currentLine) == 5 and currentLine[2] == "":
+            # Handle malformed line with empty field: ResourceType,SKU,,OS/Tier,Count
+            resource_type = str(currentLine[0])
+            sku = str(currentLine[1])
+            os_or_tier = str(currentLine[3])  # Skip the empty element
+            count = int(currentLine[4])
+            print(f"Warning: Fixed malformed line with empty field: {line.strip()}")
         else:
             print(f"Invalid line format: {line.strip()}")
             continue
