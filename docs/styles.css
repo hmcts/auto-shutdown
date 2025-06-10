@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
@@ -12,12 +16,14 @@ body {
     background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
     min-height: 100vh;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 24px;
     background-color: transparent;
 }
 
@@ -946,27 +952,77 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 16px;
     }
     
     .dashboard-header {
-        padding: 20px;
-        margin-bottom: 20px;
+        padding: 32px 24px;
+        margin-bottom: 24px;
     }
     
     .dashboard-header h1 {
-        font-size: 1.8rem;
+        font-size: 2.25rem;
     }
     
     .dashboard-header p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .main-navigation {
+        padding: 12px 24px;
     }
     
     .filters-section {
         grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 20px;
+        gap: 20px;
+        padding: 24px;
     }
+    
+    .summary-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .analytics-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .charts-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .summary-card {
+        padding: 24px 20px;
+    }
+    
+    .summary-number {
+        font-size: 2rem;
+    }
+    
+    .chart-container {
+        padding: 24px;
+    }
+    
+    .calendar-section {
+        padding: 24px;
+    }
+    
+    .calendar-day {
+        min-height: 70px;
+        padding: 8px;
+    }
+    
+    .request-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 12px 20px;
+        font-size: 0.875rem;
+    }
+}
     
     .summary-section {
         grid-template-columns: repeat(2, 1fr);
@@ -1012,70 +1068,109 @@ body {
 
 @media (max-width: 480px) {
     .container {
-        padding: 10px;
+        padding: 12px;
     }
     
     .dashboard-header {
-        padding: 15px;
+        padding: 24px 20px;
     }
     
     .dashboard-header h1 {
-        font-size: 1.5rem;
+        font-size: 1.875rem;
+    }
+    
+    .main-navigation {
+        padding: 12px 20px;
+    }
+    
+    .nav-link {
+        padding: 10px 16px;
+        font-size: 0.875rem;
     }
     
     .summary-section {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 16px;
     }
     
     .analytics-section {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 16px;
     }
     
     .summary-card {
-        padding: 18px;
+        padding: 24px 20px;
     }
     
     .summary-number {
-        font-size: 1.6rem;
+        font-size: 1.875rem;
     }
     
     .chart-container {
-        padding: 15px;
+        padding: 20px;
+    }
+    
+    .calendar-section {
+        padding: 20px;
+    }
+    
+    .requests-list {
+        padding: 20px;
     }
     
     .calendar-header {
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
+        text-align: center;
     }
     
     .filter-group {
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
     
     .btn-primary, .btn-secondary {
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
+    
+    .modal-content {
+        padding: 24px;
+        margin: 16px;
+        max-width: calc(100vw - 32px);
+    }
+}
 }
 
 /* Enhanced mobile-first approach */
 @media (max-width: 360px) {
     .dashboard-header h1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
     
-    .summary-number {
-        font-size: 1.4rem;
-    }
-    
-    .summary-text {
+    .dashboard-header p {
         font-size: 1rem;
     }
     
+    .summary-number {
+        font-size: 1.625rem;
+    }
+    
+    .summary-text {
+        font-size: 0.875rem;
+    }
+    
     .chart-container canvas {
-        max-height: 250px;
+        max-height: 280px;
+    }
+    
+    .nav-link {
+        padding: 8px 12px;
+        font-size: 0.8125rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+        padding: 10px 16px;
+        font-size: 0.8125rem;
     }
 }
 
