@@ -7,6 +7,10 @@ GREEN='\033[0;32m'
 source scripts/common/common-functions.sh
 source scripts/aks/common-functions.sh
 source scripts/vmss/common-functions.sh
+source scripts/vm/common-functions.sh
+source scripts/appgateway/common-functions.sh
+source scripts/flexible-server/common-functions.sh
+source scripts/sqlmi/common-functions.sh
 
 node_count=0
 business_area_entry=$(jq -r '. | last | .business_area' issues_list.json)
@@ -14,23 +18,35 @@ business_area_entry=$(jq -r '. | last | .business_area' issues_list.json)
 # Declare associative array
 declare -A sku_sizes
 
-# Function to add SKU and node count to array
-# Create new entry if SKU does not already exist. Update entry if SKU already exists in array
-function countSku() {
-    if [ -v sku_sizes[$1$3] ]; then
-        echo "adding $2 nodes to existing count for $1$3"
-        sku_count=$(echo "${sku_sizes[$1$3]}")
-        node_sku_count=$(($sku_count + $2))
-        sku_sizes[$1$3]=$node_sku_count
+# Function to add resource info and count to array
+# Create new entry if resource does not already exist. Update entry if resource already exists in array
+# Parameters: resource_type, sku, os_or_tier, count
+function countResource() {
+    local resource_type="$1"
+    local sku="$2" 
+    local os_or_tier="$3"
+    local count="$4"
+    local key="${resource_type},${sku},${os_or_tier}"
+    
+    if [ -v sku_sizes["$key"] ]; then
+        echo "adding $count instances to existing count for $key"
+        local existing_count=$(echo "${sku_sizes["$key"]}")
+        local new_count=$((existing_count + count))
+        sku_sizes["$key"]=$new_count
     else
-        echo "adding $1 to array with $2 nodes"
-        sku_sizes[$1$3]=$2
+        echo "adding $key to array with $count instances"
+        sku_sizes["$key"]=$count
     fi
+}
+
+# Legacy function for backward compatibility with existing AKS/VMSS code
+function countSku() {
+    countResource "VM" "$1" "$3" "$2"
 }
 # Print array summary
 function nodeSummary() {
-    for sku in "${!sku_sizes[@]}"; do
-        echo "${sku},${sku_sizes[${sku}]}"
+    for resource_info in "${!sku_sizes[@]}"; do
+        echo "${resource_info},${sku_sizes[${resource_info}]}"
     done
 }
 
@@ -49,6 +65,95 @@ function get_vmss_costs() {
         fi
         
     done < <(jq -c '.data[]' <<< $VMSS_INSTANCES)
+}
+
+# Get Virtual Machines details from Azure
+function get_vm_costs() {
+    VMS=$(get_vms)
+
+    while read vm; do
+        get_vm_details
+        local vm_env=$ENVIRONMENT
+        local vm_business_area=$BUSINESS_AREA
+
+        if [[ $env_entry =~ $vm_env ]] && [[ $vm_business_area == $business_area_entry ]]; then
+            # Extract VM size from Azure - this might be in tags or need to be queried separately
+            # For now, we'll need to get the VM size from Azure API or tags
+            echo "Including $VM_NAME VM in shutdown skip cost. Environment: $vm_env, Business Area: $vm_business_area"
+            
+            # We need to get the VM size - this requires additional Azure API call or tag
+            # For now, we'll use a placeholder until we can implement proper VM size detection
+            local vm_size="Standard_D2s_v3"  # This should be retrieved from Azure
+            local vm_os="Linux"  # This should be retrieved from Azure
+            
+            countResource "VM" "$vm_size" "$vm_os" 1
+        fi
+        
+    done < <(jq -c '.data[]' <<< $VMS)
+}
+
+# Get Application Gateway details from Azure
+function get_appgateway_costs() {
+    APP_GATEWAYS=$(get_application_gateways)
+
+    while read application_gateway; do
+        get_application_gateways_details
+        local appgw_env=$ENVIRONMENT
+        local appgw_business_area=$BUSINESS_AREA
+
+        if [[ $env_entry =~ $appgw_env ]] && [[ $appgw_business_area == $business_area_entry ]]; then
+            echo "Including $APPLICATION_GATEWAY_NAME Application Gateway in shutdown skip cost. Environment: $appgw_env, Business Area: $appgw_business_area"
+            
+            # Application Gateways use different pricing - typically based on capacity units
+            # For estimation, we'll use a standard medium gateway configuration
+            countResource "ApplicationGateway" "Standard_v2" "Medium" 1
+        fi
+        
+    done < <(jq -c '.data[]' <<< $APP_GATEWAYS)
+}
+
+# Get Flexible Server details from Azure
+function get_flexible_server_costs() {
+    FLEXIBLE_SERVERS=$(get_flexible_sql_servers)
+
+    while read flexibleserver; do
+        get_flexible_sql_server_details
+        local server_env=$ENVIRONMENT
+        local server_business_area=$BUSINESS_AREA
+
+        if [[ $env_entry =~ $server_env ]] && [[ $server_business_area == $business_area_entry ]]; then
+            echo "Including $SERVER_NAME Flexible Server in shutdown skip cost. Environment: $server_env, Business Area: $server_business_area"
+            
+            # Flexible servers use compute tier-based pricing
+            # We'll need to get the actual SKU from Azure, for now use a common one
+            local server_sku="GP_Standard_D2ds_v4"  # This should be retrieved from Azure
+            
+            countResource "FlexibleServer" "$server_sku" "PostgreSQL" 1
+        fi
+        
+    done < <(jq -c '.data[]' <<< $FLEXIBLE_SERVERS)
+}
+
+# Get SQL Managed Instance details from Azure
+function get_sqlmi_costs() {
+    SQL_MI_SERVERS=$(get_sql_mi_servers)
+
+    while read server; do
+        get_sql_mi_server_details
+        local sqlmi_env=$ENVIRONMENT
+        local sqlmi_business_area=$BUSINESS_AREA
+
+        if [[ $env_entry =~ $sqlmi_env ]] && [[ $sqlmi_business_area == $business_area_entry ]]; then
+            echo "Including $SERVER_NAME SQL Managed Instance in shutdown skip cost. Environment: $sqlmi_env, Business Area: $sqlmi_business_area"
+            
+            # SQL MI uses vCore-based pricing
+            # We'll need to get the actual SKU from Azure, for now use a common one
+            local sqlmi_sku="GP_Gen5_4"  # This should be retrieved from Azure
+            
+            countResource "SqlManagedInstance" "$sqlmi_sku" "GeneralPurpose" 1
+        fi
+        
+    done < <(jq -c '.data[]' <<< $SQL_MI_SERVERS)
 }
 
 # Get AKS nodepool details from Azure, node count, nodepool name, nodepool SKU...
@@ -102,6 +207,18 @@ get_aks_costs
 
 # Get VM Scale Sets information to allow cost estimates to be calculated
 get_vmss_costs
+
+# Get Virtual Machines information to allow cost estimates to be calculated
+get_vm_costs
+
+# Get Application Gateway information to allow cost estimates to be calculated
+get_appgateway_costs
+
+# Get Flexible Server information to allow cost estimates to be calculated
+get_flexible_server_costs
+
+# Get SQL Managed Instance information to allow cost estimates to be calculated
+get_sqlmi_costs
 
 # Add GitHub env vars
 echo START_DATE=$start_date >>$GITHUB_ENV

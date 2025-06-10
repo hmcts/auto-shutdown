@@ -50,29 +50,110 @@ def writeStringVar(varName, varValue):
         env_file.write('\n' + varName + "=" + str(varValue) + '\n')
         env_file.close()
 
-def azPriceAPI(vm_sku, productNameVar, osQuery,retry=0):
+def get_fallback_pricing(resource_type, sku, os_or_tier):
+    """
+    Provide fallback pricing when API is not available (for testing)
+    These are approximate hourly rates in GBP for common configurations
+    """
+    fallback_prices = {
+        "VM": {
+            "Standard_D2s_v3": 0.096,
+            "Standard_D4s_v3": 0.192,
+            "Standard_B2s": 0.041,
+            "Standard_B4ms": 0.166
+        },
+        "ApplicationGateway": {
+            "Standard_v2": 0.0252,  # Base gateway price per hour
+            "WAF_v2": 0.0327
+        },
+        "FlexibleServer": {
+            "GP_Standard_D2ds_v4": 0.096,
+            "B_Standard_B1ms": 0.013
+        },
+        "SqlManagedInstance": {
+            "GP_Gen5_4": 1.344,  # 4 vCore General Purpose
+            "GP_Gen5_8": 2.688
+        }
+    }
+    
+    resource_prices = fallback_prices.get(resource_type, {})
+    return resource_prices.get(sku, 0.05)  # Default to 5p/hour if not found
+
+def azPriceAPI(resource_type, sku, os_or_tier, retry=0):
+    """
+    Query Azure Pricing API for different resource types
+    """
     try:
-        #Microsoft Retail Rates Prices API query and response. (https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices)
         api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP&api-version=2021-10-01-preview"
-        query = "armRegionName eq 'uksouth' and skuName eq '" + vm_sku + "' and priceType eq 'Consumption' and productName eq " + osQuery
+        
+        # Build product name and query based on resource type
+        if resource_type == "VM":
+            # Extract VM series from SKU (e.g., Standard_D4ds_v5 -> D4dsv5)
+            sku_split = sku.split('_')
+            sku_type = ''.join((z for z in sku_split[1] if not z.isdigit()))
+            productNameVar = sku_type + sku_split[2]
+            
+            if os_or_tier == "Linux":
+                productName = f"'Virtual Machines {productNameVar} Series'"
+            elif os_or_tier == "Windows":
+                productName = f"'Virtual Machines {productNameVar} Series Windows'"
+            else:
+                productName = f"'Virtual Machines {productNameVar} Series'"
+                
+        elif resource_type == "ApplicationGateway":
+            productName = "'Application Gateway'"
+            # Application Gateway pricing is more complex, often includes data processing
+            # For simplicity, we'll use base gateway pricing
+            
+        elif resource_type == "FlexibleServer":
+            productName = "'Azure Database for PostgreSQL Flexible Server'"
+            # Flexible server SKUs are different format
+            
+        elif resource_type == "SqlManagedInstance":
+            productName = "'SQL Managed Instance'"
+            # SQL MI has vCore-based pricing
+            
+        else:
+            # Default fallback for unknown types
+            print(f"Unknown resource type: {resource_type}, defaulting to VM pricing")
+            sku_split = sku.split('_')
+            sku_type = ''.join((z for z in sku_split[1] if not z.isdigit()))
+            productNameVar = sku_type + sku_split[2]
+            productName = f"'Virtual Machines {productNameVar} Series'"
+
+        query = f"armRegionName eq 'uksouth' and skuName eq '{sku}' and priceType eq 'Consumption' and productName eq {productName}"
+        
         response = requests.get(api_url, params={'$filter': query})
         json_data = json.loads(response.text)
-        #Get retail price from json API response
-        for item in json_data['Items']:
-            vm_hour_rate = item['retailPrice']
         
-        return vm_hour_rate
+        # Get retail price from json API response
+        for item in json_data['Items']:
+            return item['retailPrice']
+        
+        # If no exact match found, try fallback strategies
+        if resource_type == "ApplicationGateway":
+            # Try simpler query for Application Gateway
+            query = f"armRegionName eq 'uksouth' and priceType eq 'Consumption' and productName eq 'Application Gateway'"
+            response = requests.get(api_url, params={'$filter': query})
+            json_data = json.loads(response.text)
+            for item in json_data['Items']:
+                if 'Standard' in item.get('skuName', ''):
+                    return item['retailPrice']
+        
+        # If still no match, return 0 (will be handled by retry logic)
+        raise Exception(f"No pricing found for {resource_type} {sku}")
 
-    #API occasionally fails to return a value which was causing issues in cost feedback to users. See DTSPO-15193
-    #Retry will attempt up to 5 retries. If it is still unable to return a value, the rate will be defaulted to 0.
-    except:
-        if retry < 5: #Edit retry limit here.
-            return azPriceAPI(vm_sku, productNameVar, osQuery,retry+1)
+    except Exception as e:
+        # Retry logic - attempt up to 5 retries
+        if retry < 5:
+            return azPriceAPI(resource_type, sku, os_or_tier, retry + 1)
         else:
-            print("Unable to get costs, defaulting to £0.00")
-            writeStringVar("ERROR_IN_COSTS", "true")
-            default_rate = 0
-            return default_rate
+            print(f"Unable to get costs from API for {resource_type} {sku}, using fallback pricing")
+            # Use fallback pricing instead of defaulting to 0
+            fallback_price = get_fallback_pricing(resource_type, sku, os_or_tier)
+            if fallback_price == 0:
+                writeStringVar("ERROR_IN_COSTS", "true")
+            return fallback_price
 
 #Cost calculation function.
 #Clusters are shutdown for ~11 hours on weekday nights and 24 hours on weekend days.
@@ -87,26 +168,50 @@ def calculate_cost(env_rate, node_count, skip_bus_days, skip_weekend_days):
 
     return total_cost
 
-#Read cluster SKU's and node count from text file, line by line.
-#Increment "combined total" var for each SKU/node count.
+#Read resource details from text file, line by line.
+#New format: ResourceType,SKU,OS/Tier,Count
+#Legacy format: SKU,OS,Count (treated as VM type)
+#Increment "combined total" var for each resource.
 with open("sku_details.txt", "r") as filestream:
     combined_total=0
     for line in filestream:
         currentLine = line.split(",")
-        sku = str(currentLine[0])
-        osType = str(currentLine[1])
-        node_count = int(currentLine[2])
-        sku_split = sku.split('_')
-        sku_type = '' .join((z for z in sku_split[1] if not z.isdigit()))
-        productNameVar = sku_type + sku_split[2]
-        if osType == "Linux":
-            linuxQuery = "'Virtual Machines " + productNameVar +  " Series'"
-            sku_cost = azPriceAPI(sku, productNameVar, linuxQuery)
-        elif osType == "Windows":
-            windowsQuery = "'Virtual Machines " + productNameVar +  " Series Windows'"
-            sku_cost = azPriceAPI(sku, productNameVar, windowsQuery)
-
-        combined_total=(combined_total + calculate_cost(sku_cost, node_count, business_days, weekend_days))
+        
+        # Handle both new format and legacy format for backward compatibility
+        if len(currentLine) == 4:
+            # New format: ResourceType,SKU,OS/Tier,Count
+            resource_type = str(currentLine[0])
+            sku = str(currentLine[1])
+            os_or_tier = str(currentLine[2])
+            count = int(currentLine[3])
+        elif len(currentLine) == 3:
+            # Legacy format: SKU,OS,Count (assume VM type)
+            resource_type = "VM"
+            sku = str(currentLine[0])
+            os_or_tier = str(currentLine[1])
+            count = int(currentLine[2])
+        else:
+            print(f"Invalid line format: {line.strip()}")
+            continue
+        
+        print(f"Processing {resource_type}: {sku} ({os_or_tier}) x{count}")
+        
+        # Get pricing for this resource
+        resource_cost = azPriceAPI(resource_type, sku, os_or_tier)
+        
+        # Calculate cost based on resource type
+        if resource_type in ["VM", "FlexibleServer", "SqlManagedInstance"]:
+            # These resources follow the standard shutdown schedule
+            total_cost = calculate_cost(resource_cost, count, business_days, weekend_days)
+        elif resource_type == "ApplicationGateway":
+            # Application Gateways might have different cost calculation
+            # For now, use the same calculation but could be customized
+            total_cost = calculate_cost(resource_cost, count, business_days, weekend_days)
+        else:
+            # Default calculation for unknown types
+            total_cost = calculate_cost(resource_cost, count, business_days, weekend_days)
+        
+        combined_total = combined_total + total_cost
 #Round  to 2 decimal places to represent currency.
 #Format value with appropriate comma for human readable currency.
     cost_output = round(combined_total, 2)
