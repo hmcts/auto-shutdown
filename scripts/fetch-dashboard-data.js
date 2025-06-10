@@ -16,7 +16,7 @@ const path = require('path');
 const CONFIG = {
     GITHUB_API_BASE: 'https://api.github.com',
     REPO_OWNER: 'hmcts',
-    REPO_NAME: 'auto-shutdown-dev',
+    REPO_NAME: 'auto-shutdown',
     ISSUES_PER_PAGE: 100,
     ISSUES_TO_SHOW: 50,
     OUTPUT_FILE: path.join(__dirname, '..', 'docs', 'dashboard_data.json')
