@@ -162,17 +162,26 @@ function renderAnalytics() {
         ? Math.round((approvedCount / filteredIssues.length) * 100)
         : 0;
     
-    // Find most active team
+    // Find top 3 active teams with issue associations
     const teamCounts = {};
+    const teamIssues = {};
     filteredIssues.forEach(issue => {
         if (issue.team_name && issue.team_name.trim() !== '') {
             teamCounts[issue.team_name] = (teamCounts[issue.team_name] || 0) + 1;
+            if (!teamIssues[issue.team_name]) {
+                teamIssues[issue.team_name] = [];
+            }
+            teamIssues[issue.team_name].push(issue);
         }
     });
     
-    const topTeam = Object.keys(teamCounts).length > 0 
-        ? Object.keys(teamCounts).reduce((a, b) => teamCounts[a] > teamCounts[b] ? a : b)
-        : 'None';
+    const topTeams = Object.entries(teamCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3);
+    
+    // Store data globally for click handler
+    window.currentTopTeams = topTeams;
+    window.currentTeamIssues = teamIssues;
     
     // Update the UI
     const totalCostEl = document.getElementById('total-cost');
@@ -184,7 +193,18 @@ function renderAnalytics() {
     if (totalCostEl) totalCostEl.textContent = totalCost > 0 ? `£${totalCost.toFixed(2)}` : 'No data';
     if (avgDurationEl) avgDurationEl.textContent = avgDuration > 0 ? `${avgDuration}` : 'No data';
     if (approvalRateEl) approvalRateEl.textContent = `${approvalRate}%`;
-    if (topTeamEl) topTeamEl.textContent = topTeam;
+    
+    // Display top 3 teams with counts
+    if (topTeamEl) {
+        if (topTeams.length > 0) {
+            const teamsDisplay = topTeams
+                .map(([team, count]) => `${team} (${count})`)
+                .join('<br>');
+            topTeamEl.innerHTML = teamsDisplay;
+        } else {
+            topTeamEl.textContent = 'No data';
+        }
+    }
     
     // Calculate cost breakdown by team/environment
     if (costBreakdownEl) {
@@ -363,10 +383,10 @@ function renderCostChart() {
     
     // Group costs into ranges
     const ranges = [
-        { label: '£0-50', min: 0, max: 50 },
-        { label: '£50-100', min: 50, max: 100 },
-        { label: '£100-250', min: 100, max: 250 },
-        { label: '£250+', min: 250, max: Infinity }
+        { label: '£0-250', min: 0, max: 250 },
+        { label: '£250-500', min: 250, max: 500 },
+        { label: '£500-1000', min: 500, max: 1000 },
+        { label: '£1000+', min: 1000, max: Infinity }
     ];
     
     const rangeCounts = ranges.map(range => 
@@ -417,15 +437,15 @@ function renderTrendChart() {
         window.trendChartInstance.destroy();
     }
     
-    const last30Days = [];
+    const last50Days = [];
     const today = new Date();
-    for (let i = 29; i >= 0; i--) {
+    for (let i = 49; i >= 0; i--) {
         const date = new Date(today);
         date.setDate(date.getDate() - i);
-        last30Days.push(date);
+        last50Days.push(date);
     }
     
-    const dailyCounts = last30Days.map(date => {
+    const dailyCounts = last50Days.map(date => {
         return filteredIssues.filter(issue => 
             issue.created_at.toDateString() === date.toDateString()
         ).length;
@@ -434,7 +454,7 @@ function renderTrendChart() {
     window.trendChartInstance = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: last30Days.map(date => date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' })),
+            labels: last50Days.map(date => date.toLocaleDateString('en-GB', { month: 'short', day: 'numeric' })),
             datasets: [{
                 label: 'New Requests',
                 data: dailyCounts,
@@ -490,6 +510,18 @@ function setupInsightsEventListeners() {
     if (exportCsv) exportCsv.addEventListener('click', exportCSV);
     if (exportJson) exportJson.addEventListener('click', exportJSON);
     if (exportPdf) exportPdf.addEventListener('click', exportPDF);
+    
+    // Make top team card clickable
+    const topTeamCard = document.getElementById('top-team')?.closest('.summary-card');
+    if (topTeamCard) {
+        topTeamCard.style.cursor = 'pointer';
+        topTeamCard.addEventListener('click', () => {
+            // This will be set when renderAnalytics is called
+            if (window.currentTopTeams && window.currentTeamIssues) {
+                showTopTeamsDetails(window.currentTopTeams, window.currentTeamIssues);
+            }
+        });
+    }
 }
 
 function applyDatePreset() {
@@ -929,6 +961,35 @@ function showCostRangeDetails(range, count) {
     
     details += '</div>';
     showModal('Cost Range Details', details);
+}
+
+function showTopTeamsDetails(topTeams, teamIssues) {
+    let details = `<h3>Top Active Teams</h3>`;
+    details += '<div class="team-details-list">';
+    
+    topTeams.forEach(([teamName, count]) => {
+        details += `<div class="team-detail-section">
+            <h4>${teamName} (${count} requests)</h4>
+            <div class="request-list">`;
+        
+        const issues = teamIssues[teamName] || [];
+        issues.slice(0, 5).forEach(issue => { // Show first 5 issues per team
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                ${issue.cost ? ` (${issue.cost})` : ''}
+                <br><small>Environment: ${issue.environment || 'Unknown'}</small>
+            </div>`;
+        });
+        
+        if (issues.length > 5) {
+            details += `<div class="request-item"><small>... and ${issues.length - 5} more requests</small></div>`;
+        }
+        
+        details += '</div></div>';
+    });
+    
+    details += '</div>';
+    showModal('Top Active Teams', details);
 }
 
 function showModal(title, content) {

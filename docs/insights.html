@@ -28,7 +28,7 @@
                 <select id="date-preset-filter">
                     <option value="">All Data</option>
                     <option value="7">Last 7 Days</option>
-                    <option value="30">Last 30 Days</option>
+                    <option value="50">Last 50 Days</option>
                     <option value="90">Last 90 Days</option>
                 </select>
             </div>
@@ -111,7 +111,7 @@
                 <div id="pending-count" class="summary-number">-</div>
             </div>
             <div class="summary-card">
-                <h3>📈 Total Requests (Last 30)</h3>
+                <h3>📈 Total Requests (Last 50)</h3>
                 <div id="total-count" class="summary-number">-</div>
             </div>
         </div>
@@ -135,12 +135,12 @@
             </div>
             <div class="summary-card">
                 <h3>🏆 Most Active Team</h3>
-                <div id="top-team" class="summary-text">-</div>
-                <div class="summary-subtitle">By request count</div>
+                <div id="top-team" class="team-breakdown-text">-</div>
+                <div class="summary-subtitle">Top 3 teams by request count</div>
             </div>
             <div class="summary-card">
                 <h3>📊 Cost by Team/Environment</h3>
-                <div id="cost-breakdown" class="summary-text">-</div>
+                <div id="cost-breakdown" class="cost-breakdown-text">-</div>
                 <div class="summary-subtitle">Top cost contributors</div>
             </div>
         </div>
@@ -160,7 +160,7 @@
                 <canvas id="costChart"></canvas>
             </div>
             <div class="chart-container">
-                <h3>📈 Request Trends (Last 30 Days)</h3>
+                <h3>📈 Request Trends (Last 50 Days)</h3>
                 <canvas id="trendChart"></canvas>
             </div>
         </div>
