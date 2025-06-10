@@ -628,7 +628,10 @@ function renderMonthlyCostChart() {
         }
         
         // Add data for each month this issue applies to
-        monthsForIssue.forEach(monthKey => {
+        const monthsArray = Array.from(monthsForIssue);
+        const monthCount = monthsArray.length;
+        
+        monthsArray.forEach(monthKey => {
             if (!monthlyData[monthKey]) {
                 const [year, month] = monthKey.split('-');
                 const date = new Date(parseInt(year), parseInt(month) - 1, 1);
@@ -641,21 +644,33 @@ function renderMonthlyCostChart() {
             
             monthlyData[monthKey].count++;
             
-            // Parse cost if available
+            // Parse cost if available - divide by number of months to avoid double counting
             if (issue.cost) {
                 const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
                 if (costMatch) {
                     const cost = parseFloat(costMatch[1].replace(/,/g, ''));
-                    monthlyData[monthKey].cost += cost;
+                    // Divide the cost by the number of months this issue spans
+                    monthlyData[monthKey].cost += cost / monthCount;
                 }
             }
         });
     });
     
-    // Sort by month key and limit to last 12 months
-    const sortedMonths = Object.keys(monthlyData)
-        .sort()
-        .slice(-12);
+    // Check if calendar month filter is applied
+    const calendarMonth = document.getElementById('calendar-month-filter')?.value || '';
+    
+    let sortedMonths;
+    if (calendarMonth) {
+        // If calendar month filter is selected, show only that month
+        sortedMonths = Object.keys(monthlyData)
+            .filter(key => key === calendarMonth)
+            .sort();
+    } else {
+        // Otherwise, sort by month key and limit to last 12 months
+        sortedMonths = Object.keys(monthlyData)
+            .sort()
+            .slice(-12);
+    }
     
     if (sortedMonths.length === 0) {
         ctx.getContext('2d').fillText('No monthly cost data available', 10, 50);
@@ -760,10 +775,21 @@ function renderMonthlyRequestChart() {
         });
     });
     
-    // Sort by month key and limit to last 12 months
-    const sortedMonths = Object.keys(monthlyData)
-        .sort()
-        .slice(-12);
+    // Check if calendar month filter is applied
+    const calendarMonth = document.getElementById('calendar-month-filter')?.value || '';
+    
+    let sortedMonths;
+    if (calendarMonth) {
+        // If calendar month filter is selected, show only that month
+        sortedMonths = Object.keys(monthlyData)
+            .filter(key => key === calendarMonth)
+            .sort();
+    } else {
+        // Otherwise, sort by month key and limit to last 12 months
+        sortedMonths = Object.keys(monthlyData)
+            .sort()
+            .slice(-12);
+    }
     
     if (sortedMonths.length === 0) {
         ctx.getContext('2d').fillText('No monthly request data available', 10, 50);
