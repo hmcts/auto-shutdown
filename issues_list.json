@@ -14,5 +14,21 @@
         "justification": "Testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/184"
+    },
+    {
+        "form_review_date": "10/06/2025",
+        "start_date": "10-06-2025",
+        "end_date": "10-06-2025",
+        "request_type": "stop",
+        "environment": [
+            "Sandbox"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "10/06/2025",
+        "change_jira_id": "DTSPO-0000",
+        "stay_on_late": "No",
+        "justification": "Testing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/187"
     }
 ]
