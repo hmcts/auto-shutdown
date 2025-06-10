@@ -69,7 +69,16 @@ function get_vmss_costs() {
 
 # Get Virtual Machines details from Azure
 function get_vm_costs() {
-    VMS=$(get_vms)
+    # Enhanced query to include VM size information
+    VMS=$(az graph query -q "
+    resources
+    | where type =~ 'Microsoft.Compute/virtualMachines'
+    | where tags.autoShutdown == 'true'
+    | where tags.environment =~ '$env_entry'
+    | where tolower(tags.businessArea) == tolower('$business_area_entry')
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, properties.hardwareProfile.vmSize, properties.storageProfile.osDisk.osType, ['id']
+    | where not(tags.builtFrom == 'https://github.com/hmcts/bastion')
+    " --first 1000 -o json)
 
     while read vm; do
         get_vm_details
@@ -77,14 +86,11 @@ function get_vm_costs() {
         local vm_business_area=$BUSINESS_AREA
 
         if [[ $env_entry =~ $vm_env ]] && [[ $vm_business_area == $business_area_entry ]]; then
-            # Extract VM size from Azure - this might be in tags or need to be queried separately
-            # For now, we'll need to get the VM size from Azure API or tags
-            echo "Including $VM_NAME VM in shutdown skip cost. Environment: $vm_env, Business Area: $vm_business_area"
+            # Extract VM size and OS from the enhanced query
+            local vm_size=$(jq -r '.properties_hardwareProfile_vmSize // "Standard_D2s_v3"' <<< "$vm")
+            local vm_os=$(jq -r '.properties_storageProfile_osDisk_osType // "Linux"' <<< "$vm")
             
-            # We need to get the VM size - this requires additional Azure API call or tag
-            # For now, we'll use a placeholder until we can implement proper VM size detection
-            local vm_size="Standard_D2s_v3"  # This should be retrieved from Azure
-            local vm_os="Linux"  # This should be retrieved from Azure
+            echo "Including $VM_NAME VM in shutdown skip cost. Size: $vm_size, OS: $vm_os"
             
             countResource "VM" "$vm_size" "$vm_os" 1
         fi
@@ -94,7 +100,15 @@ function get_vm_costs() {
 
 # Get Application Gateway details from Azure
 function get_appgateway_costs() {
-    APP_GATEWAYS=$(get_application_gateways)
+    # Enhanced query to include SKU information
+    APP_GATEWAYS=$(az graph query -q "
+    resources
+    | where type =~ 'microsoft.network/applicationgateways'
+    | where tags.autoShutdown == 'true'
+    | where tags.environment =~ '$env_entry'
+    | where tolower(tags.businessArea) == tolower('$business_area_entry')
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.operationalState, properties.sku.tier, properties.sku.name, properties.sku.capacity, ['id']
+    " --first 1000 -o json)
 
     while read application_gateway; do
         get_application_gateways_details
@@ -102,11 +116,15 @@ function get_appgateway_costs() {
         local appgw_business_area=$BUSINESS_AREA
 
         if [[ $env_entry =~ $appgw_env ]] && [[ $appgw_business_area == $business_area_entry ]]; then
-            echo "Including $APPLICATION_GATEWAY_NAME Application Gateway in shutdown skip cost. Environment: $appgw_env, Business Area: $appgw_business_area"
+            # Extract actual SKU information
+            local sku_tier=$(jq -r '.properties_sku_tier // "Standard_v2"' <<< "$application_gateway")
+            local sku_name=$(jq -r '.properties_sku_name // "Standard_v2"' <<< "$application_gateway")
+            local capacity=$(jq -r '.properties_sku_capacity // 1' <<< "$application_gateway")
             
-            # Application Gateways use different pricing - typically based on capacity units
-            # For estimation, we'll use a standard medium gateway configuration
-            countResource "ApplicationGateway" "Standard_v2" "Medium" 1
+            echo "Including $APPLICATION_GATEWAY_NAME Application Gateway in shutdown skip cost. SKU: $sku_tier, Capacity: $capacity"
+            
+            # For Application Gateways, capacity affects pricing
+            countResource "ApplicationGateway" "$sku_tier" "$sku_name" "$capacity"
         fi
         
     done < <(jq -c '.data[]' <<< $APP_GATEWAYS)
@@ -114,7 +132,15 @@ function get_appgateway_costs() {
 
 # Get Flexible Server details from Azure
 function get_flexible_server_costs() {
-    FLEXIBLE_SERVERS=$(get_flexible_sql_servers)
+    # Enhanced query to include SKU information
+    FLEXIBLE_SERVERS=$(az graph query -q "
+    resources
+    | where type =~ 'microsoft.dbforpostgresql/flexibleservers'
+    | where tags.autoShutdown == 'true'
+    | where tags.environment =~ '$env_entry'
+    | where tolower(tags.businessArea) == tolower('$business_area_entry')
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.state, properties.sku.tier, properties.sku.name, ['id']
+    " --first 1000 -o json)
 
     while read flexibleserver; do
         get_flexible_sql_server_details
@@ -122,13 +148,16 @@ function get_flexible_server_costs() {
         local server_business_area=$BUSINESS_AREA
 
         if [[ $env_entry =~ $server_env ]] && [[ $server_business_area == $business_area_entry ]]; then
-            echo "Including $SERVER_NAME Flexible Server in shutdown skip cost. Environment: $server_env, Business Area: $server_business_area"
+            # Extract actual SKU information
+            local sku_tier=$(jq -r '.properties_sku_tier // "GeneralPurpose"' <<< "$flexibleserver")
+            local sku_name=$(jq -r '.properties_sku_name // "Standard_D2ds_v4"' <<< "$flexibleserver")
             
-            # Flexible servers use compute tier-based pricing
-            # We'll need to get the actual SKU from Azure, for now use a common one
-            local server_sku="GP_Standard_D2ds_v4"  # This should be retrieved from Azure
+            echo "Including $SERVER_NAME Flexible Server in shutdown skip cost. SKU: $sku_tier/$sku_name"
             
-            countResource "FlexibleServer" "$server_sku" "PostgreSQL" 1
+            # Build PostgreSQL-style SKU name
+            local postgres_sku="${sku_tier:0:2}_${sku_name}"
+            
+            countResource "FlexibleServer" "$postgres_sku" "PostgreSQL" 1
         fi
         
     done < <(jq -c '.data[]' <<< $FLEXIBLE_SERVERS)
@@ -136,7 +165,15 @@ function get_flexible_server_costs() {
 
 # Get SQL Managed Instance details from Azure
 function get_sqlmi_costs() {
-    SQL_MI_SERVERS=$(get_sql_mi_servers)
+    # Enhanced query to include SKU information
+    SQL_MI_SERVERS=$(az graph query -q "
+    resources
+    | where type =~ 'microsoft.sql/managedinstances'
+    | where tags.autoShutdown == 'true'
+    | where tags.environment =~ '$env_entry'
+    | where tolower(tags.businessArea) == tolower('$business_area_entry')
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.state, properties.sku.tier, properties.sku.name, properties.sku.family, properties.vCores, ['id']
+    " --first 1000 -o json)
 
     while read server; do
         get_sql_mi_server_details
@@ -144,13 +181,18 @@ function get_sqlmi_costs() {
         local sqlmi_business_area=$BUSINESS_AREA
 
         if [[ $env_entry =~ $sqlmi_env ]] && [[ $sqlmi_business_area == $business_area_entry ]]; then
-            echo "Including $SERVER_NAME SQL Managed Instance in shutdown skip cost. Environment: $sqlmi_env, Business Area: $sqlmi_business_area"
+            # Extract actual SKU information
+            local sku_tier=$(jq -r '.properties_sku_tier // "GeneralPurpose"' <<< "$server")
+            local sku_name=$(jq -r '.properties_sku_name // "GP_Gen5"' <<< "$server")
+            local sku_family=$(jq -r '.properties_sku_family // "Gen5"' <<< "$server")
+            local vcores=$(jq -r '.properties_vCores // 4' <<< "$server")
             
-            # SQL MI uses vCore-based pricing
-            # We'll need to get the actual SKU from Azure, for now use a common one
-            local sqlmi_sku="GP_Gen5_4"  # This should be retrieved from Azure
+            echo "Including $SERVER_NAME SQL Managed Instance in shutdown skip cost. SKU: $sku_tier, vCores: $vcores"
             
-            countResource "SqlManagedInstance" "$sqlmi_sku" "GeneralPurpose" 1
+            # Build SQL MI-style SKU name
+            local sqlmi_sku="${sku_tier:0:2}_${sku_family}_${vcores}"
+            
+            countResource "SqlManagedInstance" "$sqlmi_sku" "$sku_tier" 1
         fi
         
     done < <(jq -c '.data[]' <<< $SQL_MI_SERVERS)
