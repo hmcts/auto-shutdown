@@ -193,6 +193,33 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
+/* Add additional hover effects for clickable cards */
+.summary-card[style*="cursor: pointer"]:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+    cursor: pointer;
+}
+
+.summary-card[style*="cursor: pointer"] {
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.summary-card[style*="cursor: pointer"]:before {
+    content: "👆 Click for details";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 10px;
+    color: #9ca3af;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.summary-card[style*="cursor: pointer"]:hover:before {
+    opacity: 1;
+}
+
 .summary-card h3 {
     color: #6b7280;
     font-size: 0.9rem;
@@ -265,7 +292,7 @@ body {
 /* Charts Section */
 .charts-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
     margin-bottom: 30px;
 }
@@ -299,6 +326,12 @@ body {
 #environmentChart {
     max-height: 400px !important;
     min-height: 350px;
+}
+
+/* Make trend chart larger for better visibility */
+#trendChart {
+    max-height: 500px !important;
+    min-height: 400px;
 }
 
 /* Calendar Section */

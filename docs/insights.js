@@ -230,6 +230,9 @@ function renderAnalytics() {
                 .map(([key, cost]) => `${key}: £${cost.toFixed(2)}`)
                 .join('<br>');
             costBreakdownEl.innerHTML = breakdown;
+            
+            // Store data globally for click handler
+            window.currentCostBreakdown = topCostEntries;
         } else {
             costBreakdownEl.textContent = 'No cost data';
         }
@@ -314,7 +317,16 @@ function renderEnvironmentChart() {
     const envCounts = {};
     filteredIssues.forEach(issue => {
         const env = issue.environment || 'Unknown';
-        envCounts[env] = (envCounts[env] || 0) + 1;
+        
+        // Handle multi-environments like "AAT / Staging" by splitting them
+        if (env.includes(' / ')) {
+            const splitEnvs = env.split(' / ').map(e => e.trim());
+            splitEnvs.forEach(splitEnv => {
+                envCounts[splitEnv] = (envCounts[splitEnv] || 0) + 1;
+            });
+        } else {
+            envCounts[env] = (envCounts[env] || 0) + 1;
+        }
     });
     
     window.environmentChartInstance = new Chart(ctx, {
@@ -475,6 +487,14 @@ function renderTrendChart() {
                 y: {
                     beginAtZero: true
                 }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const date = last50Days[index];
+                    const count = dailyCounts[index];
+                    showTrendDetails(date, count);
+                }
             }
         }
     });
@@ -520,6 +540,42 @@ function setupInsightsEventListeners() {
             if (window.currentTopTeams && window.currentTeamIssues) {
                 showTopTeamsDetails(window.currentTopTeams, window.currentTeamIssues);
             }
+        });
+    }
+    
+    // Make cost breakdown card clickable
+    const costBreakdownCard = document.getElementById('cost-breakdown')?.closest('.summary-card');
+    if (costBreakdownCard) {
+        costBreakdownCard.style.cursor = 'pointer';
+        costBreakdownCard.addEventListener('click', () => {
+            if (window.currentCostBreakdown) {
+                showCostBreakdownDetails(window.currentCostBreakdown);
+            }
+        });
+    }
+    
+    // Make summary cards clickable
+    const activeCard = document.getElementById('active-count')?.closest('.summary-card');
+    if (activeCard) {
+        activeCard.style.cursor = 'pointer';
+        activeCard.addEventListener('click', () => {
+            showStatusDetails('active', parseInt(document.getElementById('active-count')?.textContent || '0'));
+        });
+    }
+    
+    const cancelledCard = document.getElementById('cancelled-count')?.closest('.summary-card');
+    if (cancelledCard) {
+        cancelledCard.style.cursor = 'pointer';
+        cancelledCard.addEventListener('click', () => {
+            showStatusDetails('cancelled', parseInt(document.getElementById('cancelled-count')?.textContent || '0'));
+        });
+    }
+    
+    const pendingCard = document.getElementById('pending-count')?.closest('.summary-card');
+    if (pendingCard) {
+        pendingCard.style.cursor = 'pointer';
+        pendingCard.addEventListener('click', () => {
+            showStatusDetails('pending', parseInt(document.getElementById('pending-count')?.textContent || '0'));
         });
     }
 }
@@ -902,7 +958,19 @@ function downloadFile(content, filename, mimeType) {
 }
 
 function showEnvironmentDetails(environment, count) {
-    const requests = filteredIssues.filter(issue => (issue.environment || 'Unknown') === environment);
+    // Find requests that match this environment, considering split environments
+    const requests = filteredIssues.filter(issue => {
+        const env = issue.environment || 'Unknown';
+        if (env === environment) {
+            return true;
+        }
+        // Check if this environment is part of a multi-environment string
+        if (env.includes(' / ')) {
+            const splitEnvs = env.split(' / ').map(e => e.trim());
+            return splitEnvs.includes(environment);
+        }
+        return false;
+    });
     
     let details = `<h3>Environment: ${environment}</h3>`;
     details += `<p><strong>Total Requests:</strong> ${count}</p>`;
@@ -913,6 +981,7 @@ function showEnvironmentDetails(environment, count) {
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
             ${request.cost ? ` (${request.cost})` : ''}
             <br><small>Team: ${request.team_name || 'Unknown'}</small>
+            <br><small>Original Environment: ${request.environment || 'Unknown'}</small>
         </div>`;
     });
     
@@ -921,9 +990,22 @@ function showEnvironmentDetails(environment, count) {
 }
 
 function showStatusDetails(status, count) {
-    const requests = filteredIssues.filter(issue => issue.status === status);
+    let requests;
+    let statusTitle;
     
-    let details = `<h3>Status: ${status.charAt(0).toUpperCase() + status.slice(1)}</h3>`;
+    if (status === 'active') {
+        const now = new Date();
+        requests = filteredIssues.filter(issue => 
+            (issue.status === 'approved' || issue.status === 'auto-approved') &&
+            issue.end_date && issue.end_date >= now
+        );
+        statusTitle = 'Active Requests';
+    } else {
+        requests = filteredIssues.filter(issue => issue.status === status);
+        statusTitle = status.charAt(0).toUpperCase() + status.slice(1);
+    }
+    
+    let details = `<h3>Status: ${statusTitle}</h3>`;
     details += `<p><strong>Total Requests:</strong> ${count}</p>`;
     details += '<div class="request-list">';
     
@@ -963,16 +1045,87 @@ function showCostRangeDetails(range, count) {
     showModal('Cost Range Details', details);
 }
 
+function showTrendDetails(date, count) {
+    const requests = filteredIssues.filter(issue => 
+        issue.created_at.toDateString() === date.toDateString()
+    );
+    
+    let details = `<h3>Requests Created on ${date.toLocaleDateString('en-GB')}</h3>`;
+    details += `<p><strong>Total Requests:</strong> ${count}</p>`;
+    details += '<div class="request-list">';
+    
+    requests.forEach(request => {
+        details += `<div class="request-item">
+            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
+            ${request.cost ? ` (${request.cost})` : ''}
+            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${request.environment || 'Unknown'}</small>
+        </div>`;
+    });
+    
+    details += '</div>';
+    showModal('Daily Trend Details', details);
+}
+
+function showCostBreakdownDetails(costBreakdown) {
+    let details = `<h3>Cost by Team/Environment</h3>`;
+    details += '<div class="cost-breakdown-list">';
+    
+    costBreakdown.forEach(([key, cost]) => {
+        // Extract team and environment from key
+        const [teamPart, envPart] = key.split(' (');
+        const team = teamPart;
+        const environment = envPart ? envPart.replace(')', '') : 'Unknown';
+        
+        // Find all issues for this team/environment combo that have costs
+        const relevantIssues = filteredIssues.filter(issue => {
+            if (!issue.cost) return false;
+            const issueTeam = issue.team_name || 'Unknown';
+            const issueEnv = issue.environment || 'Unknown';
+            return issueTeam === team && issueEnv === environment;
+        });
+        
+        details += `<div class="cost-detail-section">
+            <h4>${key} - Total: £${cost.toFixed(2)}</h4>
+            <div class="request-list">`;
+        
+        relevantIssues.forEach(issue => {
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                ${issue.cost ? ` (${issue.cost})` : ''}
+                <br><small>Created: ${issue.created_at.toLocaleDateString()}</small>
+            </div>`;
+        });
+        
+        details += '</div></div>';
+    });
+    
+    details += '</div>';
+    showModal('Cost by Team/Environment', details);
+}
+
 function showTopTeamsDetails(topTeams, teamIssues) {
     let details = `<h3>Top Active Teams</h3>`;
     details += '<div class="team-details-list">';
     
     topTeams.forEach(([teamName, count]) => {
+        // Calculate total cost for this team
+        const issues = teamIssues[teamName] || [];
+        let totalCost = 0;
+        issues.forEach(issue => {
+            if (issue.cost) {
+                const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
+                if (costMatch) {
+                    totalCost += parseFloat(costMatch[1].replace(',', ''));
+                }
+            }
+        });
+        
+        const costDisplay = totalCost > 0 ? ` - Total Cost: £${totalCost.toFixed(2)}` : '';
+        
         details += `<div class="team-detail-section">
-            <h4>${teamName} (${count} requests)</h4>
+            <h4>${teamName} (${count} requests${costDisplay})</h4>
             <div class="request-list">`;
         
-        const issues = teamIssues[teamName] || [];
         issues.slice(0, 5).forEach(issue => { // Show first 5 issues per team
             details += `<div class="request-item">
                 <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
