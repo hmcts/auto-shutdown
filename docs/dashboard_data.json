@@ -1,7 +1,30 @@
 {
-  "last_updated": "2025-06-10T12:48:01.859Z",
+  "last_updated": "2025-06-10T13:41:53.968Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1102,
+      "title": "PR-1101",
+      "status": "auto-approved",
+      "created_at": "2025-06-10T12:47:36.000Z",
+      "updated_at": "2025-06-10T12:48:06.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1102",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2025-07-10T00:00:00.000Z",
+      "end_date": "2025-07-11T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "PR-1101",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nPR-1101\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n10-07-2025\n\n### Skip shutdown end date\n\n11-07-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": null
+    },
     {
       "id": 1099,
       "title": "PR-1098",
@@ -1084,28 +1107,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nPR-1030\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n30-04-2025\n\n### Skip shutdown end date\n\n01-05-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": null
-    },
-    {
-      "id": 1029,
-      "title": "DARTS Perf Test",
-      "status": "auto-approved",
-      "created_at": "2025-03-26T15:56:46.000Z",
-      "updated_at": "2025-03-26T15:57:44.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1029",
-      "user": "cakeben",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "Test / Perftest",
-      "start_date": "2025-03-26T00:00:00.000Z",
-      "end_date": "2025-03-31T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\n we are running long running script to populate test data for performance testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nTest / Perftest\n\n### Skip shutdown start date\n\n26/03/2025\n\n### Skip shutdown end date\n\n31/03/2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n31/03/2025",
-      "cost": "£281.96"
     }
   ]
 }
