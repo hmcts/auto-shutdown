@@ -230,7 +230,7 @@ function renderAnalytics() {
                 if (costMatch) {
                     const cost = parseFloat(costMatch[1].replace(',', ''));
                     const normalizedBusinessArea = normalizeBusinessArea(issue.business_area);
-                    const key = `${issue.team_name || 'Unknown'} (${issue.environment || 'Unknown'})`;
+                    const key = `${issue.team_name || 'Unknown'} (${parseEnvironment(issue) || 'Unknown'})`;
                     costBreakdown[key] = (costBreakdown[key] || 0) + cost;
                 }
             }
@@ -259,6 +259,8 @@ function renderCharts() {
     renderEnvironmentChart();
     renderCostChart();
     renderTrendChart();
+    renderMonthlyCostChart();
+    renderMonthlyRequestChart();
 }
 
 function renderStatusChart() {
@@ -403,7 +405,7 @@ function renderEnvironmentChart() {
     
     const envCounts = {};
     filteredIssues.forEach(issue => {
-        const env = issue.environment || 'Unknown';
+        const env = parseEnvironment(issue) || 'Unknown';
         
         // Handle multi-environments by splitting on both comma and slash separators
         // Example: "AAT / Staging, Preview / Dev, PTL" should become ["AAT", "Staging", "Preview", "Dev", "PTL"]
@@ -735,7 +737,7 @@ function applyFilters() {
         
         // Handle environment filtering with groups
         if (environment) {
-            const env = issue.environment || 'Unknown';
+            const env = parseEnvironment(issue) || 'Unknown';
             let matches = false;
             
             // Check direct match
@@ -826,7 +828,7 @@ function exportCSV() {
         issue.status,
         normalizeBusinessArea(issue.business_area) || '',
         issue.team_name || '',
-        issue.environment || '',
+        parseEnvironment(issue) || '',
         issue.start_date ? formatDate(issue.start_date) : '',
         issue.end_date ? formatDate(issue.end_date) : '',
         issue.cost || ''
@@ -1124,7 +1126,7 @@ function showEnvironmentDetails(environment, count) {
     
     // Find requests that match this environment group
     const requests = filteredIssues.filter(issue => {
-        const env = issue.environment || 'Unknown';
+        const env = parseEnvironment(issue) || 'Unknown';
         
         // Check direct match first
         if (environmentMatchesGroup(env, environment)) {
@@ -1145,7 +1147,7 @@ function showEnvironmentDetails(environment, count) {
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
             ${request.cost ? ` (${request.cost})` : ''}
             <br><small>Team: ${request.team_name || 'Unknown'}</small>
-            <br><small>Original Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Original Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1177,7 +1179,7 @@ function showStatusDetails(status, count) {
         details += `<div class="request-item">
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong>
             ${request.cost ? ` (${request.cost})` : ''}
-            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1201,7 +1203,7 @@ function showCostRangeDetails(range, count) {
     requests.forEach(request => {
         details += `<div class="request-item">
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.cost}
-            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1222,7 +1224,7 @@ function showTrendDetails(date, count) {
         details += `<div class="request-item">
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
             ${request.cost ? ` (${request.cost})` : ''}
-            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1244,7 +1246,7 @@ function showCostBreakdownDetails(costBreakdown) {
         const relevantIssues = filteredIssues.filter(issue => {
             if (!issue.cost) return false;
             const issueTeam = issue.team_name || 'Unknown';
-            const issueEnv = issue.environment || 'Unknown';
+            const issueEnv = parseEnvironment(issue) || 'Unknown';
             return issueTeam === team && issueEnv === environment;
         });
         
@@ -1294,7 +1296,7 @@ function showTopTeamsDetails(topTeams, teamIssues) {
             details += `<div class="request-item">
                 <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
                 ${issue.cost ? ` (${issue.cost})` : ''}
-                <br><small>Environment: ${issue.environment || 'Unknown'}</small>
+                <br><small>Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
             </div>`;
         });
         
