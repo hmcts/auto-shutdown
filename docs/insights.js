@@ -194,11 +194,26 @@ function renderAnalytics() {
     if (avgDurationEl) avgDurationEl.textContent = avgDuration > 0 ? `${avgDuration}` : 'No data';
     if (approvalRateEl) approvalRateEl.textContent = `${approvalRate}%`;
     
-    // Display top 3 teams with counts
+    // Display top 3 teams with counts and costs
     if (topTeamEl) {
         if (topTeams.length > 0) {
             const teamsDisplay = topTeams
-                .map(([team, count]) => `${team} (${count})`)
+                .map(([team, count]) => {
+                    // Calculate total cost for this team
+                    const issues = teamIssues[team] || [];
+                    let totalCost = 0;
+                    issues.forEach(issue => {
+                        if (issue.cost) {
+                            const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
+                            if (costMatch) {
+                                totalCost += parseFloat(costMatch[1].replace(',', ''));
+                            }
+                        }
+                    });
+                    
+                    const costDisplay = totalCost > 0 ? ` - Total Cost: £${totalCost.toFixed(2)}` : '';
+                    return `${team} (${count} request${count !== 1 ? 's' : ''}${costDisplay})`;
+                })
                 .join('<br>');
             topTeamEl.innerHTML = teamsDisplay;
         } else {
@@ -227,7 +242,7 @@ function renderAnalytics() {
         
         if (topCostEntries.length > 0) {
             const breakdown = topCostEntries
-                .map(([key, cost]) => `${key}: £${cost.toFixed(2)}`)
+                .map(([key, cost], index) => `${index + 1}. ${key}: £${cost.toFixed(2)}`)
                 .join('<br>');
             costBreakdownEl.innerHTML = breakdown;
             
@@ -305,6 +320,55 @@ function renderStatusChart() {
     });
 }
 
+// Helper function to group environments according to business rules
+function groupEnvironments(envCounts) {
+    const groupedCounts = {};
+    
+    // Initialize group counters
+    const groups = {
+        'Staging / AAT': 0,
+        'Test / Perftest': 0, 
+        'Preview / Dev': 0,
+        'Demo': 0,
+        'ITHC': 0,
+        'Sandbox': 0,
+        'PTL': 0,
+        'Unknown': 0
+    };
+    
+    // Process each individual environment
+    Object.entries(envCounts).forEach(([env, count]) => {
+        const normalizedEnv = env.toLowerCase().trim();
+        
+        if (normalizedEnv === 'staging' || normalizedEnv === 'aat') {
+            groups['Staging / AAT'] += count;
+        } else if (normalizedEnv === 'test' || normalizedEnv === 'perftest') {
+            groups['Test / Perftest'] += count;
+        } else if (normalizedEnv === 'dev' || normalizedEnv === 'preview') {
+            groups['Preview / Dev'] += count;
+        } else if (normalizedEnv === 'demo') {
+            groups['Demo'] += count;
+        } else if (normalizedEnv === 'ithc') {
+            groups['ITHC'] += count;
+        } else if (normalizedEnv === 'sandbox' || normalizedEnv === 'sbox') {
+            groups['Sandbox'] += count;
+        } else if (normalizedEnv === 'ptl') {
+            groups['PTL'] += count;
+        } else {
+            groups['Unknown'] += count;
+        }
+    });
+    
+    // Only return groups that have counts > 0
+    Object.entries(groups).forEach(([group, count]) => {
+        if (count > 0) {
+            groupedCounts[group] = count;
+        }
+    });
+    
+    return groupedCounts;
+}
+
 function renderEnvironmentChart() {
     const ctx = document.getElementById('environmentChart');
     if (!ctx) return;
@@ -329,13 +393,16 @@ function renderEnvironmentChart() {
         }
     });
     
+    // Group environments according to business rules
+    const groupedEnvCounts = groupEnvironments(envCounts);
+    
     window.environmentChartInstance = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: Object.keys(envCounts),
+            labels: Object.keys(groupedEnvCounts),
             datasets: [{
                 label: 'Requests',
-                data: Object.values(envCounts),
+                data: Object.values(groupedEnvCounts),
                 backgroundColor: '#667eea'
             }]
         },
@@ -362,8 +429,8 @@ function renderEnvironmentChart() {
             onClick: (event, elements) => {
                 if (elements.length > 0) {
                     const index = elements[0].index;
-                    const environment = Object.keys(envCounts)[index];
-                    const count = Object.values(envCounts)[index];
+                    const environment = Object.keys(groupedEnvCounts)[index];
+                    const count = Object.values(groupedEnvCounts)[index];
                     showEnvironmentDetails(environment, count);
                 }
             }
@@ -610,12 +677,61 @@ function applyFilters() {
     const endDate = document.getElementById('end-date-filter')?.value || '';
     const calendarMonth = document.getElementById('calendar-month-filter')?.value || '';
     
+    // Helper function to check if an environment matches a group
+    function environmentMatchesFilter(env, filterValue) {
+        if (!filterValue) return true;
+        if (!env) return false;
+        
+        const normalizedEnv = env.toLowerCase().trim();
+        
+        switch (filterValue) {
+            case 'Staging / AAT':
+                return normalizedEnv === 'staging' || normalizedEnv === 'aat' || 
+                       env === 'AAT / Staging' || env === 'Staging / AAT';
+            case 'Test / Perftest':
+                return normalizedEnv === 'test' || normalizedEnv === 'perftest' ||
+                       env === 'Test / Perftest' || env === 'Perftest / Test';
+            case 'Preview / Dev':
+                return normalizedEnv === 'dev' || normalizedEnv === 'preview' ||
+                       env === 'Preview / Dev' || env === 'Dev / Preview';
+            case 'Demo':
+                return normalizedEnv === 'demo';
+            case 'ITHC':
+                return normalizedEnv === 'ithc';
+            case 'Sandbox':
+                return normalizedEnv === 'sandbox' || normalizedEnv === 'sbox';
+            case 'PTL':
+                return normalizedEnv === 'ptl';
+            default:
+                return env === filterValue;
+        }
+    }
+    
     filteredIssues = allIssues.filter(issue => {
         // Normalize business area - only accept valid values
         const normalizedBusinessArea = normalizeBusinessArea(issue.business_area);
         if (businessArea && normalizedBusinessArea !== businessArea) return false;
         if (team && issue.team_name !== team) return false;
-        if (environment && issue.environment !== environment) return false;
+        
+        // Handle environment filtering with groups
+        if (environment) {
+            const env = issue.environment || 'Unknown';
+            let matches = false;
+            
+            // Check direct match
+            if (environmentMatchesFilter(env, environment)) {
+                matches = true;
+            }
+            
+            // Check if this environment is part of a multi-environment string
+            if (!matches && env.includes(' / ')) {
+                const splitEnvs = env.split(' / ').map(e => e.trim());
+                matches = splitEnvs.some(splitEnv => environmentMatchesFilter(splitEnv, environment));
+            }
+            
+            if (!matches) return false;
+        }
+        
         if (status && issue.status !== status) return false;
         if (startDate && issue.created_at < new Date(startDate)) return false;
         if (endDate && issue.created_at > new Date(endDate)) return false;
@@ -958,17 +1074,49 @@ function downloadFile(content, filename, mimeType) {
 }
 
 function showEnvironmentDetails(environment, count) {
-    // Find requests that match this environment, considering split environments
+    // Helper function to check if an environment matches a group
+    function environmentMatchesGroup(env, group) {
+        if (!env) return false;
+        const normalizedEnv = env.toLowerCase().trim();
+        
+        switch (group) {
+            case 'Staging / AAT':
+                return normalizedEnv === 'staging' || normalizedEnv === 'aat' || 
+                       env === 'AAT / Staging' || env === 'Staging / AAT';
+            case 'Test / Perftest':
+                return normalizedEnv === 'test' || normalizedEnv === 'perftest' ||
+                       env === 'Test / Perftest' || env === 'Perftest / Test';
+            case 'Preview / Dev':
+                return normalizedEnv === 'dev' || normalizedEnv === 'preview' ||
+                       env === 'Preview / Dev' || env === 'Dev / Preview';
+            case 'Demo':
+                return normalizedEnv === 'demo';
+            case 'ITHC':
+                return normalizedEnv === 'ithc';
+            case 'Sandbox':
+                return normalizedEnv === 'sandbox' || normalizedEnv === 'sbox';
+            case 'PTL':
+                return normalizedEnv === 'ptl';
+            default:
+                return env === environment;
+        }
+    }
+    
+    // Find requests that match this environment group
     const requests = filteredIssues.filter(issue => {
         const env = issue.environment || 'Unknown';
-        if (env === environment) {
+        
+        // Check direct match first
+        if (environmentMatchesGroup(env, environment)) {
             return true;
         }
+        
         // Check if this environment is part of a multi-environment string
         if (env.includes(' / ')) {
             const splitEnvs = env.split(' / ').map(e => e.trim());
-            return splitEnvs.includes(environment);
+            return splitEnvs.some(splitEnv => environmentMatchesGroup(splitEnv, environment));
         }
+        
         return false;
     });
     
@@ -1070,7 +1218,7 @@ function showCostBreakdownDetails(costBreakdown) {
     let details = `<h3>Cost by Team/Environment</h3>`;
     details += '<div class="cost-breakdown-list">';
     
-    costBreakdown.forEach(([key, cost]) => {
+    costBreakdown.forEach(([key, cost], index) => {
         // Extract team and environment from key
         const [teamPart, envPart] = key.split(' (');
         const team = teamPart;
@@ -1085,7 +1233,7 @@ function showCostBreakdownDetails(costBreakdown) {
         });
         
         details += `<div class="cost-detail-section">
-            <h4>${key} - Total: £${cost.toFixed(2)}</h4>
+            <h4>${index + 1}. ${key} - Total: £${cost.toFixed(2)}</h4>
             <div class="request-list">`;
         
         relevantIssues.forEach(issue => {
