@@ -403,20 +403,107 @@ function renderEnvironmentChart() {
         window.environmentChartInstance.destroy();
     }
     
-    const envCounts = {};
+    // Count distinct issues per environment group 
+    const groupedEnvCounts = {};
+    
+    // Initialize group counters
+    const groups = {
+        'Staging / AAT': new Set(),
+        'Test / Perftest': new Set(), 
+        'Preview / Dev': new Set(),
+        'Demo': new Set(),
+        'ITHC': new Set(),
+        'Sandbox': new Set(),
+        'PTL': new Set(),
+        'Unknown': new Set()
+    };
+    
     filteredIssues.forEach(issue => {
         const env = parseEnvironment(issue) || 'Unknown';
         
-        // Handle multi-environments by splitting on both comma and slash separators
-        // Example: "AAT / Staging, Preview / Dev, PTL" should become ["AAT", "Staging", "Preview", "Dev", "PTL"]
-        const splitEnvs = splitEnvironmentString(env);
-        splitEnvs.forEach(splitEnv => {
-            envCounts[splitEnv] = (envCounts[splitEnv] || 0) + 1;
-        });
+        // Helper function to check if an environment matches a group (same logic as in showEnvironmentDetails)
+        function environmentMatchesGroup(env, group) {
+            if (!env) return false;
+            const normalizedEnv = env.toLowerCase().trim();
+            
+            switch (group) {
+                case 'Staging / AAT':
+                    return normalizedEnv === 'staging' || normalizedEnv === 'aat' || 
+                           env === 'AAT / Staging' || env === 'Staging / AAT';
+                case 'Test / Perftest':
+                    return normalizedEnv === 'test' || normalizedEnv === 'perftest' ||
+                           env === 'Test / Perftest' || env === 'Perftest / Test';
+                case 'Preview / Dev':
+                    return normalizedEnv === 'dev' || normalizedEnv === 'preview' ||
+                           env === 'Preview / Dev' || env === 'Dev / Preview';
+                case 'Demo':
+                    return normalizedEnv === 'demo';
+                case 'ITHC':
+                    return normalizedEnv === 'ithc';
+                case 'Sandbox':
+                    return normalizedEnv === 'sandbox' || normalizedEnv === 'sbox';
+                case 'PTL':
+                    return normalizedEnv === 'ptl';
+                default:
+                    return env === group;
+            }
+        }
+        
+        // Check if environment looks like corrupted data
+        function isCorruptedEnvironment(env) {
+            if (!env || env === 'Unknown') return false;
+            // Check if it looks like partial text rather than environment name
+            return env.length > 50 || 
+                   env.includes('deployment') || 
+                   env.includes('go live') || 
+                   env.includes('support') || 
+                   env.includes('tonight') ||
+                   env.includes('available');
+        }
+        
+        // If environment looks corrupted, treat as Unknown
+        if (isCorruptedEnvironment(env)) {
+            groups['Unknown'].add(issue.id);
+            return;
+        }
+        
+        // Track which groups this issue belongs to
+        const matchingGroups = [];
+        
+        // Check direct match first
+        for (const [groupName] of Object.entries(groups)) {
+            if (environmentMatchesGroup(env, groupName)) {
+                matchingGroups.push(groupName);
+            }
+        }
+        
+        // If no direct match, check if this environment is part of a multi-environment string
+        if (matchingGroups.length === 0) {
+            const splitEnvs = splitEnvironmentString(env);
+            for (const [groupName] of Object.entries(groups)) {
+                if (splitEnvs.some(splitEnv => environmentMatchesGroup(splitEnv, groupName))) {
+                    matchingGroups.push(groupName);
+                }
+            }
+        }
+        
+        // Add the issue to all matching groups, or Unknown if no matches
+        if (matchingGroups.length > 0) {
+            matchingGroups.forEach(groupName => {
+                groups[groupName].add(issue.id);
+            });
+        } else {
+            groups['Unknown'].add(issue.id);
+        }
     });
     
-    // Group environments according to business rules
-    const groupedEnvCounts = groupEnvironments(envCounts);
+    // Convert Sets to counts and only return groups that have counts > 0
+    Object.entries(groups).forEach(([group, issueSet]) => {
+        const count = issueSet.size;
+        if (count > 0) {
+            groupedEnvCounts[group] = count;
+        }
+    });
     
     window.environmentChartInstance = new Chart(ctx, {
         type: 'bar',
@@ -1374,9 +1461,26 @@ function showEnvironmentDetails(environment, count) {
         }
     }
     
+    // Check if environment looks like corrupted data
+    function isCorruptedEnvironment(env) {
+        if (!env || env === 'Unknown') return false;
+        // Check if it looks like partial text rather than environment name
+        return env.length > 50 || 
+               env.includes('deployment') || 
+               env.includes('go live') || 
+               env.includes('support') || 
+               env.includes('tonight') ||
+               env.includes('available');
+    }
+    
     // Find requests that match this environment group
     const requests = filteredIssues.filter(issue => {
         const env = parseEnvironment(issue) || 'Unknown';
+        
+        // If environment looks corrupted, treat as Unknown
+        if (isCorruptedEnvironment(env)) {
+            return environment === 'Unknown';
+        }
         
         // Check direct match first
         if (environmentMatchesGroup(env, environment)) {
