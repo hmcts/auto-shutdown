@@ -53,13 +53,9 @@ jobs:
           git add docs/dashboard_data.json
           git commit -m "Update dashboard data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           git push
-
-              git config user.name hmcts-platform-operations
-          git config user.email github-platform-operations@hmcts.net
-          git pull
-          git add .
-          git commit -m parseissue-${{ github.event.issue.number }}
-          git push
+          commit_tree_url=$(gh browse -c -n)
+          commit_url=${commit_tree_url/tree/commit}
+          echo "COMMIT_URL=$(echo $commit_url)" >> $GITHUB_ENV
           
       - name: Summary
         if: steps.check_changes.outputs.changed == 'true'
