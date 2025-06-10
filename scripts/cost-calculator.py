@@ -84,7 +84,7 @@ def azPriceAPI(resource_type, sku, os_or_tier, retry=0):
     Query Azure Pricing API for different resource types
     """
     try:
-        api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP&api-version=2021-10-01-preview"
+        api_url = "https://prices.azure.com/api/retail/prices?currencyCode='GBP'&api-version=2021-10-01-preview"
         
         # Build product name and query based on resource type
         if resource_type == "VM":
@@ -190,6 +190,13 @@ with open("sku_details.txt", "r") as filestream:
             sku = str(currentLine[0])
             os_or_tier = str(currentLine[1])
             count = int(currentLine[2])
+        elif len(currentLine) == 5 and currentLine[2] == "":
+            # Handle malformed line with empty field: ResourceType,SKU,,OS/Tier,Count
+            resource_type = str(currentLine[0])
+            sku = str(currentLine[1])
+            os_or_tier = str(currentLine[3])  # Skip the empty element
+            count = int(currentLine[4])
+            print(f"Warning: Fixed malformed line with empty field: {line.strip()}")
         else:
             print(f"Invalid line format: {line.strip()}")
             continue
