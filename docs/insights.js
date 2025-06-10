@@ -599,31 +599,57 @@ function renderMonthlyCostChart() {
     }
     
     // Group issues by month and calculate total cost per month
+    // Use same logic as Calendar Month filter - include created_at, start_date, and end_date ranges
     const monthlyData = {};
     
     filteredIssues.forEach(issue => {
-        if (!issue.created_at) return;
+        const monthsForIssue = new Set();
         
-        const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
-        
-        if (!monthlyData[monthKey]) {
-            monthlyData[monthKey] = {
-                label: issue.created_at.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
-                cost: 0,
-                count: 0
-            };
+        // Add month from created_at date
+        if (issue.created_at) {
+            const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            monthsForIssue.add(monthKey);
         }
         
-        monthlyData[monthKey].count++;
-        
-        // Parse cost if available
-        if (issue.cost) {
-            const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
-            if (costMatch) {
-                const cost = parseFloat(costMatch[1].replace(/,/g, ''));
-                monthlyData[monthKey].cost += cost;
+        // Add months from start_date and end_date range
+        if (issue.start_date && issue.end_date) {
+            const startDate = new Date(issue.start_date);
+            const endDate = new Date(issue.end_date);
+            
+            // Add each month between start_date and end_date (inclusive)
+            const currentDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+            const lastDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1);
+            
+            while (currentDate <= lastDate) {
+                const monthKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+                monthsForIssue.add(monthKey);
+                currentDate.setMonth(currentDate.getMonth() + 1);
             }
         }
+        
+        // Add data for each month this issue applies to
+        monthsForIssue.forEach(monthKey => {
+            if (!monthlyData[monthKey]) {
+                const [year, month] = monthKey.split('-');
+                const date = new Date(parseInt(year), parseInt(month) - 1, 1);
+                monthlyData[monthKey] = {
+                    label: date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
+                    cost: 0,
+                    count: 0
+                };
+            }
+            
+            monthlyData[monthKey].count++;
+            
+            // Parse cost if available
+            if (issue.cost) {
+                const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
+                if (costMatch) {
+                    const cost = parseFloat(costMatch[1].replace(/,/g, ''));
+                    monthlyData[monthKey].cost += cost;
+                }
+            }
+        });
     });
     
     // Sort by month key and limit to last 12 months
@@ -691,21 +717,47 @@ function renderMonthlyRequestChart() {
     }
     
     // Group issues by month and count requests per month
+    // Use same logic as Calendar Month filter - include created_at, start_date, and end_date ranges
     const monthlyData = {};
     
     filteredIssues.forEach(issue => {
-        if (!issue.created_at) return;
+        const monthsForIssue = new Set();
         
-        const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
-        
-        if (!monthlyData[monthKey]) {
-            monthlyData[monthKey] = {
-                label: issue.created_at.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
-                count: 0
-            };
+        // Add month from created_at date
+        if (issue.created_at) {
+            const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            monthsForIssue.add(monthKey);
         }
         
-        monthlyData[monthKey].count++;
+        // Add months from start_date and end_date range
+        if (issue.start_date && issue.end_date) {
+            const startDate = new Date(issue.start_date);
+            const endDate = new Date(issue.end_date);
+            
+            // Add each month between start_date and end_date (inclusive)
+            const currentDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+            const lastDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1);
+            
+            while (currentDate <= lastDate) {
+                const monthKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+                monthsForIssue.add(monthKey);
+                currentDate.setMonth(currentDate.getMonth() + 1);
+            }
+        }
+        
+        // Add data for each month this issue applies to
+        monthsForIssue.forEach(monthKey => {
+            if (!monthlyData[monthKey]) {
+                const [year, month] = monthKey.split('-');
+                const date = new Date(parseInt(year), parseInt(month) - 1, 1);
+                monthlyData[monthKey] = {
+                    label: date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
+                    count: 0
+                };
+            }
+            
+            monthlyData[monthKey].count++;
+        });
     });
     
     // Sort by month key and limit to last 12 months
@@ -1487,11 +1539,34 @@ function showMonthlyCostDetails(monthKey, monthData) {
     const [year, month] = monthKey.split('-');
     const monthName = new Date(parseInt(year), parseInt(month) - 1, 1).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
     
-    // Find all issues for this month
+    // Find all issues for this month using same logic as Calendar Month filter
     const monthIssues = filteredIssues.filter(issue => {
-        if (!issue.created_at) return false;
-        const issueMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
-        return issueMonthKey === monthKey;
+        let matchesMonth = false;
+        
+        // Check if created_at matches the selected month
+        if (issue.created_at) {
+            const createdMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            if (createdMonthKey === monthKey) {
+                matchesMonth = true;
+            }
+        }
+        
+        // Check if start_date/end_date range overlaps with the selected month
+        if (!matchesMonth && issue.start_date && issue.end_date) {
+            const [selectedYear, selectedMonth] = monthKey.split('-').map(Number);
+            const selectedMonthStart = new Date(selectedYear, selectedMonth - 1, 1);
+            const selectedMonthEnd = new Date(selectedYear, selectedMonth, 0); // Last day of the month
+            
+            const issueStart = new Date(issue.start_date);
+            const issueEnd = new Date(issue.end_date);
+            
+            // Check if issue date range overlaps with selected month
+            if (issueStart <= selectedMonthEnd && issueEnd >= selectedMonthStart) {
+                matchesMonth = true;
+            }
+        }
+        
+        return matchesMonth;
     });
     
     let details = `<h3>Monthly Cost Analysis - ${monthName}</h3>`;
@@ -1532,11 +1607,34 @@ function showMonthlyRequestDetails(monthKey, monthData) {
     const [year, month] = monthKey.split('-');
     const monthName = new Date(parseInt(year), parseInt(month) - 1, 1).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
     
-    // Find all issues for this month
+    // Find all issues for this month using same logic as Calendar Month filter
     const monthIssues = filteredIssues.filter(issue => {
-        if (!issue.created_at) return false;
-        const issueMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
-        return issueMonthKey === monthKey;
+        let matchesMonth = false;
+        
+        // Check if created_at matches the selected month
+        if (issue.created_at) {
+            const createdMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            if (createdMonthKey === monthKey) {
+                matchesMonth = true;
+            }
+        }
+        
+        // Check if start_date/end_date range overlaps with the selected month
+        if (!matchesMonth && issue.start_date && issue.end_date) {
+            const [selectedYear, selectedMonth] = monthKey.split('-').map(Number);
+            const selectedMonthStart = new Date(selectedYear, selectedMonth - 1, 1);
+            const selectedMonthEnd = new Date(selectedYear, selectedMonth, 0); // Last day of the month
+            
+            const issueStart = new Date(issue.start_date);
+            const issueEnd = new Date(issue.end_date);
+            
+            // Check if issue date range overlaps with selected month
+            if (issueStart <= selectedMonthEnd && issueEnd >= selectedMonthStart) {
+                matchesMonth = true;
+            }
+        }
+        
+        return matchesMonth;
     });
     
     let details = `<h3>Monthly Request Analysis - ${monthName}</h3>`;
