@@ -230,7 +230,7 @@ function renderAnalytics() {
                 if (costMatch) {
                     const cost = parseFloat(costMatch[1].replace(',', ''));
                     const normalizedBusinessArea = normalizeBusinessArea(issue.business_area);
-                    const key = `${issue.team_name || 'Unknown'} (${issue.environment || 'Unknown'})`;
+                    const key = `${issue.team_name || 'Unknown'} (${parseEnvironment(issue) || 'Unknown'})`;
                     costBreakdown[key] = (costBreakdown[key] || 0) + cost;
                 }
             }
@@ -259,6 +259,8 @@ function renderCharts() {
     renderEnvironmentChart();
     renderCostChart();
     renderTrendChart();
+    renderMonthlyCostChart();
+    renderMonthlyRequestChart();
 }
 
 function renderStatusChart() {
@@ -318,6 +320,29 @@ function renderStatusChart() {
             }
         }
     });
+}
+
+// Helper function to split environment strings that may contain both comma and slash separators
+function splitEnvironmentString(env) {
+    if (!env || env === 'Unknown') {
+        return [env];
+    }
+    
+    // First split by comma to handle cases like "AAT / Staging, Preview / Dev, PTL"
+    const commaSplit = env.split(',').map(e => e.trim());
+    
+    // Then split each part by slash to handle cases like "AAT / Staging"
+    const allEnvs = [];
+    commaSplit.forEach(envGroup => {
+        if (envGroup.includes(' / ')) {
+            const slashSplit = envGroup.split(' / ').map(e => e.trim());
+            allEnvs.push(...slashSplit);
+        } else {
+            allEnvs.push(envGroup);
+        }
+    });
+    
+    return allEnvs;
 }
 
 // Helper function to group environments according to business rules
@@ -380,17 +405,14 @@ function renderEnvironmentChart() {
     
     const envCounts = {};
     filteredIssues.forEach(issue => {
-        const env = issue.environment || 'Unknown';
+        const env = parseEnvironment(issue) || 'Unknown';
         
-        // Handle multi-environments like "AAT / Staging" by splitting them
-        if (env.includes(' / ')) {
-            const splitEnvs = env.split(' / ').map(e => e.trim());
-            splitEnvs.forEach(splitEnv => {
-                envCounts[splitEnv] = (envCounts[splitEnv] || 0) + 1;
-            });
-        } else {
-            envCounts[env] = (envCounts[env] || 0) + 1;
-        }
+        // Handle multi-environments by splitting on both comma and slash separators
+        // Example: "AAT / Staging, Preview / Dev, PTL" should become ["AAT", "Staging", "Preview", "Dev", "PTL"]
+        const splitEnvs = splitEnvironmentString(env);
+        splitEnvs.forEach(splitEnv => {
+            envCounts[splitEnv] = (envCounts[splitEnv] || 0) + 1;
+        });
     });
     
     // Group environments according to business rules
@@ -567,6 +589,230 @@ function renderTrendChart() {
     });
 }
 
+function renderMonthlyCostChart() {
+    const ctx = document.getElementById('monthlyCostChart');
+    if (!ctx) return;
+    
+    // Destroy existing chart if it exists
+    if (window.monthlyCostChartInstance) {
+        window.monthlyCostChartInstance.destroy();
+    }
+    
+    // Group issues by month and calculate total cost per month
+    // Use same logic as Calendar Month filter - include created_at, start_date, and end_date ranges
+    const monthlyData = {};
+    
+    filteredIssues.forEach(issue => {
+        const monthsForIssue = new Set();
+        
+        // Add month from created_at date
+        if (issue.created_at) {
+            const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            monthsForIssue.add(monthKey);
+        }
+        
+        // Add months from start_date and end_date range
+        if (issue.start_date && issue.end_date) {
+            const startDate = new Date(issue.start_date);
+            const endDate = new Date(issue.end_date);
+            
+            // Add each month between start_date and end_date (inclusive)
+            const currentDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+            const lastDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1);
+            
+            while (currentDate <= lastDate) {
+                const monthKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+                monthsForIssue.add(monthKey);
+                currentDate.setMonth(currentDate.getMonth() + 1);
+            }
+        }
+        
+        // Add data for each month this issue applies to
+        monthsForIssue.forEach(monthKey => {
+            if (!monthlyData[monthKey]) {
+                const [year, month] = monthKey.split('-');
+                const date = new Date(parseInt(year), parseInt(month) - 1, 1);
+                monthlyData[monthKey] = {
+                    label: date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
+                    cost: 0,
+                    count: 0
+                };
+            }
+            
+            monthlyData[monthKey].count++;
+            
+            // Parse cost if available
+            if (issue.cost) {
+                const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
+                if (costMatch) {
+                    const cost = parseFloat(costMatch[1].replace(/,/g, ''));
+                    monthlyData[monthKey].cost += cost;
+                }
+            }
+        });
+    });
+    
+    // Sort by month key and limit to last 12 months
+    const sortedMonths = Object.keys(monthlyData)
+        .sort()
+        .slice(-12);
+    
+    if (sortedMonths.length === 0) {
+        ctx.getContext('2d').fillText('No monthly cost data available', 10, 50);
+        return;
+    }
+    
+    const monthLabels = sortedMonths.map(key => monthlyData[key].label);
+    const monthlyCosts = sortedMonths.map(key => monthlyData[key].cost);
+    
+    window.monthlyCostChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: monthLabels,
+            datasets: [{
+                label: 'Total Cost (£)',
+                data: monthlyCosts,
+                backgroundColor: '#10b981',
+                borderColor: '#059669',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '£' + value.toLocaleString();
+                        }
+                    }
+                }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const monthKey = sortedMonths[index];
+                    const monthData = monthlyData[monthKey];
+                    showMonthlyCostDetails(monthKey, monthData);
+                }
+            }
+        }
+    });
+}
+
+function renderMonthlyRequestChart() {
+    const ctx = document.getElementById('monthlyRequestChart');
+    if (!ctx) return;
+    
+    // Destroy existing chart if it exists
+    if (window.monthlyRequestChartInstance) {
+        window.monthlyRequestChartInstance.destroy();
+    }
+    
+    // Group issues by month and count requests per month
+    // Use same logic as Calendar Month filter - include created_at, start_date, and end_date ranges
+    const monthlyData = {};
+    
+    filteredIssues.forEach(issue => {
+        const monthsForIssue = new Set();
+        
+        // Add month from created_at date
+        if (issue.created_at) {
+            const monthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            monthsForIssue.add(monthKey);
+        }
+        
+        // Add months from start_date and end_date range
+        if (issue.start_date && issue.end_date) {
+            const startDate = new Date(issue.start_date);
+            const endDate = new Date(issue.end_date);
+            
+            // Add each month between start_date and end_date (inclusive)
+            const currentDate = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+            const lastDate = new Date(endDate.getFullYear(), endDate.getMonth(), 1);
+            
+            while (currentDate <= lastDate) {
+                const monthKey = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+                monthsForIssue.add(monthKey);
+                currentDate.setMonth(currentDate.getMonth() + 1);
+            }
+        }
+        
+        // Add data for each month this issue applies to
+        monthsForIssue.forEach(monthKey => {
+            if (!monthlyData[monthKey]) {
+                const [year, month] = monthKey.split('-');
+                const date = new Date(parseInt(year), parseInt(month) - 1, 1);
+                monthlyData[monthKey] = {
+                    label: date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }),
+                    count: 0
+                };
+            }
+            
+            monthlyData[monthKey].count++;
+        });
+    });
+    
+    // Sort by month key and limit to last 12 months
+    const sortedMonths = Object.keys(monthlyData)
+        .sort()
+        .slice(-12);
+    
+    if (sortedMonths.length === 0) {
+        ctx.getContext('2d').fillText('No monthly request data available', 10, 50);
+        return;
+    }
+    
+    const monthLabels = sortedMonths.map(key => monthlyData[key].label);
+    const monthlyCounts = sortedMonths.map(key => monthlyData[key].count);
+    
+    window.monthlyRequestChartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: monthLabels,
+            datasets: [{
+                label: 'Total Requests',
+                data: monthlyCounts,
+                backgroundColor: '#3b82f6',
+                borderColor: '#1d4ed8',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            },
+            onClick: (event, elements) => {
+                if (elements.length > 0) {
+                    const index = elements[0].index;
+                    const monthKey = sortedMonths[index];
+                    const monthData = monthlyData[monthKey];
+                    showMonthlyRequestDetails(monthKey, monthData);
+                }
+            }
+        }
+    });
+}
+
 function setupInsightsEventListeners() {
     // Filter event listeners
     const datePresetFilter = document.getElementById('date-preset-filter');
@@ -715,7 +961,7 @@ function applyFilters() {
         
         // Handle environment filtering with groups
         if (environment) {
-            const env = issue.environment || 'Unknown';
+            const env = parseEnvironment(issue) || 'Unknown';
             let matches = false;
             
             // Check direct match
@@ -724,8 +970,8 @@ function applyFilters() {
             }
             
             // Check if this environment is part of a multi-environment string
-            if (!matches && env.includes(' / ')) {
-                const splitEnvs = env.split(' / ').map(e => e.trim());
+            if (!matches) {
+                const splitEnvs = splitEnvironmentString(env);
                 matches = splitEnvs.some(splitEnv => environmentMatchesFilter(splitEnv, environment));
             }
             
@@ -806,7 +1052,7 @@ function exportCSV() {
         issue.status,
         normalizeBusinessArea(issue.business_area) || '',
         issue.team_name || '',
-        issue.environment || '',
+        parseEnvironment(issue) || '',
         issue.start_date ? formatDate(issue.start_date) : '',
         issue.end_date ? formatDate(issue.end_date) : '',
         issue.cost || ''
@@ -1104,7 +1350,7 @@ function showEnvironmentDetails(environment, count) {
     
     // Find requests that match this environment group
     const requests = filteredIssues.filter(issue => {
-        const env = issue.environment || 'Unknown';
+        const env = parseEnvironment(issue) || 'Unknown';
         
         // Check direct match first
         if (environmentMatchesGroup(env, environment)) {
@@ -1112,12 +1358,8 @@ function showEnvironmentDetails(environment, count) {
         }
         
         // Check if this environment is part of a multi-environment string
-        if (env.includes(' / ')) {
-            const splitEnvs = env.split(' / ').map(e => e.trim());
-            return splitEnvs.some(splitEnv => environmentMatchesGroup(splitEnv, environment));
-        }
-        
-        return false;
+        const splitEnvs = splitEnvironmentString(env);
+        return splitEnvs.some(splitEnv => environmentMatchesGroup(splitEnv, environment));
     });
     
     let details = `<h3>Environment: ${environment}</h3>`;
@@ -1129,7 +1371,7 @@ function showEnvironmentDetails(environment, count) {
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
             ${request.cost ? ` (${request.cost})` : ''}
             <br><small>Team: ${request.team_name || 'Unknown'}</small>
-            <br><small>Original Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Original Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1161,7 +1403,7 @@ function showStatusDetails(status, count) {
         details += `<div class="request-item">
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong>
             ${request.cost ? ` (${request.cost})` : ''}
-            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1185,7 +1427,7 @@ function showCostRangeDetails(range, count) {
     requests.forEach(request => {
         details += `<div class="request-item">
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.cost}
-            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1206,7 +1448,7 @@ function showTrendDetails(date, count) {
         details += `<div class="request-item">
             <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
             ${request.cost ? ` (${request.cost})` : ''}
-            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${request.environment || 'Unknown'}</small>
+            <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
     
@@ -1228,7 +1470,7 @@ function showCostBreakdownDetails(costBreakdown) {
         const relevantIssues = filteredIssues.filter(issue => {
             if (!issue.cost) return false;
             const issueTeam = issue.team_name || 'Unknown';
-            const issueEnv = issue.environment || 'Unknown';
+            const issueEnv = parseEnvironment(issue) || 'Unknown';
             return issueTeam === team && issueEnv === environment;
         });
         
@@ -1278,7 +1520,7 @@ function showTopTeamsDetails(topTeams, teamIssues) {
             details += `<div class="request-item">
                 <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
                 ${issue.cost ? ` (${issue.cost})` : ''}
-                <br><small>Environment: ${issue.environment || 'Unknown'}</small>
+                <br><small>Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
             </div>`;
         });
         
@@ -1291,6 +1533,139 @@ function showTopTeamsDetails(topTeams, teamIssues) {
     
     details += '</div>';
     showModal('Top Active Teams', details);
+}
+
+function showMonthlyCostDetails(monthKey, monthData) {
+    const [year, month] = monthKey.split('-');
+    const monthName = new Date(parseInt(year), parseInt(month) - 1, 1).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    
+    // Find all issues for this month using same logic as Calendar Month filter
+    const monthIssues = filteredIssues.filter(issue => {
+        let matchesMonth = false;
+        
+        // Check if created_at matches the selected month
+        if (issue.created_at) {
+            const createdMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            if (createdMonthKey === monthKey) {
+                matchesMonth = true;
+            }
+        }
+        
+        // Check if start_date/end_date range overlaps with the selected month
+        if (!matchesMonth && issue.start_date && issue.end_date) {
+            const [selectedYear, selectedMonth] = monthKey.split('-').map(Number);
+            const selectedMonthStart = new Date(selectedYear, selectedMonth - 1, 1);
+            const selectedMonthEnd = new Date(selectedYear, selectedMonth, 0); // Last day of the month
+            
+            const issueStart = new Date(issue.start_date);
+            const issueEnd = new Date(issue.end_date);
+            
+            // Check if issue date range overlaps with selected month
+            if (issueStart <= selectedMonthEnd && issueEnd >= selectedMonthStart) {
+                matchesMonth = true;
+            }
+        }
+        
+        return matchesMonth;
+    });
+    
+    let details = `<h3>Monthly Cost Analysis - ${monthName}</h3>`;
+    details += `<p><strong>Total Cost:</strong> £${monthData.cost.toFixed(2)}</p>`;
+    details += `<p><strong>Total Requests:</strong> ${monthData.count}</p>`;
+    details += '<div class="request-list">';
+    
+    // Show issues with costs first
+    const issuesWithCost = monthIssues.filter(issue => issue.cost);
+    if (issuesWithCost.length > 0) {
+        details += '<h4>Requests with Cost Data:</h4>';
+        issuesWithCost.forEach(issue => {
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                ${issue.cost ? ` (${issue.cost})` : ''}
+                <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
+            </div>`;
+        });
+    }
+    
+    // Show issues without costs
+    const issuesWithoutCost = monthIssues.filter(issue => !issue.cost);
+    if (issuesWithoutCost.length > 0) {
+        details += '<h4>Requests without Cost Data:</h4>';
+        issuesWithoutCost.forEach(issue => {
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
+            </div>`;
+        });
+    }
+    
+    details += '</div>';
+    showModal('Monthly Cost Details', details);
+}
+
+function showMonthlyRequestDetails(monthKey, monthData) {
+    const [year, month] = monthKey.split('-');
+    const monthName = new Date(parseInt(year), parseInt(month) - 1, 1).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+    
+    // Find all issues for this month using same logic as Calendar Month filter
+    const monthIssues = filteredIssues.filter(issue => {
+        let matchesMonth = false;
+        
+        // Check if created_at matches the selected month
+        if (issue.created_at) {
+            const createdMonthKey = `${issue.created_at.getFullYear()}-${String(issue.created_at.getMonth() + 1).padStart(2, '0')}`;
+            if (createdMonthKey === monthKey) {
+                matchesMonth = true;
+            }
+        }
+        
+        // Check if start_date/end_date range overlaps with the selected month
+        if (!matchesMonth && issue.start_date && issue.end_date) {
+            const [selectedYear, selectedMonth] = monthKey.split('-').map(Number);
+            const selectedMonthStart = new Date(selectedYear, selectedMonth - 1, 1);
+            const selectedMonthEnd = new Date(selectedYear, selectedMonth, 0); // Last day of the month
+            
+            const issueStart = new Date(issue.start_date);
+            const issueEnd = new Date(issue.end_date);
+            
+            // Check if issue date range overlaps with selected month
+            if (issueStart <= selectedMonthEnd && issueEnd >= selectedMonthStart) {
+                matchesMonth = true;
+            }
+        }
+        
+        return matchesMonth;
+    });
+    
+    let details = `<h3>Monthly Request Analysis - ${monthName}</h3>`;
+    details += `<p><strong>Total Requests:</strong> ${monthData.count}</p>`;
+    
+    // Group by status
+    const statusGroups = {};
+    monthIssues.forEach(issue => {
+        const status = issue.status || 'unknown';
+        if (!statusGroups[status]) {
+            statusGroups[status] = [];
+        }
+        statusGroups[status].push(issue);
+    });
+    
+    details += '<div class="request-list">';
+    
+    Object.keys(statusGroups).forEach(status => {
+        const issues = statusGroups[status];
+        details += `<h4>${status.charAt(0).toUpperCase() + status.slice(1)} (${issues.length}):</h4>`;
+        issues.forEach(issue => {
+            details += `<div class="request-item">
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                ${issue.cost ? ` (${issue.cost})` : ''}
+                <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
+            </div>`;
+        });
+    });
+    
+    details += '</div>';
+    showModal('Monthly Request Details', details);
 }
 
 function showModal(title, content) {

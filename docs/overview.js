@@ -170,13 +170,13 @@ function renderSpanningIndicator(request, startDate, endDate, calendarDays, cale
         spanningIndicator.className = `spanning-request-indicator ${request.status}`;
         
         // Include cost information if available
-        let displayText = `${request.team_name || 'Unknown'} - ${request.environment || 'Unknown'}`;
+        let displayText = `${request.team_name || 'Unknown'} - ${parseEnvironment(request) || 'Unknown'}`;
         if (request.cost) {
             displayText += ` (${request.cost})`;
         }
         spanningIndicator.textContent = displayText;
         
-        let tooltip = `${request.title}\nTeam: ${request.team_name}\nEnvironment: ${request.environment}\nStatus: ${request.status}`;
+        let tooltip = `${request.title}\nTeam: ${request.team_name}\nEnvironment: ${parseEnvironment(request)}\nStatus: ${request.status}`;
         if (request.cost) {
             tooltip += `\nCost: ${request.cost}`;
         }
@@ -201,13 +201,13 @@ function createRequestIndicator(request) {
     indicator.className = `request-indicator ${request.status}`;
     
     // Include cost information if available
-    let displayText = `${request.team_name || 'Unknown'} - ${request.environment || 'Unknown'}`;
+    let displayText = `${request.team_name || 'Unknown'} - ${parseEnvironment(request) || 'Unknown'}`;
     if (request.cost) {
         displayText += ` (${request.cost})`;
     }
     indicator.textContent = displayText;
     
-    let tooltip = `${request.title}\nTeam: ${request.team_name}\nEnvironment: ${request.environment}\nStatus: ${request.status}`;
+    let tooltip = `${request.title}\nTeam: ${request.team_name}\nEnvironment: ${parseEnvironment(request)}\nStatus: ${request.status}`;
     if (request.cost) {
         tooltip += `\nCost: ${request.cost}`;
     }
@@ -250,7 +250,7 @@ function renderRequestsList() {
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Environment</span>
-                    <span>${request.environment || 'Not specified'}</span>
+                    <span>${parseEnvironment(request) || 'Not specified'}</span>
                 </div>
                 <div class="detail-item">
                     <span class="detail-label">Created</span>

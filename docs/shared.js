@@ -163,6 +163,24 @@ function parseStayOnLate(issue) {
     return parseFieldFromBody(issue.body, 'Do you need this exclusion past 11pm\\?');
 }
 
+function parseEnvironment(issue) {
+    // Check if the environment field looks corrupted (contains common error patterns)
+    if (!issue.environment || 
+        issue.environment === '?' ||
+        issue.environment.includes('up during deployment') ||
+        issue.environment.includes('for exclusion') ||
+        issue.environment.length > 100) {
+        // Try to parse from body
+        const bodyEnvironment = parseFieldFromBody(issue.body, 'Environment');
+        if (bodyEnvironment) {
+            return bodyEnvironment;
+        }
+    }
+    
+    // Return the existing environment field if it looks valid
+    return issue.environment || 'Unknown';
+}
+
 function showRequestDetails(request) {
     const modal = document.getElementById('request-modal');
     const modalContent = document.getElementById('modal-content');
@@ -175,7 +193,7 @@ function showRequestDetails(request) {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0;">
             <div><strong>Business Area:</strong> ${normalizeBusinessArea(request.business_area) || 'Not specified'}</div>
             <div><strong>Team:</strong> ${request.team_name || 'Not specified'}</div>
-            <div><strong>Environment:</strong> ${request.environment || 'Not specified'}</div>
+            <div><strong>Environment:</strong> ${parseEnvironment(request) || 'Not specified'}</div>
             <div><strong>Created:</strong> ${formatDate(request.created_at)}</div>
             <div><strong>Start Date:</strong> ${request.start_date ? formatDate(request.start_date) : 'Not specified'}</div>
             <div><strong>End Date:</strong> ${request.end_date ? formatDate(request.end_date) : 'Not specified'}</div>
