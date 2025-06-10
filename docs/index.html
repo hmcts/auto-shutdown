@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoshutdown Exclusion Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>Autoshutdown Exclusion Dashboard</h1>
+            <p>Visual overview of environment shutdown exclusion requests</p>
+        </header>
+
+        <nav class="main-navigation">
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">📅 Overview</a>
+                <a href="insights.html" class="nav-link">📊 Insights</a>
+            </div>
+        </nav>
+
+        <div class="calendar-section">
+            <div class="calendar-header">
+                <button id="prev-month" class="nav-btn">&lt;</button>
+                <h2 id="current-month"></h2>
+                <button id="next-month" class="nav-btn">&gt;</button>
+            </div>
+            <div id="calendar-grid" class="calendar-grid">
+                <!-- Calendar will be generated here -->
+            </div>
+        </div>
+
+        <div class="requests-list">
+            <h2>Recent Requests</h2>
+            <div id="requests-container">
+                <!-- Request cards will be generated here -->
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading requests...</p>
+        </div>
+
+        <div id="error" class="error hidden">
+            <p>Error loading data. Please try again later.</p>
+        </div>
+    </div>
+
+    <!-- Request Detail Modal -->
+    <div id="request-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Request Details</h2>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="shared.js"></script>
+    <script src="overview.js"></script>
+</body>
+</html>

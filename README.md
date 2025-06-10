@@ -3,6 +3,10 @@ Config for Auto-Shutdown/Start of the AKS clusters
 
 In the near future, all environments excluding Production will be automatically shutdown. This action is to reduce the unnecessary infrastructure costs while the environments are not in use.
 
+## Visual Dashboard
+
+[View the Autoshutdown Exclusion Dashboard](https://hmcts.github.io/auto-shutdown/) - A visual interface to view shutdown exclusion requests.
+
 ## Default cluster shutdown hours
 
 20:00 to 06:30 everyday of the week.
