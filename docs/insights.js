@@ -194,11 +194,26 @@ function renderAnalytics() {
     if (avgDurationEl) avgDurationEl.textContent = avgDuration > 0 ? `${avgDuration}` : 'No data';
     if (approvalRateEl) approvalRateEl.textContent = `${approvalRate}%`;
     
-    // Display top 3 teams with counts
+    // Display top 3 teams with counts and costs
     if (topTeamEl) {
         if (topTeams.length > 0) {
             const teamsDisplay = topTeams
-                .map(([team, count]) => `${team} (${count})`)
+                .map(([team, count]) => {
+                    // Calculate total cost for this team
+                    const issues = teamIssues[team] || [];
+                    let totalCost = 0;
+                    issues.forEach(issue => {
+                        if (issue.cost) {
+                            const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
+                            if (costMatch) {
+                                totalCost += parseFloat(costMatch[1].replace(',', ''));
+                            }
+                        }
+                    });
+                    
+                    const costDisplay = totalCost > 0 ? ` - Total Cost: £${totalCost.toFixed(2)}` : '';
+                    return `${team} (${count} request${count !== 1 ? 's' : ''}${costDisplay})`;
+                })
                 .join('<br>');
             topTeamEl.innerHTML = teamsDisplay;
         } else {
