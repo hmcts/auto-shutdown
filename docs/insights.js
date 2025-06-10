@@ -320,6 +320,29 @@ function renderStatusChart() {
     });
 }
 
+// Helper function to split environment strings that may contain both comma and slash separators
+function splitEnvironmentString(env) {
+    if (!env || env === 'Unknown') {
+        return [env];
+    }
+    
+    // First split by comma to handle cases like "AAT / Staging, Preview / Dev, PTL"
+    const commaSplit = env.split(',').map(e => e.trim());
+    
+    // Then split each part by slash to handle cases like "AAT / Staging"
+    const allEnvs = [];
+    commaSplit.forEach(envGroup => {
+        if (envGroup.includes(' / ')) {
+            const slashSplit = envGroup.split(' / ').map(e => e.trim());
+            allEnvs.push(...slashSplit);
+        } else {
+            allEnvs.push(envGroup);
+        }
+    });
+    
+    return allEnvs;
+}
+
 // Helper function to group environments according to business rules
 function groupEnvironments(envCounts) {
     const groupedCounts = {};
@@ -382,15 +405,12 @@ function renderEnvironmentChart() {
     filteredIssues.forEach(issue => {
         const env = issue.environment || 'Unknown';
         
-        // Handle multi-environments like "AAT / Staging" by splitting them
-        if (env.includes(' / ')) {
-            const splitEnvs = env.split(' / ').map(e => e.trim());
-            splitEnvs.forEach(splitEnv => {
-                envCounts[splitEnv] = (envCounts[splitEnv] || 0) + 1;
-            });
-        } else {
-            envCounts[env] = (envCounts[env] || 0) + 1;
-        }
+        // Handle multi-environments by splitting on both comma and slash separators
+        // Example: "AAT / Staging, Preview / Dev, PTL" should become ["AAT", "Staging", "Preview", "Dev", "PTL"]
+        const splitEnvs = splitEnvironmentString(env);
+        splitEnvs.forEach(splitEnv => {
+            envCounts[splitEnv] = (envCounts[splitEnv] || 0) + 1;
+        });
     });
     
     // Group environments according to business rules
@@ -724,8 +744,8 @@ function applyFilters() {
             }
             
             // Check if this environment is part of a multi-environment string
-            if (!matches && env.includes(' / ')) {
-                const splitEnvs = env.split(' / ').map(e => e.trim());
+            if (!matches) {
+                const splitEnvs = splitEnvironmentString(env);
                 matches = splitEnvs.some(splitEnv => environmentMatchesFilter(splitEnv, environment));
             }
             
@@ -1112,12 +1132,8 @@ function showEnvironmentDetails(environment, count) {
         }
         
         // Check if this environment is part of a multi-environment string
-        if (env.includes(' / ')) {
-            const splitEnvs = env.split(' / ').map(e => e.trim());
-            return splitEnvs.some(splitEnv => environmentMatchesGroup(splitEnv, environment));
-        }
-        
-        return false;
+        const splitEnvs = splitEnvironmentString(env);
+        return splitEnvs.some(splitEnv => environmentMatchesGroup(splitEnv, environment));
     });
     
     let details = `<h3>Environment: ${environment}</h3>`;
