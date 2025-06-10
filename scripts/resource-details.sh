@@ -28,7 +28,7 @@ function countResource() {
     local count="$4"
     local key="${resource_type},${sku},${os_or_tier}"
     
-    if [ -v sku_sizes["$key"] ]; then
+    if [[ -v sku_sizes["$key"] ]]; then
         echo "adding $count instances to existing count for $key"
         local existing_count=$(echo "${sku_sizes["$key"]}")
         local new_count=$((existing_count + count))
