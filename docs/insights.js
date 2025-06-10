@@ -403,20 +403,80 @@ function renderEnvironmentChart() {
         window.environmentChartInstance.destroy();
     }
     
-    const envCounts = {};
+    // Count each issue once per environment group, not once per individual environment
+    const groupedEnvCounts = {};
+    
+    // Initialize group counters
+    const groups = {
+        'Staging / AAT': 0,
+        'Test / Perftest': 0, 
+        'Preview / Dev': 0,
+        'Demo': 0,
+        'ITHC': 0,
+        'Sandbox': 0,
+        'PTL': 0,
+        'Unknown': 0
+    };
+    
     filteredIssues.forEach(issue => {
         const env = parseEnvironment(issue) || 'Unknown';
         
-        // Handle multi-environments by splitting on both comma and slash separators
-        // Example: "AAT / Staging, Preview / Dev, PTL" should become ["AAT", "Staging", "Preview", "Dev", "PTL"]
-        const splitEnvs = splitEnvironmentString(env);
-        splitEnvs.forEach(splitEnv => {
-            envCounts[splitEnv] = (envCounts[splitEnv] || 0) + 1;
-        });
+        // Helper function to check if an environment matches a group (same logic as in showEnvironmentDetails)
+        function environmentMatchesGroup(env, group) {
+            if (!env) return false;
+            const normalizedEnv = env.toLowerCase().trim();
+            
+            switch (group) {
+                case 'Staging / AAT':
+                    return normalizedEnv === 'staging' || normalizedEnv === 'aat' || 
+                           env === 'AAT / Staging' || env === 'Staging / AAT';
+                case 'Test / Perftest':
+                    return normalizedEnv === 'test' || normalizedEnv === 'perftest' ||
+                           env === 'Test / Perftest' || env === 'Perftest / Test';
+                case 'Preview / Dev':
+                    return normalizedEnv === 'dev' || normalizedEnv === 'preview' ||
+                           env === 'Preview / Dev' || env === 'Dev / Preview';
+                case 'Demo':
+                    return normalizedEnv === 'demo';
+                case 'ITHC':
+                    return normalizedEnv === 'ithc';
+                case 'Sandbox':
+                    return normalizedEnv === 'sandbox' || normalizedEnv === 'sbox';
+                case 'PTL':
+                    return normalizedEnv === 'ptl';
+                default:
+                    return env === group;
+            }
+        }
+        
+        // Check direct match first
+        let matched = false;
+        for (const [groupName] of Object.entries(groups)) {
+            if (environmentMatchesGroup(env, groupName)) {
+                groups[groupName]++;
+                matched = true;
+                break; // Only count each issue once, in the first matching group
+            }
+        }
+        
+        // If no direct match, check if this environment is part of a multi-environment string
+        if (!matched) {
+            const splitEnvs = splitEnvironmentString(env);
+            for (const [groupName] of Object.entries(groups)) {
+                if (splitEnvs.some(splitEnv => environmentMatchesGroup(splitEnv, groupName))) {
+                    groups[groupName]++;
+                    break; // Only count each issue once, in the first matching group
+                }
+            }
+        }
     });
     
-    // Group environments according to business rules
-    const groupedEnvCounts = groupEnvironments(envCounts);
+    // Only return groups that have counts > 0
+    Object.entries(groups).forEach(([group, count]) => {
+        if (count > 0) {
+            groupedEnvCounts[group] = count;
+        }
+    });
     
     window.environmentChartInstance = new Chart(ctx, {
         type: 'bar',
