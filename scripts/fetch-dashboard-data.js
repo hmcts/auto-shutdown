@@ -146,12 +146,12 @@ async function extractCostFromComments(issueNumber) {
 function transformIssueData(issue) {
     const labels = issue.labels.map(l => l.name);
     
-    // Determine status from labels
+    // Determine status from labels - cancelled takes priority over other statuses
     let status = 'pending';
-    if (labels.includes('auto-approved')) status = 'auto-approved';
+    if (labels.includes('cancel') || issue.title.toLowerCase().includes('cancel')) status = 'cancelled';
+    else if (labels.includes('auto-approved')) status = 'auto-approved';
     else if (labels.includes('approved')) status = 'approved';
     else if (labels.includes('denied')) status = 'denied';
-    else if (labels.includes('cancel') || issue.title.toLowerCase().includes('cancel')) status = 'cancelled';
     
     // Extract data from issue body
     const body = issue.body || '';
