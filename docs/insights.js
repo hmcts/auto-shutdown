@@ -97,6 +97,11 @@ function populateCalendarMonthDropdown() {
     });
 }
 
+// Helper function to get non-cancelled issues for charts and analytics
+function getNonCancelledIssues() {
+    return filteredIssues.filter(issue => issue.status !== 'cancelled');
+}
+
 function renderSummary() {
     const now = new Date();
     const stats = {
@@ -131,9 +136,12 @@ function renderSummary() {
 }
 
 function renderAnalytics() {
+    // Use non-cancelled issues for analytics calculations
+    const nonCancelledIssues = getNonCancelledIssues();
+    
     // Calculate total cost
     let totalCost = 0;
-    filteredIssues.forEach(issue => {
+    nonCancelledIssues.forEach(issue => {
         if (issue.cost) {
             const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
             if (costMatch) {
@@ -145,7 +153,7 @@ function renderAnalytics() {
     // Calculate average duration
     let totalDuration = 0;
     let durationCount = 0;
-    filteredIssues.forEach(issue => {
+    nonCancelledIssues.forEach(issue => {
         if (issue.start_date && issue.end_date) {
             const duration = Math.ceil((issue.end_date - issue.start_date) / (1000 * 60 * 60 * 24));
             totalDuration += duration;
@@ -154,18 +162,18 @@ function renderAnalytics() {
     });
     const avgDuration = durationCount > 0 ? Math.round(totalDuration / durationCount) : 0;
     
-    // Calculate approval rate
-    const approvedCount = filteredIssues.filter(issue => 
+    // Calculate approval rate excluding cancelled issues
+    const approvedCount = nonCancelledIssues.filter(issue => 
         issue.status === 'approved' || issue.status === 'auto-approved'
     ).length;
-    const approvalRate = filteredIssues.length > 0 
-        ? Math.round((approvedCount / filteredIssues.length) * 100)
+    const approvalRate = nonCancelledIssues.length > 0 
+        ? Math.round((approvedCount / nonCancelledIssues.length) * 100)
         : 0;
     
-    // Find top 3 active teams with issue associations
+    // Find top 3 active teams with issue associations (excluding cancelled)
     const teamCounts = {};
     const teamIssues = {};
-    filteredIssues.forEach(issue => {
+    nonCancelledIssues.forEach(issue => {
         if (issue.team_name && issue.team_name.trim() !== '') {
             teamCounts[issue.team_name] = (teamCounts[issue.team_name] || 0) + 1;
             if (!teamIssues[issue.team_name]) {
@@ -221,10 +229,10 @@ function renderAnalytics() {
         }
     }
     
-    // Calculate cost breakdown by team/environment
+    // Calculate cost breakdown by team/environment (excluding cancelled)
     if (costBreakdownEl) {
         const costBreakdown = {};
-        filteredIssues.forEach(issue => {
+        nonCancelledIssues.forEach(issue => {
             if (issue.cost) {
                 const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
                 if (costMatch) {
@@ -280,6 +288,7 @@ function renderStatusChart() {
         'cancelled': 0
     };
     
+    // Include all issues (including cancelled) for status chart as it shows status breakdown
     filteredIssues.forEach(issue => {
         if (statusCounts.hasOwnProperty(issue.status)) {
             statusCounts[issue.status]++;
@@ -403,7 +412,7 @@ function renderEnvironmentChart() {
         window.environmentChartInstance.destroy();
     }
     
-    // Count distinct issues per environment group 
+    // Count distinct non-cancelled issues per environment group 
     const groupedEnvCounts = {};
     
     // Initialize group counters
@@ -418,7 +427,10 @@ function renderEnvironmentChart() {
         'Unknown': new Set()
     };
     
-    filteredIssues.forEach(issue => {
+    // Use non-cancelled issues for environment analysis
+    const nonCancelledIssues = getNonCancelledIssues();
+    
+    nonCancelledIssues.forEach(issue => {
         const env = parseEnvironment(issue) || 'Unknown';
         
         // Helper function to check if an environment matches a group (same logic as in showEnvironmentDetails)
@@ -556,7 +568,10 @@ function renderCostChart() {
         window.costChartInstance.destroy();
     }
     
-    const costData = filteredIssues
+    // Use non-cancelled issues for cost analysis
+    const nonCancelledIssues = getNonCancelledIssues();
+    
+    const costData = nonCancelledIssues
         .filter(issue => issue.cost)
         .map(issue => {
             const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
@@ -633,8 +648,11 @@ function renderTrendChart() {
         last50Days.push(date);
     }
     
+    // Use non-cancelled issues for trend analysis
+    const nonCancelledIssues = getNonCancelledIssues();
+    
     const dailyCounts = last50Days.map(date => {
-        return filteredIssues.filter(issue => 
+        return nonCancelledIssues.filter(issue => 
             issue.created_at.toDateString() === date.toDateString()
         ).length;
     });
@@ -687,9 +705,11 @@ function renderMonthlyCostChart() {
     
     // Group issues by month and calculate total cost per month
     // Use same logic as Calendar Month filter - include created_at, start_date, and end_date ranges
+    // Exclude cancelled issues from cost calculations
     const monthlyData = {};
+    const nonCancelledIssues = getNonCancelledIssues();
     
-    filteredIssues.forEach(issue => {
+    nonCancelledIssues.forEach(issue => {
         const monthsForIssue = new Set();
         
         // Add month from created_at date
@@ -820,9 +840,11 @@ function renderMonthlyRequestChart() {
     
     // Group issues by month and count requests per month
     // Use same logic as Calendar Month filter - include created_at, start_date, and end_date ranges
+    // Exclude cancelled issues from request volume analysis
     const monthlyData = {};
+    const nonCancelledIssues = getNonCancelledIssues();
     
-    filteredIssues.forEach(issue => {
+    nonCancelledIssues.forEach(issue => {
         const monthsForIssue = new Set();
         
         // Add month from created_at date
@@ -1473,8 +1495,9 @@ function showEnvironmentDetails(environment, count) {
                env.includes('available');
     }
     
-    // Find requests that match this environment group
-    const requests = filteredIssues.filter(issue => {
+    // Find requests that match this environment group (excluding cancelled issues)
+    const nonCancelledIssues = getNonCancelledIssues();
+    const requests = nonCancelledIssues.filter(issue => {
         const env = parseEnvironment(issue) || 'Unknown';
         
         // If environment looks corrupted, treat as Unknown
@@ -1542,7 +1565,9 @@ function showStatusDetails(status, count) {
 }
 
 function showCostRangeDetails(range, count) {
-    const requests = filteredIssues.filter(issue => {
+    // Use non-cancelled issues for cost range details
+    const nonCancelledIssues = getNonCancelledIssues();
+    const requests = nonCancelledIssues.filter(issue => {
         if (!issue.cost) return false;
         const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
         if (!costMatch) return false;
@@ -1566,7 +1591,9 @@ function showCostRangeDetails(range, count) {
 }
 
 function showTrendDetails(date, count) {
-    const requests = filteredIssues.filter(issue => 
+    // Use non-cancelled issues for trend details
+    const nonCancelledIssues = getNonCancelledIssues();
+    const requests = nonCancelledIssues.filter(issue => 
         issue.created_at.toDateString() === date.toDateString()
     );
     
@@ -1596,8 +1623,9 @@ function showCostBreakdownDetails(costBreakdown) {
         const team = teamPart;
         const environment = envPart ? envPart.replace(')', '') : 'Unknown';
         
-        // Find all issues for this team/environment combo that have costs
-        const relevantIssues = filteredIssues.filter(issue => {
+        // Find all issues for this team/environment combo that have costs (excluding cancelled)
+        const nonCancelledIssues = getNonCancelledIssues();
+        const relevantIssues = nonCancelledIssues.filter(issue => {
             if (!issue.cost) return false;
             const issueTeam = issue.team_name || 'Unknown';
             const issueEnv = parseEnvironment(issue) || 'Unknown';
