@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-06-12T11:03:21.460Z",
+  "last_updated": "2025-06-12T11:04:30.940Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1114,
+      "title": "Release civil S&D",
+      "status": "auto-approved",
+      "created_at": "2025-06-12T11:03:09.000Z",
+      "updated_at": "2025-06-12T11:04:20.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1114",
+      "user": "Azam-Hmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CIVIL",
+      "environment": "PTL, Preview / Dev, AAT / Staging",
+      "start_date": "2025-06-18T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "CHG5021302",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG5021302\n\n### Justification for exclusion?\n\nRelease for civils S&D at 7pm on 18th June\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCIVIL\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n18-06-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-09-2025",
+      "cost": "£336.5"
+    },
     {
       "id": 1112,
       "title": "PR-1111",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nPR-1036\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n08-05-2025\n\n### Skip shutdown end date\n\n09-05-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": null
-    },
-    {
-      "id": 1035,
-      "title": "Skip shutdown for OOH release",
-      "status": "auto-approved",
-      "created_at": "2025-04-07T14:06:48.000Z",
-      "updated_at": "2025-04-07T14:08:31.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1035",
-      "user": "FeliTam",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Probate",
-      "environment": "AAT / Staging, Preview / Dev, PTL",
-      "start_date": "2025-04-14T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG5020653",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG5020653\n\n### Justification for exclusion?\n\nSkip shutdown for LEV cert renewal release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nProbate\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n14-04-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n15-04-2025",
-      "cost": "£277.42"
     }
   ]
 }
