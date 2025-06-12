@@ -16,5 +16,23 @@
         "justification": "Release for civils S&D at 7pm on 18th June",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1113"
+    },
+    {
+        "form_review_date": "18-09-2025",
+        "start_date": "18-06-2025",
+        "end_date": "18-06-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Preview / Dev",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "CIVIL",
+        "change_jira_id": "CHG5021302",
+        "stay_on_late": "Yes",
+        "justification": "Release for civils S&D at 7pm on 18th June",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1114"
     }
 ]
