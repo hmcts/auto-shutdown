@@ -276,5 +276,8 @@ echo JUSTIFICATION=$justification >>$GITHUB_ENV
 # Temp file used by "cost-calculator.py" script for cost calculations
 nodeSummary >>sku_details.txt
 
+# Output sku details to console txt file for troubleshooting
+cat sku_details.txt
+
 # Adding test entry to cause cost failure scenario. Uncomment as needed
 #echo "Standard_D4ds_v5test,Linux,1" >>sku_details.txt
