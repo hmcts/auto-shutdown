@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "13/10/2025",
+        "start_date": "13-10-2025",
+        "end_date": "13-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "PlatOps",
+        "change_jira_id": "DTSPO-0000",
+        "stay_on_late": "No",
+        "justification": "Tetsing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown-dev/issues/188"
+    }
+]
