@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "19-Jul-2025",
+        "start_date": "19-06-2025",
+        "end_date": "21-06-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5160",
+        "stay_on_late": "Yes",
+        "justification": "To update huge volume of data in Perf Test, we need the DB up and running overnight",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1117"
+    }
+]
