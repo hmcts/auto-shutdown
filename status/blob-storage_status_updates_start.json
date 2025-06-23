@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.Storage/storageAccounts/atlassiannonprod",
-    "resource": "atlassiannonprod",
-    "statusMessage": ":red_circle: Storage Account: *atlassiannonprod* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8* after *start* action, is SFTP enabled: false .",
-    "resourceType": "blob-storage"
-  }
-]
