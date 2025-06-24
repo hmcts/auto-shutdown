@@ -14,6 +14,7 @@ function get_vms() {
     resources
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where tags.autoShutdown == 'true'
+    | where not(tolower(tags.Vendor) == 'databricks')
     $env_selector
     $area_selector
     | project name, resourceGroup, subscriptionId, ['tags'], properties.extended.instanceView.powerState.displayStatus, ['id']

@@ -39,11 +39,5 @@ jq -c '.data[]' <<<$ALL_SFTP_SERVERS | while read sftpserver; do
             # auto_shutdown_notification "$slackMessage"
             add_to_json "$STORAGE_ACCOUNT_ID" "$STORAGE_ACCOUNT_NAME" "$slackMessage" "blob-storage" "$MODE"
         fi
-    elif [[ "$SFTP_SERVER_ENABLED" =~ "false" ]]; then
-        ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
-        if [[ $MODE == "start" ]]; then
-            # auto_shutdown_notification "$slackMessage"
-            add_to_json "$STORAGE_ACCOUNT_ID" "$STORAGE_ACCOUNT_NAME" "$slackMessage" "blob-storage" "$MODE"
-        fi
     fi
 done
