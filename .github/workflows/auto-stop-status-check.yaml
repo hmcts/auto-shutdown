@@ -46,7 +46,6 @@ jobs:
         run: ./scripts/common/log-output.sh
 
       - name: Commit status update json files
-        if: github.event_name != 'pull_request' 
         continue-on-error: true
         run: |
           ls ./status
