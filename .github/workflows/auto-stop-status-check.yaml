@@ -1,7 +1,6 @@
 name: auto-stop-status-check
 on:
   workflow_dispatch:
-  pull_request:
   schedule:
     - cron: "30 19,22 * * *" # Every day at 20:30 and 23:30 BST
 env:
