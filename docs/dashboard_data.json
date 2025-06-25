@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-06-24T13:57:24.467Z",
+  "last_updated": "2025-06-25T06:02:07.945Z",
   "total_issues": 50,
   "data": [
     {
@@ -29,7 +29,7 @@
       "title": "PR-1118",
       "status": "auto-approved",
       "created_at": "2025-06-24T09:31:58.000Z",
-      "updated_at": "2025-06-24T13:49:38.000Z",
+      "updated_at": "2025-06-24T14:05:15.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1119",
       "user": "hmcts-platform-operations",
       "labels": [
