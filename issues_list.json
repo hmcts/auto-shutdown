@@ -30,5 +30,21 @@
         "justification": "XUI 24 hour soak test in progress",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1123"
+    },
+    {
+        "form_review_date": "01-07-2025",
+        "start_date": "26-06-2025",
+        "end_date": "26-06-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Test",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Keep perftest up for XUI soak test",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1126"
     }
 ]
