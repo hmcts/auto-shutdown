@@ -27,6 +27,7 @@ function get_sftp_servers() {
     Resources
       | where type == 'microsoft.storage/storageaccounts'
       | where tags['autoShutdown'] == 'true'
+      | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'sandbox')
       $env_selector
       $env_selector
       | project name, id, tags, properties, subscriptionId

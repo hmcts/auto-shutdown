@@ -20,6 +20,7 @@ function get_clusters() {
     resources
     | where type =~ 'Microsoft.ContainerService/managedClusters'
     | where tags.autoShutdown == 'true'
+    | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'sandbox')
     $env_selector
     $area_selector
     | project name, resourceGroup, subscriptionId, ['tags'], properties.powerState.code, ['id']
