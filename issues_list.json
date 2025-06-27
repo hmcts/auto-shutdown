@@ -14,5 +14,21 @@
         "justification": "Keep perftest up for XUI soak test",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1126"
+    },
+    {
+        "form_review_date": "01-07-2025",
+        "start_date": "27-06-2025",
+        "end_date": "30-06-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Test",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Running an XUI soak test in perftest to analyse memory consumption",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1129"
     }
 ]
