@@ -31,7 +31,7 @@ function get_flexible_sql_servers() {
     resources
     | where type =~ 'microsoft.dbforpostgresql/flexibleservers'
     | where tags.autoShutdown == 'true'
-    | where not(tolower(tags.environment) in~ ('staging', 'development', 'demo', 'sandbox'))
+    | where tags.startupMode != 'onDemand'
     $env_selector
     $area_selector
     $replica_selector
