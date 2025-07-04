@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "04-07-2025",
+        "start_date": "04-07-2025",
+        "end_date": "06-07-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-1896",
+        "stay_on_late": "Yes",
+        "justification": "We have to finish Internal testing of this ticket for demo to Service managers on Monday",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1131"
+    }
+]
