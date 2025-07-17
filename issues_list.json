@@ -1,39 +1,5 @@
 [
     {
-        "form_review_date": "30-07-2025",
-        "start_date": "16-07-2025",
-        "end_date": "16-07-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " Preview / Dev",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Probate",
-        "change_jira_id": "CHG-0024828",
-        "stay_on_late": "Yes",
-        "justification": "OOH data migration to move expired Caveat to closed state",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1132"
-    },
-    {
-        "form_review_date": "01/08/2025",
-        "start_date": "15-07-2025",
-        "end_date": "16-07-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance Test",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Running a soak test in perftest for XUI",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1133"
-    },
-    {
         "form_review_date": "01-08-2025",
         "start_date": "17-07-2025",
         "end_date": "17-07-2025",
