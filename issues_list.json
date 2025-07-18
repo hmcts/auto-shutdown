@@ -30,5 +30,23 @@
         "justification": "Testing needs to be completed so that a release can go live next week",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1135"
+    },
+    {
+        "form_review_date": "21-07-2025",
+        "start_date": "20-07-2025",
+        "end_date": "21-07-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-1877",
+        "stay_on_late": "Yes",
+        "justification": "Urgent ticket to test for Upcoming release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1136"
     }
 ]
