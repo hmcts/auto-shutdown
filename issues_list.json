@@ -1,21 +1,5 @@
 [
     {
-        "form_review_date": "01-08-2025",
-        "start_date": "17-07-2025",
-        "end_date": "17-07-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance Test",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Continuation of XUI soak test in perftest",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1134"
-    },
-    {
         "form_review_date": "21-07-2025",
         "start_date": "18-07-2025",
         "end_date": "18-07-2025",
