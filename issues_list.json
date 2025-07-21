@@ -16,5 +16,21 @@
         "justification": "Urgent ticket to test for Upcoming release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1136"
+    },
+    {
+        "form_review_date": "23-07-2025",
+        "start_date": "21-07-2025",
+        "end_date": "21-07-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Team",
+        "change_jira_id": "Civil Performance Testing",
+        "stay_on_late": "Yes",
+        "justification": "Urgent load test needs to be executed",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1137"
     }
 ]
