@@ -18,7 +18,7 @@ function get_sql_mi_servers() {
     resources
     | where type =~ 'microsoft.sql/managedinstances'
     | where tags.autoShutdown == 'true'
-    | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'sandbox')
+    | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox', 'testing')
     $env_selector
     | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id']
     " --first 1000 -o json
