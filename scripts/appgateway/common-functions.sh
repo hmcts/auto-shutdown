@@ -23,7 +23,7 @@ function get_application_gateways() {
     resources
       | where type =~ 'microsoft.network/applicationgateways'
       | where tags.autoShutdown == 'true'
-      | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'sandbox')
+      | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'sandbox', 'ptl')
       $env_selector
       $area_selector
       | project name, resourceGroup, subscriptionId, ['tags'], properties.operationalState, ['id']
