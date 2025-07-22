@@ -10,7 +10,7 @@ function get_bastions() {
     | where type =~ 'Microsoft.Compute/virtualMachines'
     | where tags.builtFrom == 'https://github.com/hmcts/bastion'
     | where tags.autoShutdown == 'true'
-    | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'sandbox', 'ptl')
+    | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox')
     | where tags.environment contains '$1' or tags.Environment contains '$1'
     | extend powerState = properties.extended.instanceView.powerState.displayStatus
     | project name, resourceGroup, subscriptionId, tags, powerState, id
