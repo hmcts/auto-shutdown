@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-07-28T06:08:12.371Z",
+  "last_updated": "2025-07-29T06:07:24.877Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1141,
+      "title": "CHG-0030996, CHG-0030997, CHG-0030998 SB3",
+      "status": "auto-approved",
+      "created_at": "2025-07-28T11:23:06.000Z",
+      "updated_at": "2025-07-28T11:24:16.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1141",
+      "user": "RebeccaBaker",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CCD",
+      "environment": "AAT / Staging, PTL, Preview / Dev",
+      "start_date": "2025-07-29T00:00:00.000Z",
+      "end_date": "2025-07-30T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "CHG-0030996, CHG-0030997, CHG-0030998",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0030996, CHG-0030997, CHG-0030998\n\n### Justification for exclusion?\n\nout of hours release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n29-07-2025\n\n### Skip shutdown end date\n\n30-07-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-10-2025",
+      "cost": "£685.81"
+    },
     {
       "id": 1140,
       "title": "Skip shutdown of Preview & AAT",
@@ -1091,28 +1113,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/confluence/display/RQA/Civil+-+Dashboard+Notification+Volumes+And+Civil+Regression+Test+Plan\n\n### Justification for exclusion?\n\nI will need to create data on database for me to be able to run a performance test tomorrow. I will need environment to stay up tonight so that I can complete the data prep before tomorrow\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance test team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n08-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n12-05-2025",
       "cost": "£93.32"
-    },
-    {
-      "id": 1058,
-      "title": "Keep SDS Perftest for DARTS",
-      "status": "auto-approved",
-      "created_at": "2025-05-07T17:37:48.000Z",
-      "updated_at": "2025-05-07T17:38:53.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1058",
-      "user": "cakeben",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "Test / Perftest, PTL",
-      "start_date": "2025-05-07T00:00:00.000Z",
-      "end_date": "2025-05-08T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nrequired for darts perf testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nTest / Perftest, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-05-2025\n\n### Skip shutdown end date\n\n08-05-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n08-05-2025",
-      "cost": "£58.23"
     }
   ]
 }
