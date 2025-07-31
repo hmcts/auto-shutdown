@@ -1,7 +1,30 @@
 {
-  "last_updated": "2025-07-31T10:21:24.735Z",
+  "last_updated": "2025-07-31T12:50:57.191Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1144,
+      "title": "PR-1143",
+      "status": "auto-approved",
+      "created_at": "2025-07-31T10:21:13.000Z",
+      "updated_at": "2025-07-31T11:07:33.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1144",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2025-08-30T00:00:00.000Z",
+      "end_date": "2025-08-31T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "PR-1143",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nPR-1143\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n30-08-2025\n\n### Skip shutdown end date\n\n31-08-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": null
+    },
     {
       "id": 1142,
       "title": "Auto shutdown exemption for AAT and Jenkins (CHG-0031743)",
@@ -1091,28 +1114,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DTSPO-25752\n\n### Justification for exclusion?\n\nARM Database maintenance is still running after weekend shutdown exclusion and needs at least another day to complete\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nEFT BAIS\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n12-MAY-2025\n\n### Skip shutdown end date\n\n12-MAY-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n13-AUG-2025",
       "cost": "£27.18"
-    },
-    {
-      "id": 1060,
-      "title": "CHG5020906 - FPL C110A release + migration",
-      "status": "auto-approved",
-      "created_at": "2025-05-08T15:09:17.000Z",
-      "updated_at": "2025-05-08T15:10:18.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1060",
-      "user": "DanCatchpole",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Family Public Law",
-      "environment": "AAT / Staging, Preview / Dev, PTL",
-      "start_date": "2025-05-08T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG5020906",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG5020906\n\n### Justification for exclusion?\n\nNeed to perform 3 migrations out of hours, so need to ensure the envs won't turn off in case of rollback\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n08-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n09-05-2025",
-      "cost": "£338.78"
     }
   ]
 }
