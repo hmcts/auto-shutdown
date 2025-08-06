@@ -16,5 +16,21 @@
         "justification": "We are doing an out of ours release with a login outage. Environments needed to run pipeline and potentially resolve issues",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1147"
+    },
+    {
+        "form_review_date": "07-08-2025",
+        "start_date": "06-08-2025",
+        "end_date": "06-08-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Pre Recorded Evidence",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/S28-310",
+        "stay_on_late": "No",
+        "justification": "Long running data migration is happening in staging env, we are needing the env not to shut down midway through.",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1149"
     }
 ]
