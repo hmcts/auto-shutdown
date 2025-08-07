@@ -1,16 +1,18 @@
 {
-  "last_updated": "2025-08-07T11:13:24.800Z",
+  "last_updated": "2025-08-07T11:14:35.524Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1150,
       "title": "Request to not auto shutdown 11/08",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2025-08-07T11:13:11.000Z",
-      "updated_at": "2025-08-07T11:13:11.000Z",
+      "updated_at": "2025-08-07T11:14:26.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1150",
       "user": "sankhajuria",
-      "labels": [],
+      "labels": [
+        "auto-approved"
+      ],
       "business_area": "CFT",
       "team_name": "Civil",
       "environment": "AAT / Staging, Preview / Dev, PTL, Demo",
@@ -20,7 +22,7 @@
       "change_jira_id": "CHG-0035403",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCHG-0035403\n\n### Justification for exclusion?\n\nhttps://tools.hmcts.net/confluence/display/CRef/Lip+v+LR+AAT+Testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCivil\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n11-08-2025\n\n### Skip shutdown end date\n\n11-08-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n07-08-2025",
-      "cost": null
+      "cost": "£487.17"
     },
     {
       "id": 1149,
