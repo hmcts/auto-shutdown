@@ -1,7 +1,27 @@
 {
-  "last_updated": "2025-08-07T06:02:34.360Z",
+  "last_updated": "2025-08-07T11:13:24.800Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1150,
+      "title": "Request to not auto shutdown 11/08",
+      "status": "pending",
+      "created_at": "2025-08-07T11:13:11.000Z",
+      "updated_at": "2025-08-07T11:13:11.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1150",
+      "user": "sankhajuria",
+      "labels": [],
+      "business_area": "CFT",
+      "team_name": "Civil",
+      "environment": "AAT / Staging, Preview / Dev, PTL, Demo",
+      "start_date": "2025-08-11T00:00:00.000Z",
+      "end_date": "2025-08-11T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "CHG-0035403",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0035403\n\n### Justification for exclusion?\n\nhttps://tools.hmcts.net/confluence/display/CRef/Lip+v+LR+AAT+Testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCivil\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n11-08-2025\n\n### Skip shutdown end date\n\n11-08-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n07-08-2025",
+      "cost": null
+    },
     {
       "id": 1149,
       "title": "Pre staging required for OOO data migtration",
@@ -1092,28 +1112,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/FPVTL-399\n\n### Justification for exclusion?\n\nIn case of release issues and lower env (Preview + AAT) is required\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n04-06-2025\n\n### Skip shutdown end date\n\n05-06-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n06-06-2025",
       "cost": null
-    },
-    {
-      "id": 1064,
-      "title": "DARTS Perftest Exclusion",
-      "status": "auto-approved",
-      "created_at": "2025-05-16T15:53:22.000Z",
-      "updated_at": "2025-05-16T15:54:22.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1064",
-      "user": "cakeben",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "Test / Perftest",
-      "start_date": "2025-05-16T00:00:00.000Z",
-      "end_date": "2025-05-19T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nPerftesting ahead of go live\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16/05/2025\n\n### Skip shutdown end date\n\n19/05/2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n19/05/2025",
-      "cost": "£263.9"
     }
   ]
 }
