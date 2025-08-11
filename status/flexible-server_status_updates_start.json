@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-definition-store-api-postgres-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccd-definition-store-api-postgres-db-v15-perftest",
+    "resource": "ccd-definition-store-api-postgres-db-v15-perftest",
+    "statusMessage": "Flexible SQL Server: *ccd-definition-store-api-postgres-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
