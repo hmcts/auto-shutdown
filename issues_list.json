@@ -35,5 +35,21 @@
         "justification": "https://tools.hmcts.net/confluence/display/CRef/Lip+v+LR+AAT+Testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1150"
+    },
+    {
+        "form_review_date": "14-08-2025",
+        "start_date": "12-08-2025",
+        "end_date": "12-08-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Pre Recorded Evidence",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/S28-310",
+        "stay_on_late": "No",
+        "justification": "Long running Vodafone data job for Pre Recorded Evidence needs staging, this is a one time job.",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1152"
     }
 ]
