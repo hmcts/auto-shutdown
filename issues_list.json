@@ -18,25 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1147"
     },
     {
-        "form_review_date": "07-08-2025",
-        "start_date": "11-08-2025",
-        "end_date": "11-08-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "Civil",
-        "change_jira_id": "CHG-0035403",
-        "stay_on_late": "Yes",
-        "justification": "https://tools.hmcts.net/confluence/display/CRef/Lip+v+LR+AAT+Testing",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1150"
-    },
-    {
         "form_review_date": "14-08-2025",
         "start_date": "12-08-2025",
         "end_date": "12-08-2025",
