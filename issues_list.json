@@ -1,40 +1,6 @@
 [
     {
         "form_review_date": "13-08-2025",
-        "start_date": "12-08-2025",
-        "end_date": "12-08-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Expert UI",
-        "change_jira_id": "EXUI-3320",
-        "stay_on_late": "Yes",
-        "justification": "We are doing an out of ours release with a login outage. Environments needed to run pipeline and potentially resolve issues",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1147"
-    },
-    {
-        "form_review_date": "14-08-2025",
-        "start_date": "12-08-2025",
-        "end_date": "12-08-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Pre Recorded Evidence",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/S28-310",
-        "stay_on_late": "No",
-        "justification": "Long running Vodafone data job for Pre Recorded Evidence needs staging, this is a one time job.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1152"
-    },
-    {
-        "form_review_date": "13-08-2025",
         "start_date": "18-08-2025",
         "end_date": "18-08-2025",
         "request_type": "stop",
