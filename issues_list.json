@@ -32,5 +32,24 @@
         "justification": "Long running Vodafone data job for Pre Recorded Evidence needs staging, this is a one time job.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1152"
+    },
+    {
+        "form_review_date": "13-08-2025",
+        "start_date": "18-08-2025",
+        "end_date": "18-08-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Civil",
+        "change_jira_id": "CHG-0037713 - 37713",
+        "stay_on_late": "Yes",
+        "justification": "Release for civils JO at 7pm on 18th August",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1153"
     }
 ]
