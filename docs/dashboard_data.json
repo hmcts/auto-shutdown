@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-08-13T14:31:36.531Z",
+  "last_updated": "2025-08-13T14:32:50.093Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1153,
+      "title": "Release civil JO",
+      "status": "auto-approved",
+      "created_at": "2025-08-13T14:31:03.000Z",
+      "updated_at": "2025-08-13T14:32:37.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1153",
+      "user": "Azam-Hmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Civil",
+      "environment": "AAT / Staging, Preview / Dev, Demo, PTL",
+      "start_date": "2025-08-18T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "CHG-0037713 - 37713",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0037713 - 37713\n\n### Justification for exclusion?\n\nRelease for civils JO at 7pm on 18th August\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCivil\n\n### Environment\n\nAAT / Staging, Preview / Dev, Demo, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n18-08-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n13-08-2025",
+      "cost": "£453.56"
+    },
     {
       "id": 1152,
       "title": "data job for Pre Recorded Evidence needs staging",
@@ -1093,29 +1115,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCHG5021021\n\n### Justification for exclusion?\n\nNeed to perform a data migration of all FPL cases as part of the release this evening\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFPL\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n21-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n22-05-2025",
       "cost": "£339.36"
-    },
-    {
-      "id": 1071,
-      "title": "Don't shutdown pre-test today",
-      "status": "auto-approved",
-      "created_at": "2025-05-21T15:26:28.000Z",
-      "updated_at": "2025-05-21T16:18:37.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1071",
-      "user": "yogeshruperaihmcts",
-      "labels": [
-        "Processing",
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "civil",
-      "environment": "Test / Perftest",
-      "start_date": "2025-05-21T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "n/a",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nNeed to perform load test out of hours\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\ncivil\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n21-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n25-05-2025",
-      "cost": "£95.08"
     }
   ]
 }
