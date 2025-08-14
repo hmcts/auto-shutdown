@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-08-14T13:27:32.535Z",
+  "last_updated": "2025-08-14T13:28:47.628Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1154,
+      "title": "CME-360, CME-361 rollout",
+      "status": "auto-approved",
+      "created_at": "2025-08-14T13:27:00.000Z",
+      "updated_at": "2025-08-14T13:28:37.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1154",
+      "user": "lukasz-wolski",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "RDAM",
+      "environment": "AAT / Staging, Preview / Dev, PTL, Test / Perftest, Demo, ITHC",
+      "start_date": "2025-08-14T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/CME-360",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/CME-360\n\n### Justification for exclusion?\n\nRollout will have impact on availability of database associated with service. To exclude downtime rollout will happen outside regular hours of service availability (after 8 p.m.).\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nRDAM\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Test / Perftest, Demo, ITHC\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n14-08-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n14-11-2025",
+      "cost": "£646.62"
+    },
     {
       "id": 1153,
       "title": "Release civil JO",
@@ -1093,28 +1115,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nfor performance test activities\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n21-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n21-08-2025",
       "cost": "£95.08"
-    },
-    {
-      "id": 1072,
-      "title": "DFPL-2360: out of hours release",
-      "status": "auto-approved",
-      "created_at": "2025-05-21T15:50:04.000Z",
-      "updated_at": "2025-05-21T16:13:28.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1072",
-      "user": "DanCatchpole",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "FPL",
-      "environment": "AAT / Staging, Preview / Dev, PTL",
-      "start_date": "2025-05-21T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG5021021",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG5021021\n\n### Justification for exclusion?\n\nNeed to perform a data migration of all FPL cases as part of the release this evening\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFPL\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n21-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n22-05-2025",
-      "cost": "£339.36"
     }
   ]
 }
