@@ -17,5 +17,26 @@
         "justification": "Release for civils JO at 7pm on 18th August",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1153"
+    },
+    {
+        "form_review_date": "14-11-2025",
+        "start_date": "14-08-2025",
+        "end_date": "14-08-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL",
+            " Test / Perftest",
+            " Demo",
+            " ITHC"
+        ],
+        "business_area": "cft",
+        "team_name": "RDAM",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CME-360",
+        "stay_on_late": "No",
+        "justification": "Rollout will have impact on availability of database associated with service. To exclude downtime rollout will happen outside regular hours of service availability (after 8 p.m.).",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1154"
     }
 ]

@@ -631,3 +631,9 @@
 14:32:22 ---------------------------------------------- 
 14:32:22 Running az graph query... 
 14:32:23 az graph query complete 
+13:27:52 ---------------------------------------------- 
+13:27:52 Running az graph query... 
+13:28:00 az graph query complete 
+13:28:23 ---------------------------------------------- 
+13:28:23 Running az graph query... 
+13:28:24 az graph query complete 
