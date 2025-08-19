@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-08-18T17:39:34.491Z",
+  "last_updated": "2025-08-19T06:01:57.943Z",
   "total_issues": 50,
   "data": [
     {
@@ -73,7 +73,7 @@
       "title": "Request to not auto shutdown 11/08",
       "status": "pending",
       "created_at": "2025-08-07T11:13:11.000Z",
-      "updated_at": "2025-08-18T17:39:32.000Z",
+      "updated_at": "2025-08-18T17:39:34.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1150",
       "user": "sankhajuria",
       "labels": [
