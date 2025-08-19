@@ -1,7 +1,30 @@
 {
-  "last_updated": "2025-08-19T18:47:13.998Z",
+  "last_updated": "2025-08-19T18:47:59.709Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1157,
+      "title": "DARTS Release keep AAT/PTL",
+      "status": "auto-approved",
+      "created_at": "2025-08-19T18:46:24.000Z",
+      "updated_at": "2025-08-19T18:47:48.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1157",
+      "user": "cakeben",
+      "labels": [
+        "Processing",
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "DARTS",
+      "environment": "PTL, Preview / Dev, AAT / Staging",
+      "start_date": "2025-08-19T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "N/A",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nfor Release 4 19/08\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19/08/2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/08/2025",
+      "cost": "£37.41"
+    },
     {
       "id": 1156,
       "title": "DARTS Keep Artifactory up",
@@ -1094,28 +1117,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nneed envs for db change\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL, AAT / Staging, Test / Perftest, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n27-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n28-05-2025",
       "cost": "£66.16"
-    },
-    {
-      "id": 1075,
-      "title": "DARTS Modernisation Go Live",
-      "status": "auto-approved",
-      "created_at": "2025-05-23T15:45:30.000Z",
-      "updated_at": "2025-05-23T15:46:47.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1075",
-      "user": "cakeben",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "s for the go live weekend",
-      "start_date": "2025-05-23T00:00:00.000Z",
-      "end_date": "2025-05-26T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nRequired environments for the go live weekend\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nTest / Perftest, AAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n23-05-2025\n\n### Skip shutdown end date\n\n26-05-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n26-05-2025",
-      "cost": "£747.99"
     }
   ]
 }
