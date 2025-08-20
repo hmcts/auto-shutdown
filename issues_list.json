@@ -16,21 +16,5 @@
         "justification": "Needs to be able to run our master pipeline during the out of hours release.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1155"
-    },
-    {
-        "form_review_date": "20/08/2025",
-        "start_date": "19-08-2025",
-        "end_date": "19-08-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "DARTS",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "for Release 4 19/08",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1156"
     }
 ]
