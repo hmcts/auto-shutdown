@@ -16,5 +16,23 @@
         "justification": "Needs to be able to run our master pipeline during the out of hours release.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1155"
+    },
+    {
+        "form_review_date": "22-08-2025",
+        "start_date": "21-08-2025",
+        "end_date": "21-08-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Family Public Law",
+        "change_jira_id": "CR 0038285",
+        "stay_on_late": "Yes",
+        "justification": "Needed to me able to raise PRs and run our master pipeline",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1158"
     }
 ]
