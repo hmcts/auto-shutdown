@@ -1,7 +1,27 @@
 {
-  "last_updated": "2025-08-21T06:02:01.976Z",
+  "last_updated": "2025-08-21T09:22:28.313Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1158,
+      "title": "Skip auto shutdown for FPL OOH migration test run",
+      "status": "pending",
+      "created_at": "2025-08-21T09:22:14.000Z",
+      "updated_at": "2025-08-21T09:22:14.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1158",
+      "user": "jamesrferguson1",
+      "labels": [],
+      "business_area": "CFT",
+      "team_name": "Family Public Law",
+      "environment": "AAT / Staging, PTL, Preview / Dev",
+      "start_date": "2025-08-21T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "CR 0038285",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCR 0038285\n\n### Justification for exclusion?\n\nNeeded to me able to raise PRs and run our master pipeline\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21-08-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n22-08-2025",
+      "cost": null
+    },
     {
       "id": 1157,
       "title": "DARTS Release keep AAT/PTL",
@@ -1094,28 +1114,6 @@
       "change_jira_id": "N/A",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nNeed multiple envs to get an out of hours change through\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL, Test / Perftest, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n28-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n28-05-2025",
-      "cost": "£66.16"
-    },
-    {
-      "id": 1076,
-      "title": "DARTS DB Max Connections Change",
-      "status": "auto-approved",
-      "created_at": "2025-05-27T15:50:54.000Z",
-      "updated_at": "2025-05-27T15:52:37.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1076",
-      "user": "cakeben",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "PTL, AAT / Staging, Test / Perftest, Preview / Dev",
-      "start_date": "2025-05-27T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nneed envs for db change\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL, AAT / Staging, Test / Perftest, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n27-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n28-05-2025",
       "cost": "£66.16"
     }
   ]
