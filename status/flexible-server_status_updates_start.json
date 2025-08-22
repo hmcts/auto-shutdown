@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/civil-sdt-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/civil-sdt-v15-perftest",
-    "resource": "civil-sdt-v15-perftest",
-    "statusMessage": "Flexible SQL Server: *civil-sdt-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Starting* state after *start* action",
-    "resourceType": "flexible-server"
-  }
-]
