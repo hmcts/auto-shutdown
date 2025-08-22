@@ -37,3 +37,4 @@ jobs:
 
       # - script: ./scripts/vm/restart-es-service.sh ithc $(elkprivatekey.secureFilePath)
       #   displayName: 'Start Elasticsearch ITHC'
+      # hello
