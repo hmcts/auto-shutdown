@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/lau-idam-backend-flexible-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/lau-idam-backend-flexible-aat",
-    "resource": "lau-idam-backend-flexible-aat",
-    "statusMessage": "Flexible SQL Server: *lau-idam-backend-flexible-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopped* state after *start* action",
-    "resourceType": "flexible-server"
-  }
-]
