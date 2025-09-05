@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "09-09-2025",
+        "start_date": "05-09-2025",
+        "end_date": "05-09-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Team",
+        "change_jira_id": "To complete performance testing prep for prl release",
+        "stay_on_late": "Yes",
+        "justification": "To complete performance testing prep for prl release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1165"
+    }
+]
