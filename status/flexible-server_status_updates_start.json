@@ -1,0 +1,14 @@
+[
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/ia-timed-event-service-postgres-db-v15-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/ia-timed-event-service-postgres-db-v15-aat",
+    "resource": "ia-timed-event-service-postgres-db-v15-aat",
+    "statusMessage": "Flexible SQL Server: *ia-timed-event-service-postgres-db-v15-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/ts-translation-service-postgres-db-v15-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/ts-translation-service-postgres-db-v15-aat",
+    "resource": "ts-translation-service-postgres-db-v15-aat",
+    "statusMessage": "Flexible SQL Server: *ts-translation-service-postgres-db-v15-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
