@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-09-08T06:02:15.701Z",
+  "last_updated": "2025-09-08T13:28:35.985Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1167,
+      "title": "Request to not auto shutdown 10/09",
+      "status": "pending",
+      "created_at": "2025-09-08T13:28:20.000Z",
+      "updated_at": "2025-09-08T13:28:31.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1167",
+      "user": "sankhajuria",
+      "labels": [
+        "Processing"
+      ],
+      "business_area": "CFT",
+      "team_name": "CIVIL SERVICE",
+      "environment": "AAT / Staging, PTL",
+      "start_date": "2052-09-10T00:00:00.000Z",
+      "end_date": "2025-09-10T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+Amend+Elastic+Search+Index+Configuration+Release+Implementation+Plan",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+Amend+Elastic+Search+Index+Configuration+Release+Implementation+Plan\n\n### Justification for exclusion?\n\nCIVIL\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCIVIL SERVICE\n\n### Environment\n\nAAT / Staging, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n10-09-2052\n\n### Skip shutdown end date\n\n10-09-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-09-2025",
+      "cost": null
+    },
     {
       "id": 1166,
       "title": "Exemption shutdown for OOH PayBubble Telephony Release + Dry Run",
@@ -1094,28 +1116,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nDTSCCI-2009\n\n### Justification for exclusion?\n\nTo create data for a load test\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\ntest team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n30-05-2025\n\n### Skip shutdown end date\n\n02-06-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n03-06-2025",
       "cost": "£1,073.41"
-    },
-    {
-      "id": 1081,
-      "title": "Don't shutdown Perftest",
-      "status": "auto-approved",
-      "created_at": "2025-05-29T14:49:43.000Z",
-      "updated_at": "2025-05-29T14:50:56.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1081",
-      "user": "yogeshruperaihmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Test team",
-      "environment": "Test / Perftest",
-      "start_date": "2025-05-29T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "DTSCCI-2009",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nDTSCCI-2009\n\n### Justification for exclusion?\n\nI need to create data in evening to be able to run a performance test\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nTest team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n29-05-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-05-2025",
-      "cost": "£95.67"
     }
   ]
 }
