@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-09-08T13:54:44.422Z",
+  "last_updated": "2025-09-08T13:55:09.586Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,12 +7,11 @@
       "title": "Request to not auto shutdown 10/09",
       "status": "pending",
       "created_at": "2025-09-08T13:28:20.000Z",
-      "updated_at": "2025-09-08T13:54:31.000Z",
+      "updated_at": "2025-09-08T13:54:57.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1167",
       "user": "sankhajuria",
       "labels": [
-        "Processing",
-        "Error in form"
+        "Processing"
       ],
       "business_area": "CFT",
       "team_name": "CIVIL SERVICE",
