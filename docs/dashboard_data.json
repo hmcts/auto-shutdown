@@ -1,17 +1,17 @@
 {
-  "last_updated": "2025-09-08T13:55:09.586Z",
+  "last_updated": "2025-09-08T13:56:13.001Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1167,
       "title": "Request to not auto shutdown 10/09",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2025-09-08T13:28:20.000Z",
-      "updated_at": "2025-09-08T13:54:57.000Z",
+      "updated_at": "2025-09-08T13:55:59.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1167",
       "user": "sankhajuria",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "CIVIL SERVICE",
@@ -22,7 +22,7 @@
       "change_jira_id": "https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+Amend+Elastic+Search+Index+Configuration+Release+Implementation+Plan",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+Amend+Elastic+Search+Index+Configuration+Release+Implementation+Plan\n\n### Justification for exclusion?\n\nCIVIL\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCIVIL SERVICE\n\n### Environment\n\nAAT / Staging, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n10-09-2025\n\n### Skip shutdown end date\n\n10-09-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n09-09-2025",
-      "cost": null
+      "cost": "£141.2"
     },
     {
       "id": 1166,
