@@ -33,5 +33,21 @@
         "justification": "CIVIL",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1167"
+    },
+    {
+        "form_review_date": "10-09-2025",
+        "start_date": "08-09-2025",
+        "end_date": "08-09-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "performance team",
+        "change_jira_id": "PRL Councel release",
+        "stay_on_late": "No",
+        "justification": "performance scripting for prl counsel release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1168"
     }
 ]
