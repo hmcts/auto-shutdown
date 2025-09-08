@@ -16,5 +16,22 @@
         "justification": "Telephony release required OOH, involves PRs pushed to PayBubble and Payment App and DB checks - this is on the evening of the 18th. On the 20th there is a Dry Run which needs th Bastion host and PR to change configuration in PayBubble.",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1166"
+    },
+    {
+        "form_review_date": "09-09-2025",
+        "start_date": "10-09-2025",
+        "end_date": "10-09-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "CIVIL SERVICE",
+        "change_jira_id": "https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+Amend+Elastic+Search+Index+Configuration+Release+Implementation+Plan",
+        "stay_on_late": "Yes",
+        "justification": "CIVIL",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1167"
     }
 ]
