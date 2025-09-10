@@ -33,21 +33,5 @@
         "justification": "CIVIL",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1167"
-    },
-    {
-        "form_review_date": "12-09-2025",
-        "start_date": "09-09-2025",
-        "end_date": "09-09-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance team",
-        "change_jira_id": "performance testing for prl council release",
-        "stay_on_late": "No",
-        "justification": "performance testing for prl council release",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1169"
     }
 ]
