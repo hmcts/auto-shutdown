@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-09-10T18:16:18.479Z",
+  "last_updated": "2025-09-10T18:17:24.038Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1170,
+      "title": "Don't shutdown PerfTest",
+      "status": "auto-approved",
+      "created_at": "2025-09-10T18:16:03.000Z",
+      "updated_at": "2025-09-10T18:17:10.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1170",
+      "user": "yogeshruperaihmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Performance Team",
+      "environment": "Test / Perftest",
+      "start_date": "2025-09-10T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "To complete performance testing for prl councel release",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nTo complete performance testing for prl councel release\n\n### Justification for exclusion?\n\nTo complete performance testing for prl councel release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n10-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n12-09-2025",
+      "cost": "£110.95"
+    },
     {
       "id": 1169,
       "title": "Don't shutdown PerfTest",
@@ -1094,28 +1116,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nFor performance test activity\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n05-06-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-09-2025",
       "cost": "£93.94"
-    },
-    {
-      "id": 1084,
-      "title": "Keep environments up during deployment of CBUS changes",
-      "status": "auto-approved",
-      "created_at": "2025-06-04T14:54:42.000Z",
-      "updated_at": "2025-06-04T14:56:09.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1084",
-      "user": "ian-j-horne",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "CBUS",
-      "environment": "s up during deployment of CBUS changes for SDT-241",
-      "start_date": "2025-06-06T00:00:00.000Z",
-      "end_date": "2025-06-07T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "SDT-241",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nSDT-241\n\n### Justification for exclusion?\n\nKeep environments up during deployment of CBUS changes for SDT-241\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCBUS\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06-06-2025\n\n### Skip shutdown end date\n\n07-06-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n06-09-2025",
-      "cost": "£1,647.88"
     }
   ]
 }
