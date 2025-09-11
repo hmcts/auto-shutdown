@@ -18,39 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1166"
     },
     {
-        "form_review_date": "09-09-2025",
-        "start_date": "10-09-2025",
-        "end_date": "10-09-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "CIVIL SERVICE",
-        "change_jira_id": "https://tools.hmcts.net/confluence/display/RSTR/Civil+SMALL+-+Amend+Elastic+Search+Index+Configuration+Release+Implementation+Plan",
-        "stay_on_late": "Yes",
-        "justification": "CIVIL",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1167"
-    },
-    {
-        "form_review_date": "12-09-2025",
-        "start_date": "10-09-2025",
-        "end_date": "10-09-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance Team",
-        "change_jira_id": "To complete performance testing for prl councel release",
-        "stay_on_late": "Yes",
-        "justification": "To complete performance testing for prl councel release",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1170"
-    },
-    {
         "form_review_date": "11-09-2025",
         "start_date": "15-09-2025",
         "end_date": "15-09-2025",
