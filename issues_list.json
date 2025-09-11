@@ -49,5 +49,23 @@
         "justification": "To complete performance testing for prl councel release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1170"
+    },
+    {
+        "form_review_date": "11-09-2025",
+        "start_date": "15-09-2025",
+        "end_date": "15-09-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "CIVIL",
+        "change_jira_id": "https://tools.hmcts.net/confluence/display/RSTR/CIV-10.8.0+-+Strategic+Welsh+CUI+%28NRO%29+Release+Implementation+Plan",
+        "stay_on_late": "Yes",
+        "justification": "CIVIL release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1171"
     }
 ]
