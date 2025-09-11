@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-09-11T08:38:33.227Z",
+  "last_updated": "2025-09-11T08:38:49.606Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,10 +7,12 @@
       "title": "Request to not auto shutdown 15/09",
       "status": "pending",
       "created_at": "2025-09-11T08:38:22.000Z",
-      "updated_at": "2025-09-11T08:38:22.000Z",
+      "updated_at": "2025-09-11T08:38:37.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1171",
       "user": "sankhajuria",
-      "labels": [],
+      "labels": [
+        "Processing"
+      ],
       "business_area": "CFT",
       "team_name": "CIVIL",
       "environment": "AAT / Staging, Preview / Dev, PTL",
