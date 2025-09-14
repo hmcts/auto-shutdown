@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-09-14T08:42:23.283Z",
+  "last_updated": "2025-09-14T08:42:35.244Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,10 +7,12 @@
       "title": "Request to not auto shutdown for qm lips release",
       "status": "pending",
       "created_at": "2025-09-14T08:42:11.000Z",
-      "updated_at": "2025-09-14T08:42:11.000Z",
+      "updated_at": "2025-09-14T08:42:25.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1172",
       "user": "vasudevganesanhmcts",
-      "labels": [],
+      "labels": [
+        "Processing"
+      ],
       "business_area": "CFT",
       "team_name": "Civil",
       "environment": "AAT / Staging, Preview / Dev, PTL",
