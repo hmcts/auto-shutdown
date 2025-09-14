@@ -34,5 +34,23 @@
         "justification": "CIVIL release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1171"
+    },
+    {
+        "form_review_date": "14-09-2025",
+        "start_date": "17-09-2025",
+        "end_date": "17-09-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Civil",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CIV-17335",
+        "stay_on_late": "Yes",
+        "justification": "qm lips release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1172"
     }
 ]
