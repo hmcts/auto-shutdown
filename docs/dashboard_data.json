@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-09-17T06:02:25.199Z",
+  "last_updated": "2025-09-17T11:24:28.287Z",
   "total_issues": 50,
   "data": [
     {
@@ -158,14 +158,15 @@
     },
     {
       "id": 1166,
-      "title": "Exemption shutdown for OOH PayBubble Telephony Release + Dry Run",
-      "status": "auto-approved",
+      "title": "Exemption shutdown for OOH PayBubble Telephony Release + Dry Run - ❌",
+      "status": "cancelled",
       "created_at": "2025-09-06T18:44:57.000Z",
-      "updated_at": "2025-09-06T18:45:59.000Z",
+      "updated_at": "2025-09-17T11:24:14.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1166",
       "user": "davejones74",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "CFT",
       "team_name": "Fee and Payments",
