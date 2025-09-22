@@ -1,24 +1,5 @@
 [
     {
-        "form_review_date": "13/10/2025",
-        "start_date": "19-09-2025",
-        "end_date": "21-09-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " PTL",
-            " Preview / Dev",
-            " AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration & Asylum - Detained Appeals Feature Team",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-950",
-        "stay_on_late": "No",
-        "justification": "The Immigration and Asylum Chamber (IAC) Detained Appeals feature team plans to work over the weekend. Well need the Demo and Jenkins Pipelines to be available to support their development work.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1173"
-    },
-    {
         "form_review_date": "24-10-2025",
         "start_date": "24-09-2025",
         "end_date": "24-09-2025",
