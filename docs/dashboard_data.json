@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-09-26T18:59:35.187Z",
+  "last_updated": "2025-09-26T19:00:34.398Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1178,
+      "title": "Keep AAT UP",
+      "status": "auto-approved",
+      "created_at": "2025-09-26T18:59:06.000Z",
+      "updated_at": "2025-09-26T19:00:24.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1178",
+      "user": "RebeccaBaker",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CCD",
+      "environment": "AAT / Staging",
+      "start_date": "2025-09-26T00:00:00.000Z",
+      "end_date": "2025-09-27T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-6681",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/CCD-6681\n\n### Justification for exclusion?\n\nhttps://tools.hmcts.net/jira/browse/CCD-6681\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n26-09-2025\n\n### Skip shutdown end date\n\n27-09-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n26-10-2025",
+      "cost": "£579.61"
+    },
     {
       "id": 1177,
       "title": "Keep AAT ccd-definition-store-api DB up as well as the non-production bastion",
@@ -1088,29 +1110,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCHG5021302\n\n### Justification for exclusion?\n\nRelease for civils S&D at 7pm on 18th June\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCIVIL\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n18-06-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-09-2025",
       "cost": "£336.5"
-    },
-    {
-      "id": 1112,
-      "title": "PR-1111",
-      "status": "auto-approved",
-      "created_at": "2025-06-11T12:23:01.000Z",
-      "updated_at": "2025-06-11T12:23:34.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1112",
-      "user": "hmcts-platform-operations",
-      "labels": [
-        "auto-approved",
-        "pull-request"
-      ],
-      "business_area": "CFT",
-      "team_name": "PlatOps",
-      "environment": "AAT / Staging",
-      "start_date": "2025-07-11T00:00:00.000Z",
-      "end_date": "2025-07-12T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "PR-1111",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nPR-1111\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n11-07-2025\n\n### Skip shutdown end date\n\n12-07-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": null
     }
   ]
 }
