@@ -1,17 +1,18 @@
 {
-  "last_updated": "2025-09-29T09:11:13.894Z",
+  "last_updated": "2025-09-29T15:23:54.339Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1179,
-      "title": "Nexus Telephony Production Dry Run",
-      "status": "auto-approved",
+      "title": "Nexus Telephony Production Dry Run - ❌",
+      "status": "cancelled",
       "created_at": "2025-09-29T09:09:26.000Z",
-      "updated_at": "2025-09-29T09:11:01.000Z",
+      "updated_at": "2025-09-29T15:23:38.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1179",
       "user": "davejones74",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "CFT",
       "team_name": "Fee and Payments",
