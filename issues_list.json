@@ -49,23 +49,5 @@
         "justification": "Required to perform DB cleanup",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1177"
-    },
-    {
-        "form_review_date": "30-10-2025",
-        "start_date": "30-09-2025",
-        "end_date": "30-09-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Fee and Payments",
-        "change_jira_id": "CHG-0055965",
-        "stay_on_late": "No",
-        "justification": "Application environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1179"
     }
 ]
