@@ -1,24 +1,5 @@
 [
     {
-        "form_review_date": "13/10/2025",
-        "start_date": "26-09-2025",
-        "end_date": "28-09-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration & Asylum - Detained Appeals Feature Team",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-950",
-        "stay_on_late": "No",
-        "justification": "The Immigration and Asylum Chamber (IAC) Detained Appeals feature team plans to work over the weekend. Well need the Demo and Jenkins Pipelines to be available to support their development work",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1175"
-    },
-    {
         "form_review_date": "12-12-2025",
         "start_date": "26-09-2025",
         "end_date": "03-10-2025",
@@ -33,22 +14,6 @@
         "justification": "Testing events that run overnight",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1176"
-    },
-    {
-        "form_review_date": "01-10-2025",
-        "start_date": "26-09-2025",
-        "end_date": "28-09-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "CFT L2",
-        "change_jira_id": "NA",
-        "stay_on_late": "Yes",
-        "justification": "Required to perform DB cleanup",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1177"
     },
     {
         "form_review_date": "30-10-2025",
