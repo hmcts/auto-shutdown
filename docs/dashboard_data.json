@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-09-29T15:26:07.840Z",
+  "last_updated": "2025-09-29T15:27:29.237Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1180,
+      "title": "Nexus Telephony Production Dry Run",
+      "status": "auto-approved",
+      "created_at": "2025-09-29T15:25:55.000Z",
+      "updated_at": "2025-09-29T15:27:18.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1180",
+      "user": "davejones74",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Fee and Payments",
+      "environment": "variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.",
+      "start_date": "2025-09-30T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "CHG-0055965",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0055965\n\n### Justification for exclusion?\n\nApplication environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n30-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-10-2025",
+      "cost": "£322.12"
+    },
     {
       "id": 1179,
       "title": "Nexus Telephony Production Dry Run - ❌",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5160\n\n### Justification for exclusion?\n\nTo update huge volume of data in Perf Test, we need the DB up and running overnight\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19-Jun-2025\n\n### Skip shutdown end date\n\n21-Jun-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n19-Jul-2025",
       "cost": "£124.39"
-    },
-    {
-      "id": 1116,
-      "title": "IAC - Jenkins Exemption",
-      "status": "auto-approved",
-      "created_at": "2025-06-17T12:52:49.000Z",
-      "updated_at": "2025-06-17T12:54:02.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1116",
-      "user": "KleoG",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Immigration and Asylum",
-      "environment": "AAT / Staging, Preview / Dev, PTL",
-      "start_date": "2025-06-17T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG5021346",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG5021346\n\n### Justification for exclusion?\n\nWe are doing an elastic search reindexing and need the pipelines working to merge in changes\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration and Asylum\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n17/06/2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18/06/2025",
-      "cost": "£304.99"
     }
   ]
 }
