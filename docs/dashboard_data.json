@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-09-30T15:35:36.643Z",
+  "last_updated": "2025-09-30T15:37:04.826Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1182,
+      "title": "IAC - Jenkins Exemption",
+      "status": "auto-approved",
+      "created_at": "2025-09-30T15:35:23.000Z",
+      "updated_at": "2025-09-30T15:36:55.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1182",
+      "user": "KleoG",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Immigration and Asylum",
+      "environment": "AAT / Staging, Preview / Dev, PTL, Demo",
+      "start_date": "2025-09-30T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "0058181",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\n0058181\n\n### Justification for exclusion?\n\nWe are doing an elastic search reindexing and need the pipelines working to merge in changes\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration and Asylum\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n30-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-10-2025",
+      "cost": "£444.05"
+    },
     {
       "id": 1181,
       "title": "Adoption - Redis Cache Persistance",
@@ -1088,29 +1110,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SIDM-9845\n\n### Justification for exclusion?\n\nPerformance Testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nIDAM\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n24-06-2025\n\n### Skip shutdown end date\n\n25-06-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n24-09-2025",
       "cost": "£222.22"
-    },
-    {
-      "id": 1119,
-      "title": "PR-1118",
-      "status": "auto-approved",
-      "created_at": "2025-06-24T09:31:58.000Z",
-      "updated_at": "2025-06-24T14:05:15.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1119",
-      "user": "hmcts-platform-operations",
-      "labels": [
-        "auto-approved",
-        "pull-request"
-      ],
-      "business_area": "CFT",
-      "team_name": "PlatOps",
-      "environment": "AAT / Staging",
-      "start_date": "2025-07-24T00:00:00.000Z",
-      "end_date": "2025-07-25T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "PR-1118",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nPR-1118\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n24-07-2025\n\n### Skip shutdown end date\n\n25-07-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": null
     }
   ]
 }
