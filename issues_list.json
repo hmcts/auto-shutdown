@@ -32,5 +32,23 @@
         "justification": "Application environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1180"
+    },
+    {
+        "form_review_date": "03-10-2025",
+        "start_date": "02-10-2025",
+        "end_date": "02-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Adoption (adoption web)",
+        "change_jira_id": "ADOP-2323",
+        "stay_on_late": "Yes",
+        "justification": "CICD pipeline needed for out of hours release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1181"
     }
 ]
