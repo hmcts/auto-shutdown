@@ -1,0 +1,8 @@
+[
+  {
+    "id": "",
+    "resource": "aks00-ithc-agw",
+    "statusMessage": "Application Gateway: *aks00-ithc-agw* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is Running after *stop* action.",
+    "resourceType": "appgateway"
+  }
+]
