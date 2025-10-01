@@ -69,5 +69,23 @@
         "justification": "We are doing an elastic search reindexing and need the pipelines working to merge in changes",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1182"
+    },
+    {
+        "form_review_date": "02-10-2025",
+        "start_date": "01-10-2025",
+        "end_date": "01-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration and Asylum",
+        "change_jira_id": "0058181",
+        "stay_on_late": "Yes",
+        "justification": "We are doing an elastic search reindexing and need the pipelines working to merge in changes",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1183"
     }
 ]
