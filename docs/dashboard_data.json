@@ -1,17 +1,17 @@
 {
-  "last_updated": "2025-10-02T15:51:39.058Z",
+  "last_updated": "2025-10-02T15:53:04.962Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1184,
       "title": "Financial Remedy exclusion for Manage Hearings release",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2025-10-02T15:51:24.000Z",
-      "updated_at": "2025-10-02T15:51:36.000Z",
+      "updated_at": "2025-10-02T15:52:53.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1184",
       "user": "ptrelease",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "Financial Remedy",
@@ -22,7 +22,7 @@
       "change_jira_id": "DFR-4073",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nDFR-4073\n\n### Justification for exclusion?\n\nCICD pipeline needed for out of hours release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFinancial Remedy\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n14-10-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n15-10-2025",
-      "cost": null
+      "cost": "£401.09"
     },
     {
       "id": 1183,
