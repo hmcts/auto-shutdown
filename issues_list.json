@@ -51,5 +51,21 @@
         "justification": "The Immigration and Asylum Chamber (IAC) Detained Appeals feature team plans to work over the weekend. Well need the Demo and Jenkins Pipelines to be available to support their development work",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1186"
+    },
+    {
+        "form_review_date": "07/10/2025",
+        "start_date": "06-10-2025",
+        "end_date": "06-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "ROTA",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Required to perform configuration for Mags rota",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1187"
     }
 ]
