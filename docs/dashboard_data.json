@@ -1,7 +1,27 @@
 {
-  "last_updated": "2025-10-07T15:01:28.490Z",
+  "last_updated": "2025-10-07T15:03:01.092Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1189,
+      "title": "Add auto shutdown for MySQL flexible servers",
+      "status": "pending",
+      "created_at": "2025-10-07T15:01:55.000Z",
+      "updated_at": "2025-10-07T15:02:30.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/pull/1189",
+      "user": "ciaranca",
+      "labels": [],
+      "business_area": "",
+      "team_name": "",
+      "environment": "",
+      "start_date": null,
+      "end_date": null,
+      "justification": "",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Jira link\r\n\r\nhttps://tools.hmcts.net/jira/browse/DTSPO-27462\r\n\r\n\r\n### Change description\r\n\r\nAdd auto shutdown for MySQL flexible servers\r\n\r\nCreated a test server to run against\r\n",
+      "cost": null
+    },
     {
       "id": 1188,
       "title": "Nexus Telephony Production Dry Run",
@@ -1084,28 +1104,6 @@
       "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9800",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SIDM-9800\n\n### Justification for exclusion?\n\nPerformance testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nIDAM\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-06-2025\n\n### Skip shutdown end date\n\n30-06-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-09-2025",
-      "cost": "£147.04"
-    },
-    {
-      "id": 1129,
-      "title": "XUI soak test in perftest",
-      "status": "auto-approved",
-      "created_at": "2025-06-27T10:16:55.000Z",
-      "updated_at": "2025-06-27T10:17:59.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1129",
-      "user": "jonsoloway-hmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance Test",
-      "environment": "Test / Perftest",
-      "start_date": "2025-06-27T00:00:00.000Z",
-      "end_date": "2025-06-30T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nRunning an XUI soak test in perftest to analyse memory consumption\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Test\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n27-06-2025\n\n### Skip shutdown end date\n\n30-06-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-07-2025",
       "cost": "£147.04"
     }
   ]
