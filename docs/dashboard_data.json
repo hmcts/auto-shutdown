@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-10-07T16:37:59.853Z",
+  "last_updated": "2025-10-07T21:28:19.569Z",
   "total_issues": 50,
   "data": [
     {
@@ -29,7 +29,7 @@
       "title": "PR-1189",
       "status": "auto-approved",
       "created_at": "2025-10-07T15:02:45.000Z",
-      "updated_at": "2025-10-07T15:03:40.000Z",
+      "updated_at": "2025-10-07T20:11:26.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1190",
       "user": "hmcts-platform-operations",
       "labels": [
@@ -52,7 +52,7 @@
       "title": "Add auto shutdown for MySQL flexible servers",
       "status": "pending",
       "created_at": "2025-10-07T15:01:55.000Z",
-      "updated_at": "2025-10-07T15:21:09.000Z",
+      "updated_at": "2025-10-07T21:27:07.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/pull/1189",
       "user": "ciaranca",
       "labels": [],
