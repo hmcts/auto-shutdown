@@ -1,7 +1,72 @@
 {
-  "last_updated": "2025-10-07T15:01:28.490Z",
+  "last_updated": "2025-10-07T16:37:59.853Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1191,
+      "title": "Skip Demo shutdown",
+      "status": "auto-approved",
+      "created_at": "2025-10-07T16:36:50.000Z",
+      "updated_at": "2025-10-07T16:37:48.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1191",
+      "user": "gokul-sol",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "SSCS",
+      "environment": "Demo",
+      "start_date": "2025-10-07T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "Need demo for testing",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nNeed demo for testing \n\n### Justification for exclusion?\n\nTo research  on a tool to use for service team\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-10-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-10-2025",
+      "cost": "£68.03"
+    },
+    {
+      "id": 1190,
+      "title": "PR-1189",
+      "status": "auto-approved",
+      "created_at": "2025-10-07T15:02:45.000Z",
+      "updated_at": "2025-10-07T15:03:40.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1190",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2025-11-06T00:00:00.000Z",
+      "end_date": "2025-11-07T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "PR-1189",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nPR-1189\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n06-11-2025\n\n### Skip shutdown end date\n\n07-11-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": null
+    },
+    {
+      "id": 1189,
+      "title": "Add auto shutdown for MySQL flexible servers",
+      "status": "pending",
+      "created_at": "2025-10-07T15:01:55.000Z",
+      "updated_at": "2025-10-07T15:21:09.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/pull/1189",
+      "user": "ciaranca",
+      "labels": [],
+      "business_area": "",
+      "team_name": "",
+      "environment": "",
+      "start_date": null,
+      "end_date": null,
+      "justification": "",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Jira link\r\n\r\nhttps://tools.hmcts.net/jira/browse/DTSPO-27462\r\n\r\n\r\n### Change description\r\n\r\nAdd auto shutdown for MySQL flexible servers\r\n\r\nCreated a test server to run against\r\n",
+      "cost": null
+    },
     {
       "id": 1188,
       "title": "Nexus Telephony Production Dry Run",
@@ -1041,72 +1106,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nRunning a soak test in perftest for XUI\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Test\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n15-07-2025\n\n### Skip shutdown end date\n\n16-07-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01/08/2025",
       "cost": "£30.9"
-    },
-    {
-      "id": 1132,
-      "title": "Probate Data migration release",
-      "status": "auto-approved",
-      "created_at": "2025-07-11T09:58:03.000Z",
-      "updated_at": "2025-07-11T09:59:09.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1132",
-      "user": "FeliTam",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Probate",
-      "environment": "PTL, Preview / Dev, AAT / Staging",
-      "start_date": "2025-07-16T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG-0024828",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG-0024828\n\n### Justification for exclusion?\n\nOOH data migration to move expired Caveat to closed state\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nProbate\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n16-07-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-07-2025",
-      "cost": "£343.57"
-    },
-    {
-      "id": 1130,
-      "title": "IdAM Perftest environment - Performance testing",
-      "status": "auto-approved",
-      "created_at": "2025-06-27T13:46:40.000Z",
-      "updated_at": "2025-06-27T13:47:33.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1130",
-      "user": "verityit",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "IDAM",
-      "environment": "Test / Perftest",
-      "start_date": "2025-06-27T00:00:00.000Z",
-      "end_date": "2025-06-30T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/SIDM-9800",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SIDM-9800\n\n### Justification for exclusion?\n\nPerformance testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nIDAM\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-06-2025\n\n### Skip shutdown end date\n\n30-06-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-09-2025",
-      "cost": "£147.04"
-    },
-    {
-      "id": 1129,
-      "title": "XUI soak test in perftest",
-      "status": "auto-approved",
-      "created_at": "2025-06-27T10:16:55.000Z",
-      "updated_at": "2025-06-27T10:17:59.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1129",
-      "user": "jonsoloway-hmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance Test",
-      "environment": "Test / Perftest",
-      "start_date": "2025-06-27T00:00:00.000Z",
-      "end_date": "2025-06-30T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nRunning an XUI soak test in perftest to analyse memory consumption\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Test\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n27-06-2025\n\n### Skip shutdown end date\n\n30-06-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-07-2025",
-      "cost": "£147.04"
     }
   ]
 }

@@ -18,22 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1184"
     },
     {
-        "form_review_date": "07/10/2025",
-        "start_date": "06-10-2025",
-        "end_date": "06-10-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "ROTA",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Required to perform configuration for Mags rota",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1187"
-    },
-    {
         "form_review_date": "09-11-2025",
         "start_date": "09-10-2025",
         "end_date": "09-10-2025",
@@ -50,5 +34,21 @@
         "justification": "Application environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1188"
+    },
+    {
+        "form_review_date": "10-10-2025",
+        "start_date": "07-10-2025",
+        "end_date": "07-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "Need demo for testing",
+        "stay_on_late": "Yes",
+        "justification": "To research on a tool to use for service team",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1191"
     }
 ]

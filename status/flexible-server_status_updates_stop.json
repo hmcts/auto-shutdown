@@ -1,14 +1,824 @@
 [
   {
-    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-data-store-api-postgres-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccd-data-store-api-postgres-db-v15-perftest",
-    "resource": "ccd-data-store-api-postgres-db-v15-perftest",
-    "statusMessage": "Flexible SQL Server: *ccd-data-store-api-postgres-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/adoption-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/adoption-preview",
+    "resource": "adoption-preview",
+    "statusMessage": "Flexible SQL Server: *adoption-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/cft-task-postgres-db-flexible-replica-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-replica-aat",
+    "resource": "cft-task-postgres-db-flexible-replica-aat",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-replica-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/civil-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/civil-preview",
+    "resource": "civil-preview",
+    "statusMessage": "Flexible SQL Server: *civil-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/crime-idam-idm-data-preview/providers/Microsoft.DBforPostgreSQL/flexibleServers/crime-idam-idm-preview",
+    "resource": "crime-idam-idm-preview",
+    "statusMessage": "Flexible SQL Server: *crime-idam-idm-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/et-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/et-preview",
+    "resource": "et-preview",
+    "statusMessage": "Flexible SQL Server: *et-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/family-public-law-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/family-public-law-preview",
+    "resource": "family-public-law-preview",
+    "statusMessage": "Flexible SQL Server: *family-public-law-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/financial-remedy-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/financial-remedy-preview",
+    "resource": "financial-remedy-preview",
+    "statusMessage": "Flexible SQL Server: *financial-remedy-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/hmc-cft-hearing-service-postgres-db-v15-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/hmc-cft-hearing-service-postgres-db-v15-replica-aat",
+    "resource": "hmc-cft-hearing-service-postgres-db-v15-replica-aat",
+    "statusMessage": "Flexible SQL Server: *hmc-cft-hearing-service-postgres-db-v15-replica-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/hmcts-camunda-v14-flexible-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/hmcts-camunda-v14-flexible-aat",
+    "resource": "hmcts-camunda-v14-flexible-aat",
+    "statusMessage": "Flexible SQL Server: *hmcts-camunda-v14-flexible-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/ia-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/ia-preview",
+    "resource": "ia-preview",
+    "statusMessage": "Flexible SQL Server: *ia-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/idam-api-v14-data-idam-preview/providers/Microsoft.DBforPostgreSQL/flexibleServers/idam-api-v14-idam-preview",
+    "resource": "idam-api-v14-idam-preview",
+    "statusMessage": "Flexible SQL Server: *idam-api-v14-idam-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/pcs-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pcs-preview",
+    "resource": "pcs-preview",
+    "statusMessage": "Flexible SQL Server: *pcs-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/private-law-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/private-law-preview",
+    "resource": "private-law-preview",
+    "statusMessage": "Flexible SQL Server: *private-law-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/probate-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/probate-preview",
+    "resource": "probate-preview",
+    "statusMessage": "Flexible SQL Server: *probate-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/rpe-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/rpe-preview",
+    "resource": "rpe-preview",
+    "statusMessage": "Flexible SQL Server: *rpe-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/sptribs-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sptribs-preview",
+    "resource": "sptribs-preview",
+    "statusMessage": "Flexible SQL Server: *sptribs-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/sscs-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sscs-preview",
+    "resource": "sscs-preview",
+    "statusMessage": "Flexible SQL Server: *sscs-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/xui-aso-preview-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/xui-preview",
+    "resource": "xui-preview",
+    "statusMessage": "Flexible SQL Server: *xui-preview* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/courtfines-app-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/courtfines-app-test",
+    "resource": "courtfines-app-test",
+    "statusMessage": "Flexible SQL Server: *courtfines-app-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-test",
+    "resource": "darts-api-test",
+    "statusMessage": "Flexible SQL Server: *darts-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-test-backup",
+    "resource": "darts-api-test-backup",
+    "statusMessage": "Flexible SQL Server: *darts-api-test-backup* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/flexible-pip-account-management-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-account-management-test",
+    "resource": "flexible-pip-account-management-test",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/flexible-pip-data-management-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-data-management-test",
+    "resource": "flexible-pip-data-management-test",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-data-management-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/juror-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-api-test",
+    "resource": "juror-api-test",
+    "statusMessage": "Flexible SQL Server: *juror-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/juror-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-scheduler-api-test",
+    "resource": "juror-scheduler-api-test",
+    "statusMessage": "Flexible SQL Server: *juror-scheduler-api-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/libragob-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/libragob-test",
+    "resource": "libragob-test",
+    "statusMessage": "Flexible SQL Server: *libragob-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/libragob-test-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/libragob-test-backup",
+    "resource": "libragob-test-backup",
+    "statusMessage": "Flexible SQL Server: *libragob-test-backup* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/opal-db-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-db-test",
+    "resource": "opal-db-test",
+    "statusMessage": "Flexible SQL Server: *opal-db-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/opal-file-handler-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-file-handler-test",
+    "resource": "opal-file-handler-test",
+    "statusMessage": "Flexible SQL Server: *opal-file-handler-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/opal-fines-service-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-fines-service-test",
+    "resource": "opal-fines-service-test",
+    "statusMessage": "Flexible SQL Server: *opal-fines-service-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/opal-user-service-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-user-service-test",
+    "resource": "opal-user-service-test",
+    "statusMessage": "Flexible SQL Server: *opal-user-service-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/pre-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-db-test",
+    "resource": "pre-db-test",
+    "statusMessage": "Flexible SQL Server: *pre-db-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/pre-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-restore1-test",
+    "resource": "pre-restore1-test",
+    "statusMessage": "Flexible SQL Server: *pre-restore1-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/recipes-shared-infrastructure-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-test",
+    "resource": "recipes-sds-flexible-test",
+    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/toffee-v14-flexible-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-test",
+    "resource": "toffee-v14-flexible-test",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/appreg-aso-dev-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/appreg-dev",
+    "resource": "appreg-dev",
+    "statusMessage": "Flexible SQL Server: *appreg-dev* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/courtfines-aso-dev-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/courtfines-dev",
+    "resource": "courtfines-dev",
+    "statusMessage": "Flexible SQL Server: *courtfines-dev* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-modernisation-aso-dev-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-modernisation-dev",
+    "resource": "darts-modernisation-dev",
+    "statusMessage": "Flexible SQL Server: *darts-modernisation-dev* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/darts-stg-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-stg-restore",
+    "resource": "darts-api-stg-restore",
+    "statusMessage": "Flexible SQL Server: *darts-api-stg-restore* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/juror-aso-dev-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-dev",
+    "resource": "juror-dev",
+    "statusMessage": "Flexible SQL Server: *juror-dev* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/pre-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-restore1-stg",
+    "resource": "pre-restore1-stg",
+    "statusMessage": "Flexible SQL Server: *pre-restore1-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/am-judicial-booking-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/am-judicial-booking-service-postgres-db-v15-ithc",
+    "resource": "am-judicial-booking-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *am-judicial-booking-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/am-org-role-mapping-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/am-org-role-mapping-service-postgres-db-v15-ithc",
+    "resource": "am-org-role-mapping-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *am-org-role-mapping-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/am-role-assignment-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/am-role-assignment-service-postgres-db-v15-ithc",
+    "resource": "am-role-assignment-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *am-role-assignment-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/bar-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/bar-postgres-db-v15-ithc",
+    "resource": "bar-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *bar-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/blob-router-flexible-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/blob-router-flexible-postgres-db-v15-ithc",
+    "resource": "blob-router-flexible-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *blob-router-flexible-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/bulk-scan-orchestrator-flexible-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/bulk-scan-orchestrator-flexible-postgres-db-v15-ithc",
+    "resource": "bulk-scan-orchestrator-flexible-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *bulk-scan-orchestrator-flexible-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/bulk-scan-processor-flexible-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/bulk-scan-processor-flexible-postgres-db-v15-ithc",
+    "resource": "bulk-scan-processor-flexible-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *bulk-scan-processor-flexible-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-data-store-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccd-data-store-api-postgres-db-v15-ithc",
+    "resource": "ccd-data-store-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ccd-data-store-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-definition-store-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccd-definition-store-api-postgres-db-v15-ithc",
+    "resource": "ccd-definition-store-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ccd-definition-store-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-user-profile-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccd-user-profile-api-postgres-db-v15-ithc",
+    "resource": "ccd-user-profile-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ccd-user-profile-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccpay-bulkscanning-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccpay-bulkscanning-api-postgres-db-v15-ithc",
+    "resource": "ccpay-bulkscanning-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ccpay-bulkscanning-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccpay-notifications-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccpay-notifications-service-postgres-db-v15-ithc",
+    "resource": "ccpay-notifications-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ccpay-notifications-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccpay-refunds-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccpay-refunds-api-postgres-db-v15-ithc",
+    "resource": "ccpay-refunds-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ccpay-refunds-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-ithc",
+    "resource": "cft-task-postgres-db-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-replica-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-replica-ithc",
+    "resource": "cft-task-postgres-db-flexible-replica-ithc",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-replica-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-replica-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-replica-perftest",
+    "resource": "cft-task-postgres-db-flexible-replica-perftest",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-replica-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/civil-sdt-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/civil-sdt-v15-ithc",
+    "resource": "civil-sdt-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *civil-sdt-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cmc-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/cmc-db-v15-ithc",
+    "resource": "cmc-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *cmc-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cpo-case-payment-orders-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/cpo-case-payment-orders-api-postgres-db-v15-ithc",
+    "resource": "cpo-case-payment-orders-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *cpo-case-payment-orders-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/div-cos-v14-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/div-cos-v14-flexible-ithc",
+    "resource": "div-cos-v14-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *div-cos-v14-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/dm-store-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/dm-store-postgres-db-v15-ithc",
+    "resource": "dm-store-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *dm-store-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/em-anno-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-anno-postgres-db-v15-ithc",
+    "resource": "em-anno-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *em-anno-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/em-hrs-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-hrs-api-postgres-db-v15-ithc",
+    "resource": "em-hrs-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *em-hrs-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
   },
   {
     "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/em-hrs-api-postgres-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-hrs-api-postgres-db-v15-perftest",
     "resource": "em-hrs-api-postgres-db-v15-perftest",
     "statusMessage": "Flexible SQL Server: *em-hrs-api-postgres-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/em-npa-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-npa-postgres-db-v15-ithc",
+    "resource": "em-npa-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *em-npa-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/em-stitching-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-stitching-postgres-db-v15-ithc",
+    "resource": "em-stitching-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *em-stitching-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/enforcement-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/enforcement-ithc",
+    "resource": "enforcement-ithc",
+    "statusMessage": "Flexible SQL Server: *enforcement-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/et-cos-postgres-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/et-cos-postgres-v15-ithc",
+    "resource": "et-cos-postgres-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *et-cos-postgres-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/et-msg-handler-postgres-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/et-msg-handler-postgres-v15-ithc",
+    "resource": "et-msg-handler-postgres-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *et-msg-handler-postgres-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/et-pet-et-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/et-pet-et-ithc",
+    "resource": "et-pet-et-ithc",
+    "statusMessage": "Flexible SQL Server: *et-pet-et-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ethos-postgres-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ethos-postgres-v15-ithc",
+    "resource": "ethos-postgres-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ethos-postgres-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/fact-api-flexible-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/fact-api-flexible-postgres-db-v15-ithc",
+    "resource": "fact-api-flexible-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *fact-api-flexible-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/fact-data-api-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/fact-data-api-ithc",
+    "resource": "fact-data-api-ithc",
+    "statusMessage": "Flexible SQL Server: *fact-data-api-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/fees-register-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/fees-register-postgres-db-v15-ithc",
+    "resource": "fees-register-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *fees-register-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/fpl-case-service-postgresql-v15-flexible-server-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/fpl-case-service-postgresql-v15-flexible-server-ithc",
+    "resource": "fpl-case-service-postgresql-v15-flexible-server-ithc",
+    "statusMessage": "Flexible SQL Server: *fpl-case-service-postgresql-v15-flexible-server-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/help-with-fees-db-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/help-with-fees-db-ithc",
+    "resource": "help-with-fees-db-ithc",
+    "statusMessage": "Flexible SQL Server: *help-with-fees-db-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/hmc-cft-hearing-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/hmc-cft-hearing-service-postgres-db-v15-ithc",
+    "resource": "hmc-cft-hearing-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *hmc-cft-hearing-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/hmcts-camunda-v14-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/hmcts-camunda-v14-flexible-ithc",
+    "resource": "hmcts-camunda-v14-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *hmcts-camunda-v14-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ia-case-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ia-case-api-postgres-db-v15-ithc",
+    "resource": "ia-case-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ia-case-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ia-timed-event-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ia-timed-event-service-postgres-db-v15-ithc",
+    "resource": "ia-timed-event-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ia-timed-event-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/lau-case-backend-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/lau-case-backend-flexible-ithc",
+    "resource": "lau-case-backend-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *lau-case-backend-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/lau-eud-backend-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/lau-eud-backend-flexible-ithc",
+    "resource": "lau-eud-backend-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *lau-eud-backend-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/lau-idam-backend-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/lau-idam-backend-flexible-ithc",
+    "resource": "lau-idam-backend-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *lau-idam-backend-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/payment-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/payment-postgres-db-v15-ithc",
+    "resource": "payment-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *payment-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/pcq-backend-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/pcq-backend-flexible-ithc",
+    "resource": "pcq-backend-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *pcq-backend-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/pcs-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/pcs-ithc",
+    "resource": "pcs-ithc",
+    "statusMessage": "Flexible SQL Server: *pcs-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/plum-v14-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/plum-v14-flexible-ithc",
+    "resource": "plum-v14-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *plum-v14-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/probatemandb-postgres-flexible-db-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/probatemandb-postgres-flexible-db-ithc",
+    "resource": "probatemandb-postgres-flexible-db-ithc",
+    "statusMessage": "Flexible SQL Server: *probatemandb-postgres-flexible-db-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-caseworker-ref-api-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-caseworker-ref-api-postgres-db-v16-ithc",
+    "resource": "rd-caseworker-ref-api-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-caseworker-ref-api-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-commondata-api-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-commondata-api-postgres-db-v16-ithc",
+    "resource": "rd-commondata-api-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-commondata-api-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-judicial-ref-api-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-judicial-ref-api-postgres-db-v16-ithc",
+    "resource": "rd-judicial-ref-api-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-judicial-ref-api-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-location-ref-api-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-location-ref-api-postgres-db-v16-ithc",
+    "resource": "rd-location-ref-api-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-location-ref-api-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-professional-api-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-professional-api-postgres-db-v16-ithc",
+    "resource": "rd-professional-api-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-professional-api-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-profile-sync-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-profile-sync-postgres-db-v16-ithc",
+    "resource": "rd-profile-sync-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-profile-sync-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-user-profile-api-postgres-db-v16-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-user-profile-api-postgres-db-v16-ithc",
+    "resource": "rd-user-profile-api-postgres-db-v16-ithc",
+    "statusMessage": "Flexible SQL Server: *rd-user-profile-api-postgres-db-v16-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/recipes-shared-infrastructure-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-cft-flexible-ithc",
+    "resource": "recipes-cft-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *recipes-cft-flexible-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/reform-scan-notification-service-flexible-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/reform-scan-notification-service-flexible-db-v15-ithc",
+    "resource": "reform-scan-notification-service-flexible-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *reform-scan-notification-service-flexible-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-ithc",
+    "resource": "rota-psql-ithc",
+    "statusMessage": "Flexible SQL Server: *rota-psql-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rpe-draft-store-v14-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rpe-draft-store-v14-ithc",
+    "resource": "rpe-draft-store-v14-ithc",
+    "statusMessage": "Flexible SQL Server: *rpe-draft-store-v14-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/send-letter-service-flexible-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/send-letter-service-flexible-postgres-db-v15-ithc",
+    "resource": "send-letter-service-flexible-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *send-letter-service-flexible-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/sscs-tya-notif-postgres-v15-db-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/sscs-tya-notif-postgres-v15-db-ithc",
+    "resource": "sscs-tya-notif-postgres-v15-db-ithc",
+    "statusMessage": "Flexible SQL Server: *sscs-tya-notif-postgres-v15-db-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/tax-tribunals-infrastructure-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/tax-tribunals-infrastructure-ithc",
+    "resource": "tax-tribunals-infrastructure-ithc",
+    "statusMessage": "Flexible SQL Server: *tax-tribunals-infrastructure-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ts-translation-service-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ts-translation-service-postgres-db-v15-ithc",
+    "resource": "ts-translation-service-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ts-translation-service-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/wa-case-event-handler-postgres-db-flex-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/wa-case-event-handler-postgres-db-flex-ithc",
+    "resource": "wa-case-event-handler-postgres-db-flex-ithc",
+    "statusMessage": "Flexible SQL Server: *wa-case-event-handler-postgres-db-flex-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/wa-workflow-api-postgres-db-flex-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/wa-workflow-api-postgres-db-flex-ithc",
+    "resource": "wa-workflow-api-postgres-db-flex-ithc",
+    "statusMessage": "Flexible SQL Server: *wa-workflow-api-postgres-db-flex-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/867a878b-cb68-4de5-9741-361ac9e178b6/resourceGroups/pre-dev/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-db-dev",
+    "resource": "pre-db-dev",
+    "statusMessage": "Flexible SQL Server: *pre-db-dev* in Subscription: *867a878b-cb68-4de5-9741-361ac9e178b6* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/a8140a9e-f1b0-481f-a4de-09e2ee23f7ab/resourceGroups/toffee-v14-flexible-data-sbox/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-sbox",
+    "resource": "toffee-v14-flexible-sbox",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-sbox* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/b7d2bd5f-b744-4acc-9c73-e068cec2e8d8/resourceGroups/atlassian-nonprod-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/atlassian-nonprod-flex-server-v14",
+    "resource": "atlassian-nonprod-flex-server-v14",
+    "statusMessage": "Flexible SQL Server: *atlassian-nonprod-flex-server-v14* in Subscription: *b7d2bd5f-b744-4acc-9c73-e068cec2e8d8* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/appreg-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/appreg-ithc",
+    "resource": "appreg-ithc",
+    "statusMessage": "Flexible SQL Server: *appreg-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/courtfines-app-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/courtfines-app-ithc",
+    "resource": "courtfines-app-ithc",
+    "statusMessage": "Flexible SQL Server: *courtfines-app-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/darts-ithc-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-ithc",
+    "resource": "darts-api-ithc",
+    "statusMessage": "Flexible SQL Server: *darts-api-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/flexible-pip-account-management-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-account-management-ithc",
+    "resource": "flexible-pip-account-management-ithc",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/flexible-pip-data-management-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-data-management-ithc",
+    "resource": "flexible-pip-data-management-ithc",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-data-management-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/juror-ithc-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-api-ithc",
+    "resource": "juror-api-ithc",
+    "statusMessage": "Flexible SQL Server: *juror-api-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/juror-ithc-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-scheduler-api-ithc",
+    "resource": "juror-scheduler-api-ithc",
+    "statusMessage": "Flexible SQL Server: *juror-scheduler-api-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/opal-db-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-db-ithc",
+    "resource": "opal-db-ithc",
+    "statusMessage": "Flexible SQL Server: *opal-db-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/opal-fines-service-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-fines-service-ithc",
+    "resource": "opal-fines-service-ithc",
+    "statusMessage": "Flexible SQL Server: *opal-fines-service-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/opal-user-service-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-user-service-ithc",
+    "resource": "opal-user-service-ithc",
+    "statusMessage": "Flexible SQL Server: *opal-user-service-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/recipes-shared-infrastructure-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-ithc",
+    "resource": "recipes-sds-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/toffee-v14-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-ithc",
+    "resource": "toffee-v14-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/bf308a5c-0624-4334-8ff8-8dca9fd43783/resourceGroups/plum-v14-flexible-data-sandbox/providers/Microsoft.DBforPostgreSQL/flexibleServers/plum-v14-flexible-sandbox",
+    "resource": "plum-v14-flexible-sandbox",
+    "statusMessage": "Flexible SQL Server: *plum-v14-flexible-sandbox* in Subscription: *bf308a5c-0624-4334-8ff8-8dca9fd43783* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/appreg-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/appreg-demo",
+    "resource": "appreg-demo",
+    "statusMessage": "Flexible SQL Server: *appreg-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/courtfines-app-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/courtfines-app-demo",
+    "resource": "courtfines-app-demo",
+    "statusMessage": "Flexible SQL Server: *courtfines-app-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/darts-demo-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/darts-api-demo",
+    "resource": "darts-api-demo",
+    "statusMessage": "Flexible SQL Server: *darts-api-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/flexible-pip-account-management-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-account-management-demo",
+    "resource": "flexible-pip-account-management-demo",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/flexible-pip-data-management-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-data-management-demo",
+    "resource": "flexible-pip-data-management-demo",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-data-management-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/juror-demo-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-api-demo",
+    "resource": "juror-api-demo",
+    "statusMessage": "Flexible SQL Server: *juror-api-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/juror-demo-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-scheduler-api-demo",
+    "resource": "juror-scheduler-api-demo",
+    "statusMessage": "Flexible SQL Server: *juror-scheduler-api-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/opal-db-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-db-demo",
+    "resource": "opal-db-demo",
+    "statusMessage": "Flexible SQL Server: *opal-db-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/opal-file-handler-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-file-handler-demo",
+    "resource": "opal-file-handler-demo",
+    "statusMessage": "Flexible SQL Server: *opal-file-handler-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/opal-fines-service-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-fines-service-demo",
+    "resource": "opal-fines-service-demo",
+    "statusMessage": "Flexible SQL Server: *opal-fines-service-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/opal-user-service-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-user-service-demo",
+    "resource": "opal-user-service-demo",
+    "statusMessage": "Flexible SQL Server: *opal-user-service-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/pdda-infrastructure-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/pdda-infrastructure-demo",
+    "resource": "pdda-infrastructure-demo",
+    "statusMessage": "Flexible SQL Server: *pdda-infrastructure-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/pre-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/pre-db-demo",
+    "resource": "pre-db-demo",
+    "statusMessage": "Flexible SQL Server: *pre-db-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/recipes-shared-infrastructure-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-demo",
+    "resource": "recipes-sds-flexible-demo",
+    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/toffee-v14-flexible-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-demo",
+    "resource": "toffee-v14-flexible-demo",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
   }
 ]
