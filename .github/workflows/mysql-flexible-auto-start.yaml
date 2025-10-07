@@ -1,0 +1,100 @@
+name: mysql-flexible-auto-start
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 5 * * 1-5" # Every weekday at 6:15am BST
+env:
+  DEV_ENV: ${{ secrets.DEV_ENV }}
+permissions:
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: "Az CLI login"
+        uses: azure/login@v2
+        with:
+          client-id: 2b6fa9d7-7dba-4600-a58a-5e25554997aa # DTS AKS Auto-Shutdown
+          tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
+          allow-no-subscriptions: true
+
+      # REPLICA
+      - name: Staging Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start staging '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Test Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start testing '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Demo Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start demo '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Development Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start development '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Sandbox Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start sandbox '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: ITHC Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start ithc '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Untagged Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start untagged '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Wait for 3 minutes
+        if: env.DEV_ENV == 'false'
+        run: sleep 180
+
+      # PRIMARY
+      - name: Staging - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start staging '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Test - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start testing '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Demo - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start demo '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Development - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start development '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Sandbox - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start sandbox '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: ITHC - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start ithc '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Untagged - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start untagged '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      - name: Output log file
+        run: ./scripts/common/log-output.sh

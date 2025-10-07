@@ -30,6 +30,9 @@ jobs:
       - name: Postgres Flexible STOP status check
         run: ./scripts/flexible-server/flexserverstatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
 
+      - name: MySQL Flexible STOP status check
+        run: ./scripts/mysql-flexible/mysql-flexible-status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+
       - name: App Gateway STOP status check
         run: ./scripts/appgateway/appgw_status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
 
