@@ -1,17 +1,17 @@
 {
-  "last_updated": "2025-10-08T10:10:56.984Z",
+  "last_updated": "2025-10-08T10:12:02.301Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1192,
       "title": "Skip auto shutdown for FPL OOH migration",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2025-10-08T10:10:41.000Z",
-      "updated_at": "2025-10-08T10:10:55.000Z",
+      "updated_at": "2025-10-08T10:11:50.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1192",
       "user": "jamesrferguson1",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "Family Public Law",
@@ -22,7 +22,7 @@
       "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2818",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DFPL-2818\n\n### Justification for exclusion?\n\nNeeded to be able to run our master and preview pipelines\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n09-10-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-10-2025",
-      "cost": null
+      "cost": "£335.04"
     },
     {
       "id": 1191,
