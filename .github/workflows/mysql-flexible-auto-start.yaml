@@ -56,6 +56,12 @@ jobs:
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
+      # PRODUCTION REPLICAS - Only if specifically tagged for auto-shutdown
+      - name: Production Replicas - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start production '' replica
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
       - name: Wait for 3 minutes
         if: env.DEV_ENV == 'false'
         run: sleep 180
@@ -93,6 +99,12 @@ jobs:
 
       - name: Untagged - MySQL Flexible server Auto Start
         run: ./scripts/mysql-flexible/auto-start-stop.sh start untagged '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
+      # PRODUCTION - Only if specifically tagged for auto-shutdown
+      - name: Production - MySQL Flexible server Auto Start
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start production '' primary
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
