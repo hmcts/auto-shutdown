@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/idam-api-v14-data-idam-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/idam-api-v14-idam-ithc",
-    "resource": "idam-api-v14-idam-ithc",
-    "statusMessage": "Flexible SQL Server: *idam-api-v14-idam-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
-    "resourceType": "flexible-server"
-  }
-]
