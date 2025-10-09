@@ -35,6 +35,9 @@ case "$SELECTED_ENV" in
     "Test / Perftest")
         mysql_server_env="testing"
         ;;
+    "Production")
+        mysql_server_env="production"
+        ;;
     "PTL")
         mysql_server_env="production"
         ;;
