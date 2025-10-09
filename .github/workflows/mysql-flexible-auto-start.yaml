@@ -58,7 +58,7 @@ jobs:
 
       # PRODUCTION REPLICAS - Only if specifically tagged for auto-shutdown
       - name: Production Replicas - MySQL Flexible server Auto Start
-        run: ./scripts/mysql-flexible/auto-start-stop.sh start prod '' replica
+        run: ./scripts/mysql-flexible/auto-start-stop.sh start production '' replica
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
