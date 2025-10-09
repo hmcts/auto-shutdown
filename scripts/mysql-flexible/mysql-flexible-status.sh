@@ -33,6 +33,8 @@ jq -c '.data[]' <<<$MYSQL_SERVERS | while read mysqlserver; do
         mysql_server_env=${ENVIRONMENT/stg/Staging}
     elif [[ $ENVIRONMENT == "sbox" ]]; then
         mysql_server_env=${ENVIRONMENT/sbox/Sandbox}
+    elif [[ $ENVIRONMENT == "prod" ]]; then
+        mysql_server_env=${ENVIRONMENT/prod/Production}
     else
         mysql_server_env=$ENVIRONMENT
     fi

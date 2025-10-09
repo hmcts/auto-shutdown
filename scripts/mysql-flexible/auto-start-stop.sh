@@ -16,7 +16,21 @@ if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
     exit 1
 fi
 
-MYSQL_SERVERS=$(get_mysql_servers "$2" "$3" "$4")
+# Map environment parameter for Azure queries
+environment="$2"
+case "$environment" in
+    "staging")
+        environment="stg"
+        ;;
+    "sandbox")
+        environment="sbox"
+        ;;
+    "production")
+        environment="prod"
+        ;;
+esac
+
+MYSQL_SERVERS=$(get_mysql_servers "$environment" "$3" "$4")
 mysql_server_count=$(jq -c -r '.count' <<< $MYSQL_SERVERS)
 log "$mysql_server_count MySQL Flexible Servers found"
 log "----------------------------------------------"
@@ -33,6 +47,8 @@ jq -c '.data[]' <<<$MYSQL_SERVERS | while read mysqlserver; do
         mysql_server_env=${ENVIRONMENT/stg/Staging}
     elif [[ $ENVIRONMENT == "sbox" ]]; then
         mysql_server_env=${ENVIRONMENT/sbox/Sandbox}
+    elif [[ $ENVIRONMENT == "prod" ]]; then
+        mysql_server_env=${ENVIRONMENT/prod/Production}
     else
         mysql_server_env=$ENVIRONMENT
     fi
