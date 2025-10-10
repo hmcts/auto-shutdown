@@ -34,5 +34,24 @@
         "justification": "Application environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1188"
+    },
+    {
+        "form_review_date": "20/10/2025",
+        "start_date": "10-10-2025",
+        "end_date": "12-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL",
+            " Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration & Asylum Chamber",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-1191",
+        "stay_on_late": "No",
+        "justification": "Team is working over the weekend to complete the final phase of detained appeals feature",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1203"
     }
 ]
