@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-10-16T18:41:22.920Z",
+  "last_updated": "2025-10-16T18:42:40.837Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1206,
+      "title": "IAC - Feature Team Weekend Working",
+      "status": "auto-approved",
+      "created_at": "2025-10-16T18:41:08.000Z",
+      "updated_at": "2025-10-16T18:42:28.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1206",
+      "user": "rajeshthuraiyur",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Immigration & Asylum Chamber",
+      "environment": "AAT / Staging, Preview / Dev, PTL, Demo",
+      "start_date": "2025-10-17T00:00:00.000Z",
+      "end_date": "2025-10-19T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-1191",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DIAC-1191\n\n### Justification for exclusion?\n\nTeam is working over the weekend to complete the final phase of detained appeals feature\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration & Asylum Chamber\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n17/10/2025\n\n### Skip shutdown end date\n\n19/10/2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/10/2025",
+      "cost": "£4,039.86"
+    },
     {
       "id": 1205,
       "title": "Cancel test env shutdown",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nPR-1143\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n30-08-2025\n\n### Skip shutdown end date\n\n31-08-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": null
-    },
-    {
-      "id": 1142,
-      "title": "Auto shutdown exemption for AAT and Jenkins (CHG-0031743)",
-      "status": "auto-approved",
-      "created_at": "2025-07-30T09:06:33.000Z",
-      "updated_at": "2025-07-30T09:07:40.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1142",
-      "user": "kremi",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "IDAM",
-      "environment": "AAT / Staging, PTL",
-      "start_date": "2025-07-31T00:00:00.000Z",
-      "end_date": "2025-08-01T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "CHG-0031743",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG-0031743\n\n### Justification for exclusion?\n\nCFT IDAM Q2 Platform Upgrade\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nIDAM\n\n### Environment\n\nAAT / Staging, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n31-07-2025\n\n### Skip shutdown end date\n\n01-08-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n02-08-2025",
-      "cost": "£250.47"
     }
   ]
 }
