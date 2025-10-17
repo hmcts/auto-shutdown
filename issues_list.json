@@ -17,5 +17,21 @@
         "justification": "Team is working over the weekend to complete the final phase of detained appeals feature",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1206"
+    },
+    {
+        "form_review_date": "17/06/2026",
+        "start_date": "17-10-2025",
+        "end_date": "19-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "No",
+        "justification": "Performance test preparation",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1207"
     }
 ]
