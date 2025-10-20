@@ -1,0 +1,14 @@
+[
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/hmc-cft-hearing-service-postgres-db-v15-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/hmc-cft-hearing-service-postgres-db-v15-replica-aat",
+    "resource": "hmc-cft-hearing-service-postgres-db-v15-replica-aat",
+    "statusMessage": "Flexible SQL Server: *hmc-cft-hearing-service-postgres-db-v15-replica-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/opal-user-service-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-user-service-demo",
+    "resource": "opal-user-service-demo",
+    "statusMessage": "Flexible SQL Server: *opal-user-service-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Starting* state after *stop* action",
+    "resourceType": "flexible-server"
+  }
+]
