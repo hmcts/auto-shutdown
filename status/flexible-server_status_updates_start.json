@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/c68a4bed-4c3d-4956-af51-4ae164c1957c/resourceGroups/opal-user-service-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-user-service-demo",
-    "resource": "opal-user-service-demo",
-    "statusMessage": "Flexible SQL Server: *opal-user-service-demo* in Subscription: *c68a4bed-4c3d-4956-af51-4ae164c1957c* is in *Starting* state after *start* action",
-    "resourceType": "flexible-server"
-  }
-]
