@@ -15,5 +15,22 @@
         "justification": "Need to keep environment alive to enable large data loads for performance testing",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1209"
+    },
+    {
+        "form_review_date": "22-11-2025",
+        "start_date": "22-10-2025",
+        "end_date": "22-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "CCD",
+        "change_jira_id": "CHG-0066625",
+        "stay_on_late": "No",
+        "justification": "CHG-0066625",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1210"
     }
 ]
