@@ -1,22 +1,5 @@
 [
     {
-        "form_review_date": "23-10-2025",
-        "start_date": "22-10-2025",
-        "end_date": "27-10-2025",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Need to keep environment alive to enable large data loads for performance testing",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1209"
-    },
-    {
         "form_review_date": "20-11-2-25",
         "start_date": "10-11-2025",
         "end_date": "28-11-2025",
