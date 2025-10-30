@@ -33,5 +33,23 @@
         "justification": "Issue with Postgres instances startup",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1215"
+    },
+    {
+        "form_review_date": "31-10-2025",
+        "start_date": "30-10-2025",
+        "end_date": "30-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Test / Perftest",
+            " Preview / Dev"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Platform Operations",
+        "change_jira_id": "DTSPO-28371",
+        "stay_on_late": "Yes",
+        "justification": "Postgres servers not coming up, Azure issue",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1216"
     }
 ]
