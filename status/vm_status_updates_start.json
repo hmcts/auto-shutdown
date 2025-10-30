@@ -1,0 +1,44 @@
+[
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/dmzbais01_stg",
+    "resource": "dmzbais01_stg",
+    "statusMessage": "VM: *dmzbais01_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/eftbais01_stg",
+    "resource": "eftbais01_stg",
+    "statusMessage": "VM: *eftbais01_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/d24c931e-2e6d-4508-8583-85ac42715580/resourceGroups/glimr-rg-dev/providers/Microsoft.Compute/virtualMachines/glimr-app-vm01-dev",
+    "resource": "glimr-app-vm01-dev",
+    "statusMessage": "VM: *glimr-app-vm01-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/d24c931e-2e6d-4508-8583-85ac42715580/resourceGroups/glimr-rg-dev/providers/Microsoft.Compute/virtualMachines/glimr-ssrs-vm01-dev",
+    "resource": "glimr-ssrs-vm01-dev",
+    "statusMessage": "VM: *glimr-ssrs-vm01-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest00-main-sbox/providers/Microsoft.Compute/virtualMachines/ingest00-legacy-sql-sbox",
+    "resource": "ingest00-legacy-sql-sbox",
+    "statusMessage": "VM: *ingest00-legacy-sql-sbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest00-main-sbox* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest01-main-sbox/providers/Microsoft.Compute/virtualMachines/ingest01-legacy-sql-sbox",
+    "resource": "ingest01-legacy-sql-sbox",
+    "statusMessage": "VM: *ingest01-legacy-sql-sbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest01-main-sbox* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest05-main-sbox/providers/Microsoft.Compute/virtualMachines/ingest05-legacy-sql-sbox",
+    "resource": "ingest05-legacy-sql-sbox",
+    "statusMessage": "VM: *ingest05-legacy-sql-sbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest05-main-sbox* is *null* state after *start* action.",
+    "resourceType": "vm"
+  }
+]
