@@ -14,5 +14,24 @@
         "justification": "ACAS need to test the APIs provided by the ET team over a period of time before a potential go live in January. They are facing issues due to the auto shutdown so have requested AAT be up for around 3-4 weeks so that they can test the API before going live with it in early 2026",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1213"
+    },
+    {
+        "form_review_date": "31-10-2025",
+        "start_date": "30-10-2025",
+        "end_date": "30-10-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Test / Perftest",
+            " Preview / Dev",
+            " Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "Platform Operations",
+        "change_jira_id": "DTSPO-28371",
+        "stay_on_late": "Yes",
+        "justification": "Issue with Postgres instances startup",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1215"
     }
 ]
