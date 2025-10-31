@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-10-31T16:46:38.206Z",
+  "last_updated": "2025-10-31T16:47:36.040Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1219,
+      "title": "Skip test env shutdown",
+      "status": "auto-approved",
+      "created_at": "2025-10-31T16:46:17.000Z",
+      "updated_at": "2025-10-31T16:47:27.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1219",
+      "user": "DLCullen1",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Performance",
+      "environment": "AAT / Staging",
+      "start_date": "2025-10-31T00:00:00.000Z",
+      "end_date": "2025-11-01T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "n/a",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nPerf preparation\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n31-10-2025\n\n### Skip shutdown end date\n\n01-11-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n31-10-2026",
+      "cost": "£581.71"
+    },
     {
       "id": 1218,
       "title": "Skip test envs",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nfor Release 4 19/08\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19/08/2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/08/2025",
       "cost": "£37.41"
-    },
-    {
-      "id": 1156,
-      "title": "DARTS Keep Artifactory up",
-      "status": "auto-approved",
-      "created_at": "2025-08-19T18:45:54.000Z",
-      "updated_at": "2025-08-19T18:47:03.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1156",
-      "user": "cakeben",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "DARTS",
-      "environment": "PTL",
-      "start_date": "2025-08-19T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nfor Release 4 19/08\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19/08/2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/08/2025",
-      "cost": "£7.67"
     }
   ]
 }
