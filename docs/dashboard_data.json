@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-10-31T19:30:18.411Z",
+  "last_updated": "2025-10-31T19:31:17.639Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1221,
+      "title": "Nexus Cutover 1 PrL and Probate Live Payments",
+      "status": "auto-approved",
+      "created_at": "2025-10-31T19:29:44.000Z",
+      "updated_at": "2025-10-31T19:31:04.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1221",
+      "user": "davejones74",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Fee and Payments",
+      "environment": "PTL, AAT / Staging, Preview / Dev",
+      "start_date": "2025-10-31T00:00:00.000Z",
+      "end_date": "2025-11-02T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/PAY-8194",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/PAY-8194\n\n### Justification for exclusion?\n\nCNP Flux change and database monitoring in Production, potential code rollback.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n31-10-2025\n\n### Skip shutdown end date\n\n02-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-12-2025",
+      "cost": "£1,197.05"
+    },
     {
       "id": 1219,
       "title": "Skip test env shutdown",
@@ -1086,29 +1108,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCR 0038285\n\n### Justification for exclusion?\n\nNeeded to me able to raise PRs and run our master pipeline\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21-08-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n22-08-2025",
       "cost": "£401.08"
-    },
-    {
-      "id": 1157,
-      "title": "DARTS Release keep AAT/PTL",
-      "status": "auto-approved",
-      "created_at": "2025-08-19T18:46:24.000Z",
-      "updated_at": "2025-08-19T18:47:48.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1157",
-      "user": "cakeben",
-      "labels": [
-        "Processing",
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "PTL, Preview / Dev, AAT / Staging",
-      "start_date": "2025-08-19T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "N/A",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nfor Release 4 19/08\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19/08/2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/08/2025",
-      "cost": "£37.41"
     }
   ]
 }
