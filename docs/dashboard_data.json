@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-10-31T19:15:47.283Z",
+  "last_updated": "2025-10-31T19:18:31.020Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,7 +7,7 @@
       "title": "Nexus Cutover 1 PrL and Probate Live Payments",
       "status": "auto-approved",
       "created_at": "2025-10-31T19:14:03.000Z",
-      "updated_at": "2025-10-31T19:15:29.000Z",
+      "updated_at": "2025-10-31T19:18:11.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1220",
       "user": "davejones74",
       "labels": [
@@ -21,7 +21,7 @@
       "justification": "?",
       "change_jira_id": "https://tools.hmcts.net/jira/browse/PAY-8194",
       "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/PAY-8194\n\n### Justification for exclusion?\n\nCNP Flux change and database monitoring in Production\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n31-10-2025\n\n### Skip shutdown end date\n\n02-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-12-2025",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/PAY-8194\n\n### Justification for exclusion?\n\nCNP Flux change and database monitoring in Production, potential code rollback.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n31-10-2025\n\n### Skip shutdown end date\n\n02-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-12-2025",
       "cost": "£3,352.22"
     },
     {
