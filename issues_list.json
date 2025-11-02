@@ -16,38 +16,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1213"
     },
     {
-        "form_review_date": "31-10-2026",
-        "start_date": "31-10-2025",
-        "end_date": "01-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance",
-        "change_jira_id": "n/a",
-        "stay_on_late": "No",
-        "justification": "Perf preparation",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1218"
-    },
-    {
-        "form_review_date": "31-10-2026",
-        "start_date": "31-10-2025",
-        "end_date": "01-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance",
-        "change_jira_id": "n/a",
-        "stay_on_late": "No",
-        "justification": "Perf preparation",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1219"
-    },
-    {
         "form_review_date": "01-12-2025",
         "start_date": "31-10-2025",
         "end_date": "02-11-2025",
