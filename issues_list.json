@@ -50,5 +50,21 @@
         "justification": "CNP Flux change and database monitoring in Production, potential code rollback.",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1221"
+    },
+    {
+        "form_review_date": "08-12-2025",
+        "start_date": "06-11-2025",
+        "end_date": "07-11-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Civil",
+        "change_jira_id": "CHG-0072815",
+        "stay_on_late": "No",
+        "justification": "We need to test the release in AAT which will be done outside working hours",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1222"
     }
 ]
