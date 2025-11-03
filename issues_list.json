@@ -30,5 +30,21 @@
         "justification": "We need to test the release in AAT which will be done outside working hours",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1222"
+    },
+    {
+        "form_review_date": "03-05-2026",
+        "start_date": "03-11-2025",
+        "end_date": "03-11-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "No",
+        "justification": "perf preparation",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1223"
     }
 ]
