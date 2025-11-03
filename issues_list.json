@@ -16,42 +16,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1213"
     },
     {
-        "form_review_date": "01-12-2025",
-        "start_date": "31-10-2025",
-        "end_date": "02-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Fee and Payments",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PAY-8194",
-        "stay_on_late": "Yes",
-        "justification": "CNP Flux change and database monitoring in Production",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1220"
-    },
-    {
-        "form_review_date": "01-12-2025",
-        "start_date": "31-10-2025",
-        "end_date": "02-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Fee and Payments",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PAY-8194",
-        "stay_on_late": "Yes",
-        "justification": "CNP Flux change and database monitoring in Production, potential code rollback.",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1221"
-    },
-    {
         "form_review_date": "08-12-2025",
         "start_date": "06-11-2025",
         "end_date": "07-11-2025",
