@@ -62,5 +62,21 @@
         "justification": "Perf prep",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1224"
+    },
+    {
+        "form_review_date": "03-07-2026",
+        "start_date": "03-11-2025",
+        "end_date": "03-11-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "No",
+        "justification": "Perf prep",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1225"
     }
 ]
