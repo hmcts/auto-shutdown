@@ -30,23 +30,5 @@
         "justification": "We need to test the release in AAT which will be done outside working hours",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1222"
-    },
-    {
-        "form_review_date": "06-11-2025",
-        "start_date": "05-11-2025",
-        "end_date": "05-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Family Public Law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2910",
-        "stay_on_late": "Yes",
-        "justification": "Environments needed for running our pipelines to merge changes out of hours",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1226"
     }
 ]
