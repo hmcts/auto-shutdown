@@ -2,7 +2,7 @@ name: vm-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 5 * * 1-5" # Every weekday at 6:30am BST
+    - cron: "30 6 * * 1-5" # Every weekday at 6:30am GMT
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
@@ -20,7 +20,7 @@ jobs:
           tenant-id: 531ff96d-0ae9-462a-8d2d-bec7c0b42082 # HMCTS.NET
           allow-no-subscriptions: true
       #Production is included here to allow for select resoucres to be started. Only resoucres tagged with autoShutdown: true will be started.
-      - name: Production - VM Auto Start 
+      - name: Production - VM Auto Start
         run: ./scripts/vm/auto-start-stop.sh start production
         env:
           DEV_ENV: ${{ env.DEV_ENV }}

@@ -2,7 +2,7 @@ name: AppGateway-auto-shutdown
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 19,22 * * *" # Every day at 20:00 and 23:00 BST
+    - cron: "0 20,23 * * *" # Every day at 20:00 and 23:00 GMT
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:

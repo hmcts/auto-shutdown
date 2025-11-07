@@ -2,7 +2,7 @@ name: auto-stop-status-check
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 19,22 * * *" # Every day at 20:30 and 23:30 BST
+    - cron: "30 20,23 * * *" # Every day at 20:30 and 23:30 GMT
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
 permissions:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: '0'
+          fetch-depth: "0"
           token: ${{ env.GH_TOKEN }}
 
       - name: "Az CLI login"

@@ -2,7 +2,7 @@ name: Housekeeping Shutdown form
 run-name: Housekeeping json file
 on:
   schedule:
-    - cron:  '00 16 * * *'
+    - cron: "00 17 * * *"
   workflow_dispatch:
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
@@ -13,17 +13,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: '0'
+          fetch-depth: "0"
           token: ${{ env.GH_TOKEN }}
-     
+
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install python-dateutil
         run: |
           pip3 install python-dateutil
-          
+
       - name: Delete old entries
         continue-on-error: true
         run: |
@@ -38,11 +38,9 @@ jobs:
           git add .
           git commit -m "housekeeping"
           git push
-      
+
       - name: Close Stale Issues
         uses: actions/stale@v8.0.0
         with:
           days-before-stale: 7
           only-labels: Error in form
-
-
