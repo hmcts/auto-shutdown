@@ -1,13 +1,13 @@
 name: Update Dashboard Data
 
 on:
-  # Run daily at 6 AM UTC
+  # Run daily at 7 AM UTC
   schedule:
-    - cron: '0 6 * * *'
-  
+    - cron: "0 7 * * *"
+
   # Allow manual triggering
   workflow_dispatch:
-  
+
   # Run when issues are created or updated (to keep data fresh)
   issues:
     types: [opened, edited, labeled, unlabeled, closed, reopened]
@@ -16,32 +16,32 @@ env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
 
 permissions:
-  contents: write  # Need write access to commit the updated data file
+  contents: write # Need write access to commit the updated data file
 
 jobs:
   update-dashboard-data:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: '0'
+          fetch-depth: "0"
           token: ${{ env.GH_TOKEN }}
-        
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          
+          node-version: "18"
+
       - name: Make script executable
         run: chmod +x scripts/fetch-dashboard-data.js
-        
+
       - name: Fetch dashboard data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/fetch-dashboard-data.js
-        
+
       - name: Check if data file was updated
         id: check_changes
         run: |
@@ -50,7 +50,7 @@ jobs:
           else
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
-          
+
       - name: Commit updated dashboard data
         if: steps.check_changes.outputs.changed == 'true'
         run: |
@@ -59,14 +59,14 @@ jobs:
           git add docs/dashboard_data.json
           git commit -m "Update dashboard data - $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           git push
-          
+
       - name: Summary
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           echo "✅ Dashboard data updated successfully"
           echo "📊 Data file: docs/dashboard_data.json"
           echo "🕒 Updated at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-          
+
       - name: No changes summary
         if: steps.check_changes.outputs.changed == 'false'
         run: |
