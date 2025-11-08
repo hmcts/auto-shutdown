@@ -16,22 +16,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1213"
     },
     {
-        "form_review_date": "08-12-2025",
-        "start_date": "06-11-2025",
-        "end_date": "07-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "Civil",
-        "change_jira_id": "CHG-0072815",
-        "stay_on_late": "No",
-        "justification": "We need to test the release in AAT which will be done outside working hours",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1222"
-    },
-    {
         "form_review_date": "12-11-2025",
         "start_date": "11-11-2025",
         "end_date": "11-11-2025",
@@ -52,23 +36,5 @@
         "justification": "Out of hours deployment involving shuttering live systems",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1229"
-    },
-    {
-        "form_review_date": "07-12-2025",
-        "start_date": "07-11-2025",
-        "end_date": "07-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " Preview / Dev",
-            " AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Juror",
-        "change_jira_id": "CHG-0070706",
-        "stay_on_late": "No",
-        "justification": "Need jenkins",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1230"
     }
 ]
