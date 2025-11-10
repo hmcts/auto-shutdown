@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-11-10T17:09:16.114Z",
+  "last_updated": "2025-11-10T17:10:15.998Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1231,
+      "title": "Skip shutdown For DARTS Modernisation Tuesday 11th November",
+      "status": "auto-approved",
+      "created_at": "2025-11-10T17:08:57.000Z",
+      "updated_at": "2025-11-10T17:10:04.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1231",
+      "user": "karen-hedges",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "DARTS Modernisation",
+      "environment": "AAT / Staging",
+      "start_date": "2025-11-11T00:00:00.000Z",
+      "end_date": "2025-11-12T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "CHG-0074188",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0074188\n\n### Justification for exclusion?\n\nOut of hours change locks up DB so needs to be run late. Once the DB is updated manually we then need to run the matching PR. We cannot start the process until 6pm\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS Modernisation\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n11-11-2025\n\n### Skip shutdown end date\n\n12-11-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n13-11-2025",
+      "cost": "£50.6"
+    },
     {
       "id": 1230,
       "title": "juror redis change",
@@ -1086,28 +1108,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/confluence/display/RSTR/CIV-10.8.0+-+Strategic+Welsh+CUI+%28NRO%29+Release+Implementation+Plan\n\n### Justification for exclusion?\n\nCIVIL release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCIVIL\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n15-09-2025\n\n### Skip shutdown end date\n\n15-09-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n11-09-2025",
       "cost": "£381.68"
-    },
-    {
-      "id": 1170,
-      "title": "Don't shutdown PerfTest",
-      "status": "auto-approved",
-      "created_at": "2025-09-10T18:16:03.000Z",
-      "updated_at": "2025-09-10T18:17:10.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1170",
-      "user": "yogeshruperaihmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance Team",
-      "environment": "Test / Perftest",
-      "start_date": "2025-09-10T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "To complete performance testing for prl councel release",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nTo complete performance testing for prl councel release\n\n### Justification for exclusion?\n\nTo complete performance testing for prl councel release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n10-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n12-09-2025",
-      "cost": "£110.95"
     }
   ]
 }
