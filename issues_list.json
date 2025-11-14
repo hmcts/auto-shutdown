@@ -14,5 +14,24 @@
         "justification": "ACAS need to test the APIs provided by the ET team over a period of time before a potential go live in January. They are facing issues due to the auto shutdown so have requested AAT be up for around 3-4 weeks so that they can test the API before going live with it in early 2026",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1213"
+    },
+    {
+        "form_review_date": "16/11/2025",
+        "start_date": "14-11-2025",
+        "end_date": "16-11-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Demo",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration & Asylum",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-1827",
+        "stay_on_late": "No",
+        "justification": "Service team wants to complete the regression",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1232"
     }
 ]
