@@ -51,5 +51,23 @@
         "justification": "We will need to merge in un-shuttering and env var change prs to unshutter the service in a timely manner",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1234"
+    },
+    {
+        "form_review_date": "22-11-2025",
+        "start_date": "20-11-2025",
+        "end_date": "21-11-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Family Private Law",
+        "change_jira_id": "CHG-0079024",
+        "stay_on_late": "Yes",
+        "justification": "Out of hours release for DFJ case list filters for Private Law",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1235"
     }
 ]
