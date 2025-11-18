@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/a8140a9e-f1b0-481f-a4de-09e2ee23f7ab/resourceGroups/toffee-v14-flexible-data-sbox/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-sbox",
+    "resource": "toffee-v14-flexible-sbox",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-sbox* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  }
+]
