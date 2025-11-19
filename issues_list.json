@@ -68,5 +68,24 @@
         "justification": "Environments needed to run pipelines during OOH migration",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1236"
+    },
+    {
+        "form_review_date": "19-11-2026",
+        "start_date": "19-11-2025",
+        "end_date": "19-11-2025",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Test / Perftest",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Perf",
+        "change_jira_id": "n/a",
+        "stay_on_late": "Yes",
+        "justification": "To complete performance test preparation",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1237"
     }
 ]
