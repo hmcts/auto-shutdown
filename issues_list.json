@@ -50,42 +50,5 @@
         "justification": "Out of hours release for DFJ case list filters for Private Law",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1235"
-    },
-    {
-        "form_review_date": "20-11-2025",
-        "start_date": "19-11-2025",
-        "end_date": "19-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Family Public Law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2936",
-        "stay_on_late": "Yes",
-        "justification": "Environments needed to run pipelines during OOH migration",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1236"
-    },
-    {
-        "form_review_date": "19-11-2026",
-        "start_date": "19-11-2025",
-        "end_date": "19-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Test / Perftest",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Perf",
-        "change_jira_id": "n/a",
-        "stay_on_late": "Yes",
-        "justification": "To complete performance test preparation",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1237"
     }
 ]
