@@ -1,6 +1,14 @@
 #!/bin/bash
 source scripts/common/common-functions.sh
 
+# Set default values in the case of auto approval
+CHANGE_JIRA_ID="${CHANGE_JIRA_ID:-Unknown}"
+REQUEST_URL="${REQUEST_URL:-Unknown}"
+BUSINESS_AREA_ENTRY="${BUSINESS_AREA_ENTRY:-Unknown}"
+COST_DETAILS_FORMATTED="${COST_DETAILS_FORMATTED:-0}"
+ENVIRONMENT="${ENVIRONMENT:-Unknown}"
+JUSTIFICATION="${JUSTIFICATION:-Unknown}"
+
 # Define Bash variables
 request_url_link="*<$REQUEST_URL|$CHANGE_JIRA_ID>*"
 request_title_link="*<$REQUEST_URL|$ISSUE_TITLE>*"
@@ -46,4 +54,4 @@ jq --arg issue_url "$request_url_link" \
 
 MESSAGE=$(< slack-payload.json)
 
-curl -v -X POST -H 'Content-type: application/json' --data "${MESSAGE}" ${SLACK_WEBHOOK}
+curl -X POST -H 'Content-type: application/json' --data "${MESSAGE}" ${SLACK_WEBHOOK}
