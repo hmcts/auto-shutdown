@@ -1,7 +1,30 @@
 {
-  "last_updated": "2025-11-20T17:41:42.256Z",
+  "last_updated": "2025-11-20T17:42:09.741Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1243,
+      "title": "PR-1242",
+      "status": "auto-approved",
+      "created_at": "2025-11-20T17:41:26.000Z",
+      "updated_at": "2025-11-20T17:41:53.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1243",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2025-12-20T00:00:00.000Z",
+      "end_date": "2025-12-21T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "PR-1242",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nPR-1242\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n20-12-2025\n\n### Skip shutdown end date\n\n21-12-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": null
+    },
     {
       "id": 1241,
       "title": "PR-1240",
@@ -1087,29 +1110,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCHG-0055965\n\n### Justification for exclusion?\n\nApplication environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n30-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-10-2025",
       "cost": "£322.12"
-    },
-    {
-      "id": 1179,
-      "title": "Nexus Telephony Production Dry Run - ❌",
-      "status": "cancelled",
-      "created_at": "2025-09-29T09:09:26.000Z",
-      "updated_at": "2025-09-29T15:23:38.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1179",
-      "user": "davejones74",
-      "labels": [
-        "auto-approved",
-        "cancel"
-      ],
-      "business_area": "CFT",
-      "team_name": "Fee and Payments",
-      "environment": "variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.",
-      "start_date": "2025-09-30T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG-0055965",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG-0055965\n\n### Justification for exclusion?\n\nApplication environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n30-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n30-10-2025",
-      "cost": "£318.03"
     }
   ]
 }
