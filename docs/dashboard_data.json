@@ -1,7 +1,30 @@
 {
-  "last_updated": "2025-11-20T17:30:51.915Z",
+  "last_updated": "2025-11-20T17:40:50.860Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1241,
+      "title": "PR-1240",
+      "status": "auto-approved",
+      "created_at": "2025-11-20T17:39:58.000Z",
+      "updated_at": "2025-11-20T17:40:23.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1241",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2025-12-20T00:00:00.000Z",
+      "end_date": "2025-12-21T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "PR-1240",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nPR-1240\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n20-12-2025\n\n### Skip shutdown end date\n\n21-12-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": null
+    },
     {
       "id": 1239,
       "title": "PR-1238",
@@ -1087,28 +1110,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCHG-0055965\n\n### Justification for exclusion?\n\nApplication environment variable changes required to be pushed through the flux configuration during the dry run process and bastion required to verify payments.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n30-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n30-10-2025",
       "cost": "£318.03"
-    },
-    {
-      "id": 1178,
-      "title": "Keep AAT UP",
-      "status": "auto-approved",
-      "created_at": "2025-09-26T18:59:06.000Z",
-      "updated_at": "2025-09-26T19:00:24.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1178",
-      "user": "RebeccaBaker",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "CCD",
-      "environment": "AAT / Staging",
-      "start_date": "2025-09-26T00:00:00.000Z",
-      "end_date": "2025-09-27T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-6681",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/CCD-6681\n\n### Justification for exclusion?\n\nhttps://tools.hmcts.net/jira/browse/CCD-6681\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n26-09-2025\n\n### Skip shutdown end date\n\n27-09-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n26-10-2025",
-      "cost": "£579.61"
     }
   ]
 }
