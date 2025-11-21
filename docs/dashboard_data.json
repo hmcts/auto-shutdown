@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-21T08:18:15.110Z",
+  "last_updated": "2025-11-21T10:59:58.399Z",
   "total_issues": 50,
   "data": [
     {
@@ -29,22 +29,23 @@
       "title": "PR-1242",
       "status": "auto-approved",
       "created_at": "2025-11-20T17:41:26.000Z",
-      "updated_at": "2025-11-20T17:41:53.000Z",
+      "updated_at": "2025-11-21T10:59:44.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1243",
       "user": "hmcts-platform-operations",
       "labels": [
+        "Processing",
         "auto-approved",
         "pull-request"
       ],
       "business_area": "CFT",
       "team_name": "PlatOps",
       "environment": "AAT / Staging",
-      "start_date": "2025-12-20T00:00:00.000Z",
-      "end_date": "2025-12-21T00:00:00.000Z",
+      "start_date": "2025-12-21T00:00:00.000Z",
+      "end_date": "2025-12-22T00:00:00.000Z",
       "justification": "?",
       "change_jira_id": "PR-1242",
       "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nPR-1242\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n20-12-2025\n\n### Skip shutdown end date\n\n21-12-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "body": "### Change or Jira reference\n\nPR-1242\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n21-12-2025\n\n### Skip shutdown end date\n\n22-12-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": null
     },
     {
