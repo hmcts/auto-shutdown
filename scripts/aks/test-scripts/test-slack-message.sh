@@ -14,4 +14,4 @@ export TEAM_NAME="Team Name"
 export START_DATE="2025-11-18"
 export END_DATE="2025-11-30"
 
-bash ./scripts/aks//send-slack-message.sh
+bash ./scripts/aks/send-slack-message.sh
