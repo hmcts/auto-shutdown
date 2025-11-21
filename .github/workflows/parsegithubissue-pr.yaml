@@ -361,6 +361,10 @@ jobs:
             Success!
             Note: Since this is a pull request, no changes have been made to the exclusion list json.
             Auto-closing issue.
+      
+      - name: Set request URL
+        run: |
+          echo "REQUEST_URL=https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }}" >> $GITHUB_ENV
 
       #Send slack message if form parse process is successfull.
       - name: Send slack message
