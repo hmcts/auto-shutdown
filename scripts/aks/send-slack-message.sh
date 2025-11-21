@@ -1,11 +1,6 @@
 #!/bin/bash
 source scripts/common/common-functions.sh
 
-echo "Using script from DTSPO-26816"
-
-# # Set default values in the case of auto approval
-# REQUEST_URL="${REQUEST_URL:-https://fakeurl.com}"
-
 # Define Bash variables
 request_url_link="*<$REQUEST_URL|$CHANGE_JIRA_ID>*"
 request_title_link="*<$REQUEST_URL|$ISSUE_TITLE>*"
@@ -53,4 +48,4 @@ MESSAGE=$(< slack-payload.json)
 
 echo "Message: ${MESSAGE}"
 
-curl -v -X POST -H 'Content-type: application/json' --data "${MESSAGE}" ${SLACK_WEBHOOK}
+curl -X POST -H 'Content-type: application/json' --data "${MESSAGE}" ${SLACK_WEBHOOK}
