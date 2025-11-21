@@ -50,5 +50,24 @@
         "justification": "Out of hours release for DFJ case list filters for Private Law",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1235"
+    },
+    {
+        "form_review_date": "5-2-2026",
+        "start_date": "24-11-2025",
+        "end_date": "05-12-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Test / Perftest",
+            " Preview / Dev",
+            " Demo"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "darts",
+        "change_jira_id": "DMP-5319",
+        "stay_on_late": "Yes",
+        "justification": "Overnight tests running",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1245"
     }
 ]
