@@ -368,7 +368,7 @@ jobs:
           echo "CHANGE_JIRA_ID=$(echo $NEW_DATA | jq -r '.form_change_jira_id')" >> $GITHUB_ENV
           echo "BUSINESS_AREA_ENTRY=$(echo $NEW_DATA | jq -r '.form_business_area')" >> $GITHUB_ENV
           echo "JUSTIFICATION=$(echo $NEW_DATA | jq -r '.form_justification')" >> $GITHUB_ENV
-          echo "ENVIRONMENT=$(echo $NEW_DATA | jq -r '.form_environment | join(\", \")')" >> $GITHUB_ENV
+          echo "$NEW_DATA" | jq -r '.form_environment | join(", ")'
           echo "START_DATE=$(echo $NEW_DATA | jq -r '.form_start_date')" >> $GITHUB_ENV
           echo "END_DATE=$(echo $NEW_DATA | jq -r '.form_end_date')" >> $GITHUB_ENV
 
