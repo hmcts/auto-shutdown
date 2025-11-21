@@ -362,16 +362,6 @@ jobs:
             Note: Since this is a pull request, no changes have been made to the exclusion list json.
             Auto-closing issue.
       
-      - name: Set fields
-        run: |
-          echo "CHANGE_JIRA_ID=$(echo "$NEW_DATA" | jq -r '.form_change_jira_id')" >> $GITHUB_ENV
-          echo "BUSINESS_AREA_ENTRY=$(echo "$NEW_DATA" | jq -r '.form_business_area')" >> $GITHUB_ENV
-          echo "JUSTIFICATION=$(echo "$NEW_DATA" | jq -r '.form_justification')" >> $GITHUB_ENV
-          echo "ENVIRONMENT=$(echo "$NEW_DATA" | jq -r '.form_environment | join(", ")')" >> $GITHUB_ENV
-          echo "START_DATE=$(echo "$NEW_DATA" | jq -r '.form_start_date')" >> $GITHUB_ENV
-          echo "END_DATE=$(echo "$NEW_DATA" | jq -r '.form_end_date')" >> $GITHUB_ENV
-          echo "TEAM_NAME=$(echo "$NEW_DATA" | jq -r '.form_team_name')" >> $GITHUB_ENV
-
       #Send slack message if form parse process is successfull.
       - name: Send slack message
         if: env.PROCESS_SUCCESS == 'true'
