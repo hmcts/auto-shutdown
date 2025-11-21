@@ -3,17 +3,17 @@ source scripts/common/common-functions.sh
 
 echo "Using script from DTSPO-26816"
 
-# Set default values in the case of auto approval
-CHANGE_JIRA_ID="${CHANGE_JIRA_ID:-Unknown}"
-REQUEST_URL="${REQUEST_URL:-Unknown}"
-BUSINESS_AREA_ENTRY="${BUSINESS_AREA_ENTRY:-Unknown}"
-COST_DETAILS_FORMATTED="${COST_DETAILS_FORMATTED:-0}"
-ENVIRONMENT="${ENVIRONMENT:-Unknown}"
-JUSTIFICATION="${JUSTIFICATION:-Unknown}"
+# # Set default values in the case of auto approval
+# CHANGE_JIRA_ID="${CHANGE_JIRA_ID:-Unknown}"
+# REQUEST_URL="${REQUEST_URL:-Unknown}"
+# BUSINESS_AREA_ENTRY="${BUSINESS_AREA_ENTRY:-Unknown}"
+# COST_DETAILS_FORMATTED="${COST_DETAILS_FORMATTED:-0}"
+# ENVIRONMENT="${ENVIRONMENT:-Unknown}"
+# JUSTIFICATION="${JUSTIFICATION:-Unknown}"
 
-echo "CHANGE_JIRA_ID=$CHANGE_JIRA_ID"
-echo "ENVIRONMENT=$ENVIRONMENT"
-echo "BUSINESS_AREA_ENTRY=$BUSINESS_AREA_ENTRY"
+# echo "CHANGE_JIRA_ID=$CHANGE_JIRA_ID"
+# echo "ENVIRONMENT=$ENVIRONMENT"
+# echo "BUSINESS_AREA_ENTRY=$BUSINESS_AREA_ENTRY"
 
 # Define Bash variables
 request_url_link="*<$REQUEST_URL|$CHANGE_JIRA_ID>*"
@@ -60,4 +60,6 @@ jq --arg issue_url "$request_url_link" \
 
 MESSAGE=$(< slack-payload.json)
 
-curl -X POST -H 'Content-type: application/json' --data "${MESSAGE}" ${SLACK_WEBHOOK}
+echo "Message: ${MESSAGE}"
+
+curl -v -X POST -H 'Content-type: application/json' --data "${MESSAGE}" ${SLACK_WEBHOOK}
