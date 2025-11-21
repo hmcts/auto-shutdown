@@ -161,7 +161,7 @@ jobs:
       - name: get resource details
         if: env.PROCESS_SUCCESS == 'true'
         continue-on-error: true
-        run: ./scripts/resource-details.sh
+        run: ./scripts/aks/resource-details.sh
       #Run cost calculator python script
       - name: process costs
         if: env.PROCESS_SUCCESS == 'true'

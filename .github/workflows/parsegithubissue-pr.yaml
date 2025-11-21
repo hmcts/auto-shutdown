@@ -361,7 +361,7 @@ jobs:
             Success!
             Note: Since this is a pull request, no changes have been made to the exclusion list json.
             Auto-closing issue.
-
+      
       #Send slack message if form parse process is successfull.
       - name: Send slack message
         if: env.PROCESS_SUCCESS == 'true'
@@ -380,3 +380,4 @@ jobs:
           REQUESTER: ${{ github.event.pull_request.user.login }}
           APPROVAL_COMMENT: ${{ env.APPROVAL_COMMENT }}
           REVIEWER: ${{ github.actor }}
+          TEAM_NAME: ${{env.TEAM_NAME}}
