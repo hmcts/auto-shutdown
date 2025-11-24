@@ -1,17 +1,18 @@
 {
-  "last_updated": "2025-11-24T07:01:27.447Z",
+  "last_updated": "2025-11-24T10:54:06.846Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1245,
-      "title": "darts: SIT Cycle 7 and Performance Testing",
-      "status": "auto-approved",
+      "title": "darts: SIT Cycle 7 and Performance Testing - ❌",
+      "status": "cancelled",
       "created_at": "2025-11-21T08:16:57.000Z",
-      "updated_at": "2025-11-21T08:18:03.000Z",
+      "updated_at": "2025-11-24T10:53:51.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1245",
       "user": "npv0",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "Cross-Cutting",
       "team_name": "darts",
