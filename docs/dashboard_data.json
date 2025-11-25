@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-11-25T10:13:49.596Z",
+  "last_updated": "2025-11-25T10:15:20.556Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1246,
+      "title": "CHG-0077360 - Keep envs alive to allow IAC out of hours release",
+      "status": "auto-approved",
+      "created_at": "2025-11-25T10:13:20.000Z",
+      "updated_at": "2025-11-25T10:15:09.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1246",
+      "user": "rajeshthuraiyur",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Immigration & Asylum Chamber",
+      "environment": "AAT / Staging, Preview / Dev, Demo, PTL",
+      "start_date": "2025-11-25T00:00:00.000Z",
+      "end_date": "2025-11-26T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "CHG-0083011",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0083011\n\n### Justification for exclusion?\n\nOut of hours production release to rebuild CCD Elastic Search index for Ayslum\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration & Asylum Chamber\n\n### Environment\n\nAAT / Staging, Preview / Dev, Demo, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n25-11-2025\n\n### Skip shutdown end date\n\n26-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n26-11-2025",
+      "cost": "£848.03"
+    },
     {
       "id": 1245,
       "title": "darts: SIT Cycle 7 and Performance Testing - ❌",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\n0058181\n\n### Justification for exclusion?\n\nWe are doing an elastic search reindexing and need the pipelines working to merge in changes\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration and Asylum\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n30-09-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-10-2025",
       "cost": "£444.05"
-    },
-    {
-      "id": 1181,
-      "title": "Adoption - Redis Cache Persistance",
-      "status": "auto-approved",
-      "created_at": "2025-09-30T14:35:38.000Z",
-      "updated_at": "2025-09-30T14:36:54.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1181",
-      "user": "jamesrferguson1",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Adoption (adoption web)",
-      "environment": "AAT / Staging, Preview / Dev, PTL",
-      "start_date": "2025-10-02T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "ADOP-2323",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nADOP-2323\n\n### Justification for exclusion?\n\nCICD pipeline needed for out of hours release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nAdoption (adoption web)\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n02-10-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n03-10-2025",
-      "cost": "£333.21"
     }
   ]
 }
