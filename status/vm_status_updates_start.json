@@ -1,0 +1,26 @@
+[
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/core-infra-idam-perftest/providers/Microsoft.Compute/virtualMachines/idam-perftest-jumpbox",
+    "resource": "idam-perftest-jumpbox",
+    "statusMessage": "VM: *idam-perftest-jumpbox* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *core-infra-idam-perftest* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-test-vm-00",
+    "resource": "mgmt-perf-test-vm-00",
+    "statusMessage": "VM: *mgmt-perf-test-vm-00* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ae75b9fb-7d34-4112-82ff-64bd3855ce27/resourceGroups/sdrs-rg-stg/providers/Microsoft.Compute/virtualMachines/sdrs-frontend-vm01-stg",
+    "resource": "sdrs-frontend-vm01-stg",
+    "statusMessage": "VM: *sdrs-frontend-vm01-stg* in Subscription: *ae75b9fb-7d34-4112-82ff-64bd3855ce27*  ResourceGroup: *sdrs-rg-stg* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ea3a8c1e-af9d-4108-bc86-a7e2d267f49c/resourceGroups/hmcts-hub-sbox-int/providers/Microsoft.Compute/virtualMachines/hmcts-hub-sbox-int-palo-vm-0",
+    "resource": "hmcts-hub-sbox-int-palo-vm-0",
+    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-vm-0* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *null* state after *start* action.",
+    "resourceType": "vm"
+  }
+]
