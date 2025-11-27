@@ -18,25 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1234"
     },
     {
-        "form_review_date": "26-11-2025",
-        "start_date": "25-11-2025",
-        "end_date": "26-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration & Asylum Chamber",
-        "change_jira_id": "CHG-0083011",
-        "stay_on_late": "Yes",
-        "justification": "Out of hours production release to rebuild CCD Elastic Search index for Ayslum",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1246"
-    },
-    {
         "form_review_date": "28-11-2025",
         "start_date": "27-11-2025",
         "end_date": "27-11-2025",
