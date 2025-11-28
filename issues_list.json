@@ -1,41 +1,5 @@
 [
     {
-        "form_review_date": "28/11/2025",
-        "start_date": "26-11-2025",
-        "end_date": "27-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Special Tribunals",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSSTCI-1465",
-        "stay_on_late": "No",
-        "justification": "We will need to merge in un-shuttering and env var change prs to unshutter the service in a timely manner",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1234"
-    },
-    {
-        "form_review_date": "28-11-2025",
-        "start_date": "27-11-2025",
-        "end_date": "27-11-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Family Public Law",
-        "change_jira_id": "HALO: 0083996",
-        "stay_on_late": "Yes",
-        "justification": "Needed to run our pipelines during OOH migration run",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1247"
-    },
-    {
         "form_review_date": "03-12-2025",
         "start_date": "01-12-2025",
         "end_date": "05-12-2025",
