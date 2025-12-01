@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-01T17:11:01.108Z",
+  "last_updated": "2025-12-01T21:48:30.879Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,7 +7,7 @@
       "title": "Demo environment availability for OOH PayIt testing",
       "status": "auto-approved",
       "created_at": "2025-12-01T17:09:39.000Z",
-      "updated_at": "2025-12-01T17:10:46.000Z",
+      "updated_at": "2025-12-01T17:11:18.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1250",
       "user": "davejones74",
       "labels": [
