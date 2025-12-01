@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-01T07:03:01.817Z",
+  "last_updated": "2025-12-01T09:55:11.025Z",
   "total_issues": 50,
   "data": [
     {
@@ -26,14 +26,15 @@
     },
     {
       "id": 1248,
-      "title": "ET ACAS API",
-      "status": "auto-approved",
+      "title": "ET ACAS API - ❌",
+      "status": "cancelled",
       "created_at": "2025-11-26T16:15:52.000Z",
-      "updated_at": "2025-11-26T16:16:53.000Z",
+      "updated_at": "2025-12-01T09:54:56.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1248",
       "user": "hsjhita",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "CFT",
       "team_name": "ET",
