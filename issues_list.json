@@ -1,23 +1,5 @@
 [
     {
-        "form_review_date": "11/12/2025",
-        "start_date": "01-12-2025",
-        "end_date": "01-12-2025",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Fee and Payments",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/PAY-8160",
-        "stay_on_late": "No",
-        "justification": "PayIt developement requires extra development time to complete FT and adhoc texting process to meet strict business deadline date.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1250"
-    },
-    {
         "form_review_date": "09-12-2025",
         "start_date": "02-12-2025",
         "end_date": "02-12-2025",
