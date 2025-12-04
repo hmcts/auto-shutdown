@@ -14,5 +14,21 @@
         "justification": "Keep test environment alive to allow perf testing in the evenings / weekend",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1252"
+    },
+    {
+        "form_review_date": "05-12-2025",
+        "start_date": "04-12-2025",
+        "end_date": "10-12-2025",
+        "request_type": "stop",
+        "environment": [
+            "PTL"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Keep test environment alive to allow perf testing over the weekend",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1253"
     }
 ]
