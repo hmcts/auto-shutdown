@@ -32,25 +32,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1253"
     },
     {
-        "form_review_date": "10-12-2025",
-        "start_date": "09-12-2025",
-        "end_date": "09-12-2025",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration & Asylum Chamber Service",
-        "change_jira_id": "DIAC-1827",
-        "stay_on_late": "Yes",
-        "justification": "CCD Data migration release is planned during out of office hours",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1254"
-    },
-    {
         "form_review_date": "11-12-2025",
         "start_date": "10-12-2025",
         "end_date": "10-12-2025",
