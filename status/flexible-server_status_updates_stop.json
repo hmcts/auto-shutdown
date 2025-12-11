@@ -4,5 +4,11 @@
     "resource": "reform-scan-notification-service-flexible-db-v15-aat",
     "statusMessage": "Flexible SQL Server: *reform-scan-notification-service-flexible-db-v15-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopping* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/bf308a5c-0624-4334-8ff8-8dca9fd43783/resourceGroups/plum-v14-flexible-data-sandbox/providers/Microsoft.DBforPostgreSQL/flexibleServers/plum-v14-flexible-sandbox",
+    "resource": "plum-v14-flexible-sandbox",
+    "statusMessage": "Flexible SQL Server: *plum-v14-flexible-sandbox* in Subscription: *bf308a5c-0624-4334-8ff8-8dca9fd43783* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
