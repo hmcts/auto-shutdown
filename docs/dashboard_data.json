@@ -1,7 +1,29 @@
 {
-  "last_updated": "2025-12-11T10:40:12.809Z",
+  "last_updated": "2025-12-11T10:41:10.402Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1256,
+      "title": "IAC - Jenkins Exemption",
+      "status": "auto-approved",
+      "created_at": "2025-12-11T10:39:44.000Z",
+      "updated_at": "2025-12-11T10:40:56.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1256",
+      "user": "KleoG",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Immigration and Asylum",
+      "environment": "AAT / Staging, Preview / Dev, Sandbox, PTL",
+      "start_date": "2025-12-16T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "89916 and DIAC-1859",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\n89916 and DIAC-1859\n\n### Justification for exclusion?\n\nWe are doing a ccd migration and need the pipelines to merge in changes.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration and Asylum\n\n### Environment\n\nAAT / Staging, Preview / Dev, Sandbox, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-12-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n17-12-2025",
+      "cost": "£378.1"
+    },
     {
       "id": 1255,
       "title": "Skip auto shutdown for FPL OOH migration",
@@ -1091,28 +1113,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DFPL-2818\n\n### Justification for exclusion?\n\nNeeded to be able to run our master and preview pipelines\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n09-10-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-10-2025",
       "cost": "£335.04"
-    },
-    {
-      "id": 1191,
-      "title": "Skip Demo shutdown",
-      "status": "auto-approved",
-      "created_at": "2025-10-07T16:36:50.000Z",
-      "updated_at": "2025-10-07T16:37:48.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1191",
-      "user": "gokul-sol",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "SSCS",
-      "environment": "Demo",
-      "start_date": "2025-10-07T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "Need demo for testing",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nNeed demo for testing \n\n### Justification for exclusion?\n\nTo research  on a tool to use for service team\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-10-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-10-2025",
-      "cost": "£68.03"
     }
   ]
 }
