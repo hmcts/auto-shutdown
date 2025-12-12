@@ -53,7 +53,7 @@ jq -c '.data[]' <<<$MYSQL_SERVERS | while read mysqlserver; do
     if [[ $SKIP == "false" ]]; then
         log "$logMessage"
         # Function call to send post shutdown status notification to Slack - Params: (Slack webhook, message template)
-        auto_shutdown_notification "$slackMessage"
+        auto_shutdown_notification ":red_circle: $slackMessage"
     else
         ts_echo_color AMBER "MySQL flexible server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE status notification"
     fi
