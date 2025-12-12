@@ -68,7 +68,7 @@ function auto_shutdown_notification() {
     # local silentResponse="-s -o /dev/null"
     curl -v $silentResponse -X POST \
       -H "Content-Type: application/json" \
-      -d "{\"text\": \"$message\"}" \
+      -d "{\"text\": \"DTSPO-28969 debugging unformatted message\"}" \
       "${notificationSlackWebhook}"
 }
 
