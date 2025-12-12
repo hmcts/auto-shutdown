@@ -7,9 +7,8 @@ source scripts/vmss/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
+# slack token for the shutdown status app is passed as env var and used to post a thread with all the individual resource statuses
 MODE=${1:-start}
-notificationSlackWebhook=$2
 SKIP="false"
 
 # Catch problems with MODE input, must be one of start/deallocate
@@ -20,8 +19,9 @@ fi
 
 VMSS=$(get_vmss)
 
+auto_shutdown_notifications=""
 # Iterate over each VMSS instance
-jq -c '.data[]' <<<$VMSS | while read vmss; do
+while read vmss; do
     # Retrieve details about the VMSS instance
     get_vmss_details "$vmss"
 
@@ -56,24 +56,26 @@ jq -c '.data[]' <<<$VMSS | while read vmss; do
             "running")
                 ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
                 if [[ $MODE == "deallocate" ]]; then
-                    auto_shutdown_notification ":red_circle: $slackMessage"
+                    auto_shutdown_notifications+=":red_circle: $slackMessage|"
                     add_to_json "$VMSS_ID" "$VMSS_NAME" "$slackMessage" "vmss" "$MODE"
                 fi
                 ;;
             "deallocated")
                 ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
                 if [[ $MODE == "start" ]]; then
-                    auto_shutdown_notification ":red_circle: $slackMessage"
+                    auto_shutdown_notifications+=":red_circle: $slackMessage|"
                     add_to_json "$VMSS_ID" "$VMSS_NAME" "$slackMessage" "vmss" "$MODE"
                 fi
                 ;;
             *)
                 ts_echo_color AMBER "$logMessage"
-                auto_shutdown_notification ":yellow_circle: $slackMessage"
+                auto_shutdown_notifications+=":yellow_circle: $slackMessage|"
                 add_to_json "$VMSS_ID" "$VMSS_NAME" "$slackMessage" "vmss" "$MODE"
                 ;;
         esac
     else
         ts_echo_color AMBER "VMSS: $VMSS_NAME in Resource Group: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule."
     fi
-done
+done < <(jq -c '.data[]' <<<$VMSS)
+
+post_entire_autoshutdown_thread ":red_circle: :azure: VMSS START status check" "$auto_shutdown_notifications"

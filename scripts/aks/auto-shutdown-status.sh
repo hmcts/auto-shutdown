@@ -13,7 +13,8 @@ clusters_count=$(jq -c -r '.count' <<<$CLUSTERS)
 log "$clusters_count AKS Clusters found"
 log "----------------------------------------------"
 
-jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
+auto_shutdown_notifications=""
+while read cluster; do
 # Function that returns the Resource Group, Id and Name of the AKS Cluster and its current state as variables
   get_cluster_details
   cluster_env=$(echo $CLUSTER_NAME | cut -d'-' -f2)
@@ -54,21 +55,23 @@ jq -c '.data[]' <<<$CLUSTERS | while read cluster; do
         *"Running"*)
             ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
             if [[ $MODE == "stop" ]]; then
-                auto_shutdown_notification ":red_circle: $slackMessage"
+                auto_shutdown_notifications+=":red_circle: $slackMessage|"
             fi
             ;;
         *"Stopped"*)
             ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
             if [[ $MODE == "start" ]]; then
-                auto_shutdown_notification ":red_circle: $slackMessage"
+                auto_shutdown_notifications+=":red_circle: $slackMessage|"
             fi
             ;;
         *)
             ts_echo_color AMBER "$logMessage"
-            auto_shutdown_notification ":yellow_circle: $slackMessage"
+            auto_shutdown_notifications+=":yellow_circle: $slackMessage|"
             ;;
         esac
     else
         ts_echo_color AMBER "Cluster: $CLUSTER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
     fi
-done
+done < <(jq -c '.data[]' <<<$CLUSTERS)
+
+post_entire_autoshutdown_thread ":red_circle: :aks: AKS START status check" "$auto_shutdown_notifications"

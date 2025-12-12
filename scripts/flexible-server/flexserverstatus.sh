@@ -7,9 +7,8 @@ source scripts/flexible-server/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
+# slack token for the shutdown status app is passed as env var and used to post a thread with all the individual resource statuses
 MODE=${1:-start}
-notificationSlackWebhook=$2
 SKIP="false"
 
 # Catch problems with MODE input, must be one of Start/Stop
@@ -23,8 +22,9 @@ flexible_server_count=$(jq -c -r '.count' <<< $FLEXIBLE_SERVERS)
 log "$flexible_server_count Flexible Servers found"
 log "----------------------------------------------"
 
+auto_shutdown_notifications=""
 # For each Flexible SQL Server found in the function `get_subscription_flexible_sql_servers` start another loop
-jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
+while read flexibleserver; do
     # Function that returns the Resource Group, Id and Name of the Flexible SQL Server and its current state as variables
     get_flexible_sql_server_details
 
@@ -58,24 +58,26 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
         *"Ready"*)
             ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
             if [[ $MODE == "stop" ]]; then
-                auto_shutdown_notification ":red_circle: $slackMessage"
+                auto_shutdown_notifications+=":red_circle: $slackMessage|"
                 add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server" "$MODE"
             fi
             ;;
         *"Stopped"*)
             ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
             if [[ $MODE == "start" ]]; then
-                auto_shutdown_notification ":red_circle: $slackMessage"
+                auto_shutdown_notifications+=":red_circle: $slackMessage|"
                 add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server" "$MODE"
             fi
             ;;
         *)
             ts_echo_color AMBER "$logMessage"
-            auto_shutdown_notification ":yellow_circle: $slackMessage"
+            auto_shutdown_notifications+=":yellow_circle: $slackMessage|"
             add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "flexible-server" "$MODE"
             ;;
         esac
     else
         ts_echo_color AMBER "Flexible SQL Server: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
     fi
-done
+done < <(jq -c '.data[]' <<<$FLEXIBLE_SERVERS)
+
+post_entire_autoshutdown_thread ":red_circle: :postgres: Postgres Flexible START status check" "$auto_shutdown_notifications"

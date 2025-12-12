@@ -7,9 +7,8 @@ source scripts/blob-storage/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
+# slack token for the shutdown status app is passed as env var and used to post a thread with all the individual resource statuses
 MODE=${1:-start}
-notificationSlackWebhook=$2
 
 # Catch problems with MODE input, must be one of Start/Stop
 if [[ "$MODE" != "start" && "$MODE" != "stop" ]]; then
@@ -20,7 +19,8 @@ fi
 # Find all servers with a tag of autoShutdown no matter which state it is in
 ALL_SFTP_SERVERS=$(get_sftp_servers)
 
-jq -c '.data[]' <<<$ALL_SFTP_SERVERS | while read sftpserver; do
+auto_shutdown_notifications=""
+while read sftpserver; do
     # Function that returns the Resource Group, Id and Name of the Storage Account and the current state of the SFTP Server as variables
     get_sftp_server_details
 
@@ -36,8 +36,12 @@ jq -c '.data[]' <<<$ALL_SFTP_SERVERS | while read sftpserver; do
     if [[ "$SFTP_SERVER_ENABLED" =~ "true" ]]; then
         ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
         if [[ $MODE == "stop" ]]; then
-            # auto_shutdown_notification "$slackMessage"
+            auto_shutdown_notifications+=":red_circle: $slackMessage|"
             add_to_json "$STORAGE_ACCOUNT_ID" "$STORAGE_ACCOUNT_NAME" "$slackMessage" "blob-storage" "$MODE"
         fi
     fi
-done
+done < <(jq -c '.data[]' <<<$ALL_SFTP_SERVERS)
+
+# Leaving this commented out as notifications were commented out already: https://github.com/hmcts/auto-shutdown/commit/9be3a40dd1e0ac7656841084d030020c181d0436
+# post_entire_autoshutdown_thread ":red_circle: :file_folder: SFTP START status check" "$auto_shutdown_notifications"
+
