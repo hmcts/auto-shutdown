@@ -64,9 +64,10 @@ function auto_shutdown_notification() {
     # This silences the slack response message in logs.
     # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
     echo "Debugging shutdown notification, message: '$message'"
-    # local silentResponse="-s -o /dev/null"
-    # curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
-    #   "${notificationSlackWebhook}"
+    echo "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\"}"
+    local silentResponse="-s -o /dev/null"
+    curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+      "${notificationSlackWebhook}"
 }
 
 # Saves to JSON file in this repo which is to be used by another repo for daily-monitoring
