@@ -65,8 +65,8 @@ function auto_shutdown_notification() {
     # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
     echo "Debugging shutdown notification, message: '$message'"
     echo "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\"}"
-    local silentResponse="-s -o /dev/null"
-    curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+    # local silentResponse="-s -o /dev/null"
+    curl -v $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
       "${notificationSlackWebhook}"
 }
 
