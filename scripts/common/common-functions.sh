@@ -66,7 +66,7 @@ function auto_shutdown_notification() {
     echo "Debugging shutdown notification, message: '$message'"
     echo "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\"}"
     # local silentResponse="-s -o /dev/null"
-    curl -v $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+    curl -v $silentResponse -X POST --data-urlencode "payload={\"text\": \"$message\"}" \
       "${notificationSlackWebhook}"
 }
 
