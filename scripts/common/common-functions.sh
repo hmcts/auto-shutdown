@@ -54,8 +54,10 @@ function notification() {
     local channel="$1"
     local message="$2"
     echo "Debugging notification, message: '$message' to channel: '$channel'"
-    # curl -X POST --data-urlencode "payload={\"channel\": \"$channel\", \"username\": \"AKS Auto-Start\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
-    #     "${registrySlackWebhook}"
+    curl -X POST \
+      -H "Content-Type: application/json" \
+      -d "{\"channel\": \"$channel\", \"username\": \"AKS Auto-Start\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+      "${registrySlackWebhook}"
 }
 
 function auto_shutdown_notification() {
@@ -63,8 +65,6 @@ function auto_shutdown_notification() {
 
     # This silences the slack response message in logs.
     # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
-    echo "Debugging shutdown notification, message: '$message'"
-    echo "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\"}"
     # local silentResponse="-s -o /dev/null"
     curl -v $silentResponse -X POST \
       -H "Content-Type: application/json" \
