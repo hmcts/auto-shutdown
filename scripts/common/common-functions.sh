@@ -56,7 +56,7 @@ function notification() {
     echo "Debugging notification, message: '$message' to channel: '$channel'"
     curl -X POST \
       -H "Content-Type: application/json" \
-      -d "{\"channel\": \"$channel\", \"username\": \"AKS Auto-Start\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
+      -d "{\"channel\": \"$channel\", \"text\": \"$message\"}" \
       "${registrySlackWebhook}"
 }
 
@@ -68,7 +68,7 @@ function auto_shutdown_notification() {
     # local silentResponse="-s -o /dev/null"
     curl -v $silentResponse -X POST \
       -H "Content-Type: application/json" \
-      -d "{\"text\": \"DTSPO-28969 debugging unformatted message\"}" \
+      -d "{\"text\": \"$message\"}" \
       "${notificationSlackWebhook}"
 }
 
