@@ -1,7 +1,30 @@
 {
-  "last_updated": "2025-12-12T14:10:55.801Z",
+  "last_updated": "2025-12-13T07:01:12.858Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1260,
+      "title": "PR-1259",
+      "status": "auto-approved",
+      "created_at": "2025-12-12T14:10:42.000Z",
+      "updated_at": "2025-12-12T15:38:03.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1260",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2026-01-11T00:00:00.000Z",
+      "end_date": "2026-01-12T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "PR-1259",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nPR-1259\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n11-01-2026\n\n### Skip shutdown end date\n\n12-01-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": "£589.96"
+    },
     {
       "id": 1258,
       "title": "Keep Darts Alive for performance testing",
@@ -1087,29 +1110,6 @@
       "change_jira_id": "PR-1197",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nPR-1197\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n08-11-2025\n\n### Skip shutdown end date\n\n09-11-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": null
-    },
-    {
-      "id": 1196,
-      "title": "PR-1195",
-      "status": "auto-approved",
-      "created_at": "2025-10-09T10:40:50.000Z",
-      "updated_at": "2025-10-09T10:42:40.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1196",
-      "user": "hmcts-platform-operations",
-      "labels": [
-        "auto-approved",
-        "pull-request"
-      ],
-      "business_area": "CFT",
-      "team_name": "PlatOps",
-      "environment": "AAT / Staging",
-      "start_date": "2025-11-08T00:00:00.000Z",
-      "end_date": "2025-11-09T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "PR-1195",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nPR-1195\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n08-11-2025\n\n### Skip shutdown end date\n\n09-11-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": null
     }
   ]
