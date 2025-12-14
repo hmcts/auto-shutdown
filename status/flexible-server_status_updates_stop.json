@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/reform-scan-notification-service-flexible-db-v15-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/reform-scan-notification-service-flexible-db-v15-aat",
-    "resource": "reform-scan-notification-service-flexible-db-v15-aat",
-    "statusMessage": "Flexible SQL Server: *reform-scan-notification-service-flexible-db-v15-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopping* state after *stop* action",
-    "resourceType": "flexible-server"
-  }
-]
