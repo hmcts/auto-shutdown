@@ -2,8 +2,8 @@ name: auto-start-status-check
 on:
   workflow_dispatch:
   pull_request:
-  schedule:
-    - cron: "30 7 * * 1-5" # Every weekday at 7:30am GMT
+  # schedule:
+  #   - cron: "30 7 * * 1-5" # Every weekday at 7:30am GMT
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
 permissions:
