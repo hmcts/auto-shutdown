@@ -89,4 +89,7 @@ jobs:
 
       - name: AKS Auto Shutdown status check
         if: env.RUN_AUTO_START_STOP_SCRIPT == 'true'
-        run: ./scripts/aks/auto-shutdown-status.sh stop ${{ secrets.SLACK_WEBHOOK }}
+        # override Auto Shutdown App slack token with Auto Shutdown Status App token (different apps for different channels)
+        env:
+          SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_STATUS_APP_OAUTH_TOKEN }}
+        run: ./scripts/aks/auto-shutdown-status.sh stop
