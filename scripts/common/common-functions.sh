@@ -53,7 +53,6 @@ function log() {
 }
 
 function post_entire_autoshutdown_thread() {
-  # list of messages separated by newlines
   local header_message="$1"
   local messages="$2"
   if [[ -n "$messages" ]]; then
@@ -107,14 +106,11 @@ function post_thread_message() {
       --arg thread_ts "${thread_ts}" \
       --arg thread_message "${thread_message}" \
       '{channel: $channel_name, thread_ts: $thread_ts, text: $thread_message, unfurl_links: false}')
-
-  echo "${payload}"
     
   local response=$(curl -s -X POST \
       -H "Authorization: Bearer $SLACK_TOKEN" \
       -H "Content-Type: application/json; charset=utf-8" \
       --data "${payload}" "https://slack.com/api/chat.postMessage")
-  echo "response to thread message: ${response}"
 }
 
 function notification() {
