@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-16T10:09:36.103Z",
+  "last_updated": "2025-12-16T10:37:38.600Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,11 +7,10 @@
       "title": "PR-1259",
       "status": "auto-approved",
       "created_at": "2025-12-12T14:10:42.000Z",
-      "updated_at": "2025-12-16T10:09:20.000Z",
+      "updated_at": "2025-12-16T10:30:16.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1260",
       "user": "hmcts-platform-operations",
       "labels": [
-        "Processing",
         "auto-approved",
         "pull-request"
       ],
