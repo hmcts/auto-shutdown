@@ -14,5 +14,21 @@
         "justification": "Executing load test",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1263"
+    },
+    {
+        "form_review_date": "19/12/2025",
+        "start_date": "17-12-2025",
+        "end_date": "17-12-2025",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "Fee and Payments",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PAY-8201",
+        "stay_on_late": "No",
+        "justification": "Additional time to complete PayIt Release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1264"
     }
 ]
