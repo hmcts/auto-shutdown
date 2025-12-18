@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/df72bb30-d6fb-47bd-82ee-5eb87473ddb3/resourceGroups/ingest05-main-sbox/providers/Microsoft.Compute/virtualMachines/ingest05-legacy-sql-sbox",
-    "resource": "ingest05-legacy-sql-sbox",
-    "statusMessage": "VM: *ingest05-legacy-sql-sbox* in Subscription: *df72bb30-d6fb-47bd-82ee-5eb87473ddb3*  ResourceGroup: *ingest05-main-sbox* is *VM running* state after *deallocate* action.",
-    "resourceType": "vm"
-  }
-]
