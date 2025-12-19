@@ -7,9 +7,8 @@ source scripts/appgateway/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
+# slack token for the shutdown status app is passed as env var and used to post a thread with all the individual resource statuses
 MODE=${1:-start}
-notificationSlackWebhook=$2
 SKIP="false"
 
 # Catch problems with MODE input, must be one of Start/Stop
@@ -23,8 +22,9 @@ application_gateway_count=$(jq -c -r '.count' <<< $APPLICATION_GATEWAYS)
 log "$application_gateway_count Application Gateways found"
 log "----------------------------------------------"
 
+auto_shutdown_notifications=""
 # For each App Gateway found in the function `get_application_gateways` start another loop
-jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
+while read application_gateway; do
     # Function that returns the Resource Group, Id and Name of the Application Gateway and its current state as variables
     get_application_gateways_details
 
@@ -58,24 +58,26 @@ jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
         *"Running"*)
             ts_echo_color $([[ $MODE == "start" ]] && echo GREEN || echo RED) "$logMessage"
             if [[ $MODE == "stop" ]]; then
-                auto_shutdown_notification ":red_circle: $slackMessage"
+                auto_shutdown_notifications+=":red_circle: $slackMessage|"
                 add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway" "$MODE"
             fi
             ;;
         *"Stopped"*)
             ts_echo_color $([[ $MODE == "start" ]] && echo RED || echo GREEN) "$logMessage"
             if [[ $MODE == "start" ]]; then
-                auto_shutdown_notification ":red_circle: $slackMessage"
+                auto_shutdown_notifications+=":red_circle: $slackMessage|"
                 add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway" "$MODE"
             fi
             ;;
         *)
             ts_echo_color AMBER "$logMessage"
-            auto_shutdown_notification ":yellow_circle: $slackMessage"
+            auto_shutdown_notifications+=":yellow_circle: $slackMessage|"
             add_to_json "$APPLICATION_GATEWAY_ID" "$APPLICATION_GATEWAY_NAME" "$slackMessage" "appgateway" "$MODE"
             ;;
         esac
     else
         ts_echo_color AMBER "Application Gateway: $APPLICATION_GATEWAY_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
     fi
-done
+done < <(jq -c '.data[]' <<<$APPLICATION_GATEWAYS)
+
+post_entire_autoshutdown_thread ":red_circle: :door: App Gateway START status check" "$auto_shutdown_notifications"

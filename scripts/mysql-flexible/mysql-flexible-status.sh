@@ -7,9 +7,8 @@ source scripts/mysql-flexible/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
+# slack token for the shutdown status app is passed as env var and used to post a thread with all the individual resource statuses
 MODE=${1:-start}
-notificationSlackWebhook=$2
 SKIP="false"
 
 # Catch problems with MODE input, must be one of Start/Stop
@@ -23,8 +22,9 @@ mysql_server_count=$(jq -c -r '.count' <<< $MYSQL_SERVERS)
 log "$mysql_server_count MySQL Flexible Servers found"
 log "----------------------------------------------"
 
+auto_shutdown_notifications=""
 # For each MySQL Flexible Server found in the function `get_mysql_servers` start another loop
-jq -c '.data[]' <<<$MYSQL_SERVERS | while read mysqlserver; do
+while read mysqlserver; do
     # Function that returns the Resource Group, Id and Name of the MySQL Flexible Server and its current state as variables
     get_mysql_server_details
 
@@ -52,9 +52,10 @@ jq -c '.data[]' <<<$MYSQL_SERVERS | while read mysqlserver; do
     # If SKIP is false then we progress with the status check for the particular MySQL flexible server in this loop run, if SKIP is true then do nothing
     if [[ $SKIP == "false" ]]; then
         log "$logMessage"
-        # Function call to send post shutdown status notification to Slack - Params: (Slack webhook, message template)
-        auto_shutdown_notification "$notificationSlackWebhook" "$slackMessage"
+        auto_shutdown_notifications+=":red_circle: $slackMessage|"
     else
         ts_echo_color AMBER "MySQL flexible server $SERVER_NAME (rg:$RESOURCE_GROUP) has been skipped from today's $MODE status notification"
     fi
-done
+done < <(jq -c '.data[]' <<<$MYSQL_SERVERS)
+
+post_entire_autoshutdown_thread ":red_circle: :sql: MySQL Flexible START status check" "$auto_shutdown_notifications"

@@ -7,9 +7,8 @@ source scripts/vm/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
+# slack token for the shutdown status app is passed as env var and used to post a thread with all the individual resource statuses
 MODE=${1:-start}
-notificationSlackWebhook=$2
 SKIP="false"
 
 # Catch problems with MODE input, must be one of start/deallocate
@@ -23,8 +22,9 @@ vm_count=$(jq -c -r '.count' <<<$VMS)
 log "$vm_count VM's found"
 log "----------------------------------------------"
 
+auto_shutdown_notifications=""
 # For each VM found in the function `get_vms` start another loop
-jq -c '.data[]' <<<$VMS | while read vm; do
+while read vm; do
 
     # Function that returns the Resource Group, Id and Name of the VMs and its current state as variables
     get_vm_details
@@ -61,24 +61,26 @@ jq -c '.data[]' <<<$VMS | while read vm; do
                 *"VM running"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
                     if [[ $MODE == "deallocate" ]]; then
-                        auto_shutdown_notification ":red_circle: $slackMessage"
+                        auto_shutdown_notifications+=":red_circle: $slackMessage|"
                         add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm" "$MODE"
                     fi
                     ;;
                 *"VM deallocated"*)
                     ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
                     if [[ $MODE == "start" ]]; then
-                        auto_shutdown_notification ":red_circle: $slackMessage"
+                        auto_shutdown_notifications+=":red_circle: $slackMessage|"
                         add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm" "$MODE"
                     fi
                     ;;
                 *)
                     ts_echo_color AMBER "$logMessage"
-                    auto_shutdown_notification ":yellow_circle: $slackMessage"
+                    auto_shutdown_notifications+=":yellow_circle: $slackMessage|"
                     add_to_json "$VM_ID" "$VM_NAME" "$slackMessage" "vm" "$MODE"
                     ;;
             esac
         else
             ts_echo_color AMBER "VM: $VM_NAME in Resource Group: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
         fi
-done
+done < <(jq -c '.data[]' <<<$VMS)
+
+post_entire_autoshutdown_thread ":red_circle: :desktop_computer: VM START status check" "$auto_shutdown_notifications"

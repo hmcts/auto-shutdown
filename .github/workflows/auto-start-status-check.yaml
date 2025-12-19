@@ -6,6 +6,7 @@ on:
   #   - cron: "30 7 * * 1-5" # Every weekday at 7:30am GMT
 env:
   GH_TOKEN: ${{ secrets.PLATFORM_USER_TOKEN }}
+  SLACK_TOKEN: ${{ secrets.AUTO_SHUTDOWN_STATUS_APP_OAUTH_TOKEN }}
 permissions:
   id-token: write
 jobs:
@@ -26,25 +27,25 @@ jobs:
           allow-no-subscriptions: true
 
       - name: AKS START status check
-        run: ./scripts/aks/auto-shutdown-status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/aks/auto-shutdown-status.sh start
 
       - name: Postgres Flexible START status check
-        run: ./scripts/flexible-server/flexserverstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/flexible-server/flexserverstatus.sh start
 
       - name: MySQL Flexible START status check
-        run: ./scripts/mysql-flexible/mysql-flexible-status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/mysql-flexible/mysql-flexible-status.sh start
 
       - name: App Gateway START status check
-        run: ./scripts/appgateway/appgw_status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/appgateway/appgw_status.sh start
 
       - name: SQL Managed Instance START status check
-        run: ./scripts/sqlmi/sqlmistatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/sqlmi/sqlmistatus.sh start
 
       - name: SFTP START status check
-        run: ./scripts/blob-storage/sftp-check-status.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/blob-storage/sftp-check-status.sh start
 
       - name: VM START status check
-        run: ./scripts/vm/vmstatus.sh start ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/vm/vmstatus.sh start
 
       - name: Output log file
         run: ./scripts/common/log-output.sh

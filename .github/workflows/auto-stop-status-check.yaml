@@ -25,25 +25,25 @@ jobs:
           allow-no-subscriptions: true
 
       - name: AKS STOP status check
-        run: ./scripts/aks/auto-shutdown-status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/aks/auto-shutdown-status.sh stop
 
       - name: Postgres Flexible STOP status check
-        run: ./scripts/flexible-server/flexserverstatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/flexible-server/flexserverstatus.sh stop
 
       - name: MySQL Flexible STOP status check
-        run: ./scripts/mysql-flexible/mysql-flexible-status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/mysql-flexible/mysql-flexible-status.sh stop
 
       - name: App Gateway STOP status check
-        run: ./scripts/appgateway/appgw_status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/appgateway/appgw_status.sh stop
 
       - name: SQL Managed Instance STOP status check
-        run: ./scripts/sqlmi/sqlmistatus.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/sqlmi/sqlmistatus.sh stop
 
       - name: SFTP STOP status check
-        run: ./scripts/blob-storage/sftp-check-status.sh stop ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/blob-storage/sftp-check-status.sh stop
 
       - name: VM STOP status check
-        run: ./scripts/vm/vmstatus.sh deallocate ${{ secrets.SHUTDOWN_NOTIFICATIONS_WEBHOOK }}
+        run: ./scripts/vm/vmstatus.sh deallocate
 
       - name: Output log file
         run: ./scripts/common/log-output.sh

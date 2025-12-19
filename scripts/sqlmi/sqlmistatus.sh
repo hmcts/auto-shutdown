@@ -7,9 +7,8 @@ source scripts/sqlmi/common-functions.sh
 source scripts/common/common-functions.sh
 
 # Set variables for later use, MODE has a default but can be overridden at usage time
-# notificationSlackWebhook is used during the function call `auto_shutdown_notification`
+# slack token for the shutdown status app is passed as env var and used to post a thread with all the individual resource statuses
 MODE=${1:-start}
-notificationSlackWebhook=$2
 SKIP="false"
 
 # Catch problems with MODE input, must be one of Start/Stop
@@ -29,8 +28,9 @@ if [[ $mi_sql_server_count -eq 0 ]]; then
     exit 0
 fi
 
+auto_shutdown_notifications=""
 # For each App Gateway found in the function `get_application_gateways` start another loop
-jq -c '.[]' <<<$MI_SQL_SERVERS | while read server; do
+while read server; do
 
     # Function that returns the Resource Group, Id and Name of the Application Gateway and its current state as variables
     get_sql_mi_server_details
@@ -57,21 +57,23 @@ jq -c '.[]' <<<$MI_SQL_SERVERS | while read server; do
         case "$SERVER_STATE" in
             *"Ready"*)
                 ts_echo_color $( [[ $MODE == "start" ]] && echo GREEN || echo RED ) "$logMessage"
-                [[ $MODE == "stop" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                [[ $MODE == "stop" ]] && auto_shutdown_notifications+=":red_circle: $slackMessage|"
                 add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "sql" "$MODE"
                 ;;
             *"Stopped"*)
                 ts_echo_color $( [[ $MODE == "start" ]] && echo RED || echo GREEN ) "$logMessage"
-                [[ $MODE == "start" ]] && auto_shutdown_notification ":red_circle: $slackMessage"
+                [[ $MODE == "start" ]] && auto_shutdown_notifications+=":red_circle: $slackMessage|"
                 add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "sql" "$MODE"
                 ;;
             *)
                 ts_echo_color AMBER "$logMessage"
-                auto_shutdown_notification ":yellow_circle: $slackMessage"
+                auto_shutdown_notifications+=":yellow_circle: $slackMessage|"
                 add_to_json "$SERVER_ID" "$SERVER_NAME" "$slackMessage" "sql" "$MODE"
                 ;;
         esac
     else
         ts_echo_color AMBER "SQL managed-instance: $SERVER_NAME in ResourceGroup: $RESOURCE_GROUP has been skipped from today's $MODE operation schedule"
     fi
-done
+done < <(jq -c '.[]' <<<$MI_SQL_SERVERS)
+
+post_entire_autoshutdown_thread ":red_circle: :server: SQL Managed Instance START status check" "$auto_shutdown_notifications"

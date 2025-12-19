@@ -2,6 +2,8 @@
 # Check platform
 platform=$(uname)
 
+AUTO_SHUTDOWN_STATUS_CHANNEL_NAME="#auto-shutdown-status"
+
 # Check and install missing packages
 if [[ $platform == "Darwin" ]]; then
     date_command=$(which gdate)
@@ -50,21 +52,74 @@ function log() {
   ts_echo "$1" >> scripts/common/log.txt
 }
 
-function notification() {
-    local channel="$1"
-    local message="$2"
-    curl -X POST --data-urlencode "payload={\"channel\": \"$channel\", \"username\": \"AKS Auto-Start\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
-        ${registrySlackWebhook}
+function post_entire_autoshutdown_thread() {
+  local header_message="$1"
+  local messages="$2"
+  if [[ -n "$messages" ]]; then
+    local thread_ts=$(post_autoshutdown_status_header "$header_message")
+    while IFS= read -r line; do
+      [[ -z "$line" ]] && continue
+      post_autoshutdown_status_to_thread "$line" "$thread_ts"
+    done < <(echo "$messages" | tr '|' '\n')
+  fi
 }
 
-function auto_shutdown_notification() {
-    local message="$1"
 
-    # This silences the slack response message in logs.
-    # Comment this line out if you are having issues with slack delivery and want to see responses in your terminal
-    local silentResponse="-s -o /dev/null"
-    curl $silentResponse -X POST --data-urlencode "payload={\"username\": \"Auto Shutdown Notifications\", \"text\": \"$message\", \"icon_emoji\": \":tim-webster:\"}" \
-      ${notificationSlackWebhook}
+function post_autoshutdown_status_header() {
+  local channel_name="$AUTO_SHUTDOWN_STATUS_CHANNEL_NAME"
+  local message="$1"
+  thread_ts=$(post_header_message "${channel_name}" "${message}")
+  echo "$thread_ts"
+}
+
+function post_autoshutdown_status_to_thread() {
+  local channel_name="$AUTO_SHUTDOWN_STATUS_CHANNEL_NAME"
+  local header_message="$1"
+  local thread_ts="$2"
+  
+  post_thread_message "${channel_name}" "${header_message}" "${thread_ts}"
+}
+
+function post_header_message() {
+  local channel_name="$1"
+  local header_message="$2"
+  local payload=$(jq -n \
+      --arg channel "${channel_name}" \
+      --arg header_message "${header_message}" \
+      '{channel: $channel, blocks: [{type: "header", text: {type: "plain_text", text: $header_message, emoji: true}}, {type: "divider"}], unfurl_links: false}')
+
+  local response=$(curl -s -X POST \
+      -H "Authorization: Bearer $SLACK_TOKEN" \
+      -H "Content-Type: application/json; charset=utf-8" \
+      --data "${payload}" "https://slack.com/api/chat.postMessage")
+
+  local thread_ts=$(echo $response | jq -r '.ts')
+  echo "$thread_ts"
+}
+
+function post_thread_message() {
+  local channel_name="$1"
+  local thread_message="$2"
+  local thread_ts="$3"
+  local payload=$(jq -n \
+      --arg channel_name "${channel_name}" \
+      --arg thread_ts "${thread_ts}" \
+      --arg thread_message "${thread_message}" \
+      '{channel: $channel_name, thread_ts: $thread_ts, text: $thread_message, unfurl_links: false}')
+    
+  local response=$(curl -s -X POST \
+      -H "Authorization: Bearer $SLACK_TOKEN" \
+      -H "Content-Type: application/json; charset=utf-8" \
+      --data "${payload}" "https://slack.com/api/chat.postMessage")
+}
+
+function notification() {
+  local channel="$1"
+  local message="$2"
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -d "{\"channel\": \"$channel\", \"text\": \"$message\"}" \
+    "${registrySlackWebhook}"
 }
 
 # Saves to JSON file in this repo which is to be used by another repo for daily-monitoring
