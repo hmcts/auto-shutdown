@@ -51,6 +51,12 @@ jobs:
         env:
           DEV_ENV: ${{ env.DEV_ENV }}
 
+      # Test prod flexible server ccd sccs instance
+      - name: Production - Postgres Flexible server Auto Stop
+        run: ./scripts/flexible-server/auto-start-stop.sh stop production '' primary
+        env:
+          DEV_ENV: ${{ env.DEV_ENV }}
+
       - name: Untagged - Postgres Flexible server Auto Stop
         run: ./scripts/flexible-server/auto-start-stop.sh stop untagged '' primary
         env:
