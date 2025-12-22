@@ -47,7 +47,7 @@ jq -c '.data[]' <<<$MYSQL_SERVERS | while read mysqlserver; do
 
     # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value
     # based on the issues_list.json file which contains user requests to keep environments online after normal hours
-    SKIP=$(should_skip_start_stop $mysql_server_env $mysql_server_business_area $MODE "mysql-flexible")
+    SKIP=$(should_skip_start_stop $mysql_server_env $mysql_server_business_area $MODE "mysql-flexible" "$SERVER_NAME")
 
     # If SKIP is false then we progress with the action (stop/start) for the particular MySQL Flexible Server in this loop run, if not skip and print message to the logs
     if [[ $SKIP == "false" ]]; then

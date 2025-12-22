@@ -1,0 +1,58 @@
+{
+  "enabled": true,
+  "comment": "Set 'enabled' to true to activate business shutdown mode. Only resources listed in 'resources' will auto-start when enabled.",
+  "resources": {
+    "flexible-server": [
+      "crime-portal-postgresql-stg",
+      "sdrs-postgresql-stg"
+    ],
+    "mysql-flexible": [],
+    "vm": [
+      "crime-portal-frontend-vm01-stg",
+      "crime-portal-frontend-vm02-stg",
+      "crime-portal-ldap-vm01-stg",
+      "crime-portal-ldap-vm02-stg",
+      "glimr-app-vm01-stg",
+      "glimr-app-vm02-stg",
+      "glimr-ssrs-vm01-stg",
+      "martha-vm1-stg",
+      "martha-vm2-stg",
+      "NCAPS-APP-VM01",
+      "NCAPS-APP-VM02",
+      "NCAPS-DB-VM01",
+      "NCAPS-WEB-VM01",
+      "NCAPS-WEB-VM02",
+      "NCMAN-APP-VM01",
+      "NCMAN-APP-VM02",
+      "NCMAN-DB-VM01",
+      "NCMAN-WEB-VM01",
+      "NCMAN-WEB-VM02",
+      "NMCOL-APP-VM01",
+      "NMCOL-APP-VM02",
+      "NMCOL-DB-VM01",
+      "NMCOL-WEB-VM01",
+      "NMCOL-WEB-VM02",
+      "NPCOL-APP-VM01",
+      "NPCOL-APP-VM02",
+      "NPCOL-DB-VM01",
+      "NPCOL-WEB-VM01",
+      "NPCOL-WEB-VM02",
+      "NSUPS-REP-VM01",
+      "NSUPS-REP-VM02",
+      "sdrs-frontend-vm01-stg",
+      "sdrs-frontend-vm02-stg"
+    ],
+    "aks": [
+      "cft-ptl-00-aks"
+    ],
+    "vmss": [],
+    "sqlmi": [
+      "glimr-sqlmi-stg"
+    ],
+    "appgateway": [
+      "crime-portal-appgw-stg",
+      "sdrs-appgw-stg"
+    ],
+    "bastion": []
+  }
+}
