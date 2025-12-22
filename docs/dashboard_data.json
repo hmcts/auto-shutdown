@@ -1,7 +1,30 @@
 {
-  "last_updated": "2025-12-22T11:48:11.283Z",
+  "last_updated": "2025-12-22T11:48:47.447Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1267,
+      "title": "PR-1266",
+      "status": "auto-approved",
+      "created_at": "2025-12-22T11:47:56.000Z",
+      "updated_at": "2025-12-22T11:48:45.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1267",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2026-01-21T00:00:00.000Z",
+      "end_date": "2026-01-22T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "PR-1266",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nPR-1266\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n21-01-2026\n\n### Skip shutdown end date\n\n22-01-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": "£225.44"
+    },
     {
       "id": 1264,
       "title": "Fee and Pay PayIt Testing in Demo",
@@ -1087,28 +1110,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nIn preparation for perf test activity\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nTest / Perftest, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n14-10-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n14-01-2026",
       "cost": "£336.8"
-    },
-    {
-      "id": 1203,
-      "title": "IAC- Detained appeals feature team is working over the weekend",
-      "status": "auto-approved",
-      "created_at": "2025-10-10T08:39:11.000Z",
-      "updated_at": "2025-10-10T08:40:33.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1203",
-      "user": "rajeshthuraiyur",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Immigration & Asylum Chamber",
-      "environment": "AAT / Staging, Preview / Dev, PTL, Demo",
-      "start_date": "2025-10-10T00:00:00.000Z",
-      "end_date": "2025-10-12T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-1191",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DIAC-1191\n\n### Justification for exclusion?\n\nTeam is working over the weekend to complete the final phase of detained appeals feature\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration & Asylum Chamber\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n10/10/2025\n\n### Skip shutdown end date\n\n12/10/2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/10/2025",
-      "cost": "£3,961.09"
     }
   ]
 }
