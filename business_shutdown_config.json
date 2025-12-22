@@ -40,7 +40,11 @@
       "NSUPS-REP-VM01",
       "NSUPS-REP-VM02",
       "sdrs-frontend-vm01-stg",
-      "sdrs-frontend-vm02-stg"
+      "sdrs-frontend-vm02-stg",
+      "eftbais01_stg",
+      "eftbais02_stg",
+      "dmzbais01_stg",
+      "dmzbais02_stg"
     ],
     "aks": [
       "cft-ptl-00-aks"
