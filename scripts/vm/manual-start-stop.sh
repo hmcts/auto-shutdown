@@ -63,7 +63,7 @@ VMS=$(get_vms "$vm_env" "$vm_business_area")
 vm_count=$(jq -c -r '.count' <<<$VMS)
 if [[ $vm_count -eq 0 ]]; then
     echo "No VMs found for environment: $vm_env and area: $vm_business_area." >&2
-    exit 1
+    exit 0
 fi
 
 

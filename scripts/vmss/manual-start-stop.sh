@@ -51,7 +51,7 @@ vmss_count=$(jq -c -r '.count' <<<$VMSS_LIST)
 
 if [[ $vmss_count -eq 0 ]]; then
     echo "No VM Scale Sets found for environment: $vm_env and area: $vmss_business_area." >&2
-    exit 1
+    exit 0
 fi
 
 # Iterate over VMSS

@@ -60,7 +60,7 @@ MYSQL_SERVERS=$(get_mysql_servers "$mysql_server_env" "$mysql_server_business_ar
 mysql_server_count=$(jq -c -r '.count' <<<$MYSQL_SERVERS)
 if [[ $mysql_server_count -eq 0 ]]; then
     echo "No MySQL flexible servers found for environment: $mysql_server_env and area: $mysql_server_business_area." >&2
-    exit 1
+    exit 0
 fi
 
 
