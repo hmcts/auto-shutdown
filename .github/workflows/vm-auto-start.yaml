@@ -1,8 +1,8 @@
 name: vm-auto-start
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "30 6 * * 1-5" # Every weekday at 6:30am GMT
+  schedule:
+    - cron: "30 6 * * 1-5" # Every weekday at 6:30am GMT
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:

@@ -291,6 +291,24 @@ function should_skip_start_stop () {
   business_area=$2
   mode=$3
   serviceType=$4
+  
+  # Check if business shutdown mode is enabled and we're in auto-start mode
+  # Business shutdown mode is determined by business_shutdown_config.json file
+  # Manual workflows are never affected by business shutdown mode
+  if [[ $mode == "start" && -f "business_shutdown_config.json" ]]; then
+    local shutdown_mode_enabled=$(jq -r '.enabled // false' business_shutdown_config.json)
+    if [[ "$shutdown_mode_enabled" == "true" ]]; then
+      # For business shutdown, check if resource is in the allowlist
+      local resource_name="${5:-unknown}"
+      if ! is_in_business_shutdown_allowlist "$resource_name" "$serviceType"; then
+        log "Business shutdown mode ACTIVE: Resource $resource_name not in allowlist - skipping start"
+        echo "true"
+        return
+      fi
+      log "Business shutdown mode ACTIVE: Resource $resource_name is in allowlist - proceeding with start"
+    fi
+  fi
+  
   # If its not onDemand we don't need to check the file issues_list.json for startup
   if [[ $STARTUP_MODE != "onDemand" && $mode == "start" ]]; then
     echo "false"
@@ -375,6 +393,32 @@ get_request_type() {
   # default to stop if not defined
   if [[ -z $request_type || $request_type == "null" ]]; then
     request_type="stop"
+  fi
+}
+
+# Check if a resource is in the business shutdown allowlist
+# Usage: is_in_business_shutdown_allowlist [resource_name] [service_type]
+# Returns: 0 (success) if resource is in allowlist, 1 (failure) if not
+function is_in_business_shutdown_allowlist() {
+  local resource_name="$1"
+  local service_type="$2"
+  local config_file="business_shutdown_config.json"
+  
+  # If config file doesn't exist, allow all resources (fail-safe)
+  if [[ ! -f "$config_file" ]]; then
+    log "Business shutdown config file not found - allowing all resources"
+    return 0
+  fi
+  
+  # Check if the resource is in the allowlist for this service type
+  local in_list=$(jq -r --arg service "$service_type" --arg resource "$resource_name" \
+    'if .resources[$service] then (.resources[$service] | map(select(. == $resource)) | length > 0) else false end' \
+    "$config_file")
+  
+  if [[ "$in_list" == "true" ]]; then
+    return 0  # Resource is in allowlist
+  else
+    return 1  # Resource is not in allowlist
   fi
 }
 

@@ -41,7 +41,7 @@ jq -c '.data[]' <<<$VMSS | while read vmss; do
     # SKIP variable updated based on the output of the `should_skip_start_stop` function which calculates its value based
     # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
     log "checking skip logic for env: $VMSS_ENV, business_area: $BUSINESS_AREA, mode: $MODE"
-    SKIP=$(should_skip_start_stop $VMSS_ENV $BUSINESS_AREA $MODE "vmss")
+    SKIP=$(should_skip_start_stop $VMSS_ENV $BUSINESS_AREA $MODE "vmss" "$VMSS_NAME")
     log "SKIP evaluated to $SKIP"
 
     # If SKIP is false then we progress with the action (deallocate/start) for the particular VMSS in this loop run, if not skip and print message to the logs

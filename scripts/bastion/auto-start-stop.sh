@@ -68,7 +68,7 @@ jq -c '.data[]' <<<$BASTIONS | while read bastion; do
     # on a tag named `startupMode` and the `issues_list.json` file which contains user requests to keep environments online after normal hours
     # We supply the JSON formatted supportedEnvs variable here.
     log "checking skip logic for env: "$env_name", business_area: $BUSINESS_AREA, mode: $MODE"
-    SKIP=$(should_skip_start_stop "$supportedEnvs" $BUSINESS_AREA $MODE "bastion")
+    SKIP=$(should_skip_start_stop "$supportedEnvs" $BUSINESS_AREA $MODE "bastion" "$VM_NAME")
     log "SKIP evalulated to $SKIP"
 
     # If SKIP is false then we progress with the action (deallocate/start) for the particular VM in this loop run, if not skip and print message to the logs
