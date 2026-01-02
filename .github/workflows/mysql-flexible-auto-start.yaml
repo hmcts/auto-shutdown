@@ -1,8 +1,11 @@
 name: mysql-flexible-auto-start
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "15 6 * * 1-5" # Every weekday at 6:15am GMT
+  schedule:
+    - cron: "15 6 * * 1-5" # Every weekday at 6:15am GMT
+    - cron: "0 2 * * 1-5" # Every weekday at 02:00 GMT
+    - cron: "0 3 * * 1-5" # Every weekday at 03:00 GMT
+    - cron: "0 4 * * 1-5" # Every weekday at 04:00 GMT
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:

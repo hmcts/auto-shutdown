@@ -1,5 +1,5 @@
 {
-  "enabled": true,
+  "enabled": false,
   "comment": "Set 'enabled' to true to activate business shutdown mode. Only resources listed in 'resources' will auto-start when enabled.",
   "resources": {
     "flexible-server": [
