@@ -1,38 +1,5 @@
 [
     {
-        "form_review_date": "05-01-2026",
-        "start_date": "05-01-2026",
-        "end_date": "05-01-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "CCD",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "required to troubleshoot es demo environment out of hours",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1271"
-    },
-    {
-        "form_review_date": "07-01-2026",
-        "start_date": "05-01-2026",
-        "end_date": "05-01-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "SSCS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-582",
-        "stay_on_late": "Yes",
-        "justification": "We have created test data which needs to be retained to continue testing tomorrow",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1272"
-    },
-    {
         "form_review_date": "08-01-2026",
         "start_date": "06-01-2026",
         "end_date": "08-01-2026",
