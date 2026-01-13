@@ -14,5 +14,23 @@
         "justification": "We have created test data which needs to be retained to continue testing tomorrow",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1275"
+    },
+    {
+        "form_review_date": "15-01-2026",
+        "start_date": "14-01-2026",
+        "end_date": "14-01-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Preview / Dev",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Family Public Law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2677",
+        "stay_on_late": "No",
+        "justification": "Need to run the pipeline",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1276"
     }
 ]
