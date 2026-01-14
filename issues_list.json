@@ -49,5 +49,21 @@
         "justification": "Required to troubleshoot existing issues in ES Demo",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1278"
+    },
+    {
+        "form_review_date": "14-01-2026",
+        "start_date": "14-01-2026",
+        "end_date": "14-01-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "darts",
+        "change_jira_id": "DMP-5351",
+        "stay_on_late": "Yes",
+        "justification": "run overnight data creation for tests",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1279"
     }
 ]
