@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "21-04-2026",
+        "start_date": "21-01-2026",
+        "end_date": "21-01-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Probate",
+        "change_jira_id": "DTSPB-4864",
+        "stay_on_late": "Yes",
+        "justification": "Need to test the automation test script for Playwright migration and the test in local are failing due to slowness in AAT during business hours",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1282"
+    }
+]
