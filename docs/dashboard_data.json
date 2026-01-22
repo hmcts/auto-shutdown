@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-01-22T16:28:23.639Z",
+  "last_updated": "2026-01-22T16:29:17.178Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1283,
+      "title": "Skip Demo env shutdown",
+      "status": "auto-approved",
+      "created_at": "2026-01-22T16:27:40.000Z",
+      "updated_at": "2026-01-22T16:29:02.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1283",
+      "user": "gokul-sol",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "SSCS",
+      "environment": "Demo",
+      "start_date": "2026-01-22T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2334",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2334\n\n### Justification for exclusion?\n\nNeed env to test an Urgent P2 fix\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n22-01-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n22-04-2026",
+      "cost": "£68.71"
+    },
     {
       "id": 1282,
       "title": "Skip auto shutdown for QA",
@@ -1090,28 +1112,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/PAY-8194\n\n### Justification for exclusion?\n\nCNP Flux change and database monitoring in Production, potential code rollback.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n31-10-2025\n\n### Skip shutdown end date\n\n02-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-12-2025",
       "cost": "£1,197.05"
-    },
-    {
-      "id": 1219,
-      "title": "Skip test env shutdown",
-      "status": "auto-approved",
-      "created_at": "2025-10-31T16:46:17.000Z",
-      "updated_at": "2025-10-31T16:47:27.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1219",
-      "user": "DLCullen1",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance",
-      "environment": "AAT / Staging",
-      "start_date": "2025-10-31T00:00:00.000Z",
-      "end_date": "2025-11-01T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "n/a",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nPerf preparation\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n31-10-2025\n\n### Skip shutdown end date\n\n01-11-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n31-10-2026",
-      "cost": "£581.71"
     }
   ]
 }
