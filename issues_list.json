@@ -1,21 +1,5 @@
 [
     {
-        "form_review_date": "22-04-2026",
-        "start_date": "22-01-2026",
-        "end_date": "22-01-2026",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "SSCS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2334",
-        "stay_on_late": "Yes",
-        "justification": "Need env to test an Urgent P2 fix",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1283"
-    },
-    {
         "form_review_date": "26-01-2026",
         "start_date": "26-01-2026",
         "end_date": "28-01-2026",
