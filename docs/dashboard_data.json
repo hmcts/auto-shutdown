@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-26T15:12:19.800Z",
+  "last_updated": "2026-01-27T07:05:51.419Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,7 +7,7 @@
       "title": "EXUI - Out of hours release - passport.js",
       "status": "auto-approved",
       "created_at": "2026-01-26T15:10:47.000Z",
-      "updated_at": "2026-01-26T15:12:18.000Z",
+      "updated_at": "2026-01-26T15:12:21.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1285",
       "user": "gregs-cgi",
       "labels": [
