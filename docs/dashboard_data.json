@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-02-03T13:28:20.782Z",
+  "last_updated": "2026-02-03T13:29:14.373Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1289,
       "title": "Prevent auto shutdown for SDS - CaTH Release CHG-0106942",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2026-02-03T13:28:04.000Z",
-      "updated_at": "2026-02-03T13:28:14.000Z",
+      "updated_at": "2026-02-03T13:29:02.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1289",
       "user": "ChrisS1512",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "Cross-Cutting",
       "team_name": "Future Hearings - CaTH",
@@ -22,7 +22,7 @@
       "change_jira_id": "CHG-0106942",
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCHG-0106942\n\n### Justification for exclusion?\n\nOOH Release during this time\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nFuture Hearings - CaTH\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n04-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-02-2026",
-      "cost": null
+      "cost": "£23.15"
     },
     {
       "id": 1288,
