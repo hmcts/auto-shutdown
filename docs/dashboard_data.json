@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-02-03T13:32:15.030Z",
+  "last_updated": "2026-02-03T13:33:03.956Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1292,
+      "title": "Prevent auto shutdown for SDS - Test - CaTH Release CHG-0106942",
+      "status": "pending",
+      "created_at": "2026-02-03T13:32:46.000Z",
+      "updated_at": "2026-02-03T13:33:01.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1292",
+      "user": "ChrisS1512",
+      "labels": [
+        "Processing"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "Future Hearings - CaTH",
+      "environment": "Test / Perftest",
+      "start_date": "2026-02-04T00:00:00.000Z",
+      "end_date": "2026-02-05T00:00:00.000Z",
+      "justification": "?",
+      "change_jira_id": "CHG-0106942",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0106942\n\n### Justification for exclusion?\n\nOOH Release\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nFuture Hearings - CaTH\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-02-2026\n\n### Skip shutdown end date\n\n05-02-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-02-2026",
+      "cost": null
+    },
     {
       "id": 1291,
       "title": "Prevent auto shutdown for SDS - CaTH Release CHG-0106942",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nCHG-0074188\n\n### Justification for exclusion?\n\nOut of hours change locks up DB so needs to be run late. Once the DB is updated manually we then need to run the matching PR. We cannot start the process until 6pm\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS Modernisation\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n11-11-2025\n\n### Skip shutdown end date\n\n12-11-2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n13-11-2025",
       "cost": "£50.6"
-    },
-    {
-      "id": 1230,
-      "title": "juror redis change",
-      "status": "auto-approved",
-      "created_at": "2025-11-07T15:34:29.000Z",
-      "updated_at": "2025-11-07T15:35:37.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1230",
-      "user": "npv0",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "Juror",
-      "environment": "PTL, Preview / Dev, AAT / Staging",
-      "start_date": "2025-11-07T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG-0070706",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG-0070706 \n\n### Justification for exclusion?\n\nNeed jenkins\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nJuror\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-11-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n07-12-2025",
-      "cost": "£35.28"
     }
   ]
 }
