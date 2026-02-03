@@ -36,5 +36,24 @@
         "justification": "I am doing a large piece of work and I work late in the evenings and early in the morning",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1287"
+    },
+    {
+        "form_review_date": "04-02-2026",
+        "start_date": "03-02-2026",
+        "end_date": "03-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Preview / Dev",
+            " AAT / Staging",
+            " Sandbox"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration and Asylum",
+        "change_jira_id": "106915 or DIAC-1880",
+        "stay_on_late": "Yes",
+        "justification": "We are doing a ccd migration and need the pipelines to merge in changes.",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1288"
     }
 ]
