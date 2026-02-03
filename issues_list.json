@@ -135,5 +135,21 @@
         "justification": "OOH Release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1294"
+    },
+    {
+        "form_review_date": "03-02-2026",
+        "start_date": "03-02-2026",
+        "end_date": "03-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "CCD",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-6367",
+        "stay_on_late": "No",
+        "justification": "Need to upgrade and reindex elasticsearch to V9 that takes ~5h",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1295"
     }
 ]
