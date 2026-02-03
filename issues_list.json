@@ -103,5 +103,21 @@
         "justification": "OOH Release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1291"
+    },
+    {
+        "form_review_date": "05-02-2026",
+        "start_date": "04-02-2026",
+        "end_date": "05-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Future Hearings - CaTH",
+        "change_jira_id": "CHG-0106942",
+        "stay_on_late": "No",
+        "justification": "OOH Release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1292"
     }
 ]
