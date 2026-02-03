@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-02-03T17:14:08.534Z",
+  "last_updated": "2026-02-03T17:15:09.117Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1295,
+      "title": "Exclude demo shutdown",
+      "status": "auto-approved",
+      "created_at": "2026-02-03T17:13:51.000Z",
+      "updated_at": "2026-02-03T17:14:55.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1295",
+      "user": "rapolaskaseliscgi",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CCD",
+      "environment": "Demo",
+      "start_date": "2026-02-03T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-6367",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/CCD-6367\n\n### Justification for exclusion?\n\nNeed to upgrade and reindex elasticsearch to V9 that takes ~5h\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n03-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n03-02-2026",
+      "cost": "£37.62"
+    },
     {
       "id": 1294,
       "title": "Prevent auto shutdown for SDS - ITHC - CaTH Release CHG-0106942",
@@ -1090,28 +1112,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DTSSTCI-1465\n\n### Justification for exclusion?\n\nWe will need to merge in un-shuttering and env var change prs to unshutter the service in a timely manner after 8pm\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSpecial Tribunals\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n26/11/2025\n\n### Skip shutdown end date\n\n27/11/2025\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n28/11/2025",
       "cost": "£619.96"
-    },
-    {
-      "id": 1233,
-      "title": "CHG-0077360 - Keep envs alive to allow IAC out of hours release",
-      "status": "auto-approved",
-      "created_at": "2025-11-17T12:29:55.000Z",
-      "updated_at": "2025-11-17T12:31:12.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1233",
-      "user": "rajeshthuraiyur",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Immigration & Asylum Chamber",
-      "environment": "AAT / Staging, Preview / Dev, PTL, Demo",
-      "start_date": "2025-11-17T00:00:00.000Z",
-      "end_date": null,
-      "justification": "?",
-      "change_jira_id": "CHG-0077360",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG-0077360\n\n### Justification for exclusion?\n\nOut of hours production release to rebuild CCD Elastic Search index for Ayslum\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration & Asylum Chamber\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n17-11-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-11-2025",
-      "cost": "£373.49"
     }
   ]
 }
