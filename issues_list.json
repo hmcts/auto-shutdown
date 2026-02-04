@@ -151,5 +151,24 @@
         "justification": "Need to upgrade and reindex elasticsearch to V9 that takes ~5h",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1295"
+    },
+    {
+        "form_review_date": "06-02-2026",
+        "start_date": "05-02-2026",
+        "end_date": "05-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Preview / Dev",
+            " AAT / Staging",
+            " Sandbox"
+        ],
+        "business_area": "cft",
+        "team_name": "Immigration & Asylum",
+        "change_jira_id": "0109008 and DIAC-1807",
+        "stay_on_late": "Yes",
+        "justification": "Out of office hours release for CCD data migration, need environments to be available to support out of office hours release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1296"
     }
 ]
