@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-04T19:57:28.512Z",
+  "last_updated": "2026-02-04T19:57:46.129Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,10 +7,12 @@
       "title": "Prevent auto shutdown for SDS - Demo (2) - CaTH Release CHG-0106942",
       "status": "pending",
       "created_at": "2026-02-04T19:57:18.000Z",
-      "updated_at": "2026-02-04T19:57:18.000Z",
+      "updated_at": "2026-02-04T19:57:32.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1297",
       "user": "ChrisS1512",
-      "labels": [],
+      "labels": [
+        "Processing"
+      ],
       "business_area": "Cross-Cutting",
       "team_name": "SDS",
       "environment": "AAT / Staging, Demo",
