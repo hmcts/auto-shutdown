@@ -1,7 +1,27 @@
 {
-  "last_updated": "2026-02-04T15:02:30.861Z",
+  "last_updated": "2026-02-04T19:57:28.512Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1297,
+      "title": "Prevent auto shutdown for SDS - Demo (2) - CaTH Release CHG-0106942",
+      "status": "pending",
+      "created_at": "2026-02-04T19:57:18.000Z",
+      "updated_at": "2026-02-04T19:57:18.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1297",
+      "user": "ChrisS1512",
+      "labels": [],
+      "business_area": "Cross-Cutting",
+      "team_name": "SDS",
+      "environment": "AAT / Staging, Demo",
+      "start_date": "2026-02-04T00:00:00.000Z",
+      "end_date": null,
+      "justification": "?",
+      "change_jira_id": "CHG-0106942",
+      "stay_on_late": "?",
+      "body": "### Change or Jira reference\n\nCHG-0106942\n\n### Justification for exclusion?\n\nOOH Release\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nSDS\n\n### Environment\n\nAAT / Staging, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-02-2026",
+      "cost": null
+    },
     {
       "id": 1296,
       "title": "CHG-0109008 - IAC R&D on-boarding data migration",
@@ -73,7 +93,7 @@
       "title": "Prevent auto shutdown for SDS - Demo - CaTH Release CHG-0106942",
       "status": "auto-approved",
       "created_at": "2026-02-03T13:33:43.000Z",
-      "updated_at": "2026-02-03T13:34:41.000Z",
+      "updated_at": "2026-02-04T19:57:12.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1293",
       "user": "ChrisS1512",
       "labels": [
@@ -1090,28 +1110,6 @@
       "stay_on_late": "?",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DFPL-2936\n\n### Justification for exclusion?\n\nEnvironments needed to run pipelines during OOH migration\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19-11-2025\n\n### Skip shutdown end date\n\n19-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n20-11-2025",
       "cost": "£358.06"
-    },
-    {
-      "id": 1235,
-      "title": "DFJ case list filters",
-      "status": "auto-approved",
-      "created_at": "2025-11-18T10:16:50.000Z",
-      "updated_at": "2025-11-18T10:18:10.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1235",
-      "user": "suresh-sharada",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Family Private Law",
-      "environment": "AAT / Staging, Preview / Dev, PTL",
-      "start_date": "2025-11-20T00:00:00.000Z",
-      "end_date": "2025-11-21T00:00:00.000Z",
-      "justification": "?",
-      "change_jira_id": "CHG-0079024",
-      "stay_on_late": "?",
-      "body": "### Change or Jira reference\n\nCHG-0079024\n\n### Justification for exclusion?\n\nOut of hours release for DFJ case list filters for Private Law\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Private Law\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n20-11-2025\n\n### Skip shutdown end date\n\n21-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n22-11-2025",
-      "cost": "£713.81"
     }
   ]
 }
