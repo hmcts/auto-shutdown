@@ -1,27 +1,5 @@
 [
     {
-        "form_review_date": "05-02-2025",
-        "start_date": "04-02-2026",
-        "end_date": "04-02-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            " AAT / Staging",
-            " PTL",
-            " Sandbox",
-            " Test / Perftest",
-            " ITHC",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "Expert UI",
-        "change_jira_id": "EXUI-3660",
-        "stay_on_late": "Yes",
-        "justification": "Out of hours deployment involving shuttering live systems",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1285"
-    },
-    {
         "form_review_date": "10-02-2026",
         "start_date": "02-02-2026",
         "end_date": "09-02-2026",
@@ -36,54 +14,6 @@
         "justification": "I am doing a large piece of work and I work late in the evenings and early in the morning",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1287"
-    },
-    {
-        "form_review_date": "05-02-2026",
-        "start_date": "04-02-2026",
-        "end_date": "04-02-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Future Hearings - CaTH",
-        "change_jira_id": "CHG-0106942",
-        "stay_on_late": "No",
-        "justification": "OOH Release during this time",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1289"
-    },
-    {
-        "form_review_date": "05-02-2026",
-        "start_date": "04-02-2026",
-        "end_date": "04-02-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Future Hearings - CaTH",
-        "change_jira_id": "CHG-0106942",
-        "stay_on_late": "No",
-        "justification": "OOH Release",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1290"
-    },
-    {
-        "form_review_date": "05-02-2026",
-        "start_date": "04-02-2026",
-        "end_date": "04-02-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Future Hearings - CaTH",
-        "change_jira_id": "CHG-0106942",
-        "stay_on_late": "No",
-        "justification": "OOH Release",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1291"
     },
     {
         "form_review_date": "05-02-2026",
@@ -135,22 +65,5 @@
         "justification": "Out of office hours release for CCD data migration, need environments to be available to support out of office hours release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1296"
-    },
-    {
-        "form_review_date": "05-02-2026",
-        "start_date": "04-02-2026",
-        "end_date": "04-02-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Demo"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "SDS",
-        "change_jira_id": "CHG-0106942",
-        "stay_on_late": "No",
-        "justification": "OOH Release",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1297"
     }
 ]
