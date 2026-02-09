@@ -14,24 +14,5 @@
         "justification": "I am doing a large piece of work and I work late in the evenings and early in the morning",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1287"
-    },
-    {
-        "form_review_date": "08/02/2026",
-        "start_date": "06-02-2026",
-        "end_date": "08-02-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration & Asylum Chamber Service",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-1436",
-        "stay_on_late": "No",
-        "justification": "Review and Update IAC automation tests for CR-84 release",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1298"
     }
 ]
