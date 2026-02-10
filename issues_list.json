@@ -1,18 +1,1 @@
-[
-    {
-        "form_review_date": "10-02-2026",
-        "start_date": "02-02-2026",
-        "end_date": "09-02-2026",
-        "request_type": "stop",
-        "environment": [
-            "Sandbox"
-        ],
-        "business_area": "cft",
-        "team_name": "idam",
-        "change_jira_id": "SIDM-10107",
-        "stay_on_late": "Yes",
-        "justification": "I am doing a large piece of work and I work late in the evenings and early in the morning",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1287"
-    }
-]
+[]
