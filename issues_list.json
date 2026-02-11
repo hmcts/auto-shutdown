@@ -18,5 +18,21 @@
         "justification": "Out of office hours release for CCD data migration, need environments to be available to support out of office hours release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1301"
+    },
+    {
+        "form_review_date": "12-02-2026",
+        "start_date": "11-02-2026",
+        "end_date": "11-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "CaTH",
+        "change_jira_id": "N/A - No ticket number - part of Crime Portal E2E Testing",
+        "stay_on_late": "No",
+        "justification": "Overnight testing for Crime Portal lists",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1302"
     }
 ]
