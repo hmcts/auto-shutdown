@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-replica-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-replica-perftest",
-    "resource": "cft-task-postgres-db-flexible-replica-perftest",
-    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-replica-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
-    "resourceType": "flexible-server"
-  }
-]
