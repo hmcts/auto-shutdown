@@ -94,6 +94,17 @@ You can update the action to test different scenarios such as having a longer sk
 
 Just update the [values](.github/workflows/parsegithubissue-pr.yaml#L31-L45) as appropriate
 
+## Testing the dashboard app locally
+
+From the repo root, start a local static server:
+
+python3 -m http.server 8000
+
+Then open the dashboard in your browser:
+
+- http://localhost:8000/docs/
+- If you start the server on 8001 instead, use http://localhost:8001/docs/
+
 ## Diagrams
 
 Diagrams can be added to help understand the logic of the shutdown/startup scripts.

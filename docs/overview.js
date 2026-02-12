@@ -100,6 +100,8 @@ function renderCalendar() {
     
     // Process requests and separate single-day from multi-day
     const processedRequests = new Set();
+    const multiDayRequests = [];
+    const spanningLanesByRow = new Map();
     
     filteredIssues.forEach(issue => {
         if (!issue.start_date || processedRequests.has(issue.id)) return;
@@ -112,7 +114,7 @@ function renderCalendar() {
         const isMultiDay = issueStart.getTime() !== issueEnd.getTime();
         
         if (isMultiDay) {
-            renderSpanningIndicator(issue, issueStart, issueEnd, calendarDays, calendarGrid);
+            multiDayRequests.push({ issue, issueStart, issueEnd });
         } else {
             // Single day request - add to appropriate day
             calendarDays.forEach(dayInfo => {
@@ -125,9 +127,25 @@ function renderCalendar() {
         
         processedRequests.add(issue.id);
     });
+
+    // Render multi-day requests after day cells so overlaps can be stacked into lanes
+    multiDayRequests
+        .sort((a, b) => {
+            const startDiff = a.issueStart.getTime() - b.issueStart.getTime();
+            if (startDiff !== 0) return startDiff;
+
+            const aDuration = a.issueEnd.getTime() - a.issueStart.getTime();
+            const bDuration = b.issueEnd.getTime() - b.issueStart.getTime();
+            if (aDuration !== bDuration) return bDuration - aDuration;
+
+            return Number(a.issue.id || 0) - Number(b.issue.id || 0);
+        })
+        .forEach(({ issue, issueStart, issueEnd }) => {
+            renderSpanningIndicator(issue, issueStart, issueEnd, calendarDays, calendarGrid, spanningLanesByRow);
+        });
 }
 
-function renderSpanningIndicator(request, startDate, endDate, calendarDays, calendarGrid) {
+function renderSpanningIndicator(request, startDate, endDate, calendarDays, calendarGrid, spanningLanesByRow = new Map()) {
     // Find the start and end positions in the calendar
     let startIndex = -1;
     let endIndex = -1;
@@ -183,6 +201,16 @@ function renderSpanningIndicator(request, startDate, endDate, calendarDays, cale
         spanningIndicator.title = tooltip;
         
         spanningIndicator.onclick = () => showRequestDetails(request);
+
+        // Assign a lane for this week row so overlapping multi-day requests remain visible
+        const rowLanes = spanningLanesByRow.get(startRow) || [];
+        let laneIndex = rowLanes.findIndex(lastUsedIndex => lastUsedIndex < currentIndex);
+        if (laneIndex === -1) {
+            laneIndex = rowLanes.length;
+        }
+        rowLanes[laneIndex] = segmentEnd;
+        spanningLanesByRow.set(startRow, rowLanes);
+        spanningIndicator.style.setProperty('--lane-index', laneIndex.toString());
         
         // Position the spanning indicator
         spanningIndicator.style.gridColumn = `${startCol} / ${endCol + 1}`;
