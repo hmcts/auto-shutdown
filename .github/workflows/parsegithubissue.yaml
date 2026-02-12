@@ -113,7 +113,7 @@ jobs:
           echo GITHUB_REPO='${{ github.repository }}' >> $GITHUB_ENV
           echo ISSUE_NUMBER='${{ github.event.issue.number }}' >> $GITHUB_ENV
       #Setup Python
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       # Install Python requirements
