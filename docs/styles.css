@@ -606,6 +606,7 @@ body {
 
 /* Spanning Request Indicators */
 .spanning-request-indicator {
+    --lane-index: 0;
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 11px;
@@ -615,7 +616,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin: 28px 4px 2px 4px;
+    margin: calc(28px + (var(--lane-index) * 20px)) 4px 2px 4px;
     height: 18px;
     display: flex;
     align-items: center;
