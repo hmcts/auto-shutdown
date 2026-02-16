@@ -1,1 +1,21 @@
-[]
+[
+    {
+        "form_review_date": "16-05-2026",
+        "start_date": "16-02-2026",
+        "end_date": "17-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " ITHC",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Probate",
+        "change_jira_id": "DTSPB-4864",
+        "stay_on_late": "Yes",
+        "justification": "Need to create automation test script for Intestacy testing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1307"
+    }
+]
