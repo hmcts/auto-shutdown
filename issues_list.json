@@ -17,5 +17,21 @@
         "justification": "Need to create automation test script for Intestacy testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1307"
+    },
+    {
+        "form_review_date": "16-02-2016",
+        "start_date": "16-02-2026",
+        "end_date": "16-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "CaTH",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/PUB-2961",
+        "stay_on_late": "No",
+        "justification": "Crime Libra published their lists around 9pm and they need to do end to end testing for upcoming CaTH Release 9. So we need to enable STG environment so their requests processed successfully.",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1308"
     }
 ]
