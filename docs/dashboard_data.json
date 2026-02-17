@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-02-17T16:58:15.648Z",
+  "last_updated": "2026-02-17T16:59:12.703Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1309,
+      "title": "Don't shutdown perftest",
+      "status": "auto-approved",
+      "created_at": "2026-02-17T16:57:59.000Z",
+      "updated_at": "2026-02-17T16:58:59.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1309",
+      "user": "yogeshruperaihmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "performance team",
+      "environment": "Test / Perftest",
+      "start_date": "2026-02-17T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "To test c100 policy changes",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nTo test c100 policy changes\n\n### Justification for exclusion?\n\nTo test c100 policy changes\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n17-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n19-02-2026",
+      "cost": "£91.2"
+    },
     {
       "id": 1308,
       "title": "CaTH End to End Testing with Crime Portal",
@@ -1086,28 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/PAY-8160\n\n### Justification for exclusion?\n\nPayIt developement requires extra development time to complete FT and adhoc testing process to meet strict business deadline date.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nDemo, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n01/12/2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n11/12/2025",
       "cost": "£294.58"
-    },
-    {
-      "id": 1249,
-      "title": "Nexus Cuttover release 3",
-      "status": "auto-approved",
-      "created_at": "2025-11-27T10:01:41.000Z",
-      "updated_at": "2025-11-27T10:02:54.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1249",
-      "user": "davejones74",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Fee and Payments",
-      "environment": "Demo, PTL, AAT / Staging, Preview / Dev",
-      "start_date": "2025-11-28T00:00:00.000Z",
-      "end_date": "2025-11-30T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "CHG-0058079",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nCHG-0058079\n\n### Justification for exclusion?\n\nTelephony service is migrating from Antenna to Nexus - pipelines needed for testing and rollback\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFee and Payments\n\n### Environment\n\nDemo, PTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n28-11-2025\n\n### Skip shutdown end date\n\n30-11-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n19-12-2025",
-      "cost": "£3,851.08"
     }
   ]
 }
