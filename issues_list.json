@@ -33,5 +33,21 @@
         "justification": "Crime Libra published their lists around 9pm and they need to do end to end testing for upcoming CaTH Release 9. So we need to enable STG environment so their requests processed successfully.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1308"
+    },
+    {
+        "form_review_date": "19-02-2026",
+        "start_date": "17-02-2026",
+        "end_date": "17-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "performance team",
+        "change_jira_id": "To test c100 policy changes",
+        "stay_on_late": "No",
+        "justification": "To test c100 policy changes",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1309"
     }
 ]
