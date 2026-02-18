@@ -1,8 +1,0 @@
-[
-  {
-    "id": "",
-    "resource": "aks00-sbox-agw",
-    "statusMessage": "Application Gateway: *aks00-sbox-agw* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab* is Starting after *stop* action.",
-    "resourceType": "appgateway"
-  }
-]
