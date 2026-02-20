@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "23-02-2026",
+        "start_date": "20-02-2026",
+        "end_date": "23-02-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Libra",
+        "change_jira_id": "Part of testing for nowsce-complex FA upgrade",
+        "stay_on_late": "Yes",
+        "justification": "We have an active P2 we need to upgrade some libraries and we need to test",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1310"
+    }
+]
