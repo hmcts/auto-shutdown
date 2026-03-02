@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-03-02T07:18:08.132Z",
+  "last_updated": "2026-03-02T15:06:30.833Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1312,
+      "title": "Skip auto shutdown for Probate",
+      "status": "pending",
+      "created_at": "2026-03-02T15:06:14.000Z",
+      "updated_at": "2026-03-02T15:06:29.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1312",
+      "user": "MarcusHMCTS",
+      "labels": [
+        "Processing"
+      ],
+      "business_area": "CFT",
+      "team_name": "Probate",
+      "environment": "Demo",
+      "start_date": "2026-03-02T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "DTSPB-5223",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nDTSPB-5223\n\n### Justification for exclusion?\n\nTesting script for refund\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nProbate\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n02-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n02-05-2026",
+      "cost": null
+    },
     {
       "id": 1311,
       "title": "Don't shutdown perftest",
@@ -1086,28 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nKeep test environment alive to allow perf testing over the weekend\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-12-2025\n\n### Skip shutdown end date\n\n10-12-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n05-12-2025",
       "cost": "£36.78"
-    },
-    {
-      "id": 1252,
-      "title": "Keep test environment alive to allow perf testing over the weekend",
-      "status": "auto-approved",
-      "created_at": "2025-12-03T17:32:40.000Z",
-      "updated_at": "2025-12-03T17:34:12.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1252",
-      "user": "Ben-Edwards-cgi",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "Test / Perftest",
-      "start_date": "2025-12-04T00:00:00.000Z",
-      "end_date": "2025-12-10T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nKeep test environment alive to allow perf testing in the evenings / weekend\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-12-2025\n\n### Skip shutdown end date\n\n10-12-2025\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n04-12-2025",
-      "cost": "£312.02"
     }
   ]
 }
