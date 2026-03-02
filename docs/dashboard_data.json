@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-03-02T15:06:30.833Z",
+  "last_updated": "2026-03-02T15:07:29.638Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1312,
       "title": "Skip auto shutdown for Probate",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2026-03-02T15:06:14.000Z",
-      "updated_at": "2026-03-02T15:06:29.000Z",
+      "updated_at": "2026-03-02T15:07:16.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1312",
       "user": "MarcusHMCTS",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "Probate",
@@ -22,7 +22,7 @@
       "change_jira_id": "DTSPB-5223",
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nDTSPB-5223\n\n### Justification for exclusion?\n\nTesting script for refund\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nProbate\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n02-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n02-05-2026",
-      "cost": null
+      "cost": "£64.47"
     },
     {
       "id": 1311,
