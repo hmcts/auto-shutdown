@@ -48,5 +48,21 @@
         "justification": "out of hours release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1314"
+    },
+    {
+        "form_review_date": "05/03/2026",
+        "start_date": "03-03-2026",
+        "end_date": "03-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "performance team",
+        "change_jira_id": "C100 Policy updates release",
+        "stay_on_late": "Yes",
+        "justification": "To complete c100 policy perf testing",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1315"
     }
 ]
