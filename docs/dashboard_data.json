@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-03-03T20:32:07.400Z",
+  "last_updated": "2026-03-03T20:33:04.536Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1316,
+      "title": "CHG-0120163",
+      "status": "auto-approved",
+      "created_at": "2026-03-03T20:31:49.000Z",
+      "updated_at": "2026-03-03T20:32:50.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1316",
+      "user": "RebeccaBaker",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "ccd",
+      "environment": "PTL, AAT / Staging, Preview / Dev",
+      "start_date": "2026-03-03T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "CHG-0120163",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nCHG-0120163\n\n### Justification for exclusion?\n\nout of hours release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nccd\n\n### Environment\n\nPTL, AAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n03-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n03-06-2026",
+      "cost": "£409.54"
+    },
     {
       "id": 1315,
       "title": "Don't shutdown perfTest",
@@ -1086,28 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nDarts Demo keep alive for DetsToARm testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nDemo, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n11-12-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n12-12-2025",
       "cost": "£27.81"
-    },
-    {
-      "id": 1256,
-      "title": "IAC - Jenkins Exemption",
-      "status": "auto-approved",
-      "created_at": "2025-12-11T10:39:44.000Z",
-      "updated_at": "2025-12-11T10:40:56.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1256",
-      "user": "KleoG",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Immigration and Asylum",
-      "environment": "AAT / Staging, Preview / Dev, Sandbox, PTL",
-      "start_date": "2025-12-16T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "89916 and DIAC-1859",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\n89916 and DIAC-1859\n\n### Justification for exclusion?\n\nWe are doing a ccd migration and need the pipelines to merge in changes.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration and Asylum\n\n### Environment\n\nAAT / Staging, Preview / Dev, Sandbox, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-12-2025\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n17-12-2025",
-      "cost": "£378.1"
     }
   ]
 }
