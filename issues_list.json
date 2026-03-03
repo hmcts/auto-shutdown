@@ -32,5 +32,23 @@
         "justification": "To complete c100 policy perf testing",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1315"
+    },
+    {
+        "form_review_date": "03-06-2026",
+        "start_date": "03-03-2026",
+        "end_date": "03-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "ccd",
+        "change_jira_id": "CHG-0120163",
+        "stay_on_late": "Yes",
+        "justification": "out of hours release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1316"
     }
 ]
