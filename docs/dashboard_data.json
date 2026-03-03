@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-03T09:06:11.021Z",
+  "last_updated": "2026-03-03T16:58:30.001Z",
   "total_issues": 50,
   "data": [
     {
@@ -929,7 +929,7 @@
       "change_jira_id": "PR-1266",
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nPR-1266\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n21-01-2026\n\n### Skip shutdown end date\n\n22-01-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": null
+      "cost": "£225.44"
     },
     {
       "id": 1264,
