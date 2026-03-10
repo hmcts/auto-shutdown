@@ -64,5 +64,21 @@
         "justification": "Automation for Initial Consideration epic Employment tribunal",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1322"
+    },
+    {
+        "form_review_date": "15-03-2026",
+        "start_date": "10-03-2026",
+        "end_date": "10-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2101",
+        "stay_on_late": "Yes",
+        "justification": "We would need to retain test data in preview for testing on next day",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1323"
     }
 ]
