@@ -50,54 +50,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1318"
     },
     {
-        "form_review_date": "15-03-2026",
-        "start_date": "10-03-2026",
-        "end_date": "10-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "SSCS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2101",
-        "stay_on_late": "Yes",
-        "justification": "We would need to retain test data in preview for testing on next day",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1323"
-    },
-    {
-        "form_review_date": "12-03-2026",
-        "start_date": "10-03-2026",
-        "end_date": "10-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "HMC",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/HMAN-1075",
-        "stay_on_late": "No",
-        "justification": "Reverting for P2",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1324"
-    },
-    {
-        "form_review_date": "11-03-2026",
-        "start_date": "10-03-2026",
-        "end_date": "10-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "HMC",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/HMAN-1075",
-        "stay_on_late": "No",
-        "justification": "Reverting for P2",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1325"
-    },
-    {
         "form_review_date": "26-07-2026",
         "start_date": "11-03-2026",
         "end_date": "27-05-2026",
