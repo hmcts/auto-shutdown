@@ -96,5 +96,21 @@
         "justification": "Reverting for P2",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1325"
+    },
+    {
+        "form_review_date": "26-07-2026",
+        "start_date": "11-03-2026",
+        "end_date": "27-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Darts",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+        "stay_on_late": "Yes",
+        "justification": "SIT cycle 7",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1326"
     }
 ]
