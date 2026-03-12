@@ -64,41 +64,5 @@
         "justification": "SIT cycle 7",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1326"
-    },
-    {
-        "form_review_date": "12-03-2026",
-        "start_date": "11-03-2026",
-        "end_date": "11-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " Sandbox",
-            " AAT / Staging",
-            " Preview / Dev",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "Immigration & Asylum",
-        "change_jira_id": "126515",
-        "stay_on_late": "Yes",
-        "justification": "Out of office hours release for CCD data migration, need environments to be available to support out of office hours release",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1327"
-    },
-    {
-        "form_review_date": "13-03-2026",
-        "start_date": "11-03-2026",
-        "end_date": "11-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance team",
-        "change_jira_id": "performance testing for PRL LA release",
-        "stay_on_late": "No",
-        "justification": "performance testing for PRL LA release",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1328"
     }
 ]
