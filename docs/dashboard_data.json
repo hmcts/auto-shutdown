@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-13T15:18:45.938Z",
+  "last_updated": "2026-03-13T15:20:25.449Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,7 +7,7 @@
       "title": "Enable demo to stay up",
       "status": "auto-approved",
       "created_at": "2026-03-13T15:17:18.000Z",
-      "updated_at": "2026-03-13T15:18:31.000Z",
+      "updated_at": "2026-03-13T15:20:09.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1329",
       "user": "karen-hedges",
       "labels": [
