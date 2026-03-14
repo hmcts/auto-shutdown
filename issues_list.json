@@ -80,21 +80,5 @@
         "justification": "SIT cycle 7 testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1329"
-    },
-    {
-        "form_review_date": "14-03-2026",
-        "start_date": "13-03-2026",
-        "end_date": "13-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
-        "stay_on_late": "No",
-        "justification": "SIT cycle 7 testing",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1330"
     }
 ]
