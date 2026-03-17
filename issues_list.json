@@ -96,5 +96,22 @@
         "justification": "CACTUS are performing out of hours activity on the 18th that will require the ADO Windows agents running on the SDS PTL cluster.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1332"
+    },
+    {
+        "form_review_date": "20-03-2026",
+        "start_date": "19-03-2026",
+        "end_date": "19-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Private-law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2250",
+        "stay_on_late": "No",
+        "justification": "Enable master build during auto shutdown period for prod C100 policy change release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1333"
     }
 ]
