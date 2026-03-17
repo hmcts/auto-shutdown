@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-03-17T17:20:00.913Z",
+  "last_updated": "2026-03-17T17:20:53.441Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1333,
+      "title": "C100 policy change release on PROD",
+      "status": "auto-approved",
+      "created_at": "2026-03-17T17:19:45.000Z",
+      "updated_at": "2026-03-17T17:20:38.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1333",
+      "user": "srochani",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Private-law",
+      "environment": "AAT / Staging, Preview / Dev",
+      "start_date": "2026-03-19T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2250",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/FPVTL-2250\n\n### Justification for exclusion?\n\nEnable master build during auto shutdown period for prod C100 policy change release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate-law\n\n### Environment\n\nAAT / Staging, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n19-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20-03-2026",
+      "cost": "£424.06"
+    },
     {
       "id": 1332,
       "title": "CACTUS SDS PTL Request - Windows Agents required.",
@@ -1082,28 +1104,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nPR-1280\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n18-02-2026\n\n### Skip shutdown end date\n\n19-02-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": "£243.94"
-    },
-    {
-      "id": 1279,
-      "title": "darts: DMP-5351",
-      "status": "auto-approved",
-      "created_at": "2026-01-14T12:59:32.000Z",
-      "updated_at": "2026-01-14T13:00:34.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1279",
-      "user": "npv0",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "darts",
-      "environment": "Test / Perftest",
-      "start_date": "2026-01-14T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "DMP-5351",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nDMP-5351\n\n### Justification for exclusion?\n\nrun overnight data creation for tests\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\ndarts\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n14-01-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n14-01-2026",
-      "cost": "£32.97"
     }
   ]
 }
