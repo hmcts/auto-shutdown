@@ -81,21 +81,5 @@
         "justification": "We need to retain test data in AAT to continue testing tomorrow on the same cases",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1334"
-    },
-    {
-        "form_review_date": "18-03-2026",
-        "start_date": "18-03-2026",
-        "end_date": "18-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Darts",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5423",
-        "stay_on_late": "No",
-        "justification": "Testing",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1335"
     }
 ]
