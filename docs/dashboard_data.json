@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-18T11:11:21.354Z",
+  "last_updated": "2026-03-18T11:11:52.595Z",
   "total_issues": 50,
   "data": [
     {
@@ -382,14 +382,15 @@
     },
     {
       "id": 1317,
-      "title": "Keep up DARTS demo environment",
-      "status": "auto-approved",
+      "title": "Keep up DARTS demo environment - ❌",
+      "status": "cancelled",
       "created_at": "2026-03-04T15:43:47.000Z",
-      "updated_at": "2026-03-18T11:11:03.000Z",
+      "updated_at": "2026-03-18T11:11:33.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1317",
       "user": "karen-hedges",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "Cross-Cutting",
       "team_name": "Darts",
