@@ -49,21 +49,5 @@
         "justification": "Enable master build during auto shutdown period for prod C100 policy change release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1333"
-    },
-    {
-        "form_review_date": "20-03-2026",
-        "start_date": "17-03-2026",
-        "end_date": "17-03-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "SSCS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2102",
-        "stay_on_late": "Yes",
-        "justification": "We need to retain test data in AAT to continue testing tomorrow on the same cases",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1334"
     }
 ]
