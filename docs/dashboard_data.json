@@ -1,17 +1,18 @@
 {
-  "last_updated": "2026-03-18T10:42:24.260Z",
+  "last_updated": "2026-03-18T10:43:09.480Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1335,
-      "title": "Keep the test env up",
-      "status": "auto-approved",
+      "title": "Keep the test env up - ❌",
+      "status": "cancelled",
       "created_at": "2026-03-18T10:41:04.000Z",
-      "updated_at": "2026-03-18T10:42:09.000Z",
+      "updated_at": "2026-03-18T10:42:52.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1335",
       "user": "karen-hedges",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "Cross-Cutting",
       "team_name": "Darts",
