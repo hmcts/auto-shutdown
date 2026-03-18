@@ -1,0 +1,8 @@
+[
+  {
+    "id": "",
+    "resource": "cft-pubsub00-demo-agw",
+    "statusMessage": "Application Gateway: *cft-pubsub00-demo-agw* in Subscription: *d025fece-ce99-4df2-b7a9-b649d3ff2060* is Stopped after *start* action.",
+    "resourceType": "appgateway"
+  }
+]
