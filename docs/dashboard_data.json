@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-03-19T11:54:59.128Z",
+  "last_updated": "2026-03-19T11:55:58.939Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1336,
+      "title": "Enable DARTS demo to be available for longer for SIT cycle 7",
+      "status": "auto-approved",
+      "created_at": "2026-03-19T11:54:42.000Z",
+      "updated_at": "2026-03-19T11:55:47.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1336",
+      "user": "karen-hedges",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "Darts",
+      "environment": "Demo",
+      "start_date": "2026-03-19T00:00:00.000Z",
+      "end_date": "2026-03-20T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT Cycle 7 testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19/03/2026\n\n### Skip shutdown end date\n\n20/03/2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/03/2026",
+      "cost": "£44.86"
+    },
     {
       "id": 1335,
       "title": "Keep the test env up - ❌",
@@ -1086,28 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nDMP-5379\n\n### Justification for exclusion?\n\nTesting\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n26-01-2026\n\n### Skip shutdown end date\n\n28-01-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n26-01-2026",
       "cost": "£63.97"
-    },
-    {
-      "id": 1283,
-      "title": "Skip Demo env shutdown",
-      "status": "auto-approved",
-      "created_at": "2026-01-22T16:27:40.000Z",
-      "updated_at": "2026-01-22T16:29:02.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1283",
-      "user": "gokul-sol",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "SSCS",
-      "environment": "Demo",
-      "start_date": "2026-01-22T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2334",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2334\n\n### Justification for exclusion?\n\nNeed env to test an Urgent P2 fix\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n22-01-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n22-04-2026",
-      "cost": "£68.71"
     }
   ]
 }
