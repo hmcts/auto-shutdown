@@ -16,5 +16,23 @@
         "justification": "out of hours release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1314"
+    },
+    {
+        "form_review_date": "26 Mar 2026",
+        "start_date": "25-03-2026",
+        "end_date": "25-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Private Law",
+        "change_jira_id": "https://tools.hmcts.net/confluence/spaces/RSTR/pages/1953046950/2nd+Attempt+PRL+C100+Policy+Changes+Release+Implementation+Plan",
+        "stay_on_late": "Yes",
+        "justification": "Out of hours deployment",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1337"
     }
 ]
