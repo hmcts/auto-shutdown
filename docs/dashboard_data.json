@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-03-24T16:55:29.970Z",
+  "last_updated": "2026-03-24T16:56:34.060Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1339,
+      "title": "Keep elasticsearch/pipelines up",
+      "status": "auto-approved",
+      "created_at": "2026-03-24T16:55:10.000Z",
+      "updated_at": "2026-03-24T16:56:17.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1339",
+      "user": "cakeben",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CCD",
+      "environment": "PTL, ITHC, Demo, Test / Perftest",
+      "start_date": "2026-03-24T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nRequired to resurrect ITHC elasticsearch\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nPTL, ITHC, Demo, Test / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n24/03/2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n29/03/2026",
+      "cost": "£218.99"
+    },
     {
       "id": 1338,
       "title": "ES upgrade",
@@ -1086,28 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nSIDM-10107\n\n### Justification for exclusion?\n\nI am doing a large piece of work and I work late in the evenings and early in the morning\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nidam\n\n### Environment\n\nSandbox\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n02-02-2026\n\n### Skip shutdown end date\n\n09-02-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-02-2026",
       "cost": "£114.0"
-    },
-    {
-      "id": 1286,
-      "title": "Keep DARTS test environment running",
-      "status": "auto-approved",
-      "created_at": "2026-01-27T10:56:51.000Z",
-      "updated_at": "2026-01-27T10:57:52.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1286",
-      "user": "stephenokeefe",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "Test / Perftest",
-      "start_date": "2026-01-27T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5382",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5382\n\n### Justification for exclusion?\n\nTo performance test an automated task, darts test environment must be kept running overnight\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-01-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-01-2026",
-      "cost": "£24.82"
     }
   ]
 }
