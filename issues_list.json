@@ -52,5 +52,24 @@
         "justification": "ES7 is out of support and needs to be upgraded to version 9",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1338"
+    },
+    {
+        "form_review_date": "29/03/2026",
+        "start_date": "24-03-2026",
+        "end_date": "24-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " ITHC",
+            " Demo",
+            " Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "CCD",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Required to resurrect ITHC elasticsearch",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1339"
     }
 ]
