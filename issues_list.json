@@ -50,5 +50,21 @@
         "justification": "SIT cycle 7",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1340"
+    },
+    {
+        "form_review_date": "31-03-2026",
+        "start_date": "25-03-2026",
+        "end_date": "25-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Test / CCD",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Full ES reindex from source",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1341"
     }
 ]
