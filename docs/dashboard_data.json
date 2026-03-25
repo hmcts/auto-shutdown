@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-25T09:46:29.718Z",
+  "last_updated": "2026-03-25T09:48:18.520Z",
   "total_issues": 50,
   "data": [
     {
@@ -48,14 +48,15 @@
     },
     {
       "id": 1338,
-      "title": "ES upgrade",
-      "status": "auto-approved",
+      "title": "ES upgrade - ❌",
+      "status": "cancelled",
       "created_at": "2026-03-23T13:36:49.000Z",
-      "updated_at": "2026-03-23T13:37:59.000Z",
+      "updated_at": "2026-03-25T09:48:01.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1338",
       "user": "rapolaskaseliscgi",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "CFT",
       "team_name": "CCD",
