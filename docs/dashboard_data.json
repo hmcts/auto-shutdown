@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-03-27T19:10:32.537Z",
+  "last_updated": "2026-03-27T19:11:36.193Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1343,
+      "title": "don't shutdown perftest",
+      "status": "auto-approved",
+      "created_at": "2026-03-27T19:10:18.000Z",
+      "updated_at": "2026-03-27T19:11:24.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1343",
+      "user": "yogeshruperaihmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "performance test team",
+      "environment": "Test / Perftest",
+      "start_date": "2026-03-27T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "Performance test for laa prl release",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nPerformance test for laa prl release\n\n### Justification for exclusion?\n\nPerformance test for laa prl release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance test team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n27-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-04-2026",
+      "cost": "£97.57"
+    },
     {
       "id": 1342,
       "title": "Enable DARTS stg to stay up longer for SIT cycle 7",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nCHG-0106942\n\n### Justification for exclusion?\n\nOOH Release\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nFuture Hearings - CaTH\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-02-2026",
       "cost": "£2.85"
-    },
-    {
-      "id": 1290,
-      "title": "Prevent auto shutdown for SDS (PTL) - CaTH Release CHG-0106942",
-      "status": "auto-approved",
-      "created_at": "2026-02-03T13:29:53.000Z",
-      "updated_at": "2026-02-03T13:30:46.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1290",
-      "user": "ChrisS1512",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "Future Hearings - CaTH",
-      "environment": "Preview / Dev",
-      "start_date": "2026-02-04T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "CHG-0106942",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nCHG-0106942\n\n### Justification for exclusion?\n\nOOH Release\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nFuture Hearings - CaTH\n\n### Environment\n\nPreview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-02-2026",
-      "cost": "£9.58"
     }
   ]
 }
