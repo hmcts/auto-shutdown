@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-03-30T15:30:00.505Z",
+  "last_updated": "2026-03-30T15:31:00.554Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1348,
+      "title": "juror: release 5.23",
+      "status": "auto-approved",
+      "created_at": "2026-03-30T15:29:43.000Z",
+      "updated_at": "2026-03-30T15:30:45.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1348",
+      "user": "npv0",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "juror",
+      "environment": "PTL, Test / Perftest",
+      "start_date": "2026-03-30T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "JS-813",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nJS-813\n\n### Justification for exclusion?\n\nrelease 5.23 testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\njuror\n\n### Environment\n\nPTL, Test / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n30-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-04-2026",
+      "cost": "£31.55"
+    },
     {
       "id": 1347,
       "title": "juror: release 5.23 - ❌",
@@ -1088,29 +1110,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nCHG-0106942\n\n### Justification for exclusion?\n\nOOH Release\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nFuture Hearings - CaTH\n\n### Environment\n\nITHC\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-02-2026\n\n### Skip shutdown end date\n\n05-02-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-02-2026",
       "cost": "£20.3"
-    },
-    {
-      "id": 1293,
-      "title": "Prevent auto shutdown for SDS - Demo - CaTH Release CHG-0106942",
-      "status": "auto-approved",
-      "created_at": "2026-02-03T13:33:43.000Z",
-      "updated_at": "2026-02-04T19:57:12.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1293",
-      "user": "ChrisS1512",
-      "labels": [
-        "Processing",
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "Future Hearings - CaTH",
-      "environment": "Demo",
-      "start_date": "2026-02-04T00:00:00.000Z",
-      "end_date": "2026-02-05T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "CHG-0106942",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nCHG-0106942\n\n### Justification for exclusion?\n\nOOH Release\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nFuture Hearings - CaTH\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-02-2026\n\n### Skip shutdown end date\n\n05-02-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n05-02-2026",
-      "cost": "£45.16"
     }
   ]
 }
