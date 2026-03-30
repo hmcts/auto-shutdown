@@ -16,5 +16,23 @@
         "justification": "out of hours release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1314"
+    },
+    {
+        "form_review_date": "30-03-2026",
+        "start_date": "30-03-2026",
+        "end_date": "30-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Test / Perftest",
+            " Preview / Dev"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "juror",
+        "change_jira_id": "JS-813",
+        "stay_on_late": "No",
+        "justification": "keep env up for release testing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1347"
     }
 ]
