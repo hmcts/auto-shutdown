@@ -33,5 +33,23 @@
         "justification": "release 5.23 testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1348"
+    },
+    {
+        "form_review_date": "01-04-2026",
+        "start_date": "31-03-2026",
+        "end_date": "31-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Private Law",
+        "change_jira_id": "https://tools.hmcts.net/confluence/spaces/RSTR/pages/1958286605/3rd+Attempt+PRL+C100+Policy+Changes+Release+Implementation+Plan",
+        "stay_on_late": "Yes",
+        "justification": "Out of hours deployment. To enable Prod/Staging build for Functional Test completion",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1349"
     }
 ]
