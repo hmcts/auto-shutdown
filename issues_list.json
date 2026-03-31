@@ -52,5 +52,21 @@
         "justification": "Needed to bring ITHC back up",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1350"
+    },
+    {
+        "form_review_date": "03/04/2026",
+        "start_date": "31-03-2026",
+        "end_date": "31-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "performance test team",
+        "change_jira_id": "to performance test LA Access release",
+        "stay_on_late": "Yes",
+        "justification": "to performance test LA Access release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1351"
     }
 ]
