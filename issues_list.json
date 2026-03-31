@@ -34,5 +34,23 @@
         "justification": "Out of hours deployment. To enable Prod/Staging build for Functional Test completion",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1349"
+    },
+    {
+        "form_review_date": "01/04/2026",
+        "start_date": "31-03-2026",
+        "end_date": "31-03-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " ITHC",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "CCD",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Needed to bring ITHC back up",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1350"
     }
 ]
