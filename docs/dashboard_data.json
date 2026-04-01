@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-01T13:16:54.857Z",
+  "last_updated": "2026-04-01T13:17:44.758Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1353,
+      "title": "DARTs SIT cycle 7",
+      "status": "auto-approved",
+      "created_at": "2026-04-01T13:16:29.000Z",
+      "updated_at": "2026-04-01T13:17:32.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1353",
+      "user": "karen-hedges",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "Darts",
+      "environment": "AAT / Staging",
+      "start_date": "2026-04-01T00:00:00.000Z",
+      "end_date": "2026-04-02T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT cycle 7 testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n01-04-2026\n\n### Skip shutdown end date\n\n02-04-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n03-04-2026",
+      "cost": "£51.59"
+    },
     {
       "id": 1352,
       "title": "DARTS SIT Cycle 7",
@@ -1088,28 +1110,6 @@
       "stay_on_late": "",
       "body": "### Jira link\r\n\r\nhttps://tools.hmcts.net/jira/browse/DTSPO-28789\r\n\r\n### Change description\r\n\r\nAdds production to autoshutdown on postgresql servers. If the autoShutdown tag is added and set to true instances will shutdown.  This is to allow ccd sccs instance to be shutdown when not needed. If tags not added to instance they will not be touched\r\nHave also now added prod to auto start up.\r\n\r\n### Testing done\r\n\r\nusing https://github.com/hmcts/auto-shutdown-dev\r\n\r\nhttps://github.com/hmcts/auto-shutdown-dev/actions/runs/21831568275/job/62991101648\r\n\r\n",
       "cost": null
-    },
-    {
-      "id": 1298,
-      "title": "IAC - CI - Testing CR-84",
-      "status": "auto-approved",
-      "created_at": "2026-02-06T15:38:07.000Z",
-      "updated_at": "2026-02-06T15:39:23.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1298",
-      "user": "rajeshthuraiyur",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Immigration & Asylum Chamber Service",
-      "environment": "AAT / Staging, Preview / Dev, Demo, PTL",
-      "start_date": "2026-02-06T00:00:00.000Z",
-      "end_date": "2026-02-08T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/DIAC-1436",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DIAC-1436\n\n### Justification for exclusion?\n\nReview and Update IAC automation tests for CR-84 release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nImmigration & Asylum Chamber Service\n\n### Environment\n\nAAT / Staging, Preview / Dev, Demo, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06/02/2026\n\n### Skip shutdown end date\n\n08/02/2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n08/02/2026",
-      "cost": "£4,219.99"
     }
   ]
 }
