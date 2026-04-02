@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-02T14:36:19.133Z",
+  "last_updated": "2026-04-02T14:37:16.967Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1359,
+      "title": "DARTS SIT cycle 7",
+      "status": "auto-approved",
+      "created_at": "2026-04-02T14:35:58.000Z",
+      "updated_at": "2026-04-02T14:37:03.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1359",
+      "user": "karen-hedges",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Darts",
+      "environment": "AAT / Staging",
+      "start_date": "2026-04-06T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nDARTS SIT cycle 7 Testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06-04-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n07-04-2026",
+      "cost": "£91.67"
+    },
     {
       "id": 1358,
       "title": "DARTS SIT cycle 7",
@@ -1089,29 +1111,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nPR-1305\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n14-03-2026\n\n### Skip shutdown end date\n\n15-03-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": "£785.43"
-    },
-    {
-      "id": 1304,
-      "title": "PR-1303",
-      "status": "auto-approved",
-      "created_at": "2026-02-12T10:48:24.000Z",
-      "updated_at": "2026-02-12T10:49:12.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1304",
-      "user": "hmcts-platform-operations",
-      "labels": [
-        "auto-approved",
-        "pull-request"
-      ],
-      "business_area": "CFT",
-      "team_name": "PlatOps",
-      "environment": "AAT / Staging",
-      "start_date": "2026-03-14T00:00:00.000Z",
-      "end_date": "2026-03-15T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "PR-1303",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nPR-1303\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n14-03-2026\n\n### Skip shutdown end date\n\n15-03-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": "£772.89"
     }
   ]
 }
