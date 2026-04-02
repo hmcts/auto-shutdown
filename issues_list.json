@@ -50,22 +50,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1353"
     },
     {
-        "form_review_date": "03-04-2026",
-        "start_date": "01-04-2026",
-        "end_date": "01-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "perf team",
-        "change_jira_id": "To performance test LAA release",
-        "stay_on_late": "Yes",
-        "justification": "To performance test LAA release",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1354"
-    },
-    {
         "form_review_date": "08/05/2026",
         "start_date": "08-04-2026",
         "end_date": "08-04-2026",
