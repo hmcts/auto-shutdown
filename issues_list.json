@@ -64,5 +64,23 @@
         "justification": "To performance test LAA release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1354"
+    },
+    {
+        "form_review_date": "08/05/2026",
+        "start_date": "08-04-2026",
+        "end_date": "08-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Fee and Payments",
+        "change_jira_id": "https://hmcts.haloitsm.com/ticket?id=136811 && https://tools.hmcts.net/jira/browse/PAY-7760?src=confmacro",
+        "stay_on_late": "Yes",
+        "justification": "PayBubble release starts ooh from 6:00 PM, expected to last for up to 4 hours.",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1357"
     }
 ]
