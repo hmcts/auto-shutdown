@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-02T14:35:19.766Z",
+  "last_updated": "2026-04-02T14:36:19.133Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1358,
+      "title": "DARTS SIT cycle 7",
+      "status": "auto-approved",
+      "created_at": "2026-04-02T14:35:04.000Z",
+      "updated_at": "2026-04-02T14:36:06.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1358",
+      "user": "karen-hedges",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "Darts",
+      "environment": "Demo",
+      "start_date": "2026-04-06T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nDARTS SIT cycle 7 Testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06-04-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n07-04-2026",
+      "cost": "£22.84"
+    },
     {
       "id": 1357,
       "title": "PayBubble Retire Antenna Release",
@@ -1090,28 +1112,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nPR-1303\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n14-03-2026\n\n### Skip shutdown end date\n\n15-03-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": "£772.89"
-    },
-    {
-      "id": 1302,
-      "title": "Staging - SDS - Overnight Testing for Crime Portal",
-      "status": "auto-approved",
-      "created_at": "2026-02-11T12:06:00.000Z",
-      "updated_at": "2026-02-11T12:06:53.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1302",
-      "user": "ChrisS1512",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "CaTH",
-      "environment": "AAT / Staging",
-      "start_date": "2026-02-11T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "N/A - No ticket number - part of Crime Portal E2E Testing",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nN/A - No ticket number - part of Crime Portal E2E Testing\n\n### Justification for exclusion?\n\nOvernight testing for Crime Portal lists\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nCaTH\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n11-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n12-02-2026",
-      "cost": "£22.01"
     }
   ]
 }
