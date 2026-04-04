@@ -1,23 +1,5 @@
 [
     {
-        "form_review_date": "03-07-2026",
-        "start_date": "03-04-2026",
-        "end_date": "03-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "CCD",
-        "change_jira_id": "CHG-0120163",
-        "stay_on_late": "Yes",
-        "justification": "out of hours release",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1314"
-    },
-    {
         "form_review_date": "08/05/2026",
         "start_date": "08-04-2026",
         "end_date": "08-04-2026",
