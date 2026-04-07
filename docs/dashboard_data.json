@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-07T19:00:38.091Z",
+  "last_updated": "2026-04-07T19:01:24.986Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1363,
+      "title": "Don't shutdown PerfTest",
+      "status": "auto-approved",
+      "created_at": "2026-04-07T19:00:19.000Z",
+      "updated_at": "2026-04-07T19:01:12.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1363",
+      "user": "yogeshruperaihmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "performance test team",
+      "environment": "Test / Perftest",
+      "start_date": "2026-04-07T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "PRL LA Access Release",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nPRL LA Access Release\n\n### Justification for exclusion?\n\nPRL LA Access Release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance test team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n07-04-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n09-04-2026",
+      "cost": "£100.54"
+    },
     {
       "id": 1362,
       "title": "Skip Preview auto-shutdown",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nTo test c100 policy changes\n\n### Justification for exclusion?\n\nTo test c100 policy changes\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n17-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n19-02-2026",
       "cost": "£91.2"
-    },
-    {
-      "id": 1308,
-      "title": "CaTH End to End Testing with Crime Portal",
-      "status": "auto-approved",
-      "created_at": "2026-02-16T16:44:25.000Z",
-      "updated_at": "2026-02-16T16:45:28.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1308",
-      "user": "junaidiqbalmoj",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "CaTH",
-      "environment": "AAT / Staging",
-      "start_date": "2026-02-16T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/PUB-2961",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/PUB-2961\n\n### Justification for exclusion?\n\nCrime Libra published their lists around 9pm and they need to do end to end testing for upcoming CaTH Release 9. So we need to enable STG environment so their requests processed successfully.\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nCaTH\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n16-02-2016",
-      "cost": "£22.58"
     }
   ]
 }
