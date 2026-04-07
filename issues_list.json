@@ -48,5 +48,21 @@
         "justification": "DARTS SIT cycle 7 Testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1359"
+    },
+    {
+        "form_review_date": "10-04-2026",
+        "start_date": "07-04-2026",
+        "end_date": "07-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2435",
+        "stay_on_late": "Yes",
+        "justification": "Deadline to finish testing of ticket by 9th April",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1362"
     }
 ]
