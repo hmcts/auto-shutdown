@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-07T16:06:29.580Z",
+  "last_updated": "2026-04-07T16:07:22.732Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1362,
+      "title": "Skip Preview auto-shutdown",
+      "status": "auto-approved",
+      "created_at": "2026-04-07T16:06:13.000Z",
+      "updated_at": "2026-04-07T16:07:09.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1362",
+      "user": "gokul-sol",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "SSCS",
+      "environment": "Preview / Dev",
+      "start_date": "2026-04-07T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2435",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2435\n\n### Justification for exclusion?\n\nDeadline to finish testing of ticket by 9th April\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nPreview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-04-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-04-2026",
+      "cost": "£192.38"
+    },
     {
       "id": 1361,
       "title": "PR-1360",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/PUB-2961\n\n### Justification for exclusion?\n\nCrime Libra published their lists around 9pm and they need to do end to end testing for upcoming CaTH Release 9. So we need to enable STG environment so their requests processed successfully.\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nCaTH\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n16-02-2016",
       "cost": "£22.58"
-    },
-    {
-      "id": 1307,
-      "title": "Skip auto shutdown for Probate",
-      "status": "auto-approved",
-      "created_at": "2026-02-16T15:13:30.000Z",
-      "updated_at": "2026-02-16T15:14:31.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1307",
-      "user": "MarcusHMCTS",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Probate",
-      "environment": "AAT / Staging, ITHC, PTL, Preview / Dev",
-      "start_date": "2026-02-16T00:00:00.000Z",
-      "end_date": "2026-02-17T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "DTSPB-4864",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nDTSPB-4864\n\n### Justification for exclusion?\n\nNeed to create automation test script for Intestacy testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nProbate\n\n### Environment\n\nAAT / Staging, ITHC, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-02-2026\n\n### Skip shutdown end date\n\n17-02-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n16-05-2026",
-      "cost": "£696.14"
     }
   ]
 }
