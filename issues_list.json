@@ -16,5 +16,21 @@
         "justification": "PayBubble release starts ooh from 6:00 PM, expected to last for up to 4 hours.",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1357"
+    },
+    {
+        "form_review_date": "10-04-2026",
+        "start_date": "09-04-2026",
+        "end_date": "09-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "[DMP-5448] Extend Demo environment to be available after 8pm - HMCTS JIRA",
+        "stay_on_late": "No",
+        "justification": "SIT cycle 7 testing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1364"
     }
 ]
