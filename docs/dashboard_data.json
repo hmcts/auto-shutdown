@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-04-13T16:20:43.951Z",
+  "last_updated": "2026-04-13T16:21:42.207Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1366,
       "title": "Skip auto shutdown for IDAM Release 11.0.0",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2026-04-13T16:20:27.000Z",
-      "updated_at": "2026-04-13T16:20:41.000Z",
+      "updated_at": "2026-04-13T16:21:29.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1366",
       "user": "kremi",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "CFT IDAM",
@@ -22,7 +22,7 @@
       "change_jira_id": "CHG-0140435",
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nCHG-0140435\n\n### Justification for exclusion?\n\nIDAM Release 11.0.0: Platform Upgrade Q1 2026\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCFT IDAM\n\n### Environment\n\nAAT / Staging, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-04-2026\n\n### Skip shutdown end date\n\n17-04-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n20-04-2026",
-      "cost": null
+      "cost": "£243.83"
     },
     {
       "id": 1365,
