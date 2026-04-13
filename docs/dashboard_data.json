@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-13T06:40:15.118Z",
+  "last_updated": "2026-04-13T16:20:43.951Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1366,
+      "title": "Skip auto shutdown for IDAM Release 11.0.0",
+      "status": "pending",
+      "created_at": "2026-04-13T16:20:27.000Z",
+      "updated_at": "2026-04-13T16:20:41.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1366",
+      "user": "kremi",
+      "labels": [
+        "Processing"
+      ],
+      "business_area": "CFT",
+      "team_name": "CFT IDAM",
+      "environment": "AAT / Staging, PTL",
+      "start_date": "2026-04-16T00:00:00.000Z",
+      "end_date": "2026-04-17T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "CHG-0140435",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nCHG-0140435\n\n### Justification for exclusion?\n\nIDAM Release 11.0.0: Platform Upgrade Q1 2026\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCFT IDAM\n\n### Environment\n\nAAT / Staging, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-04-2026\n\n### Skip shutdown end date\n\n17-04-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n20-04-2026",
+      "cost": null
+    },
     {
       "id": 1365,
       "title": "Skip Shutdown for DARTS Staging",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nDTSPB-5223\n\n### Justification for exclusion?\n\nTesting script for refund\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nProbate\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n02-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n02-05-2026",
       "cost": "£64.47"
-    },
-    {
-      "id": 1311,
-      "title": "Don't shutdown perftest",
-      "status": "auto-approved",
-      "created_at": "2026-02-23T18:37:05.000Z",
-      "updated_at": "2026-02-23T18:38:11.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1311",
-      "user": "yogeshruperaihmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "performance team",
-      "environment": "Test / Perftest",
-      "start_date": "2026-02-23T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "C100 Policy Changes",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nC100 Policy Changes\n\n### Justification for exclusion?\n\nScripting for c100 release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n23-02-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n25-02-2026",
-      "cost": "£96.9"
     }
   ]
 }
