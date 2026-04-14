@@ -1,0 +1,32 @@
+[
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.Compute/virtualMachines/perftstlindarts",
+    "resource": "perftstlindarts",
+    "statusMessage": "VM: *perftstlindarts* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/darts-test-rg/providers/Microsoft.Compute/virtualMachines/perftstwindarts",
+    "resource": "perftstwindarts",
+    "statusMessage": "VM: *perftstwindarts* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90*  ResourceGroup: *darts-test-rg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/cad00ede-36df-4e04-ad0b-d34a1e94ef76/resourceGroups/a360-c2x2555-uat/providers/Microsoft.Compute/virtualMachines/a360-c2x2555-windows-agent",
+    "resource": "a360-c2x2555-windows-agent",
+    "statusMessage": "VM: *a360-c2x2555-windows-agent* in Subscription: *cad00ede-36df-4e04-ad0b-d34a1e94ef76*  ResourceGroup: *a360-c2x2555-uat* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/d24c931e-2e6d-4508-8583-85ac42715580/resourceGroups/glimr-rg-dev/providers/Microsoft.Compute/virtualMachines/glimr-ssrs-vm01-dev",
+    "resource": "glimr-ssrs-vm01-dev",
+    "statusMessage": "VM: *glimr-ssrs-vm01-dev* in Subscription: *d24c931e-2e6d-4508-8583-85ac42715580*  ResourceGroup: *glimr-rg-dev* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/ea3a8c1e-af9d-4108-bc86-a7e2d267f49c/resourceGroups/hmcts-hub-sbox-int/providers/Microsoft.Compute/virtualMachines/hmcts-hub-sbox-int-palo-vm-0",
+    "resource": "hmcts-hub-sbox-int-palo-vm-0",
+    "statusMessage": "VM: *hmcts-hub-sbox-int-palo-vm-0* in Subscription: *ea3a8c1e-af9d-4108-bc86-a7e2d267f49c*  ResourceGroup: *hmcts-hub-sbox-int* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  }
+]
