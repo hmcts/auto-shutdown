@@ -70,5 +70,11 @@
     "resource": "toffee-v14-flexible-sbox",
     "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-sbox* in Subscription: *a8140a9e-f1b0-481f-a4de-09e2ee23f7ab* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/bf308a5c-0624-4334-8ff8-8dca9fd43783/resourceGroups/plum-v14-flexible-data-sandbox/providers/Microsoft.DBforPostgreSQL/flexibleServers/plum-v14-flexible-sandbox",
+    "resource": "plum-v14-flexible-sandbox",
+    "statusMessage": "Flexible SQL Server: *plum-v14-flexible-sandbox* in Subscription: *bf308a5c-0624-4334-8ff8-8dca9fd43783* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
