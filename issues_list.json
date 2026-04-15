@@ -64,5 +64,25 @@
         "justification": "Required to test ES upgrade in preview",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1370"
+    },
+    {
+        "form_review_date": "15/04/2026",
+        "start_date": "15-04-2026",
+        "end_date": "15-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Demo",
+            " ITHC",
+            " AAT / Staging",
+            " Test / Perftest"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "OPAL",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Required for Opal db work",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1371"
     }
 ]
