@@ -47,5 +47,22 @@
         "justification": "SIT Cycle 7",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1369"
+    },
+    {
+        "form_review_date": "16/04/2026",
+        "start_date": "15-04-2026",
+        "end_date": "15-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "CCD",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Required to test ES upgrade in preview",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1370"
     }
 ]
