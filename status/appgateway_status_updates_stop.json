@@ -1,8 +1,0 @@
-[
-  {
-    "id": "",
-    "resource": "cft-aks00-sandbox-agw",
-    "statusMessage": "Application Gateway: *cft-aks00-sandbox-agw* in Subscription: *b72ab7b7-723f-4b18-b6f6-03b0f2c6a1bb* is Running after *stop* action.",
-    "resourceType": "appgateway"
-  }
-]
