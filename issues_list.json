@@ -15,53 +15,5 @@
         "justification": "IDAM Release 11.0.0: Platform Upgrade Q1 2026",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1366"
-    },
-    {
-        "form_review_date": "16/04/2026",
-        "start_date": "16-04-2026",
-        "end_date": "16-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
-        "stay_on_late": "No",
-        "justification": "SIT Cycle 7",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1368"
-    },
-    {
-        "form_review_date": "17/04/2026",
-        "start_date": "16-04-2026",
-        "end_date": "16-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
-        "stay_on_late": "No",
-        "justification": "SIT Cycle 7",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1369"
-    },
-    {
-        "form_review_date": "16/04/2026",
-        "start_date": "16-04-2026",
-        "end_date": "16-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "PRE",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/S28-4828",
-        "stay_on_late": "No",
-        "justification": "Need to deploy API outside of court hours due to infrastructure and code concerns",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1372"
     }
 ]
