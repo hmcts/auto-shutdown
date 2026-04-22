@@ -30,5 +30,21 @@
         "justification": "PRE needs to deploy out of hours",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1374"
+    },
+    {
+        "form_review_date": "24-04-2026",
+        "start_date": "22-04-2026",
+        "end_date": "22-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2451",
+        "stay_on_late": "Yes",
+        "justification": "We need to retain test cases for next day testing, hence would liek to retain data in env to continue testing tomorrow",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1375"
     }
 ]
