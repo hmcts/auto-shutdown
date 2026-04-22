@@ -1,37 +1,5 @@
 [
     {
-        "form_review_date": "23-04-2026",
-        "start_date": "21-04-2026",
-        "end_date": "21-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance team",
-        "change_jira_id": "prl pathfinder cfv release",
-        "stay_on_late": "Yes",
-        "justification": "prl pathfinder cfv release",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1373"
-    },
-    {
-        "form_review_date": "21/04/2026",
-        "start_date": "21-04-2026",
-        "end_date": "21-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "PRE",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/S28-4898",
-        "stay_on_late": "No",
-        "justification": "PRE needs to deploy out of hours",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1374"
-    },
-    {
         "form_review_date": "24-04-2026",
         "start_date": "22-04-2026",
         "end_date": "22-04-2026",
