@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-22T15:55:15.782Z",
+  "last_updated": "2026-04-22T15:55:55.483Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1375,
+      "title": "Skip Preview auto-shutdown",
+      "status": "auto-approved",
+      "created_at": "2026-04-22T15:54:58.000Z",
+      "updated_at": "2026-04-22T15:55:43.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1375",
+      "user": "gokul-sol",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "SSCS",
+      "environment": "Preview / Dev",
+      "start_date": "2026-04-22T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2451",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2451\n\n### Justification for exclusion?\n\nWe need to retain test cases for next day testing, hence would liek to retain data in env to continue testing tomorrow\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nPreview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n22-04-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n24-04-2026",
+      "cost": "£322.66"
+    },
     {
       "id": 1374,
       "title": "Pre Recorded Evidence deployment",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nTo test C100 Policy changes\n\n### Justification for exclusion?\n\nTo test C100 Policy changes\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n05-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n07-03-2026",
       "cost": "£100.48"
-    },
-    {
-      "id": 1319,
-      "title": "Don't shutdown perfTest",
-      "status": "auto-approved",
-      "created_at": "2026-03-04T19:03:46.000Z",
-      "updated_at": "2026-03-04T19:04:53.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1319",
-      "user": "yogeshruperaihmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "performance team",
-      "environment": "Test / Perftest",
-      "start_date": "2026-03-04T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "To performance test C100 Policy Changes",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nTo performance test C100 Policy Changes\n\n### Justification for exclusion?\n\nTo performance test C100 Policy Changes\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n04-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n06-03-2026",
-      "cost": "£98.15"
     }
   ]
 }
