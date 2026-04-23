@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-23T11:44:37.198Z",
+  "last_updated": "2026-04-23T11:45:16.003Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1377,
+      "title": "Skip  shutdown of staging env",
+      "status": "auto-approved",
+      "created_at": "2026-04-23T11:44:19.000Z",
+      "updated_at": "2026-04-23T11:45:04.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1377",
+      "user": "KyriLouca",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "DARTS",
+      "environment": "AAT / Staging",
+      "start_date": "2026-04-23T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSit Cycle 7\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n23-04-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n26-06-2026",
+      "cost": "£23.43"
+    },
     {
       "id": 1376,
       "title": "Skip shutdown for DARTS Demo",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2101\n\n### Justification for exclusion?\n\nWe would need to retain test data in preview for testing on next day\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nPreview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n10-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n15-03-2026",
       "cost": "£295.68"
-    },
-    {
-      "id": 1322,
-      "title": "ET Demo",
-      "status": "auto-approved",
-      "created_at": "2026-03-06T12:23:50.000Z",
-      "updated_at": "2026-03-06T12:24:52.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1322",
-      "user": "sunil-vooturi",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Employment Tribunal",
-      "environment": "Demo",
-      "start_date": "2026-03-06T00:00:00.000Z",
-      "end_date": "2026-03-09T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/RET-5794",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/RET-5794\n\n### Justification for exclusion?\n\nAutomation for Initial Consideration epic Employment tribunal \n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nEmployment Tribunal\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06/03/2026\n\n### Skip shutdown end date\n\n09/03/2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n09/03/2026",
-      "cost": "£726.71"
     }
   ]
 }
