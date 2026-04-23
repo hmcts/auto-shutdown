@@ -30,5 +30,21 @@
         "justification": "SIT Cycle 7",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1376"
+    },
+    {
+        "form_review_date": "26-06-2026",
+        "start_date": "23-04-2026",
+        "end_date": "23-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+        "stay_on_late": "No",
+        "justification": "Sit Cycle 7",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1377"
     }
 ]
