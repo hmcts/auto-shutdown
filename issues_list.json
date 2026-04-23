@@ -14,5 +14,21 @@
         "justification": "We need to retain test cases for next day testing, hence would liek to retain data in env to continue testing tomorrow",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1375"
+    },
+    {
+        "form_review_date": "23/06/2026",
+        "start_date": "23-04-2026",
+        "end_date": "23-04-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+        "stay_on_late": "No",
+        "justification": "SIT Cycle 7",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1376"
     }
 ]
