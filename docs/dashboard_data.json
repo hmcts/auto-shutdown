@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-04-24T15:58:03.498Z",
+  "last_updated": "2026-04-24T15:58:46.437Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1379,
+      "title": "Skip env shutdown",
+      "status": "auto-approved",
+      "created_at": "2026-04-24T15:57:45.000Z",
+      "updated_at": "2026-04-24T15:58:34.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1379",
+      "user": "DLCullen1",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "QA",
+      "environment": "Test / Perftest",
+      "start_date": "2026-04-24T00:00:00.000Z",
+      "end_date": "2026-04-26T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nfor testing prep activity\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nQA\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n24-04-2026\n\n### Skip shutdown end date\n\n26-04-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n24-10-2026",
+      "cost": "£1,072.01"
+    },
     {
       "id": 1378,
       "title": "EXUI - Out of hours release - passport.js",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/HMAN-1075\n\n### Justification for exclusion?\n\nReverting for P2\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nHMC\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n10-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n11-03-2026",
       "cost": "£92.93"
-    },
-    {
-      "id": 1324,
-      "title": "HMAN-1075 Revert",
-      "status": "auto-approved",
-      "created_at": "2026-03-10T19:51:58.000Z",
-      "updated_at": "2026-03-10T19:52:56.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1324",
-      "user": "danlysiak",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "HMC",
-      "environment": "PTL",
-      "start_date": "2026-03-10T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/HMAN-1075",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/HMAN-1075\n\n### Justification for exclusion?\n\nReverting for P2\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nHMC\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n10-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n12-03-2026",
-      "cost": "£7.55"
     }
   ]
 }
