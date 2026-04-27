@@ -20,21 +20,5 @@
         "justification": "Out of hours deployment involving shuttering live systems",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1378"
-    },
-    {
-        "form_review_date": "24-10-2026",
-        "start_date": "24-04-2026",
-        "end_date": "26-04-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "QA",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "for testing prep activity",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1379"
     }
 ]
