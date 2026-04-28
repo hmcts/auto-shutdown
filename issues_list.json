@@ -20,5 +20,21 @@
         "justification": "Out of hours deployment involving shuttering live systems",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1378"
+    },
+    {
+        "form_review_date": "01-05-2026",
+        "start_date": "29-04-2026",
+        "end_date": "01-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Darts",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+        "stay_on_late": "Yes",
+        "justification": "SIT Cycle 7 Testing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1380"
     }
 ]
