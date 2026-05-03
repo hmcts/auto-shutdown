@@ -1,18 +1,1 @@
-[
-    {
-        "form_review_date": "05-05-2026",
-        "start_date": "01-05-2026",
-        "end_date": "02-05-2026",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "Private Law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2429",
-        "stay_on_late": "Yes",
-        "justification": "Testing for pre-NRO deliverable",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1387"
-    }
-]
+[]
