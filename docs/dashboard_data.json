@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-05-05T11:31:47.089Z",
+  "last_updated": "2026-05-05T11:32:43.508Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1388,
+      "title": "Upgrading DB storage on am-role-assignment-service-postgres-db-v15-prod which is currently at 89.9%",
+      "status": "auto-approved",
+      "created_at": "2026-05-05T11:31:25.000Z",
+      "updated_at": "2026-05-05T11:32:31.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1388",
+      "user": "SabinaHMCTS",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Access Management",
+      "environment": "PTL, Preview / Dev, Test / Perftest, AAT / Staging, Demo, ITHC, Sandbox",
+      "start_date": "2026-05-06T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSAM-1268",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DTSAM-1268\n\n### Justification for exclusion?\n\na release is to be carried out today in prod to upgrade the db storage and we will need to run jenkins pipelines on prod and lower environments from 8pm to 11 pm\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nAccess Management\n\n### Environment\n\nPTL, Preview / Dev, Test / Perftest, AAT / Staging, Demo, ITHC, Sandbox\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06-05-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n08-05-2029",
+      "cost": "£554.2"
+    },
     {
       "id": 1387,
       "title": "Keep demo open for PRL BAT",
@@ -1088,28 +1110,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5423\n\n### Justification for exclusion?\n\nSIT cycle 7\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n17-03-2026\n\n### Skip shutdown end date\n\n27-05-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n25-05-2026",
       "cost": "£3,388.18"
-    },
-    {
-      "id": 1330,
-      "title": "Keep DARTS Demo up for SIT cycle 7",
-      "status": "auto-approved",
-      "created_at": "2026-03-13T15:22:02.000Z",
-      "updated_at": "2026-03-13T15:23:11.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1330",
-      "user": "karen-hedges",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "Demo",
-      "start_date": "2026-03-13T00:00:00.000Z",
-      "end_date": "2026-03-13T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT cycle 7 testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n13-03-2026\n\n### Skip shutdown end date\n\n13-03-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n14-03-2026",
-      "cost": "£22.43"
     }
   ]
 }
