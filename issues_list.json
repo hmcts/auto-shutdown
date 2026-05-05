@@ -1,1 +1,24 @@
-[]
+[
+    {
+        "form_review_date": "08-05-2029",
+        "start_date": "06-05-2026",
+        "end_date": "06-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Preview / Dev",
+            " Test / Perftest",
+            " AAT / Staging",
+            " Demo",
+            " ITHC",
+            " Sandbox"
+        ],
+        "business_area": "cft",
+        "team_name": "Access Management",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSAM-1268",
+        "stay_on_late": "No",
+        "justification": "a release is to be carried out today in prod to upgrade the db storage and we will need to run jenkins pipelines on prod and lower environments from 8pm to 11 pm",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1388"
+    }
+]
