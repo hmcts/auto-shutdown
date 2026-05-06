@@ -20,5 +20,23 @@
         "justification": "a release is to be carried out today in prod to upgrade the db storage and we will need to run jenkins pipelines on prod and lower environments from 8pm to 11 pm",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1388"
+    },
+    {
+        "form_review_date": "08-05-2026",
+        "start_date": "08-05-2026",
+        "end_date": "10-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Possessions",
+        "change_jira_id": "For devs teams to work over the weekend",
+        "stay_on_late": "No",
+        "justification": "For possessions Dev/ QA to work over the weekend.",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1389"
     }
 ]
