@@ -22,5 +22,11 @@
     "resource": "flexible-pip-account-management-ithc",
     "statusMessage": "Flexible SQL Server: *flexible-pip-account-management-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-ithc",
+    "resource": "rota-psql-ithc",
+    "statusMessage": "Flexible SQL Server: *rota-psql-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
