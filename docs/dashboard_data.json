@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-07T17:10:31.324Z",
+  "last_updated": "2026-05-07T17:11:09.618Z",
   "total_issues": 50,
   "data": [
     {
@@ -23,6 +23,29 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT Cycle 7 Testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-05-2026\n\n### Skip shutdown end date\n\n08-05-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n15-05-2026",
       "cost": "£46.14"
+    },
+    {
+      "id": 1393,
+      "title": "Disable shutdown of demo env for PRL BAT",
+      "status": "auto-approved",
+      "created_at": "2026-05-07T14:59:58.000Z",
+      "updated_at": "2026-05-07T17:10:47.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1393",
+      "user": "sanjayparekh-hmcts",
+      "labels": [
+        "Processing",
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Private Law",
+      "environment": "Demo",
+      "start_date": "2026-05-07T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2382",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/FPVTL-2382\n\n### Justification for exclusion?\n\nDisable shutdown to finalise testing \n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-05-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n08-05-2026",
+      "cost": "£75.12"
     },
     {
       "id": 1391,
@@ -1086,29 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT Cycle 7 testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19/03/2026\n\n### Skip shutdown end date\n\n20/03/2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20/03/2026",
       "cost": "£44.86"
-    },
-    {
-      "id": 1335,
-      "title": "Keep the test env up - ❌",
-      "status": "cancelled",
-      "created_at": "2026-03-18T10:41:04.000Z",
-      "updated_at": "2026-03-18T10:42:52.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1335",
-      "user": "karen-hedges",
-      "labels": [
-        "auto-approved",
-        "cancel"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "Darts",
-      "environment": "Test / Perftest",
-      "start_date": "2026-03-18T00:00:00.000Z",
-      "end_date": "2026-03-18T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5423",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5423\n\n### Justification for exclusion?\n\nTesting\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDarts\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n18-03-2026\n\n### Skip shutdown end date\n\n18-03-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n18-03-2026",
-      "cost": "£23.01"
     }
   ]
 }
