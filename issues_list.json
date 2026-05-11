@@ -1,23 +1,5 @@
 [
     {
-        "form_review_date": "08-05-2026",
-        "start_date": "08-05-2026",
-        "end_date": "10-05-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "Possessions",
-        "change_jira_id": "For devs teams to work over the weekend",
-        "stay_on_late": "No",
-        "justification": "For possessions Dev/ QA to work over the weekend.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1389"
-    },
-    {
         "form_review_date": "11-08-2026",
         "start_date": "08-05-2026",
         "end_date": "11-05-2026",
