@@ -1,7 +1,30 @@
 {
-  "last_updated": "2026-05-13T15:10:51.559Z",
+  "last_updated": "2026-05-13T16:49:25.998Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1398,
+      "title": "PR-1397",
+      "status": "auto-approved",
+      "created_at": "2026-05-13T15:10:24.000Z",
+      "updated_at": "2026-05-13T15:11:03.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1398",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2026-06-12T00:00:00.000Z",
+      "end_date": "2026-06-13T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "PR-1397",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nPR-1397\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n12-06-2026\n\n### Skip shutdown end date\n\n13-06-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": "£512.51"
+    },
     {
       "id": 1396,
       "title": "Upgrading DB storage on am-role-assignment-service-postgres-db-v15-prod which is currently at 89.9% - 8 pm to 11 pm",
@@ -1086,29 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nRequired to resurrect ITHC elasticsearch\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nPTL, ITHC, Demo, Test / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n24/03/2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n29/03/2026",
       "cost": "£218.99"
-    },
-    {
-      "id": 1338,
-      "title": "ES upgrade - ❌",
-      "status": "cancelled",
-      "created_at": "2026-03-23T13:36:49.000Z",
-      "updated_at": "2026-03-25T09:48:01.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1338",
-      "user": "rapolaskaseliscgi",
-      "labels": [
-        "auto-approved",
-        "cancel"
-      ],
-      "business_area": "CFT",
-      "team_name": "CCD",
-      "environment": "PTL, Preview / Dev, AAT / Staging",
-      "start_date": "2026-03-27T00:00:00.000Z",
-      "end_date": "2026-03-30T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/CCD-6367",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/CCD-6367\n\n### Justification for exclusion?\n\nES7 is out of support and needs to be upgraded to version 9\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n27-03-2026\n\n### Skip shutdown end date\n\n30-03-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-06-2026",
-      "cost": "£3,425.44"
     }
   ]
 }
