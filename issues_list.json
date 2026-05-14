@@ -65,5 +65,21 @@
         "justification": "Private Law team need to test a high priority change",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1402"
+    },
+    {
+        "form_review_date": "16-05-2026",
+        "start_date": "14-05-2026",
+        "end_date": "14-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "performance team",
+        "change_jira_id": "Performance testing for PRL Pathfinder release",
+        "stay_on_late": "No",
+        "justification": "Performance testing for PRL Pathfinder release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1403"
     }
 ]
