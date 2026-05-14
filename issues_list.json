@@ -71,5 +71,21 @@
         "justification": "Out of hours release planned on 19/05/26. from 19:00 to 23:59",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1401"
+    },
+    {
+        "form_review_date": "18-05-2026",
+        "start_date": "15-05-2026",
+        "end_date": "16-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "Private Law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2556",
+        "stay_on_late": "No",
+        "justification": "Private Law team need to test a high priority change",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1402"
     }
 ]
