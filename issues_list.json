@@ -32,25 +32,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1400"
     },
     {
-        "form_review_date": "20/05/26",
-        "start_date": "19-05-2026",
-        "end_date": "20-05-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " Demo",
-            " ITHC"
-        ],
-        "business_area": "cft",
-        "team_name": "Family Private Law",
-        "change_jira_id": "https://tools.hmcts.net/confluence/spaces/RSTR/pages/1969260634/PRL+SMALL+-+CHG-00xxxxx+-+ES+Reindex+for+PRL+to+enable+ACRO+-+Release+Implementation+Plan",
-        "stay_on_late": "Yes",
-        "justification": "Out of hours release planned on 19/05/26. from 19:00 to 23:59",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1401"
-    },
-    {
         "form_review_date": "18-05-2026",
         "start_date": "15-05-2026",
         "end_date": "16-05-2026",
