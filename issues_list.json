@@ -80,5 +80,27 @@
         "justification": "Private Law OOH release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1407"
+    },
+    {
+        "form_review_date": "15-05-2026",
+        "start_date": "15-05-2026",
+        "end_date": "16-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Test / Perftest",
+            " Demo",
+            " ITHC",
+            " PTL",
+            " Sandbox"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Opal",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "To allow database migrations to take place",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1408"
     }
 ]
