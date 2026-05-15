@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-15T09:25:30.306Z",
+  "last_updated": "2026-05-15T09:53:22.355Z",
   "total_issues": 50,
   "data": [
     {
@@ -92,14 +92,15 @@
     },
     {
       "id": 1401,
-      "title": "Request to not shut down lower environments for PRL",
-      "status": "auto-approved",
+      "title": "Request to not shut down lower environments for PRL - ❌",
+      "status": "cancelled",
       "created_at": "2026-05-14T13:01:46.000Z",
-      "updated_at": "2026-05-15T09:25:14.000Z",
+      "updated_at": "2026-05-15T09:53:01.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1401",
       "user": "suresh-sharada",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "CFT",
       "team_name": "Family Private Law",
