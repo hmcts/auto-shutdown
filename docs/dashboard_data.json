@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-05-15T11:17:50.689Z",
+  "last_updated": "2026-05-15T11:18:45.641Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1406,
+      "title": "Private Law C8 changes",
+      "status": "auto-approved",
+      "created_at": "2026-05-15T11:17:35.000Z",
+      "updated_at": "2026-05-15T11:18:33.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1406",
+      "user": "jthmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Private Law",
+      "environment": "AAT / Staging",
+      "start_date": "2026-05-27T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2202",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/FPVTL-2202\n\n### Justification for exclusion?\n\nPrivate Law OOH release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-05-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n28-05-2026",
+      "cost": "£96.66"
+    },
     {
       "id": 1405,
       "title": "Skip Staging Shutdown",
@@ -1086,29 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nJS-813\n\n### Justification for exclusion?\n\nrelease 5.23 testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\njuror\n\n### Environment\n\nPTL, Test / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n30-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-04-2026",
       "cost": "£31.55"
-    },
-    {
-      "id": 1347,
-      "title": "juror: release 5.23 - ❌",
-      "status": "cancelled",
-      "created_at": "2026-03-30T15:19:12.000Z",
-      "updated_at": "2026-03-30T15:27:09.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1347",
-      "user": "npv0",
-      "labels": [
-        "auto-approved",
-        "cancel"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "juror",
-      "environment": "PTL, Test / Perftest, Preview / Dev",
-      "start_date": "2026-03-30T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "JS-813",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nJS-813\n\n### Justification for exclusion?\n\nkeep env up for release testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\njuror\n\n### Environment\n\nPTL, Test / Perftest, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n30-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n30-03-2026",
-      "cost": "£40.15"
     }
   ]
 }
