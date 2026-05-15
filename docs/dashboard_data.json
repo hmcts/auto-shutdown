@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-05-15T05:57:38.492Z",
+  "last_updated": "2026-05-15T05:58:24.494Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1404,
+      "title": "Keep Darts Demo Active",
+      "status": "auto-approved",
+      "created_at": "2026-05-15T05:57:24.000Z",
+      "updated_at": "2026-05-15T05:58:13.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1404",
+      "user": "KyriLouca",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "Cross-Cutting",
+      "team_name": "DARTS",
+      "environment": "Demo",
+      "start_date": "2026-05-15T00:00:00.000Z",
+      "end_date": "2026-05-15T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT Cycle 7\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n15/05/2026\n\n### Skip shutdown end date\n\n15/05/2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n31-05-2026",
+      "cost": "£24.24"
+    },
     {
       "id": 1403,
       "title": "Don't shutdown perfTest",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nPR-1345\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n29-04-2026\n\n### Skip shutdown end date\n\n30-04-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": "£208.53"
-    },
-    {
-      "id": 1343,
-      "title": "don't shutdown perftest",
-      "status": "auto-approved",
-      "created_at": "2026-03-27T19:10:18.000Z",
-      "updated_at": "2026-03-27T19:11:24.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1343",
-      "user": "yogeshruperaihmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "performance test team",
-      "environment": "Test / Perftest",
-      "start_date": "2026-03-27T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "Performance test for laa prl release",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nPerformance test for laa prl release\n\n### Justification for exclusion?\n\nPerformance test for laa prl release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nperformance test team\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n27-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-04-2026",
-      "cost": "£97.57"
     }
   ]
 }
