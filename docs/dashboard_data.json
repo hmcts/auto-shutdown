@@ -1,13 +1,35 @@
 {
-  "last_updated": "2026-05-15T11:21:54.393Z",
+  "last_updated": "2026-05-15T11:22:47.614Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1407,
+      "title": "Private Law C8 changes",
+      "status": "auto-approved",
+      "created_at": "2026-05-15T11:21:38.000Z",
+      "updated_at": "2026-05-15T11:22:34.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1407",
+      "user": "jthmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Private Law",
+      "environment": "Preview / Dev, AAT / Staging, PTL",
+      "start_date": "2026-05-27T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2202",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/FPVTL-2202\n\n### Justification for exclusion?\n\nPrivate Law OOH release\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nPreview / Dev, AAT / Staging, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-05-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n28-05-2026",
+      "cost": "£452.91"
+    },
     {
       "id": 1406,
       "title": "Private Law C8 changes",
       "status": "auto-approved",
       "created_at": "2026-05-15T11:17:35.000Z",
-      "updated_at": "2026-05-15T11:18:33.000Z",
+      "updated_at": "2026-05-15T11:22:37.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1406",
       "user": "jthmcts",
       "labels": [
@@ -1086,28 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/confluence/spaces/RSTR/pages/1958286605/3rd+Attempt+PRL+C100+Policy+Changes+Release+Implementation+Plan\n\n### Justification for exclusion?\n\nOut of hours deployment. To enable Prod/Staging build for Functional Test completion\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n31-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-04-2026",
       "cost": "£331.11"
-    },
-    {
-      "id": 1348,
-      "title": "juror: release 5.23",
-      "status": "auto-approved",
-      "created_at": "2026-03-30T15:29:43.000Z",
-      "updated_at": "2026-03-30T15:30:45.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1348",
-      "user": "npv0",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "juror",
-      "environment": "PTL, Test / Perftest",
-      "start_date": "2026-03-30T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "JS-813",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nJS-813\n\n### Justification for exclusion?\n\nrelease 5.23 testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\njuror\n\n### Environment\n\nPTL, Test / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n30-03-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-04-2026",
-      "cost": "£31.55"
     }
   ]
 }
