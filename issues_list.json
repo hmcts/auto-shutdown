@@ -1,37 +1,5 @@
 [
     {
-        "form_review_date": "31-05-2026",
-        "start_date": "13-05-2026",
-        "end_date": "14-05-2026",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
-        "stay_on_late": "Yes",
-        "justification": "SIT Cycle 7 Testing",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1399"
-    },
-    {
-        "form_review_date": "31-05-2026",
-        "start_date": "13-05-2026",
-        "end_date": "14-05-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "DARTS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
-        "stay_on_late": "Yes",
-        "justification": "SIT Cycle 7",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1400"
-    },
-    {
         "form_review_date": "18-05-2026",
         "start_date": "15-05-2026",
         "end_date": "16-05-2026",
@@ -46,22 +14,6 @@
         "justification": "Private Law team need to test a high priority change",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1402"
-    },
-    {
-        "form_review_date": "16-05-2026",
-        "start_date": "14-05-2026",
-        "end_date": "14-05-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "performance team",
-        "change_jira_id": "Performance testing for PRL Pathfinder release",
-        "stay_on_late": "No",
-        "justification": "Performance testing for PRL Pathfinder release",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1403"
     },
     {
         "form_review_date": "31-05-2026",
