@@ -1,35 +1,51 @@
 [
     {
-        "form_review_date": "13-05-2026",
-        "start_date": "12-05-2026",
-        "end_date": "12-05-2026",
+        "form_review_date": "28-05-2026",
+        "start_date": "27-05-2026",
+        "end_date": "27-05-2026",
         "request_type": "stop",
         "environment": [
-            "PTL",
-            " AAT / Staging",
-            " Preview / Dev"
+            "AAT / Staging"
         ],
         "business_area": "cft",
         "team_name": "Private Law",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2200",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2202",
         "stay_on_late": "No",
-        "justification": "We are performing an out of hours migration of PRL case data this evening, so envs need to stay up in case of rollback deployment",
+        "justification": "Private Law OOH release",
         "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1395"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1406"
     },
     {
-        "form_review_date": "14-05-2026",
-        "start_date": "13-05-2026",
-        "end_date": "13-05-2026",
+        "form_review_date": "28-05-2026",
+        "start_date": "27-05-2026",
+        "end_date": "27-05-2026",
         "request_type": "stop",
         "environment": [
-            "Sandbox",
+            "Preview / Dev",
             " AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Private Law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-2202",
+        "stay_on_late": "No",
+        "justification": "Private Law OOH release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1407"
+    },
+    {
+        "form_review_date": "22-05-2026",
+        "start_date": "21-05-2026",
+        "end_date": "21-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
             " Preview / Dev",
             " Test / Perftest",
             " Demo",
             " ITHC",
-            " PTL"
+            " PTL",
+            " Sandbox"
         ],
         "business_area": "cft",
         "team_name": "Access Management",
@@ -37,6 +53,38 @@
         "stay_on_late": "No",
         "justification": "a release is to be carried out today in prod to upgrade the db storage and we will need to run jenkins pipelines on prod and lower environments from 8pm to 11 pm",
         "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1396"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1409"
+    },
+    {
+        "form_review_date": "30-05-2026",
+        "start_date": "20-05-2026",
+        "end_date": "22-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "DARTS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+        "stay_on_late": "Yes",
+        "justification": "SIT Cycle 7",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1411"
+    },
+    {
+        "form_review_date": "30-05-2026",
+        "start_date": "20-05-2026",
+        "end_date": "22-05-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "DARTS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
+        "stay_on_late": "Yes",
+        "justification": "SIT Cycle 7",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1412"
     }
 ]
