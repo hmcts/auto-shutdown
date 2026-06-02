@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/recipes-shared-infrastructure-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-ithc",
-    "resource": "recipes-sds-flexible-ithc",
-    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Stopped* state after *start* action",
-    "resourceType": "flexible-server"
-  }
-]
