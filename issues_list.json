@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "08-06-2026",
+        "start_date": "04-06-2026",
+        "end_date": "07-06-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Test Team",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/EXUI-2505",
+        "stay_on_late": "Yes",
+        "justification": "XUI soak test for memory leak investigations",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1421"
+    }
+]
