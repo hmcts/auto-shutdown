@@ -1,17 +1,18 @@
 {
-  "last_updated": "2026-06-05T07:24:54.933Z",
+  "last_updated": "2026-06-05T07:27:06.062Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1422,
-      "title": "FPVTL-3017: PRL BAT in demo",
-      "status": "auto-approved",
+      "title": "FPVTL-3017: PRL BAT in demo - ❌",
+      "status": "cancelled",
       "created_at": "2026-06-05T07:16:44.000Z",
-      "updated_at": "2026-06-05T07:17:31.000Z",
+      "updated_at": "2026-06-05T07:26:50.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1422",
       "user": "DanCatchpole",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "CFT",
       "team_name": "Family Private Law",
