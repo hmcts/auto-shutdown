@@ -1,0 +1,32 @@
+[
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/flexible-pip-data-management-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-data-management-stg",
+    "resource": "flexible-pip-data-management-stg",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-data-management-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/fact-data-api-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/fact-data-api-ithc",
+    "resource": "fact-data-api-ithc",
+    "statusMessage": "Flexible SQL Server: *fact-data-api-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/appreg-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/appreg-ithc",
+    "resource": "appreg-ithc",
+    "statusMessage": "Flexible SQL Server: *appreg-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/opal-consolidated-db-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-consolidated-db-ithc",
+    "resource": "opal-consolidated-db-ithc",
+    "statusMessage": "Flexible SQL Server: *opal-consolidated-db-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/da8a21e5-d260-4162-9391-6bdadf9103f8/resourceGroups/ingest05-main-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/ingest05-crime-legacy-stg",
+    "resource": "ingest05-crime-legacy-stg",
+    "statusMessage": "Flexible SQL Server: *ingest05-crime-legacy-stg* in Subscription: *da8a21e5-d260-4162-9391-6bdadf9103f8* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
