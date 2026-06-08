@@ -1,0 +1,32 @@
+[
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/civil-rtl-export-v15-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/civil-rtl-export-v15-demo",
+    "resource": "civil-rtl-export-v15-demo",
+    "statusMessage": "Flexible SQL Server: *civil-rtl-export-v15-demo* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/pt-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/pt-demo",
+    "resource": "pt-demo",
+    "statusMessage": "Flexible SQL Server: *pt-demo* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/ccd-definition-store-api-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/ccd-definition-store-api-postgres-db-v15-ithc",
+    "resource": "ccd-definition-store-api-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *ccd-definition-store-api-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rpe-draft-store-v14-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rpe-draft-store-v14-ithc",
+    "resource": "rpe-draft-store-v14-ithc",
+    "statusMessage": "Flexible SQL Server: *rpe-draft-store-v14-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/courtfines-app-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/courtfines-app-ithc",
+    "resource": "courtfines-app-ithc",
+    "statusMessage": "Flexible SQL Server: *courtfines-app-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
