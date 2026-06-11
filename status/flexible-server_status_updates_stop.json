@@ -22,5 +22,71 @@
     "resource": "opal-consolidated-db-ithc",
     "statusMessage": "Flexible SQL Server: *opal-consolidated-db-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-replica-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-replica-perftest",
+    "resource": "cft-task-postgres-db-flexible-replica-perftest",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-replica-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/div-cos-v14-flexible-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/div-cos-v14-flexible-perftest",
+    "resource": "div-cos-v14-flexible-perftest",
+    "statusMessage": "Flexible SQL Server: *div-cos-v14-flexible-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/lau-case-backend-flexible-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/lau-case-backend-flexible-perftest",
+    "resource": "lau-case-backend-flexible-perftest",
+    "statusMessage": "Flexible SQL Server: *lau-case-backend-flexible-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/pcs-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/pcs-perftest",
+    "resource": "pcs-perftest",
+    "statusMessage": "Flexible SQL Server: *pcs-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-location-ref-api-postgres-db-v16-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-location-ref-api-postgres-db-v16-perftest",
+    "resource": "rd-location-ref-api-postgres-db-v16-perftest",
+    "statusMessage": "Flexible SQL Server: *rd-location-ref-api-postgres-db-v16-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rd-professional-api-postgres-db-v16-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/rd-professional-api-postgres-db-v16-perftest",
+    "resource": "rd-professional-api-postgres-db-v16-perftest",
+    "statusMessage": "Flexible SQL Server: *rd-professional-api-postgres-db-v16-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-perftest",
+    "resource": "rota-psql-perftest",
+    "statusMessage": "Flexible SQL Server: *rota-psql-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rpe-draft-store-v14-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/rpe-draft-store-v14-perftest",
+    "resource": "rpe-draft-store-v14-perftest",
+    "statusMessage": "Flexible SQL Server: *rpe-draft-store-v14-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/send-letter-service-flexible-postgres-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/send-letter-service-flexible-postgres-db-v15-perftest",
+    "resource": "send-letter-service-flexible-postgres-db-v15-perftest",
+    "statusMessage": "Flexible SQL Server: *send-letter-service-flexible-postgres-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/sptribs-perftest-flexible-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/sptribs-perftest-flexible-db-v15-perftest",
+    "resource": "sptribs-perftest-flexible-db-v15-perftest",
+    "statusMessage": "Flexible SQL Server: *sptribs-perftest-flexible-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/wa-workflow-api-postgres-db-flex-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/wa-workflow-api-postgres-db-flex-perftest",
+    "resource": "wa-workflow-api-postgres-db-flex-perftest",
+    "statusMessage": "Flexible SQL Server: *wa-workflow-api-postgres-db-flex-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
