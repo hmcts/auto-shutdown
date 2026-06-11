@@ -77,7 +77,7 @@ jobs:
           LABELS: Cost Error,Pending approval,Very high cost
       #Allows workflow to access repo
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: '0'
           token: ${{ env.GH_TOKEN }}
