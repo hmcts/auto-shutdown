@@ -14,21 +14,5 @@
         "justification": "We will be releasing out of hours for SSCS child maintenance and universal credit",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1426"
-    },
-    {
-        "form_review_date": "16-06-2026",
-        "start_date": "12-06-2026",
-        "end_date": "15-06-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance Test",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "XUI soak test for memory analysis and reduction in pods",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1428"
     }
 ]
