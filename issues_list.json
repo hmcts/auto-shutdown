@@ -1,1 +1,66 @@
-[]
+[
+    {
+        "form_review_date": "30-06-2026",
+        "start_date": "29-06-2026",
+        "end_date": "29-06-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2561",
+        "stay_on_late": "Yes",
+        "justification": "We will be releasing out of hours for SSCS child maintenance and universal credit",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1426"
+    },
+    {
+        "form_review_date": "23-06-2026",
+        "start_date": "22-06-2026",
+        "end_date": "22-06-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2578",
+        "stay_on_late": "Yes",
+        "justification": "We need test data to be retained in preview to complete testing tomorrow",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1432"
+    },
+    {
+        "form_review_date": "23-06-2026",
+        "start_date": "23-06-2026",
+        "end_date": "23-06-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Probate",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPB-5586",
+        "stay_on_late": "Yes",
+        "justification": "need to build aat to merge cnp-flux pr",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1433"
+    },
+    {
+        "form_review_date": "23/06/2026",
+        "start_date": "23-06-2026",
+        "end_date": "23-06-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2561",
+        "stay_on_late": "No",
+        "justification": "Need to do a dry run before the release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1434"
+    }
+]
