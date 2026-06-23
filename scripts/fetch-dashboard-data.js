@@ -156,9 +156,25 @@ function transformIssueData(issue) {
     // Extract data from issue body
     const body = issue.body || '';
     const extractField = (field) => {
-        const regex = new RegExp(`${field}[:\\s]*(.*?)(?:\\n|$)`, 'i');
-        const match = body.match(regex);
-        return match ? match[1].trim() : '';
+        // Try markdown header format first (### Field\n\nValue)
+        const headerRegex = new RegExp(`###\\s*${field}\\s*\\n+([^#]+?)(?=\\n###|$)`, 'is');
+        let match = body.match(headerRegex);
+        
+        // If not found, try inline format (Field: Value or Field Value)
+        if (!match) {
+            const inlineRegex = new RegExp(`${field}[:\\s]+(.*?)(?=\\n|$)`, 'i');
+            match = body.match(inlineRegex);
+        }
+        
+        if (match) {
+            const value = match[1].trim();
+            // Filter out common non-responses
+            if (value === '_No response_' || value === 'N/A' || value === '' || value === '?') {
+                return '';
+            }
+            return value;
+        }
+        return '';
     };
 
     return {
