@@ -62,5 +62,21 @@
         "justification": "Need to do a dry run before the release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1434"
+    },
+    {
+        "form_review_date": "23-09-2026",
+        "start_date": "23-06-2026",
+        "end_date": "23-06-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Probate",
+        "change_jira_id": "DTSPB-5584",
+        "stay_on_late": "No",
+        "justification": "Release after OOH",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1436"
     }
 ]
