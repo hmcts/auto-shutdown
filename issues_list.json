@@ -17,22 +17,6 @@
     },
     {
         "form_review_date": "23-06-2026",
-        "start_date": "22-06-2026",
-        "end_date": "22-06-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "SSCS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2578",
-        "stay_on_late": "Yes",
-        "justification": "We need test data to be retained in preview to complete testing tomorrow",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1432"
-    },
-    {
-        "form_review_date": "23-06-2026",
         "start_date": "23-06-2026",
         "end_date": "23-06-2026",
         "request_type": "stop",
