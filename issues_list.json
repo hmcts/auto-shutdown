@@ -46,5 +46,21 @@
         "justification": "need to build aat to merge cnp-flux pr",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1433"
+    },
+    {
+        "form_review_date": "23/06/2026",
+        "start_date": "23-06-2026",
+        "end_date": "23-06-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2561",
+        "stay_on_late": "No",
+        "justification": "Need to do a dry run before the release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1434"
     }
 ]
