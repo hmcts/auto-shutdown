@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-06-30T18:57:33.251Z",
+  "last_updated": "2026-06-30T18:58:26.224Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1441,
+      "title": "Prevent Shutdown for ES Testing",
+      "status": "auto-approved",
+      "created_at": "2026-06-30T18:57:16.000Z",
+      "updated_at": "2026-06-30T18:58:13.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1441",
+      "user": "cakeben",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CCD",
+      "environment": "Demo, PTL, AAT / Staging",
+      "start_date": "2026-06-30T00:00:00.000Z",
+      "end_date": "2026-06-30T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nenvironments required for ES testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nDemo, PTL, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n30-06-2026\n\n### Skip shutdown end date\n\n30-06-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n01-07-2026",
+      "cost": "£205.41"
+    },
     {
       "id": 1440,
       "title": "DARTS PR Builds",
@@ -1089,28 +1111,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2451\n\n### Justification for exclusion?\n\nWe need to retain test cases for next day testing, hence would liek to retain data in env to continue testing tomorrow\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nPreview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n22-04-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n24-04-2026",
       "cost": "£322.66"
-    },
-    {
-      "id": 1374,
-      "title": "Pre Recorded Evidence deployment",
-      "status": "auto-approved",
-      "created_at": "2026-04-21T18:47:31.000Z",
-      "updated_at": "2026-04-21T18:48:15.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1374",
-      "user": "lydiaralphgov",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "PRE",
-      "environment": "PTL",
-      "start_date": "2026-04-21T00:00:00.000Z",
-      "end_date": null,
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/S28-4898",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/S28-4898\n\n### Justification for exclusion?\n\nPRE needs to deploy out of hours\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nPRE\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21/04/2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n21/04/2026",
-      "cost": "£3.96"
     }
   ]
 }
