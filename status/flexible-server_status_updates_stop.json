@@ -1,0 +1,32 @@
+[
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/opal-maintenance-service-data-stg/providers/Microsoft.DBforPostgreSQL/flexibleServers/opal-maintenance-service-stg",
+    "resource": "opal-maintenance-service-stg",
+    "statusMessage": "Flexible SQL Server: *opal-maintenance-service-stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-replica-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-replica-ithc",
+    "resource": "cft-task-postgres-db-flexible-replica-ithc",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-replica-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/cft-task-postgres-db-flexible-replica-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/cft-task-postgres-db-flexible-replica-perftest",
+    "resource": "cft-task-postgres-db-flexible-replica-perftest",
+    "statusMessage": "Flexible SQL Server: *cft-task-postgres-db-flexible-replica-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-ithc",
+    "resource": "rota-psql-ithc",
+    "statusMessage": "Flexible SQL Server: *rota-psql-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/8999dec3-0104-4a27-94ee-6588559729d1/resourceGroups/dtsse-dashboard-flexdb-data-prod/providers/Microsoft.DBforPostgreSQL/flexibleServers/dtsse-dashboard-flexdb-prod",
+    "resource": "dtsse-dashboard-flexdb-prod",
+    "statusMessage": "Flexible SQL Server: *dtsse-dashboard-flexdb-prod* in Subscription: *8999dec3-0104-4a27-94ee-6588559729d1* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  }
+]
