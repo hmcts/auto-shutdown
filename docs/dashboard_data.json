@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-07-14T09:49:34.492Z",
+  "last_updated": "2026-07-14T09:50:17.509Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1449,
       "title": "Skip AAT auto shutdown for SSCS case migration",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2026-07-14T09:49:20.000Z",
-      "updated_at": "2026-07-14T09:49:30.000Z",
+      "updated_at": "2026-07-14T09:50:02.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1449",
       "user": "nitinprabhuhmcts",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "SSCS",
@@ -22,7 +22,7 @@
       "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2664",
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2664\n\n### Justification for exclusion?\n\nSSCS need to release out of hours hence we need AAT up and running for running functional tests\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n14-07-2026\n\n### Skip shutdown end date\n\n14-07-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n15-07-2026",
-      "cost": null
+      "cost": "£102.43"
     },
     {
       "id": 1448,
