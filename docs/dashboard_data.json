@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-07-14T18:08:08.572Z",
+  "last_updated": "2026-07-14T18:09:01.008Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1450,
+      "title": "Prevent Shutdown for ES Testing",
+      "status": "auto-approved",
+      "created_at": "2026-07-14T18:07:51.000Z",
+      "updated_at": "2026-07-14T18:08:46.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1450",
+      "user": "cakeben",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CCD",
+      "environment": "Demo, PTL, AAT / Staging",
+      "start_date": "2026-07-14T00:00:00.000Z",
+      "end_date": "2026-07-14T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nenvironments required for ES testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCCD\n\n### Environment\n\nDemo, PTL, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n14-07-2026\n\n### Skip shutdown end date\n\n14-07-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n15-07-2026",
+      "cost": "£210.8"
+    },
     {
       "id": 1449,
       "title": "Skip AAT auto shutdown for SSCS case migration",
@@ -1087,29 +1109,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/FPVTL-2429\n\n### Justification for exclusion?\n\nTesting for pre-NRO deliverable\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n01-05-2026\n\n### Skip shutdown end date\n\n02-05-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n05-05-2026",
       "cost": "£428.26"
-    },
-    {
-      "id": 1386,
-      "title": "PR-1385",
-      "status": "auto-approved",
-      "created_at": "2026-05-01T11:41:53.000Z",
-      "updated_at": "2026-05-01T11:49:33.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1386",
-      "user": "hmcts-platform-operations",
-      "labels": [
-        "auto-approved",
-        "pull-request"
-      ],
-      "business_area": "CFT",
-      "team_name": "PlatOps",
-      "environment": "AAT / Staging",
-      "start_date": "2026-05-31T00:00:00.000Z",
-      "end_date": "2026-06-01T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "PR-1385",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nPR-1385\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n31-05-2026\n\n### Skip shutdown end date\n\n01-06-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": "£512.51"
     }
   ]
 }
