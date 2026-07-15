@@ -32,5 +32,21 @@
         "justification": "environments required for ES testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1450"
+    },
+    {
+        "form_review_date": "16-07-2026",
+        "start_date": "15-07-2026",
+        "end_date": "15-07-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2664",
+        "stay_on_late": "Yes",
+        "justification": "Need to merge PR which runs functional tests on AAT hence need AAT up and running",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1451"
     }
 ]
