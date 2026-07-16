@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/sscs-tya-notif-postgres-v15-db-data-demo/providers/Microsoft.DBforPostgreSQL/flexibleServers/sscs-tya-notif-postgres-v15-db-demo",
+    "resource": "sscs-tya-notif-postgres-v15-db-demo",
+    "statusMessage": "Flexible SQL Server: *sscs-tya-notif-postgres-v15-db-demo* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Starting* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
