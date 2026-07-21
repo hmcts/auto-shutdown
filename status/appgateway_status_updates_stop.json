@@ -1,0 +1,8 @@
+[
+  {
+    "id": "",
+    "resource": "cft-pubsub00-aat-agw",
+    "statusMessage": "Application Gateway: *cft-pubsub00-aat-agw* in Subscription: *96c274ce-846d-4e48-89a7-d528432298a7* is Running after *stop* action.",
+    "resourceType": "appgateway"
+  }
+]
