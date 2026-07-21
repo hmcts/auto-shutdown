@@ -1,1 +1,23 @@
-[]
+[
+    {
+        "form_review_date": "23-07-2026",
+        "start_date": "22-07-2026",
+        "end_date": "23-07-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " Test / Perftest",
+            " Demo",
+            " ITHC",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Reference Data",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSRD-5694",
+        "stay_on_late": "Yes",
+        "justification": "LRD changes going live on 22nd Night",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1455"
+    }
+]
