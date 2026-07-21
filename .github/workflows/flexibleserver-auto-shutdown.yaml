@@ -1,8 +1,8 @@
 name: flexible-server-auto-shutdown
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "15 19,22 * * *" # Every day at 20:15 and 23:15 BST
+  #schedule:
+  #  - cron: "15 19,22 * * *" # Every day at 20:15 and 23:15 BST
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}
 permissions:
