@@ -19,37 +19,5 @@
         "justification": "LRD changes going live on 22nd Night",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1455"
-    },
-    {
-        "form_review_date": "22-07-2026",
-        "start_date": "21-07-2026",
-        "end_date": "21-07-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "SSCS",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2692",
-        "stay_on_late": "Yes",
-        "justification": "Need to retain env over-night to verify case data updates",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1458"
-    },
-    {
-        "form_review_date": "21-03-2027",
-        "start_date": "21-07-2026",
-        "end_date": "21-07-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance",
-        "change_jira_id": "n/a",
-        "stay_on_late": "No",
-        "justification": "Perftest activity",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1459"
     }
 ]
