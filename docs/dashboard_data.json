@@ -1,17 +1,18 @@
 {
-  "last_updated": "2026-07-24T09:14:39.948Z",
+  "last_updated": "2026-07-24T09:28:49.816Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1460,
-      "title": "Court fines shutdown exemption",
-      "status": "auto-approved",
+      "title": "Court fines shutdown exemption - ❌",
+      "status": "cancelled",
       "created_at": "2026-07-24T09:13:26.000Z",
-      "updated_at": "2026-07-24T09:14:28.000Z",
+      "updated_at": "2026-07-24T09:28:31.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1460",
       "user": "DavidTMann",
       "labels": [
-        "auto-approved"
+        "auto-approved",
+        "cancel"
       ],
       "business_area": "CFT",
       "team_name": "Court fines",
