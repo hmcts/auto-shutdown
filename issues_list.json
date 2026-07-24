@@ -19,23 +19,5 @@
         "justification": "LRD changes going live on 22nd Night",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1455"
-    },
-    {
-        "form_review_date": "03-08-2026",
-        "start_date": "31-07-2026",
-        "end_date": "01-08-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Court fines",
-        "change_jira_id": "https://hmcts.haloitsm.com/ticket?id=190877&showalltickettypes=1",
-        "stay_on_late": "Yes",
-        "justification": "Court Fines Barclaycard release is taking place out of hours during the planned maintenance window from Friday 31 July 2026 into Saturday 1 August 2026. Pre-prod environments need to remain available overnight for release preparation, deployment verification, smoke testing and rollback validation if required.",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1460"
     }
 ]
