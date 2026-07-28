@@ -16,5 +16,23 @@
         "justification": "Court Fines Barclaycard release is taking place out of hours during the planned maintenance window from Friday 31 July 2026 into Saturday 1 August 2026. Pre-prod environments need to remain available overnight for release preparation, deployment verification, smoke testing and rollback validation if required.",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1461"
+    },
+    {
+        "form_review_date": "29-07-2026",
+        "start_date": "28-07-2026",
+        "end_date": "28-07-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " PTL",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "CCD",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "environments required for ES testing",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1466"
     }
 ]

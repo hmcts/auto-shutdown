@@ -2011,3 +2011,9 @@
 21:15:35 ---------------------------------------------- 
 21:15:35 Running az graph query... 
 21:15:36 az graph query complete 
+18:56:57 ---------------------------------------------- 
+18:56:57 Running az graph query... 
+18:57:07 az graph query complete 
+18:57:18 ---------------------------------------------- 
+18:57:18 Running az graph query... 
+18:57:19 az graph query complete 
