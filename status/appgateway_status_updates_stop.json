@@ -1,8 +1,0 @@
-[
-  {
-    "id": "",
-    "resource": "aks00-dev-agw",
-    "statusMessage": "Application Gateway: *aks00-dev-agw* in Subscription: *867a878b-cb68-4de5-9741-361ac9e178b6* is Running after *stop* action.",
-    "resourceType": "appgateway"
-  }
-]
