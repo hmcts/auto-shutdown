@@ -2017,3 +2017,9 @@
 18:57:18 ---------------------------------------------- 
 18:57:18 Running az graph query... 
 18:57:19 az graph query complete 
+10:01:12 ---------------------------------------------- 
+10:01:12 Running az graph query... 
+10:01:20 az graph query complete 
+10:01:28 ---------------------------------------------- 
+10:01:28 Running az graph query... 
+10:01:29 az graph query complete 

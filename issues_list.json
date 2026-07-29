@@ -34,5 +34,23 @@
         "justification": "environments required for ES testing",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1466"
+    },
+    {
+        "form_review_date": "30-07-2026",
+        "start_date": "30-07-2026",
+        "end_date": "30-07-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Family Public Law",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2421",
+        "stay_on_late": "Yes",
+        "justification": "Needed so that we can run our pipelines in the event of rollback OOH",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1468"
     }
 ]
