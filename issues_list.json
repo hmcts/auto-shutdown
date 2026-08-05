@@ -48,5 +48,21 @@
         "justification": "ACAS are doing some final tests prior to a go live of a service so need AAT up for a week just to make sure all is well",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1471"
+    },
+    {
+        "form_review_date": "06-08-2026",
+        "start_date": "05-08-2026",
+        "end_date": "05-08-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-2658",
+        "stay_on_late": "Yes",
+        "justification": "We need to release confidentiality field changes hence need the environment up and running",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1472"
     }
 ]
