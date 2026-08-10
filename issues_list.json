@@ -1,39 +1,5 @@
 [
     {
-        "form_review_date": "10-08-2026",
-        "start_date": "07-08-2026",
-        "end_date": "09-08-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Court fines",
-        "change_jira_id": "https://hmcts.haloitsm.com/ticket?id=193322&showalltickettypes=1",
-        "stay_on_late": "Yes",
-        "justification": "Court Fines Barclaycard release is taking place out of hours during the planned maintenance window from Friday 31 July 2026 into Saturday 1 August 2026. Pre-prod environments need to remain available overnight for release preparation, deployment verification, smoke testing and rollback validation if required.",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1469"
-    },
-    {
-        "form_review_date": "07-08-2026",
-        "start_date": "05-08-2026",
-        "end_date": "09-08-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging"
-        ],
-        "business_area": "cft",
-        "team_name": "ET",
-        "change_jira_id": "https://tools.hmcts.net/jira/browse/RET-6802",
-        "stay_on_late": "Yes",
-        "justification": "ACAS are doing some final tests prior to a go live of a service so need AAT up for a week just to make sure all is well",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1471"
-    },
-    {
         "form_review_date": "07-08-2026",
         "start_date": "11-08-2026",
         "end_date": "11-08-2026",
