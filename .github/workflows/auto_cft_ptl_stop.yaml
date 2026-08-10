@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
   schedule:
-    # 19:00 UK during BST (UTC+1)
-    - cron: '0 18 * * *'
+    # 07:00 UK during BST (UTC+1)
+    - cron: '0 06 * * *'
 
 env:
   SELECTED_AREA: CFT
