@@ -1,11 +1,11 @@
-name: CFT PTL Strt - 19:00
+name: CFT PTL Start - 07:00
 
 on:
   workflow_dispatch:
 
   schedule:
-    # 19:00 UK during BST (UTC+1)
-    - cron: '0 18 * * *'
+    # 06:00 UK during BST (UTC+1)
+    - cron: '0 06 * * *'
 
 env:
   SELECTED_AREA: CFT
