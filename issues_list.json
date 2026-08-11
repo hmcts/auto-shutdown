@@ -31,5 +31,21 @@
         "justification": "Possession Claim application is going live in September 15 . QA team is working overtime as agreed with business",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1483"
+    },
+    {
+        "form_review_date": "15-08-2026",
+        "start_date": "11-08-2026",
+        "end_date": "15-08-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "Possession Claim Service",
+        "change_jira_id": "Group Access Functionality",
+        "stay_on_late": "No",
+        "justification": "Possession Claim service going live on 15th Sep , so we need to have server up and running",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1484"
     }
 ]
