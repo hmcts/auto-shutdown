@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-08-11T16:27:06.606Z",
+  "last_updated": "2026-08-11T16:28:30.112Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1485,
+      "title": "https://tools.hmcts.net/jira/browse/HDPI-7321",
+      "status": "auto-approved",
+      "created_at": "2026-08-11T16:26:50.000Z",
+      "updated_at": "2026-08-11T16:28:14.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1485",
+      "user": "arun-hmcts",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Possession Claim Service",
+      "environment": "PTL",
+      "start_date": "2026-08-11T00:00:00.000Z",
+      "end_date": "2026-08-15T00:00:00.000Z",
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/HDPI-7321",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/HDPI-7321\n\n### Justification for exclusion?\n\nPossession Claim Service going live on 15 the , we need server up and running \n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPossession Claim Service\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n11-08-2026\n\n### Skip shutdown end date\n\n15-08-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n15-08-2026",
+      "cost": "£54.79"
+    },
     {
       "id": 1484,
       "title": "https://tools.hmcts.net/jira/browse/HDPI-7321",
@@ -1088,28 +1110,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nPR-1424\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n08-07-2026\n\n### Skip shutdown end date\n\n09-07-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": "£214.78"
-    },
-    {
-      "id": 1423,
-      "title": "FPVTL-3017: PRL Service Team BAT testing (demo)",
-      "status": "auto-approved",
-      "created_at": "2026-06-05T07:28:59.000Z",
-      "updated_at": "2026-06-05T07:29:45.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1423",
-      "user": "DanCatchpole",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Private Law",
-      "environment": "Demo",
-      "start_date": "2026-06-05T00:00:00.000Z",
-      "end_date": "2026-06-06T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/FPVTL-3017",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/FPVTL-3017\n\n### Justification for exclusion?\n\nOur service team are completing BAT testing this coming Saturday, so need the demo environment to be up and running for this.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n05-06-2026\n\n### Skip shutdown end date\n\n06-06-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n08-06-2026",
-      "cost": "£405.75"
     }
   ]
 }
