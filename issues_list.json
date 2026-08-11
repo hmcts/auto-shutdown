@@ -15,5 +15,21 @@
         "justification": "Out of hours release requires Camunda master pipeline to be built and run, so we will need Jenkins and AAT so the pipeline can pass",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1473"
+    },
+    {
+        "form_review_date": "15/08/2026",
+        "start_date": "11-08-2026",
+        "end_date": "15-08-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "PCS",
+        "change_jira_id": "Group Access",
+        "stay_on_late": "No",
+        "justification": "Possession Claim application is going live in September 15 . QA team is working overtime as agreed with business",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1483"
     }
 ]
