@@ -63,5 +63,21 @@
         "justification": "Possession Claim Service going live on 15 the , we need server up and running",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1485"
+    },
+    {
+        "form_review_date": "15-08-2026",
+        "start_date": "11-08-2026",
+        "end_date": "15-08-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Possession Claim Service",
+        "change_jira_id": "https://tools.hmcts.net/jira/browse/HDPI-7321",
+        "stay_on_late": "No",
+        "justification": "PCS is going live on 15th Sep , QA need the access to perf test",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1486"
     }
 ]
