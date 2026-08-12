@@ -1,22 +1,5 @@
 [
     {
-        "form_review_date": "07-08-2026",
-        "start_date": "11-08-2026",
-        "end_date": "11-08-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "IAC",
-        "change_jira_id": "https://tools.hmcts.net/confluence/spaces/RSTR/pages/1990236310/IAC-14.0.0+-+24+Week+Legislation+Finalised+Release+Implementation+Plan",
-        "stay_on_late": "No",
-        "justification": "Out of hours release requires Camunda master pipeline to be built and run, so we will need Jenkins and AAT so the pipeline can pass",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1473"
-    },
-    {
         "form_review_date": "15/08/2026",
         "start_date": "11-08-2026",
         "end_date": "15-08-2026",
