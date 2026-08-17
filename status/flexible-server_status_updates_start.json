@@ -1,0 +1,20 @@
+[
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/flexible-pip-data-management-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexible-pip-data-management-ithc",
+    "resource": "flexible-pip-data-management-ithc",
+    "statusMessage": "Flexible SQL Server: *flexible-pip-data-management-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Updating* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/recipes-shared-infrastructure-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/recipes-sds-flexible-ithc",
+    "resource": "recipes-sds-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *recipes-sds-flexible-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Updating* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/ba71a911-e0d6-4776-a1a6-079af1df7139/resourceGroups/toffee-v14-flexible-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/toffee-v14-flexible-ithc",
+    "resource": "toffee-v14-flexible-ithc",
+    "statusMessage": "Flexible SQL Server: *toffee-v14-flexible-ithc* in Subscription: *ba71a911-e0d6-4776-a1a6-079af1df7139* is in *Updating* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
