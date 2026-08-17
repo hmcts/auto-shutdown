@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "18-08-2026",
+        "start_date": "17-08-2026",
+        "end_date": "17-08-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "ET",
+        "change_jira_id": "CHG-199611",
+        "stay_on_late": "Yes",
+        "justification": "Keeping PTL in case of change needed and access to Bastion",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1488"
+    }
+]
