@@ -26,20 +26,49 @@ function renderInsights() {
     hideLoading();
 }
 
+// Team name is free text on the request form, so the same team shows up with
+// different capitalisation ("darts", "Darts", "DARTS"). Group case-insensitively
+// everywhere teams are counted/filtered, using whichever exact casing is most
+// common within the given issues as the display label.
+function teamNameKey(teamName) {
+    return (teamName || '').trim().toLowerCase();
+}
+
+function buildTeamLabels(issues) {
+    const variantCounts = new Map(); // key -> Map(exact name -> count)
+    issues.forEach(issue => {
+        const name = (issue.team_name || '').trim();
+        if (!name) return;
+        const key = name.toLowerCase();
+        const variants = variantCounts.get(key) || new Map();
+        variants.set(name, (variants.get(name) || 0) + 1);
+        variantCounts.set(key, variants);
+    });
+
+    const labels = new Map();
+    variantCounts.forEach((variants, key) => {
+        const [label] = [...variants.entries()].sort((a, b) => b[1] - a[1])[0];
+        labels.set(key, label);
+    });
+    return labels;
+}
+
 function populateTeamDropdown() {
     const teamFilter = document.getElementById('team-filter');
     if (!teamFilter) return;
-    
-    const teams = [...new Set(allIssues.map(issue => issue.team_name).filter(team => team && team.trim() !== ''))];
-    teams.sort();
-    
+
+    const labels = buildTeamLabels(allIssues);
+    const teams = [...labels.entries()]
+        .map(([key, label]) => ({ key, label }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+
     // Clear existing options except "All"
     teamFilter.innerHTML = '<option value="">All</option>';
-    
-    teams.forEach(team => {
+
+    teams.forEach(({ key, label }) => {
         const option = document.createElement('option');
-        option.value = team;
-        option.textContent = team;
+        option.value = key;
+        option.textContent = label;
         teamFilter.appendChild(option);
     });
 }
@@ -170,26 +199,34 @@ function renderAnalytics() {
         ? Math.round((approvedCount / nonCancelledIssues.length) * 100)
         : 0;
     
-    // Find top 3 active teams with issue associations (excluding cancelled)
+    // Find top 3 active teams with issue associations (excluding cancelled).
+    // Grouped case-insensitively - team name is free text, so "darts" / "Darts" /
+    // "DARTS" are the same team and shouldn't be split across separate entries.
+    const teamLabels = buildTeamLabels(nonCancelledIssues);
     const teamCounts = {};
     const teamIssues = {};
     nonCancelledIssues.forEach(issue => {
-        if (issue.team_name && issue.team_name.trim() !== '') {
-            teamCounts[issue.team_name] = (teamCounts[issue.team_name] || 0) + 1;
-            if (!teamIssues[issue.team_name]) {
-                teamIssues[issue.team_name] = [];
-            }
-            teamIssues[issue.team_name].push(issue);
+        const key = teamNameKey(issue.team_name);
+        if (!key) return;
+        teamCounts[key] = (teamCounts[key] || 0) + 1;
+        if (!teamIssues[key]) {
+            teamIssues[key] = [];
         }
+        teamIssues[key].push(issue);
     });
-    
+
     const topTeams = Object.entries(teamCounts)
         .sort((a, b) => b[1] - a[1])
-        .slice(0, 3);
-    
+        .slice(0, 3)
+        .map(([key, count]) => [teamLabels.get(key) || key, count]);
+    const topTeamIssuesByLabel = {};
+    Object.entries(teamIssues).forEach(([key, issues]) => {
+        topTeamIssuesByLabel[teamLabels.get(key) || key] = issues;
+    });
+
     // Store data globally for click handler
     window.currentTopTeams = topTeams;
-    window.currentTeamIssues = teamIssues;
+    window.currentTeamIssues = topTeamIssuesByLabel;
     
     // Update the UI
     const totalCostEl = document.getElementById('total-cost');
@@ -208,7 +245,7 @@ function renderAnalytics() {
             const teamsDisplay = topTeams
                 .map(([team, count]) => {
                     // Calculate total cost for this team
-                    const issues = teamIssues[team] || [];
+                    const issues = topTeamIssuesByLabel[team] || [];
                     let totalCost = 0;
                     issues.forEach(issue => {
                         if (issue.cost) {
@@ -237,8 +274,8 @@ function renderAnalytics() {
                 const costMatch = issue.cost.match(/£?([\d,]+\.?\d*)/);
                 if (costMatch) {
                     const cost = parseFloat(costMatch[1].replace(',', ''));
-                    const normalizedBusinessArea = normalizeBusinessArea(issue.business_area);
-                    const key = `${issue.team_name || 'Unknown'} (${parseEnvironment(issue) || 'Unknown'})`;
+                    const teamLabel = teamLabels.get(teamNameKey(issue.team_name)) || issue.team_name || 'Unknown';
+                    const key = `${teamLabel} (${parseEnvironment(issue) || 'Unknown'})`;
                     costBreakdown[key] = (costBreakdown[key] || 0) + cost;
                 }
             }
@@ -302,11 +339,11 @@ function renderStatusChart() {
             datasets: [{
                 data: Object.values(statusCounts),
                 backgroundColor: [
-                    '#10b981',
-                    '#34d399',
-                    '#f59e0b',
-                    '#ef4444',
-                    '#6b7280'
+                    '#00703c',
+                    '#28a197',
+                    '#f47738',
+                    '#d4351c',
+                    '#b1b4b6'
                 ]
             }]
         },
@@ -524,7 +561,7 @@ function renderEnvironmentChart() {
             datasets: [{
                 label: 'Requests',
                 data: Object.values(groupedEnvCounts),
-                backgroundColor: '#667eea'
+                backgroundColor: '#1d70b8'
             }]
         },
         options: {
@@ -603,7 +640,7 @@ function renderCostChart() {
             datasets: [{
                 label: 'Number of Requests',
                 data: rangeCounts,
-                backgroundColor: '#f59e0b'
+                backgroundColor: '#f47738'
             }]
         },
         options: {
@@ -664,8 +701,8 @@ function renderTrendChart() {
             datasets: [{
                 label: 'New Requests',
                 data: dailyCounts,
-                borderColor: '#667eea',
-                backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                borderColor: '#1d70b8',
+                backgroundColor: 'rgba(29, 112, 184, 0.1)',
                 fill: true
             }]
         },
@@ -794,8 +831,8 @@ function renderMonthlyCostChart() {
             datasets: [{
                 label: 'Total Cost (£)',
                 data: monthlyCosts,
-                backgroundColor: '#10b981',
-                borderColor: '#059669',
+                backgroundColor: '#00703c',
+                borderColor: '#002d18',
                 borderWidth: 1
             }]
         },
@@ -915,8 +952,8 @@ function renderMonthlyRequestChart() {
             datasets: [{
                 label: 'Total Requests',
                 data: monthlyCounts,
-                backgroundColor: '#3b82f6',
-                borderColor: '#1d4ed8',
+                backgroundColor: '#1d70b8',
+                borderColor: '#003078',
                 borderWidth: 1
             }]
         },
@@ -1092,7 +1129,7 @@ function applyFilters() {
         // Normalize business area - only accept valid values
         const normalizedBusinessArea = normalizeBusinessArea(issue.business_area);
         if (businessArea && normalizedBusinessArea !== businessArea) return false;
-        if (team && issue.team_name !== team) return false;
+        if (team && teamNameKey(issue.team_name) !== team) return false;
         
         // Handle environment filtering with groups
         if (environment) {
@@ -1231,7 +1268,7 @@ function exportPDF() {
     title.textContent = 'Auto-shutdown Insights Report';
     title.style.textAlign = 'center';
     title.style.marginBottom = '20px';
-    title.style.color = '#1f2937';
+    title.style.color = '#0b0c0c';
     pdfContent.appendChild(title);
     
     // Add filter summary
@@ -1246,7 +1283,7 @@ function exportPDF() {
         summaryTitle.textContent = 'Summary Statistics';
         summaryTitle.style.marginTop = '30px';
         summaryTitle.style.marginBottom = '15px';
-        summaryTitle.style.color = '#1f2937';
+        summaryTitle.style.color = '#0b0c0c';
         pdfContent.appendChild(summaryTitle);
         pdfContent.appendChild(summaryClone);
     }
@@ -1259,7 +1296,7 @@ function exportPDF() {
         analyticsTitle.textContent = 'Detailed Analytics';
         analyticsTitle.style.marginTop = '30px';
         analyticsTitle.style.marginBottom = '15px';
-        analyticsTitle.style.color = '#1f2937';
+        analyticsTitle.style.color = '#0b0c0c';
         pdfContent.appendChild(analyticsTitle);
         pdfContent.appendChild(analyticsClone);
     }
@@ -1311,15 +1348,15 @@ function createFilterSummary() {
     const filterDiv = document.createElement('div');
     filterDiv.style.marginBottom = '20px';
     filterDiv.style.padding = '15px';
-    filterDiv.style.backgroundColor = '#f8fafc';
+    filterDiv.style.backgroundColor = '#f3f2f1';
     filterDiv.style.borderRadius = '8px';
-    filterDiv.style.border = '1px solid #e5e7eb';
+    filterDiv.style.border = '1px solid #b1b4b6';
     
     const filterTitle = document.createElement('h3');
     filterTitle.textContent = 'Applied Filters';
     filterTitle.style.marginTop = '0';
     filterTitle.style.marginBottom = '10px';
-    filterTitle.style.color = '#1f2937';
+    filterTitle.style.color = '#0b0c0c';
     filterDiv.appendChild(filterTitle);
     
     const filters = [
@@ -1343,7 +1380,7 @@ function createFilterSummary() {
             const element = document.getElementById(filter.id);
             const filterInfo = document.createElement('p');
             filterInfo.style.margin = '5px 0';
-            filterInfo.style.color = '#374151';
+            filterInfo.style.color = '#0b0c0c';
             
             // Special handling for calendar month filter to show readable label
             let displayValue = element.value;
@@ -1360,7 +1397,7 @@ function createFilterSummary() {
     } else {
         const noFilters = document.createElement('p');
         noFilters.textContent = 'No filters applied - showing all data';
-        noFilters.style.color = '#6b7280';
+        noFilters.style.color = '#505a5f';
         noFilters.style.fontStyle = 'italic';
         filterDiv.appendChild(noFilters);
     }
@@ -1368,7 +1405,7 @@ function createFilterSummary() {
     const totalResults = document.createElement('p');
     totalResults.style.marginTop = '10px';
     totalResults.style.fontWeight = 'bold';
-    totalResults.style.color = '#1f2937';
+    totalResults.style.color = '#0b0c0c';
     totalResults.innerHTML = `<strong>Total Results:</strong> ${filteredIssues.length} requests`;
     filterDiv.appendChild(totalResults);
     
@@ -1382,7 +1419,7 @@ async function addChartsToPDF(container) {
     chartsTitle.textContent = 'Charts & Visualizations';
     chartsTitle.style.marginTop = '30px';
     chartsTitle.style.marginBottom = '15px';
-    chartsTitle.style.color = '#1f2937';
+    chartsTitle.style.color = '#0b0c0c';
     container.appendChild(chartsTitle);
     
     const chartContainers = document.querySelectorAll('.chart-container');
@@ -1404,7 +1441,7 @@ async function addChartsToPDF(container) {
             const chartDiv = document.createElement('div');
             chartDiv.style.textAlign = 'center';
             chartDiv.style.padding = '15px';
-            chartDiv.style.border = '1px solid #e5e7eb';
+            chartDiv.style.border = '1px solid #b1b4b6';
             chartDiv.style.borderRadius = '8px';
             chartDiv.style.backgroundColor = '#ffffff';
             
@@ -1412,7 +1449,7 @@ async function addChartsToPDF(container) {
             chartTitle.textContent = title.textContent;
             chartTitle.style.marginTop = '0';
             chartTitle.style.marginBottom = '10px';
-            chartTitle.style.color = '#1f2937';
+            chartTitle.style.color = '#0b0c0c';
             chartDiv.appendChild(chartTitle);
             
             try {
@@ -1427,7 +1464,7 @@ async function addChartsToPDF(container) {
                 // Add fallback text if chart image fails
                 const fallbackText = document.createElement('p');
                 fallbackText.textContent = 'Chart could not be exported';
-                fallbackText.style.color = '#6b7280';
+                fallbackText.style.color = '#505a5f';
                 chartDiv.appendChild(fallbackText);
             }
             
@@ -1479,18 +1516,18 @@ function showEnvironmentDetails(environment, count) {
             case 'PTL':
                 return normalizedEnv === 'ptl';
             default:
-                return env === environment;
+                return env === group;
         }
     }
-    
+
     // Check if environment looks like corrupted data
     function isCorruptedEnvironment(env) {
         if (!env || env === 'Unknown') return false;
         // Check if it looks like partial text rather than environment name
-        return env.length > 50 || 
-               env.includes('deployment') || 
-               env.includes('go live') || 
-               env.includes('support') || 
+        return env.length > 50 ||
+               env.includes('deployment') ||
+               env.includes('go live') ||
+               env.includes('support') ||
                env.includes('tonight') ||
                env.includes('available');
     }
@@ -1521,7 +1558,7 @@ function showEnvironmentDetails(environment, count) {
     
     requests.forEach(request => {
         details += `<div class="request-item">
-            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
+            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${request.title}</a></strong> - ${request.status}
             ${request.cost ? ` (${request.cost})` : ''}
             <br><small>Team: ${request.team_name || 'Unknown'}</small>
             <br><small>Original Environment: ${parseEnvironment(request) || 'Unknown'}</small>
@@ -1554,7 +1591,7 @@ function showStatusDetails(status, count) {
     
     requests.forEach(request => {
         details += `<div class="request-item">
-            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong>
+            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${request.title}</a></strong>
             ${request.cost ? ` (${request.cost})` : ''}
             <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
@@ -1581,7 +1618,7 @@ function showCostRangeDetails(range, count) {
     
     requests.forEach(request => {
         details += `<div class="request-item">
-            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.cost}
+            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${request.title}</a></strong> - ${request.cost}
             <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
     });
@@ -1603,7 +1640,7 @@ function showTrendDetails(date, count) {
     
     requests.forEach(request => {
         details += `<div class="request-item">
-            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${request.title}</a></strong> - ${request.status}
+            <strong><a href="${request.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${request.title}</a></strong> - ${request.status}
             ${request.cost ? ` (${request.cost})` : ''}
             <br><small>Team: ${request.team_name || 'Unknown'} - Environment: ${parseEnvironment(request) || 'Unknown'}</small>
         </div>`;
@@ -1627,9 +1664,8 @@ function showCostBreakdownDetails(costBreakdown) {
         const nonCancelledIssues = getNonCancelledIssues();
         const relevantIssues = nonCancelledIssues.filter(issue => {
             if (!issue.cost) return false;
-            const issueTeam = issue.team_name || 'Unknown';
             const issueEnv = parseEnvironment(issue) || 'Unknown';
-            return issueTeam === team && issueEnv === environment;
+            return teamNameKey(issue.team_name) === teamNameKey(team) && issueEnv === environment;
         });
         
         details += `<div class="cost-detail-section">
@@ -1638,7 +1674,7 @@ function showCostBreakdownDetails(costBreakdown) {
         
         relevantIssues.forEach(issue => {
             details += `<div class="request-item">
-                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
                 ${issue.cost ? ` (${issue.cost})` : ''}
                 <br><small>Created: ${issue.created_at.toLocaleDateString()}</small>
             </div>`;
@@ -1676,7 +1712,7 @@ function showTopTeamsDetails(topTeams, teamIssues) {
         
         issues.slice(0, 5).forEach(issue => { // Show first 5 issues per team
             details += `<div class="request-item">
-                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
                 ${issue.cost ? ` (${issue.cost})` : ''}
                 <br><small>Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
             </div>`;
@@ -1738,7 +1774,7 @@ function showMonthlyCostDetails(monthKey, monthData) {
         details += '<h4>Requests with Cost Data:</h4>';
         issuesWithCost.forEach(issue => {
             details += `<div class="request-item">
-                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
                 ${issue.cost ? ` (${issue.cost})` : ''}
                 <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
             </div>`;
@@ -1751,7 +1787,7 @@ function showMonthlyCostDetails(monthKey, monthData) {
         details += '<h4>Requests without Cost Data:</h4>';
         issuesWithoutCost.forEach(issue => {
             details += `<div class="request-item">
-                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
                 <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
             </div>`;
         });
@@ -1815,7 +1851,7 @@ function showMonthlyRequestDetails(monthKey, monthData) {
         details += `<h4>${status.charAt(0).toUpperCase() + status.slice(1)} (${issues.length}):</h4>`;
         issues.forEach(issue => {
             details += `<div class="request-item">
-                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
+                <strong><a href="${issue.html_url}" target="_blank" rel="noopener noreferrer" style="color: #1d70b8; text-decoration: none;">${issue.title}</a></strong> - ${issue.status}
                 ${issue.cost ? ` (${issue.cost})` : ''}
                 <br><small>Team: ${issue.team_name || 'Unknown'} - Environment: ${parseEnvironment(issue) || 'Unknown'}</small>
             </div>`;
@@ -1824,29 +1860,4 @@ function showMonthlyRequestDetails(monthKey, monthData) {
     
     details += '</div>';
     showModal('Monthly Request Details', details);
-}
-
-function showModal(title, content) {
-    const modal = document.getElementById('request-modal');
-    const modalContent = document.getElementById('modal-content');
-    const modalTitle = modal.querySelector('h2');
-    
-    if (modal && modalContent && modalTitle) {
-        modalTitle.textContent = title;
-        modalContent.innerHTML = content;
-        modal.classList.remove('hidden');
-        
-        // Close modal on close button click
-        const closeBtn = modal.querySelector('.close');
-        if (closeBtn) {
-            closeBtn.onclick = () => modal.classList.add('hidden');
-        }
-        
-        // Close modal on outside click
-        modal.onclick = (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        };
-    }
 }
