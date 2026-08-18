@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insights - Autoshutdown Exclusion Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -14,14 +11,14 @@
 <body>
     <div class="container">
         <header class="dashboard-header">
-            <h1>Insights & Analytics</h1>
+            <h1>Insights &amp; Analytics</h1>
             <p>Detailed analysis and statistics of environment shutdown exclusion requests</p>
         </header>
 
         <nav class="main-navigation">
             <div class="nav-links">
-                <a href="index.html" class="nav-link">📅 Overview</a>
-                <a href="insights.html" class="nav-link active">📊 Insights</a>
+                <a href="index.html" class="nav-link">Overview</a>
+                <a href="insights.html" class="nav-link active">Insights</a>
             </div>
         </nav>
 
@@ -100,78 +97,79 @@
             <button id="export-pdf" class="btn-primary">Export Visible Data (PDF)</button>
         </div>
 
+        <h2 class="section-heading">Key metrics</h2>
         <div class="summary-section">
             <div class="summary-card">
-                <h3>📊 Active Requests</h3>
-                <div id="active-count" class="summary-number">-</div>
-            </div>
-            <div class="summary-card">
-                <h3>❌ Cancelled Requests</h3>
-                <div id="cancelled-count" class="summary-number">-</div>
-            </div>
-            <div class="summary-card">
-                <h3>⏳ Pending Approval</h3>
-                <div id="pending-count" class="summary-number">-</div>
-            </div>
-            <div class="summary-card">
-                <h3>📈 Total Requests (Last 50)</h3>
-                <div id="total-count" class="summary-number">-</div>
-            </div>
-        </div>
-
-        <!-- Enhanced Analytics Section -->
-        <div class="analytics-section">
-            <div class="summary-card">
-                <h3>💰 Total Cost Impact</h3>
+                <h3>Total Cost Impact</h3>
                 <div id="total-cost" class="summary-number cost-highlight">-</div>
                 <div class="summary-subtitle">Estimated savings lost</div>
             </div>
             <div class="summary-card">
-                <h3>⏱️ Average Duration</h3>
-                <div id="avg-duration" class="summary-number">-</div>
-                <div class="summary-subtitle">Days per request</div>
-            </div>
-            <div class="summary-card">
-                <h3>✅ Approval Rate</h3>
+                <h3>Approval Rate</h3>
                 <div id="approval-rate" class="summary-number success-highlight">-</div>
                 <div class="summary-subtitle">Auto + Manual approved</div>
             </div>
             <div class="summary-card">
-                <h3>🏆 Most Active Team</h3>
+                <h3>Active Requests</h3>
+                <div id="active-count" class="summary-number">-</div>
+            </div>
+            <div class="summary-card">
+                <h3>Pending Approval</h3>
+                <div id="pending-count" class="summary-number">-</div>
+            </div>
+        </div>
+
+        <h2 class="section-heading">Detailed analytics</h2>
+        <div class="analytics-section">
+            <div class="summary-card">
+                <h3>Cancelled Requests</h3>
+                <div id="cancelled-count" class="summary-number">-</div>
+            </div>
+            <div class="summary-card">
+                <h3>Total Requests (Last 50)</h3>
+                <div id="total-count" class="summary-number">-</div>
+            </div>
+            <div class="summary-card">
+                <h3>Average Duration</h3>
+                <div id="avg-duration" class="summary-number">-</div>
+                <div class="summary-subtitle">Days per request</div>
+            </div>
+            <div class="summary-card">
+                <h3>Most Active Team</h3>
                 <div id="top-team" class="team-breakdown-text">-</div>
                 <div class="summary-subtitle">Top 3 teams by request count</div>
             </div>
             <div class="summary-card">
-                <h3>📊 Cost by Team/Environment</h3>
+                <h3>Cost by Team/Environment</h3>
                 <div id="cost-breakdown" class="cost-breakdown-text">-</div>
                 <div class="summary-subtitle">Top cost contributors</div>
             </div>
         </div>
 
-        <!-- Charts Section -->
+        <h2 class="section-heading">Charts &amp; trends</h2>
         <div class="charts-section">
             <div class="chart-container">
-                <h3>📊 Requests by Status</h3>
+                <h3>Requests by Status</h3>
                 <canvas id="statusChart"></canvas>
             </div>
             <div class="chart-container">
-                <h3>🌍 Requests by Environment</h3>
+                <h3>Requests by Environment</h3>
                 <canvas id="environmentChart"></canvas>
             </div>
             <div class="chart-container">
-                <h3>💰 Cost Analysis</h3>
+                <h3>Cost Analysis</h3>
                 <canvas id="costChart"></canvas>
             </div>
             <div class="chart-container">
-                <h3>📈 Request Trends (Last 50 Days)</h3>
+                <h3>Request Trends (Last 50 Days)</h3>
                 <canvas id="trendChart"></canvas>
             </div>
             <div class="chart-container">
-                <h3>📅 Monthly Cost Analysis</h3>
+                <h3>Monthly Cost Analysis</h3>
                 <canvas id="monthlyCostChart"></canvas>
             </div>
             <div class="chart-container">
-                <h3>📊 Monthly Request Volume</h3>
+                <h3>Monthly Request Volume</h3>
                 <canvas id="monthlyRequestChart"></canvas>
             </div>
         </div>

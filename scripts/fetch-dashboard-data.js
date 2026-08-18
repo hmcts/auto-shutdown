@@ -156,8 +156,13 @@ function transformIssueData(issue) {
     // Extract data from issue body
     const body = issue.body || '';
     const extractField = (field) => {
-        // Try markdown header format first (### Field\n\nValue)
-        const headerRegex = new RegExp(`###\\s*${field}\\s*\\n+([^#]+?)(?=\\n###|$)`, 'is');
+        // Try markdown header format first (### Field\n\nValue). Allow trailing
+        // punctuation on the header line itself (e.g. GitHub renders the
+        // "Justification for exclusion?" template field with a literal "?"),
+        // otherwise the header match fails and falls through to the inline
+        // regex below, which can accidentally capture the tail of the header
+        // line instead of the actual answer underneath it.
+        const headerRegex = new RegExp(`###\\s*${field}[^\\n]*\\n+([^#]+?)(?=\\n###|$)`, 'is');
         let match = body.match(headerRegex);
         
         // If not found, try inline format (Field: Value or Field Value)

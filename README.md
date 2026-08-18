@@ -96,14 +96,30 @@ Just update the [values](.github/workflows/parsegithubissue-pr.yaml#L31-L45) as 
 
 ## Testing the dashboard app locally
 
+The dashboard (`docs/`) is plain static HTML/CSS/JS with no build step, and it
+reads from the `docs/dashboard_data.json` file that's already committed in the
+repo - so you don't need a GitHub token or network access to test it, and
+there's nothing to build or install.
+
 From the repo root, start a local static server:
 
+```
 python3 -m http.server 8000
+```
 
-Then open the dashboard in your browser:
+If port 8000 is already in use on your machine, pick a different one, e.g.
+`python3 -m http.server 8080`.
 
-- http://localhost:8000/docs/
-- If you start the server on 8001 instead, use http://localhost:8001/docs/
+Then open in your browser:
+
+- Overview (calendar): http://localhost:8000/docs/index.html
+- Insights (filters, charts, exports): http://localhost:8000/docs/insights.html
+
+Edit any file under `docs/` and refresh the page to see the change - no
+rebuild or restart needed. `docs/dashboard_data.json` is the same cached data
+the live site uses, refreshed by [`fetch-dashboard-data.yaml`](.github/workflows/fetch-dashboard-data.yaml);
+it won't reflect brand new issues until that workflow next runs, but it's
+representative real data for testing calendar/chart/filter behaviour.
 
 ## Diagrams
 

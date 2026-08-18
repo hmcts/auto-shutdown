@@ -50,19 +50,19 @@ async function fetchIssues() {
         if (errorContainer) {
             errorContainer.innerHTML = `
                 <div style="text-align: center; padding: 40px;">
-                    <h3 style="color: #ef4444; margin-bottom: 16px;">⚠️ Unable to Load Dashboard Data</h3>
-                    <p style="color: #6b7280; margin-bottom: 16px;">
+                    <h3 style="color: #d4351c; margin-bottom: 16px;">Unable to Load Dashboard Data</h3>
+                    <p style="color: #505a5f; margin-bottom: 16px;">
                         The dashboard data is currently unavailable. This could be due to:
                     </p>
-                    <ul style="color: #6b7280; text-align: left; max-width: 400px; margin: 0 auto 16px auto;">
+                    <ul style="color: #505a5f; text-align: left; max-width: 400px; margin: 0 auto 16px auto;">
                         <li>Data not yet generated (first-time setup)</li>
                         <li>Network connectivity issues</li>
                         <li>GitHub Pages deployment in progress</li>
                     </ul>
-                    <p style="color: #6b7280;">
+                    <p style="color: #505a5f;">
                         The data is refreshed daily. Please try again later or contact the administrator.
                     </p>
-                    <button onclick="location.reload()" style="margin-top: 16px; padding: 8px 16px; background: #3b82f6; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    <button onclick="location.reload()" style="margin-top: 16px; padding: 8px 16px; background: #1d70b8; color: white; border: none; border-radius: 0; cursor: pointer;">
                         Refresh Page
                     </button>
                 </div>
@@ -148,8 +148,12 @@ function parseFieldFromBody(body, fieldPattern) {
 }
 
 function parseJustification(issue) {
-    // Try the parsed field first, fall back to parsing from body
-    if (issue.justification && issue.justification !== '?') {
+    // Try the parsed field first, fall back to parsing from body.
+    // "for exclusion?" is a known bad value: older cached data leaked the
+    // tail of the "### Justification for exclusion?" header itself instead
+    // of the answer beneath it (see scripts/fetch-dashboard-data.js extractField).
+    const value = issue.justification ? issue.justification.trim() : '';
+    if (value && value !== '?' && value.toLowerCase() !== 'for exclusion?') {
         return issue.justification;
     }
     return parseFieldFromBody(issue.body, 'Justification for exclusion\\?');
@@ -199,11 +203,11 @@ function showRequestDetails(request) {
             <div><strong>End Date:</strong> ${request.end_date ? formatDate(request.end_date) : 'Not specified'}</div>
             <div><strong>Stay on Late:</strong> ${parseStayOnLate(request) || 'Not specified'}</div>
             <div><strong>Change/Jira ID:</strong> ${request.change_jira_id || 'Not specified'}</div>
-            ${request.cost ? `<div><strong>Estimated Cost:</strong> <span style="font-weight: 600; color: #059669;">${request.cost}</span></div>` : ''}
+            ${request.cost ? `<div><strong>Estimated Cost:</strong> <span style="font-weight: 600; color: #00703c;">${request.cost}</span></div>` : ''}
         </div>
         <div style="margin-top: 20px;">
             <strong>Justification:</strong>
-            <p style="margin-top: 5px; padding: 10px; background: #f9fafb; border-radius: 4px;">
+            <p style="margin-top: 5px; padding: 10px; background: #f3f2f1; border-radius: 0;">
                 ${parseJustification(request) || 'Not specified'}
             </p>
         </div>
@@ -221,6 +225,27 @@ function closeModal() {
     const modal = document.getElementById('request-modal');
     if (modal) {
         modal.classList.add('hidden');
+    }
+}
+
+function showModal(title, content) {
+    const modal = document.getElementById('request-modal');
+    const modalContent = document.getElementById('modal-content');
+    const modalTitle = modal ? modal.querySelector('h2') : null;
+
+    if (modal && modalContent && modalTitle) {
+        modalTitle.textContent = title;
+        modalContent.innerHTML = content;
+        modal.classList.remove('hidden');
+
+        const closeBtn = modal.querySelector('.close');
+        if (closeBtn) closeBtn.onclick = () => modal.classList.add('hidden');
+
+        modal.onclick = (event) => {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        };
     }
 }
 
