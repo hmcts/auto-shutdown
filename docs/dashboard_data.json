@@ -1,7 +1,27 @@
 {
-  "last_updated": "2026-08-18T06:06:31.914Z",
+  "last_updated": "2026-08-18T13:00:29.864Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1489,
+      "title": "Update autoshutdown dashboard to better looking uI",
+      "status": "pending",
+      "created_at": "2026-08-18T12:59:57.000Z",
+      "updated_at": "2026-08-18T12:59:59.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/pull/1489",
+      "user": "thomast1906",
+      "labels": [],
+      "business_area": "",
+      "team_name": "",
+      "environment": "",
+      "start_date": null,
+      "end_date": null,
+      "justification": "",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Change description\r\n<img width=\"1427\" height=\"1115\" alt=\"Screenshot 2026-08-18 at 13 58 15\" src=\"https://github.com/user-attachments/assets/e8201660-71d2-41bb-abad-357077417820\" />\r\n<img width=\"1560\" height=\"745\" alt=\"Screenshot 2026-08-18 at 13 58 19\" src=\"https://github.com/user-attachments/assets/648092b1-0553-4479-ab1b-474aed807cf2\" />\r\n<img width=\"1451\" height=\"1124\" alt=\"Screenshot 2026-08-18 at 13 58 25\" src=\"https://github.com/user-attachments/assets/6e6b6893-16ca-43e0-a0d5-36b4fc242b37\" />\r\n",
+      "cost": null
+    },
     {
       "id": 1488,
       "title": "CHG-199611",
@@ -1087,28 +1107,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT Cycle 7 \n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nDemo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19-06-2026\n\n### Skip shutdown end date\n\n19-06-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-06-2026",
       "cost": "£26.72"
-    },
-    {
-      "id": 1428,
-      "title": "Keep perftest up for XUI soak test",
-      "status": "auto-approved",
-      "created_at": "2026-06-12T13:41:20.000Z",
-      "updated_at": "2026-06-12T13:42:10.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1428",
-      "user": "jonsoloway-hmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance Test",
-      "environment": "Test / Perftest",
-      "start_date": "2026-06-12T00:00:00.000Z",
-      "end_date": "2026-06-15T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nXUI soak test for memory analysis and reduction in pods\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Test\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n12-06-2026\n\n### Skip shutdown end date\n\n15-06-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n16-06-2026",
-      "cost": "£1,162.18"
     }
   ]
 }
