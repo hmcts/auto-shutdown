@@ -5,16 +5,15 @@ This directory contains the source files for the GitHub Pages site that displays
 ## Pages
 
 - `index.html` - Overview page with calendar and recent requests
-- `insights.html` - Insights page with statistics, charts, and filters  
-- `reports.html` - Reports page with advanced export capabilities
+- `insights.html` - Insights page with statistics, charts, and filters
 
 ## Files
 
 - `styles.css` - Styling for all pages
-- `shared.js` - Shared functionality across all pages
+- `shared.js` - Shared functionality across all pages (data loading, modal, field parsing)
 - `overview.js` - Overview page specific functionality
-- `insights.js` - Insights page specific functionality  
-- `reports.js` - Reports page specific functionality
+- `insights.js` - Insights page specific functionality
+- `dashboard_data.json` - Cached request data consumed by both pages
 
 ## Features
 
@@ -23,24 +22,23 @@ This directory contains the source files for the GitHub Pages site that displays
 - Recent requests list with key details
 - Quick navigation to detailed views
 
-### Insights Page  
+### Insights Page
 - Advanced filtering by business area, team, environment, status, and date range
 - Summary statistics and key metrics
 - Interactive charts and analytics
-- Data export functionality (CSV/JSON)
-
-### Reports Page
-- Advanced reporting capabilities (coming soon)
-- Scheduled reports configuration
-- Multiple export formats
-- Executive summaries and audit trails
+- Data export functionality (CSV/JSON/PDF)
 
 ## Navigation
 
 The dashboard features a responsive navigation system allowing easy movement between:
-- 📅 **Overview** - Calendar and recent activity
-- 📊 **Insights** - Statistics and analytics  
-- 📋 **Reports** - Advanced reporting
+- **Overview** - Calendar and recent activity
+- **Insights** - Statistics and analytics
+
+## Testing locally
+
+See [Testing the dashboard app locally](../README.md#testing-the-dashboard-app-locally)
+in the repo root README - it's plain static files served with any local HTTP
+server, using the `dashboard_data.json` already committed here.
 
 ## Setup
 
