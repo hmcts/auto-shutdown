@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-08-18T14:19:08.706Z",
+  "last_updated": "2026-08-18T14:19:58.268Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1491,
+      "title": "Skip Preview auto-shutdown",
+      "status": "auto-approved",
+      "created_at": "2026-08-18T14:18:51.000Z",
+      "updated_at": "2026-08-18T14:19:43.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1491",
+      "user": "gokul-sol",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "SSCS",
+      "environment": "Preview / Dev",
+      "start_date": "2026-08-18T00:00:00.000Z",
+      "end_date": null,
+      "justification": "for exclusion?",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/SSCSCI-1626",
+      "stay_on_late": "",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-1626\n\n### Justification for exclusion?\n\nPreview cases needs to be retained to continue testing tomorrow\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nPreview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n18-08-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n19-08-2026",
+      "cost": "£222.11"
+    },
     {
       "id": 1490,
       "title": "PR-1489",
@@ -1086,28 +1108,6 @@
       "stay_on_late": "",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/SSCSCI-2578\n\n### Justification for exclusion?\n\nWe need test data to be retained in preview to complete testing tomorrow\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nSSCS\n\n### Environment\n\nPreview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n22-06-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n23-06-2026",
       "cost": "£162.65"
-    },
-    {
-      "id": 1430,
-      "title": "Skip DARTS staging shutdown",
-      "status": "auto-approved",
-      "created_at": "2026-06-19T10:11:43.000Z",
-      "updated_at": "2026-06-19T10:12:44.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1430",
-      "user": "KyriLouca",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "Cross-Cutting",
-      "team_name": "DARTS",
-      "environment": "AAT / Staging",
-      "start_date": "2026-06-19T00:00:00.000Z",
-      "end_date": "2026-06-19T00:00:00.000Z",
-      "justification": "for exclusion?",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/DMP-5448",
-      "stay_on_late": "",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DMP-5448\n\n### Justification for exclusion?\n\nSIT Cycle 7\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nDARTS\n\n### Environment\n\nAAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n19-06-2026\n\n### Skip shutdown end date\n\n19-06-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n30-06-2026",
-      "cost": "£25.55"
     }
   ]
 }
