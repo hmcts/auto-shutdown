@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-08-24T16:19:16.153Z",
+  "last_updated": "2026-08-24T16:20:13.182Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1496,
+      "title": "CHG - 199947",
+      "status": "auto-approved",
+      "created_at": "2026-08-24T16:18:58.000Z",
+      "updated_at": "2026-08-24T16:19:56.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1496",
+      "user": "hsjhita",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "ET",
+      "environment": "PTL",
+      "start_date": "2026-08-24T00:00:00.000Z",
+      "end_date": null,
+      "justification": "Request to keep PTL up for the release as the team maybe pushing up PRs if needed",
+      "change_jira_id": "CHG199947",
+      "stay_on_late": "No",
+      "body": "### Change or Jira reference\n\nCHG199947\n\n### Justification for exclusion?\n\nRequest to keep PTL up for the release as the team maybe pushing up PRs if needed\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n24-08-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n25-08-2026",
+      "cost": "£7.69"
+    },
     {
       "id": 1495,
       "title": "PR-1494",
@@ -1087,28 +1109,6 @@
       "stay_on_late": "No",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DFPL-2773\n\n### Justification for exclusion?\n\nNeeded so that we can run our pipelines in the event of rollback\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n24-06-2026\n\n### Skip shutdown end date\n\n24-06-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n24-06-2026",
       "cost": "£395.99"
-    },
-    {
-      "id": 1437,
-      "title": "Probate DTSPB-5586 skip shutdown for PTL",
-      "status": "auto-approved",
-      "created_at": "2026-06-23T15:47:57.000Z",
-      "updated_at": "2026-06-23T15:48:47.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1437",
-      "user": "justiceia",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Probate",
-      "environment": "PTL",
-      "start_date": "2026-06-23T00:00:00.000Z",
-      "end_date": "2026-06-24T00:00:00.000Z",
-      "justification": "Release after OOH",
-      "change_jira_id": "https://tools.hmcts.net/jira/browse/DTSPB-5586",
-      "stay_on_late": "Yes",
-      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DTSPB-5586\n\n### Justification for exclusion?\n\nRelease after OOH\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nProbate\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n23-06-2026\n\n### Skip shutdown end date\n\n24-06-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n23-06-2026",
-      "cost": "£16.4"
     }
   ]
 }
