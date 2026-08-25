@@ -1,21 +1,5 @@
 [
     {
-        "form_review_date": "25-08-2026",
-        "start_date": "24-08-2026",
-        "end_date": "24-08-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "ET",
-        "change_jira_id": "CHG199947",
-        "stay_on_late": "No",
-        "justification": "Request to keep PTL up for the release as the team maybe pushing up PRs if needed",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1496"
-    },
-    {
         "form_review_date": "28-08-2026",
         "start_date": "24-08-2026",
         "end_date": "28-08-2026",
