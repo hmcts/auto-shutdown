@@ -1,0 +1,20 @@
+[
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/core-infra-idam-ithc/providers/Microsoft.Compute/virtualMachines/idam-ithc-jumpbox",
+    "resource": "idam-ithc-jumpbox",
+    "statusMessage": "VM: *idam-ithc-jumpbox* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *core-infra-idam-ithc* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-test-vm-01",
+    "resource": "mgmt-perf-test-vm-01",
+    "statusMessage": "VM: *mgmt-perf-test-vm-01* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *null* state after *start* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/mgmt-perf-testing/providers/Microsoft.Compute/virtualMachines/mgmt-perf-test-vm-02",
+    "resource": "mgmt-perf-test-vm-02",
+    "statusMessage": "VM: *mgmt-perf-test-vm-02* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c*  ResourceGroup: *mgmt-perf-testing* is *null* state after *start* action.",
+    "resourceType": "vm"
+  }
+]
