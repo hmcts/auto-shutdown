@@ -17,5 +17,21 @@
         "justification": "PCS release 1.3 QA: testing on AAT, Preview, PTL and perftest needs environments up 7am-10pm from 24 Aug through 28 Aug. Default auto-shutdown at 8pm weekdays cuts the test window short; team currently loses time waiting for manual environment starts.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1497"
+    },
+    {
+        "form_review_date": "26-02-2027",
+        "start_date": "26-08-2026",
+        "end_date": "26-08-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "Yes",
+        "justification": "Group Access performance testing & preparation",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1499"
     }
 ]
