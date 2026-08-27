@@ -33,5 +33,22 @@
         "justification": "Group Access performance testing & preparation",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1499"
+    },
+    {
+        "form_review_date": "29/08/2026",
+        "start_date": "27-08-2026",
+        "end_date": "27-08-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest",
+            " PTL"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Juror",
+        "change_jira_id": "JS-1105 JS-1106",
+        "stay_on_late": "No",
+        "justification": "Testing of JS-1105 JS-1106",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1500"
     }
 ]
