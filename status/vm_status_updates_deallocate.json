@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/da8a21e5-d260-4162-9391-6bdadf9103f8/resourceGroups/ingest05-main-stg/providers/Microsoft.Compute/virtualMachines/ingest05-legacy-sql02-stg",
+    "resource": "ingest05-legacy-sql02-stg",
+    "statusMessage": "VM: *ingest05-legacy-sql02-stg* in Subscription: *da8a21e5-d260-4162-9391-6bdadf9103f8*  ResourceGroup: *ingest05-main-stg* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  }
+]
