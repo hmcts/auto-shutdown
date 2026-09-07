@@ -1,0 +1,44 @@
+[
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/em-anno-postgres-db-v15-data-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-anno-postgres-db-v15-aat",
+    "resource": "em-anno-postgres-db-v15-aat",
+    "statusMessage": "Flexible SQL Server: *em-anno-postgres-db-v15-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/rota-shared-infra-aat/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-dopdb-aat",
+    "resource": "rota-psql-dopdb-aat",
+    "statusMessage": "Flexible SQL Server: *rota-psql-dopdb-aat* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/hmc-cft-hearing-service-postgres-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/hmc-cft-hearing-service-postgres-db-v15-perftest",
+    "resource": "hmc-cft-hearing-service-postgres-db-v15-perftest",
+    "statusMessage": "Flexible SQL Server: *hmc-cft-hearing-service-postgres-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-dapdb-ithc",
+    "resource": "rota-psql-dapdb-ithc",
+    "statusMessage": "Flexible SQL Server: *rota-psql-dapdb-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-dopdb-ithc",
+    "resource": "rota-psql-dopdb-ithc",
+    "statusMessage": "Flexible SQL Server: *rota-psql-dopdb-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-dopdb-perftest",
+    "resource": "rota-psql-dopdb-perftest",
+    "statusMessage": "Flexible SQL Server: *rota-psql-dopdb-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/sptribs-perftest-flexible-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/sptribs-perftest-flexible-db-v15-perftest",
+    "resource": "sptribs-perftest-flexible-db-v15-perftest",
+    "statusMessage": "Flexible SQL Server: *sptribs-perftest-flexible-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
+  }
+]
