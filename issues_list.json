@@ -18,55 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1510"
     },
     {
-        "form_review_date": "07-09-2026",
-        "start_date": "07-09-2026",
-        "end_date": "07-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "PCS (Possession Claims Service)",
-        "change_jira_id": "HDPI-8224",
-        "stay_on_late": "No",
-        "justification": "PCS release 1.3 QA: testing on Demo needs the environment up beyond the default auto-shutdown this evening (7 Sep). Extension for tonight only.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1511"
-    },
-    {
-        "form_review_date": "07-09-2026",
-        "start_date": "07-09-2026",
-        "end_date": "07-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " ITHC"
-        ],
-        "business_area": "cft",
-        "team_name": "PCS (Possession Claims Service)",
-        "change_jira_id": "HDPI-8224",
-        "stay_on_late": "No",
-        "justification": "PCS release 1.3 QA: testing on AAT and ITHC needs the environments up beyond the default auto-shutdown this evening (7 Sep). Extension for tonight only.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1512"
-    },
-    {
-        "form_review_date": "07-09-2026",
-        "start_date": "07-09-2026",
-        "end_date": "07-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "PCS (Possession Claims Service)",
-        "change_jira_id": "HDPI-8224",
-        "stay_on_late": "No",
-        "justification": "PCS release 1.3 QA: testing on Perftest needs the environment up beyond the default auto-shutdown this evening (7 Sep). Extension for tonight only.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1513"
-    },
-    {
         "form_review_date": "10-09-2026",
         "start_date": "10-09-2026",
         "end_date": "10-09-2026",
