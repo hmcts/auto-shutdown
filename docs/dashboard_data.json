@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-09-08T09:12:46.155Z",
+  "last_updated": "2026-09-08T09:13:34.976Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1514,
+      "title": "Disable auto-shutdown for FPLA for OOH migration",
+      "status": "auto-approved",
+      "created_at": "2026-09-08T09:12:26.000Z",
+      "updated_at": "2026-09-08T09:13:23.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1514",
+      "user": "chak-shing-lo-justice",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Family Public Law",
+      "environment": "AAT / Staging, Preview / Dev, PTL",
+      "start_date": "2026-09-10T00:00:00.000Z",
+      "end_date": "2026-09-10T00:00:00.000Z",
+      "justification": "Needed so that we can run our pipelines in the event of rollback OOH",
+      "change_jira_id": "https://tools.hmcts.net/jira/browse/DFPL-2423",
+      "stay_on_late": "Yes",
+      "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DFPL-2423\n\n### Justification for exclusion?\n\nNeeded so that we can run our pipelines in the event of rollback OOH\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nFamily Public Law\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n10-09-2026\n\n### Skip shutdown end date\n\n10-09-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n10-09-2026",
+      "cost": "£341.66"
+    },
     {
       "id": 1513,
       "title": "Auto shutdown exemption request: PCS release 1.3 QA (Perftest) 7 Sep",
@@ -1090,28 +1112,6 @@
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nhttps://tools.hmcts.net/jira/browse/DTSRD-5694\n\n### Justification for exclusion?\n\nLRD changes going live on 22nd Night  \n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nReference Data\n\n### Environment\n\nAAT / Staging, Preview / Dev, Test / Perftest, Demo, ITHC, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n22-07-2026\n\n### Skip shutdown end date\n\n23-07-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n23-07-2026",
       "cost": "£1,283.8"
-    },
-    {
-      "id": 1452,
-      "title": "Skip env shutdown",
-      "status": "auto-approved",
-      "created_at": "2026-07-15T17:41:33.000Z",
-      "updated_at": "2026-07-15T17:42:27.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1452",
-      "user": "DLCullen1",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance",
-      "environment": "Test / Perftest",
-      "start_date": "2026-07-15T00:00:00.000Z",
-      "end_date": null,
-      "justification": "Performance test preparation",
-      "change_jira_id": "n/a",
-      "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nPerformance test preparation\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n15-07-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n15-01-2027",
-      "cost": "£109.57"
     }
   ]
 }
