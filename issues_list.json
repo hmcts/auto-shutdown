@@ -83,5 +83,23 @@
         "justification": "Needed so that we can run our pipelines in the event of rollback OOH",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1514"
+    },
+    {
+        "form_review_date": "09-12-2026",
+        "start_date": "09-09-2026",
+        "end_date": "09-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "ET",
+        "change_jira_id": "CHG-187124",
+        "stay_on_late": "Yes",
+        "justification": "Keeping the environments up in case a code change is needed for the release",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1516"
     }
 ]
