@@ -52,5 +52,22 @@
         "justification": "Keeping the environments up in case a code change is needed for the release",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1516"
+    },
+    {
+        "form_review_date": "17-09-2026",
+        "start_date": "16-09-2026",
+        "end_date": "16-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "PRE",
+        "change_jira_id": "Halo CR: 207159",
+        "stay_on_late": "No",
+        "justification": "OOH release which may take us beyond 8pm",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1517"
     }
 ]
