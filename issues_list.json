@@ -15,5 +15,21 @@
         "justification": "OOH release which may take us beyond 8pm",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1517"
+    },
+    {
+        "form_review_date": "11-03-2027",
+        "start_date": "11-09-2026",
+        "end_date": "13-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance",
+        "change_jira_id": "n/a",
+        "stay_on_late": "Yes",
+        "justification": "Performance test activities",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1521"
     }
 ]
