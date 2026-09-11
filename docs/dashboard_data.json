@@ -1,7 +1,30 @@
 {
-  "last_updated": "2026-09-11T11:34:29.095Z",
+  "last_updated": "2026-09-11T17:57:17.236Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1520,
+      "title": "PR-1519",
+      "status": "auto-approved",
+      "created_at": "2026-09-11T11:34:14.000Z",
+      "updated_at": "2026-09-11T12:19:32.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1520",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2026-10-11T00:00:00.000Z",
+      "end_date": "2026-10-12T00:00:00.000Z",
+      "justification": "Development",
+      "change_jira_id": "PR-1519",
+      "stay_on_late": "No",
+      "body": "### Change or Jira reference\n\nPR-1519\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n11-10-2026\n\n### Skip shutdown end date\n\n12-10-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": "£523.3"
+    },
     {
       "id": 1518,
       "title": "Keep perftest up for PCS",
@@ -1089,28 +1112,6 @@
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nhttps://hmcts.haloitsm.com/ticket?id=190877&showalltickettypes=1\n\n### Justification for exclusion?\n\nCourt Fines Barclaycard release is taking place out of hours during the planned maintenance window from Friday 31 July 2026 into Saturday 1 August 2026. Pre-prod environments need to remain available overnight for release preparation, deployment verification, smoke testing and rollback validation if required.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCourt fines\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n31-07-2026\n\n### Skip shutdown end date\n\n01-08-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n03-08-2026",
       "cost": "£1,800.65"
-    },
-    {
-      "id": 1459,
-      "title": "Skip env shutdown",
-      "status": "auto-approved",
-      "created_at": "2026-07-21T17:54:15.000Z",
-      "updated_at": "2026-07-21T17:54:56.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1459",
-      "user": "DLCullen1",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance",
-      "environment": "Test / Perftest",
-      "start_date": "2026-07-21T00:00:00.000Z",
-      "end_date": null,
-      "justification": "Perftest activity",
-      "change_jira_id": "n/a",
-      "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nPerftest activity\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n21-07-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n21-03-2027",
-      "cost": "£110.76"
     }
   ]
 }
