@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/juror-aso-dev-rg/providers/Microsoft.DBforPostgreSQL/flexibleServers/juror-dev",
+    "resource": "juror-dev",
+    "statusMessage": "Flexible SQL Server: *juror-dev* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68* is in *Updating* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
