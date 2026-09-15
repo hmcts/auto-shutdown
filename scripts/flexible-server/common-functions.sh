@@ -1,5 +1,19 @@
 #!/bin/bash
 
+FLEXIBLE_SERVER_SHUTDOWN_EXCLUDED_SKUS=("Standard_B1ms" "Standard_B2s" "Standard_D2s_v3" "Standard_D4s_v3" "Standard_D8s_v3")
+
+function is_sku_excluded_from_shutdown() {
+  local sku="$1"
+  local excluded_sku
+  for excluded_sku in "${FLEXIBLE_SERVER_SHUTDOWN_EXCLUDED_SKUS[@]}"; do
+    if [[ "$sku" == "$excluded_sku" ]]; then
+      echo "true"
+      return
+    fi
+  done
+  echo "false"
+}
+
 function get_flexible_sql_servers() {
   #MS az graph query to find and return a list of all PostgreSQL Flexible Servers tagged to be included in the auto-shutdown process.
   log "----------------------------------------------"
@@ -35,7 +49,7 @@ function get_flexible_sql_servers() {
     $env_selector
     $area_selector
     $replica_selector
-    | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id']
+    | project name, resourceGroup, subscriptionId, ['tags'], properties.state, ['id'], skuName = tostring(sku.name)
     " --first 1000 -o json
 
   log "az graph query complete"
@@ -51,6 +65,7 @@ function get_flexible_sql_server_details() {
   STARTUP_MODE=$(jq -r '.tags.startupMode' <<< $flexibleserver)
   SERVER_STATE=$(jq -r '.properties_state' <<< $flexibleserver)
   SUBSCRIPTION=$(jq -r '.subscriptionId' <<< $flexibleserver)
+  SKU_NAME=$(jq -r '.skuName' <<< $flexibleserver)
 
 }
 

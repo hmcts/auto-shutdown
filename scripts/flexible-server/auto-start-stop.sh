@@ -47,6 +47,10 @@ jq -c '.data[]' <<<$FLEXIBLE_SERVERS | while read flexibleserver; do
     # based on the issues_list.json file which contains user requests to keep environments online after normal hours
     SKIP=$(should_skip_start_stop $flexible_server_env $flexible_server_business_area $MODE "flexible-server" "$SERVER_NAME")
 
+    if [[ $MODE == "stop" && $(is_sku_excluded_from_shutdown "$SKU_NAME") == "true" ]]; then
+        SKIP="true"
+    fi
+
     # If SKIP is false then we progress with the action (stop/start) for the particular PostgreSQL Flexible Server in this loop run, if not skip and print message to the logs
     if [[ $SKIP == "false" ]]; then
         if [[ $DEV_ENV != "true" ]]; then
