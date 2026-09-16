@@ -33,5 +33,22 @@
         "justification": "Continuing to test PCS Release 1.3 fixes for HDPI-8866 (data-integrity code-analysis issues: w05 bind declaration to reviewed draft, w10 address error restoration) needs AAT, Preview and PTL up past the default 8pm weekday shutdown today.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1523"
+    },
+    {
+        "form_review_date": "18-12-2026",
+        "start_date": "16-09-2026",
+        "end_date": "18-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo",
+            " AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "ET",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
+        "stay_on_late": "Yes",
+        "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1524"
     }
 ]
