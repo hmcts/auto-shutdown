@@ -1,7 +1,30 @@
 {
-  "last_updated": "2026-09-16T12:04:01.799Z",
+  "last_updated": "2026-09-16T12:04:26.332Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1525,
+      "title": "ET ACAS API Testing",
+      "status": "auto-approved",
+      "created_at": "2026-09-16T12:03:28.000Z",
+      "updated_at": "2026-09-16T12:04:14.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1525",
+      "user": "hsjhita",
+      "labels": [
+        "Processing",
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "ET",
+      "environment": "AAT / Staging, Demo",
+      "start_date": "2026-09-21T00:00:00.000Z",
+      "end_date": null,
+      "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
+      "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
+      "stay_on_late": "Yes",
+      "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/RET-7029\n\n### Justification for exclusion?\n\nACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nAAT / Staging, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-12-2026",
+      "cost": "£187.61"
+    },
     {
       "id": 1524,
       "title": "ET ACAS API Testing",
@@ -1088,28 +1111,6 @@
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nDMP-5565\n\n### Justification for exclusion?\n\nTier 1 change\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\ndarts\n\n### Environment\n\nPTL, Preview / Dev, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-07-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n27-10-2026",
       "cost": "£43.55"
-    },
-    {
-      "id": 1464,
-      "title": "darts stop to allow tier 1 change to complete",
-      "status": "auto-approved",
-      "created_at": "2026-07-27T21:14:04.000Z",
-      "updated_at": "2026-07-27T21:14:49.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1464",
-      "user": "npv0",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "darts",
-      "environment": "PTL",
-      "start_date": "2026-07-27T00:00:00.000Z",
-      "end_date": null,
-      "justification": "Tier 1 change",
-      "change_jira_id": "DMP-5565",
-      "stay_on_late": "Yes",
-      "body": "### Change or Jira reference\n\nDMP-5565\n\n### Justification for exclusion?\n\nTier 1 change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\ndarts\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-07-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n27-10-2026",
-      "cost": "£7.74"
     }
   ]
 }
