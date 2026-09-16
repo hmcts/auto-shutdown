@@ -2227,3 +2227,9 @@
 12:03:30 ---------------------------------------------- 
 12:03:30 Running az graph query... 
 12:03:31 az graph query complete 
+12:09:45 ---------------------------------------------- 
+12:09:45 Running az graph query... 
+12:09:53 az graph query complete 
+12:10:00 ---------------------------------------------- 
+12:10:00 Running az graph query... 
+12:10:01 az graph query complete 

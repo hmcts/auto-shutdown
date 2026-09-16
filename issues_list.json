@@ -50,5 +50,22 @@
         "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1524"
+    },
+    {
+        "form_review_date": "18-12-2026",
+        "start_date": "21-09-2026",
+        "end_date": "21-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "ET",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
+        "stay_on_late": "Yes",
+        "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1526"
     }
 ]
