@@ -1,22 +1,5 @@
 [
     {
-        "form_review_date": "17-09-2026",
-        "start_date": "16-09-2026",
-        "end_date": "16-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "Demo",
-            " AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "PRE",
-        "change_jira_id": "Halo CR: 207159",
-        "stay_on_late": "No",
-        "justification": "OOH release which may take us beyond 8pm",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1517"
-    },
-    {
         "form_review_date": "18-12-2026",
         "start_date": "16-09-2026",
         "end_date": "18-09-2026",
@@ -49,23 +32,5 @@
         "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1526"
-    },
-    {
-        "form_review_date": "16-09-2026",
-        "start_date": "16-09-2026",
-        "end_date": "16-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "PCS (Possession Claims Service)",
-        "change_jira_id": "HDPI-8866",
-        "stay_on_late": "No",
-        "justification": "Continuing to test PCS Release 1.3 fixes for HDPI-8866 (data-integrity code-analysis issues: w05 bind declaration to reviewed draft, w10 address error restoration) needs AAT, Preview and PTL up past the default 8pm weekday shutdown today.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1527"
     }
 ]
