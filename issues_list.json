@@ -116,5 +116,26 @@
         "justification": "PCS performance testing",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1532"
+    },
+    {
+        "form_review_date": "21-09-2026",
+        "start_date": "18-09-2026",
+        "end_date": "21-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " Demo",
+            " ITHC",
+            " Test / Perftest",
+            " Preview / Dev",
+            " AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "Opal",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Opal Go Live",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1533"
     }
 ]
