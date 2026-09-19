@@ -1,4 +1,5 @@
 name: Manual Start / Stop Bastion
+run-name: ${{ inputs.SELECTED_MODE == 'start' && 'Manual Start' || 'Manual Stop' }} - Bastion - ${{ inputs.SELECTED_ENV }}
 on:
   workflow_dispatch:
     inputs:
