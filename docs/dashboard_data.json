@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-09-20T17:53:01.480Z",
+  "last_updated": "2026-09-20T17:53:17.423Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1535,
       "title": "Auto shutdown exemption request: PCS HDPI-7333 solicitor role cleanup (AAT, Preview, PTL) 20 Sep",
-      "status": "auto-approved",
+      "status": "pending",
       "created_at": "2026-09-20T17:52:04.000Z",
-      "updated_at": "2026-09-20T17:52:49.000Z",
+      "updated_at": "2026-09-20T17:53:04.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1535",
       "user": "arun-hmcts",
       "labels": [
-        "auto-approved"
+        "Processing"
       ],
       "business_area": "CFT",
       "team_name": "PCS (Possession Claims Service)",
