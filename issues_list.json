@@ -86,5 +86,23 @@
         "justification": "Opal Go Live",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1533"
+    },
+    {
+        "form_review_date": "20-09-2026",
+        "start_date": "20-09-2026",
+        "end_date": "20-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "PCS (Possession Claims Service)",
+        "change_jira_id": "HDPI-7333",
+        "stay_on_late": "No",
+        "justification": "Verifying the HDPI-7333 solicitor role cleanup needs AAT, Preview and PTL (Jenkins) up past the default 8pm shutdown this evening.",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1535"
     }
 ]
