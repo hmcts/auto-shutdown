@@ -16,5 +16,11 @@
     "resource": "rota-psql-dopdb-ithc",
     "statusMessage": "Flexible SQL Server: *rota-psql-dopdb-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
     "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/rota-shared-infra-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/rota-psql-dopdb-perftest",
+    "resource": "rota-psql-dopdb-perftest",
+    "statusMessage": "Flexible SQL Server: *rota-psql-dopdb-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Ready* state after *stop* action",
+    "resourceType": "flexible-server"
   }
 ]
