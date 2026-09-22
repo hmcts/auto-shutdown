@@ -32,5 +32,21 @@
         "justification": "Judicial users will assess/test the impact of new RTF in PRL Order journeys",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1531"
+    },
+    {
+        "form_review_date": "23-09-2026",
+        "start_date": "22-09-2026",
+        "end_date": "22-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Testing",
+        "change_jira_id": "N/A",
+        "stay_on_late": "No",
+        "justification": "PCS Performance Testing",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1537"
     }
 ]
