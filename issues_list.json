@@ -1,22 +1,5 @@
 [
     {
-        "form_review_date": "18-12-2026",
-        "start_date": "21-09-2026",
-        "end_date": "21-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Demo"
-        ],
-        "business_area": "cft",
-        "team_name": "ET",
-        "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
-        "stay_on_late": "Yes",
-        "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1526"
-    },
-    {
         "form_review_date": "23-09-2026",
         "start_date": "22-09-2026",
         "end_date": "22-09-2026",
@@ -49,42 +32,5 @@
         "justification": "Judicial users will assess/test the impact of new RTF in PRL Order journeys",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1531"
-    },
-    {
-        "form_review_date": "21-09-2026",
-        "start_date": "18-09-2026",
-        "end_date": "21-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " Demo",
-            " ITHC",
-            " Test / Perftest",
-            " Preview / Dev",
-            " AAT / Staging"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "Opal",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Opal Go Live",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1533"
-    },
-    {
-        "form_review_date": "22-09-2026",
-        "start_date": "21-09-2026",
-        "end_date": "21-09-2026",
-        "request_type": "stop",
-        "environment": [
-            "Test / Perftest"
-        ],
-        "business_area": "cft",
-        "team_name": "Performance Testing",
-        "change_jira_id": "N/A",
-        "stay_on_late": "No",
-        "justification": "Performance Testing for PCS GA",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1536"
     }
 ]
