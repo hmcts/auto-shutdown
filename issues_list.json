@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "27-12-2026",
+        "start_date": "25-09-2026",
+        "end_date": "25-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "CFT Idam",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/SIDM-10551",
+        "stay_on_late": "No",
+        "justification": "Performance testing Idam release 12.0",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1538"
+    }
+]
