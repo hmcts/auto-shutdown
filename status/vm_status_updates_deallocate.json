@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/0978315c-75fe-4ada-9d11-1eb5e0e0b214/resourceGroups/hmcts-hub-prod-int/providers/Microsoft.Compute/virtualMachines/hmcts-hub-prod-int-palo-ansible",
-    "resource": "hmcts-hub-prod-int-palo-ansible",
-    "statusMessage": "VM: *hmcts-hub-prod-int-palo-ansible* in Subscription: *0978315c-75fe-4ada-9d11-1eb5e0e0b214*  ResourceGroup: *hmcts-hub-prod-int* is *VM running* state after *deallocate* action.",
-    "resourceType": "vm"
-  }
-]
