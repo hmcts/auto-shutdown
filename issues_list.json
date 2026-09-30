@@ -62,5 +62,21 @@
         "justification": "Keep Jenkins up for release. Build taking longer than expected",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1542"
+    },
+    {
+        "form_review_date": "30-09-2026",
+        "start_date": "30-09-2026",
+        "end_date": "30-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "CaTH",
+        "change_jira_id": "https://hmcts.atlassian.net/wiki/spaces/PUBH/pages/273962399/Release+10.0.1+-+Crown+Advanced+List",
+        "stay_on_late": "No",
+        "justification": "We need to merge couple of PRs which will take some time to merge. We need lower to run end to end tests otherwise PR will be failed and we will not be able to deploy the code to PROD",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1543"
     }
 ]
