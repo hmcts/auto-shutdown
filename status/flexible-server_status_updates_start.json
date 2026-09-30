@@ -1,0 +1,20 @@
+[
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/em-anno-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-anno-postgres-db-v15-ithc",
+    "resource": "em-anno-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *em-anno-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/em-npa-postgres-db-v15-data-ithc/providers/Microsoft.DBforPostgreSQL/flexibleServers/em-npa-postgres-db-v15-ithc",
+    "resource": "em-npa-postgres-db-v15-ithc",
+    "statusMessage": "Flexible SQL Server: *em-npa-postgres-db-v15-ithc* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  },
+  {
+    "id": "/subscriptions/7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c/resourceGroups/sptribs-perftest-flexible-db-v15-data-perftest/providers/Microsoft.DBforPostgreSQL/flexibleServers/sptribs-perftest-flexible-db-v15-perftest",
+    "resource": "sptribs-perftest-flexible-db-v15-perftest",
+    "statusMessage": "Flexible SQL Server: *sptribs-perftest-flexible-db-v15-perftest* in Subscription: *7a4e3bd5-ae3a-4d0c-b441-2188fee3ff1c* is in *Stopped* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
