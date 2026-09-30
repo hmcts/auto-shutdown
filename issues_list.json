@@ -78,5 +78,23 @@
         "justification": "We need to merge couple of PRs which will take some time to merge. We need lower to run end to end tests otherwise PR will be failed and we will not be able to deploy the code to PROD",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1543"
+    },
+    {
+        "form_review_date": "19-12-2026",
+        "start_date": "30-09-2026",
+        "end_date": "30-09-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL",
+            " AAT / Staging",
+            " Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "ET",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/RET-6655",
+        "stay_on_late": "Yes",
+        "justification": "The Employments Right Act goes live at midnight and whilst we have automated as much as we can, we want to keep the environments up just in case if a change is needed",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1544"
     }
 ]
