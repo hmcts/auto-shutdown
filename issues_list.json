@@ -33,24 +33,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1546"
     },
     {
-        "form_review_date": "05-12-2026",
-        "start_date": "05-10-2026",
-        "end_date": "05-10-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " Preview / Dev",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "TTPET",
-        "change_jira_id": "CHG-0218320",
-        "stay_on_late": "No",
-        "justification": "Jenkins required",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1547"
-    },
-    {
         "form_review_date": "07-10-2026",
         "start_date": "06-10-2026",
         "end_date": "06-10-2026",
