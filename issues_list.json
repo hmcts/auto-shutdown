@@ -49,5 +49,21 @@
         "justification": "Jenkins required",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1547"
+    },
+    {
+        "form_review_date": "07-10-2026",
+        "start_date": "06-10-2026",
+        "end_date": "06-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging"
+        ],
+        "business_area": "cft",
+        "team_name": "Private Law",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/FPVTL-3388",
+        "stay_on_late": "Yes",
+        "justification": "OOH release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1548"
     }
 ]
