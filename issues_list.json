@@ -31,5 +31,23 @@
         "justification": "IDAM Release 12.0.0: Platform Upgrade 2026",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1546"
+    },
+    {
+        "form_review_date": "07-10-2026",
+        "start_date": "07-10-2026",
+        "end_date": "07-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "PCS (Possession Claims Service)",
+        "change_jira_id": "HDPI-9156",
+        "stay_on_late": "Yes",
+        "justification": "Investigating intermittent pcs-api master build failures on PCS-staging needs AAT, Preview and PTL (Jenkins) up overnight, from today until 8am tomorrow (Thursday 8 Oct), past the default 8pm shutdown.",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1549"
     }
 ]
