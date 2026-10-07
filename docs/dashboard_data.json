@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-10-07T17:04:21.213Z",
+  "last_updated": "2026-10-07T17:05:14.038Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1549,
       "title": "Auto shutdown exemption request: PCS HDPI-9156 master build investigation (AAT, Preview, PTL) 7 Oct",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2026-10-07T17:03:58.000Z",
-      "updated_at": "2026-10-07T17:04:16.000Z",
+      "updated_at": "2026-10-07T17:04:57.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1549",
       "user": "arun-hmcts",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "PCS (Possession Claims Service)",
@@ -22,7 +22,7 @@
       "change_jira_id": "HDPI-9156",
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nHDPI-9156\n\n### Justification for exclusion?\n\nInvestigating intermittent pcs-api master build failures on PCS-staging needs AAT, Preview and PTL (Jenkins) up overnight, from today until 8am tomorrow (Thursday 8 Oct), past the default 8pm shutdown.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPCS (Possession Claims Service)\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n07-10-2026\n\n### Skip shutdown end date\n\n07-10-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n07-10-2026\n",
-      "cost": null
+      "cost": "£421.46"
     },
     {
       "id": 1548,
