@@ -1,4 +1,5 @@
 name: Manual Start / Stop
+run-name: ${{ inputs.SELECTED_MODE == 'start' && 'Manual Start' || 'Manual Stop' }} - ${{ inputs.SELECTED_AREA }} - ${{ inputs.SELECTED_ENV }}
 on:
   workflow_dispatch:
     inputs:
