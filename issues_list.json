@@ -14,22 +14,5 @@
         "justification": "Jenkins pipelines required out of hours for release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1545"
-    },
-    {
-        "form_review_date": "12-10-2026",
-        "start_date": "08-10-2026",
-        "end_date": "09-10-2026",
-        "request_type": "stop",
-        "environment": [
-            "AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "CFT IDAM",
-        "change_jira_id": "https://hmcts.atlassian.net/browse/SIDM-10552",
-        "stay_on_late": "Yes",
-        "justification": "IDAM Release 12.0.0: Platform Upgrade 2026",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1546"
     }
 ]
