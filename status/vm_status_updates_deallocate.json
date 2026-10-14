@@ -1,8 +1,0 @@
-[
-  {
-    "id": "/subscriptions/1c4f0704-a29e-403d-b719-b90c34ef14c9/resourceGroups/core-infra-idam-preview/providers/Microsoft.Compute/virtualMachines/idam-preview-jumpbox",
-    "resource": "idam-preview-jumpbox",
-    "statusMessage": "VM: *idam-preview-jumpbox* in Subscription: *1c4f0704-a29e-403d-b719-b90c34ef14c9*  ResourceGroup: *core-infra-idam-preview* is *VM running* state after *deallocate* action.",
-    "resourceType": "vm"
-  }
-]
