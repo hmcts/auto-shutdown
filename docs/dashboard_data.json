@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-10-14T06:07:15.071Z",
+  "last_updated": "2026-10-14T18:49:20.995Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1551,
+      "title": "Auto shutdown exemption request: PCS HDPI-9106 ExUI Welsh (AAT, Preview, PTL) 14 Oct",
+      "status": "pending",
+      "created_at": "2026-10-14T18:49:06.000Z",
+      "updated_at": "2026-10-14T18:49:18.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1551",
+      "user": "arun-hmcts",
+      "labels": [
+        "Processing"
+      ],
+      "business_area": "CFT",
+      "team_name": "PCS (Possession Claims Service)",
+      "environment": "AAT / Staging, Preview / Dev, PTL",
+      "start_date": "2026-10-14T00:00:00.000Z",
+      "end_date": "2026-10-14T00:00:00.000Z",
+      "justification": "Continuing PCS ExUI Welsh translation work needs AAT, Preview and PTL (Jenkins) up past the default 8pm shutdown tonight, running past 11pm.",
+      "change_jira_id": "HDPI-9106",
+      "stay_on_late": "Yes",
+      "body": "### Change or Jira reference\n\nHDPI-9106\n\n### Justification for exclusion?\n\nContinuing PCS ExUI Welsh translation work needs AAT, Preview and PTL (Jenkins) up past the default 8pm shutdown tonight, running past 11pm.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPCS (Possession Claims Service)\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n14-10-2026\n\n### Skip shutdown end date\n\n14-10-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n14-10-2026\n",
+      "cost": null
+    },
     {
       "id": 1550,
       "title": "Auto shutdown exemption request: PCS HDPI-9106 ExUI Welsh (AAT, Preview, PTL) 12 Oct",
@@ -1084,28 +1106,6 @@
       "stay_on_late": "No",
       "body": "### Change or Jira reference\n\nHDPI-8224\n\n### Justification for exclusion?\n\nPCS release 1.3 QA: testing on AAT, Preview, PTL and perftest needs environments up 7am-10pm from 24 Aug through 28 Aug. Default auto-shutdown at 8pm weekdays cuts the test window short; team currently loses time waiting for manual environment starts.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPCS (Possession Claims Service)\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL, Test / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n24-08-2026\n\n### Skip shutdown end date\n\n28-08-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n28-08-2026",
       "cost": "£2,314.72"
-    },
-    {
-      "id": 1496,
-      "title": "CHG - 199947",
-      "status": "auto-approved",
-      "created_at": "2026-08-24T16:18:58.000Z",
-      "updated_at": "2026-08-24T16:19:56.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1496",
-      "user": "hsjhita",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "ET",
-      "environment": "PTL",
-      "start_date": "2026-08-24T00:00:00.000Z",
-      "end_date": null,
-      "justification": "Request to keep PTL up for the release as the team maybe pushing up PRs if needed",
-      "change_jira_id": "CHG199947",
-      "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nCHG199947\n\n### Justification for exclusion?\n\nRequest to keep PTL up for the release as the team maybe pushing up PRs if needed\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n24-08-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n25-08-2026",
-      "cost": "£7.69"
     }
   ]
 }
