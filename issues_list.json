@@ -16,5 +16,21 @@
         "justification": "Continuing PCS ExUI Welsh translation work needs AAT, Preview and PTL (Jenkins) up past the default 8pm shutdown tonight, running past 11pm.",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1552"
+    },
+    {
+        "form_review_date": "19-10-2026",
+        "start_date": "16-10-2026",
+        "end_date": "18-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "Performance Test",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "XUI Soak Test for Node Options Change",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1553"
     }
 ]
