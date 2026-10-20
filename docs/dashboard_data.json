@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-10-20T15:58:22.620Z",
+  "last_updated": "2026-10-20T15:59:10.437Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1556,
+      "title": "Request for keep the environment Open during shutdown period for civil draft store migration",
+      "status": "auto-approved",
+      "created_at": "2026-10-20T15:58:04.000Z",
+      "updated_at": "2026-10-20T15:58:54.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1556",
+      "user": "vijaykanth6",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "CUI",
+      "environment": "Test / Perftest",
+      "start_date": "2026-10-20T00:00:00.000Z",
+      "end_date": "2026-10-21T00:00:00.000Z",
+      "justification": "need to run civil draft migration performance test",
+      "change_jira_id": "DTSCCI-6741",
+      "stay_on_late": "Yes",
+      "body": "### Change or Jira reference\n\nDTSCCI-6741\n\n### Justification for exclusion?\n\nneed to run civil draft migration performance test\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCUI\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n20-10-2026\n\n### Skip shutdown end date\n\n21-10-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n21-10-2026",
+      "cost": "£238.57"
+    },
     {
       "id": 1555,
       "title": "Request for keep the environment Open during shutdown period",
@@ -1083,29 +1105,6 @@
       "stay_on_late": "No",
       "body": "### Change or Jira reference\n\nPR-1503\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n15-10-2026\n\n### Skip shutdown end date\n\n16-10-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
       "cost": "£209.54"
-    },
-    {
-      "id": 1502,
-      "title": "PR-1501",
-      "status": "auto-approved",
-      "created_at": "2026-08-28T11:09:40.000Z",
-      "updated_at": "2026-08-31T10:34:25.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1502",
-      "user": "hmcts-platform-operations",
-      "labels": [
-        "auto-approved",
-        "pull-request"
-      ],
-      "business_area": "CFT",
-      "team_name": "PlatOps",
-      "environment": "AAT / Staging",
-      "start_date": "2026-09-30T00:00:00.000Z",
-      "end_date": "2026-10-01T00:00:00.000Z",
-      "justification": "Development",
-      "change_jira_id": "PR-1501",
-      "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nPR-1501\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n30-09-2026\n\n### Skip shutdown end date\n\n01-10-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": "£522.15"
     }
   ]
 }
