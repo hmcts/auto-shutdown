@@ -30,5 +30,23 @@
         "justification": "need to run civil draft migration performance test",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1556"
+    },
+    {
+        "form_review_date": "20-10-2026",
+        "start_date": "20-10-2026",
+        "end_date": "20-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " Preview / Dev",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "PCS",
+        "change_jira_id": "DTSPO-PCS",
+        "stay_on_late": "No",
+        "justification": "PCS production release this evening requires PTL for Jenkins and AAT for deployment checks. Preview is also required to allow any release fixes to pass PR checks. Please postpone tonights shutdown until 23:00 BST; no overnight exemption is required.",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1557"
     }
 ]
