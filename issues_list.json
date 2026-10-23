@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "form_review_date": "30-10-2026",
+        "start_date": "28-10-2026",
+        "end_date": "28-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            " AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Financial Remedy",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/DFR-5042",
+        "stay_on_late": "Yes",
+        "justification": "To run pipelines for the FR Global Search release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1559"
+    }
+]
