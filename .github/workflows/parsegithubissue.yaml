@@ -100,7 +100,7 @@ jobs:
       #Parse issue form that trigger workflow
       - name: Read submitted issue
         id: parse_issue
-        uses: stefanbuck/github-issue-parser@v3.1.1
+        uses: stefanbuck/github-issue-parser@v3.2.1
         with:
           issue-body: ${{ env.ISSUE_BODY }}
           template-path: .github/ISSUE_TEMPLATE/3-skip-auto-shutdown-request.yaml
