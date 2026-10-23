@@ -57,7 +57,9 @@
         "end_date": "26-10-2026",
         "request_type": "stop",
         "environment": [
-            "AAT / Staging"
+            "Preview / Dev",
+            " AAT / Staging",
+            " PTL"
         ],
         "business_area": "cft",
         "team_name": "Platops",
