@@ -1,19 +1,88 @@
 [
     {
-        "form_review_date": "17-09-2026",
-        "start_date": "16-09-2026",
-        "end_date": "16-09-2026",
+        "form_review_date": "30-10-2026",
+        "start_date": "28-10-2026",
+        "end_date": "28-10-2026",
         "request_type": "stop",
         "environment": [
-            "Demo",
-            " AAT / Staging"
+            "Preview / Dev",
+            " AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Financial Remedy",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/DFR-5042",
+        "stay_on_late": "Yes",
+        "justification": "To run pipelines for the FR Global Search release",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1559"
+    },
+    {
+        "form_review_date": "23-10-2026",
+        "start_date": "23-10-2026",
+        "end_date": "25-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            " AAT / Staging",
+            " PTL"
         ],
         "business_area": "cross-cutting",
-        "team_name": "PRE",
-        "change_jira_id": "Halo CR: 207159",
-        "stay_on_late": "No",
-        "justification": "OOH release which may take us beyond 8pm",
+        "team_name": "opal",
+        "change_jira_id": "N/A",
+        "stay_on_late": "Yes",
+        "justification": "Need environment up to continue CCF epic delivery",
         "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1517"
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1560"
+    },
+    {
+        "form_review_date": "26-10-2026",
+        "start_date": "23-10-2026",
+        "end_date": "25-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "PTL"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "P1 - see Thomas",
+        "change_jira_id": "P1 - see Thomas",
+        "stay_on_late": "Yes",
+        "justification": "P1 - see Thomas",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1563"
+    },
+    {
+        "form_review_date": "26-10-2026",
+        "start_date": "23-10-2026",
+        "end_date": "26-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev",
+            " AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "Platops",
+        "change_jira_id": "NA",
+        "stay_on_late": "Yes",
+        "justification": "Teams support",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1564"
+    },
+    {
+        "form_review_date": "26-10-2026",
+        "start_date": "23-10-2026",
+        "end_date": "25-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cross-cutting",
+        "team_name": "P1 - see thomas",
+        "change_jira_id": "P1 - see Thomas",
+        "stay_on_late": "Yes",
+        "justification": "P1 - see Thomas",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1568"
     }
 ]
