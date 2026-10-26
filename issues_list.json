@@ -18,40 +18,6 @@
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1559"
     },
     {
-        "form_review_date": "23-10-2026",
-        "start_date": "23-10-2026",
-        "end_date": "25-10-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            " AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "opal",
-        "change_jira_id": "N/A",
-        "stay_on_late": "Yes",
-        "justification": "Need environment up to continue CCF epic delivery",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1560"
-    },
-    {
-        "form_review_date": "26-10-2026",
-        "start_date": "23-10-2026",
-        "end_date": "25-10-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "P1 - see Thomas",
-        "change_jira_id": "P1 - see Thomas",
-        "stay_on_late": "Yes",
-        "justification": "P1 - see Thomas",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1563"
-    },
-    {
         "form_review_date": "26-10-2026",
         "start_date": "23-10-2026",
         "end_date": "26-10-2026",
@@ -68,21 +34,5 @@
         "justification": "Teams support",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1564"
-    },
-    {
-        "form_review_date": "26-10-2026",
-        "start_date": "23-10-2026",
-        "end_date": "25-10-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cross-cutting",
-        "team_name": "P1 - see thomas",
-        "change_jira_id": "P1 - see Thomas",
-        "stay_on_late": "Yes",
-        "justification": "P1 - see Thomas",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1568"
     }
 ]
