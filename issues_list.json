@@ -16,39 +16,5 @@
         "justification": "To run pipelines for the FR Global Search release",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1559"
-    },
-    {
-        "form_review_date": "26-10-2026",
-        "start_date": "23-10-2026",
-        "end_date": "26-10-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev",
-            " AAT / Staging",
-            " PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "Platops",
-        "change_jira_id": "NA",
-        "stay_on_late": "Yes",
-        "justification": "Teams support",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1564"
-    },
-    {
-        "form_review_date": "27-10-2026",
-        "start_date": "26-10-2026",
-        "end_date": "26-10-2026",
-        "request_type": "stop",
-        "environment": [
-            "Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "SSCS",
-        "change_jira_id": "https://hmcts.atlassian.net/browse/SSCSCI-2801",
-        "stay_on_late": "Yes",
-        "justification": "We need to retain test data on preview for testing tomorrow",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1569"
     }
 ]
