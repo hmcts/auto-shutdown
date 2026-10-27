@@ -2,7 +2,8 @@ name: vm-auto-start
 on:
   workflow_dispatch:
   schedule:
-    - cron: "11 5 * * 1-5" # Every weekday at 6:11am BST // bucket 2
+    - cron: "11 6 * * 1-5" # Every weekday at 6:11am UK time // bucket 2
+      timezone: "Europe/London"
 
 env:
   DEV_ENV: ${{ secrets.DEV_ENV }}

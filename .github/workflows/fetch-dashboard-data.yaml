@@ -1,9 +1,10 @@
 name: Update Dashboard Data
 
 on:
-  # Run daily at 7 AM BST (6 AM UTC)
+  # Run daily at 7 AM UK time
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "0 7 * * *"
+      timezone: "Europe/London"
 
   # Allow manual triggering
   workflow_dispatch:
