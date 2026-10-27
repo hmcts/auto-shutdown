@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-10-27T18:11:15.824Z",
+  "last_updated": "2026-10-27T18:12:00.547Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1572,
+      "title": "230223 TT Postgres upgrade",
+      "status": "auto-approved",
+      "created_at": "2026-10-27T18:10:54.000Z",
+      "updated_at": "2026-10-27T18:11:47.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1572",
+      "user": "npv0",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "Tax Tribunal",
+      "environment": "AAT / Staging, Preview / Dev, PTL",
+      "start_date": "2026-10-27T00:00:00.000Z",
+      "end_date": null,
+      "justification": "Postgres Upgrade",
+      "change_jira_id": "230223",
+      "stay_on_late": "No",
+      "body": "### Change or Jira reference\n\n230223\n\n### Justification for exclusion?\n\nPostgres Upgrade\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nTax Tribunal \n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n27-10-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n27-11-2026",
+      "cost": "£430.95"
+    },
     {
       "id": 1571,
       "title": "PR-1570",
@@ -1085,29 +1107,6 @@
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nn/a\n\n### Justification for exclusion?\n\nPerformance test activities\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n11-09-2026\n\n### Skip shutdown end date\n\n13-09-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n11-03-2027",
       "cost": "£1,004.47"
-    },
-    {
-      "id": 1520,
-      "title": "PR-1519",
-      "status": "auto-approved",
-      "created_at": "2026-09-11T11:34:14.000Z",
-      "updated_at": "2026-09-11T12:19:32.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1520",
-      "user": "hmcts-platform-operations",
-      "labels": [
-        "auto-approved",
-        "pull-request"
-      ],
-      "business_area": "CFT",
-      "team_name": "PlatOps",
-      "environment": "AAT / Staging",
-      "start_date": "2026-10-11T00:00:00.000Z",
-      "end_date": "2026-10-12T00:00:00.000Z",
-      "justification": "Development",
-      "change_jira_id": "PR-1519",
-      "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nPR-1519\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n11-10-2026\n\n### Skip shutdown end date\n\n12-10-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
-      "cost": "£523.3"
     }
   ]
 }
