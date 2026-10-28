@@ -34,5 +34,21 @@
         "justification": "Postgres Upgrade",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1572"
+    },
+    {
+        "form_review_date": "29-10-2026",
+        "start_date": "28-10-2026",
+        "end_date": "28-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "Preview / Dev"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/SSCSCI-2777",
+        "stay_on_late": "Yes",
+        "justification": "Need to retain test data on preview to continue testing tomorrow",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1573"
     }
 ]
