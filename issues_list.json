@@ -32,5 +32,22 @@
         "justification": "Need to retain test data on preview to continue testing tomorrow",
         "bastion_required": false,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1573"
+    },
+    {
+        "form_review_date": "29-01-2027",
+        "start_date": "29-10-2026",
+        "end_date": "29-10-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "LAU",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/EL-39",
+        "stay_on_late": "No",
+        "justification": "Need to upgrade ES on aat and prod and might run longer than the shutdown time",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1575"
     }
 ]
