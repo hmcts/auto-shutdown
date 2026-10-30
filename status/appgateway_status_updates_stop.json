@@ -1,0 +1,8 @@
+[
+  {
+    "id": "",
+    "resource": "atlassian-prod-app-gateway",
+    "statusMessage": "Application Gateway: *atlassian-prod-app-gateway* in Subscription: *79898897-729c-41a0-a5ca-53c764839d95* is Running after *stop* action.",
+    "resourceType": "appgateway"
+  }
+]
