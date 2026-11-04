@@ -24,7 +24,11 @@ jq -c '.data[]' <<<$DISABLED_SFTP_SERVERS | while read sftpserver; do
 	if [[ $SKIP == "false" ]]; then
 		if [[ $DEV_ENV != "true" ]]; then
 			blob_state_enabled_messages
-			az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --subscription $SUBSCRIPTION --enable-sftp=true || echo Ignoring errors Enabling $STORAGE_ACCOUNT_NAME
+			if az storage account update -g $RESOURCE_GROUP -n $STORAGE_ACCOUNT_NAME --subscription $SUBSCRIPTION --enable-sftp=true; then
+				az tag update --resource-id $STORAGE_ACCOUNT_ID --operation Delete --tags $SFTP_DISABLED_TAG=true -o none || echo Ignoring errors Untagging $STORAGE_ACCOUNT_NAME
+			else
+				echo Ignoring errors Enabling $STORAGE_ACCOUNT_NAME
+			fi
 		else
 			ts_echo_color BLUE "Development Env: simulating state commands only."
 			blob_state_enabled_messages
