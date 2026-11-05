@@ -1,13 +1,36 @@
 {
-  "last_updated": "2026-11-05T10:14:44.216Z",
+  "last_updated": "2026-11-05T20:36:42.746Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1577,
+      "title": "PR-1576",
+      "status": "auto-approved",
+      "created_at": "2026-11-05T10:14:29.000Z",
+      "updated_at": "2026-11-05T10:15:46.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1577",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2026-12-05T00:00:00.000Z",
+      "end_date": "2026-12-06T00:00:00.000Z",
+      "justification": "Development",
+      "change_jira_id": "PR-1576",
+      "stay_on_late": "No",
+      "body": "### Change or Jira reference\n\nPR-1576\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n05-12-2026\n\n### Skip shutdown end date\n\n06-12-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": "£865.1"
+    },
     {
       "id": 1576,
       "title": "dtspo-36300: only re-enable sftp on account autoshutdown disabled",
       "status": "pending",
       "created_at": "2026-11-05T10:14:13.000Z",
-      "updated_at": "2026-11-05T10:14:14.000Z",
+      "updated_at": "2026-11-05T10:17:26.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/pull/1576",
       "user": "playfair0319-moj",
       "labels": [],
@@ -1084,28 +1107,6 @@
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/RET-7029\n\n### Justification for exclusion?\n\nACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nAAT / Staging, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-12-2026",
       "cost": "£187.61"
-    },
-    {
-      "id": 1524,
-      "title": "ET ACAS API Testing",
-      "status": "auto-approved",
-      "created_at": "2026-09-16T12:02:41.000Z",
-      "updated_at": "2026-09-16T12:03:46.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1524",
-      "user": "hsjhita",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "ET",
-      "environment": "Demo, AAT / Staging",
-      "start_date": "2026-09-16T00:00:00.000Z",
-      "end_date": "2026-09-18T00:00:00.000Z",
-      "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
-      "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
-      "stay_on_late": "Yes",
-      "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/RET-7029\n\n### Justification for exclusion?\n\nACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nDemo, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-09-2026\n\n### Skip shutdown end date\n\n18-09-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-12-2026",
-      "cost": "£587.84"
     }
   ]
 }
