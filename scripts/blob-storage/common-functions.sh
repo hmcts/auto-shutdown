@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SFTP_DISABLED_TAG="autoShutdownSftpDisabled"
+
 # Function that uses the subscription input to get set variables for later use and gather all storage accounts that have SFTP enabled or disabled
 
 function get_sftp_servers() {
@@ -16,9 +18,9 @@ function get_sftp_servers() {
   fi
 
   if [ "$2" == true ]; then
-    env_selector="| where properties.isSftpEnabled == true"
+    sftp_selector="| where properties.isSftpEnabled == true"
   elif [ "$2" == false ]; then
-    env_selector="| where properties.isSftpEnabled == false"
+    sftp_selector="| where properties.isSftpEnabled == false | where tags['$SFTP_DISABLED_TAG'] == 'true'"
   else
     sftp_selector=""
   fi
@@ -29,7 +31,7 @@ function get_sftp_servers() {
       | where tags['autoShutdown'] == 'true'
       | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox', 'testing')
       $env_selector
-      $env_selector
+      $sftp_selector
       | project name, id, tags, properties, subscriptionId
     " --first 1000 -o json
 
