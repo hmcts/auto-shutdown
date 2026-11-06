@@ -1,18 +1,1 @@
-[
-    {
-        "form_review_date": "06-02-2027",
-        "start_date": "06-11-2026",
-        "end_date": "06-11-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL"
-        ],
-        "business_area": "cft",
-        "team_name": "HDP",
-        "change_jira_id": "HDPI-7958",
-        "stay_on_late": "Yes",
-        "justification": "Keep Jenkins available past 11pm to deliver the change associated with HDPI-7958.",
-        "bastion_required": false,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1578"
-    }
-]
+[]
