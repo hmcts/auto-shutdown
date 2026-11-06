@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-11-06T22:59:40.067Z",
+  "last_updated": "2026-11-06T23:00:45.286Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1578,
+      "title": "CFT PTL shutdown exemption for HDPI-7958",
+      "status": "auto-approved",
+      "created_at": "2026-11-06T22:59:21.000Z",
+      "updated_at": "2026-11-06T23:00:29.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1578",
+      "user": "banderous",
+      "labels": [
+        "auto-approved"
+      ],
+      "business_area": "CFT",
+      "team_name": "HDP",
+      "environment": "PTL",
+      "start_date": "2026-11-06T00:00:00.000Z",
+      "end_date": "2026-11-06T00:00:00.000Z",
+      "justification": "Keep Jenkins available past 11pm to deliver the change associated with HDPI-7958.",
+      "change_jira_id": "HDPI-7958",
+      "stay_on_late": "Yes",
+      "body": "### Change or Jira reference\n\nHDPI-7958\n\n### Justification for exclusion?\n\nKeep Jenkins available past 11pm to deliver the change associated with HDPI-7958.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nHDP\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06-11-2026\n\n### Skip shutdown end date\n\n06-11-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n06-02-2027\n",
+      "cost": "£7.09"
+    },
     {
       "id": 1577,
       "title": "PR-1576",
@@ -1072,29 +1094,6 @@
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1526",
       "user": "hsjhita",
       "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "ET",
-      "environment": "AAT / Staging, Demo",
-      "start_date": "2026-09-21T00:00:00.000Z",
-      "end_date": null,
-      "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
-      "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
-      "stay_on_late": "Yes",
-      "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/RET-7029\n\n### Justification for exclusion?\n\nACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nAAT / Staging, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-12-2026",
-      "cost": "£187.61"
-    },
-    {
-      "id": 1525,
-      "title": "ET ACAS API Testing",
-      "status": "auto-approved",
-      "created_at": "2026-09-16T12:03:28.000Z",
-      "updated_at": "2026-09-16T12:08:47.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1525",
-      "user": "hsjhita",
-      "labels": [
-        "Processing",
         "auto-approved"
       ],
       "business_area": "CFT",
