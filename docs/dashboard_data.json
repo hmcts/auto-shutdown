@@ -1,7 +1,73 @@
 {
-  "last_updated": "2026-11-05T07:06:18.487Z",
+  "last_updated": "2026-11-09T07:06:34.249Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1578,
+      "title": "CFT PTL shutdown exemption for HDPI-7958 - ❌",
+      "status": "cancelled",
+      "created_at": "2026-11-06T22:59:21.000Z",
+      "updated_at": "2026-11-06T23:42:11.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1578",
+      "user": "banderous",
+      "labels": [
+        "auto-approved",
+        "cancel"
+      ],
+      "business_area": "CFT",
+      "team_name": "HDP",
+      "environment": "PTL",
+      "start_date": "2026-11-06T00:00:00.000Z",
+      "end_date": "2026-11-06T00:00:00.000Z",
+      "justification": "Keep Jenkins available past 11pm to deliver the change associated with HDPI-7958.",
+      "change_jira_id": "HDPI-7958",
+      "stay_on_late": "Yes",
+      "body": "### Change or Jira reference\n\nHDPI-7958\n\n### Justification for exclusion?\n\nKeep Jenkins available past 11pm to deliver the change associated with HDPI-7958.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nHDP\n\n### Environment\n\nPTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n06-11-2026\n\n### Skip shutdown end date\n\n06-11-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n06-02-2027\n",
+      "cost": "£7.09"
+    },
+    {
+      "id": 1577,
+      "title": "PR-1576",
+      "status": "auto-approved",
+      "created_at": "2026-11-05T10:14:29.000Z",
+      "updated_at": "2026-11-05T10:15:46.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1577",
+      "user": "hmcts-platform-operations",
+      "labels": [
+        "auto-approved",
+        "pull-request"
+      ],
+      "business_area": "CFT",
+      "team_name": "PlatOps",
+      "environment": "AAT / Staging",
+      "start_date": "2026-12-05T00:00:00.000Z",
+      "end_date": "2026-12-06T00:00:00.000Z",
+      "justification": "Development",
+      "change_jira_id": "PR-1576",
+      "stay_on_late": "No",
+      "body": "### Change or Jira reference\n\nPR-1576\n\n### Justification for exclusion?\n\nDevelopment\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPlatOps\n\n### Environment\n\nAAT / Staging\n\n### Skip shutdown start date\n\n05-12-2026\n\n### Skip shutdown end date\n\n06-12-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n",
+      "cost": "£865.1"
+    },
+    {
+      "id": 1576,
+      "title": "dtspo-36300: only re-enable sftp on account autoshutdown disabled",
+      "status": "pending",
+      "created_at": "2026-11-05T10:14:13.000Z",
+      "updated_at": "2026-11-05T10:17:26.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/pull/1576",
+      "user": "playfair0319-moj",
+      "labels": [],
+      "business_area": "",
+      "team_name": "",
+      "environment": "",
+      "start_date": null,
+      "end_date": null,
+      "justification": "",
+      "change_jira_id": "",
+      "stay_on_late": "",
+      "body": "### Jira link\n\n<!-- \nReplace PROJ-XXXXXX with your Jira key\nRemove this section if its not applicable, or replace it with another reference link\n-->\nSee [dtspo-36300](https://hmcts.atlassian.net/browse/dtspo-36300)\n\n### Change description\n\n<!--\nProvide a description of what change you are proposing.\nA short summary here and then you can add comments in your pull request explaining your change to others.\n-->\n\n### Testing done\n\n<!-- Comment:\nProvide a clear description of how this change was tested.\nAt minimum this should include proof that a computer has executed the changed lines.\nIdeally this should include an automated test or an explanation as to why this change has no tests.\nNote that automated test coverage is not always complete, so a successful pull request build does not necessarily imply that a computer has executed the changed lines.\nIf automated test coverage does not exist for the lines you are changing, you must describe the scenario(s) in which you manually tested the change.\nFor frontend changes, include screenshots of the relevant page(s) before and after the change.\nFor refactoring and code cleanup changes, exercise the code before and after the change and verify the behaviour remains the same.\n-->\n\n### Security Vulnerability Assessment ###\n\n<!-- Comment:\nIf Yes to the below question, please provide details below:\nCVE ID(s): (List all suppressed or relevant CVE IDs)\nReason for Suppression/Ignoring: (e.g., Low risk in our specific context, Mitigating controls in place, False positive - with justification)\nMitigating Factors/Compensating Controls: Describe any measures taken to reduce the risk associated with the vulnerability\n-->\n\n**CVE Suppression:** Are there any CVEs present in the codebase (either newly introduced or pre-existing) that are being intentionally suppressed or ignored by this commit?\n  * [ ] Yes\n  * [ ] No\n\n### Checklist\n\n<!-- Check each box by removing the space and adding an x, e.g. [x] -->\n\n- [ ] commit messages are meaningful and follow good commit message guidelines\n- [ ] README and other documentation has been updated / added (if needed)\n- [ ] tests have been updated / new tests has been added (if needed)\n- [ ] Does this PR introduce a breaking change\n",
+      "cost": null
+    },
     {
       "id": 1575,
       "title": "Keep aat up for ES upgrade",
@@ -140,7 +206,7 @@
       "title": "No auto shutdown for PTL envs",
       "status": "pending",
       "created_at": "2026-10-23T18:55:50.000Z",
-      "updated_at": "2026-10-31T17:05:51.000Z",
+      "updated_at": "2026-11-08T17:05:38.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1567",
       "user": "adusumillipraveen",
       "labels": [
@@ -1041,73 +1107,6 @@
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/RET-7029\n\n### Justification for exclusion?\n\nACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nAAT / Staging, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-12-2026",
       "cost": "£187.61"
-    },
-    {
-      "id": 1525,
-      "title": "ET ACAS API Testing",
-      "status": "auto-approved",
-      "created_at": "2026-09-16T12:03:28.000Z",
-      "updated_at": "2026-09-16T12:08:47.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1525",
-      "user": "hsjhita",
-      "labels": [
-        "Processing",
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "ET",
-      "environment": "AAT / Staging, Demo",
-      "start_date": "2026-09-21T00:00:00.000Z",
-      "end_date": null,
-      "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
-      "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
-      "stay_on_late": "Yes",
-      "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/RET-7029\n\n### Justification for exclusion?\n\nACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nAAT / Staging, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n21-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-12-2026",
-      "cost": "£187.61"
-    },
-    {
-      "id": 1524,
-      "title": "ET ACAS API Testing",
-      "status": "auto-approved",
-      "created_at": "2026-09-16T12:02:41.000Z",
-      "updated_at": "2026-09-16T12:03:46.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1524",
-      "user": "hsjhita",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "ET",
-      "environment": "Demo, AAT / Staging",
-      "start_date": "2026-09-16T00:00:00.000Z",
-      "end_date": "2026-09-18T00:00:00.000Z",
-      "justification": "ACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change",
-      "change_jira_id": "https://hmcts.atlassian.net/browse/RET-7029",
-      "stay_on_late": "Yes",
-      "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/RET-7029\n\n### Justification for exclusion?\n\nACAS are doing some OOH testing which requires ET AAT and Demo to be up before going live with a change\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nET\n\n### Environment\n\nDemo, AAT / Staging\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n16-09-2026\n\n### Skip shutdown end date\n\n18-09-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n18-12-2026",
-      "cost": "£587.84"
-    },
-    {
-      "id": 1523,
-      "title": "Auto shutdown exemption request: PCS HDPI-8866 CC analysis fixes (AAT, Preview, PTL) 15 Sep",
-      "status": "auto-approved",
-      "created_at": "2026-09-15T18:33:54.000Z",
-      "updated_at": "2026-09-15T18:34:48.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1523",
-      "user": "arun-hmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "PCS (Possession Claims Service)",
-      "environment": "AAT / Staging, Preview / Dev, PTL",
-      "start_date": "2026-09-15T00:00:00.000Z",
-      "end_date": "2026-09-15T00:00:00.000Z",
-      "justification": "Continuing to test PCS Release 1.3 fixes for HDPI-8866 (data-integrity code-analysis issues: w05 bind declaration to reviewed draft, w10 address error restoration) needs AAT, Preview and PTL up past the default 8pm weekday shutdown today.",
-      "change_jira_id": "HDPI-8866",
-      "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nHDPI-8866\n\n### Justification for exclusion?\n\nContinuing to test PCS Release 1.3 fixes for HDPI-8866 (data-integrity code-analysis issues: w05 bind declaration to reviewed draft, w10 address error restoration) needs AAT, Preview and PTL up past the default 8pm weekday shutdown today.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPCS (Possession Claims Service)\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n15-09-2026\n\n### Skip shutdown end date\n\n15-09-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n15-09-2026\n",
-      "cost": "£339.35"
     }
   ]
 }
