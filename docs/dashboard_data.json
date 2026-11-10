@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-09T09:06:54.898Z",
+  "last_updated": "2026-11-10T07:05:40.482Z",
   "total_issues": 50,
   "data": [
     {
@@ -30,11 +30,10 @@
       "title": "PR-1576",
       "status": "auto-approved",
       "created_at": "2026-11-05T10:14:29.000Z",
-      "updated_at": "2026-11-09T09:06:40.000Z",
+      "updated_at": "2026-11-09T09:07:03.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1577",
       "user": "hmcts-platform-operations",
       "labels": [
-        "Processing",
         "auto-approved",
         "pull-request"
       ],
@@ -54,7 +53,7 @@
       "title": "dtspo-36300: only re-enable sftp on account autoshutdown disabled",
       "status": "pending",
       "created_at": "2026-11-05T10:14:13.000Z",
-      "updated_at": "2026-11-09T09:06:29.000Z",
+      "updated_at": "2026-11-09T14:40:29.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/pull/1576",
       "user": "playfair0319-moj",
       "labels": [],
