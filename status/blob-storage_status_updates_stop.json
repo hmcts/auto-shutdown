@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/5ca62022-6aa2-4cee-aaa7-e7536c8d566c/resourceGroups/rg-servicenow-prod/providers/Microsoft.Storage/storageAccounts/servicenowprodukssa",
+    "resource": "servicenowprodukssa",
+    "statusMessage": ":red_circle: Storage Account: *servicenowprodukssa* in Subscription: *5ca62022-6aa2-4cee-aaa7-e7536c8d566c* after *stop* action, is SFTP enabled: true .",
+    "resourceType": "blob-storage"
+  }
+]
