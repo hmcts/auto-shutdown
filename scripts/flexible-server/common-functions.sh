@@ -1,19 +1,5 @@
 #!/bin/bash
 
-FLEXIBLE_SERVER_SHUTDOWN_EXCLUDED_SKUS=("Standard_B1ms" "Standard_B2s" "Standard_D2s_v3" "Standard_D4s_v3" "Standard_D8s_v3")
-
-function is_sku_excluded_from_shutdown() {
-  local sku="$1"
-  local excluded_sku
-  for excluded_sku in "${FLEXIBLE_SERVER_SHUTDOWN_EXCLUDED_SKUS[@]}"; do
-    if [[ "$sku" == "$excluded_sku" ]]; then
-      echo "true"
-      return
-    fi
-  done
-  echo "false"
-}
-
 function get_flexible_sql_servers() {
   #MS az graph query to find and return a list of all PostgreSQL Flexible Servers tagged to be included in the auto-shutdown process.
   log "----------------------------------------------"
