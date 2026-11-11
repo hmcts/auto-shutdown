@@ -43,9 +43,6 @@ while read flexibleserver; do
     # based on the issues_list.json file which contains user requests to keep environments online after normal hours
     SKIP=$(should_skip_start_stop $flexible_server_env $flexible_server_business_area $MODE "flexible-server")
 
-    if [[ $MODE == "stop" && $(is_sku_excluded_from_shutdown "$SKU_NAME") == "true" ]]; then
-        SKIP="true"
-    fi
 
     # Setup message output templates for later use
     logMessage="Flexible SQL Server: $SERVER_NAME in Subscription: $SUBSCRIPTION  ResourceGroup: $RESOURCE_GROUP is in $SERVER_STATE state after $MODE action"
