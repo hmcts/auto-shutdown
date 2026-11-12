@@ -1,1 +1,19 @@
-[]
+[
+    {
+        "form_review_date": "13-11-2026",
+        "start_date": "12-11-2026",
+        "end_date": "12-11-2026",
+        "request_type": "stop",
+        "environment": [
+            "AAT / Staging",
+            " PTL"
+        ],
+        "business_area": "cft",
+        "team_name": "SSCS",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/SSCSCI-2549",
+        "stay_on_late": "Yes",
+        "justification": "Need AAT for testing today",
+        "bastion_required": false,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1583"
+    }
+]
