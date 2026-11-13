@@ -1,0 +1,14 @@
+[
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/dmzbais01_2019_stg",
+    "resource": "dmzbais01_2019_stg",
+    "statusMessage": "VM: *dmzbais01_2019_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  },
+  {
+    "id": "/subscriptions/74dacd4f-a248-45bb-a2f0-af700dc4cf68/resourceGroups/bau-bais_stg_resource_group/providers/Microsoft.Compute/virtualMachines/dmzbais02_2019_stg",
+    "resource": "dmzbais02_2019_stg",
+    "statusMessage": "VM: *dmzbais02_2019_stg* in Subscription: *74dacd4f-a248-45bb-a2f0-af700dc4cf68*  ResourceGroup: *bau-bais_stg_resource_group* is *VM running* state after *deallocate* action.",
+    "resourceType": "vm"
+  }
+]
