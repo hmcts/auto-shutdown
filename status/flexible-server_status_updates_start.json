@@ -1,0 +1,8 @@
+[
+  {
+    "id": "/subscriptions/3eec5bde-7feb-4566-bfb6-805df6e10b90/resourceGroups/appreg-data-test/providers/Microsoft.DBforPostgreSQL/flexibleServers/appreg-test",
+    "resource": "appreg-test",
+    "statusMessage": "Flexible SQL Server: *appreg-test* in Subscription: *3eec5bde-7feb-4566-bfb6-805df6e10b90* is in *Starting* state after *start* action",
+    "resourceType": "flexible-server"
+  }
+]
