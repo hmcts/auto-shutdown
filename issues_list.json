@@ -1,23 +1,5 @@
 [
     {
-        "form_review_date": "17-01-2027",
-        "start_date": "17-11-2026",
-        "end_date": "17-11-2026",
-        "request_type": "stop",
-        "environment": [
-            "PTL",
-            " AAT / Staging",
-            " Preview / Dev"
-        ],
-        "business_area": "cft",
-        "team_name": "ET",
-        "change_jira_id": "https://hmcts.haloitsm.com/ticket?id=245260",
-        "stay_on_late": "Yes",
-        "justification": "Envs need for release incase rollback or change needed",
-        "bastion_required": true,
-        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1585"
-    },
-    {
         "form_review_date": "18-02-2027",
         "start_date": "18-11-2026",
         "end_date": "18-11-2026",
