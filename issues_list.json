@@ -15,5 +15,21 @@
         "justification": "Need to upgrade ES on aat and prod and might run longer than the shutdown time",
         "bastion_required": true,
         "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1586"
+    },
+    {
+        "form_review_date": "23-11-2026",
+        "start_date": "20-11-2026",
+        "end_date": "23-11-2026",
+        "request_type": "stop",
+        "environment": [
+            "Demo"
+        ],
+        "business_area": "cft",
+        "team_name": "Private Law",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/FPVTL-4100",
+        "stay_on_late": "Yes",
+        "justification": "Testing is being done across the weekend that must be completed before National Rollout",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1587"
     }
 ]
