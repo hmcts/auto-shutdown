@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-20T17:40:27.123Z",
+  "last_updated": "2026-11-20T20:35:01.629Z",
   "total_issues": 50,
   "data": [
     {
@@ -7,10 +7,11 @@
       "title": "Opal weekend work for Demo release",
       "status": "auto-approved",
       "created_at": "2026-11-20T17:39:19.000Z",
-      "updated_at": "2026-11-20T17:40:13.000Z",
+      "updated_at": "2026-11-20T20:34:43.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1589",
       "user": "Ben-Edwards-cgi",
       "labels": [
+        "Processing",
         "auto-approved"
       ],
       "business_area": "Cross-Cutting",
@@ -21,7 +22,7 @@
       "justification": "Allows QA to work the weekend to finish up testing",
       "change_jira_id": "",
       "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nAllows QA to work the weekend to finish up testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nOpal\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n20-11-2026\n\n### Skip shutdown end date\n\n23-11-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20-11-2026",
+      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nAllows QA to work the weekend to finish up testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nOpal\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n20-11-2026\n\n### Skip shutdown end date\n\n23-11-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20-11-2026",
       "cost": "£526.95"
     },
     {
