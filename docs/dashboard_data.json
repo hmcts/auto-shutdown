@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-21T07:05:20.124Z",
+  "last_updated": "2026-11-21T10:20:03.206Z",
   "total_issues": 50,
   "data": [
     {
@@ -46,28 +46,6 @@
       "stay_on_late": "No",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nAllows QA to work the weekend to finish up testing\n\n### Business area\n\nCross-Cutting\n\n### Team/Application Name\n\nOpal\n\n### Environment\n\nAAT / Staging, PTL, Preview / Dev\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n20-11-2026\n\n### Skip shutdown end date\n\n23-11-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20-11-2026",
       "cost": "£526.95"
-    },
-    {
-      "id": 1588,
-      "title": "Emergency BAT for PRL Judicial Order changes",
-      "status": "auto-approved",
-      "created_at": "2026-11-19T12:14:49.000Z",
-      "updated_at": "2026-11-19T12:15:51.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1588",
-      "user": "sanjayparekh-hmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Private Law",
-      "environment": "AAT / Staging, Preview / Dev, Demo",
-      "start_date": "2026-11-20T00:00:00.000Z",
-      "end_date": "2026-11-23T00:00:00.000Z",
-      "justification": "Testing is being done across the weekend that must be completed before National Rollout",
-      "change_jira_id": "https://hmcts.atlassian.net/browse/FPVTL-4100",
-      "stay_on_late": "Yes",
-      "body": "### Change or Jira reference\n\nhttps://hmcts.atlassian.net/browse/FPVTL-4100\n\n### Justification for exclusion?\n\nTesting is being done across the weekend that must be completed before National Rollout\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPrivate Law\n\n### Environment\n\nAAT / Staging, Preview / Dev, Demo\n\n### Do you require a Bastion host to be powered on?\n\n- [ ] Bastion host required?\n\n### Skip shutdown start date\n\n20-11-2026\n\n### Skip shutdown end date\n\n23-11-2026\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n23-11-2026",
-      "cost": "£4,791.71"
     },
     {
       "id": 1587,
@@ -1109,6 +1087,28 @@
       "stay_on_late": "No",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nPerformance Testing for PCS GA\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Testing\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n21-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n22-09-2026",
       "cost": "£105.32"
+    },
+    {
+      "id": 1535,
+      "title": "Auto shutdown exemption request: PCS HDPI-7333 solicitor role cleanup (AAT, Preview, PTL) 20 Sep",
+      "status": "pending",
+      "created_at": "2026-09-20T17:52:04.000Z",
+      "updated_at": "2026-09-20T17:53:04.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1535",
+      "user": "arun-hmcts",
+      "labels": [
+        "Processing"
+      ],
+      "business_area": "CFT",
+      "team_name": "PCS (Possession Claims Service)",
+      "environment": "AAT / Staging, Preview / Dev, PTL",
+      "start_date": "2026-09-20T00:00:00.000Z",
+      "end_date": "2026-09-20T00:00:00.000Z",
+      "justification": "Verifying the HDPI-7333 solicitor role cleanup needs AAT, Preview and PTL (Jenkins) up past the default 8pm shutdown this evening.",
+      "change_jira_id": "HDPI-7333",
+      "stay_on_late": "No",
+      "body": "### Change or Jira reference\n\nHDPI-7333\n\n### Justification for exclusion?\n\nVerifying the HDPI-7333 solicitor role cleanup needs AAT, Preview and PTL (Jenkins) up past the default 8pm shutdown this evening.\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPCS (Possession Claims Service)\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n20-09-2026\n\n### Skip shutdown end date\n\n20-09-2026\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n20-09-2026\n",
+      "cost": "£596.52"
     }
   ]
 }
