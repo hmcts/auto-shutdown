@@ -5,15 +5,15 @@ function get_application_gateways() {
   log "----------------------------------------------"
   log "Running az graph query..."
 
-  if [ -z $1 ]; then
+  if [ -z "$1" ]; then
     env_selector=""
-  elif [ $1 == "untagged" ]; then
-    env_selector="| where isnull(tags.environment)"
+  elif [ "$1" == "untagged" ]; then
+    env_selector="| where isnull(tags.environment) and isnull(tags.Environment)"
   else
-    env_selector="| where tags.environment == '$1'"
+    env_selector="| where tolower(tags.environment) == tolower('$1') or tolower(tags.Environment) == tolower('$1')"
   fi
 
-  if [ -z $2 ]; then
+  if [ -z "$2" ]; then
     area_selector=""
   else
     area_selector="| where tolower(tags.businessArea) == tolower('$2')"
@@ -24,10 +24,11 @@ function get_application_gateways() {
       | where type =~ 'microsoft.network/applicationgateways'
       | where tags.autoShutdown == 'true'
       | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox', 'testing')
+          or tolower(tags.Environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox', 'testing')
       $env_selector
       $area_selector
       | project name, resourceGroup, subscriptionId, ['tags'], properties.operationalState, ['id']
-    " --first 1000 -o json
+    " --first 1000 -o json || return $?
 
   log "az graph query complete"
 }
