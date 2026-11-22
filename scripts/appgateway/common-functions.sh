@@ -8,9 +8,9 @@ function get_application_gateways() {
   if [ -z $1 ]; then
     env_selector=""
   elif [ $1 == "untagged" ]; then
-    env_selector="| where isnull(tags.environment)"
+    env_selector="| where isnull(tags.environment) and isnull(tags.Environment)"
   else
-    env_selector="| where tags.environment == '$1'"
+    env_selector="| where tolower(tags.environment) == tolower('$1') or tolower(tags.Environment) == tolower('$1')"
   fi
 
   if [ -z $2 ]; then
@@ -23,7 +23,7 @@ function get_application_gateways() {
     resources
       | where type =~ 'microsoft.network/applicationgateways'
       | where tags.autoShutdown == 'true'
-      | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox', 'testing')
+      | where tolower(tags.environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox', 'testing') or tolower(tags.Environment) in~ ('staging', 'development', 'demo', 'ithc', 'production', 'sandbox', 'testing')
       $env_selector
       $area_selector
       | project name, resourceGroup, subscriptionId, ['tags'], properties.operationalState, ['id']
