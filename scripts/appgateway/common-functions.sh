@@ -10,7 +10,7 @@ function get_application_gateways() {
   elif [ $1 == "untagged" ]; then
     env_selector="| where isnull(tags.environment)"
   else
-    env_selector="| where tags.environment == '$1'"
+    env_selector="| where tolower(tags.environment) == tolower('$1')"
   fi
 
   if [ -z $2 ]; then
