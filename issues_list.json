@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "form_review_date": "25-11-2026",
+        "start_date": "24-11-2026",
+        "end_date": "24-11-2026",
+        "request_type": "stop",
+        "environment": [
+            "Test / Perftest"
+        ],
+        "business_area": "cft",
+        "team_name": "perftest",
+        "change_jira_id": "https://hmcts.atlassian.net/browse/PERF-229",
+        "stay_on_late": "No",
+        "justification": "need to run prl test",
+        "bastion_required": true,
+        "issue_link": "https://github.com/hmcts/auto-shutdown/issues/1594"
+    }
+]
