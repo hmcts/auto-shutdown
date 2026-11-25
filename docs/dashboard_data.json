@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-11-25T12:00:46.727Z",
+  "last_updated": "2026-11-25T12:02:36.890Z",
   "total_issues": 50,
   "data": [
     {
       "id": 1595,
       "title": "Auto shutdown prevention during Civil Money Claims release",
-      "status": "pending",
+      "status": "auto-approved",
       "created_at": "2026-11-25T12:00:31.000Z",
-      "updated_at": "2026-11-25T12:00:41.000Z",
+      "updated_at": "2026-11-25T12:02:26.000Z",
       "html_url": "https://github.com/hmcts/auto-shutdown/issues/1595",
       "user": "mounikahmcts",
       "labels": [
-        "Processing"
+        "auto-approved"
       ],
       "business_area": "CFT",
       "team_name": "Civil Money Claims",
@@ -22,7 +22,7 @@
       "change_jira_id": "CR created: Ticket 251972 (HM Courts & Tribunals Service) - Judgement buffer",
       "stay_on_late": "Yes",
       "body": "### Change or Jira reference\n\nCR created: Ticket 251972 (HM Courts & Tribunals Service) - Judgement buffer\n\n### Justification for exclusion?\n\nDuring the release we need to run the pipelines on jenkins which run through aat cluster\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCivil Money Claims\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n26-11-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n27-11-2026",
-      "cost": null
+      "cost": "£410.69"
     },
     {
       "id": 1594,
