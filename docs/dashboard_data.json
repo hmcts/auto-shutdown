@@ -1,7 +1,29 @@
 {
-  "last_updated": "2026-11-25T07:06:21.522Z",
+  "last_updated": "2026-11-25T12:00:46.727Z",
   "total_issues": 50,
   "data": [
+    {
+      "id": 1595,
+      "title": "Auto shutdown prevention during Civil Money Claims release",
+      "status": "pending",
+      "created_at": "2026-11-25T12:00:31.000Z",
+      "updated_at": "2026-11-25T12:00:41.000Z",
+      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1595",
+      "user": "mounikahmcts",
+      "labels": [
+        "Processing"
+      ],
+      "business_area": "CFT",
+      "team_name": "Civil Money Claims",
+      "environment": "AAT / Staging, Preview / Dev, PTL",
+      "start_date": "2026-11-26T00:00:00.000Z",
+      "end_date": null,
+      "justification": "During the release we need to run the pipelines on jenkins which run through aat cluster",
+      "change_jira_id": "CR created: Ticket 251972 (HM Courts & Tribunals Service) - Judgement buffer",
+      "stay_on_late": "Yes",
+      "body": "### Change or Jira reference\n\nCR created: Ticket 251972 (HM Courts & Tribunals Service) - Judgement buffer\n\n### Justification for exclusion?\n\nDuring the release we need to run the pipelines on jenkins which run through aat cluster\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nCivil Money Claims\n\n### Environment\n\nAAT / Staging, Preview / Dev, PTL\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n26-11-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nYes\n\n### Review date\n\n27-11-2026",
+      "cost": null
+    },
     {
       "id": 1594,
       "title": "Request for stop the shutdown",
@@ -1086,28 +1108,6 @@
       "change_jira_id": "",
       "stay_on_late": "No",
       "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nPCS Performance Testing\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Testing\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n22-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n23-09-2026",
-      "cost": "£105.32"
-    },
-    {
-      "id": 1536,
-      "title": "PCS Group Access Performance Testing",
-      "status": "auto-approved",
-      "created_at": "2026-09-21T17:47:37.000Z",
-      "updated_at": "2026-09-21T17:48:20.000Z",
-      "html_url": "https://github.com/hmcts/auto-shutdown/issues/1536",
-      "user": "jonsoloway-hmcts",
-      "labels": [
-        "auto-approved"
-      ],
-      "business_area": "CFT",
-      "team_name": "Performance Testing",
-      "environment": "Test / Perftest",
-      "start_date": "2026-09-21T00:00:00.000Z",
-      "end_date": null,
-      "justification": "Performance Testing for PCS GA",
-      "change_jira_id": "",
-      "stay_on_late": "No",
-      "body": "### Change or Jira reference\n\nN/A\n\n### Justification for exclusion?\n\nPerformance Testing for PCS GA\n\n### Business area\n\nCFT\n\n### Team/Application Name\n\nPerformance Testing\n\n### Environment\n\nTest / Perftest\n\n### Do you require a Bastion host to be powered on?\n\n- [x] Bastion host required?\n\n### Skip shutdown start date\n\n21-09-2026\n\n### Skip shutdown end date\n\n_No response_\n\n### Do you need this exclusion past 11pm?\n\nNo\n\n### Review date\n\n22-09-2026",
       "cost": "£105.32"
     }
   ]
