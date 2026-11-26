@@ -53,10 +53,10 @@ if [[ "$application_gateway_business_area" == "SDS" ]]; then
 fi
 
 # Retrieve application gateway's based on environment and area
-APPLICATION_GATEWAYS=$(get_application_gateways "$application_gateway_env" "$application_gateway_business_area")
-application_gateway_count=$(jq -c -r '.count' <<<$APPLICATION_GATEWAYS)
+APPLICATION_GATEWAYS=$(get_application_gateways "$application_gateway_env" "$application_gateway_business_area") || exit 1
+application_gateway_count=$(jq -er '.count | numbers' <<<"$APPLICATION_GATEWAYS") || exit 1
 if [[ $application_gateway_count -eq 0 ]]; then
-    echo "No clusters found for environment: $application_gateway_env and area: $application_gateway_business_area." >&2
+    echo "No application gateways found for environment: $application_gateway_env and area: $application_gateway_business_area." >&2
     exit 1
 fi
 
@@ -83,4 +83,3 @@ jq -c '.data[]' <<<$APPLICATION_GATEWAYS | while read application_gateway; do
     RESULT=$(az network application-gateway show --name "$APPLICATION_GATEWAY_NAME" -g "$RESOURCE_GROUP" --subscription "$SUBSCRIPTION" | jq -r .operationalState)
     ts_echo "App Gateway: $APPLICATION_GATEWAY_NAME is in state: $RESULT"
 done
-
